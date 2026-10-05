@@ -3,11 +3,11 @@
   "handle": "Rainman",
   "site": "Gumdrop",
   "site_id": "068c6961-0a3d-4374-87f1-f3d2ce34f293",
-  "asOfCt": "2026-10-05T08:23:00-05:00",
-  "stamp_ct": "2026-10-05T08:00:00-05:00",
-  "lock": "08:00 CT settle + day MLB + S-tier CS",
-  "scope": "Settle the open U7, then day MLB and S-tier CS only. Oct 6 NLDS is out of this stamp and is not cancelled. Stake Ranked and DACH are off the board. Retired site not touched.",
-  "decision": "SD @ MIL U7 G2 PUSH. 4-3, seven runs on the nose. Official +CLV still 0-0. No new unit. CHW opener = KILL. NYY model gap is not a sharp print. CS favorites priced and shadowed.",
+  "asOfCt": "2026-10-05T11:42:00-05:00",
+  "stamp_ct": "2026-10-05T11:30:00-05:00",
+  "lock": "11:30 CT day MLB + S-tier CS",
+  "scope": "Day MLB and S-tier CS only. Oct 6 NLDS is out of this stamp and is not cancelled. Stake Ranked and DACH are off the board. Retired site not touched. No Netlify deploy.",
+  "decision": "No new unit. Kay opener is now an MLB.com fact, so the floor still fails. NYY moved to -123 and the model gap is still not a sharp print. CS windows are live or coin-flip with no 4-point gap. Official +CLV stays 0-0.",
   "rule": "1u clean / 0.5u maybe / 0 third. Day cap 6u. Never invent prices. No juice favorites under 1.40. No coin-flip ML without a sourced gap of at least 4 points vs the print. Scratch or unannounced SP = KILL. Empty close does not count toward n=20. Official only on new fact + floor + sharp print. Shadow every priced pass.",
   "official_count": 0,
   "exposure_u": 0,
@@ -27,7 +27,7 @@
       "final": "Brewers 3, Padres 2. 5 runs. ESPN gameId 401908002.",
       "result": "W",
       "pnlU": 0.46,
-      "clv": "empty — not in EDGE Picks Log with CloseNumber. Result without +CLV does not count.",
+      "clv": "empty \u2014 not in EDGE Picks Log with CloseNumber. Result without +CLV does not count.",
       "autopsy": "Finished 5 under 7. Card slogan only. No log close, so it stays out of the official record."
     },
     {
@@ -42,7 +42,7 @@
       "final": "Brewers 4, Padres 3. 7 runs. ESPN gameId 401908003. Chourio walk-off. King 5.0 IP on the box.",
       "result": "P",
       "pnlU": 0,
-      "clv": "empty — not in EDGE Picks Log with CloseNumber. Push without +CLV does not count.",
+      "clv": "empty \u2014 not in EDGE Picks Log with CloseNumber. Push without +CLV does not count.",
       "autopsy": "Number was 7 and the game finished 7. Push, not a win. Do not size off a nose finish with no close."
     }
   ],
@@ -83,40 +83,40 @@
     "mlb_total_under_official_clv": "0-0",
     "cs_stier_official_clv": "0-0",
     "shadow_plus_clv_n": 0,
-    "shadow_note": "Priced passes this stamp are 0u. No Pin last on any of them."
+    "shadow_note": "Priced passes this stamp are 0u. No Pin last scraped on any of them."
   },
   "shapes": {
     "MLB|Total|under": [
       {"date": "2026-10-03", "name": "SD @ MIL U7", "result": "W slogan", "autopsy": "Finished 5. No log close. Do not upgrade size."},
       {"date": "2026-10-04", "name": "SD @ MIL U7 G2", "result": "P", "autopsy": "Finished 7 on the nose. Push. No log close."},
-      {"date": "2026-10-05", "name": "CHW @ CLE U6.5", "result": "0u", "autopsy": "Kay filed on ESPN but street says opener. Unannounced bulk SP = kill."},
-      {"date": "2026-10-05", "name": "NYY @ TB U6.5", "result": "0u", "autopsy": "Both names filed. Total not crushed. No sharp disagreement."}
+      {"date": "2026-10-05", "name": "CHW @ CLE U6.5", "result": "0u", "autopsy": "MLB.com confirmed Kay opener, Burke bulk. Floor fails. ESPN u6.5 -106."},
+      {"date": "2026-10-05", "name": "NYY @ TB U6.5", "result": "0u", "autopsy": "Both names filed. ESPN u6.5 -107. Street not crushed. No sharp disagreement."}
     ],
     "MLB|ML|dog": [
       {"date": "2026-10-04", "name": "King board SD +113", "result": "0u", "autopsy": "Moved from +119. No 4-point gap vs the print."},
-      {"date": "2026-10-05", "name": "CHW +130", "result": "0u", "autopsy": "Opener. ESPN Analytics 43.8 vs +130. No clean SP floor."},
-      {"date": "2026-10-05", "name": "TB +109", "result": "0u", "autopsy": "Peralta filed. No 4-point gap vs the print."}
+      {"date": "2026-10-05", "name": "CHW +129", "result": "0u", "autopsy": "Opener confirmed. ESPN +129. No clean SP floor."},
+      {"date": "2026-10-05", "name": "TB +102", "result": "0u", "autopsy": "Peralta filed. ESPN +102. No 4-point gap vs the print."}
     ],
     "MLB|ML|favorite": [
       {"date": "2026-10-04", "name": "MIL -136", "result": "0u", "autopsy": "Move from -143 was not a sourced 4-point gap."},
-      {"date": "2026-10-05", "name": "CLE -157", "result": "0u", "autopsy": "Williams filed. Opposite side is an opener. Kill the side."},
-      {"date": "2026-10-05", "name": "NYY -131", "result": "0u", "autopsy": "ESPN Analytics 62.7 vs -131 is a model gap, not a sharp print."}
+      {"date": "2026-10-05", "name": "CLE -156", "result": "0u", "autopsy": "Williams filed. Opposite side is a confirmed opener. Kill the side."},
+      {"date": "2026-10-05", "name": "NYY -123", "result": "0u", "autopsy": "Moved from -131. ESPN Analytics 62.7 vs -123 is a model gap, not a sharp print."}
     ],
     "CS|ML|favorite": [
       {"date": "2026-10-04", "name": "Vitality vs NAVI", "result": "0u", "autopsy": "Books 1.22 to 1.32. Under 1.40 juice rule."},
-      {"date": "2026-10-05", "name": "Spirit vs MOUZ", "result": "0u", "autopsy": "Sportbet Spirit 1.46. Above 1.40. No 4-point gap vs the print."},
-      {"date": "2026-10-05", "name": "Vitality vs Falcons", "result": "0u", "autopsy": "Sportbet 1.53 and Lines 64c. Above 1.40. No sharp gap."}
+      {"date": "2026-10-05", "name": "Spirit vs MOUZ", "result": "0u", "autopsy": "Betway 1.50, Stake 1.48, Pin pre 1.529. No 4-point gap. Window live."},
+      {"date": "2026-10-05", "name": "Vitality vs Falcons", "result": "0u", "autopsy": "Sportbet 1.49, Lines 64c, SportBusy -178. Above 1.40. No sharp gap."}
     ]
   },
   "sp_check": [
     {
       "game": "CHW @ CLE",
       "first_pitch_ct": "16:00",
-      "away": "Anthony Kay LHP listed probable",
+      "away": "Anthony Kay LHP opener, Sean Burke bulk",
       "home": "Gavin Williams RHP",
-      "status": "OPENER",
-      "sources": "ESPN game 401907991: Kay and Williams probable, ML CHW +130 / CLE -157, total o6.5 -115 / u6.5 -104, open ML CLE -164. Action, SI, and TheSpread: Kay is the opener, Burke expected for bulk. ESPN injuries: Hoskins and Holderman IL, Walters OUT; Bart, Castillo, Berroa IL.",
-      "action": "KILL side and total. Unannounced bulk SP."
+      "status": "OPENER CONFIRMED",
+      "sources": "MLB.com Oct 4: Venable confirmed Kay opener, Burke bulk behind him. BP Oct 5 restates the plan. ESPN game 401907991 still lists Kay/Williams probable. ESPN ML CHW +129 / CLE -156, open CLE -164, total o6.5 -120 / u6.5 -106, RL +1.5 -181. ESPN Analytics 43.8 / 56.2. Legion: FD -152/+128, DK -149/+123, MGM -150/+125, Fanatics -155/+130. Wunderdog CLE -144 / CHW +126. Bleacher Nation CLE -161. Injuries: Hoskins and Holderman IL, Walters OUT; Bart, Castillo, Berroa IL.",
+      "action": "KILL side and total. Announced opener is not a starter floor. No Pin last."
     },
     {
       "game": "NYY @ TB",
@@ -124,8 +124,8 @@
       "away": "Cam Schlittler RHP",
       "home": "Freddy Peralta RHP",
       "status": "CONFIRMED",
-      "sources": "ESPN game 401907986: Schlittler and Peralta probable, ML NYY -131 / TB +109, total o6.5 -113 / u6.5 -107, open ML NYY -130. ESPN Analytics 62.7 / 37.3. Judge 10-day IL return Oct 12. Jax day-to-day dated Oct 3, not confirmed out. McClanahan OUT.",
-      "action": "Shadow ML and total. No sharp print. No new unit."
+      "sources": "ESPN game 401907986: Schlittler and Peralta probable. ML NYY -123 / TB +102, open NYY -130, total o6.5 -112 / u6.5 -107, RL -1.5 +148. FanDuel Research NYY -124 / TB +106, U6.5 -104. Legion FD -124, DK -127, MGM -125, Fanatics -120. ESPN Analytics 62.7 / 37.3. Judge 10-day IL return Oct 12. Jax day-to-day dated Oct 3, not confirmed out. McClanahan OUT.",
+      "action": "Shadow ML and total. Names live. Model gap is not a sharp print. No new unit."
     }
   ],
   "official": [],
@@ -134,100 +134,111 @@
       "id": "MLB-KAY-OPENER",
       "was": "CHW @ CLE side or U6.5 built on Kay as the starter",
       "action": "KILL",
-      "why": "ESPN files Kay probable. Action, SI, and TheSpread say opener with Burke for bulk. Unannounced SP = scratch."
+      "why": "New fact: MLB.com has Venable confirming Kay opener and Burke bulk. Floor fails. ESPN -156 is not a sharp print."
     },
     {
       "id": "MLB-NYY-ML",
-      "was": "NYY -131 as 1u/0.5u",
+      "was": "NYY -123 as 1u/0.5u",
       "action": "KILL size",
-      "why": "Both names filed and Judge is out, but the 6-point gap is ESPN Analytics vs the ESPN print. No Pin last. Coin-flip rule needs a sharp print."
+      "why": "Both names filed and Judge is out. Street moved from -131 to -123. The remaining gap is ESPN Analytics vs the ESPN print. No Pin last."
     },
     {
       "id": "CS-SPIRIT-JUICE-GAP",
-      "was": "Spirit ML at 1.46",
+      "was": "Spirit ML at 1.48 to 1.53",
       "action": "KILL size",
-      "why": "Above 1.40, so juice rule does not kill the price. No sourced 4-point gap vs the print. Single book."
+      "why": "Above 1.40. Betway 1.50, Stake 1.48, Pin pre 1.529 agree. No 4-point gap. Liquipedia had the window live."
     },
     {
       "id": "CS-VIT-FALCONS",
-      "was": "Vitality ML at 1.53 / 64c",
+      "was": "Vitality ML at 1.49 / 64c / -178",
       "action": "KILL size",
-      "why": "Two street prints agree. Neither is a sharp disagreement. No unit."
+      "why": "Street prints agree inside a point. None is a sharp disagreement. Window is the 11:30 CT slot. No unit."
     },
     {
       "id": "CS-LIVE-WINDOW",
-      "was": "PARIVISION-FURIA, 9z-NAVI, Legacy-1w",
+      "was": "M80-TYLOO, Spirit-MOUZ, and any map already live",
       "action": "KILL",
-      "why": "Liquipedia windows already live at stamp. Do not ticket an open match."
+      "why": "Liquipedia: M80-TYLOO live 1-1. Spirit-MOUZ window already open. Do not ticket an open match."
+    },
+    {
+      "id": "CS-AUR-JUICE",
+      "was": "Aurora ML at Sportbet 1.41",
+      "action": "KILL size",
+      "why": "1.41 is under the 1.40 juice floor if that print is the ticket. SportBusy -170 and Limitless 1.52 disagree with the stale 1.41. No sourced sharp gap."
     }
   ],
   "shadow": [
     {
       "id": "MLB-ALDS-CLE-G2",
-      "market": "CHW +130 / CLE -157 / U6.5 -104",
-      "tag": "priced scan shadow — 0u",
+      "market": "CHW +129 / CLE -156 / U6.5 -106",
+      "tag": "priced scan shadow \u2014 0u",
       "units": "1u no. 0.5u no.",
-      "street": "ESPN open CLE -164, current -157. Total o6.5 -115 / u6.5 -104. Action also CLE -154, total 6.5 -115/-105.",
-      "sharp": "No Pin last. Street agrees Kay is an opener.",
+      "street": "ESPN open CLE -164, current -156, CHW +129. Total o6.5 -120 / u6.5 -106. Legion FD -152, DK -149, MGM -150, Fanatics -155. Wunderdog -144. BN -161.",
+      "sharp": "No Pin last scraped. MLB.com confirms the opener.",
       "why": "Priced. Floor fails. Shadow only."
     },
     {
       "id": "MLB-ALDS-TB-G2",
-      "market": "NYY -131 / TB +109 / U6.5 -107",
-      "tag": "priced scan shadow — 0u",
+      "market": "NYY -123 / TB +102 / U6.5 -107",
+      "tag": "priced scan shadow \u2014 0u",
       "units": "1u no. 0.5u no.",
-      "street": "ESPN open NYY -130, current -131. Total o6.5 -113 / u6.5 -107. ESPN Analytics 62.7% NYY.",
-      "sharp": "Schlittler and Peralta filed. No separate Pin last.",
-      "why": "Priced and names live. Model gap is not the sharp print. Shadow only."
+      "street": "ESPN open NYY -130, current -123 / +102. Total o6.5 -112 / u6.5 -107. FanDuel Research -124 / +106, U6.5 -104. Legion DK -127, Fanatics -120.",
+      "sharp": "Schlittler and Peralta filed. No Pin last scraped. ESPN Analytics 62.7 is not the sharp print.",
+      "why": "Priced and names live. Shadow only."
     },
     {
       "id": "CS-EPL-SPIRIT-MOUZ",
-      "market": "Spirit vs MOUZ Bo3, EPL S24 round 3 high, 09:00 CT",
-      "tag": "priced scan shadow — 0u",
+      "market": "Spirit vs MOUZ Bo3, EPL S24 2-0, window already open",
+      "tag": "priced scan shadow \u2014 0u",
       "units": "0u",
-      "street": "Sportbet.one Spirit 1.46 / MOUZ 2.49. Map1 Spirit 1.65.",
-      "sharp": "HLTV/FLM: $1,000,000 EPL S24, winner clinches a playoff berth. S-tier. No second book scraped.",
-      "why": "S-tier and priced. No 4-point gap. Shadow only."
+      "street": "Betway Spirit 1.50 / MOUZ 2.50. Stake 1.48 / 2.50. Pin pre 1.529 / 2.540. Limitless 1.52x.",
+      "sharp": "S-tier EPL, $1,000,000, Liquipedia S-Tier. Prints agree. Window live.",
+      "why": "Priced pass. No 4-point gap. Do not ticket live."
     },
     {
       "id": "CS-EPL-VIT-FALCONS",
-      "market": "Vitality vs Falcons Bo3, EPL S24 round 3 high, 11:30 CT",
-      "tag": "priced scan shadow — 0u",
+      "market": "Vitality vs Falcons Bo3, EPL S24 2-0, 11:30 CT",
+      "tag": "priced scan shadow \u2014 0u",
       "units": "0u",
-      "street": "Sportbet.one Vitality 1.53 / Falcons 2.33. Lines.com Vitality 64c / Falcons 37c.",
+      "street": "Sportbet Vitality 1.49 / Falcons 2.40. Lines 64c / 37c. SportBusy -178. Limitless 1.52x.",
       "sharp": "S-tier advancement match. Prints agree. No Pin last.",
       "why": "Priced pass. Above 1.40. Shadow only."
     },
     {
       "id": "CS-EPL-M80-TYLOO",
-      "market": "M80 vs TYLOO Bo3, EPL S24, 09:00 CT",
-      "tag": "priced scan shadow — 0u",
+      "market": "M80 vs TYLOO Bo3, EPL S24 0-2, live 1-1",
+      "tag": "priced scan shadow \u2014 0u",
       "units": "0u",
-      "street": "No book print scraped at stamp.",
-      "sharp": "S-tier event, empty price.",
-      "why": "Empty price is not a ticket."
+      "street": "Pin pre M80 1.990 / TYLOO 1.833. Limitless 1.85 / 1.96.",
+      "sharp": "S-tier elimination. Coin flip. Already live.",
+      "why": "Priced and live. Empty ticket."
     },
     {
       "id": "CS-EPL-AUR-BB",
-      "market": "Aurora vs BetBoom Bo3, EPL S24, 11:30 CT",
-      "tag": "priced scan shadow — 0u",
+      "market": "Aurora vs BetBoom Bo3, EPL S24 1-1, 11:30 CT window",
+      "tag": "priced scan shadow \u2014 0u",
       "units": "0u",
-      "street": "No book print scraped at stamp.",
-      "sharp": "S-tier event, empty price.",
-      "why": "Empty price is not a ticket."
+      "street": "Sportbet Aurora 1.41 / BetBoom 2.65. SportBusy Aurora -170. Limitless 1.52x.",
+      "sharp": "S-tier. 1.41 fails juice if used. Other prints do not confirm a 4-point gap.",
+      "why": "Priced pass. No clean sharp print. Shadow only."
     }
   ],
   "board": [
-    {"sport": "MLB", "tier": "day", "window": "16:00 CT", "game": "White Sox @ Guardians", "series": "ALDS Game 2, CHW 1-0", "official_fact": "ESPN Kay/Williams listed. Street says Kay opener. CLE -157, U6.5 -104.", "call": "KILL. Shadow 0u."},
-    {"sport": "MLB", "tier": "night", "window": "19:00 CT", "game": "Yankees @ Rays", "series": "ALDS Game 2, TB 1-0", "official_fact": "Schlittler/Peralta filed. Judge IL. NYY -131, U6.5 -107. ESPN Analytics 62.7.", "call": "Shadow 0u. No sharp print."},
-    {"sport": "CS", "tier": "S", "window": "09:00 CT", "game": "Spirit vs MOUZ", "series": "EPL S24 round 3 high", "official_fact": "Sportbet Spirit 1.46 / MOUZ 2.49.", "call": "Shadow 0u."},
-    {"sport": "CS", "tier": "S", "window": "11:30 CT", "game": "Vitality vs Falcons", "series": "EPL S24 round 3 high", "official_fact": "Sportbet 1.53. Lines 64c.", "call": "Shadow 0u."},
-    {"sport": "MLB", "tier": "next day", "window": "Oct 6", "game": "LAD @ ATL / MIL @ SD", "series": "NLDS Game 3", "official_fact": "ESPN has Sale and Yamamoto, May and Pivetta filed for tomorrow. Out of this stamp.", "call": "Not today. Not cancelled."}
+    {"sport": "MLB", "tier": "day", "window": "16:00 CT", "game": "White Sox @ Guardians", "series": "ALDS Game 2, CHW 1-0", "official_fact": "MLB.com: Kay opener, Burke bulk. ESPN CLE -156, open -164, U6.5 -106.", "call": "KILL. Shadow 0u."},
+    {"sport": "MLB", "tier": "night", "window": "19:00 CT", "game": "Yankees @ Rays", "series": "ALDS Game 2, TB 1-0", "official_fact": "Schlittler/Peralta filed. Judge IL. ESPN NYY -123 from -130 open. U6.5 -107. Analytics 62.7.", "call": "Shadow 0u. No sharp print."},
+    {"sport": "CS", "tier": "S", "window": "live", "game": "Spirit vs MOUZ", "series": "EPL S24 2-0", "official_fact": "Betway 1.50, Stake 1.48, Pin pre 1.529. Window open.", "call": "KILL live. Shadow 0u."},
+    {"sport": "CS", "tier": "S", "window": "11:30 CT", "game": "Vitality vs Falcons", "series": "EPL S24 2-0", "official_fact": "Sportbet 1.49. Lines 64c. SportBusy -178.", "call": "Shadow 0u."},
+    {"sport": "CS", "tier": "S", "window": "live", "game": "M80 vs TYLOO", "series": "EPL S24 0-2", "official_fact": "Liquipedia live 1-1. Pin pre 1.990 / 1.833.", "call": "KILL live. Shadow 0u."},
+    {"sport": "CS", "tier": "S", "window": "11:30 CT", "game": "Aurora vs BetBoom", "series": "EPL S24 1-1", "official_fact": "Sportbet 1.41. SportBusy -170. Limitless 1.52.", "call": "Shadow 0u. Juice fail on 1.41."},
+    {"sport": "MLB", "tier": "next day", "window": "Oct 6", "game": "LAD @ ATL / MIL @ SD", "series": "NLDS Game 3", "official_fact": "Out of this stamp. Not cancelled.", "call": "Not today."}
   ],
   "publish": {
-    "github": "zrose1999/gumdrop-edge",
+    "github": "zrose1999/edgesystem",
+    "branch": "data",
+    "path": "card.json",
     "netlify_site": "068c6961-0a3d-4374-87f1-f3d2ce34f293",
     "netlify_url": "https://edgesystem.netlify.app",
+    "read_url": "https://raw.githubusercontent.com/zrose1999/edgesystem/data/card.json",
     "retired_not_touched": "therosesystem"
   }
 }
