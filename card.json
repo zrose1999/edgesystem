@@ -1,7 +1,7 @@
 {
-  "asOfCt": "2026-10-04 17:08 CT",
+  "asOfCt": "2026-10-04 19:34 CT",
   "desk": "Gumdrop 068c6961-0a3d-4374-87f1-f3d2ce34f293",
-  "gate": "EDGE 17:08 CT reshop — quality-arm unders and uncrushed NFL totals only",
+  "gate": "EDGE 19:34 CT night lock — HOLD only if still beats projected close; KILL if betting the close",
   "official": {
     "exposureU": 0,
     "openPlays": [],
@@ -9,57 +9,84 @@
     "status": "FLAT",
     "record": "0-0",
     "units": 0,
-    "note": "Official PLAY still 0-0. No clean 1u. Day cap 6u. New today 0u."
+    "note": "Official PLAY still 0-0. Night lock KILL. No HOLD. Day cap 6u. New today 0u."
   },
   "process": {
     "closeRatePriced": 0,
-    "closeRateLabel": "Pin last close not printed on this stamp",
+    "closeRateLabel": "SNF kick 7:20 CT has passed. Stamp is the close, not a pre-close hold.",
     "target": 0.9,
     "closeConvention": "Pinnacle last > OddsGap > consensus",
     "dayCapU": 6,
     "liveDesk": "Gumdrop only",
-    "sizeRule": "1u clean / 0.5u maybe / 0 third"
+    "retiredSite": "therosesystem — do not deploy",
+    "sizeRule": "1u clean / 0.5u maybe / 0 third",
+    "inactivesRule": "NFL official only if Y"
   },
   "plays": [],
   "zeros": [
+    {
+      "id": "NFL-W4-DET-CAR",
+      "action": "KILL",
+      "stakeU": 0,
+      "inactivesOfficial": "Y",
+      "name": "DET @ CAR side and total",
+      "price": "Street at lock: ESPN DET -4.5 (-105), total 52.5 (-105/-115), ML -225. FanDuel DET -3.5 (-120), O/U 51.5 -110, ML -210. BettingPros split DET -4.5 / -3.5, total 51.5-52. AP midday DET -3.5, total 51.5. Open was about DET -2.5/-3 and 49.5.",
+      "why": "Kick 8:20 ET / 7:20 CT. Clock 19:34 CT, so this is the close, not a hold. Number rose about 2 points on the total and about 1 to 1.5 on the side. No remaining edge versus projected close. Official NFL.com inactives Y (updated 6:58 PM ET): Lions Bartch, Conklin, Fitzgerald, Hassanein, White, Wingo; Panthers Sanders, King (emergency third QB), Coker, Lewis, Reese, Jackson. No starter QB out. Do not bet the close."
+    },
+    {
+      "id": "NFL-W4-ATL-NO",
+      "action": "ZERO",
+      "stakeU": 0,
+      "inactivesOfficial": "N",
+      "name": "ATL @ NO Monday",
+      "price": "ESPN ATL +1.5 (-105), NO -1.5 (-115), total 47.5. FanDuel open 45.5, board 47.5 -110. Not tonight's close.",
+      "why": "Monday 8:15 ET. Inactives not Y. Opens disagree. Move is not a ~7 crush. Out of night-lock scope."
+    },
     {
       "id": "MLB-NLDS-G2-SD-MIL",
       "action": "KILL",
       "stakeU": 0,
       "name": "SD @ MIL under",
-      "why": "Game already live. ESPN stamp top 6th, SD 2 MIL 1, King vs Henderson. Close passed. No live under."
+      "why": "Already live at the 17:08 stamp. Close passed. No live under."
     },
     {
       "id": "MLB-NLDS-G2-ATL-LAD-U",
       "action": "TRAP",
       "stakeU": 0,
       "name": "ATL @ LAD under",
-      "price": "Consensus total 8. FanDuel 7.5 (-122 / +100). DraftKings 7.5 (-117 / -103). Pinnacle U8 -104. BettingPros split O7.5 -117 / U8 -105.",
-      "why": "Snell confirmed (1.90 ERA). Kerr confirmed opener, not a quality arm: bullpen game, 3.1 IP Thursday, second start in four days. AgentBets total rose 7.25 to 8 since Oct 3 7pm ET. Opener game sitting at 8 is on the trap list. Do not buy U7.5 +100."
-    },
-    {
-      "id": "NFL-W4-DET-CAR-TOT",
-      "action": "ZERO",
-      "stakeU": 0,
-      "name": "DET @ CAR total",
-      "price": "FanDuel open 49.5, current O51.5 -110 / U51.5 -110. DraftKings O51.5 -112 / U51.5 -108. Covers morning board 50.5.",
-      "why": "Not a ~7 drop. Number rose 1 to 2. Under is the wrong side of the move. Inactives not printed Y. Kick 8:20 ET."
-    },
-    {
-      "id": "NFL-W4-ATL-NO-TOT",
-      "action": "ZERO",
-      "stakeU": 0,
-      "name": "ATL @ NO total",
-      "price": "FanDuel open 45.5, current O47.5 -110 / U47.5 -110. Covers open 48.5, board 47.5.",
-      "why": "Opens disagree. Move is +2 or -1, not ~7. Conflicting open is a pass. Monday 8:15 ET. Inactives not Y."
+      "price": "Prior stamp: consensus 8. FanDuel 7.5. Pinnacle U8 -104. Kerr opener, not a quality arm.",
+      "why": "Opener game at 8 stays on the trap list. Not a night-lock HOLD."
     }
   ],
   "shapes": [
     "2026-09-28 PHI/CHI U41.5 W after a ~7 crush. Not a license to buy a crushed total.",
     "2026-09-28 PHI -3.5 L. Key-number hook. No spread tickets.",
-    "2026-10-03 MLB under bucket 1-4 shadow. Theme dead. Caps any under at 0.5u, and this board has no clean 0.5u.",
-    "2026-10-03 ATL/LAD G1 opener 8.5, final 3-5 (8 runs). Opener-at-8 finished on the number.",
-    "2026-10-03 CWS 3 CLE 0. Street under already final. Not a ticket."
+    "2026-10-03 MLB under bucket 1-4 shadow. Theme dead.",
+    "2026-10-03 ATL/LAD G1 opener 8.5, final 8 runs.",
+    "2026-10-04 DET/CAR total rose 49.5 to 51.5/52.5 into the close. KILL, not a hold."
   ],
-  "street": []
+  "street": [
+    {
+      "game": "DET @ CAR",
+      "source": "ESPN odds board 2026-10-04",
+      "spread": "DET -4.5 -105",
+      "total": "52.5",
+      "ml": "DET -225 / CAR +185"
+    },
+    {
+      "game": "DET @ CAR",
+      "source": "FanDuel Research",
+      "spread": "DET -3.5 -120",
+      "total": "51.5 -110",
+      "ml": "DET -210 / CAR +176",
+      "open": "DET -2.5, total 49.5"
+    },
+    {
+      "game": "ATL @ NO",
+      "source": "ESPN odds board",
+      "spread": "NO -1.5 -115",
+      "total": "47.5",
+      "ml": "NO -130 / ATL +110"
+    }
+  ]
 }
