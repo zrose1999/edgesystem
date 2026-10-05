@@ -1,7 +1,7 @@
 {
-  "asOfCt": "2026-10-05T12:11:00-05:00",
-  "law": "Log every watched event. Open, close, result, CLV. Adapt from rows.",
-  "gap": "Backfill is results plus the one sourced print. True open-to-close CLV is still missing on almost every row. BLAST Fall ended Aug 30, before the Sept 22 start, so it is not in this file.",
+  "asOfCt": "2026-10-05T12:35:00-05:00",
+  "law": "Snapshot open and close with a time and a book. Do not grade a row with no close. Viable only if the open beat the close and n is at least 5. Official, shadow, and pass stay split. A guru is a row, kept only after 20 settled calls beat the close.",
+  "gap": "Backfill is results plus the one sourced print. True open-to-close CLV is still missing on almost every row. BLAST Fall ended Aug 30, before the Sept 22 start, so it is not in this file. Golf weekly board is not on OddsAPI. PGA majors are futures only. Ask Zack for a weekly golf source.",
   "patterns": [
     {
       "id": "NFL-W4-dogs",
@@ -36,7 +36,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Thursday. No sourced open.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -49,7 +54,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "CLE cover vs -2.5 print. Total 39 vs 41.5 under.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -62,7 +72,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "PIT cover. Total 57 vs 42.5 over.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -75,7 +90,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "BUF cover by 8. Total 40 vs 50.5 under.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -88,7 +108,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "JAX cover. Total 41 vs 45.5 under.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -101,7 +126,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "DET cover by 7. Total 55 vs 48.5 over.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -114,7 +144,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "IND cover. Total 36 vs 42.5 under.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -127,7 +162,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "KC cover. Total 34 vs 45.5 under.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -140,7 +180,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "WSH cover. Total 64 vs 40.5 over.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -153,7 +198,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "NYG cover. Total 19 vs 37.5 under.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -166,7 +216,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "SF miss, margin 6. Total 66 vs 48.5 over.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -179,7 +234,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "MIN cover. Total 39 vs 42.5 under.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -192,7 +252,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "DAL cover, margin 3. Total 65 vs 53.5 over.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -205,7 +270,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "No sourced open.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -218,7 +288,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "CBS had a 1.5 number, side unclear.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -231,7 +306,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Monday. No sourced open.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -244,7 +324,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "CLE cover. Total 51 vs 37.5 over.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -257,7 +342,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "IND cover. Total 43 vs 47.5 under.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -270,7 +360,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "NYG cover. Total 60 vs 44.5 over.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -283,7 +378,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "DAL cover. Total 64 vs 48.5 over.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -296,7 +396,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "Push. Total 31 vs 38.5 under.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -309,7 +414,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "JAX cover. Total 39 vs 51.5 under.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -322,7 +432,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "LAR cover. Total 44 vs 42.5 over.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -335,7 +450,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "NE win and cover. Total 55 vs 49.5 over.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -348,7 +468,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "CHI cover. Total 35 vs 43.5 under.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -361,7 +486,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "TEN cover. Total 42 vs 42.5 under.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -374,7 +504,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "MIA cover. Total 25 vs 38.5 under.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -387,7 +522,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "SF cover. Total 38 vs 48.5 under.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -400,7 +540,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "LV cover. Total 57 vs 47.5 over.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -413,7 +558,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "Push. Total 53 vs 42.5 over.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -426,7 +576,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "CAR win and cover. Total 58 vs 51.5 over.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -439,7 +594,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "Monday 8:15 p.m. ET not final.",
-      "lean": "WAIT"
+      "lean": "WAIT",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -452,7 +612,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "Mayfield doubtful. Do not lay -9.5.",
-      "lean": "suggestion"
+      "lean": "suggestion",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -465,7 +630,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "Moved from DK -4.5. Do not chase.",
-      "lean": "suggestion"
+      "lean": "suggestion",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -478,7 +648,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "Short favorite at Lambeau.",
-      "lean": "suggestion"
+      "lean": "suggestion",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -491,7 +666,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "On 7. Do not lay.",
-      "lean": "suggestion"
+      "lean": "suggestion",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -504,7 +684,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "On 7. Juice ML.",
-      "lean": "suggestion"
+      "lean": "suggestion",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -517,7 +702,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "Through 3.",
-      "lean": "suggestion"
+      "lean": "suggestion",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -530,7 +720,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "Pick'em range.",
-      "lean": "suggestion"
+      "lean": "suggestion",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -543,7 +738,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "Under already down from 40.5.",
-      "lean": "suggestion"
+      "lean": "suggestion",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -556,7 +756,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "Short home favorite.",
-      "lean": "suggestion"
+      "lean": "suggestion",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -569,7 +774,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "On 3.",
-      "lean": "suggestion"
+      "lean": "suggestion",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -582,7 +792,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "Through 3.",
-      "lean": "suggestion"
+      "lean": "suggestion",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -595,7 +810,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "High total, not crashed.",
-      "lean": "suggestion"
+      "lean": "suggestion",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -608,7 +828,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "bet365 had -3.",
-      "lean": "suggestion"
+      "lean": "suggestion",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -621,7 +846,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "SNF. Inactives N.",
-      "lean": "suggestion"
+      "lean": "suggestion",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "NFL",
@@ -634,7 +864,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "Monday high total.",
-      "lean": "suggestion"
+      "lean": "suggestion",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -647,7 +882,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "ATL wins. Total 8.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -660,7 +900,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "CWS wins. Total 9.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -673,7 +918,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "NYY wins. Total 9.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -686,7 +936,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "SD wins. Total 8.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -699,7 +954,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "PHI wins. Total 7.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -712,7 +972,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "CWS wins series 2-0. Total 10.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -725,7 +990,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "NYY wins series 2-0. Total 11.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -738,7 +1008,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "SD wins series 2-0. Total 5.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -751,7 +1026,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "ATL wins series 2-1. Total 8.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -764,7 +1044,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "CWS. Total 3.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -777,7 +1062,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "LAD. Total 8.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -790,7 +1080,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "TB. Total 1.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -803,7 +1098,12 @@
       "result": "final",
       "clv": "empty \u2014 no close logged",
       "autopsy": "5 runs. Card slogan W. No log close.",
-      "lean": "card slogan only"
+      "lean": "card slogan only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -816,7 +1116,12 @@
       "result": "final",
       "clv": "empty \u2014 no close logged",
       "autopsy": "7 runs. Push. No log close.",
-      "lean": "card slogan only"
+      "lean": "card slogan only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -829,7 +1134,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "ATL. Total 5.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -842,7 +1152,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "Not final. Kay opener was the kill.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "MLB",
@@ -855,7 +1170,12 @@
       "result": "pending",
       "clv": "missing",
       "autopsy": "Not final. Schlittler vs Peralta. ESPN NYY -131.",
-      "lean": "logged"
+      "lean": "logged",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -868,7 +1188,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -881,7 +1206,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -894,7 +1224,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -907,7 +1242,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -920,7 +1260,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -933,7 +1278,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -946,7 +1296,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -959,7 +1314,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -972,7 +1332,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -985,7 +1350,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -998,7 +1368,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -1011,7 +1386,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -1024,7 +1404,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -1037,7 +1422,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -1050,7 +1440,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -1063,7 +1458,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -1076,7 +1476,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "Pinnacle board Oct 5. MOUZ won as the dog.",
-      "lean": "priced"
+      "lean": "priced",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -1089,7 +1494,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -1102,7 +1512,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "Pinnacle board Oct 5. Not a confirmed open.",
-      "lean": "priced"
+      "lean": "priced",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -1115,7 +1530,12 @@
       "result": "final",
       "clv": "missing \u2014 one print",
       "autopsy": "Pinnacle board Oct 5. 1W won 2-0.",
-      "lean": "priced"
+      "lean": "priced",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     },
     {
       "sport": "CS",
@@ -1128,7 +1548,12 @@
       "result": "final",
       "clv": "missing",
       "autopsy": "Map series from Liquipedia. Odds not sourced.",
-      "lean": "log only"
+      "lean": "log only",
+      "openTime": "",
+      "closeTime": "",
+      "injury": "",
+      "weather": "",
+      "bucket": "pass"
     }
   ],
   "counts": {
@@ -1137,5 +1562,7 @@
     "CS": 21,
     "total": 85
   },
-  "csSource": "Slate and results: Liquipedia. Sharp print: Pinnacle CS2 match moneyline, map handicap, map total. Compare board: HLTV odds. Do not use a preview site as the price."
+  "csSource": "Slate and results: Liquipedia. Sharp print: Pinnacle CS2 match moneyline, map handicap, map total. Compare board: HLTV odds. Do not use a preview site as the price.",
+  "gurus": [],
+  "feed": "OddsAPI: NFL, MLB, NBA, NHL, NCAAF, ATP, WTA, EPL, UCL, MLS, UFC. No minor soccer. CS is Pinnacle plus Liquipedia."
 }
