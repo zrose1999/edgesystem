@@ -11,7 +11,10 @@
     h1 { font-size: 20px; letter-spacing: 0.08em; margin: 0 0 6px; }
     h2 { font-size: 14px; letter-spacing: 0.06em; color: #8ea08a; }
     .sub { color: #8ea08a; margin-bottom: 8px; }
-    .meta { color: #6d7c69; font-size: 12px; margin-bottom: 18px; }
+    .meta { color: #6d7c69; font-size: 12px; margin-bottom: 12px; }
+    nav { display: flex; gap: 8px; margin: 8px 0 16px; }
+    nav button { background: #121712; color: #d7e0d2; border: 1px solid #3d4a38; padding: 6px 10px; font: inherit; }
+    nav button.on { color: #e2b34b; border-color: #e2b34b; }
     .pass { border: 1px solid #3d4a38; padding: 12px 14px; margin: 10px 0; background: #121712; }
     .tag { color: #e2b34b; }
     .kill { color: #e07a7a; }
@@ -24,8 +27,18 @@
     <h1 id="title">EDGE · Gumdrop</h1>
     <div class="sub" id="sub">Loading desk…</div>
     <div class="meta" id="meta">Backend: GitHub data branch. Shell does not redeploy for a stamp.</div>
+    <nav>
+      <button type="button" data-tab="desk" class="on">Desk</button>
+      <button type="button" data-tab="saturday">Saturday</button>
+      <button type="button" data-tab="nfl">NFL</button>
+    </nav>
   </header>
-  <main id="root">Loading card…</main>
+  <main>
+    <section id="desk">Loading card…</section>
+    <section id="saturday" hidden>Loading Saturday desk…</section>
+    <section id="nfl" hidden>Loading NFL tab…</section>
+    <footer>Not a wager. Prices are public prints. Official is open beat close and n>=5. A cover is not a sample.</footer>
+  </main>
   <script src="desk.js"></script>
 </body>
 </html>
