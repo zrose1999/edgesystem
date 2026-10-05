@@ -22,3 +22,11 @@ Golf weekly board is not on the feed. Ask Zack for that source.
 
 ## Files
 ledger/ledger.json is the dataset. card.json is the stamp. nfl.json is the NFL tab.
+
+## Write
+Row id is sport|date|event|market. Upsert. Do not append a duplicate. Do not overwrite an open once set.
+openLine and closeLine are numbers, or the string missing. injury and weather are required.
+One job writes the open. Update jobs do not append. Settle jobs do not append.
+The 4-point gap and the juice floor are shadow filters. They are not a second path to official.
+Pattern n counts only rows with a numeric open and a numeric close. Do not adapt a lean from a cover rate.
+Do not write an API key into a file, a card, or GitHub.
