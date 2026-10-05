@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EDGE 06:00 CT — Gumdrop</title>
+  <title>EDGE · Gumdrop</title>
   <style>
     :root { color-scheme: dark; }
     body { margin: 0; font: 15px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: #0c0f0c; color: #d7e0d2; }
     header, main { max-width: 880px; margin: 0 auto; padding: 24px 18px; }
     h1 { font-size: 20px; letter-spacing: 0.08em; margin: 0 0 6px; }
     h2 { font-size: 14px; letter-spacing: 0.06em; color: #8ea08a; }
-    .sub { color: #8ea08a; margin-bottom: 18px; }
+    .sub { color: #8ea08a; margin-bottom: 8px; }
+    .meta { color: #6d7c69; font-size: 12px; margin-bottom: 18px; }
     .pass { border: 1px solid #3d4a38; padding: 12px 14px; margin: 10px 0; background: #121712; }
     .tag { color: #e2b34b; }
     .kill { color: #e07a7a; }
@@ -20,29 +21,50 @@
 </head>
 <body>
   <header>
-    <h1>EDGE · 06:00 CT · EARLY SWEEP · EU + MLB · RAINMAN</h1>
-    <div class="sub">Gumdrop live desk 068c6961-0a3d-4374-87f1-f3d2ce34f293 · official +CLV 0-0 · exposure 0u of 6u · new today 0u</div>
+    <h1 id="title">EDGE · Gumdrop</h1>
+    <div class="sub" id="sub">Loading desk…</div>
+    <div class="meta" id="meta">Backend: GitHub data branch. Shell does not redeploy for a stamp.</div>
   </header>
-  <main id="root">Loading card.json…</main>
+  <main id="root">Loading card…</main>
   <script>
-    fetch('card.json?lock=0600', { cache: 'no-store' }).then(r => r.json()).then(card => {
-      const root = document.getElementById('root');
-      const settled = (card.settled || []).map(s =>
-        `<div class="pass"><div class="tag win">${s.result}</div><strong>${s.name}</strong> · ${s.final}<br>${s.clv || ''}<br>${s.autopsy}</div>`
-      ).join('') || '<div class="pass">None on this stamp.</div>';
-      const official = (card.official || []).map(s =>
-        `<div class="pass"><div class="tag">${s.status} · ${s.stakeU}u</div><strong>${s.name}</strong><br>${s.number}<br>${s.why}</div>`
-      ).join('') || '<div class="pass">None. No-action. Hold list is empty.</div>';
-      const killed = (card.killed || []).map(s =>
-        `<div class="pass"><div class="tag kill">${s.action}</div><strong>${s.id}</strong> · was ${s.was}<br>${s.why}</div>`
-      ).join('');
-      const shadows = (card.shadow || []).map(s =>
-        `<div class="pass"><div class="tag">${(s.tag || '').toUpperCase()}</div><strong>${s.id}</strong> · ${s.market}<br>${s.units || ''}<br>Street ${s.street}<br>${s.why}</div>`
-      ).join('');
-      root.innerHTML = `<p>${card.decision}</p><p>Rule: ${card.rule}</p><p>Record ${card.records.graded_official_wl}. Official +CLV n=${card.records.settledPlayClvN}. ${card.records.graded_note}</p><h2>Settled</h2>${settled}<h2>Official</h2>${official}<h2>Killed</h2>${killed}<h2>Shadow</h2>${shadows}<footer>Not a wager. Prices are public prints at stamp only. Scratch = kill. therosesystem not touched.</footer>`;
-    }).catch(err => {
-      document.getElementById('root').textContent = 'card.json failed: ' + err;
-    });
+    const DATA = "https://raw.githubusercontent.com/zrose1999/edgesystem/data/card.json";
+    const esc = (v) => String(v ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&", "<": "<", ">": ">", '"': """ }[c]));
+    fetch(DATA + "?t=" + Date.now(), { cache: "no-store" })
+      .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then((card) => {
+        document.title = "EDGE · " + (card.lock || card.stamp_ct || "Gumdrop");
+        document.getElementById("title").textContent = card.lock || "EDGE · Gumdrop";
+        document.getElementById("sub").textContent =
+          "Gumdrop live desk " + (card.site_id || "") +
+          " · official +CLV " + ((card.records && card.records.graded_official_wl) || "0-0") +
+          " · exposure " + (card.exposure_u ?? 0) + "u of " + (card.day_cap_u ?? 6) + "u" +
+          " · new today " + (card.new_today_u ?? 0) + "u";
+        document.getElementById("meta").textContent =
+          "as of " + (card.asOfCt || card.stamp_ct || "unknown") +
+          " · backend zrose1999/edgesystem data/card.json · no Netlify deploy for this stamp";
+        const list = (items, render, empty) => (items && items.length) ? items.map(render).join("") : '<div class="pass">' + empty + "</div>";
+        const settled = list(card.settled, (s) =>
+          '<div class="pass"><div class="tag win">' + esc(s.result) + "</div><strong>" + esc(s.name) + "</strong> · " + esc(s.final) + "<br>" + esc(s.clv) + "<br>" + esc(s.autopsy) + "</div>",
+          "None on this stamp.");
+        const official = list(card.official, (s) =>
+          '<div class="pass"><div class="tag">' + esc(s.status || s.action) + " · " + esc(s.stakeU) + "u</div><strong>" + esc(s.name || s.id) + "</strong><br>" + esc(s.number || s.market) + "<br>" + esc(s.why) + "</div>",
+          "None. No-action. Hold list is empty.");
+        const killed = list(card.killed, (s) =>
+          '<div class="pass"><div class="tag kill">' + esc(s.action) + "</div><strong>" + esc(s.id) + "</strong> · was " + esc(s.was || s.name || "") + "<br>" + esc(s.why) + "</div>",
+          "None.");
+        const shadows = list(card.shadow, (s) =>
+          '<div class="pass"><div class="tag">' + esc((s.tag || s.action || "shadow")).toUpperCase() + "</div><strong>" + esc(s.id) + "</strong> · " + esc(s.market) + "<br>" + esc(s.units || "") + "<br>Street " + esc(s.street) + "<br>" + esc(s.why) + "</div>",
+          "None.");
+        const rec = card.records || {};
+        document.getElementById("root").innerHTML =
+          "<p>" + esc(card.decision) + "</p><p>Rule: " + esc(card.rule) + "</p><p>Record " + esc(rec.graded_official_wl) +
+          ". Official +CLV n=" + esc(rec.settledPlayClvN) + ". " + esc(rec.graded_note) + "</p><h2>Settled</h2>" + settled +
+          "<h2>Official</h2>" + official + "<h2>Killed</h2>" + killed + "<h2>Shadow</h2>" + shadows +
+          "<footer>Not a wager. Prices are public prints at stamp only. Scratch = kill. Retired Claude site not touched.</footer>";
+      })
+      .catch((err) => {
+        document.getElementById("root").textContent = "card failed: " + err;
+      });
   </script>
 </body>
 </html>
