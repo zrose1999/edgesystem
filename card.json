@@ -1,90 +1,28 @@
 {
   "desk": "EDGE",
-  "handle": "Rainman",
+  "handle": "Guru",
   "site": "Gumdrop",
   "site_id": "068c6961-0a3d-4374-87f1-f3d2ce34f293",
-  "asOfCt": "2026-10-05T06:00:00-05:00",
-  "stamp_ct": "2026-10-05T06:00:00-05:00",
-  "lock": "06:00 CT early sweep",
-  "scope": "EU leftovers + first MLB day games (ALDS Game 2). Confirm SPs; scratch = KILL. Day cap 6u includes these stakes. NLDS is tomorrow, not this window. therosesystem not touched.",
-  "decision": "NO ACTION. Official empty. Exposure 0u. new_today_u = 0. Cap remaining 6u. Both ALDS SPs confirmed, zero scratches. Favorites clear 1.40 but neither has a sourced 4-point gap vs the print. No live EU leftover market at stamp. Do not lay juice.",
-  "rule": "1u clean / 0.5u maybe / 0 third. Day cap 6u. Never invent prices. No juice favorites under 1.40. No coin-flip ML without a sourced gap of at least 4 points vs the print. Scratch or unconfirmed SP = KILL. Official only on new fact + floor + sharp print. Shadow every priced pass.",
+  "asOfCt": "2026-10-05T07:15:00-05:00",
+  "stamp_ct": "2026-10-05T07:15:00-05:00",
+  "lock": "07:15 CT SP/injury gate",
+  "scope": "Confirm Sale, Judge/Schlittler, HOU names, King. Real name + number still on the lean = shadow pre-commit. Missing name or crushed number = KILL. Prices are sourced prints only.",
+  "decision": "NO OFFICIAL. Exposure 0u. Sale KILL (moved). Judge KILL (off roster). HOU KILL (series over). King KILL (already pitched / no start). Schlittler real and confirmed, number not crushed, shadow only, 1u no, 0.5u no.",
+  "rule": "1u clean / 0.5u maybe / 0 third. Never invent prices. Scratch, missing name, or number already off the lean = KILL. Official only on new fact + floor + sharp print.",
   "official_count": 0,
   "exposure_u": 0,
   "day_cap_u": 6,
   "cap_remaining_u": 6,
   "new_today_u": 0,
-  "settled": [],
-  "rows": [],
-  "records": {
-    "graded_official_wl": "0-0",
-    "settledPlayClvN": 0,
-    "graded_note": "Official +CLV is 0-0. Early sweep is a pass, not a forced ticket.",
-    "unit_closed_official_clv": 0,
-    "mlb_alds_official_clv": "0-0",
-    "shadow_plus_clv_n": 0,
-    "shadow_note": "Priced passes are 0u. Prints are ESPN / FOX / AP at stamp only."
-  },
   "official": [],
   "killed": [
-    {
-      "id": "MLB-ALDS-CWS-CLE-SP",
-      "was": "any SP-change ticket",
-      "action": "HOLD-NOT-KILL",
-      "why": "Not a scratch. ESPN pitching matchup Anthony Kay vs Gavin Williams. MLB.com lineups page lists Kay LHP 10-9, 4.44 ERA and Williams RHP 14-8, 3.76 ERA. PitcherStat 4/4 confirmed, 0 TBD, updated pre-stamp. FantasyData L-tag on Williams is wrong; MLB.com is RHP. Lineups still TBD on MLB.com \u2014 projected only, not a scratch."
-    },
-    {
-      "id": "MLB-ALDS-NYY-TB-SP",
-      "was": "any SP-change ticket",
-      "action": "HOLD-NOT-KILL",
-      "why": "Not a scratch. ESPN Cam Schlittler vs Freddy Peralta. AP probables Schlittler 14-6, 1.95 ERA, 0.92 WHIP vs Peralta 10-11, 4.42 ERA, 1.32 WHIP. PitcherStat confirms both, 0 TBD. No IL note on either starter."
-    },
-    {
-      "id": "EU-LEFTOVER-BOARD",
-      "was": "open EU club leftover",
-      "action": "KILL",
-      "why": "No live EU leftover at 06:00 CT. UEFA Nations League Monday slate is tonight, not a leftover: Cyprus-Latvia ~11:00-12:00 CT, France-Belgium / Italy-Turkey / NI-Georgia / Ukraine-Hungary / Bosnia-Poland / Montenegro-Armenia 13:45 CT, Romania-Sweden 14:45 CT. Bolivia-Gambia postponed. Weekend NLDS already final (MIL 4 SD 3, ATL 3 LAD 2) and closed."
-    }
+    {"id": "SALE", "name_real": true, "action": "KILL", "units": "1u no. 0.5u no.", "why": "Name real. Not today. ESPN Yamamoto vs Sale Tue Oct 6 6:00 PM ET, series 1-1, LAD -113. DRatings open Braves -110 / LAD +100; steam 10/05 03:28 AM LAD +100 to -105. Off the lean. L5 starts: 5.2/1, 7/3, 6/2, 9/0, 6/2 ER. L5 ERA 2.14. 21 pitches relief Thu."},
+    {"id": "JUDGE", "name_real": true, "action": "KILL", "units": "1u no. 0.5u no.", "why": "Real, off ALDS roster. Calf/soleus since Sept 16. MLB.com/CBS. No live number."},
+    {"id": "HOU", "name_real": false, "action": "KILL", "units": "1u no. 0.5u no.", "why": "No live HOU game. CWS swept WC. Brown 2/3 IP Game 2. Bryan King rostered, Okert off (hamstring). Series closed."},
+    {"id": "KING", "name_real": true, "action": "KILL", "units": "1u no. 0.5u no.", "why": "Michael King already pitched NLDS G2: 5+ IP 1 R 3 H 0 BB 6 K. WC 7 IP 0 R. Next only Game 5. Bryan King HOU out."}
   ],
   "shadow": [
-    {
-      "id": "MLB-ALDS-CWS-CLE-G2",
-      "market": "CWS @ CLE ML, ALDS Game 2, CWS leads 1-0",
-      "tag": "priced scan shadow \u2014 0u",
-      "units": "1u no. 0.5u no.",
-      "street": "ESPN CLE -163 / CWS +133, O/U 6.5. FOX CLE -162. First pitch 4:00 PM CT / 5:00 PM ET, TBS. Progressive Field.",
-      "sharp": "SPs confirmed: Kay LHP 10-9, 4.50 ERA, 1.37 WHIP vs Williams RHP 14-8, 3.76 ERA, 1.11 WHIP. Game 1 was CWS 3, CLE 0 (Hagen Smith / Parker Messick). No second-book model print 4 points off -163.",
-      "why": "1.61 decimal clears 1.40. Gap rule fails. Pass."
-    },
-    {
-      "id": "MLB-ALDS-NYY-TB-G2",
-      "market": "NYY @ TB ML, ALDS Game 2, TB leads 1-0",
-      "tag": "priced scan shadow \u2014 0u",
-      "units": "1u no. 0.5u no.",
-      "street": "ESPN NYY -131 / O/U 6.5. FOX NYY -130. AP NYY -132 / TB +109, O/U 6.5. First pitch 7:00 PM CT / 8:00 PM ET, TBS. Tropicana Field.",
-      "sharp": "SPs confirmed: Schlittler RHP 14-6, 1.95 ERA, 0.92 WHIP vs Peralta RHP 10-11, 4.42 ERA. Talent gap is already in the -131. No sourced fair 4 points off the print. Game 1 was TB 1, NYY 0.",
-      "why": "1.76 decimal clears 1.40. Not a coin flip, and not a sourced edge. Pass."
-    },
-    {
-      "id": "EU-NL-TONIGHT",
-      "market": "Nations League Monday night board",
-      "tag": "out of window shadow \u2014 0u",
-      "units": "0u",
-      "street": "France-Belgium and Italy-Turkey 13:45 CT. No open leftover price at this stamp.",
-      "sharp": "Not a leftover. Kick is after this sweep. Do not pull tonight into the early card.",
-      "why": "Wrong window. Pass."
-    }
+    {"id": "SCHLITTLER", "name_real": true, "action": "SHADOW pre-commit", "units": "1u no. 0.5u no.", "market": "NYY @ TB ALDS G2 Schlittler vs Peralta, TB leads 1-0", "street": "ESPN NYY -131 O/U 6.5. FOX -130. AP -132 / TB +109. FD research -130 as of 8:11 a.m. ET. 7:00 PM CT.", "why": "Confirmed SP, no IL. Cluster -126 to -132, not crushed off 06:00 -131. Gap rule fails. L5 ERA 0.83. WC 9/29 22 outs 10 K 2 H. Shadow only."}
   ],
-  "board": [
-    {"sport": "MLB", "tier": "ALDS", "window": "4:00 PM CT", "game": "CWS @ CLE Game 2", "series": "CWS leads 1-0", "official_fact": "Kay vs Williams confirmed. CLE -163. O/U 6.5.", "call": "Shadow 0u. No scratch. No 4pt gap."},
-    {"sport": "MLB", "tier": "ALDS", "window": "7:00 PM CT", "game": "NYY @ TB Game 2", "series": "TB leads 1-0", "official_fact": "Schlittler vs Peralta confirmed. NYY -131. O/U 6.5.", "call": "Shadow 0u. No scratch. No 4pt gap."},
-    {"sport": "EU", "tier": "leftover", "window": "06:00 CT", "game": "No open club leftover", "series": "Nations League tonight", "official_fact": "Bolivia-Gambia postponed. NL kicks 11:00-14:45 CT.", "call": "KILL leftover ticket. Out of window."}
-  ],
-  "publish": {
-    "github": "zrose1999/gumdrop-edge",
-    "also": "zrose1999/edgesystem",
-    "netlify_site": "068c6961-0a3d-4374-87f1-f3d2ce34f293",
-    "netlify_url": "https://edgesystem.netlify.app",
-    "retired_not_touched": "therosesystem"
-  }
+  "publish": {"github": "zrose1999/gumdrop-edge", "also": "zrose1999/edgesystem", "netlify_site": "068c6961-0a3d-4374-87f1-f3d2ce34f293", "netlify_url": "https://edgesystem.netlify.app"}
 }
