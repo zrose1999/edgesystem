@@ -3,102 +3,120 @@
   "handle": "Rainman",
   "site": "Gumdrop",
   "site_id": "068c6961-0a3d-4374-87f1-f3d2ce34f293",
-  "asOfCt": "2026-10-05T23:15:00-05:00",
-  "stamp_ct": "2026-10-05T23:15:00-05:00",
-  "lock": "23:15 CT settle. No new slate. No close from a result board.",
-  "scope": "Settle only. Result written only if closeLine is a number. None were. Oct 6 NLDS stays out. No Netlify deploy.",
-  "decision": "Finished and left ungraded. MNF ATL at NO final ESPN 401872979 Falcons 45 Saints 24, row closeLine missing. ALDS G2 CWS at CLE final ESPN 401907991 White Sox 4 Guardians 3, closeLine missing. ALDS G2 NYY at TB final ESPN 401907986 Rays 5 Yankees 2, closeLine missing. No result written. No price invented. grade.py official 0-0, pricedN 0, passN 85, rows 85.",
+  "asOfCt": "2026-10-06T07:24:00-05:00",
+  "stamp_ct": "2026-10-06T07:24:00-05:00",
+  "lock": "07:24 CT injury gate. No slate appended. No close written. Opens kept.",
+  "scope": "Injury, weather, and starter on existing rows only. Week 5 NFL already on the ledger. Oct 6 NLDS not appended. No Netlify deploy.",
+  "decision": "Checked ESPN injury board and CBS for named starters. Action Network weather page still on the prior week. gamedayweather.app had venues, not a kickoff forecast. Numeric weather written missing. grade.py official 0-0, pricedN 0, passN 85, rows 85.",
   "rule": "Official only if the open beat the close and n is at least 5. The 4-point gap, juice under 1.40, and the floor are shadow filters. They are not a second path to official. A pass that would have won stays a pass. Do not grade a row with no numeric close.",
   "official_count": 0,
   "exposure_u": 0,
   "day_cap_u": 6,
   "cap_remaining_u": 6,
   "new_today_u": 0,
-  "ungraded_finished": [
-    {
-      "id": "NFL|2026-10-05|W4 ATL at NO|NO -1.5 / 47.5",
-      "final": "Falcons 45, Saints 24. ESPN 401872979.",
-      "why": "closeLine missing. Result not written. A result board is not a close."
-    },
-    {
-      "id": "MLB|2026-10-05|CWS at CLE|ALDS G2",
-      "final": "White Sox 4, Guardians 3. ESPN 401907991.",
-      "why": "closeLine missing. Result not written."
-    },
-    {
-      "id": "MLB|2026-10-05|NYY at TB|ALDS G2",
-      "final": "Rays 5, Yankees 2. ESPN 401907986.",
-      "why": "closeLine missing. Result not written."
-    }
+  "books_checked": [
+    "ESPN injury board",
+    "CBS Sports (Bagent start)",
+    "Action Network weather",
+    "gamedayweather.app"
   ],
-  "settled": [
+  "gate_rows": [
     {
-      "id": "mlb-mil-u7",
-      "sport": "MLB",
-      "market": "Total",
-      "sideType": "under",
-      "name": "SD @ MIL U7",
-      "date": "2026-10-03",
-      "stakeU": 0.5,
-      "price": "U7 -109 (BettingPros print on the 17:08 desk)",
-      "final": "Brewers 3, Padres 2. 5 runs. ESPN gameId 401908002.",
-      "result": "W",
-      "pnlU": 0.46,
-      "clv": "empty \u2014 not in EDGE Picks Log with CloseNumber. Result without +CLV does not count.",
-      "autopsy": "Finished 5 under 7. Card slogan only. No log close, so it stays out of the official record."
+      "id": "NFL|2026-10-08|W5 TB at DAL|DAL -9.5 / 47.5",
+      "injury": "ESPN injury board Oct 6. Mayfield out (thumb), return est Oct 25. ESPN Sep 28: Bowles said minimum three weeks, Jalon Daniels to start. Ko Kieft out. DAL QB not listed out.",
+      "weather": "AT&T Stadium retractable, listed dome on prior Action Network board. Oct 8 kickoff forecast not posted. Checked Action Network (still prior week) and gamedayweather.app (forecast posts week of kickoff). Numeric missing.",
+      "starter": "TB Jalon Daniels (Bowles via ESPN Sep 28). DAL Dak Prescott not confirmed on injury board."
     },
     {
-      "id": "mlb-sd-mil-u7-g2",
-      "sport": "MLB",
-      "market": "Total",
-      "sideType": "under",
-      "name": "SD @ MIL U7 G2",
-      "date": "2026-10-04",
-      "stakeU": 0.5,
-      "price": "U7 carry. ESPN u7 -105 at the 11:30 stamp.",
-      "final": "Brewers 4, Padres 3. 7 runs. ESPN gameId 401908003. Chourio walk-off. King 5.0 IP on the box.",
-      "result": "P",
-      "pnlU": 0,
-      "clv": "empty \u2014 not in EDGE Picks Log with CloseNumber. Push without +CLV does not count.",
-      "autopsy": "Number was 7 and the game finished 7. Push, not a win. Do not size off a nose finish with no close."
-    }
-  ],
-  "rows": [
-    {
-      "date": "2026-10-03",
-      "sport": "MLB",
-      "market": "Total",
-      "sideType": "under",
-      "name": "SD @ MIL U7",
-      "stakeU": 0.5,
-      "price": "-109",
-      "result": "W",
-      "pnlU": 0.46,
-      "clv": "empty",
-      "autopsy": "Card W. Finished 5. Log close missing. Not official +CLV."
+      "id": "NFL|2026-10-11|W5 PHI vs JAX London|JAX -5.5 / 42.5",
+      "injury": "ESPN injury board Oct 6. No PHI or JAX QB listed out. Barkley Q on LineStar, not confirmed on ESPN board this stamp. Inactives not posted.",
+      "weather": "Tottenham Hotspur Stadium open. Kickoff forecast not posted. Checked Action Network and gamedayweather.app. Numeric missing.",
+      "starter": "missing. Hurts and Lawrence not listed out. Official start not posted."
     },
     {
-      "date": "2026-10-04",
-      "sport": "MLB",
-      "market": "Total",
-      "sideType": "under",
-      "name": "SD @ MIL U7 G2",
-      "stakeU": 0.5,
-      "price": "-105",
-      "result": "P",
-      "pnlU": 0,
-      "clv": "empty",
-      "autopsy": "Card push. Finished 7. Log close missing. Not official +CLV."
+      "id": "NFL|2026-10-11|W5 CHI at GB|CHI -2.5 / 44.5",
+      "injury": "ESPN Oct 5: Caleb Williams (hamstring) out, will not practice Week 5, week-to-week. Monangai Q thumb. Cam Lewis out. CBS Oct 5: Ben Johnson said Tyson Bagent will start. GB Jacobs on Commissioner Exempt List.",
+      "weather": "Lambeau Field open. Kickoff forecast not posted. Checked Action Network and gamedayweather.app. Numeric missing.",
+      "starter": "CHI Tyson Bagent (Ben Johnson via CBS Oct 5). GB Jordan Love not listed out, start not posted."
+    },
+    {
+      "id": "NFL|2026-10-11|W5 HOU at TEN|HOU -7 / 39.5",
+      "injury": "ESPN injury board Oct 6. No HOU or TEN QB listed out. Cam Ward active ESPN. Titans IR includes Slater (foot) and Carmona (ankle). Inactives not posted.",
+      "weather": "Nissan Stadium open. Kickoff forecast not posted. Checked Action Network and gamedayweather.app. Numeric missing.",
+      "starter": "TEN Cam Ward active, start not posted. HOU C.J. Stroud not listed out, start not posted."
+    },
+    {
+      "id": "NFL|2026-10-11|W5 CIN at MIA|CIN -7 / 41.5",
+      "injury": "ESPN Oct 5: Dolphins Reese Taylor (quad) out for Week 5. Douglas day-to-day ankle. Grant IR. No CIN or MIA QB listed out. Inactives not posted.",
+      "weather": "Hard Rock Stadium open. Kickoff forecast not posted. Checked Action Network and gamedayweather.app. Numeric missing.",
+      "starter": "missing. Burrow and Tagovailoa not listed out. Official start not posted."
+    },
+    {
+      "id": "NFL|2026-10-11|W5 LV at NE|NE -3.5 / 45.5",
+      "injury": "ESPN injury board Oct 6. Raiders Thornton practice window hope, Bech IR (forearm). No LV or NE QB listed out. Inactives not posted.",
+      "weather": "Gillette Stadium open. Kickoff forecast not posted. Checked Action Network and gamedayweather.app. Numeric missing.",
+      "starter": "missing. Neither QB listed out. Official start not posted."
+    },
+    {
+      "id": "NFL|2026-10-11|W5 MIN at NO|MIN -1.5 / 42.5",
+      "injury": "ESPN Oct 5: Vikings Darrisaw in concussion protocol, Donovan Jackson (torn meniscus) out. No MIN or NO QB listed out. Inactives not posted.",
+      "weather": "dome. Caesars Superdome, indoor. No outdoor weather.",
+      "starter": "missing. Neither QB listed out. Official start not posted."
+    },
+    {
+      "id": "NFL|2026-10-11|W5 CLE at NYJ|NYJ -1.5 / 39.5",
+      "injury": "ESPN injury board Oct 6. Jets Baron PUP, Trayanum IR. No CLE or NYJ QB listed out. Inactives not posted.",
+      "weather": "MetLife Stadium open. Kickoff forecast not posted. Checked Action Network and gamedayweather.app. Numeric missing.",
+      "starter": "missing. Neither QB listed out. Official start not posted."
+    },
+    {
+      "id": "NFL|2026-10-11|W5 IND at PIT|PIT -2.5 / 44.5",
+      "injury": "ESPN Oct 5: Colts Arden Key (hamstring) out, Keenan Allen out. Steelers Harmon (foot) IR, Dowdle (toe) availability uncertain, Dean (ankle) doubtful. No IND or PIT QB listed out.",
+      "weather": "Acrisure Stadium open. Kickoff forecast not posted. Checked Action Network and gamedayweather.app. Numeric missing.",
+      "starter": "missing. Neither QB listed out. Official start not posted."
+    },
+    {
+      "id": "NFL|2026-10-11|W5 NYG at WSH|WSH -3 / 43.5",
+      "injury": "ESPN: Jaxson Dart IR (knee surgery, Sep 30). Jayden Daniels listed Out, return est Oct 11; Quinn said Monday they aim for a full practice week and a start vs Giants. Mariota doubtful, sprained right MCL. McLaurin (hamstring) out assessment ongoing. Giants Pinnock Q concussion.",
+      "weather": "Northwest Stadium open. Kickoff forecast not posted. Checked Action Network and gamedayweather.app. Numeric missing.",
+      "starter": "NYG missing (Dart IR, replacement not posted). WSH not confirmed. Daniels Out on board, Quinn aiming to start him. Mariota doubtful."
+    },
+    {
+      "id": "NFL|2026-10-11|W5 DEN at LAC|DEN -3.5 / 42.5",
+      "injury": "ESPN Oct 4 notes: Chargers Joe Alt (neck) out remainder of prior game, Donte Jackson Q, Awosika inactive that week. No DEN or LAC QB listed out for Week 5. Inactives not posted.",
+      "weather": "SoFi Stadium fixed roof, indoor. No outdoor weather.",
+      "starter": "missing. Nix and Herbert not listed out. Official start not posted."
+    },
+    {
+      "id": "NFL|2026-10-11|W5 DET at ARI|DET -4.5 / 53.5",
+      "injury": "ESPN Oct 5: Paris Johnson Jr. out for season (biceps). Love Q ankle. Wingard Q knee. Taylor-Demerson out. Conner IR. No DET or ARI QB listed out.",
+      "weather": "State Farm Stadium retractable. Roof status not posted. Outdoor forecast not locked. Numeric missing.",
+      "starter": "missing. Goff and Brissett not confirmed on injury board."
+    },
+    {
+      "id": "NFL|2026-10-11|W5 SF at SEA|SEA -2.5 / 47.5",
+      "injury": "ESPN: 49ers Mykel Williams out (PUP window opened Sep 30), Kirk IR. Seahawks Leonard Williams Q ankle, Macdonald expects him available. Ty Okada out. No SF or SEA QB listed out.",
+      "weather": "Lumen Field open. Kickoff forecast not posted. Checked Action Network and gamedayweather.app. Numeric missing.",
+      "starter": "missing. Purdy and Darnold not listed out. Official start not posted."
+    },
+    {
+      "id": "NFL|2026-10-11|W5 BAL at ATL|BAL -3.5 / 46.5",
+      "injury": "ESPN Oct 5: Lamar Jackson Q left ankle. Minter: chances unknown. If out, Huntley. Hendrickson out. Stanley Q toe. Falcons Matthews Q groin, Za'Darius Smith Q concussion, Terrell IR groin.",
+      "weather": "Mercedes-Benz Stadium retractable. Roof status not posted. Outdoor forecast not locked. Numeric missing.",
+      "starter": "BAL not confirmed. Jackson Q, Huntley if out (ESPN Oct 5). ATL QB not posted."
+    },
+    {
+      "id": "NFL|2026-10-12|W5 BUF at LAR|LAR -2.5 / 53.5",
+      "injury": "ESPN: Bills Sanders out, Benford out, DJ Moore Q shoulder. Rams Aaron Donald out on board, McVay hopeful he plays (back). Parkinson out. Mumpfield Q. No BUF or LAR QB listed out.",
+      "weather": "SoFi Stadium fixed roof, indoor. No outdoor weather.",
+      "starter": "missing. Allen and Stafford not listed out. Official start not posted."
     }
   ],
   "records": {
     "graded_official_wl": "0-0",
     "settledPlayClvN": 0,
-    "graded_note": "grade.py official 0-0. pricedN 0. passN 85. Finished rows with missing closeLine left ungraded. A result board is not a close. No new unit.",
+    "graded_note": "grade.py official 0-0. pricedN 0. passN 85. Injury gate did not grade. No close written.",
     "unit_closed_official_clv": 0,
-    "card_slogan_wl_push": "1-0-1",
-    "mlb_total_under_official_clv": "0-0",
-    "cs_stier_official_clv": "0-0",
     "shadow_plus_clv_n": 0,
     "shadow_note": "No numeric closeLine on any row. Official stays 0-0."
   },
@@ -111,71 +129,5 @@
     "netlify_url": "https://edgesystem.netlify.app",
     "read_url": "https://raw.githubusercontent.com/zrose1999/edgesystem/data/card.json",
     "retired_not_touched": "therosesystem"
-  },
-  "shapes": {
-    "MLB|Total|under": [
-      {
-        "date": "2026-10-03",
-        "name": "SD @ MIL U7",
-        "result": "W slogan",
-        "autopsy": "Finished 5. No log close. Do not upgrade size."
-      },
-      {
-        "date": "2026-10-04",
-        "name": "SD @ MIL U7 G2",
-        "result": "P",
-        "autopsy": "Finished 7 on the nose. Push. No log close."
-      },
-      {
-        "date": "2026-10-05",
-        "name": "CHW @ CLE U6.5",
-        "result": "ungraded",
-        "autopsy": "Final 4-3. closeLine missing. Not a grade."
-      },
-      {
-        "date": "2026-10-05",
-        "name": "NYY @ TB U6.5",
-        "result": "ungraded",
-        "autopsy": "Final 5-2. closeLine missing. Not a grade."
-      }
-    ]
-  },
-  "board": [
-    {
-      "sport": "MLB",
-      "tier": "day",
-      "window": "16:00 CT",
-      "game": "White Sox @ Guardians",
-      "series": "ALDS Game 2",
-      "official_fact": "Final White Sox 4, Guardians 3. ESPN 401907991. Ledger closeLine missing.",
-      "call": "Ungraded. No close."
-    },
-    {
-      "sport": "MLB",
-      "tier": "night",
-      "window": "19:00 CT",
-      "game": "Yankees @ Rays",
-      "series": "ALDS Game 2",
-      "official_fact": "Final Rays 5, Yankees 2. ESPN 401907986. Ledger closeLine missing.",
-      "call": "Ungraded. No close."
-    },
-    {
-      "sport": "NFL",
-      "tier": "MNF",
-      "window": "19:15 CT",
-      "game": "Falcons @ Saints",
-      "series": "W4",
-      "official_fact": "Final Falcons 45, Saints 24. ESPN 401872979. Open Saints -1.5. closeLine missing.",
-      "call": "Ungraded. Result board is not a close."
-    },
-    {
-      "sport": "MLB",
-      "tier": "next day",
-      "window": "Oct 6",
-      "game": "LAD @ ATL / MIL @ SD",
-      "series": "NLDS Game 3",
-      "official_fact": "Out of this stamp. Not cancelled.",
-      "call": "Not today."
-    }
-  ]
+  }
 }
