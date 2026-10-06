@@ -43,10 +43,43 @@ SPORTS = {
     "soccer_usa_mls": "MLS",
     "mma_mixed_martial_arts": "UFC",
 }
+# Only sports the desk actually reads are pulled. Each sport costs Odds API credits,
+# and history calls for closes cost the most. Add a sport here when it gets real reads.
+# EDGE_SPORTS overrides this, e.g. EDGE_SPORTS=NFL,NCAAF
+ACTIVE = ["NFL"]
+_env = [s.strip().upper() for s in os.environ.get("EDGE_SPORTS", "").split(",") if s.strip()]
+ACTIVE = _env or ACTIVE
+SPORTS = {k: v for k, v in SPORTS.items() if v in ACTIVE}
 KEY_OF = {v: k for k, v in SPORTS.items()}
 SPREAD = {"americanfootball_nfl", "americanfootball_ncaaf", "basketball_nba", "icehockey_nhl"}
 TOTAL = SPREAD | {"baseball_mlb", "soccer_epl", "soccer_uefa_champs_league", "soccer_usa_mls"}
 VALID_SIDES = {"spread": {"home", "away"}, "total": {"over", "under"}, "h2h": {"home", "away"}}
+
+# The betting bar, by sport and market, in points (moneyline: win probability).
+# NFL sides use the higher bar when the gap between the line and the fair number
+# touches 3 or 7. A pick needs at least half the bar to be stamped at all; it is
+# a full-bar pick only at the full bar. Only full-bar picks can make a pattern official.
+BARS = {
+    ("NFL", "spread"): 1.5, ("NFL", "total"): 2.0,
+    ("NCAAF", "spread"): 2.5, ("NCAAF", "total"): 3.0,
+    ("NBA", "spread"): 2.0, ("NBA", "total"): 3.0,
+    ("NHL", "total"): 0.4, ("MLB", "total"): 0.5,
+    ("EPL", "total"): 0.3, ("UCL", "total"): 0.3, ("MLS", "total"): 0.3,
+}
+KEY_BAR = 2.5
+H2H_BAR = 0.03
+KEY_NUMBERS = (3, 7)
+
+
+def bar_for(sport, market, home_line=None, fair_home=None):
+    if market == "h2h":
+        return H2H_BAR
+    bar = BARS.get((sport, market), 2.0)
+    if sport == "NFL" and market == "spread" and home_line is not None:
+        lo, hi = sorted((home_line, fair_home))
+        if any(lo <= s * k <= hi for k in KEY_NUMBERS for s in (1, -1)):
+            bar = KEY_BAR
+    return bar
 
 
 def api_key():
@@ -369,11 +402,15 @@ def make_pick(a):
         unit = "prob"
     if edge <= 0:
         fail(f"your projection gives this side no edge ({edge:+.2f} {unit}). Pick the other side or pass.")
+    bar = bar_for(row["sport"], market, snap.get("line"), proj if market == "spread" else None)
+    if edge < bar / 2:
+        fail(f"edge {edge:.2f} {unit} is under half the bar ({bar / 2:.2f}). Pass.")
+    full_bar = edge >= bar
 
     status = next((p.get("status") for p in ledger.get("patterns") or [] if p.get("id") == a.pattern), "shadow")
     if status == "retire":
         fail("that pattern is retired. A new idea needs a new pattern name.")
-    tier = "official" if status == "official" else "shadow"
+    tier = "official" if status == "official" and full_bar else "shadow"
     stake = min(float(a.stake), 1.0) if tier == "official" else 0.0
 
     picks = load(PICKS, {"picks": []})
@@ -385,13 +422,14 @@ def make_pick(a):
         "market": market, "side": a.side, "lineAtPick": line, "priceAtPick": price,
         "marketNumber": snap.get("line"), "priceTime": snap["time"], "pickedAt": now,
         "projection": proj, "edge": round(edge, 3), "edgeUnit": unit,
+        "bar": bar, "fullBar": full_bar,
         "confidence": a.confidence, "pattern": a.pattern, "reason": a.reason.strip(),
         "falsifier": a.falsifier.strip(), "modelVersion": VERSION, "tier": tier,
         "stakeUnits": stake,
     })
     save(PICKS, picks)
     print(json.dumps({"stamped": pick_id, "line": line, "price": price, "edge": round(edge, 3),
-                      "unit": unit, "tier": tier, "stakeUnits": stake}))
+                      "unit": unit, "bar": bar, "fullBar": full_bar, "tier": tier, "stakeUnits": stake}))
 
 
 def main():

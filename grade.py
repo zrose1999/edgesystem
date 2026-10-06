@@ -10,7 +10,7 @@ What it measures, per pick:
 
 Patterns (named ideas in patterns.md) move on evidence only:
   shadow   default. Tracked, no money.
-  official n >= OFFICIAL_N graded picks, mean clvProb > 0, and t-stat >= T_MIN.
+  official n >= OFFICIAL_N graded FULL-BAR picks, mean clvProb > 0, and t-stat >= T_MIN.
   retire   n >= OFFICIAL_N and mean clvProb <= 0. Retired patterns cannot take new picks.
 Win rate is shown but never promotes a pattern. Results are noise long before CLV is.
 
@@ -153,7 +153,9 @@ def main():
 
     patterns = []
     for name, group in sorted(groups.items()):
-        graded = [p["clvProb"] for p in group if "clvProb" in p]
+        # Only full-bar picks can make a pattern official. Half-bar picks are tracked separately.
+        graded = [p["clvProb"] for p in group if "clvProb" in p and p.get("fullBar", True)]
+        half = [p["clvProb"] for p in group if "clvProb" in p and not p.get("fullBar", True)]
         settled = [p for p in group if p.get("result") in ("win", "loss")]
         n = len(graded)
         mean = sum(graded) / n if n else 0.0
@@ -167,11 +169,12 @@ def main():
         patterns.append({
             "id": name, "status": status, "picks": len(group), "clvN": n,
             "meanClvProb": round(mean, 4), "tStat": round(t, 2),
+            "halfBarN": len(half), "halfBarMeanClv": round(sum(half) / len(half), 4) if half else None,
             "beatClose": sum(1 for v in graded if v > 0),
             "wins": sum(1 for p in settled if p["result"] == "win"),
             "losses": sum(1 for p in settled if p["result"] == "loss"),
             "flatUnits": round(sum(p.get("units", 0) for p in group), 2),
-            "note": f"Promotion needs {OFFICIAL_N} graded picks, mean CLV above 0, t at least {T_MIN}. Win rate never promotes.",
+            "note": f"Promotion needs {OFFICIAL_N} graded full-bar picks, mean CLV above 0, t at least {T_MIN}. Win rate never promotes.",
         })
 
     clv_all = [p["clvProb"] for p in picks["picks"] if "clvProb" in p]
