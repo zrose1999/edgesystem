@@ -97,16 +97,26 @@ function renderDesk(card) {
   });
 }
 
+function nextSaturday() {
+  const now = new Date();
+  const day = now.getDay();
+  const add = day === 6 ? 0 : (6 - day + 7) % 7;
+  const target = new Date(now.getFullYear(), now.getMonth(), now.getDate() + add);
+  const m = String(target.getMonth() + 1).padStart(2, "0");
+  const d = String(target.getDate()).padStart(2, "0");
+  return target.getFullYear() + "-" + m + "-" + d;
+}
+
 function renderSaturday(ledger) {
   const root = document.getElementById("saturday");
   root.textContent = "";
   const rows = (ledger && ledger.rows) || [];
+  const slate = nextSaturday();
   const saturday = rows.filter(function (row) {
-    const day = new Date(row.date + "T12:00:00").getDay();
-    return row.sport === "NCAAF" || day === 6;
+    return row.date === slate && (row.sport === "NCAAF" || row.sport === "NFL" || row.sport === "MLB");
   });
   const note = document.createElement("p");
-  note.textContent = "Saturday desk. NCAAF plus any row dated Saturday. A cover is not a sample. n counts only rows with a numeric open and close.";
+  note.textContent = "Saturday desk " + slate + ". Upcoming slate only. Backfill stays off this tab. n counts only rows with a numeric open and close.";
   root.appendChild(note);
   if (!saturday.length) {
     const box = document.createElement("div");
