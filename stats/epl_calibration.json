@@ -1,0 +1,37 @@
+{
+  "asOf": "2026-10-06T19:27:11Z",
+  "sport": "EPL",
+  "backtestGames": 368,
+  "kProb": 0.0,
+  "prob": {
+    "n": 368,
+    "logLossMarket": 1.02,
+    "logLossModel": 1.04,
+    "logLossBlend": 1.02
+  },
+  "moveProb": {
+    "kMove": -0.02,
+    "n": 368,
+    "se": 0.015
+  },
+  "kTotalProb": 0.0,
+  "totalProb": {
+    "n": 368,
+    "logLossMarket": 0.684,
+    "logLossModel": 0.7182,
+    "logLossBlend": 0.684
+  },
+  "moveTotalProb": {
+    "kMove": 0.024,
+    "n": 368,
+    "se": 0.02
+  },
+  "read": "k (kSide, kTotal, kProb) is how much of the model's gap from the closing market held up in results. 0 means the market already knows what these ratings know. kMove above 0 means the model's gap from the OPEN tended to be where the line moved by the close, which is the edge that beats the close. Use the fair numbers in matchups as given.",
+  "fetch": {
+    "seasons": [
+      "2526",
+      "2627"
+    ],
+    "games": 430
+  }
+}

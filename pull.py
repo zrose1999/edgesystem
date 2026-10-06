@@ -57,8 +57,9 @@ FLOOR = int(os.environ.get("EDGE_CREDIT_FLOOR", "300"))
 CREDITS = {"remaining": None, "used": None}
 SPORTS = {k: v for k, v in SPORTS.items() if v in ACTIVE}
 KEY_OF = {v: k for k, v in SPORTS.items()}
-SPREAD = {"americanfootball_nfl", "americanfootball_ncaaf", "basketball_nba", "icehockey_nhl"}
-TOTAL = SPREAD | {"baseball_mlb", "soccer_epl", "soccer_uefa_champs_league", "soccer_usa_mls"}
+SPREAD = {"americanfootball_nfl", "americanfootball_ncaaf", "basketball_nba"}
+# Hockey's main market is the moneyline; the puck line is almost always 1.5.
+TOTAL = SPREAD | {"icehockey_nhl", "baseball_mlb", "soccer_epl", "soccer_uefa_champs_league", "soccer_usa_mls"}
 VALID_SIDES = {"spread": {"home", "away"}, "total": {"over", "under"}, "h2h": {"home", "away"}}
 
 # The betting bar, by sport and market, in points (moneyline: win probability).
@@ -73,6 +74,9 @@ BARS = {
     ("EPL", "total"): 0.3, ("UCL", "total"): 0.3, ("MLS", "total"): 0.3,
 }
 KEY_BAR = 2.5
+# Goal and run totals are priced mostly through the odds (5.5 at -135), so for these sports
+# a total pick's projection is the fair probability of the OVER and the edge is in probability.
+PROB_TOTALS = {"NHL", "EPL", "UCL", "MLS", "MLB"}
 H2H_BAR = 0.03
 KEY_NUMBERS = (3, 7)
 
@@ -407,8 +411,11 @@ def make_pick(a):
         proj = float(a.projection)
     except ValueError:
         fail("projection must be a number")
+    prob_total = market == "total" and row["sport"] in PROB_TOTALS
     if market == "h2h" and not 0 < proj < 1:
         fail("for moneyline, projection is your win probability for the side picked, between 0 and 1")
+    if prob_total and not 0 < proj < 1:
+        fail(f"for {row['sport']} totals, projection is the fair probability of the OVER, between 0 and 1")
 
     price = snap[a.side]
     if market == "spread":
@@ -416,6 +423,10 @@ def make_pick(a):
         line = snap["line"] if a.side == "home" else -snap["line"]
         edge = snap["line"] - proj if a.side == "home" else proj - snap["line"]
         unit = "points"
+    elif prob_total:
+        line = snap["line"]
+        edge = (proj if a.side == "over" else 1 - proj) - implied(price)
+        unit = "prob"
     elif market == "total":
         line = snap["line"]
         edge = proj - line if a.side == "over" else line - proj
@@ -426,9 +437,10 @@ def make_pick(a):
         unit = "prob"
     if edge <= 0:
         fail(f"your projection gives this side no edge ({edge:+.2f} {unit}). Pick the other side or pass.")
-    bar = bar_for(row["sport"], market, snap.get("line"), proj if market == "spread" else None)
+    bar = H2H_BAR if prob_total else bar_for(row["sport"], market, snap.get("line"), proj if market == "spread" else None)
     if edge < bar / 2:
-        fail(f"edge {edge:.2f} {unit} is under half the bar ({bar / 2:.2f}). Pass.")
+        d = 3 if unit == "prob" else 2
+        fail(f"edge {edge:.{d}f} {unit} is under half the bar ({bar / 2:.{d}f}). Pass.")
     full_bar = edge >= bar
 
     status = next((p.get("status") for p in ledger.get("patterns") or [] if p.get("id") == a.pattern), "shadow")
@@ -464,7 +476,7 @@ def main():
     p.add_argument("--id", required=True, help="row id: sport|date|event|market")
     p.add_argument("--side", required=True, help="home/away for spread and moneyline, over/under for total")
     p.add_argument("--projection", required=True,
-                   help="spread: fair HOME line (-4.5 = home by 4.5). total: fair total. moneyline: win prob of the side picked")
+                   help="spread: fair HOME line (-4.5 = home by 4.5). total: fair total (NHL, soccer, MLB: fair probability of the OVER). moneyline: win prob of the side picked")
     p.add_argument("--confidence", required=True, choices=["low", "medium", "high"])
     p.add_argument("--pattern", required=True, help="pattern name, defined in patterns.md")
     p.add_argument("--reason", required=True)
