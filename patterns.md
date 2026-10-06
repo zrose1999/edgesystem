@@ -22,6 +22,7 @@ Retire early if: totals already move the full amount before the forecast firms u
 
 ## luck-reversion
 
+Status: parked until k is above 0. Do not stamp.
 Idea: teams whose record runs well ahead of or behind their efficiency (turnover margin, one-score games) are priced toward the record.
 Applies: a gap between record and efficiency that the reason can name.
 Retire early if: CLV is flat after 30 picks.
