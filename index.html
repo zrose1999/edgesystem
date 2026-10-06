@@ -1,45 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EDGE · Gumdrop</title>
-  <style>
-    :root { color-scheme: dark; }
-    body { margin: 0; font: 15px/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: #0c0f0c; color: #d7e0d2; }
-    header, main { max-width: 880px; margin: 0 auto; padding: 24px 18px; }
-    h1 { font-size: 20px; letter-spacing: 0.08em; margin: 0 0 6px; }
-    h2 { font-size: 14px; letter-spacing: 0.06em; color: #8ea08a; }
-    .sub { color: #8ea08a; margin-bottom: 8px; }
-    .meta { color: #6d7c69; font-size: 12px; margin-bottom: 12px; }
-    nav { display: flex; gap: 8px; margin: 8px 0 16px; }
-    nav button { background: #121712; color: #d7e0d2; border: 1px solid #3d4a38; padding: 6px 10px; font: inherit; }
-    nav button.on { color: #e2b34b; border-color: #e2b34b; }
-    .pass { border: 1px solid #3d4a38; padding: 12px 14px; margin: 10px 0; background: #121712; }
-    .tag { color: #e2b34b; }
-    .kill { color: #e07a7a; }
-    .win { color: #8fce7a; }
-    footer { color: #6d7c69; font-size: 12px; margin-top: 22px; }
-    #nl-badge-frame { display: none !important; }
-  </style>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>EDGE — Gumdrop</title>
+<style>
+:root{--bg:#070b14;--panel:#101a2c;--ink:#e7eef8;--muted:#8ea0bb;--line:#24344d;--gold:#e8c36a;--chip:#18263d}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:ui-sans-serif,system-ui,sans-serif;background:radial-gradient(800px 360px at 0% -10%,rgba(232,195,106,.14),transparent 50%),#070b14;min-height:100vh}
+.wrap{max-width:1080px;margin:0 auto;padding:22px 16px 72px}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.brand{font-weight:800;letter-spacing:.16em;font-size:28px;color:var(--gold)}
+.sub{color:var(--muted);font-size:12px;margin-top:4px}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:18px 0}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.kpi .l{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.kpi .n{font-size:22px;font-weight:800;margin-top:4px}
+.sec{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin:10px 0;overflow:hidden}
+.hd{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;cursor:pointer;user-select:none}
+.hd h2{margin:0;font-size:14px;letter-spacing:.04em;text-transform:uppercase;color:var(--gold)}
+.hd .meta{color:var(--muted);font-size:12px}
+.body{display:none;padding:0 14px 14px;border-top:1px solid var(--line)}
+.sec.open .body{display:block;overflow-x:auto}
+.row{display:grid;grid-template-columns:1.4fr .7fr .5fr .7fr;gap:8px;padding:10px 0;border-bottom:1px solid #1b2a40;font-size:13px}
+.row:last-child{border-bottom:none}
+.why{color:var(--muted);font-size:12px;line-height:1.45;margin:4px 0 0}
+.tag{display:inline-block;font-size:10px;font-weight:800;padding:2px 7px;border-radius:99px;background:var(--chip)}
+.play{color:#5ff0b5}.hold{color:#9cc2ff}.kill{color:#ff8a96}.pass{color:#c5d3e8}
+.hi{color:var(--gold)}.lo{color:var(--muted)}
+.scroll{overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch;padding-bottom:10px}
+table{width:max-content;min-width:860px;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:7px 6px;border-bottom:1px solid #1b2a40;vertical-align:top;white-space:nowrap}
+td.why{white-space:normal;min-width:220px}
+th{color:#9fb3d1;font-size:10px;text-transform:uppercase;letter-spacing:.06em}
+.chipbar{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 12px}
+.chip{background:#0c1626;border:1px solid var(--line);border-radius:99px;padding:4px 10px;font-size:11px;cursor:pointer;color:var(--muted)}
+.chip.on{border-color:var(--gold);color:var(--gold)}
+.bookgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin:8px 0 12px}
+.book{background:#0c1626;border:1px solid var(--line);border-radius:10px;padding:10px}
+.book .n{font-weight:800}
+.filters{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0;align-items:center}
+select,input[type=date]{background:#0c1626;color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:5px 7px}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0 12px}
+.rbox{background:#0c1626;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.rbox .l{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.rbox .n{font-size:22px;font-weight:800;margin-top:4px}
+.buck{border:1px solid var(--line);border-radius:10px;margin:8px 0;overflow:hidden}
+.buck .bh{display:flex;justify-content:space-between;gap:8px;padding:9px 11px;cursor:pointer}
+.buck .bb{display:none;padding:0 11px 10px;border-top:1px solid #1b2a40}
+.buck.open .bb{display:block}
+h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin:14px 0 6px}
+@media(max-width:800px){.kpis,.rgrid{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr 1fr}}
+#nl-badge-frame{display:none!important}</style>
 </head>
 <body>
-  <header>
-    <h1 id="title">EDGE · Gumdrop</h1>
-    <div class="sub" id="sub">Loading desk…</div>
-    <div class="meta" id="meta">Backend: GitHub data branch. Shell does not redeploy for a stamp.</div>
-    <nav>
-      <button type="button" data-tab="desk" class="on">Desk</button>
-      <button type="button" data-tab="saturday">Saturday</button>
-      <button type="button" data-tab="nfl">NFL</button>
-    </nav>
-  </header>
-  <main>
-    <section id="desk">Loading card…</section>
-    <section id="saturday" hidden>Loading Saturday desk…</section>
-    <section id="nfl" hidden>Loading NFL tab…</section>
-    <footer>Not a wager. Prices are public prints. Official is open beat close and n>=5. A cover is not a sample.</footer>
-  </main>
-  <script src="desk.js"></script>
+<div class="wrap">
+  <div class="top">
+    <div><div class="brand">EDGE</div><div class="sub" id="asof">Gumdrop desk · loading</div></div>
+    <div class="sub">click a bar to expand</div>
+  </div>
+  <div class="kpis" id="kpis"></div>
+  <div class="chipbar" id="tabs"><button class="chip on" data-tab="desk">Desk</button><button class="chip" data-tab="nfl">NFL insight</button><button class="chip" data-tab="ledger">Ledger</button></div>
+  <div id="desk"></div>
+</div>
+<script>
+function tag(a){const k=(a||"").toLowerCase();const c=k==="kill"?"kill":k==="hold"?"hold":k==="play"?"play":"pass";return `<span class="tag ${c}">${a||"—"}</span>`;}
+function conf(c){return `<span class="tag ${c==="high"?"hi":"lo"}">${c||"—"}</span>`;}
+function section(id,title,meta,html,open){return `<section class="sec ${open?"open":""}" id="${id}"><div class="hd" onclick="this.parentNode.classList.toggle('open')"><h2>${title}</h2><div class="meta">${meta}</div></div><div class="body">${html}</div></section>`;}
+function similar(sh,s){return sh.filter(r=>r.sport===s.sport&&r.market===s.market&&r.result&&r.result!=="pending").slice(-5);}
+function isW(r){const x=(r.result||"").toUpperCase();return x==="W"||x.startsWith("W ")||x.includes("W WOULD");}
+function isL(r){const x=(r.result||"").toUpperCase();return x==="L"||x.startsWith("L ");}
+function graded(list){return list.filter(r=>{const x=(r.result||"").toUpperCase();return x&&x!=="PENDING"&&!x.includes("KILL");}).sort((a,b)=>String(a.date).localeCompare(String(b.date)));}
+function wl(list){const g=graded(list);let w=0,l=0;g.forEach(r=>{if(isW(r))w++;else if(isL(r))l++;});return {w,l,txt:w+"-"+l};}
+function lastN(list,n){return wl(graded(list).slice(-n));}
+function daysAgo(dateStr,n){const d=new Date(dateStr+"T12:00:00");d.setDate(d.getDate()-n);return d.toISOString().slice(0,10);}
+function settledStreet(s){const x=(s.result||"").toLowerCase();return x&&x!=="pending";}
+function normStreet(extra, cardStreet){
+  const pack = extra && extra.plays ? extra : {books:[], plays: Array.isArray(extra)?extra:[], lanes:["Guru","Sales","Reddit","Kalshi","Polymarket"]};
+  const extraPlays = pack.plays||[];
+  const cardPlays = Array.isArray(cardStreet)?cardStreet:(cardStreet&&cardStreet.plays)||[];
+  const seen=new Set(); const plays=[];
+  [...extraPlays,...cardPlays].forEach(s=>{const k=[s.date,s.source,s.lean].join("|"); if(seen.has(k)) return; seen.add(k); plays.push(s);});
+  const books = pack.books && pack.books.length ? pack.books : [];
+  return {lanes: pack.lanes||["Guru","Sales","Reddit","Kalshi","Polymarket"], books, plays};
+}
+function stRow(s){return `<div class="row"><div><b>${s.lean}</b><div class="why">${s.source||""} · ${s.why||""}${s.autopsy?" · "+s.autopsy:""}${s.final?" · final "+s.final:""}${s.size?" · "+s.size:""}</div></div><div>${s.platform||""}</div><div>${s.date}</div><div>${s.result||"live"}</div></div>`;}
+function streetView(pack, lane){
+  const books=pack.books.filter(b=>!lane||lane==="All"||b.lane===lane);
+  const plays=pack.plays.filter(s=>{
+    if(!lane||lane==="All") return true;
+    const b=pack.books.find(x=>x.id===s.book);
+    return (b&&b.lane===lane) || s.platform===lane || s.tag===lane;
+  });
+  const live=plays.filter(s=>!settledStreet(s));
+  const settled=plays.filter(settledStreet);
+  const bookHtml=books.length?`<div class="bookgrid">${books.map(b=>`<div class="book"><div class="n">${b.name}</div><div class="why">${b.w}-${b.l}${b.p?` · ${b.p} live`:""} · ${b.platform}</div><div class="why">${b.note||""}</div></div>`).join("")}</div>`:`<div class="why">No tracked books in this lane yet.</div>`;
+  const chips=["All",...pack.lanes].map(l=>`<button class="chip ${l===lane?"on":""}" data-lane="${l}">${l}</button>`).join("");
+  return `<p class="why">Tap a lane. Cards are people/desks with a running W-L. Plays under them are not tickets.</p>
+    <div class="chipbar" id="lanebar">${chips}</div>
+    <h3>Books</h3>${bookHtml}
+    <h3>Live</h3>${live.length?live.map(stRow).join(""):`<div class="why">Nothing live in this lane.</div>`}
+    <h3>Settled</h3>${settled.length?settled.map(stRow).join(""):`<div class="why">Nothing graded in this lane.</div>`}`;
+}
+function normalize(d){
+  if (d && d.official && !Array.isArray(d.official) && d.official.exposureU != null) return d;
+  const plays = Array.isArray(d.official) ? d.official : [];
+  const shadows = Array.isArray(d.shadow) ? d.shadow : [];
+  const settled = Array.isArray(d.settled) ? d.settled : (Array.isArray(d.rows) ? d.rows : []);
+  const killed = Array.isArray(d.killed) ? d.killed : [];
+  const day = (d.asOfCt || d.stamp_ct || "").slice(0,10);
+  const mapRow = (s, fallback) => ({
+    date: s.date || day,
+    name: s.name || s.id || "",
+    sport: s.sport || "",
+    market: s.market || "",
+    sideType: s.sideType || "",
+    action: s.action || s.result || fallback,
+    result: s.result || "pending",
+    autopsy: s.autopsy || s.why || "",
+    final: s.final || "",
+    bucket: s.bucket || ""
+  });
+  return Object.assign({}, d, {
+    asOfCt: d.asOfCt || d.stamp_ct || "",
+    official: {
+      exposureU: Number(d.exposure_u || 0),
+      note: d.decision || "Official flat.",
+      openPlays: plays.map(p => ({
+        name: p.name || p.id || "",
+        why: p.why || "",
+        stakeU: p.stakeU || 0,
+        number: p.number || p.market || "",
+        confidence: "med"
+      }))
+    },
+    riskOn: d.riskOn || {exposureU: 0, plays: []},
+    suggestions: d.suggestions || [],
+    shadow: settled.map(s => mapRow(s, "settled")).concat(shadows.map(s => mapRow(s, "shadow"))).concat(killed.map(s => mapRow(s, "kill"))),
+    street: d.street || [],
+    buckets: d.buckets || [],
+    shadowScore: d.shadowScore || {}
+  });
+}
+function render(d, extraStreet){
+  const off=d.official, ro=d.riskOn||{exposureU:0,plays:[]}, sug=d.suggestions||[], sh=d.shadow||[];
+  const pack=normStreet(extraStreet, d.street);
+  window._streetPack=pack;
+  const street=pack.plays;
+  const today=(d.asOfCt||"").slice(0,10)||"2026-09-29";
+  const weekStart=daysAgo(today,7);
+  document.getElementById("asof").textContent=`Gumdrop desk · ${d.asOfCt}`;
+  document.getElementById("kpis").innerHTML=`\n    <div class="kpi"><div class="l">Official</div><div class="n">${off.exposureU.toFixed(1)}u</div></div>\n    <div class="kpi"><div class="l">Risk-on</div><div class="n">${(ro.exposureU||0).toFixed(1)}u</div></div>\n    <div class="kpi"><div class="l">Shadow</div><div class="n">${sh.length}</div></div>\n    <div class="kpi"><div class="l">Rainman</div><div class="n">${sug.length}</div></div>\n    <div class="kpi"><div class="l">Street</div><div class="n">${street.length}</div></div>`;
+  const liveTix=[...(off.openPlays||[]).map(p=>({...p,book:"official"})),...(ro.plays||[]).map(p=>({...p,book:"risk-on"}))];
+  const liveHtml=liveTix.length?liveTix.map(p=>`<div class="row"><div><b>${p.name}</b><div class="why">${p.why||p.note||""}</div></div><div>${p.book} · ${p.stakeU||0}u</div><div>${conf(p.confidence)}</div><div>${p.number||""}</div></div>`).join(""):`<div class="why">${off.note||"Official flat."}</div>`;
+  const rainHtml=sug.map(s=>{
+    const last=similar(sh,s);
+    const hist=last.length?last.map(r=>`${r.date} ${r.name} ${r.result}${r.autopsy?" · "+r.autopsy:""}`).join(" | "):"no settled shape yet";
+    return `<div class="row"><div><b>${s.event}</b><div class="why">${s.lean} — ${s.why}</div><div class="why">last similar: ${hist}</div></div><div>${s.sport} · ${s.market}</div><div>${conf(s.confidence)}</div><div>${s.status}</div></div>`;
+  }).join("")||`<div class="why">No leans parked.</div>`;
+  const settledSt=street.filter(settledStreet);
+  const liveSt=street.filter(s=>!settledStreet(s));
+  const streetHtml=streetView(pack, window._streetLane||"Guru");
+  const all=wl(sh), l10=lastN(sh,10), l5=lastN(sh,5);
+  const ss=d.shadowScore||{};
+  const buckHtml=(d.buckets||[]).map(b=>{
+    const rows=sh.filter(r=>r.bucket===b.id);
+    const o=wl(rows), o10=lastN(rows,10), o5=lastN(rows,5);
+    return `<div class="buck"><div class="bh" onclick="this.parentNode.classList.toggle('open')"><div><b>${b.label}</b><div class="why">${o.txt} · L10 ${o10.txt} · L5 ${o5.txt}</div></div><div class="why">tap</div></div><div class="bb"><div class="why">${b.habit||""}</div><div class="why">Official ${b.official?b.official.w+"-"+b.official.l:"0-0"} · +CLV shadow ${b.shadow?b.shadow.clvPlus:0}</div></div></div>`;
+  }).join("");
+  const recHtml=`<div class="rgrid">\n      <div class="rbox"><div class="l">Overall</div><div class="n">${all.txt}</div></div>\n      <div class="rbox"><div class="l">L10</div><div class="n">${l10.txt}</div></div>\n      <div class="rbox"><div class="l">L5</div><div class="n">${l5.txt}</div></div>\n    </div>\n    <p class="why">Shadow graded W-L. KILLs and pending out. Tap a bucket.</p>\n    ${ss.wouldHave?`<p class="why">Would-have ${ss.wouldHave.w}-${ss.wouldHave.l}</p>`:""}\n    ${buckHtml}`;
+  const sports=[...new Set(sh.map(r=>r.sport).filter(Boolean))];
+  const mkts=[...new Set(sh.map(r=>r.market).filter(Boolean))];
+  const sides=[...new Set(sh.map(r=>r.sideType).filter(Boolean))];
+  const shTable=list=>`<div class="scroll"><table><thead><tr><th>Date</th><th>Side</th><th>Sport</th><th>Type</th><th>F/D</th><th></th><th>Res</th><th>Autopsy</th></tr></thead><tbody>${list.map(r=>`<tr><td>${r.date}</td><td>${r.name}</td><td>${r.sport||""}</td><td>${r.market||""}</td><td>${r.sideType||""}</td><td>${tag(r.action)}</td><td>${r.result}</td><td class="why">${r.autopsy||r.note||""}${r.final?" · "+r.final:""}</td></tr>`).join("")}</tbody></table></div>`;
+  const applySh=()=>{
+    const day=document.getElementById("fday").value;
+    const allw=document.getElementById("fall").checked;
+    let list=sh;
+    if(day) list=list.filter(r=>r.date===day);
+    else if(!allw) list=list.filter(r=>r.date>=weekStart);
+    const f={sport:document.getElementById("fs").value,market:document.getElementById("fm").value,sideType:document.getElementById("fd").value};
+    list=list.filter(r=>(!f.sport||r.sport===f.sport)&&(!f.market||r.market===f.market)&&(!f.sideType||r.sideType===f.sideType));
+    document.getElementById("shtable").innerHTML=list.length?shTable(list):`<div class="why">No rows for that day/filter.</div>`;
+  };
+  const shadowHtml=`<div class="filters">\n    <input type="date" id="fday" min="${weekStart}" max="${today}" />\n    <label class="why"><input type="checkbox" id="fall"/> all dates</label>\n    <select id="fs"><option value="">Sport</option>${sports.map(s=>`<option>${s}</option>`).join("")}</select>\n    <select id="fm"><option value="">Type</option>${mkts.map(s=>`<option>${s}</option>`).join("")}</select>\n    <select id="fd"><option value="">Fav/dog</option>${sides.map(s=>`<option>${s}</option>`).join("")}</select>\n  </div><p class="why">Default last 7 days (${weekStart} → ${today}). Pick one day to search. Check all dates only for 9/21 archive.</p><div id="shtable"></div>`;
+  
+  const nfl = d.nflInsight || window._nfl || {};
+  const nflGames = nfl.games || nfl.slate || [];
+  const nflRows = (sh||[]).filter(r => String(r.sport||"").toUpperCase()==="NFL" || /NFL|SNF|inactives/i.test((r.name||"")+" "+(r.autopsy||"")));
+  const nflHtml = `<p class="why">${nfl.note || nfl.headline || "No NFL writeup on this stamp."}</p>`
+    + `<div class="chipbar"><span class="chip on">Inactives ${nfl.inactives || "—"}</span><span class="chip">Week ${nfl.week || "—"}</span></div>`
+    + (nflGames.length ? nflGames.map(g => `<div class="row"><div><b>${g.matchup || g.name || ""}</b><div class="why">${g.insight || g.why || ""}</div></div><div>${g.market || ""}</div><div>${g.number || ""}</div><div>${tag(g.action || g.lean || "")}</div></div>`).join("") : `<div class="why">No slate rows in nfl.json yet.</div>`)
+    + (nflRows.length ? `<p class="why">From the card</p>` + nflRows.map(r => `<div class="row"><div><b>${r.name}</b><div class="why">${r.autopsy || ""}</div></div><div>${r.market||""}</div><div>${r.date||""}</div><div>${tag(r.action||r.result||"")}</div></div>`).join("") : "");
+  document.getElementById("desk").innerHTML=
+    section("live","Live tickets", liveTix.length+" open", liveHtml, true)+
+    section("nfl","NFL insight", (nflGames.length||0)+" games · inactives "+(nfl.inactives||"—"), nflHtml, true)+
+    section("rain","Rainman", sug.length+" parked", rainHtml, true)+
+    section("x","Street", settledSt.length+" settled · "+liveSt.length+" live", streetHtml, true)+
+    section("rec","Running records", all.txt+" · L10 "+l10.txt, recHtml, false)+
+    section("sh","Shadow log", "last 7 · searchable by day", shadowHtml, false)+
+    section("ledger","Ledger", "loading", `<div class="why">Loading ledger.json</div>`, false);
+  const tabs=document.getElementById("tabs");
+  if(tabs) tabs.onclick=e=>{
+    const btn=e.target.closest("[data-tab]");
+    if(!btn) return;
+    tabs.querySelectorAll(".chip").forEach(c=>c.classList.remove("on"));
+    btn.classList.add("on");
+    const id=btn.getAttribute("data-tab")==="nfl"?"nfl":btn.getAttribute("data-tab")==="ledger"?"ledger":"live";
+    const sec=document.getElementById(id);
+    if(sec){sec.classList.add("open"); sec.scrollIntoView({behavior:"smooth", block:"start"});}
+  };
+
+  ["fday","fall","fs","fm","fd"].forEach(id=>{const el=document.getElementById(id); if(el) el.onchange=applySh;});
+  applySh();
+  const bar=document.getElementById("lanebar");
+  if(bar) bar.onclick=e=>{
+    const btn=e.target.closest("[data-lane]");
+    if(!btn) return;
+    window._streetLane=btn.getAttribute("data-lane");
+    const sec=document.querySelector("#x .body");
+    if(sec) sec.innerHTML=streetView(window._streetPack, window._streetLane);
+    const nb=document.getElementById("lanebar");
+    if(nb) nb.onclick=bar.onclick;
+  };
+}
+Promise.all([
+  fetch("https://raw.githubusercontent.com/zrose1999/edgesystem/data/card.json?t="+Date.now()).then(r=>r.json()),
+  fetch("street.json?t="+Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[]),
+  fetch("https://raw.githubusercontent.com/zrose1999/edgesystem/data/nfl.json?t="+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({})),
+  fetch("nfl.json?t="+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({}))
+]).then(([d,st,remote,local])=>{window._nfl=(remote.games&&remote.games.length)?remote:local; return render(normalize(d),st);}).then(loadLedger).catch(()=>{document.getElementById("asof").textContent="Could not load card.json";});
+function loadLedger(){
+  return Promise.all([
+    fetch("https://raw.githubusercontent.com/zrose1999/edgesystem/data/ledger/ledger.json?t="+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({})),
+    fetch("ledger.json?t="+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({}))
+  ]).then(([remote,local])=>{
+    const led=(remote.rows&&remote.rows.length)?remote:local;
+    const rows=led.rows||[];
+    const gurus=led.gurus||[];
+    const bucket=r=>r.bucket||"pass";
+    const count=b=>rows.filter(r=>bucket(r)===b).length;
+    const clv=rows.filter(r=>r.clv&&!String(r.clv).includes("missing")&&!String(r.clv).includes("empty"));
+    const board=`<div class="chipbar"><span class="chip on">Official ${count("official")}</span><span class="chip">Shadow ${count("shadow")}</span><span class="chip">Pass ${count("pass")}</span><span class="chip">CLV pairs ${clv.length}</span></div>`
+      +`<p class="why">${led.law||""} Viable only if the open beat the close and the sample is at least 5. A pass that would have won stays a pass.</p>`
+      +`<p class="why">${led.gap||""}</p>`;
+    const table=`<div class="scroll"><table><thead><tr><th>Date</th><th>Sport</th><th>Event</th><th>Open</th><th>Close</th><th>CLV</th><th>Injury</th><th>Weather</th><th>Bucket</th></tr></thead><tbody>`
+      +rows.slice(0,80).map(r=>`<tr><td>${r.date||""}</td><td>${r.sport||""}</td><td>${r.event||""}</td><td>${r.open||""}</td><td>${r.close||""}</td><td>${r.clv||""}</td><td>${r.injury||""}</td><td>${r.weather||""}</td><td>${bucket(r)}</td></tr>`).join("")
+      +`</tbody></table></div>`;
+    const guruHtml=gurus.length?gurus.map(g=>`<div class="row"><div><b>${g.account||""}</b><div class="why">${g.note||""}</div></div><div>${g.number||""}</div><div>${g.result||""}</div><div>${g.clv||""}</div></div>`).join(""):`<div class="why">No guru rows yet. A tout is logged with the account, the number, and the result. Kept only after 20 settled calls beat the close.</div>`;
+    const sec=document.getElementById("ledger");
+    if(sec){
+      const meta=sec.querySelector(".meta");
+      if(meta) meta.textContent=rows.length+" rows · "+(led.asOfCt||"");
+      const body=sec.querySelector(".body");
+      if(body) body.innerHTML=board+table+`<p class="why">Gurus</p>`+guruHtml;
+    }
+  });
+}
+</script>
 </body>
 </html>
