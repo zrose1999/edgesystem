@@ -3,7 +3,7 @@
 
 n counts only rows with a numeric openLine and a numeric closeLine.
 A cover board is not a sample. Backfill with one print stays pass.
-Official only if the open beat the close and n is at least 5.
+Price sample groups by sport and market, not by team. Official if n is at least 5 and the open beat the close more often than not. A suggestion is a separate row.
 """
 
 import json
@@ -105,16 +105,17 @@ def grade(rows):
         row["clv"] = str(row["clvPoints"]) + " pt"
         beat = points > 0 or (points == 0 and cents is not None and cents > 0)
         row["openBeatClose"] = beat
-        groups[(row.get("sport"), row.get("market"), row.get("side"))].append(row)
+        # The read is the sample. The team name is not.
+        groups[(row.get("sport"), row.get("market"), "price")].append(row)
     patterns = []
     for key, group in sorted(groups.items(), key=lambda item: -len(item[1])):
         n = len(group)
         beats = sum(1 for row in group if row.get("openBeatClose"))
-        official = n >= 5 and beats == n
+        official = n >= 5 and beats > n / 2
         for row in group:
             if official and row.get("openBeatClose"):
                 row["bucket"] = "official"
-            elif row.get("bucket") != "pass":
+            else:
                 row["bucket"] = "shadow"
         patterns.append({
             "id": "|".join(str(part) for part in key),
@@ -153,7 +154,7 @@ def main():
     ledger["law"] = (
         "Row id is sport|date|event|market. First print writes open and is never overwritten. "
         "Close is the last number before start. A candidate is not a close. A result board is not a close. "
-        "grade.py computes n. The model does not. Official only if the open beat the close and n is at least 5."
+        "grade.py computes n. The model does not. Price sample groups by sport and market, not by team. Official if n is at least 5 and the open beat the close more often than not. A suggestion is a separate row."
     )
     ledger["gap"] = (
         "Backfill has no numeric close. pricedN is the only sample. Cover notes are not n. Official stays 0-0 until a row has both prices."

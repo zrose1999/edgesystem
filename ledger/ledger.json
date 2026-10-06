@@ -1,129 +1,122 @@
 {
   "asOfCt": "2026-10-06T16:04:00Z",
-  "law": "Row id is sport|date|event|market. First print writes open and is never overwritten. Close is the last number before start. A candidate is not a close. A result board is not a close. grade.py computes n. The model does not. Official only if the open beat the close and n is at least 5.",
+  "law": "Row id is sport|date|event|market. First print writes open and is never overwritten. Close is the last number before start. A candidate is not a close. A result board is not a close. grade.py computes n. The model does not. Price sample groups by sport and market, not by team. Official if n is at least 5 and the open beat the close more often than not. A suggestion is a separate row.",
   "gap": "Backfill has no numeric close. pricedN is the only sample. Cover notes are not n. Official stays 0-0 until a row has both prices.",
   "patterns": [
     {
-      "id": "NFL|total|under",
-      "n": 8,
+      "id": "NFL|total|price",
+      "n": 11,
       "beat": 4,
       "official": false,
       "note": "Priced sample only. n under 5 stays shadow."
     },
     {
-      "id": "NFL|total|over",
-      "n": 3,
-      "beat": 0,
-      "official": false,
-      "note": "Priced sample only. n under 5 stays shadow."
-    },
-    {
-      "id": "NFL|CLE +2.5|CLE",
+      "id": "NFL|CLE +2.5|price",
       "n": 1,
       "beat": 0,
       "official": false,
       "note": "Priced sample only. n under 5 stays shadow."
     },
     {
-      "id": "NFL|IND -4.5|IND",
+      "id": "NFL|IND -4.5|price",
       "n": 1,
       "beat": 0,
       "official": false,
       "note": "Priced sample only. n under 5 stays shadow."
     },
     {
-      "id": "NFL|NYG +2.5|NYG",
+      "id": "NFL|NYG +2.5|price",
       "n": 1,
       "beat": 0,
       "official": false,
       "note": "Priced sample only. n under 5 stays shadow."
     },
     {
-      "id": "NFL|DAL +2.5|DAL",
+      "id": "NFL|DAL +2.5|price",
       "n": 1,
       "beat": 0,
       "official": false,
       "note": "Priced sample only. n under 5 stays shadow."
     },
     {
-      "id": "NFL|GB -3|GB",
+      "id": "NFL|GB -3|price",
       "n": 1,
       "beat": 0,
       "official": false,
       "note": "Priced sample only. n under 5 stays shadow."
     },
     {
-      "id": "NFL|JAX +2.5|JAX",
+      "id": "NFL|JAX +2.5|price",
       "n": 1,
       "beat": 0,
       "official": false,
       "note": "Priced sample only. n under 5 stays shadow."
     },
     {
-      "id": "NFL|LAR -3.5|LAR",
+      "id": "NFL|LAR -3.5|price",
       "n": 1,
       "beat": 0,
       "official": false,
       "note": "Priced sample only. n under 5 stays shadow."
     },
     {
-      "id": "NFL|NE +7|NE",
+      "id": "NFL|NE +7|price",
       "n": 1,
       "beat": 0,
       "official": false,
       "note": "Priced sample only. n under 5 stays shadow."
     },
     {
-      "id": "NFL|CHI -3.5|CHI",
+      "id": "NFL|CHI -3.5|price",
       "n": 1,
       "beat": 0,
       "official": false,
       "note": "Priced sample only. n under 5 stays shadow."
     },
     {
-      "id": "NFL|TEN +11.5|TEN",
+      "id": "NFL|TEN +11.5|price",
       "n": 1,
       "beat": 0,
       "official": false,
       "note": "Priced sample only. n under 5 stays shadow."
     },
     {
-      "id": "NFL|MIA +9.5|MIA",
+      "id": "NFL|MIA +9.5|price",
       "n": 1,
       "beat": 0,
       "official": false,
       "note": "Priced sample only. n under 5 stays shadow."
     },
     {
-      "id": "NFL|SF -2.5|SF",
+      "id": "NFL|SF -2.5|price",
       "n": 1,
       "beat": 1,
       "official": false,
       "note": "Priced sample only. n under 5 stays shadow."
     },
     {
-      "id": "NFL|LV +4.5|LV",
+      "id": "NFL|LV +4.5|price",
       "n": 1,
       "beat": 0,
       "official": false,
       "note": "Priced sample only. n under 5 stays shadow."
     },
     {
-      "id": "NFL|SEA -7|SEA",
+      "id": "NFL|SEA -7|price",
       "n": 1,
       "beat": 0,
       "official": false,
       "note": "Priced sample only. n under 5 stays shadow."
     },
     {
-      "id": "NFL|CAR +3.5|CAR",
+      "id": "NFL|CAR +3.5|price",
       "n": 1,
       "beat": 0,
       "official": false,
       "note": "Priced sample only. n under 5 stays shadow."
     },
     {
-      "id": "NFL|NO -1.5 / 47.5|Saints",
+      "id": "NFL|NO -1.5 / 47.5|price",
       "n": 1,
       "beat": 0,
       "official": false,
@@ -579,7 +572,7 @@
       "closeTime": "2026-10-02T00:05:36Z",
       "injury": "missing",
       "weather": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "id": "NFL|2026-10-01|W4 PIT 24, CLE 27|CLE +2.5",
       "side": "CLE",
       "openLine": 2.5,
@@ -608,7 +601,7 @@
       "closeTime": "2026-10-04T13:15:36Z",
       "injury": "missing",
       "weather": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "id": "NFL|2026-10-04|W4 IND 30, WSH 13|IND -4.5",
       "side": "IND",
       "openLine": -4.5,
@@ -637,7 +630,7 @@
       "closeTime": "2026-10-04T16:45:36Z",
       "injury": "missing",
       "weather": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "id": "NFL|2026-10-04|W4 NYG 36, ARI 24|NYG +2.5",
       "side": "NYG",
       "openLine": 2.5,
@@ -666,7 +659,7 @@
       "closeTime": "2026-10-04T16:45:36Z",
       "injury": "missing",
       "weather": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "id": "NFL|2026-10-04|W4 DAL 34, HOU 30|DAL +2.5",
       "side": "DAL",
       "openLine": 2.5,
@@ -695,7 +688,7 @@
       "closeTime": "2026-10-04T16:45:36Z",
       "injury": "missing",
       "weather": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "id": "NFL|2026-10-04|W4 GB 17, TB 14|GB -3",
       "side": "GB",
       "openLine": -3.0,
@@ -724,7 +717,7 @@
       "closeTime": "2026-10-04T16:45:36Z",
       "injury": "missing",
       "weather": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "id": "NFL|2026-10-04|W4 JAX 22, CIN 17|JAX +2.5",
       "side": "JAX",
       "openLine": 2.5,
@@ -753,7 +746,7 @@
       "closeTime": "2026-10-04T16:45:36Z",
       "injury": "missing",
       "weather": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "id": "NFL|2026-10-04|W4 LAR 24, PHI 20|LAR -3.5",
       "side": "LAR",
       "openLine": -3.5,
@@ -782,7 +775,7 @@
       "closeTime": "2026-10-04T16:45:36Z",
       "injury": "missing",
       "weather": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "id": "NFL|2026-10-04|W4 NE 29, BUF 26|NE +7",
       "side": "NE",
       "openLine": 7.0,
@@ -811,7 +804,7 @@
       "closeTime": "2026-10-04T16:45:36Z",
       "injury": "missing",
       "weather": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "id": "NFL|2026-10-04|W4 CHI 23, NYJ 12|CHI -3.5",
       "side": "CHI",
       "openLine": -3.5,
@@ -840,7 +833,7 @@
       "closeTime": "2026-10-04T16:45:36Z",
       "injury": "missing",
       "weather": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "id": "NFL|2026-10-04|W4 BAL 24, TEN 18|TEN +11.5",
       "side": "TEN",
       "openLine": 11.5,
@@ -869,7 +862,7 @@
       "closeTime": "2026-10-04T19:55:36Z",
       "injury": "missing",
       "weather": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "id": "NFL|2026-10-04|W4 MIN 15, MIA 10|MIA +9.5",
       "side": "MIA",
       "openLine": 9.5,
@@ -898,7 +891,7 @@
       "closeTime": "2026-10-04T19:55:36Z",
       "injury": "missing",
       "weather": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "id": "NFL|2026-10-04|W4 SF 24, DEN 14|SF -2.5",
       "side": "SF",
       "openLine": -2.5,
@@ -927,7 +920,7 @@
       "closeTime": "2026-10-04T19:55:36Z",
       "injury": "missing",
       "weather": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "id": "NFL|2026-10-04|W4 KC 30, LV 27|LV +4.5",
       "side": "LV",
       "openLine": 4.5,
@@ -956,7 +949,7 @@
       "closeTime": "2026-10-04T19:55:36Z",
       "injury": "missing",
       "weather": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "id": "NFL|2026-10-04|W4 SEA 30, LAC 23|SEA -7",
       "side": "SEA",
       "openLine": -7.0,
@@ -985,7 +978,7 @@
       "closeTime": "2026-10-05T00:05:36Z",
       "injury": "missing",
       "weather": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "id": "NFL|2026-10-04|W4 CAR 32, DET 26|CAR +3.5",
       "side": "CAR",
       "openLine": 3.5,
@@ -1014,7 +1007,7 @@
       "closeTime": "2026-10-06T00:05:36Z",
       "injury": "Y. ESPN game 401872979 and PFT 19:11 CT. NO inactive: Fant (abdomen), Elliss (calf), Granderson, Jennings, Richardson, Miller, Wilson. ATL inactive: Rush, Strand, Onianwa, Ivey, Longerbeam, DeWalt. Deablo and Ebukam active.",
       "weather": "dome. Caesars Superdome, indoor. No outdoor weather.",
-      "bucket": "pass",
+      "bucket": "shadow",
       "id": "NFL|2026-10-05|W4 ATL at NO|NO -1.5 / 47.5",
       "side": "Saints",
       "openLine": -1.5,
@@ -2739,7 +2732,7 @@
       "injury": "missing",
       "weather": "missing",
       "starter": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "lean": "logged",
       "autopsy": "Open is the Sep 28 BetMGM total. Close is the Oct 4 11:51pm ET bet365 total on FOX. Two published prints, not a live capture.",
       "clvPoints": 0.0,
@@ -2768,7 +2761,7 @@
       "injury": "missing",
       "weather": "missing",
       "starter": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "lean": "logged",
       "autopsy": "Open is the Sep 28 BetMGM total. Close is the Oct 4 11:51pm ET bet365 total on FOX. Two published prints, not a live capture.",
       "clvPoints": -0.5,
@@ -2797,7 +2790,7 @@
       "injury": "missing",
       "weather": "missing",
       "starter": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "lean": "logged",
       "autopsy": "Open is the Sep 28 BetMGM total. Close is the Oct 4 11:51pm ET bet365 total on FOX. Two published prints, not a live capture.",
       "clvPoints": -0.5,
@@ -2826,7 +2819,7 @@
       "injury": "missing",
       "weather": "missing",
       "starter": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "lean": "logged",
       "autopsy": "Open is the Sep 28 BetMGM total. Close is the Oct 4 11:51pm ET bet365 total on FOX. Two published prints, not a live capture.",
       "clvPoints": 1.0,
@@ -2855,7 +2848,7 @@
       "injury": "missing",
       "weather": "missing",
       "starter": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "lean": "logged",
       "autopsy": "Open is the Sep 28 BetMGM total. Close is the Oct 4 11:51pm ET bet365 total on FOX. Two published prints, not a live capture.",
       "clvPoints": 1.0,
@@ -2884,7 +2877,7 @@
       "injury": "missing",
       "weather": "missing",
       "starter": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "lean": "logged",
       "autopsy": "Open is the Sep 28 BetMGM total. Close is the Oct 4 11:51pm ET bet365 total on FOX. Two published prints, not a live capture.",
       "clvPoints": -1.0,
@@ -2913,7 +2906,7 @@
       "injury": "missing",
       "weather": "missing",
       "starter": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "lean": "logged",
       "autopsy": "Open is the Sep 28 BetMGM total. Close is the Oct 4 11:51pm ET bet365 total on FOX. Two published prints, not a live capture.",
       "clvPoints": -0.5,
@@ -2942,7 +2935,7 @@
       "injury": "missing",
       "weather": "missing",
       "starter": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "lean": "logged",
       "autopsy": "Open is the Sep 28 BetMGM total. Close is the Oct 4 11:51pm ET bet365 total on FOX. Two published prints, not a live capture.",
       "clvPoints": 0.0,
@@ -2971,7 +2964,7 @@
       "injury": "missing",
       "weather": "missing",
       "starter": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "lean": "logged",
       "autopsy": "Open is the Sep 28 BetMGM total. Close is the Oct 4 11:51pm ET bet365 total on FOX. Two published prints, not a live capture.",
       "clvPoints": 3.5,
@@ -3000,7 +2993,7 @@
       "injury": "missing",
       "weather": "missing",
       "starter": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "lean": "logged",
       "autopsy": "Open is the Sep 28 BetMGM total. Close is the Oct 4 11:51pm ET bet365 total on FOX. Two published prints, not a live capture.",
       "clvPoints": -1.0,
@@ -3029,7 +3022,7 @@
       "injury": "missing",
       "weather": "missing",
       "starter": "missing",
-      "bucket": "pass",
+      "bucket": "shadow",
       "lean": "logged",
       "autopsy": "Open is the Sep 28 BetMGM total. Close is the Oct 4 11:51pm ET bet365 total on FOX. Two published prints, not a live capture.",
       "clvPoints": 0.5,
@@ -3117,7 +3110,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST under 42.5. Eagles 18.8 PPG. Total is the read.",
       "autopsy": " BetMGM -7.0."
     },
     {
@@ -3145,7 +3138,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST under 42.5. Eagles 18.8 PPG. Total is the read.",
       "autopsy": ""
     },
     {
@@ -3173,7 +3166,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST Chicago -3. Bears 28.0 PPG, Packers 18.3.",
       "autopsy": " BetMGM 2.5."
     },
     {
@@ -3201,7 +3194,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST Chicago -3. Bears 28.0 PPG, Packers 18.3.",
       "autopsy": ""
     },
     {
@@ -3229,7 +3222,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST under 42.5. Dolphins 11.5 PPG.",
       "autopsy": " BetMGM 7.5."
     },
     {
@@ -3257,7 +3250,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST under 42.5. Dolphins 11.5 PPG.",
       "autopsy": ""
     },
     {
@@ -3285,7 +3278,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST under 39.5. Browns 20.3, Jets 19.0.",
       "autopsy": " BetMGM -2.0."
     },
     {
@@ -3313,7 +3306,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST under 39.5. Browns 20.3, Jets 19.0.",
       "autopsy": " BetMGM 40.0."
     },
     {
@@ -3341,7 +3334,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST under 38.5. Titans 13.8 PPG.",
       "autopsy": " BetMGM 7.0."
     },
     {
@@ -3369,7 +3362,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST under 38.5. Titans 13.8 PPG.",
       "autopsy": ""
     },
     {
@@ -3397,7 +3390,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST Colts +2.5. Colts 25.5 PPG, Steelers 19.3.",
       "autopsy": ""
     },
     {
@@ -3425,7 +3418,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST Colts +2.5. Colts 25.5 PPG, Steelers 19.3.",
       "autopsy": " BetMGM 45.0."
     },
     {
@@ -3453,7 +3446,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST Raiders +3.5. Raiders 28.8 PPG, Patriots 16.3.",
       "autopsy": ""
     },
     {
@@ -3481,7 +3474,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST Raiders +3.5. Raiders 28.8 PPG, Patriots 16.3.",
       "autopsy": ""
     },
     {
@@ -3509,7 +3502,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST Saints +1.5. Saints 26.3 PPG, Vikings 21.5.",
       "autopsy": " BetMGM 2.0."
     },
     {
@@ -3537,7 +3530,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST Saints +1.5. Saints 26.3 PPG, Vikings 21.5.",
       "autopsy": " BetMGM 42.0."
     },
     {
@@ -3565,7 +3558,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST under 43.5. Giants 20.5, Commanders 22.0.",
       "autopsy": " BetMGM -3.5."
     },
     {
@@ -3593,7 +3586,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST under 43.5. Giants 20.5, Commanders 22.0.",
       "autopsy": ""
     },
     {
@@ -3621,7 +3614,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST under 42.5. Chargers 16.8 PPG.",
       "autopsy": ""
     },
     {
@@ -3649,7 +3642,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST under 42.5. Chargers 16.8 PPG.",
       "autopsy": " BetMGM 42.0."
     },
     {
@@ -3677,7 +3670,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST over 54.5. Lions 29.8 PPG, Cardinals 21.8.",
       "autopsy": ""
     },
     {
@@ -3705,7 +3698,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST over 54.5. Lions 29.8 PPG, Cardinals 21.8.",
       "autopsy": " BetMGM 54.0."
     },
     {
@@ -3733,7 +3726,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST 49ers +3. 49ers 30.5 PPG.",
       "autopsy": ""
     },
     {
@@ -3761,7 +3754,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST 49ers +3. 49ers 30.5 PPG.",
       "autopsy": " BetMGM 47.0."
     },
     {
@@ -3845,7 +3838,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST over 54.5. Bills 31.8 PPG, Rams 21.3.",
       "autopsy": ""
     },
     {
@@ -3873,7 +3866,7 @@
       "weather": "missing",
       "starter": "missing",
       "bucket": "pass",
-      "lean": "logged",
+      "lean": "SUGGEST over 54.5. Bills 31.8 PPG, Rams 21.3.",
       "autopsy": ""
     },
     {
@@ -12626,7 +12619,7 @@
     "official": "0-0",
     "pricedN": 27,
     "rows": 447,
-    "passN": 447
+    "passN": 420
   },
   "gate": "Injury gate 07:24 CT. No slate appended. No close written. Starter only if a source named him. Weather numeric missing where the forecast was not posted."
 }
