@@ -46,9 +46,15 @@ SPORTS = {
 # Only sports the desk actually reads are pulled. Each sport costs Odds API credits,
 # and history calls for closes cost the most. Add a sport here when it gets real reads.
 # EDGE_SPORTS overrides this, e.g. EDGE_SPORTS=NFL,NCAAF
-ACTIVE = ["NFL"]
+ACTIVE = ["NFL", "NCAAF", "NBA", "NHL", "EPL", "UCL"]   # prices collected
+READ = ["NFL"]                                          # sports the analyst reads and picks
 _env = [s.strip().upper() for s in os.environ.get("EDGE_SPORTS", "").split(",") if s.strip()]
 ACTIVE = _env or ACTIVE
+# Credit guard. The Odds API reports credits left on every response.
+# Under RESERVE, closes are looked up only for READ sports. Under FLOOR, no close lookups at all.
+RESERVE = int(os.environ.get("EDGE_CREDIT_RESERVE", "3000"))
+FLOOR = int(os.environ.get("EDGE_CREDIT_FLOOR", "300"))
+CREDITS = {"remaining": None, "used": None}
 SPORTS = {k: v for k, v in SPORTS.items() if v in ACTIVE}
 KEY_OF = {v: k for k, v in SPORTS.items()}
 SPREAD = {"americanfootball_nfl", "americanfootball_ncaaf", "basketball_nba", "icehockey_nhl"}
@@ -94,6 +100,11 @@ def get(path, params):
     params["apiKey"] = api_key()
     url = API + path + "?" + urllib.parse.urlencode(params)
     with urllib.request.urlopen(url, timeout=60) as response:
+        rem, used = response.headers.get("x-requests-remaining"), response.headers.get("x-requests-used")
+        if rem is not None:
+            CREDITS["remaining"] = int(float(rem))
+        if used is not None:
+            CREDITS["used"] = int(float(used))
         return json.loads(response.read().decode())
 
 
@@ -295,11 +306,18 @@ def pull():
         c = row.get("commence")
         if c and "closeSnap" not in row and floor <= c <= now and row.get("sport") in KEY_OF:
             groups[(KEY_OF[row["sport"]], c)].append(row)
-    calls = 0
-    for (sport_key, commence), group in sorted(groups.items(), key=lambda kv: kv[0][1]):
+    calls = skipped = 0
+    read_keys = {KEY_OF[s] for s in READ if s in KEY_OF}
+    # READ sports first, so they keep their closes if credits run short.
+    order = sorted(groups.items(), key=lambda kv: (kv[0][0] not in read_keys, kv[0][1]))
+    for (sport_key, commence), group in order:
         if calls >= MAX_HIST:
             print("history call cap reached; the rest wait for the next run")
             break
+        left = CREDITS["remaining"]
+        if left is not None and (left < FLOOR or (left < RESERVE and sport_key not in read_keys)):
+            skipped += 1
+            continue
         calls += 1
         try:
             resp = get(f"/historical/sports/{sport_key}/odds", {
@@ -352,7 +370,11 @@ def pull():
     ledger["asOfCt"] = now
     ledger["feed"] = "Odds API. DraftKings is the print. BetMGM line noted when it differs. Key is not in this file."
     save(LEDGER, ledger)
-    print(json.dumps({"opened": opened, "closed": closed, "scored": scored, "rows": len(rows), "historyCalls": calls}))
+    ledger["credits"] = dict(CREDITS)
+    save(LEDGER, ledger)
+    print(json.dumps({"opened": opened, "closed": closed, "scored": scored, "rows": len(rows),
+                      "historyCalls": calls, "closesSkippedForCredits": skipped,
+                      "creditsRemaining": CREDITS["remaining"]}))
 
 
 def make_pick(a):
@@ -363,6 +385,8 @@ def make_pick(a):
     row = next((r for r in ledger.get("rows") or [] if r.get("id") == a.id), None)
     if not row:
         fail("no row with that id")
+    if row.get("sport") not in READ:
+        fail(f"{row.get('sport')} is collected for data only. Picks are open for {', '.join(READ)}.")
     snap = row.get("lastSnap")
     if not snap:
         fail("row has no stored price. Run pull.py first.")
