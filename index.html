@@ -51,7 +51,10 @@ select,input[type=date]{background:#0c1626;color:var(--ink);border:1px solid var
 .buck.open .bb{display:block}
 h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin:14px 0 6px}
 @media(max-width:800px){.kpis,.rgrid{grid-template-columns:1fr 1fr}.row{grid-template-columns:1fr 1fr}}
-#nl-badge-frame{display:none!important}</style>
+#nl-badge-frame{display:none!important}.gA{background:rgba(232,195,106,.18);color:var(--gold)}.gB{background:rgba(95,240,181,.14);color:#5ff0b5}.gC{background:rgba(156,194,255,.14);color:#9cc2ff}.gP{color:var(--muted)}
+.rd{border-top:1px solid var(--line);padding:10px 0}.rdh{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}.rdh .tag{margin-left:auto}.rdn{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:6px 0;font-weight:700}.rdn .l{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:400}
+.pos{color:#5ff0b5}.neg{color:#ff8a96}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -60,7 +63,7 @@ h3{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold
     <div class="sub">click a bar to expand</div>
   </div>
   <div class="kpis" id="kpis"></div>
-  <div class="chipbar" id="tabs"><button class="chip on" data-tab="desk">Desk</button><button class="chip" data-tab="nfl">NFL insight</button><button class="chip" data-tab="ledger">Ledger</button></div>
+  <div class="chipbar" id="tabs"><button class="chip on" data-tab="desk">Desk</button><button class="chip" data-tab="board">NFL board</button><button class="chip" data-tab="nfl">NFL insight</button><button class="chip" data-tab="ledger">Ledger</button></div>
   <div id="desk"></div>
 </div>
 <script>
@@ -193,6 +196,7 @@ function render(d, extraStreet){
     + (nflGames.length ? nflGames.map(g => `<div class="row"><div><b>${g.matchup || g.name || ""}</b><div class="why">${g.insight || g.why || ""}</div></div><div>${g.market || ""}</div><div>${g.number || ""}</div><div>${tag(g.action || g.lean || "")}</div></div>`).join("") : `<div class="why">No slate rows in nfl.json yet.</div>`)
     + (nflRows.length ? `<p class="why">From the card</p>` + nflRows.map(r => `<div class="row"><div><b>${r.name}</b><div class="why">${r.autopsy || ""}</div></div><div>${r.market||""}</div><div>${r.date||""}</div><div>${tag(r.action||r.result||"")}</div></div>`).join("") : "");
   document.getElementById("desk").innerHTML=
+    section("board","NFL board", "loading", `<div class="why">Loading reads</div>`, true)+
     section("live","Live tickets", liveTix.length+" open", liveHtml, true)+
     section("nfl","NFL insight", (nflGames.length||0)+" games · inactives "+(nfl.inactives||"—"), nflHtml, true)+
     section("rain","Rainman", sug.length+" parked", rainHtml, true)+
@@ -206,7 +210,7 @@ function render(d, extraStreet){
     if(!btn) return;
     tabs.querySelectorAll(".chip").forEach(c=>c.classList.remove("on"));
     btn.classList.add("on");
-    const id=btn.getAttribute("data-tab")==="nfl"?"nfl":btn.getAttribute("data-tab")==="ledger"?"ledger":"live";
+    const t=btn.getAttribute("data-tab");const id=t==="nfl"?"nfl":t==="ledger"?"ledger":t==="board"?"board":"live";
     const sec=document.getElementById(id);
     if(sec){sec.classList.add("open"); sec.scrollIntoView({behavior:"smooth", block:"start"});}
   };
@@ -229,7 +233,44 @@ Promise.all([
   fetch("street.json?t="+Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[]),
   fetch("https://raw.githubusercontent.com/zrose1999/edgesystem/data/nfl.json?t="+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({})),
   fetch("nfl.json?t="+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({}))
-]).then(([d,st,remote,local])=>{window._nfl=(remote.games&&remote.games.length)?remote:local; return render(normalize(d),st);}).then(loadLedger).catch(()=>{document.getElementById("asof").textContent="Could not load card.json";});
+]).then(([d,st,remote,local])=>{window._nfl=(remote.games&&remote.games.length)?remote:local; return render(normalize(d),st);}).then(loadLedger).then(loadBoard).catch(()=>{document.getElementById("asof").textContent="Could not load card.json";});
+
+function loadBoard(){
+  const base="https://raw.githubusercontent.com/zrose1999/edgesystem/data/";
+  return Promise.all([
+    fetch(base+"ledger/picks.json?t="+Date.now()).then(r=>r.ok?r.json():{picks:[]}).catch(()=>({picks:[]})),
+    fetch(base+"ledger/ledger.json?t="+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({})),
+    fetch(base+"score.json?t="+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({}))
+  ]).then(([pk,led,score])=>{
+    const sec=document.getElementById("board"); if(!sec) return;
+    const esc=v=>String(v==null?"":v).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
+    const rows={}; (led.rows||[]).forEach(r=>{rows[r.id]=r;});
+    const reads=(pk.picks||[]).filter(p=>p.sport==="NFL"&&p.grade&&p.fair!=null);
+    const latest={}; reads.forEach(p=>{const k=p.rowId; if(!latest[k]||p.pickedAt>latest[k].pickedAt) latest[k]=p;});
+    const nick=t=>String(t||"").split(" ").pop();
+    const fmt=(p,n)=>{if(n==null||n==="") return "—"; const v=Number(n);
+      if(p.market==="spread"){const home=nick(p.event.split(" at ").pop()); return home+" "+(v>0?"+":"")+v;}
+      if(p.market==="total") return "O/U "+v; return (v*100).toFixed(0)+"%";};
+    const lean=p=>{if(!p.side) return "—"; if(p.market==="total") return p.side==="over"?"Over":"Under";
+      const [away,home]=p.event.split(" at "); return nick(p.side==="home"?home:away)+(p.lineAtPick!=null?" "+(p.lineAtPick>0?"+":"")+p.lineAtPick:"");};
+    const list=Object.values(latest).sort((a,b)=>String(a.commence||a.rowId).localeCompare(String(b.commence||b.rowId))||a.market.localeCompare(b.market));
+    const by=(score.byGrade)||((led.score||{}).byGrade)||{};
+    const clvTxt=v=>v==null?"—":`<span class="${v>0?"pos":v<0?"neg":""}">${(v>0?"+":"")+(v*100).toFixed(1)}%</span>`;
+    const tiles=`<div class="rgrid">${["A","B","C"].map(g=>{const b=by[g]||{};return `<div class="rbox"><div class="l">Grade ${g} · ${b.graded||0} graded</div><div class="n">${clvTxt(b.meanClvProb)}</div><div class="why">beat close ${b.beatClose||0} · ${b.record||"0-0-0"}</div></div>`;}).join("")}</div>`;
+    const note=`<p class="why">Grok's fair number against the DraftKings number at the time of the read. The grade is set by the edge against the bar, not by Grok: A is the full bar, B half the bar, C a lean under that, P no edge. Every lean is graded against the close. The test is whether A beats the close more than B, and B more than C.</p>`;
+    const table=list.length?list.map(p=>{
+      const r=rows[p.rowId]||{}; const close=p.closeLine!=null?p.closeLine:(r.closeSnap?r.closeSnap.line:null);
+      const k=p.commence?new Date(p.commence).toLocaleString([], {weekday:"short",hour:"numeric",minute:"2-digit"}):"";
+      const edge=p.grade==="P"?"no edge":(p.edgeUnit==="prob"?(p.edge*100).toFixed(1)+"%":p.edge+" pts")+" edge";
+      return `<div class="rd"><div class="rdh"><b>${esc(p.event.split(" at ").map(nick).join(" @ "))}</b><span class="why">${esc(k)} · ${esc(p.market)}</span><span class="tag g${p.grade}">${p.grade}</span></div>`
+        +`<div class="rdn"><div><div class="l">Market</div>${esc(fmt(p,p.marketNumber))}</div><div><div class="l">Grok fair</div>${esc(fmt(p,p.fair))}</div><div><div class="l">Lean</div>${esc(lean(p))}</div></div>`
+        +`<div class="why">${esc(edge)}${close==null?"":" · close "+esc(fmt(p,close))+" · CLV "}${close==null?"":clvTxt(p.clvProb)}${p.result?" · "+esc(p.result):""}</div>`
+        +`<div class="why">${esc(p.reason)}${p.falsifier?" · Wrong if: "+esc(p.falsifier):""}</div></div>`;}).join("")
+      :`<div class="why">No reads stamped yet. The first ones come from the next read job.</div>`;
+    const meta=sec.querySelector(".meta"); if(meta) meta.textContent=list.length+" reads · "+["A","B","C","P"].map(g=>g+" "+list.filter(p=>p.grade===g).length).join(" · ");
+    const body=sec.querySelector(".body"); if(body) body.innerHTML=tiles+note+table;
+  });
+}
 function loadLedger(){
   return Promise.all([
     fetch("https://raw.githubusercontent.com/zrose1999/edgesystem/data/ledger/ledger.json?t="+Date.now()).then(r=>r.ok?r.json():{}).catch(()=>({})),
