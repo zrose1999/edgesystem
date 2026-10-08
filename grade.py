@@ -138,6 +138,8 @@ def main():
     rows = {r.get("id"): r for r in ledger.get("rows") or []}
 
     for pick in picks["picks"]:
+        if not pick.get("side"):
+            continue  # a pass has no side to grade
         row = rows.get(pick["rowId"]) or {}
         close = row.get("closeSnap")
         if close and pick["side"] in close and "clvProb" not in pick:
@@ -147,8 +149,10 @@ def main():
             if pick.get("tier") == "official":
                 pick["unitsStaked"] = round(pick["units"] * pick.get("stakeUnits", 0), 3)
 
+    # Picks are A and B reads (and old pick stamps). Leans (C), passes and rereads never touch patterns.
+    real = [p for p in picks["picks"] if p.get("kind", "pick") == "pick"]
     groups = defaultdict(list)
-    for pick in picks["picks"]:
+    for pick in real:
         groups[pick["pattern"]].append(pick)
 
     patterns = []
@@ -177,11 +181,26 @@ def main():
             "note": f"Promotion needs {OFFICIAL_N} graded full-bar picks, mean CLV above 0, t at least {T_MIN}. Win rate never promotes.",
         })
 
-    clv_all = [p["clvProb"] for p in picks["picks"] if "clvProb" in p]
-    settled = [p for p in picks["picks"] if p.get("result") in ("win", "loss", "push")]
+    clv_all = [p["clvProb"] for p in real if "clvProb" in p]
+    settled = [p for p in real if p.get("result") in ("win", "loss", "push")]
+
+    # The grade test: if the grades mean anything, A beats the close more than B, and B more than C.
+    by_grade = {}
+    for gr in ("A", "B", "C"):
+        grp = [p for p in picks["picks"] if p.get("grade") == gr and p.get("kind", "pick") in ("pick", "lean")]
+        vals = [p["clvProb"] for p in grp if "clvProb" in p]
+        res = [p for p in grp if p.get("result") in ("win", "loss", "push")]
+        by_grade[gr] = {
+            "reads": len(grp), "graded": len(vals),
+            "meanClvProb": round(sum(vals) / len(vals), 4) if vals else None,
+            "beatClose": sum(1 for v in vals if v > 0), "tStat": round(tstat(vals), 2),
+            "record": "{}-{}-{}".format(*(sum(1 for p in res if p["result"] == r) for r in ("win", "loss", "push"))),
+        }
+    by_grade["P"] = {"reads": sum(1 for p in picks["picks"] if p.get("grade") == "P")}
     official = [p for p in settled if p.get("tier") == "official"]
     score = {
-        "picks": len(picks["picks"]),
+        "picks": len(real),
+        "reads": len(picks["picks"]),
         "graded": len(clv_all),
         "meanClvProb": round(sum(clv_all) / len(clv_all), 4) if clv_all else None,
         "beatClose": sum(1 for v in clv_all if v > 0),
@@ -189,6 +208,7 @@ def main():
         "flatUnits": round(sum(p.get("units", 0) for p in settled), 2),
         "officialRecord": "{}-{}-{}".format(*(sum(1 for p in official if p["result"] == r) for r in ("win", "loss", "push"))),
         "officialUnits": round(sum(p.get("unitsStaked", 0) for p in official), 2),
+        "byGrade": by_grade,
         "patterns": patterns,
     }
 

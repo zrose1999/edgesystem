@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""EDGE price puller and pick stamper (v2).
+"""EDGE price puller, read stamper and pick stamper (v3).
 
   python pull.py            pull prices, closes and scores. This is what the jobs run.
-  python pull.py pick ...   stamp a pick with the stored price. The model never types a price.
+  python pull.py read ...   stamp a read: fair number vs the stored market number, the lean,
+                            and an A/B/C grade set by the edge against the bar. Every game read gets one.
+  python pull.py pick ...   older pick stamper. Reads replace it. The model never types a price.
 
 Rules
   DraftKings is the print. A BetMGM line is noted when it differs.
@@ -461,11 +463,133 @@ def make_pick(a):
         "bar": bar, "fullBar": full_bar,
         "confidence": a.confidence, "pattern": a.pattern, "reason": a.reason.strip(),
         "falsifier": a.falsifier.strip(), "modelVersion": VERSION, "tier": tier,
-        "stakeUnits": stake,
+        "stakeUnits": stake, "kind": "pick", "grade": grade_for(edge, bar, a.confidence),
+        "commence": row.get("commence"),
     })
     save(PICKS, picks)
     print(json.dumps({"stamped": pick_id, "line": line, "price": price, "edge": round(edge, 3),
                       "unit": unit, "bar": bar, "fullBar": full_bar, "tier": tier, "stakeUnits": stake}))
+
+GRADES = "ABC"
+
+
+def side_edge(row, snap, market, side, proj):
+    """Line, price, edge and unit for one side, given the read's fair number.
+    spread: proj is the fair HOME line. total: fair total (prob totals: fair P(over)).
+    moneyline (read only): fair HOME win probability."""
+    price = snap[side]
+    prob_total = market == "total" and row["sport"] in PROB_TOTALS
+    if market == "spread":
+        line = snap["line"] if side == "home" else -snap["line"]
+        edge = snap["line"] - proj if side == "home" else proj - snap["line"]
+        return line, price, edge, "points"
+    if prob_total:
+        p = proj if side == "over" else 1 - proj
+        return snap["line"], price, p - implied(price), "prob"
+    if market == "total":
+        return snap["line"], price, (proj - snap["line"] if side == "over" else snap["line"] - proj), "points"
+    p = proj if side == "home" else 1 - proj
+    return None, price, p - implied(price), "prob"
+
+
+def grade_for(edge, bar, confidence):
+    if edge <= 0:
+        return "P"
+    g = "A" if edge >= bar else "B" if edge >= bar / 2 else "C"
+    if confidence == "low" and g != "C":
+        g = GRADES[GRADES.index(g) + 1]
+    return g
+
+
+def make_read(a):
+    """Stamp a read on one market: the fair number, the market number, the lean, and an A/B/C grade.
+    The grade comes from the edge against the bar, never from the analyst:
+      A  edge at or above the full bar        a shadow pick (official only if its pattern is official)
+      B  edge from half the bar to the bar    a shadow pick
+      C  edge under half the bar              a lean: graded against the close, never a pick
+      P  no edge on either side               a pass, logged with its fair number
+    Low confidence drops A to B and B to C. Every read with a side is graded on CLV."""
+    def fail(msg):
+        sys.exit("READ REJECTED: " + msg)
+
+    ledger = load(LEDGER, {"rows": []})
+    row = next((r for r in ledger.get("rows") or [] if r.get("id") == a.id), None)
+    if not row:
+        fail("no row with that id")
+    if row.get("sport") not in READ:
+        fail(f"{row.get('sport')} is collected for data only. Reads are open for {', '.join(READ)}.")
+    snap = row.get("lastSnap")
+    if not snap:
+        fail("row has no stored price. Run pull.py first.")
+    now_dt = datetime.now(timezone.utc)
+    now = iso(now_dt)
+    if not row.get("commence") or row["commence"] <= now:
+        fail("game has started or has no start time")
+    age = (now_dt - parse(snap["time"])).total_seconds() / 60
+    if age > STALE_MIN:
+        fail(f"stored price is {age:.0f} minutes old. Run pull.py first.")
+    if not (a.reason or "").strip():
+        fail("--reason is required: the news items and what each is worth")
+    try:
+        fair = float(a.fair)
+    except ValueError:
+        fail("fair must be a number")
+    market = row["market"]
+    prob_total = market == "total" and row["sport"] in PROB_TOTALS
+    if (market == "h2h" or prob_total) and not 0 < fair < 1:
+        fail("for this market, fair is a probability between 0 and 1 (moneyline: HOME win; prob totals: OVER)")
+
+    sides = sorted(VALID_SIDES[market])
+    best = max(((s,) + side_edge(row, snap, market, s, fair) for s in sides), key=lambda t: t[3])
+    side, line, price, edge, unit = best
+    bar = H2H_BAR if (prob_total or market == "h2h") else bar_for(
+        row["sport"], market, snap.get("line"), fair if market == "spread" else None)
+    if edge > 4 * bar and not a.big:
+        home = row["event"].split(" at ")[-1]
+        shown = f"{home} {snap['line']:+g}" if market == "spread" else f"{snap.get('line')}"
+        fail(f"edge {edge:.2f} {unit} is over 4x the bar. The market is {shown}. For spreads, --fair is the HOME line "
+             f"in the same sign as the market ({home} -3 means {home} favored by 3). If the number is right, add --big.")
+    grade = grade_for(edge, bar, a.confidence)
+
+    picks = load(PICKS, {"picks": []})
+    kind = {"A": "pick", "B": "pick", "C": "lean", "P": "pass"}[grade]
+    tier, stake, note = None, 0.0, None
+    if kind == "pick":
+        for name in ("falsifier", "pattern"):
+            if not (getattr(a, name) or "").strip():
+                fail(f"this read grades {grade}, a pick. --{name} is required.")
+        status = next((p.get("status") for p in ledger.get("patterns") or [] if p.get("id") == a.pattern), "shadow")
+        if status == "retire":
+            fail("that pattern is retired. A new idea needs a new pattern name.")
+        tier = "official" if status == "official" and grade == "A" else "shadow"
+        stake = min(float(a.stake), 1.0) if tier == "official" else 0.0
+        pick_id = f"{row['id']}|{side}|{VERSION}"
+        if any(p.get("pickId") == pick_id for p in picks["picks"]):
+            kind, tier, stake = "reread", None, 0.0
+            note = "Same side already picked. Logged as a reread, graded, not counted."
+    if kind != "pick":
+        pick_id = f"{row['id']}|{side if grade != 'P' else 'none'}|{VERSION}|{kind}|{now}"
+
+    entry = {
+        "pickId": pick_id, "kind": kind, "grade": grade, "rowId": row["id"], "sport": row["sport"],
+        "event": row["event"], "commence": row.get("commence"), "market": market,
+        "side": side if grade != "P" else None, "lineAtPick": line if grade != "P" else None,
+        "priceAtPick": price if grade != "P" else None, "marketNumber": snap.get("line"),
+        "marketPrices": {k: snap[k] for k in ("home", "away", "over", "under", "draw") if k in snap},
+        "priceTime": snap["time"], "pickedAt": now, "fair": fair, "projection": fair,
+        "edge": round(edge, 3), "edgeUnit": unit, "bar": bar, "fullBar": edge >= bar,
+        "confidence": a.confidence, "pattern": (a.pattern or "").strip() or None,
+        "reason": a.reason.strip(), "falsifier": (a.falsifier or "").strip() or None,
+        "modelVersion": VERSION, "tier": tier, "stakeUnits": stake,
+    }
+    if note:
+        entry["note"] = note
+    picks["picks"].append(entry)
+    save(PICKS, picks)
+    home = row["event"].split(" at ")[-1]
+    print(json.dumps({"read": pick_id, "grade": grade, "home": home, "kind": kind, "market": snap.get("line"),
+                      "fair": fair, "side": entry["side"], "edge": round(edge, 3), "unit": unit,
+                      "bar": bar, "tier": tier, "stakeUnits": stake}))
 
 
 def main():
@@ -482,8 +606,20 @@ def main():
     p.add_argument("--reason", required=True)
     p.add_argument("--falsifier", required=True, help="what fact or result would prove this read wrong")
     p.add_argument("--stake", default="0.5", help="units; used only when the pattern is official; capped at 1")
+    r = sub.add_parser("read")
+    r.add_argument("--id", required=True, help="row id: sport|date|event|market")
+    r.add_argument("--fair", required=True,
+                   help="spread: fair HOME line (-4.5 = home by 4.5). total: fair total (NHL, soccer, MLB: fair probability of the OVER). moneyline: fair HOME win probability")
+    r.add_argument("--confidence", required=True, choices=["low", "medium", "high"])
+    r.add_argument("--reason", required=True, help="each news item, its point value and direction")
+    r.add_argument("--falsifier", default="", help="required when the read grades A or B")
+    r.add_argument("--pattern", default="", help="required when the read grades A or B")
+    r.add_argument("--stake", default="0.5", help="units; used only for an A on an official pattern; capped at 1")
+    r.add_argument("--big", action="store_true", help="confirm an edge over 4x the bar is not a sign error")
     args = ap.parse_args()
-    if args.cmd == "pick":
+    if args.cmd == "read":
+        make_read(args)
+    elif args.cmd == "pick":
         make_pick(args)
     else:
         pull()
