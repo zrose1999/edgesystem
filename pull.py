@@ -311,6 +311,13 @@ def pull():
     for row in rows:
         c = row.get("commence")
         if c and "closeSnap" not in row and floor <= c <= now and row.get("sport") in KEY_OF:
+            # A row whose market is no longer pulled (old NHL puck lines) can never close. Skip it.
+            pulled = {{"spreads": "spread", "totals": "total"}.get(m, m) for m in markets_for(KEY_OF[row["sport"]]).split(",")}
+            if row.get("market") not in pulled:
+                continue
+            # Two history calls that came back without this game mean it never will. Stop paying for it.
+            if row.get("closeTries", 0) >= 2:
+                continue
             groups[(KEY_OF[row["sport"]], c)].append(row)
     calls = skipped = 0
     read_keys = {KEY_OF[s] for s in READ if s in KEY_OF}
@@ -335,10 +342,9 @@ def pull():
         stamp = resp.get("timestamp") or commence
         for row in group:
             game = find_game(resp.get("data") or [], row)
-            if not game:
-                continue
-            snap = build_snap(game, row["market"], stamp)
+            snap = build_snap(game, row["market"], stamp) if game else None
             if not snap:
+                row["closeTries"] = row.get("closeTries", 0) + 1
                 continue
             row["closeSnap"] = snap
             row["closeGapMin"] = round((parse(commence) - parse(stamp)).total_seconds() / 60, 1)
