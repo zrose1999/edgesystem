@@ -1,8 +1,8 @@
 {
-  "picks": 35,
-  "reads": 109,
-  "graded": 0,
-  "meanClvProb": null,
+  "picks": 41,
+  "reads": 135,
+  "graded": 1,
+  "meanClvProb": -0.0066,
   "beatClose": 0,
   "record": "0-0-0",
   "flatUnits": 0,
@@ -10,15 +10,15 @@
   "officialUnits": 0,
   "byGrade": {
     "A": {
-      "reads": 17,
-      "graded": 0,
-      "meanClvProb": null,
+      "reads": 19,
+      "graded": 1,
+      "meanClvProb": -0.0066,
       "beatClose": 0,
       "tStat": 0.0,
       "record": "0-0-0"
     },
     "B": {
-      "reads": 18,
+      "reads": 22,
       "graded": 0,
       "meanClvProb": null,
       "beatClose": 0,
@@ -26,25 +26,25 @@
       "record": "0-0-0"
     },
     "C": {
-      "reads": 20,
-      "graded": 0,
-      "meanClvProb": null,
+      "reads": 32,
+      "graded": 1,
+      "meanClvProb": -0.024,
       "beatClose": 0,
       "tStat": 0.0,
       "record": "0-0-0"
     },
     "P": {
-      "reads": 54
+      "reads": 62
     }
   },
   "byPattern": {
     "stats-model": {
       "reads": 52,
       "picks": 32,
-      "graded": 0,
-      "meanClvProb": null,
+      "graded": 2,
+      "meanClvProb": -0.0153,
       "beatClose": 0,
-      "tStat": 0.0,
+      "tStat": -1.76,
       "record": "0-0-0",
       "flatUnits": 0
     },
@@ -57,15 +57,40 @@
       "tStat": 0.0,
       "record": "0-0-0",
       "flatUnits": 0
+    },
+    "news-lag": {
+      "reads": 6,
+      "picks": 6,
+      "graded": 0,
+      "meanClvProb": null,
+      "beatClose": 0,
+      "tStat": 0.0,
+      "record": "0-0-0",
+      "flatUnits": 0
     }
   },
   "patterns": [
     {
+      "id": "news-lag",
+      "status": "shadow",
+      "picks": 6,
+      "clvN": 0,
+      "meanClvProb": 0.0,
+      "tStat": 0.0,
+      "halfBarN": 0,
+      "halfBarMeanClv": null,
+      "beatClose": 0,
+      "wins": 0,
+      "losses": 0,
+      "flatUnits": 0,
+      "note": "Promotion needs 30 graded full-bar picks, mean CLV above 0, t at least 1.5. Win rate never promotes."
+    },
+    {
       "id": "stats-model",
       "status": "shadow",
       "picks": 32,
-      "clvN": 0,
-      "meanClvProb": 0.0,
+      "clvN": 1,
+      "meanClvProb": -0.0066,
       "tStat": 0.0,
       "halfBarN": 0,
       "halfBarMeanClv": null,
