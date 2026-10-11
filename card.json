@@ -3,11 +3,11 @@
   "handle": "Rainman",
   "site": "Gumdrop",
   "site_id": "068c6961-0a3d-4374-87f1-f3d2ce34f293",
-  "asOfCt": "2026-10-11T10:42:39.087964-05:00",
-  "stamp_ct": "2026-10-11T10:42:39.087964-05:00",
+  "asOfCt": "2026-10-11T14:15:15-05:00",
+  "stamp_ct": "2026-10-11T14:15:15-05:00",
   "lock": "Friday read. No Netlify deploy. Shell untouched.",
   "scope": "pull.py then stats.py then the read. DraftKings is the print. BetMGM noted when it differs.",
-  "decision": "Week 5 Friday. All passes. Fair equals the market. No A or B.",
+  "decision": "Sunday late-window inactives. Three games re-stamped. News-lag on DEN@LAC and DET@ARI.",
   "rule": "A pick is stamped by pull.py. Half the bar is shadow and stakes nothing. Full bar on an official pattern stakes. luck-reversion is parked until k is above 0. Official record is grade.py, currently 0-0.",
   "official_count": 0,
   "exposure_u": 0,
@@ -38,15 +38,44 @@
   },
   "killed": [],
   "settled": [],
-  "shadow": [],
-  "passes": [
+  "shadow": [
     {
-      "game": "CIN@MIA spread",
-      "note": "fair=open 7.0"
+      "game": "DEN@LAC spread",
+      "side": "away",
+      "fair": 4.6,
+      "edge": 1.1,
+      "pattern": "news-lag",
+      "grade": "B"
     },
     {
-      "game": "CLE@NYJ spread",
-      "note": "fair=open -2.5"
+      "game": "DET@ARI spread",
+      "side": "home",
+      "fair": 4.0,
+      "edge": 1.5,
+      "pattern": "news-lag",
+      "grade": "A"
+    },
+    {
+      "game": "DET@ARI total",
+      "side": "under",
+      "fair": 53.5,
+      "edge": 2.0,
+      "pattern": "news-lag",
+      "grade": "B"
+    }
+  ],
+  "passes": [
+    {
+      "game": "DEN@LAC total",
+      "note": "fair 41.5 vs 42.5, C lean"
+    },
+    {
+      "game": "SF@SEA spread",
+      "note": "fair -3.5 vs -3.0, C"
+    },
+    {
+      "game": "SF@SEA total",
+      "note": "fair 47.0 vs 46.5, C"
     }
   ]
 }
