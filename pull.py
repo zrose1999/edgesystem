@@ -550,7 +550,7 @@ def make_read(a):
     side, line, price, edge, unit = best
     bar = H2H_BAR if (prob_total or market == "h2h") else bar_for(
         row["sport"], market, snap.get("line"), fair if market == "spread" else None)
-    if edge > 4 * bar and not a.big:
+    if edge > 4 * bar and not getattr(a, "big", False):
         home = row["event"].split(" at ")[-1]
         shown = f"{home} {snap['line']:+g}" if market == "spread" else f"{snap.get('line')}"
         fail(f"edge {edge:.2f} {unit} is over 4x the bar. The market is {shown}. For spreads, --fair is the HOME line "
@@ -569,12 +569,13 @@ def make_read(a):
             fail("that pattern is retired. A new idea needs a new pattern name.")
         tier = "official" if status == "official" and grade == "A" else "shadow"
         stake = min(float(a.stake), 1.0) if tier == "official" else 0.0
-        pick_id = f"{row['id']}|{side}|{VERSION}"
+        # One pick per row, side and pattern. Different patterns are separate tests and never block each other.
+        pick_id = f"{row['id']}|{side}|{VERSION}|{a.pattern.strip()}"
         if any(p.get("pickId") == pick_id for p in picks["picks"]):
             kind, tier, stake = "reread", None, 0.0
             note = "Same side already picked. Logged as a reread, graded, not counted."
     if kind != "pick":
-        pick_id = f"{row['id']}|{side if grade != 'P' else 'none'}|{VERSION}|{kind}|{now}"
+        pick_id = f"{row['id']}|{side if grade != 'P' else 'none'}|{VERSION}|{kind}|{(a.pattern or '').strip() or 'none'}|{now}"
 
     entry = {
         "pickId": pick_id, "kind": kind, "grade": grade, "rowId": row["id"], "sport": row["sport"],
@@ -586,7 +587,7 @@ def make_read(a):
         "edge": round(edge, 3), "edgeUnit": unit, "bar": bar, "fullBar": edge >= bar,
         "confidence": a.confidence, "pattern": (a.pattern or "").strip() or None,
         "reason": a.reason.strip(), "falsifier": (a.falsifier or "").strip() or None,
-        "modelVersion": VERSION, "tier": tier, "stakeUnits": stake,
+        "modelVersion": VERSION, "tier": tier, "stakeUnits": stake, "by": getattr(a, "by", "grok") or "grok",
     }
     if note:
         entry["note"] = note
@@ -622,6 +623,7 @@ def main():
     r.add_argument("--pattern", default="", help="required when the read grades A or B")
     r.add_argument("--stake", default="0.5", help="units; used only for an A on an official pattern; capped at 1")
     r.add_argument("--big", action="store_true", help="confirm an edge over 4x the bar is not a sign error")
+    r.add_argument("--by", default="grok", help=argparse.SUPPRESS)
     args = ap.parse_args()
     if args.cmd == "read":
         make_read(args)

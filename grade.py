@@ -197,6 +197,23 @@ def main():
             "record": "{}-{}-{}".format(*(sum(1 for p in res if p["result"] == r) for r in ("win", "loss", "push"))),
         }
     by_grade["P"] = {"reads": sum(1 for p in picks["picks"] if p.get("grade") == "P")}
+
+    # Each pattern's full test: its picks and its leans, graded the same way. This is how strategies are compared.
+    by_pattern = {}
+    for p in picks["picks"]:
+        if p.get("kind", "pick") not in ("pick", "lean") or not p.get("pattern"):
+            continue
+        by_pattern.setdefault(p["pattern"], []).append(p)
+    for name, grp in list(by_pattern.items()):
+        vals = [p["clvProb"] for p in grp if "clvProb" in p]
+        res = [p for p in grp if p.get("result") in ("win", "loss", "push")]
+        by_pattern[name] = {
+            "reads": len(grp), "picks": sum(1 for p in grp if p.get("kind", "pick") == "pick"),
+            "graded": len(vals), "meanClvProb": round(sum(vals) / len(vals), 4) if vals else None,
+            "beatClose": sum(1 for v in vals if v > 0), "tStat": round(tstat(vals), 2),
+            "record": "{}-{}-{}".format(*(sum(1 for p in res if p["result"] == r) for r in ("win", "loss", "push"))),
+            "flatUnits": round(sum(p.get("units", 0) for p in res), 2),
+        }
     official = [p for p in settled if p.get("tier") == "official"]
     score = {
         "picks": len(real),
@@ -209,6 +226,7 @@ def main():
         "officialRecord": "{}-{}-{}".format(*(sum(1 for p in official if p["result"] == r) for r in ("win", "loss", "push"))),
         "officialUnits": round(sum(p.get("unitsStaked", 0) for p in official), 2),
         "byGrade": by_grade,
+        "byPattern": by_pattern,
         "patterns": patterns,
     }
 

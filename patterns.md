@@ -26,3 +26,18 @@ Status: parked until k is above 0. Do not stamp.
 Idea: teams whose record runs well ahead of or behind their efficiency (turnover margin, one-score games) are priced toward the record.
 Applies: a gap between record and efficiency that the reason can name.
 Retire early if: CLV is flat after 30 picks.
+
+## stats-model
+
+Stamped by model.py, never by hand.
+Idea: the stats.py efficiency model's own number, using a quarter of its gap from the market.
+Applies: every NFL spread and total the model projects. One read per game and market.
+Retire early if: CLV is below 0 after 30 picks. The backtest expects this; the live test decides.
+
+## trend-fade
+
+Stamped by model.py, never by hand.
+Idea: when both teams have gone over (or under) in most games this season, the total is priced too far that way. Lean against the trend.
+Applies: NFL totals where both teams have at least 3 decisions and their combined over rate is 65% or more (lean under) or 35% or less (lean over).
+Backtest: 2010 to 2025 at the closing total, fading went 321-267 (54.6%). Following went 267-321.
+Retire early if: CLV is below 0 after 30 picks.
