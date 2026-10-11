@@ -6,7 +6,9 @@ They are starting values, not truth. The Tuesday review moves them when CLV says
 ## The rule that matters
 
 Size the news first, from this table, without looking at the line move. Then compare.
-- fair = open + the sum of the news values
+- fair = open + the sum of the values of news that broke AFTER the open (openTime in the ledger)
+- News known before the open is already in the open. It counts 0. Write the date of every news item so this can be checked.
+- A status change after the open counts only the difference. Questionable at the open, then ruled out, counts the full value minus the half already in.
 - If the line already moved the full amount, the read is a P, and the math shows it.
 - If the line moved less than the news is worth, the difference is the edge.
 - Never set a news value equal to the line move. "Line moved 1.0, so 1.0 priced, 0 more" is copying the market. It is not a read.
