@@ -1,5 +1,5 @@
 {
-  "asOfCt": "2026-10-11T22:10:45Z",
+  "asOfCt": "2026-10-12T04:16:41Z",
   "law": "A pick is a row in picks.json with a price stamped by pull.py. CLV is the pick's price against the close on the same side. Patterns promote on CLV over a sample, never on win rate.",
   "gap": "Hand-typed rows with no feed id are in ledger/archive-v1.json. pull.py is the only writer.",
   "patterns": [
@@ -7,15 +7,15 @@
       "id": "news-lag",
       "status": "shadow",
       "picks": 9,
-      "clvN": 6,
-      "meanClvProb": -0.0277,
-      "tStat": -10.91,
+      "clvN": 8,
+      "meanClvProb": -0.0285,
+      "tStat": -14.47,
       "halfBarN": 1,
       "halfBarMeanClv": -0.0366,
       "beatClose": 0,
-      "wins": 3,
-      "losses": 1,
-      "flatUnits": 1.61,
+      "wins": 4,
+      "losses": 5,
+      "flatUnits": -1.46,
       "note": "Promotion needs 30 graded full-bar picks, mean CLV above 0, t at least 1.5. Win rate never promotes."
     },
     {
@@ -28,9 +28,9 @@
       "halfBarN": 4,
       "halfBarMeanClv": -0.0135,
       "beatClose": 1,
-      "wins": 4,
-      "losses": 4,
-      "flatUnits": -0.36,
+      "wins": 7,
+      "losses": 5,
+      "flatUnits": 1.39,
       "note": "Promotion needs 30 graded full-bar picks, mean CLV above 0, t at least 1.5. Win rate never promotes."
     },
     {
@@ -44,8 +44,8 @@
       "halfBarMeanClv": null,
       "beatClose": 0,
       "wins": 0,
-      "losses": 0,
-      "flatUnits": 0,
+      "losses": 2,
+      "flatUnits": -2.0,
       "note": "Promotion needs 30 graded full-bar picks, mean CLV above 0, t at least 1.5. Win rate never promotes."
     }
   ],
@@ -1120,7 +1120,7 @@
       "closePrice": -118,
       "closeTime": "2026-10-11T20:00:36Z",
       "closeBook": "DraftKings",
-      "result": "pending",
+      "result": "Denver Broncos 23, Los Angeles Chargers 17",
       "clv": "missing",
       "clvPoints": "missing",
       "clvCents": "missing",
@@ -1148,7 +1148,12 @@
         "time": "2026-10-11T20:00:36Z",
         "book": "DraftKings"
       },
-      "closeGapMin": 4.4
+      "closeGapMin": 4.4,
+      "score": {
+        "home": 17.0,
+        "away": 23.0
+      },
+      "final": true
     },
     {
       "sport": "NFL",
@@ -1167,7 +1172,7 @@
       "closePrice": -115,
       "closeTime": "2026-10-11T20:00:36Z",
       "closeBook": "DraftKings",
-      "result": "pending",
+      "result": "Denver Broncos 23, Los Angeles Chargers 17",
       "clv": "missing",
       "clvPoints": "missing",
       "clvCents": "missing",
@@ -1197,7 +1202,12 @@
         "time": "2026-10-11T20:00:36Z",
         "book": "DraftKings"
       },
-      "closeGapMin": 4.4
+      "closeGapMin": 4.4,
+      "score": {
+        "home": 17.0,
+        "away": 23.0
+      },
+      "final": true
     },
     {
       "sport": "NFL",
@@ -1216,7 +1226,7 @@
       "closePrice": -112,
       "closeTime": "2026-10-11T20:20:36Z",
       "closeBook": "DraftKings",
-      "result": "pending",
+      "result": "Detroit Lions 45, Arizona Cardinals 21",
       "clv": "missing",
       "clvPoints": "missing",
       "clvCents": "missing",
@@ -1245,7 +1255,12 @@
         "time": "2026-10-11T20:20:36Z",
         "book": "DraftKings"
       },
-      "closeGapMin": 4.4
+      "closeGapMin": 4.4,
+      "score": {
+        "home": 21.0,
+        "away": 45.0
+      },
+      "final": true
     },
     {
       "sport": "NFL",
@@ -1264,7 +1279,7 @@
       "closePrice": -112,
       "closeTime": "2026-10-11T20:20:36Z",
       "closeBook": "DraftKings",
-      "result": "pending",
+      "result": "Detroit Lions 45, Arizona Cardinals 21",
       "clv": "missing",
       "clvPoints": "missing",
       "clvCents": "missing",
@@ -1294,7 +1309,12 @@
         "time": "2026-10-11T20:20:36Z",
         "book": "DraftKings"
       },
-      "closeGapMin": 4.4
+      "closeGapMin": 4.4,
+      "score": {
+        "home": 21.0,
+        "away": 45.0
+      },
+      "final": true
     },
     {
       "sport": "NFL",
@@ -1313,7 +1333,7 @@
       "closePrice": -110,
       "closeTime": "2026-10-11T20:20:36Z",
       "closeBook": "DraftKings",
-      "result": "pending",
+      "result": "San Francisco 49ers 32, Seattle Seahawks 29",
       "clv": "missing",
       "clvPoints": "missing",
       "clvCents": "missing",
@@ -1341,7 +1361,12 @@
         "time": "2026-10-11T20:20:36Z",
         "book": "DraftKings"
       },
-      "closeGapMin": 4.4
+      "closeGapMin": 4.4,
+      "score": {
+        "home": 29.0,
+        "away": 32.0
+      },
+      "final": true
     },
     {
       "sport": "NFL",
@@ -1360,7 +1385,7 @@
       "closePrice": -115,
       "closeTime": "2026-10-11T20:20:36Z",
       "closeBook": "DraftKings",
-      "result": "pending",
+      "result": "San Francisco 49ers 32, Seattle Seahawks 29",
       "clv": "missing",
       "clvPoints": "missing",
       "clvCents": "missing",
@@ -1389,7 +1414,12 @@
         "time": "2026-10-11T20:20:36Z",
         "book": "DraftKings"
       },
-      "closeGapMin": 4.4
+      "closeGapMin": 4.4,
+      "score": {
+        "home": 29.0,
+        "away": 32.0
+      },
+      "final": true
     },
     {
       "sport": "NFL",
@@ -1403,12 +1433,12 @@
       "openPrice": -105,
       "openTime": "2026-10-06T16:04:00Z",
       "openBook": "DraftKings",
-      "close": "missing",
-      "closeLine": "missing",
-      "closePrice": "missing",
-      "closeTime": "missing",
-      "closeBook": "missing",
-      "result": "pending",
+      "close": "Atlanta Falcons -3.5 105",
+      "closeLine": -3.5,
+      "closePrice": 105,
+      "closeTime": "2026-10-12T00:15:36Z",
+      "closeBook": "DraftKings",
+      "result": "Baltimore Ravens 30, Atlanta Falcons 23",
       "clv": "missing",
       "clvPoints": "missing",
       "clvCents": "missing",
@@ -1428,7 +1458,21 @@
         "away": 100,
         "time": "2026-10-11T22:10:45Z",
         "book": "DraftKings"
-      }
+      },
+      "closeSnap": {
+        "line": -3.5,
+        "home": 105,
+        "away": -125,
+        "mgmLine": -3.0,
+        "time": "2026-10-12T00:15:36Z",
+        "book": "DraftKings"
+      },
+      "closeGapMin": 4.4,
+      "score": {
+        "home": 23.0,
+        "away": 30.0
+      },
+      "final": true
     },
     {
       "sport": "NFL",
@@ -1442,12 +1486,12 @@
       "openPrice": -105,
       "openTime": "2026-10-06T16:04:00Z",
       "openBook": "DraftKings",
-      "close": "missing",
-      "closeLine": "missing",
-      "closePrice": "missing",
-      "closeTime": "missing",
-      "closeBook": "missing",
-      "result": "pending",
+      "close": "under 44.5 -118",
+      "closeLine": 44.5,
+      "closePrice": -118,
+      "closeTime": "2026-10-12T00:15:36Z",
+      "closeBook": "DraftKings",
+      "result": "Baltimore Ravens 30, Atlanta Falcons 23",
       "clv": "missing",
       "clvPoints": "missing",
       "clvCents": "missing",
@@ -1467,7 +1511,21 @@
         "under": -110,
         "time": "2026-10-11T22:10:45Z",
         "book": "DraftKings"
-      }
+      },
+      "closeSnap": {
+        "line": 44.5,
+        "over": -102,
+        "under": -118,
+        "mgmLine": 44.0,
+        "time": "2026-10-12T00:15:36Z",
+        "book": "DraftKings"
+      },
+      "closeGapMin": 4.4,
+      "score": {
+        "home": 23.0,
+        "away": 30.0
+      },
+      "final": true
     },
     {
       "sport": "NFL",
@@ -1501,10 +1559,11 @@
       "home": "Los Angeles Rams",
       "away": "Buffalo Bills",
       "lastSnap": {
-        "line": -3.5,
-        "home": -105,
-        "away": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "line": -3.0,
+        "home": -120,
+        "away": 100,
+        "mgmLine": -3.5,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -1543,7 +1602,7 @@
         "line": 54.5,
         "over": -115,
         "under": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -7967,7 +8026,7 @@
         "line": -1.5,
         "home": -115,
         "away": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8007,7 +8066,7 @@
         "over": -115,
         "under": -105,
         "mgmLine": 221.5,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8046,7 +8105,7 @@
         "line": -5.5,
         "home": -108,
         "away": -112,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8085,7 +8144,7 @@
         "line": 231.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8124,7 +8183,7 @@
         "line": -2.5,
         "home": -105,
         "away": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8160,10 +8219,11 @@
       "home": "San Antonio Spurs",
       "away": "Oklahoma City Thunder",
       "lastSnap": {
-        "line": 230.5,
-        "over": -105,
-        "under": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "line": 229.5,
+        "over": -115,
+        "under": -105,
+        "mgmLine": 230.5,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8202,7 +8262,7 @@
         "line": -2.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8241,7 +8301,7 @@
         "line": 233.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8280,7 +8340,7 @@
         "line": -6.5,
         "home": -105,
         "away": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8317,9 +8377,9 @@
       "away": "Milwaukee Bucks",
       "lastSnap": {
         "line": 238.5,
-        "over": -112,
-        "under": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "over": -110,
+        "under": -110,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8358,7 +8418,7 @@
         "line": 2.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8397,7 +8457,7 @@
         "line": 223.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8436,7 +8496,7 @@
         "line": -1.5,
         "home": -115,
         "away": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8475,7 +8535,7 @@
         "line": 243.5,
         "over": -105,
         "under": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8514,7 +8574,7 @@
         "line": 3.5,
         "home": -105,
         "away": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8553,7 +8613,7 @@
         "line": 243.5,
         "over": -105,
         "under": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8592,7 +8652,7 @@
         "line": 2.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8632,7 +8692,7 @@
         "over": -110,
         "under": -110,
         "mgmLine": 241.5,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8671,7 +8731,7 @@
         "line": -8.5,
         "home": -102,
         "away": -118,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8711,7 +8771,7 @@
         "over": -115,
         "under": -105,
         "mgmLine": 227.5,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8751,7 +8811,7 @@
         "home": -115,
         "away": -105,
         "mgmLine": -5.5,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8790,7 +8850,7 @@
         "line": 235.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8829,7 +8889,7 @@
         "line": -4.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8868,7 +8928,7 @@
         "line": 235.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8907,7 +8967,7 @@
         "line": -3.5,
         "home": -115,
         "away": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8946,7 +9006,7 @@
         "line": 233.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -8985,7 +9045,7 @@
         "line": -7.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9024,7 +9084,7 @@
         "line": 232.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9063,7 +9123,7 @@
         "line": -2.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9102,7 +9162,7 @@
         "line": 223.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9141,7 +9201,7 @@
         "line": -6.5,
         "home": -118,
         "away": -102,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9180,7 +9240,7 @@
         "line": 225.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9219,7 +9279,7 @@
         "line": 1.5,
         "home": -115,
         "away": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9258,7 +9318,7 @@
         "line": 235.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9297,7 +9357,7 @@
         "line": -11.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9336,7 +9396,7 @@
         "line": 232.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9375,7 +9435,7 @@
         "line": 7.5,
         "home": -102,
         "away": -118,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9414,7 +9474,7 @@
         "line": 225.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9453,7 +9513,7 @@
         "line": -1.5,
         "home": -115,
         "away": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9492,7 +9552,7 @@
         "line": 231.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9531,7 +9591,7 @@
         "line": -3.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9570,7 +9630,7 @@
         "line": 226.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9609,7 +9669,7 @@
         "line": 4.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9648,7 +9708,7 @@
         "line": 226.5,
         "over": -115,
         "under": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9687,7 +9747,7 @@
         "line": -3.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9726,7 +9786,7 @@
         "line": 241.5,
         "over": -115,
         "under": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9765,7 +9825,7 @@
         "line": -9.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9804,7 +9864,7 @@
         "line": 230.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9843,7 +9903,7 @@
         "line": 2.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9882,7 +9942,7 @@
         "line": 234.5,
         "over": -105,
         "under": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9921,7 +9981,7 @@
         "line": -1.5,
         "home": -102,
         "away": -118,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9960,7 +10020,7 @@
         "line": 236.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -9999,7 +10059,7 @@
         "line": -1.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10038,7 +10098,7 @@
         "line": 233.5,
         "over": -115,
         "under": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10077,7 +10137,7 @@
         "line": -3.5,
         "home": -115,
         "away": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10116,7 +10176,7 @@
         "line": 238.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10155,7 +10215,7 @@
         "line": 2.5,
         "home": -115,
         "away": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10194,7 +10254,7 @@
         "line": 233.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10233,7 +10293,7 @@
         "line": -10.5,
         "home": -118,
         "away": -102,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10272,7 +10332,7 @@
         "line": 236.5,
         "over": -105,
         "under": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10311,7 +10371,7 @@
         "line": -1.5,
         "home": -105,
         "away": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10350,7 +10410,7 @@
         "line": 227.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10389,7 +10449,7 @@
         "line": -3.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10428,7 +10488,7 @@
         "line": 228.5,
         "over": -105,
         "under": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10467,7 +10527,7 @@
         "line": 5.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10506,7 +10566,7 @@
         "line": 230.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10545,7 +10605,7 @@
         "line": -8.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10584,7 +10644,7 @@
         "line": 237.5,
         "over": -115,
         "under": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10623,7 +10683,7 @@
         "line": -3.5,
         "home": -115,
         "away": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10662,7 +10722,7 @@
         "line": 239.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10701,7 +10761,7 @@
         "line": -8.5,
         "home": -118,
         "away": -102,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10740,7 +10800,7 @@
         "line": 234.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10779,7 +10839,7 @@
         "line": 4.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10818,7 +10878,7 @@
         "line": 238.5,
         "over": -105,
         "under": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10857,7 +10917,7 @@
         "line": -5.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10896,7 +10956,7 @@
         "line": 232.5,
         "over": -115,
         "under": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10935,7 +10995,7 @@
         "line": -7.5,
         "home": -115,
         "away": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -10974,7 +11034,7 @@
         "line": 232.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -11013,7 +11073,7 @@
         "line": -1.5,
         "home": -105,
         "away": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -11052,7 +11112,7 @@
         "line": 228.5,
         "over": -115,
         "under": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -11091,7 +11151,7 @@
         "line": -5.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -11130,7 +11190,7 @@
         "line": 230.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -11169,7 +11229,7 @@
         "line": -1.5,
         "home": -105,
         "away": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -11209,7 +11269,7 @@
         "over": -110,
         "under": -110,
         "mgmLine": 236.5,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -11248,7 +11308,7 @@
         "line": 4.5,
         "home": -115,
         "away": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -11288,7 +11348,7 @@
         "over": -110,
         "under": -110,
         "mgmLine": 233.5,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -11327,7 +11387,7 @@
         "line": 2.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -11367,7 +11427,7 @@
         "over": -115,
         "under": -105,
         "mgmLine": 238.5,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -13367,7 +13427,7 @@
         "home": 215,
         "away": 120,
         "draw": 260,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -13413,7 +13473,7 @@
         "home": 215,
         "away": 115,
         "draw": 270,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -13459,7 +13519,7 @@
         "home": 150,
         "away": 165,
         "draw": 260,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -13505,7 +13565,7 @@
         "home": -150,
         "away": 380,
         "draw": 310,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -13544,7 +13604,7 @@
         "home": -425,
         "away": 900,
         "draw": 550,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -13583,7 +13643,7 @@
         "home": 110,
         "away": 220,
         "draw": 275,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -13629,7 +13689,7 @@
         "home": 100,
         "away": 255,
         "draw": 255,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -13675,7 +13735,7 @@
         "home": -175,
         "away": 400,
         "draw": 340,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -13714,7 +13774,7 @@
         "home": 145,
         "away": 165,
         "draw": 260,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -13760,7 +13820,7 @@
         "home": 500,
         "away": -175,
         "draw": 295,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -13806,7 +13866,7 @@
         "home": -210,
         "away": 500,
         "draw": 360,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -13845,7 +13905,7 @@
         "home": 150,
         "away": 160,
         "draw": 280,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -13891,7 +13951,7 @@
         "home": 240,
         "away": 105,
         "draw": 275,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -13937,7 +13997,7 @@
         "home": -400,
         "away": 1000,
         "draw": 500,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -13976,7 +14036,7 @@
         "home": -110,
         "away": 260,
         "draw": 300,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -14022,7 +14082,7 @@
         "home": 700,
         "away": -360,
         "draw": 600,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -14068,7 +14128,7 @@
         "home": 1800,
         "away": -1100,
         "draw": 1200,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -14114,7 +14174,7 @@
         "home": -370,
         "away": 900,
         "draw": 500,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -14153,7 +14213,7 @@
         "home": 115,
         "away": 220,
         "draw": 280,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -14199,7 +14259,7 @@
         "home": -130,
         "away": 285,
         "draw": 350,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -14245,7 +14305,7 @@
         "home": 240,
         "away": -110,
         "draw": 330,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -14291,7 +14351,7 @@
         "home": 850,
         "away": -380,
         "draw": 550,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -14337,7 +14397,7 @@
         "home": 165,
         "away": 160,
         "draw": 250,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -14383,7 +14443,7 @@
         "home": 265,
         "away": -115,
         "draw": 310,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -14429,7 +14489,7 @@
         "home": -150,
         "away": 380,
         "draw": 320,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       }
     },
@@ -14468,7 +14528,7 @@
         "home": 215,
         "away": 105,
         "draw": 310,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -14514,7 +14574,7 @@
         "home": 120,
         "away": 195,
         "draw": 300,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -14560,7 +14620,7 @@
         "home": 110,
         "away": 230,
         "draw": 275,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -14606,7 +14666,7 @@
         "home": 800,
         "away": -330,
         "draw": 500,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -15956,7 +16016,7 @@
         "line": -8.5,
         "home": -115,
         "away": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -16002,7 +16062,7 @@
         "line": 235.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -16048,7 +16108,7 @@
         "line": -4.5,
         "home": -105,
         "away": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -16094,7 +16154,7 @@
         "line": 230.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -16977,11 +17037,10 @@
       "home": "Denver Broncos",
       "away": "Seattle Seahawks",
       "lastSnap": {
-        "line": 1.5,
-        "home": -110,
-        "away": -110,
-        "mgmLine": 2.0,
-        "time": "2026-10-11T22:10:45Z",
+        "line": 3.0,
+        "home": -112,
+        "away": -108,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17024,11 +17083,10 @@
       "home": "Denver Broncos",
       "away": "Seattle Seahawks",
       "lastSnap": {
-        "line": 41.5,
+        "line": 42.5,
         "over": -110,
         "under": -110,
-        "mgmLine": 42.0,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17072,10 +17130,10 @@
       "away": "Houston Texans",
       "lastSnap": {
         "line": -3.0,
-        "home": -105,
-        "away": -115,
+        "home": -102,
+        "away": -118,
         "mgmLine": -2.5,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17119,10 +17177,10 @@
       "away": "Houston Texans",
       "lastSnap": {
         "line": 43.5,
-        "over": -110,
-        "under": -110,
-        "mgmLine": 42.0,
-        "time": "2026-10-11T22:10:45Z",
+        "over": -115,
+        "under": -105,
+        "mgmLine": 44.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17165,10 +17223,11 @@
       "home": "Atlanta Falcons",
       "away": "Chicago Bears",
       "lastSnap": {
-        "line": 1.5,
-        "home": -110,
-        "away": -110,
-        "time": "2026-10-11T16:34:16Z",
+        "line": 3.0,
+        "home": -105,
+        "away": -115,
+        "mgmLine": 4.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17214,7 +17273,7 @@
         "line": 47.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T16:34:16Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17258,9 +17317,10 @@
       "away": "Baltimore Ravens",
       "lastSnap": {
         "line": 3.5,
-        "home": -112,
-        "away": -108,
-        "time": "2026-10-11T16:34:16Z",
+        "home": -105,
+        "away": -115,
+        "mgmLine": 4.5,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17303,10 +17363,11 @@
       "home": "Cleveland Browns",
       "away": "Baltimore Ravens",
       "lastSnap": {
-        "line": 41.5,
-        "over": -110,
-        "under": -110,
-        "time": "2026-10-11T16:34:16Z",
+        "line": 40.5,
+        "over": -115,
+        "under": -105,
+        "mgmLine": 41.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17349,10 +17410,10 @@
       "home": "Philadelphia Eagles",
       "away": "Carolina Panthers",
       "lastSnap": {
-        "line": -2.5,
-        "home": -105,
-        "away": -115,
-        "time": "2026-10-11T11:00:21Z",
+        "line": -1.5,
+        "home": -110,
+        "away": -110,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17395,10 +17456,11 @@
       "home": "Philadelphia Eagles",
       "away": "Carolina Panthers",
       "lastSnap": {
-        "line": 43.5,
-        "over": -115,
-        "under": -105,
-        "time": "2026-10-11T11:00:21Z",
+        "line": 42.5,
+        "over": -108,
+        "under": -112,
+        "mgmLine": 42.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17441,10 +17503,10 @@
       "home": "Indianapolis Colts",
       "away": "Tennessee Titans",
       "lastSnap": {
-        "line": -6.5,
-        "home": -110,
-        "away": -110,
-        "time": "2026-10-11T16:34:16Z",
+        "line": -7.0,
+        "home": -105,
+        "away": -115,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17490,7 +17552,8 @@
         "line": 44.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T16:34:16Z",
+        "mgmLine": 44.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17534,9 +17597,9 @@
       "away": "New York Jets",
       "lastSnap": {
         "line": -7.0,
-        "home": -105,
-        "away": -115,
-        "time": "2026-10-11T16:34:16Z",
+        "home": -115,
+        "away": -105,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17579,10 +17642,10 @@
       "home": "New England Patriots",
       "away": "New York Jets",
       "lastSnap": {
-        "line": 43.5,
-        "over": -115,
-        "under": -105,
-        "time": "2026-10-11T16:34:16Z",
+        "line": 44.5,
+        "over": -110,
+        "under": -110,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17625,10 +17688,11 @@
       "home": "New York Giants",
       "away": "New Orleans Saints",
       "lastSnap": {
-        "line": 1.5,
-        "home": -115,
-        "away": -105,
-        "time": "2026-10-11T16:34:16Z",
+        "line": -1.5,
+        "home": -110,
+        "away": -110,
+        "mgmLine": -1.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17672,9 +17736,10 @@
       "away": "New Orleans Saints",
       "lastSnap": {
         "line": 45.5,
-        "over": -110,
-        "under": -110,
-        "time": "2026-10-11T16:34:16Z",
+        "over": -105,
+        "under": -115,
+        "mgmLine": 45.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17720,7 +17785,7 @@
         "line": 3.0,
         "home": -118,
         "away": -102,
-        "time": "2026-10-08T22:08:28Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17763,10 +17828,10 @@
       "home": "Tampa Bay Buccaneers",
       "away": "Pittsburgh Steelers",
       "lastSnap": {
-        "line": 39.5,
+        "line": 40.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-08T22:08:28Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17809,10 +17874,10 @@
       "home": "Los Angeles Rams",
       "away": "Arizona Cardinals",
       "lastSnap": {
-        "line": -10.5,
+        "line": -12.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T16:34:16Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17855,10 +17920,11 @@
       "home": "Los Angeles Rams",
       "away": "Arizona Cardinals",
       "lastSnap": {
-        "line": 51.5,
+        "line": 52.5,
         "over": -105,
         "under": -115,
-        "time": "2026-10-11T16:34:16Z",
+        "mgmLine": 52.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17901,10 +17967,10 @@
       "home": "Las Vegas Raiders",
       "away": "Buffalo Bills",
       "lastSnap": {
-        "line": 4.5,
-        "home": -110,
-        "away": -110,
-        "time": "2026-10-11T16:34:16Z",
+        "line": 6.0,
+        "home": -112,
+        "away": -108,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17947,10 +18013,10 @@
       "home": "Las Vegas Raiders",
       "away": "Buffalo Bills",
       "lastSnap": {
-        "line": 51.5,
+        "line": 53.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T16:34:16Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -17993,10 +18059,11 @@
       "home": "Kansas City Chiefs",
       "away": "Los Angeles Chargers",
       "lastSnap": {
-        "line": -7.5,
-        "home": -110,
-        "away": -110,
-        "time": "2026-10-11T16:34:16Z",
+        "line": -8.5,
+        "home": -105,
+        "away": -115,
+        "mgmLine": -8.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -18039,10 +18106,10 @@
       "home": "Kansas City Chiefs",
       "away": "Los Angeles Chargers",
       "lastSnap": {
-        "line": 45.5,
-        "over": -110,
-        "under": -110,
-        "time": "2026-10-11T16:34:16Z",
+        "line": 43.5,
+        "over": -112,
+        "under": -108,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -18085,10 +18152,11 @@
       "home": "Green Bay Packers",
       "away": "Dallas Cowboys",
       "lastSnap": {
-        "line": 2.5,
-        "home": -110,
-        "away": -110,
-        "time": "2026-10-08T22:08:28Z",
+        "line": -1.5,
+        "home": 100,
+        "away": -120,
+        "mgmLine": -1.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -18131,10 +18199,11 @@
       "home": "Green Bay Packers",
       "away": "Dallas Cowboys",
       "lastSnap": {
-        "line": 50.5,
-        "over": -110,
-        "under": -110,
-        "time": "2026-10-08T22:08:28Z",
+        "line": 52.5,
+        "over": -105,
+        "under": -115,
+        "mgmLine": 52.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -18178,9 +18247,9 @@
       "away": "Washington Commanders",
       "lastSnap": {
         "line": -7.5,
-        "home": -110,
-        "away": -110,
-        "time": "2026-10-11T16:34:16Z",
+        "home": -108,
+        "away": -112,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -18224,9 +18293,10 @@
       "away": "Washington Commanders",
       "lastSnap": {
         "line": 50.5,
-        "over": -110,
-        "under": -110,
-        "time": "2026-10-11T16:34:16Z",
+        "over": -118,
+        "under": -102,
+        "mgmLine": 51.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -19196,10 +19266,9 @@
       "away": "Florida Gators",
       "lastSnap": {
         "line": -10.0,
-        "home": -105,
-        "away": -115,
-        "mgmLine": -9.5,
-        "time": "2026-10-11T22:10:45Z",
+        "home": -110,
+        "away": -110,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -19245,7 +19314,7 @@
         "line": 52.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -19289,9 +19358,9 @@
       "away": "Ohio State Buckeyes",
       "lastSnap": {
         "line": 3.5,
-        "home": -112,
-        "away": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "home": -110,
+        "away": -110,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -19334,10 +19403,10 @@
       "home": "Indiana Hoosiers",
       "away": "Ohio State Buckeyes",
       "lastSnap": {
-        "line": 51.5,
-        "over": -108,
-        "under": -112,
-        "time": "2026-10-11T22:10:45Z",
+        "line": 50.5,
+        "over": -118,
+        "under": -102,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -19380,10 +19449,10 @@
       "home": "Kansas State Wildcats",
       "away": "Kansas Jayhawks",
       "lastSnap": {
-        "line": -6.5,
-        "home": -108,
-        "away": -112,
-        "time": "2026-10-11T22:10:45Z",
+        "line": -6.0,
+        "home": -110,
+        "away": -110,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -19429,7 +19498,7 @@
         "line": 55.5,
         "over": -112,
         "under": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -19473,10 +19542,9 @@
       "away": "Mississippi State Bulldogs",
       "lastSnap": {
         "line": -11.5,
-        "home": -108,
-        "away": -112,
-        "mgmLine": -11.0,
-        "time": "2026-10-11T22:10:45Z",
+        "home": -112,
+        "away": -108,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -19522,7 +19590,7 @@
         "line": 58.5,
         "over": -115,
         "under": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -19565,11 +19633,10 @@
       "home": "Michigan Wolverines",
       "away": "Penn State Nittany Lions",
       "lastSnap": {
-        "line": -6.5,
-        "home": -105,
-        "away": -115,
-        "mgmLine": -6.0,
-        "time": "2026-10-11T22:10:45Z",
+        "line": -6.0,
+        "home": -108,
+        "away": -112,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -19615,7 +19682,7 @@
         "line": 42.5,
         "over": -112,
         "under": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -19750,10 +19817,10 @@
       "home": "UCLA Bruins",
       "away": "Wisconsin Badgers",
       "lastSnap": {
-        "line": -3.5,
-        "home": -105,
-        "away": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "line": -3.0,
+        "home": -115,
+        "away": -105,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -19799,7 +19866,7 @@
         "line": 46.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -19842,10 +19909,10 @@
       "home": "Tennessee Volunteers",
       "away": "Alabama Crimson Tide",
       "lastSnap": {
-        "line": 7.0,
+        "line": 7.5,
         "home": -115,
         "away": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -19891,7 +19958,7 @@
         "line": 53.5,
         "over": -108,
         "under": -112,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -19934,10 +20001,11 @@
       "home": "Georgia Bulldogs",
       "away": "Auburn Tigers",
       "lastSnap": {
-        "line": -18.5,
-        "home": -112,
-        "away": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "line": -19.5,
+        "home": -105,
+        "away": -115,
+        "mgmLine": -19.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -19981,9 +20049,9 @@
       "away": "Auburn Tigers",
       "lastSnap": {
         "line": 49.5,
-        "over": -105,
-        "under": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "over": -112,
+        "under": -108,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -20029,7 +20097,7 @@
         "line": -3.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -20075,7 +20143,7 @@
         "line": 47.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -20121,7 +20189,7 @@
         "line": -6.0,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -20167,7 +20235,7 @@
         "line": 59.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -20213,7 +20281,7 @@
         "line": -21.0,
         "home": -115,
         "away": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -20259,7 +20327,7 @@
         "line": 56.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -20306,7 +20374,7 @@
         "home": -115,
         "away": -105,
         "mgmLine": 10.0,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -20350,9 +20418,9 @@
       "away": "Notre Dame Fighting Irish",
       "lastSnap": {
         "line": 47.5,
-        "over": -105,
-        "under": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "over": -110,
+        "under": -110,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -20399,7 +20467,7 @@
         "home": -105,
         "away": -115,
         "mgmLine": -4.0,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -20442,10 +20510,10 @@
       "home": "Houston Cougars",
       "away": "Oklahoma State Cowboys",
       "lastSnap": {
-        "line": 60.5,
-        "over": -112,
-        "under": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "line": 61.5,
+        "over": -110,
+        "under": -110,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -20488,11 +20556,10 @@
       "home": "Oklahoma Sooners",
       "away": "Kentucky Wildcats",
       "lastSnap": {
-        "line": -6.5,
-        "home": -118,
-        "away": -102,
-        "mgmLine": -7.0,
-        "time": "2026-10-11T22:10:45Z",
+        "line": -7.0,
+        "home": -105,
+        "away": -115,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -20538,7 +20605,7 @@
         "line": 43.5,
         "over": -115,
         "under": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -22554,11 +22621,10 @@
       "home": "Middle Tennessee Blue Raiders",
       "away": "Delaware Blue Hens",
       "lastSnap": {
-        "line": 3.0,
+        "line": 2.5,
         "home": -110,
         "away": -110,
-        "mgmLine": 2.5,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -22602,9 +22668,9 @@
       "away": "Delaware Blue Hens",
       "lastSnap": {
         "line": 48.5,
-        "over": -108,
-        "under": -112,
-        "time": "2026-10-11T22:10:45Z",
+        "over": -105,
+        "under": -115,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -22648,9 +22714,9 @@
       "away": "Florida International Panthers",
       "lastSnap": {
         "line": -3.0,
-        "home": -108,
-        "away": -112,
-        "time": "2026-10-11T22:10:45Z",
+        "home": -110,
+        "away": -110,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -22696,7 +22762,7 @@
         "line": 43.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -22743,7 +22809,7 @@
         "home": -108,
         "away": -112,
         "mgmLine": -13.0,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -22789,7 +22855,7 @@
         "line": 68.5,
         "over": -105,
         "under": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -22817,7 +22883,7 @@
       "closePrice": -118,
       "closeTime": "2026-10-11T21:05:36Z",
       "closeBook": "DraftKings",
-      "result": "pending",
+      "result": "Seattle Kraken 5, Washington Capitals 3",
       "clv": "missing",
       "clvPoints": "missing",
       "clvCents": "missing",
@@ -22853,7 +22919,12 @@
         "time": "2026-10-11T21:05:36Z",
         "book": "DraftKings"
       },
-      "closeGapMin": 4.4
+      "closeGapMin": 4.4,
+      "score": {
+        "home": 3.0,
+        "away": 5.0
+      },
+      "final": true
     },
     {
       "sport": "NHL",
@@ -22872,7 +22943,7 @@
       "closePrice": -205,
       "closeTime": "2026-10-11T21:05:36Z",
       "closeBook": "DraftKings",
-      "result": "pending",
+      "result": "Seattle Kraken 5, Washington Capitals 3",
       "clv": "missing",
       "clvPoints": "missing",
       "clvCents": "missing",
@@ -22904,7 +22975,12 @@
         "time": "2026-10-11T21:05:36Z",
         "book": "DraftKings"
       },
-      "closeGapMin": 4.4
+      "closeGapMin": 4.4,
+      "score": {
+        "home": 3.0,
+        "away": 5.0
+      },
+      "final": true
     },
     {
       "sport": "NHL",
@@ -22923,7 +22999,7 @@
       "closePrice": -130,
       "closeTime": "2026-10-11T22:05:36Z",
       "closeBook": "DraftKings",
-      "result": "pending",
+      "result": "Vancouver Canucks 2, New York Rangers 6",
       "clv": "missing",
       "clvPoints": "missing",
       "clvCents": "missing",
@@ -22960,7 +23036,12 @@
         "time": "2026-10-11T22:05:36Z",
         "book": "DraftKings"
       },
-      "closeGapMin": 4.4
+      "closeGapMin": 4.4,
+      "score": {
+        "home": 6.0,
+        "away": 2.0
+      },
+      "final": true
     },
     {
       "sport": "NHL",
@@ -22979,7 +23060,7 @@
       "closePrice": -290,
       "closeTime": "2026-10-11T22:05:36Z",
       "closeBook": "DraftKings",
-      "result": "pending",
+      "result": "Vancouver Canucks 2, New York Rangers 6",
       "clv": "missing",
       "clvPoints": "missing",
       "clvCents": "missing",
@@ -23011,7 +23092,12 @@
         "time": "2026-10-11T22:05:36Z",
         "book": "DraftKings"
       },
-      "closeGapMin": 4.4
+      "closeGapMin": 4.4,
+      "score": {
+        "home": 6.0,
+        "away": 2.0
+      },
+      "final": true
     },
     {
       "sport": "NHL",
@@ -23025,12 +23111,12 @@
       "openPrice": 110,
       "openTime": "2026-10-10T16:34:22Z",
       "openBook": "DraftKings",
-      "close": "missing",
-      "closeLine": "missing",
-      "closePrice": "missing",
-      "closeTime": "missing",
-      "closeBook": "missing",
-      "result": "pending",
+      "close": "under 5.5 -105",
+      "closeLine": 5.5,
+      "closePrice": -105,
+      "closeTime": "2026-10-11T23:05:36Z",
+      "closeBook": "DraftKings",
+      "result": "Carolina Hurricanes 4, Philadelphia Flyers 1",
       "clv": "missing",
       "clvPoints": "missing",
       "clvCents": "missing",
@@ -23059,7 +23145,20 @@
         "mgmLine": 6.0,
         "time": "2026-10-10T16:34:22Z",
         "book": "DraftKings"
-      }
+      },
+      "closeSnap": {
+        "line": 5.5,
+        "over": -115,
+        "under": -105,
+        "time": "2026-10-11T23:05:36Z",
+        "book": "DraftKings"
+      },
+      "closeGapMin": 4.4,
+      "score": {
+        "home": 1.0,
+        "away": 4.0
+      },
+      "final": true
     },
     {
       "sport": "NHL",
@@ -23073,12 +23172,12 @@
       "openPrice": 130,
       "openTime": "2026-10-10T16:34:22Z",
       "openBook": "DraftKings",
-      "close": "missing",
+      "close": "Philadelphia Flyers missing 190",
       "closeLine": "missing",
-      "closePrice": "missing",
-      "closeTime": "missing",
-      "closeBook": "missing",
-      "result": "pending",
+      "closePrice": 190,
+      "closeTime": "2026-10-11T23:05:36Z",
+      "closeBook": "DraftKings",
+      "result": "Carolina Hurricanes 4, Philadelphia Flyers 1",
       "clv": "missing",
       "clvPoints": "missing",
       "clvCents": "missing",
@@ -23103,7 +23202,19 @@
         "away": -155,
         "time": "2026-10-10T16:34:22Z",
         "book": "DraftKings"
-      }
+      },
+      "closeSnap": {
+        "home": 190,
+        "away": -230,
+        "time": "2026-10-11T23:05:36Z",
+        "book": "DraftKings"
+      },
+      "closeGapMin": 4.4,
+      "score": {
+        "home": 1.0,
+        "away": 4.0
+      },
+      "final": true
     },
     {
       "sport": "NCAAF",
@@ -23137,10 +23248,10 @@
       "home": "Missouri State Bears",
       "away": "Kennesaw State Owls",
       "lastSnap": {
-        "line": 3.5,
-        "home": -118,
-        "away": -102,
-        "time": "2026-10-11T22:10:45Z",
+        "line": 3.0,
+        "home": -102,
+        "away": -118,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23186,7 +23297,7 @@
         "line": 51.5,
         "over": -102,
         "under": -118,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23230,10 +23341,9 @@
       "away": "Western Kentucky Hilltoppers",
       "lastSnap": {
         "line": 1.5,
-        "home": -115,
-        "away": -105,
-        "mgmLine": 1.0,
-        "time": "2026-10-11T22:10:45Z",
+        "home": -112,
+        "away": -108,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23276,10 +23386,10 @@
       "home": "Sam Houston State Bearkats",
       "away": "Western Kentucky Hilltoppers",
       "lastSnap": {
-        "line": 51.5,
-        "over": -115,
-        "under": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "line": 52.5,
+        "over": -105,
+        "under": -115,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23325,7 +23435,8 @@
         "line": 4.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "mgmLine": 5.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23371,7 +23482,8 @@
         "line": 49.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "mgmLine": 48.5,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23417,7 +23529,7 @@
         "line": 4.0,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23463,7 +23575,8 @@
         "line": 47.5,
         "over": -102,
         "under": -118,
-        "time": "2026-10-11T22:10:45Z",
+        "mgmLine": 46.5,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23506,10 +23619,10 @@
       "home": "Tulane Green Wave",
       "away": "Memphis Tigers",
       "lastSnap": {
-        "line": 6.5,
-        "home": -105,
-        "away": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "line": 7.0,
+        "home": -115,
+        "away": -105,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23555,7 +23668,7 @@
         "line": 53.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23602,7 +23715,7 @@
         "home": -112,
         "away": -108,
         "mgmLine": 1.0,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23648,7 +23761,7 @@
         "line": 51.5,
         "over": -115,
         "under": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23692,9 +23805,9 @@
       "away": "Washington Huskies",
       "lastSnap": {
         "line": -3.0,
-        "home": -112,
-        "away": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "home": -115,
+        "away": -105,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23740,8 +23853,7 @@
         "line": 52.5,
         "over": -110,
         "under": -110,
-        "mgmLine": 51.5,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23784,10 +23896,10 @@
       "home": "Army Black Knights",
       "away": "Florida Atlantic Owls",
       "lastSnap": {
-        "line": -3.0,
-        "home": -102,
-        "away": -118,
-        "time": "2026-10-11T22:10:45Z",
+        "line": -2.5,
+        "home": -115,
+        "away": -105,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23834,7 +23946,7 @@
         "over": -110,
         "under": -110,
         "mgmLine": 55.5,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23880,7 +23992,7 @@
         "line": -7.5,
         "home": -105,
         "away": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23926,7 +24038,7 @@
         "line": 44.5,
         "over": -112,
         "under": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -23973,7 +24085,7 @@
         "home": -115,
         "away": -105,
         "mgmLine": 6.0,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24016,10 +24128,11 @@
       "home": "Boston College Eagles",
       "away": "Pittsburgh Panthers",
       "lastSnap": {
-        "line": 43.5,
-        "over": -118,
-        "under": -102,
-        "time": "2026-10-11T22:10:45Z",
+        "line": 44.5,
+        "over": -102,
+        "under": -118,
+        "mgmLine": 43.5,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24065,7 +24178,7 @@
         "line": 7.0,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24111,7 +24224,7 @@
         "line": 42.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24158,7 +24271,7 @@
         "home": -110,
         "away": -110,
         "mgmLine": -2.0,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24202,9 +24315,10 @@
       "away": "Cincinnati Bearcats",
       "lastSnap": {
         "line": 62.5,
-        "over": -110,
-        "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "over": -112,
+        "under": -108,
+        "mgmLine": 63.5,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24251,7 +24365,7 @@
         "home": -110,
         "away": -110,
         "mgmLine": -12.0,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24295,9 +24409,9 @@
       "away": "Georgia State Panthers",
       "lastSnap": {
         "line": 58.5,
-        "over": -108,
-        "under": -112,
-        "time": "2026-10-11T22:10:45Z",
+        "over": -105,
+        "under": -115,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24341,9 +24455,9 @@
       "away": "Georgia Tech Yellow Jackets",
       "lastSnap": {
         "line": -9.5,
-        "home": -110,
-        "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "home": -115,
+        "away": -105,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24389,7 +24503,7 @@
         "line": 55.5,
         "over": -102,
         "under": -118,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24436,7 +24550,7 @@
         "home": -112,
         "away": -108,
         "mgmLine": 13.0,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24482,7 +24596,7 @@
         "line": 56.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24528,7 +24642,7 @@
         "line": -4.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24571,11 +24685,10 @@
       "home": "Maryland Terrapins",
       "away": "Rutgers Scarlet Knights",
       "lastSnap": {
-        "line": 59.5,
-        "over": -102,
-        "under": -118,
-        "mgmLine": 58.5,
-        "time": "2026-10-11T22:10:45Z",
+        "line": 58.5,
+        "over": -115,
+        "under": -105,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24618,10 +24731,10 @@
       "home": "Michigan State Spartans",
       "away": "Northwestern Wildcats",
       "lastSnap": {
-        "line": 8.5,
-        "home": -112,
-        "away": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "line": 7.5,
+        "home": -110,
+        "away": -110,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24667,7 +24780,7 @@
         "line": 48.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24713,7 +24826,7 @@
         "line": -8.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24757,9 +24870,10 @@
       "away": "Virginia Cavaliers",
       "lastSnap": {
         "line": 52.5,
-        "over": -115,
-        "under": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "over": -105,
+        "under": -115,
+        "mgmLine": 51.5,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24803,10 +24917,9 @@
       "away": "Charlotte 49ers",
       "lastSnap": {
         "line": -21.5,
-        "home": -112,
-        "away": -108,
-        "mgmLine": -22.0,
-        "time": "2026-10-11T22:10:45Z",
+        "home": -108,
+        "away": -112,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24849,10 +24962,10 @@
       "home": "Temple Owls",
       "away": "Charlotte 49ers",
       "lastSnap": {
-        "line": 50.5,
+        "line": 49.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24895,10 +25008,11 @@
       "home": "Texas Tech Red Raiders",
       "away": "Arizona State Sun Devils",
       "lastSnap": {
-        "line": -14.0,
-        "home": -110,
-        "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "line": -14.5,
+        "home": -105,
+        "away": -115,
+        "mgmLine": -14.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24944,7 +25058,8 @@
         "line": 48.5,
         "over": -115,
         "under": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "mgmLine": 49.5,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -24990,7 +25105,7 @@
         "line": -6.0,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25036,7 +25151,7 @@
         "line": 50.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25079,10 +25194,10 @@
       "home": "Baylor Bears",
       "away": "TCU Horned Frogs",
       "lastSnap": {
-        "line": -6.5,
-        "home": -108,
-        "away": -112,
-        "time": "2026-10-11T22:10:45Z",
+        "line": -5.5,
+        "home": -110,
+        "away": -110,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25125,10 +25240,10 @@
       "home": "Baylor Bears",
       "away": "TCU Horned Frogs",
       "lastSnap": {
-        "line": 49.5,
-        "over": -105,
-        "under": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "line": 48.5,
+        "over": -112,
+        "under": -108,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25263,10 +25378,11 @@
       "home": "Oregon State Beavers",
       "away": "Washington State Cougars",
       "lastSnap": {
-        "line": -17.5,
-        "home": -110,
-        "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "line": -18.5,
+        "home": -105,
+        "away": -115,
+        "mgmLine": -18.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25310,9 +25426,9 @@
       "away": "Washington State Cougars",
       "lastSnap": {
         "line": 53.5,
-        "over": -105,
-        "under": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "over": -110,
+        "under": -110,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25451,7 +25567,7 @@
         "home": -110,
         "away": -110,
         "mgmLine": 8.0,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25497,7 +25613,7 @@
         "line": 45.5,
         "over": -105,
         "under": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25543,7 +25659,7 @@
         "line": 5.5,
         "home": -112,
         "away": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25589,7 +25705,7 @@
         "line": 52.5,
         "over": -115,
         "under": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25632,11 +25748,11 @@
       "home": "South Florida Bulls",
       "away": "Kent State Golden Flashes",
       "lastSnap": {
-        "line": -19.5,
-        "home": -112,
-        "away": -108,
+        "line": -20.5,
+        "home": -108,
+        "away": -112,
         "mgmLine": -20.0,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25682,7 +25798,7 @@
         "line": 46.5,
         "over": -115,
         "under": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25726,9 +25842,10 @@
       "away": "Akron Zips",
       "lastSnap": {
         "line": -10.0,
-        "home": -110,
-        "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "home": -108,
+        "away": -112,
+        "mgmLine": -9.5,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25774,7 +25891,8 @@
         "line": 46.5,
         "over": -118,
         "under": -102,
-        "time": "2026-10-11T22:10:45Z",
+        "mgmLine": 47.5,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25820,7 +25938,8 @@
         "line": -7.5,
         "home": -112,
         "away": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "mgmLine": -8.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25863,11 +25982,10 @@
       "home": "Wyoming Cowboys",
       "away": "Northern Illinois Huskies",
       "lastSnap": {
-        "line": 41.5,
-        "over": 100,
-        "under": -120,
-        "mgmLine": 40.5,
-        "time": "2026-10-11T22:10:45Z",
+        "line": 40.5,
+        "over": -118,
+        "under": -102,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25914,7 +26032,7 @@
         "home": -108,
         "away": -112,
         "mgmLine": -4.0,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -25960,7 +26078,7 @@
         "line": 49.5,
         "over": -105,
         "under": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26006,7 +26124,8 @@
         "line": 6.5,
         "over": 114,
         "under": -135,
-        "time": "2026-10-11T22:10:45Z",
+        "mgmLine": 6.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26049,9 +26168,9 @@
       "home": "Buffalo Sabres",
       "away": "Florida Panthers",
       "lastSnap": {
-        "home": -105,
-        "away": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "home": -108,
+        "away": -112,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26096,7 +26215,8 @@
         "line": 5.5,
         "over": -125,
         "under": 105,
-        "time": "2026-10-11T22:10:45Z",
+        "mgmLine": 6.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26139,9 +26259,9 @@
       "home": "New Jersey Devils",
       "away": "Ottawa Senators",
       "lastSnap": {
-        "home": -130,
-        "away": 110,
-        "time": "2026-10-11T22:10:45Z",
+        "home": -135,
+        "away": 114,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26186,7 +26306,8 @@
         "line": 5.5,
         "over": -130,
         "under": 110,
-        "time": "2026-10-11T22:10:45Z",
+        "mgmLine": 6.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26231,7 +26352,7 @@
       "lastSnap": {
         "home": -118,
         "away": -102,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26274,10 +26395,10 @@
       "away": "UMass Minutemen",
       "lastSnap": {
         "line": -3.0,
-        "home": -112,
-        "away": -108,
+        "home": -118,
+        "away": -102,
         "mgmLine": -3.5,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26325,7 +26446,7 @@
         "over": -115,
         "under": -105,
         "mgmLine": 43.5,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26369,10 +26490,10 @@
       "away": "UNLV Rebels",
       "lastSnap": {
         "line": 1.5,
-        "home": -122,
-        "away": 102,
-        "mgmLine": 1.0,
-        "time": "2026-10-11T22:10:45Z",
+        "home": -125,
+        "away": 105,
+        "mgmLine": -1.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26415,10 +26536,11 @@
       "home": "Air Force Falcons",
       "away": "UNLV Rebels",
       "lastSnap": {
-        "line": 46.5,
-        "over": -112,
-        "under": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "line": 47.5,
+        "over": -105,
+        "under": -115,
+        "mgmLine": 46.5,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26462,9 +26584,9 @@
       "away": "Tulsa Golden Hurricane",
       "lastSnap": {
         "line": 4.5,
-        "home": -112,
-        "away": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "home": -110,
+        "away": -110,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26508,10 +26630,11 @@
       "home": "Rice Owls",
       "away": "Tulsa Golden Hurricane",
       "lastSnap": {
-        "line": 46.5,
-        "over": -108,
-        "under": -112,
-        "time": "2026-10-11T22:10:45Z",
+        "line": 45.5,
+        "over": -112,
+        "under": -108,
+        "mgmLine": 46.5,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26556,9 +26679,9 @@
       "away": "Arkansas State Red Wolves",
       "lastSnap": {
         "line": 7.0,
-        "home": -112,
-        "away": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "home": -110,
+        "away": -110,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26604,7 +26727,7 @@
         "line": 61.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26650,7 +26773,7 @@
         "line": -15.5,
         "home": -108,
         "away": -112,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26697,7 +26820,7 @@
         "line": 45.5,
         "over": -112,
         "under": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26743,7 +26866,7 @@
         "line": 14.5,
         "home": -110,
         "away": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26786,10 +26909,11 @@
       "home": "UL Monroe Warhawks",
       "away": "Louisiana Tech Bulldogs",
       "lastSnap": {
-        "line": 55.5,
-        "over": -102,
-        "under": -118,
-        "time": "2026-10-11T22:10:45Z",
+        "line": 56.5,
+        "over": -105,
+        "under": -115,
+        "mgmLine": 55.5,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26835,7 +26959,7 @@
         "line": -6.5,
         "home": -115,
         "away": -105,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26881,7 +27005,7 @@
         "line": 54.5,
         "over": -118,
         "under": -102,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26925,10 +27049,10 @@
       "away": "San Jose State Spartans",
       "lastSnap": {
         "line": 8.5,
-        "home": -108,
-        "away": -112,
-        "mgmLine": 9.0,
-        "time": "2026-10-11T22:10:45Z",
+        "home": -112,
+        "away": -108,
+        "mgmLine": 8.0,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -26972,9 +27096,9 @@
       "away": "San Jose State Spartans",
       "lastSnap": {
         "line": 48.5,
-        "over": -110,
-        "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "over": -105,
+        "under": -115,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -27020,7 +27144,7 @@
         "line": 14.5,
         "home": -112,
         "away": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -27067,7 +27191,7 @@
         "over": -105,
         "under": -115,
         "mgmLine": 48.5,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -27111,11 +27235,10 @@
       "home": "Colorado Buffaloes",
       "away": "Utah Utes",
       "lastSnap": {
-        "line": 16.5,
-        "home": -110,
-        "away": -110,
-        "mgmLine": 16.0,
-        "time": "2026-10-11T22:10:45Z",
+        "line": 15.5,
+        "home": -108,
+        "away": -112,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -27162,7 +27285,7 @@
         "line": 49.5,
         "over": -105,
         "under": -115,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -27208,7 +27331,7 @@
         "line": 9.5,
         "home": -108,
         "away": -112,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -27255,7 +27378,7 @@
         "line": 53.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -27303,7 +27426,7 @@
         "home": -112,
         "away": -108,
         "mgmLine": 14.0,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -27350,7 +27473,7 @@
         "line": 45.5,
         "over": -112,
         "under": -108,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -27394,9 +27517,9 @@
       "away": "Nebraska Cornhuskers",
       "lastSnap": {
         "line": -7.0,
-        "home": -108,
-        "away": -112,
-        "time": "2026-10-11T22:10:45Z",
+        "home": -110,
+        "away": -110,
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -27442,7 +27565,7 @@
         "line": 52.5,
         "over": -110,
         "under": -110,
-        "time": "2026-10-11T22:10:45Z",
+        "time": "2026-10-12T04:16:41Z",
         "book": "DraftKings"
       },
       "openSnap": {
@@ -27466,21 +27589,21 @@
   "score": {
     "picks": 44,
     "reads": 141,
-    "graded": 21,
-    "meanClvProb": -0.0236,
+    "graded": 23,
+    "meanClvProb": -0.0242,
     "beatClose": 2,
-    "record": "7-5-0",
-    "flatUnits": 1.25,
+    "record": "11-12-0",
+    "flatUnits": -2.08,
     "officialRecord": "0-0-0",
     "officialUnits": 0,
     "byGrade": {
       "A": {
         "reads": 20,
-        "graded": 11,
-        "meanClvProb": -0.0239,
+        "graded": 13,
+        "meanClvProb": -0.0249,
         "beatClose": 1,
-        "tStat": -6.06,
-        "record": "3-2-0"
+        "tStat": -7.35,
+        "record": "6-7-0"
       },
       "B": {
         "reads": 24,
@@ -27488,15 +27611,15 @@
         "meanClvProb": -0.0233,
         "beatClose": 1,
         "tStat": -5.67,
-        "record": "4-3-0"
+        "record": "5-5-0"
       },
       "C": {
         "reads": 35,
-        "graded": 26,
-        "meanClvProb": -0.0253,
+        "graded": 28,
+        "meanClvProb": -0.0248,
         "beatClose": 0,
-        "tStat": -8.64,
-        "record": "6-10-1"
+        "tStat": -8.87,
+        "record": "11-16-1"
       },
       "P": {
         "reads": 62
@@ -27506,12 +27629,12 @@
       "stats-model": {
         "reads": 52,
         "picks": 32,
-        "graded": 24,
-        "meanClvProb": -0.023,
+        "graded": 26,
+        "meanClvProb": -0.0226,
         "beatClose": 2,
-        "tStat": -6.36,
-        "record": "9-8-1",
-        "flatUnits": 0.22
+        "tStat": -6.66,
+        "record": "14-11-1",
+        "flatUnits": 1.89
       },
       "trend-fade": {
         "reads": 3,
@@ -27520,24 +27643,24 @@
         "meanClvProb": -0.0268,
         "beatClose": 0,
         "tStat": -8.65,
-        "record": "0-0-0",
-        "flatUnits": 0
+        "record": "0-2-0",
+        "flatUnits": -2.0
       },
       "news-lag": {
         "reads": 9,
         "picks": 9,
-        "graded": 7,
-        "meanClvProb": -0.029,
+        "graded": 9,
+        "meanClvProb": -0.0294,
         "beatClose": 0,
-        "tStat": -11.63,
-        "record": "3-1-0",
-        "flatUnits": 1.61
+        "tStat": -15.02,
+        "record": "4-5-0",
+        "flatUnits": -1.46
       }
     }
   },
   "gate": "Injury gate 07:24 CT. No slate appended. No close written. Starter only if a source named him. Weather numeric missing where the forecast was not posted.",
   "credits": {
-    "remaining": 14861,
-    "used": 5139
+    "remaining": 14805,
+    "used": 5195
   }
 }
