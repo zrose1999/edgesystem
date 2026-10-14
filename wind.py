@@ -11,7 +11,7 @@ Sources (free, no key)
   weather.gov       hourly forecast at the venue
 
 Values come from sizing.md, total table, midpoints:
-  sustained wind 15 to 19 mph   -2.0       20 mph or more   -3.5
+  sustained wind 15 to 19 mph   -3.0       20 mph or more   -3.5
   heavy rain or snow            -1.0
 Wind is the average of the forecast from kickoff through three hours after.
 
@@ -171,8 +171,8 @@ def value(c):
         v -= 3.5
         why.append(f"wind {c['windMph']:.0f} mph sustained, -3.5")
     elif c["windMph"] >= 15:
-        v -= 2.0
-        why.append(f"wind {c['windMph']:.0f} mph sustained, -2.0")
+        v -= 3.0
+        why.append(f"wind {c['windMph']:.0f} mph sustained, -3.0")
     if c["heavy"]:
         v -= 1.0
         why.append(f"heavy precipitation ({c['text']}, {c['pop']}%), -1.0")
