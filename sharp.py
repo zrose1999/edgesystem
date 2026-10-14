@@ -19,6 +19,7 @@ Two patterns, tested separately
 
 Rules
   Pinnacle must have both sides and be updated within SHARP_STALE_MIN of the soft book.
+  Only prices pulled within SHARP_SNAP_MAX_MIN are scanned, so a stamp is never an old price.
   Edge is fair probability minus the probability the soft price implies.
   A  edge >= BAR (full bar)      B  edge >= BAR / 2      under that: not stamped.
   An edge over SHARP_MAX is treated as a data error and skipped, never stamped.
@@ -46,6 +47,7 @@ SOFT = [b for b in os.environ.get("EDGE_SOFT_BOOKS", "draftkings,fanduel,betmgm,
 BAR = float(os.environ.get("SHARP_BAR", "0.03"))          # full bar, in probability
 SHARP_MAX = float(os.environ.get("SHARP_MAX", "0.10"))    # above this is a data error
 STALE_MIN = float(os.environ.get("SHARP_STALE_MIN", "60"))
+SNAP_MAX_MIN = float(os.environ.get("SHARP_SNAP_MAX_MIN", "90"))   # only prices pulled this recently are scanned
 SPORTS = [s.strip().upper() for s in os.environ.get("SHARP_SPORTS", "").split(",") if s.strip()] or pull.ACTIVE
 
 
@@ -137,7 +139,7 @@ def scan(dry=False):
         if not row.get("commence") or row["commence"] <= now:
             continue
         age = (now_dt - pull.parse(snap["time"])).total_seconds() / 60
-        if age > pull.STALE_MIN:
+        if age > SNAP_MAX_MIN:
             continue
         seen += 1
         for pattern, alt in ((PATTERN, False), (ALT_PATTERN, True)):
