@@ -4,7 +4,7 @@ Hypotheses. Each earns trust only by beating the close. Shadow until grade.py sa
 
 ## news-lag
 
-Starting-QB news is stamped by injury.py, never by hand: status history from the ESPN injury report with this desk's own first-seen times (stats/injuries.json), the starter from stats/nfl_teams.json, and the sizing.md QB values (elite 6.0, average 3.75, weak 1.75; totals -2.25), counting only news after the open. Other positions are still read by hand.
+Starter news is stamped by injury.py, never by hand: status history from the ESPN injury report with this desk's own first-seen times (stats/injuries.json), starters from ESPN depth charts refreshed daily (stats/nfl_depth.json, a starter in the last 10 days still counts), and the sizing.md values at the low end of each range (QB elite 6.0 / average 3.75 / weak 1.75 by EPA tier; WR1 0.5; RB1 0.25; LT or C 0.5; other OL 0.25; two+ OL out +0.5; kicker 0.5; defensive starter 0.25; totals QB -2.25, WR1 or RB1 -0.5, two+ OL -0.5). Only news after the open counts.
 Idea: starter changes, late scratches, and injury upgrades or downgrades in the window before the market fully moves.
 Applies: the line has not yet moved the amount the news implies.
 Retire early if: the move is already in the number when the pick is stamped.
