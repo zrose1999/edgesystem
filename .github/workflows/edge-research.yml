@@ -1,0 +1,47 @@
+# EDGE research. One-off studies that need sites this workspace cannot reach. Manual only, never trades.
+# Writes reports to stats/ on branch data.
+name: EDGE research
+
+on:
+  workflow_dispatch:
+    inputs:
+      study:
+        description: "Which study"
+        type: choice
+        options: [tennis]
+        default: tennis
+
+permissions:
+  contents: write
+
+concurrency:
+  group: edge-data-writer
+  cancel-in-progress: false
+
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: data
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install -q openpyxl
+      - name: Tennis surface Elo vs Pinnacle
+        if: inputs.study == 'tennis'
+        run: python tennis_backtest.py
+      - name: Push report to branch data
+        run: |
+          git config user.name "EDGE"
+          git config user.email "edge@edgesystem.local"
+          git add stats/backtest_tennis.md stats/backtest_tennis.json 2>/dev/null || true
+          if git diff --cached --quiet; then echo "No changes."; exit 0; fi
+          git commit -q -m "EDGE: research report"
+          for i in 1 2 3; do
+            git pull -q --rebase origin data && git push -q origin HEAD:data && exit 0
+            echo "Push raced another writer, retrying ($i)"; sleep 15
+          done
+          exit 1
