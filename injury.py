@@ -14,7 +14,7 @@ Who counts as a starter
 Values (sizing.md tables; the low end where the table gives a range, because roles are read
 from a chart and not confirmed by the analyst)
   spread, points toward the other team            total, points
-  QB   elite 6.0 / average 3.75 / weak 1.75       QB -2.25
+  QB   elite 7.0 / average 3.5 / weak 1.0          QB -2.25
   WR1 0.5     RB1 0.25     kicker 0.5             WR1 or RB1 -0.5
   LT or C 0.5     other OL starter 0.25           two or more OL out -0.5
   two or more OL out: add them, then add 0.5
@@ -107,12 +107,12 @@ def espn_id(athlete):
 def qb_value(passer):
     epa = (passer or {}).get("epaPerDropback")
     if epa is None:
-        return 3.75, "average (no EPA)"
+        return 3.5, "average (no EPA)"
     if epa > 0.15:
-        return 6.0, f"elite ({epa:+.2f} EPA/dropback)"
+        return 7.0, f"elite ({epa:+.2f} EPA/dropback)"
     if epa >= -0.05:
-        return 3.75, f"average ({epa:+.2f} EPA/dropback)"
-    return 1.75, f"weak ({epa:+.2f} EPA/dropback)"
+        return 3.5, f"average ({epa:+.2f} EPA/dropback)"
+    return 1.0, f"weak ({epa:+.2f} EPA/dropback)"
 
 
 def status_at(timeline, when):
@@ -271,7 +271,7 @@ def team_news(team_name, teams, hist, depth, open_time, now):
         if not d:
             continue
         is_passer = passer.get("name") and p.get("nameKey") == key(passer["name"])
-        val, tier = qb_value(passer) if is_passer else (3.75, "average (not the recent main passer)")
+        val, tier = qb_value(passer) if is_passer else (3.5, "average (not the recent main passer)")
         spread += d * val
         total += d * -2.25
         items.append(f"{abbr} QB {p['name']}, {tier}: {then} at the open, {cur} now, "
