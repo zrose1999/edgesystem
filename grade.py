@@ -23,6 +23,8 @@ import os
 from collections import defaultdict
 from pathlib import Path
 
+import fair
+
 ROOT = Path(__file__).resolve().parent
 LEDGER = ROOT / "ledger" / "ledger.json"
 PICKS = ROOT / "ledger" / "picks.json"
@@ -63,10 +65,8 @@ def payout(american):
 
 
 def no_vig(snap, side):
-    """Fair probability of `side` at the close with the bookmaker margin removed."""
-    keys = [k for k in ("home", "away", "draw", "over", "under") if k in snap]
-    total = sum(implied(snap[k]) for k in keys)
-    return implied(snap[side]) / total
+    """Fair probability of `side` at the close with the bookmaker margin removed (Shin's method, fair.py)."""
+    return fair.probs(snap)[side]
 
 
 def side_line(snap, side, market):

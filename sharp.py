@@ -20,7 +20,8 @@ Two patterns, tested separately
 Rules
   Pinnacle must have both sides and be updated within SHARP_STALE_MIN of the soft book.
   Only prices pulled within SHARP_SNAP_MAX_MIN are scanned, so a stamp is never an old price.
-  Edge is fair probability minus the probability the soft price implies.
+  Edge is fair probability (Pinnacle, margin removed with Shin's method) minus the probability
+  the soft price implies.
   A  edge >= BAR (full bar)      B  edge >= BAR / 2      under that: not stamped.
   An edge over SHARP_MAX is treated as a data error and skipped, never stamped.
   One pick per row, side and pattern. The first price seen is the price taken. Never re-stamped.
@@ -33,6 +34,7 @@ import os
 import sys
 from datetime import datetime, timezone
 
+import fair
 import pull
 
 PATTERN = "sharp-soft"
@@ -52,8 +54,8 @@ SPORTS = [s.strip().upper() for s in os.environ.get("SHARP_SPORTS", "").split(",
 
 
 def no_vig(snap, keys):
-    total = sum(pull.implied(snap[k]) for k in keys)
-    return {k: pull.implied(snap[k]) / total for k in keys}
+    """Pinnacle's fair probabilities with the margin removed by Shin's method (fair.py)."""
+    return fair.probs(snap, keys)
 
 
 def sides_for(market):
