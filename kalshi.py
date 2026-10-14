@@ -238,7 +238,7 @@ def team_score(kalshi, ledger):
 
 def split_title(title):
     t = (title or "").split(":")[0]
-    for sep in (" vs ", " at ", " @ "):
+    for sep in (" vs. ", " vs ", " at ", " @ "):
         if sep in t:
             a, h = t.split(sep, 1)
             return a.strip(), h.strip()
@@ -441,8 +441,10 @@ def new_book(cfg):
 def book_state(book):
     open_cost = sum(t["cost"] + t["fee"] for t in book["trades"] if t["status"] == "open")
     realized = sum(t.get("pnl", 0) for t in book["trades"] if t["status"] == "settled")
+    clv = [t["clv"] for t in book["trades"] if t.get("clv") is not None]
     return {"open": round(open_cost, 2), "realized": round(realized, 2),
-            "equity": round(book["start"] + realized, 2)}
+            "equity": round(book["start"] + realized, 2),
+            "clvN": len(clv), "meanClv": round(sum(clv) / len(clv), 4) if clv else None}
 
 
 def check_stop(book, cfg, now):
@@ -505,6 +507,112 @@ def snapshot(book, now):
         book["equity"] = book["equity"][-3000:]
 
 
+# ---------- CS2 (cs2.py ratings, no sportsbook price) ----------
+
+QUOTES = {}
+CS2_SERIES = "KXCS2GAME"
+CS2_RATINGS = ROOT / "stats" / "cs2_ratings.json"
+CS2_MAX_EDGE = 0.15        # a model, not a sharp price: bigger gaps are more likely a rating error
+
+
+def cs2_name_score(label, team):
+    best = 0.0
+    for name in (team.get("name"), team.get("acronym")):
+        if not name:
+            continue
+        a = re.sub(r"[^a-z0-9]", "", label.lower())
+        b = re.sub(r"[^a-z0-9]", "", name.lower())
+        if a and b and (a == b or (len(min(a, b, key=len)) >= 4 and (a.startswith(b) or b.startswith(a)))):
+            best = max(best, 1.0)
+        else:
+            best = max(best, team_score(label, name))
+    return best
+
+
+def cs2_candidates(cfg, now):
+    """Kalshi CS2 match markets priced from cs2.py's map Elo. Source cs2-elo; paper-only (CS2 is not in liveSports)."""
+    if "CS2" not in (cfg.get("sports") or []):
+        return [], 0
+    ratings = load(CS2_RATINGS, {})
+    ups = ratings.get("upcoming") or []
+    if not ups:
+        return [], 0
+    try:
+        evs, mks = events(PROD, CS2_SERIES), markets(PROD, CS2_SERIES)
+    except Exception as exc:  # noqa: BLE001
+        print("kalshi", CS2_SERIES, exc)
+        return [], 0
+    for m in mks:
+        QUOTES[m["ticker"]] = m
+    games, matched = {}, 0
+    for et, e in evs.items():
+        d = ticker_date(et)
+        first, second = split_title(e.get("title"))
+        if not d or not first:
+            continue
+        best, best_s, runner = None, 0.0, 0.0
+        for u in ups:
+            if abs((datetime.strptime(u["begin"][:10], "%Y-%m-%d") - datetime.strptime(d, "%Y-%m-%d")).days) > 1:
+                continue
+            s1 = min(cs2_name_score(first, u["a"]), cs2_name_score(second, u["b"]))
+            s2 = min(cs2_name_score(first, u["b"]), cs2_name_score(second, u["a"]))
+            s = max(s1, s2)
+            if s > best_s:
+                runner, best, best_s = max(runner, best_s), u, s
+            else:
+                runner = max(runner, s)
+        if best and best_s >= 0.75 and best_s - runner >= 0.25:
+            games[et] = best
+            matched += 1
+    cands = []
+    for m in mks:
+        u = games.get(m.get("event_ticker"))
+        if not u or u["begin"] <= iso(now + timedelta(minutes=MIN_LEAD_MIN)):
+            continue
+        label = m.get("yes_sub_title") or ""
+        sa, sb = cs2_name_score(label, u["a"]), cs2_name_score(label, u["b"])
+        if max(sa, sb) < 0.75 or abs(sa - sb) < 0.25:
+            continue
+        yes_fair = u["pA"] if sa > sb else 1 - u["pA"]
+        for side, ask in (("yes", f(m.get("yes_ask_dollars"))), ("no", f(m.get("no_ask_dollars")))):
+            if ask is None or not (cfg["priceBand"][0] <= ask <= cfg["priceBand"][1]):
+                continue
+            bid = f(m.get(f"{side}_bid_dollars"))
+            if bid is None or ask - bid > 0.10:
+                continue                      # thin tier-3 books: no real price to trade or to close against
+            p_side = yes_fair if side == "yes" else 1 - yes_fair
+            cost = ask + FEE_RATE * ask * (1 - ask)
+            edge = p_side - cost
+            if edge < cfg["minEdge"] or edge > CS2_MAX_EDGE:
+                continue
+            cands.append({"ticker": m["ticker"], "title": m.get("title") or label, "sport": "CS2", "kind": "game",
+                          "event": f"{u['a']['name']} vs {u['b']['name']}", "commence": u["begin"], "side": side,
+                          "ask": ask, "strike": None, "teamSide": None, "source": "cs2-elo", "fair": round(p_side, 4),
+                          "edge": round(edge, 4), "estimated": True,
+                          "why": f"CS2 map Elo: {label} {yes_fair if side == 'yes' else 1 - yes_fair:.1%} "
+                                 f"(best of {u['bestOf']}, {u['mapsA']} and {u['mapsB']} rated maps); "
+                                 f"Kalshi {side.upper()} {ask:.2f} + fee = {cost:.3f}."})
+    return cands, matched
+
+
+def track_close(book, now):
+    """Kalshi CLV: the last quote seen before start becomes the trade's close. Same-side mid when the spread is
+    10 cents or less (thinner books have no meaningful close). clv = close - price paid, per contract."""
+    for t in book["trades"]:
+        if t.get("closeMid") is not None:
+            continue
+        if pull.parse(t["commence"]) > now:
+            m = QUOTES.get(t["ticker"])
+            if not m:
+                continue
+            bid, ask = f(m.get(f"{t['side']}_bid_dollars")), f(m.get(f"{t['side']}_ask_dollars"))
+            if bid is not None and ask is not None and 0 < ask - bid <= 0.10:
+                t["lastMid"], t["lastSeen"] = round((bid + ask) / 2, 4), iso(now)
+        elif t.get("lastMid") is not None:
+            t["closeMid"] = t["lastMid"]
+            t["clv"] = round(t["lastMid"] - t["ask"], 4)
+
+
 # ---------- main ----------
 
 def main(dry=False):
@@ -551,6 +659,8 @@ def main(dry=False):
                 print("kalshi", series, exc)
                 continue
             fetched += len(mks)
+            for m in mks:
+                QUOTES[m["ticker"]] = m
             games = {}
             for et, e in evs.items():
                 g, labels = match_game(sport, e, by_day)
@@ -591,7 +701,7 @@ def main(dry=False):
                                               f"+ fee = {cost:.3f}."))
                     # EDGE picks on this game, same side of the same market.
                     yes_side_team = team_side if side == "yes" else _other(team_side, kind)
-                    if kind == "game" and side == "no" and sport in ("EPL", "UCL"):
+                    if kind == "game" and side == "no" and sport in pull.SOCCER:
                         yes_side_team = None     # NO on a three-way winner also wins on a draw: not a mirror
                     for pk in open_picks:
                         if yes_side_team is None:
@@ -607,6 +717,11 @@ def main(dry=False):
                                           why=f"EDGE {pk['pattern']} {pk['grade']} pick ({pk['reason'][:140]}). "
                                               f"Pinnacle fair here {p_side:.1%} plus the pick's edge = {mf:.1%}; "
                                               f"Kalshi {side.upper()} {ask:.2f} + fee = {cost:.3f}."))
+    cs2_cands, cs2_matched = cs2_candidates(cfg, now)
+    cands += cs2_cands
+    matched += cs2_matched
+    for name in ("paper", "live"):
+        track_close(state[name], now)
     # Best first, so caps go to the biggest edges.
     cands.sort(key=lambda c: -c["edge"])
 

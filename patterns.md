@@ -87,3 +87,11 @@ Stamped by goalie_nhl.py, never by hand.
 Idea: NHL starting-goalie news (ESPN probable starters, expected or confirmed) moves the moneyline and total before the market fully adjusts. Backtest 2025-26 (1,018 games, quality from the season before): the home moneyline moved 1.85 points of win probability per goal of GSAx/60 gap between the starter and the team's No. 1 (se 0.29); the close priced it. Totals moved 0.12 goals down per goal of combined gap (se 0.05).
 Applies: NHL moneylines and totals within 30 hours. Only goalie news this desk first saw after the open counts (tracking began 2026-10-14). Totals only while the line is still the open line. Values in sizing.md.
 Retire early if: CLV is below 0 after 30 picks.
+
+## cs2-elo (Kalshi source)
+
+Run by cs2.py and kalshi.py, never by hand. Not a sportsbook pattern: no odds feed covers CS2, so it lives on the Kalshi paper book only.
+Idea: a map-level Elo built from every finished CS2 map in PandaScore (K 24, 40 for a team's first 15 maps, idle teams drift back toward 1500), turned into best-of-1/3/5 series odds, against Kalshi's CS2 match markets (KXCS2GAME).
+Applies: both teams with 10+ rated maps, Kalshi bid-ask spread 10 cents or less on the side bought, edge 2 to 15 cents after fee. Paper-only.
+Judged on: Kalshi CLV (the same-side mid last seen before start minus the price paid), plus the walk-forward calibration report stats/backtest_cs2.md.
+Retire early if: mean Kalshi CLV is below 0 after 30 trades.
