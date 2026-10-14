@@ -87,6 +87,8 @@ def best_edge(row, books, alt=False):
     market, sport = row["market"], row.get("sport")
     pin = books.get(SHARP)
     sides = sides_for(market)
+    if market == "h2h" and pin and "draw" in pin:
+        sides = sides + ("draw",)          # three-way soccer: the draw is a price too
     if not pin or any(s not in pin for s in sides):
         return None, "no Pinnacle price"
     if alt and (market not in ("spread", "total") or (sport, market) not in PER_POINT):

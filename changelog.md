@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-10-14: Audit fixes. Rows are now built from any book that prices a market (DraftKings posts no soccer totals, so soccer had no total rows); each row keeps its print book (DraftKings first, then FanDuel, BetMGM, Caesars, Pinnacle) for its open, close and picks. sharp.py now prices the draw on three-way soccer markets; grade.py grades draw picks. Audit finding: at hourly snapshots, US books and Kalshi track Pinnacle closely: no same-line gap of 1.5%+ outside two NBA games, so price gaps alone produce almost no picks in soccer, tennis, NHL, NFL or NCAAF.
 - 2026-10-14: Tennis Elo study (tennis_backtest.py, EDGE research workflow) could not run: tennis-data.co.uk returns 403 to GitHub's servers too. Waiting on files from Zack.
 - 2026-10-14: notify.py: phone alerts through ntfy (NTFY_TOPIC secret) for real trades placed and settled, stop loss or take profit, the switch, strategies turning official or retired, and a rejected Kalshi key.
 - 2026-10-14: New pattern ncaaf-total-move (model_ncaaf.py, morning run): the NCAAF ratings' gap from the opening total, times 0.18, as the expected move to the close. Built from the walk-forward kMove result (540 games, se 0.029, stable across both halves).

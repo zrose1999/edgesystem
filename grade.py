@@ -116,6 +116,8 @@ def result(pick, score):
         value = margin + pick["lineAtPick"]
     elif market == "total":
         value = (h + a - pick["lineAtPick"]) * (1 if side == "over" else -1)
+    elif side == "draw":
+        value = 1 if h == a else -1
     else:
         value = (h - a) if side == "home" else (a - h)   # a draw is a loss on a 2-way side pick
     if value > 0:

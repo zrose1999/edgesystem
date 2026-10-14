@@ -222,16 +222,25 @@ def outcome(market, name):
     return None
 
 
+PRINT_ORDER = ["draftkings", "fanduel", "betmgm", "williamhill_us", "pinnacle"]
+
+
 def markets_present(game):
-    dk = book(game, "draftkings")
-    found = []
-    if "spreads" in dk:
-        found.append("spread")
-    if "totals" in dk:
-        found.append("total")
-    if "h2h" in dk:
-        found.append("h2h")
-    return found
+    """Markets any requested book prices (DraftKings posts no soccer totals, for one)."""
+    keys = {m["key"] for item in game.get("bookmakers") or [] for m in item.get("markets") or []}
+    return [name for key, name in (("spreads", "spread"), ("totals", "total"), ("h2h", "h2h")) if key in keys]
+
+
+def print_snap(index, sport, game, market, stamp):
+    """The row's print book: DraftKings when it prices the market, else the next book in PRINT_ORDER. A row keeps
+    the book it opened with, so its open, close and picks all compare the same book."""
+    ident = row_id(sport, game["commence_time"][:10], f"{game['away_team']} at {game['home_team']}", market)
+    fixed = (index.get(ident) or {}).get("printBook")
+    for bk in ([fixed] if fixed else PRINT_ORDER):
+        snap = build_snap(game, market, stamp, bk)
+        if snap:
+            return snap, bk
+    return None, None
 
 
 def build_snap(game, market, stamp, bk="draftkings"):
@@ -295,10 +304,10 @@ def legacy(row, which, snap):
     text = f"{side} {line} {price}"
     if which == "open":
         row.update(side=side, open=text, openLine=line, openPrice=price,
-                   openTime=snap["time"], openBook="DraftKings")
+                   openTime=snap["time"], openBook=snap.get("book", "DraftKings"))
     else:
         row.update(close=text, closeLine=line, closePrice=price,
-                   closeTime=snap["time"], closeBook="DraftKings")
+                   closeTime=snap["time"], closeBook=snap.get("book", "DraftKings"))
 
 
 def row_for(rows, index, sport, game, market):
@@ -371,11 +380,12 @@ def pull(near=None):
             if game["commence_time"] <= now:
                 continue
             for market in markets_present(game):
-                snap = build_snap(game, market, now)
+                snap, bk = print_snap(index, sport, game, market, now)
                 if not snap:
                     continue
                 snap["books"] = books_for(game, market, now)
                 row = row_for(rows, index, sport, game, market)
+                row.setdefault("printBook", bk)
                 row["lastSnap"] = snap
                 if "openSnap" not in row and missing(row.get("openLine")) and missing(row.get("openPrice")):
                     row["openSnap"] = snap
@@ -439,7 +449,7 @@ def pull(near=None):
         stamp = resp.get("timestamp") or commence
         for row in group:
             game = find_game(resp.get("data") or [], row)
-            snap = build_snap(game, row["market"], stamp) if game else None
+            snap = build_snap(game, row["market"], stamp, row.get("printBook") or "draftkings") if game else None
             if not snap:
                 row["closeTries"] = row.get("closeTries", 0) + 1
                 continue
