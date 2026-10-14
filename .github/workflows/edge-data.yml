@@ -72,6 +72,16 @@ jobs:
       - name: Grade
         run: python grade.py
 
+      - name: Kalshi pricing and trades (paper always; real orders only if approved in trading/config.json)
+        env:
+          KALSHI_KEY_ID: ${{ secrets.KALSHI_KEY_ID }}
+          KALSHI_PRIVATE_KEY: ${{ secrets.KALSHI_PRIVATE_KEY }}
+          KALSHI_DEMO_KEY_ID: ${{ secrets.KALSHI_DEMO_KEY_ID }}
+          KALSHI_DEMO_PRIVATE_KEY: ${{ secrets.KALSHI_DEMO_PRIVATE_KEY }}
+        run: |
+          pip install -q cryptography
+          python kalshi.py || echo "::warning::kalshi.py failed; continuing"
+
       - name: Push to branch data
         run: |
           git config user.name "EDGE"
