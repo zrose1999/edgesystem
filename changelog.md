@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-10-14: backtest.py added. Tests the sizing.md QB and wind values against nflverse closing lines and results, 2010 on and 2018 on (stats/backtest_nfl*.md). Needs numpy; run by the EDGE backtest workflow on main. Findings go to Zack as a proposal, not straight into sizing.md.
 - 2026-10-14: fair.py added. Fair prices (sharp-soft scan and CLV grading) now remove the margin with Shin's method instead of proportionally; checked against the reference shin package. Two-way markets: half the overround off each side. No pick had been graded yet, so every CLV grade uses the same method.
 - 2026-10-14: injury.py v2. Every sizing.md position, starters from daily ESPN depth charts, players keyed by ESPN id (v1 history carried over). Weekly review scheduled for Tuesdays 7:57am CT: proposes lessons and rule changes as a pull request into data; merging is approval.
 - 2026-10-14: injury.py added. Tracks every NFL injury-report status with first-seen times (tracking began today, so earlier news counts 0) and stamps news-lag reads for starting-QB changes after the open, through pull.py read. Writes the injury field on affected rows.

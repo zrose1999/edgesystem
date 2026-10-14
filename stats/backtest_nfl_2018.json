@@ -1,0 +1,123 @@
+{
+  "asOf": "2026-10-14T20:16:51Z",
+  "seasons": [
+    2018,
+    2026
+  ],
+  "games": 2306,
+  "homeEdgeClose": 1.71,
+  "residualSD": {
+    "spreadClose": 2.91,
+    "margin": 12.22,
+    "totalClose": 2.4,
+    "total": 12.99
+  },
+  "effects": [
+    {
+      "what": "backup for average starter",
+      "market": "spread",
+      "n": 407,
+      "pricedAtClose": 2.82,
+      "pricedSE": 0.18,
+      "actual": 3.67,
+      "actualSE": 0.77,
+      "sizingMd": [
+        3.0,
+        4.5
+      ]
+    },
+    {
+      "what": "backup for elite starter",
+      "market": "spread",
+      "n": 77,
+      "pricedAtClose": 5.03,
+      "pricedSE": 0.42,
+      "actual": 9.26,
+      "actualSE": 1.76,
+      "sizingMd": [
+        5.0,
+        7.0
+      ]
+    },
+    {
+      "what": "backup for weak starter",
+      "market": "spread",
+      "n": 254,
+      "pricedAtClose": 1.0,
+      "pricedSE": 0.25,
+      "actual": 0.94,
+      "actualSE": 1.05,
+      "sizingMd": [
+        1.0,
+        2.5
+      ]
+    },
+    {
+      "what": "backup QB (total)",
+      "market": "total",
+      "n": 738,
+      "pricedAtClose": -2.01,
+      "pricedSE": 0.11,
+      "actual": -2.64,
+      "actualSE": 0.6,
+      "sizingMd": [
+        -3.0,
+        -1.5
+      ]
+    },
+    {
+      "what": "wind 15-19",
+      "market": "total",
+      "n": 128,
+      "pricedAtClose": -1.29,
+      "pricedSE": 0.23,
+      "actual": -4.97,
+      "actualSE": 1.26,
+      "sizingMd": [
+        -2.5,
+        -1.5
+      ]
+    },
+    {
+      "what": "wind 20+",
+      "market": "total",
+      "n": 33,
+      "pricedAtClose": -3.13,
+      "pricedSE": 0.45,
+      "actual": -3.94,
+      "actualSE": 2.45,
+      "sizingMd": [
+        -4.0,
+        -3.0
+      ]
+    }
+  ],
+  "againstTheClose": {
+    "backup for average starter (backup side vs spread)": {
+      "n": 407,
+      "coverOrOverRate": 0.485,
+      "meanVsClose": -1.19
+    },
+    "backup for elite starter (backup side vs spread)": {
+      "n": 77,
+      "coverOrOverRate": 0.455,
+      "meanVsClose": -1.85
+    },
+    "backup for weak starter (backup side vs spread)": {
+      "n": 254,
+      "coverOrOverRate": 0.457,
+      "meanVsClose": -1.3
+    },
+    "wind 15-19 (over vs total)": {
+      "n": 128,
+      "coverOrOverRate": 0.405,
+      "meanVsClose": -2.35
+    },
+    "wind 20+ (over vs total)": {
+      "n": 33,
+      "coverOrOverRate": 0.515,
+      "meanVsClose": 0.2
+    }
+  },
+  "read": "pricedAtClose is what the closing line already moved for the event, in points. actual is the effect on the final score. sizingMd is the range sizing.md uses. A positive spread number is points lost by the team starting a backup. Totals are points added (negative = lower)."
+}
