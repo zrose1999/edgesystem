@@ -91,6 +91,7 @@ nav button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--gold
 /* results */
 .scoreline{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border-radius:6px;overflow:hidden;margin:18px 0 6px}
 .scoreline div{background:var(--paper);padding:12px 10px}
+#tradeScore{grid-template-columns:repeat(5,1fr)}
 .scoreline span{display:block;font-size:13px;color:var(--muted)}
 .scoreline strong{font:700 26px/1.1 var(--cond)}
 .res{background:var(--paper);border-radius:6px;box-shadow:var(--shadow);margin:0 0 8px}
@@ -190,7 +191,8 @@ footer a{color:var(--muted)}
 #nl-badge-frame{display:none !important}
 @media (max-width:420px){
   .bet{font-size:23px}.bet .px{font-size:19px}
-  .scoreline{grid-template-columns:repeat(2,1fr)}
+  .scoreline,#tradeScore{grid-template-columns:repeat(2,1fr)}
+  #tradeScore div:last-child{grid-column:span 2}
 }
 @media (prefers-reduced-motion:no-preference){
   .open > .detail{animation:drop .16s ease-out}
@@ -534,7 +536,7 @@ function renderStrategies() {
 }
 
 const money = (x, sign) => (sign && x > 0 ? "+" : x < 0 ? "−" : "") + "$" + Math.abs(x).toFixed(2);
-const SRC = s => s.startsWith("mirror:") ? `EDGE pick: ${stratName(s.slice(7))}` : s === "kalshi-sharp" ? "Kalshi vs Pinnacle" : s === "kalshi-sharp-alt" ? "Kalshi vs Pinnacle, nearby line" : s;
+const SRC = s => s.startsWith("mirror:") ? `EDGE pick: ${stratName(s.slice(7))}` : s === "kalshi-sharp" ? "Kalshi vs Pinnacle" : s === "kalshi-sharp-alt" ? "Kalshi vs Pinnacle, nearby line" : s === "cs2-elo" ? "CS2 map ratings" : s;
 state.book = "paper";
 
 function chart(book, cfg) {
@@ -559,13 +561,14 @@ function tradeRow(t) {
   const res = t.status === "settled" ? (t.won ? "W" : "L") : "";
   const bet = `${t.side === "yes" ? "Yes" : "No"}: ${t.title}`;
   const log = [{ c: "", h: `Bought ${t.count} at ${t.ask.toFixed(2)} (${money(t.cost)} + ${money(t.fee)} fee)`, s: `${new Date(t.time).toLocaleString("en-US", { timeZone: TZ, weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })} CT. ${SRC(t.source)}. Fair ${(t.fair * 100).toFixed(1)}%, edge ${pct(t.edge)} a contract. ${t.why}` }];
+  if (t.clv != null) log.push({ c: t.clv >= 0 ? "good" : "bad", h: `Kalshi close ${t.closeMid.toFixed(2)}: ${t.clv >= 0 ? "beat" : "missed"} it by ${Math.abs(t.clv * 100).toFixed(1)}¢`, s: "Last same-side midpoint before the start, against the price paid." });
   if (t.status === "settled") log.push({ c: t.won ? "good" : "bad", h: `Settled ${t.result.toUpperCase()}: ${t.won ? "won" : "lost"} ${money(t.pnl, true)}`, s: `Paid ${money(t.payout)} on ${t.count} contract${t.count === 1 ? "" : "s"}.` });
   else log.push({ c: "", h: "Open", s: `Settles after ${t.event}, ${dayLabel(t.commence).join(", ")}, ${timeCT(t.commence)} CT.` });
   return `<div class="res"><button aria-expanded="false">
     <div class="mark ${res}">${res || "…"}</div>
     <div class="what">${esc(bet)}</div>
     <div class="num">${t.status === "settled" ? money(t.pnl, true) : money(t.cost + t.fee)}<small>${t.status === "settled" ? "P/L" : "at risk"}</small></div>
-    <div class="sub">${esc(t.sport)} ${esc(short(teams(t.event).away))} at ${esc(short(teams(t.event).home))}, ${esc(SRC(t.source))}</div>
+    <div class="sub">${esc(t.sport)} ${t.event.includes(" at ") ? `${esc(short(teams(t.event).away))} at ${esc(short(teams(t.event).home))}` : esc(t.event)}, ${esc(SRC(t.source))}</div>
   </button><div class="detail"><ul class="log">${log.map(x => `<li class="${x.c}"><b>${esc(x.h)}</b><span>${esc(x.s)}</span></li>`).join("")}</ul></div></div>`;
 }
 
@@ -689,7 +692,8 @@ function renderTrading() {
     <div><span>Equity</span><strong>${money(s.equity)}</strong></div>
     <div><span>Profit / loss</span><strong>${money(s.realized, true)}</strong></div>
     <div><span>Record</span><strong>${w}-${settledT.length - w}</strong></div>
-    <div><span>Return on stakes</span><strong>${staked ? pct(s.realized / staked) : "n/a"}</strong></div>`;
+    <div><span>Return on stakes</span><strong>${staked ? pct(s.realized / staked) : "n/a"}</strong></div>
+    <div><span>Avg vs Kalshi close</span><strong>${s.clvN ? (s.meanClv >= 0 ? "+" : "−") + Math.abs(s.meanClv * 100).toFixed(1) + "¢" : "n/a"}</strong></div>`;
   const lo = book.start - cfg.stopLoss, hi = book.start + cfg.takeProfit;
   const pos = Math.min(100, Math.max(0, 100 * (s.equity - lo) / (hi - lo)));
   $("#guard").innerHTML = `<div class="guard"><div class="ends"><span>Stop loss ${money(lo)}</span><span>${money(s.open)} at risk now</span><span>Take profit ${money(hi)}</span></div><div class="track"><span class="pin" style="left:${pos}%"></span></div></div>`;

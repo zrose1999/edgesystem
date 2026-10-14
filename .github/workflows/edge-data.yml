@@ -74,6 +74,11 @@ jobs:
           python rest_nba.py || echo "::warning::rest_nba.py failed; continuing"
           python goalie_nhl.py || echo "::warning::goalie_nhl.py failed; continuing"
 
+      - name: CS2 ratings (PandaScore)
+        env:
+          PANDASCORE_TOKEN: ${{ secrets.PANDASCORE_TOKEN }}
+        run: python cs2.py || echo "::warning::cs2.py failed; continuing"
+
       - name: Grade
         run: python grade.py
 
