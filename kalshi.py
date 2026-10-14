@@ -19,7 +19,9 @@ Value
   size              = kellyFraction x Kelly stake on current equity, capped by maxPerTradePct and maxPerDay.
 
 Books
-  paper  every source, every qualifying contract, sized from startingBankroll. Never places an order.
+  paper  every source, every qualifying contract, sized from startingBankroll, each source with its own daily
+         cap so none crowds another out. Never places an order and never stops: where stopLoss or takeProfit
+         would have hit is recorded instead.
   live   only sources in liveSources, only when mode is live (or demo) and approved, never after a stop.
   One position per game, market (winner, spread or total) and source in each book: the best edge is taken,
   never several neighbouring strikes or both sides of the same bet.
@@ -423,20 +425,23 @@ def check_stop(book, cfg, now):
     return None
 
 
-def spent_today(book, now):
+def spent_today(book, now, source=None):
     day = now.astimezone(CT).strftime("%Y-%m-%d")
     return sum(t["cost"] + t["fee"] for t in book["trades"]
-               if pull.parse(t["time"]).astimezone(CT).strftime("%Y-%m-%d") == day)
+               if pull.parse(t["time"]).astimezone(CT).strftime("%Y-%m-%d") == day
+               and (source is None or t["source"] == source))
 
 
-def size(cfg, book, price, prob, now):
-    """Contracts to buy: fractional Kelly on equity, capped per trade and per day."""
+def size(cfg, book, price, prob, now, source=None):
+    """Contracts to buy: fractional Kelly on equity, capped per trade and per day.
+    source: the paper book caps each source separately so one cannot crowd out another."""
     st = book_state(book)
     equity = st["equity"]
     c = price + FEE_RATE * price * (1 - price)
     k = max((prob - c) / (1 - c), 0.0)
+    room = equity - st["open"] if source is None else equity
     stake = min(cfg["kellyFraction"] * k * equity, cfg["maxPerTradePct"] / 100 * equity,
-                cfg["maxPerDay"] - spent_today(book, now), equity - st["open"])
+                cfg["maxPerDay"] - spent_today(book, now, source), room)
     n = int(stake // c) if stake > 0 else 0
     while n > 0 and n * price + fee(price, n) > stake + 1e-9:
         n -= 1
@@ -587,6 +592,10 @@ def main(dry=False):
         stop = check_stop(book, cfg, now)
         if stop and not book.get("stopped"):
             book["stopped"] = {"why": stop, "at": iso(now)}
+            if name == "paper":
+                book.setdefault("wouldHaveStopped", []).append(book["stopped"])
+        if name == "paper":
+            book["stopped"] = None          # research never stops; the mark above shows where the limit hit
         if name == "live" and not live_ok:
             continue
         if book.get("stopped") and not (name == "live" and approved_after(cfg, book["stopped"]["at"])):
@@ -599,7 +608,7 @@ def main(dry=False):
                 continue
             if name == "live" and not source_allowed(c, cfg, official):
                 continue
-            n = size(cfg, book, c["ask"], c["fair"], now)
+            n = size(cfg, book, c["ask"], c["fair"], now, c["source"] if name == "paper" else None)
             if n < 1:
                 continue
             trade = {k: c[k] for k in ("ticker", "title", "sport", "kind", "event", "commence", "side", "ask",
