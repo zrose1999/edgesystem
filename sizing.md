@@ -19,9 +19,9 @@ Size the news first, from this table, without looking at the line move. Then com
 
 | Player out | Value |
 |---|---|
-| Starting QB to backup, elite starter | 5.0 to 7.0 |
-| Starting QB to backup, average starter | 3.0 to 4.5 |
-| Starting QB to backup, weak starter or good backup | 1.0 to 2.5 |
+| Starting QB to backup, elite starter | 6.5 to 8.5 |
+| Starting QB to backup, average starter | 3.0 to 4.0 |
+| Starting QB to backup, weak starter or good backup | 0.5 to 1.5 |
 | WR1 or elite TE | 0.5 to 1.0 |
 | RB1 | 0.25 to 0.5 |
 | Starting LT or C | 0.5 to 0.75 |
@@ -41,7 +41,7 @@ When a stats file has the player's EPA, use the EPA math instead and say so.
 | Starting QB to backup | -1.5 to -3.0 |
 | WR1 or RB1 out | -0.5 to -1.0 |
 | Two or more OL out on one side | -0.5 |
-| Wind sustained 15 to 19 mph, outdoor | -1.5 to -2.5 |
+| Wind sustained 15 to 19 mph, outdoor | -2.5 to -3.5 |
 | Wind sustained 20 mph or more, outdoor | -3.0 to -4.0 |
 | Heavy rain or snow, outdoor | -0.5 to -1.5 |
 
@@ -50,3 +50,12 @@ Weather counts only from a forecast inside 36 hours of kickoff. Before that, wri
 ## Grade check
 
 Across a full read, some C leans are normal. If a full slate comes back all P, write one line on why the table and the line moves matched on every game. That should be rare.
+
+## Backtest check (backtest.py, nflverse 2010 on; see stats/backtest_nfl.md)
+
+QB rows set from the actual effect of a backup start on the final margin, 1,318 backup starts:
+elite starter +8.4 (2018 on: +9.3), average +3.5 (+3.7), weak +0.9 (+0.9). The close prices
+less than that (+4.8, +2.4, +0.7), so the market still underreacts to elite and average starters.
+Wind 15 to 19 mph, outdoor, 274 games: actual effect on the total -3.6 (2018 on: -5.0, 128 games),
+priced at the close -0.8 (-1.3). Unders 55.6% at the close (2018 on: 59.5%). Wind 20+ is priced
+about right now (-3.1 at the close vs -3.9 actual since 2018, 33 games), so its row is unchanged.

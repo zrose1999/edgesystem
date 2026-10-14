@@ -45,8 +45,8 @@ PSTATS = ("https://github.com/nflverse/nflverse-data/releases/download/player_st
 TIERS = (("elite", 0.15), ("average", -0.05), ("weak", -99))
 WIND = (("wind 15-19", 15, 20), ("wind 20+", 20, 99))
 SIZING = {  # sizing.md, for comparison
-    "spread": {"elite": (5.0, 7.0), "average": (3.0, 4.5), "weak": (1.0, 2.5)},
-    "total": {"qb": (-3.0, -1.5), "wind 15-19": (-2.5, -1.5), "wind 20+": (-4.0, -3.0)},
+    "spread": {"elite": (6.5, 8.5), "average": (3.0, 4.0), "weak": (0.5, 1.5)},
+    "total": {"qb": (-3.0, -1.5), "wind 15-19": (-3.5, -2.5), "wind 20+": (-4.0, -3.0)},
 }
 
 
