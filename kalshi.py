@@ -74,7 +74,11 @@ SERIES = {
     "Bundesliga": {"game": "KXBUNDESLIGAGAME", "total": "KXBUNDESLIGATOTAL"},
     "Ligue1": {"game": "KXLIGUE1GAME", "total": "KXLIGUE1TOTAL"},
     "MLS": {"game": "KXMLSGAME", "total": "KXMLSTOTAL"},
+    "ATP": {"game": "KXATPMATCH"},
+    "WTA": {"game": "KXWTAMATCH"},
 }
+# Tennis tickers carry the local match date, which can be a day off US Eastern; look one day either side.
+DAY_SLACK = {"ATP": 1, "WTA": 1}
 PER_POINT = {("NFL", "spread"): 0.030, ("NFL", "total"): 0.022, ("NCAAF", "spread"): 0.025,
              ("NCAAF", "total"): 0.018, ("NBA", "spread"): 0.030, ("NBA", "total"): 0.025}
 MARGIN_SD = {"NFL": 13.5, "NCAAF": 15.5, "NBA": 12.0}   # spread -> win probability, normal approximation
@@ -270,7 +274,10 @@ def match_game(sport, event, by_day):
         return None, None
     fixed = " at " in title or " @ " in title
     best, best_s, best_lab, runner = None, 0.0, None, 0.0
-    for g in by_day.get((sport, d), []):
+    slack = DAY_SLACK.get(sport, 0)
+    day0 = datetime.strptime(d, "%Y-%m-%d")
+    days = [(day0 + timedelta(days=k)).strftime("%Y-%m-%d") for k in range(-slack, slack + 1)]
+    for g in [g for dd in days for g in by_day.get((sport, dd), [])]:
         a_first = min(team_score(first, g["away"]), team_score(second, g["home"]))
         h_first = 0.0 if fixed else min(team_score(first, g["home"]), team_score(second, g["away"]))
         for s, lab in ((a_first, {"away": first, "home": second}), (h_first, {"home": first, "away": second})):

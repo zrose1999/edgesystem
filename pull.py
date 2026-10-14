@@ -53,7 +53,8 @@ SPORTS = {
 # Only sports the desk actually reads are pulled. Each sport costs Odds API credits,
 # and history calls for closes cost the most. Add a sport here when it gets real reads.
 # EDGE_SPORTS overrides this, e.g. EDGE_SPORTS=NFL,NCAAF
-ACTIVE = ["NFL", "NCAAF", "NBA", "NHL", "EPL", "UCL", "LaLiga", "SerieA", "Bundesliga", "Ligue1", "UEL", "MLS"]   # prices collected
+ACTIVE = ["NFL", "NCAAF", "NBA", "NHL", "EPL", "UCL", "LaLiga", "SerieA", "Bundesliga", "Ligue1", "UEL", "MLS",
+          "ATP", "WTA"]   # prices collected
 READ = ["NFL"]                                          # sports the analyst reads and picks
 _env = [s.strip().upper() for s in os.environ.get("EDGE_SPORTS", "").split(",") if s.strip()]
 ACTIVE = _env or ACTIVE
@@ -64,6 +65,31 @@ FLOOR = int(os.environ.get("EDGE_CREDIT_FLOOR", "300"))
 CREDITS = {"remaining": None, "used": None}
 SPORTS = {k: v for k, v in SPORTS.items() if v in ACTIVE}
 KEY_OF = {v: k for k, v in SPORTS.items()}
+# Tennis is listed by tournament (a new Odds API key each week). discover() adds the active ones each run;
+# the /sports listing costs no credits. Each row keeps its own sportKey, so closes and scores find it later.
+TENNIS = {"ATP": "tennis_atp_", "WTA": "tennis_wta_"}
+
+
+def discover():
+    want = {pre: name for name, pre in TENNIS.items() if name in ACTIVE}
+    if not want:
+        return []
+    try:
+        listing = get("/sports", {})
+    except Exception as exc:  # noqa: BLE001
+        print("tennis discovery", exc)
+        return []
+    found = []
+    for s in listing:
+        for pre, name in want.items():
+            if s.get("key", "").startswith(pre) and s.get("active") and not s.get("has_outrights"):
+                SPORTS[s["key"]] = name
+                found.append(s["key"])
+    return found
+
+
+def key_of(row):
+    return row.get("sportKey") or KEY_OF.get(row.get("sport"))
 # Books requested on every price call. Up to 10 books bill as one region, so adding books here
 # costs no extra credits. DraftKings stays the print; the others feed the sharp-vs-soft scan.
 BOOKS = os.environ.get("EDGE_BOOKS", "draftkings,betmgm,fanduel,williamhill_us,pinnacle")
@@ -285,6 +311,8 @@ def row_for(rows, index, sport, game, market):
         rows.append(row)
         index[ident] = row
     row.setdefault("eventId", game.get("id"))
+    if game.get("sport_key"):
+        row.setdefault("sportKey", game["sport_key"])
     row["commence"] = game["commence_time"]
     row.setdefault("home", game["home_team"])
     row.setdefault("away", game["away_team"])
@@ -305,7 +333,7 @@ def find_game(data, row):
 def near_sports(rows, now_dt, hours):
     """Sport keys with a game starting in the next `hours`, read from the ledger, so no credits are spent finding them."""
     lo, hi = iso(now_dt), iso(now_dt + timedelta(hours=hours))
-    return {KEY_OF[r["sport"]] for r in rows if r.get("sport") in KEY_OF and r.get("commence") and lo < r["commence"] <= hi}
+    return {key_of(r) for r in rows if key_of(r) in SPORTS and r.get("commence") and lo < r["commence"] <= hi}
 
 
 def pull(near=None):
@@ -317,6 +345,7 @@ def pull(near=None):
     now_dt = datetime.now(timezone.utc)
     now = iso(now_dt)
     opened = closed = scored = 0
+    discover()
     keys = SPORTS
     if near:
         last = (ledger.get("credits") or {}).get("remaining")
@@ -368,15 +397,15 @@ def pull(near=None):
     groups = defaultdict(list)
     for row in rows:
         c = row.get("commence")
-        if c and "closeSnap" not in row and floor <= c <= now and row.get("sport") in KEY_OF:
+        if c and "closeSnap" not in row and floor <= c <= now and key_of(row):
             # A row whose market is no longer pulled (old NHL puck lines) can never close. Skip it.
-            pulled = {{"spreads": "spread", "totals": "total"}.get(m, m) for m in markets_for(KEY_OF[row["sport"]]).split(",")}
+            pulled = {{"spreads": "spread", "totals": "total"}.get(m, m) for m in markets_for(key_of(row)).split(",")}
             if row.get("market") not in pulled:
                 continue
             # Two history calls that came back without this game mean it never will. Stop paying for it.
             if row.get("closeTries", 0) >= 2:
                 continue
-            groups[(KEY_OF[row["sport"]], c)].append(row)
+            groups[(key_of(row), c)].append(row)
     calls = skipped = 0
     # Closes are only used to grade picks and leans (CLV), and each history call costs 10 credits per market,
     # so they are fetched only for rows that carry a pick or a lean (since 2026-10-14; before, every row).
@@ -424,8 +453,8 @@ def pull(near=None):
     need = defaultdict(list)
     for row in rows:
         c = row.get("commence")
-        if c and not row.get("final") and iso(now_dt - timedelta(days=3)) <= c <= now and row.get("sport") in KEY_OF:
-            need[KEY_OF[row["sport"]]].append(row)
+        if c and not row.get("final") and iso(now_dt - timedelta(days=3)) <= c <= now and key_of(row):
+            need[key_of(row)].append(row)
     for sport_key, group in need.items():
         try:
             data = get(f"/sports/{sport_key}/scores", {"daysFrom": 3})
