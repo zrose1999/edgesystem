@@ -52,9 +52,12 @@ jobs:
 
       - name: Stats and model reads (morning run only)
         if: github.event.schedule == '7 11 * * *' || inputs.full
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
           python stats.py || echo "::warning::stats.py failed; continuing"
           python stats_more.py || echo "::warning::stats_more.py failed; continuing"
+          python cfbd.py || echo "::warning::cfbd.py failed; continuing"
           python model.py || echo "::warning::model.py failed; continuing"
 
       - name: Sharp vs soft scan
