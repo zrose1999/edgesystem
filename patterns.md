@@ -95,3 +95,11 @@ Idea: a map-level Elo built from every finished CS2 map in PandaScore (K 24, 40 
 Applies: both teams with 10+ rated maps, Kalshi bid-ask spread 10 cents or less on the side bought, edge 2 to 15 cents after fee. Paper-only.
 Judged on: Kalshi CLV (the same-side mid last seen before start minus the price paid), plus the walk-forward calibration report stats/backtest_cs2.md.
 Retire early if: mean Kalshi CLV is below 0 after 30 trades.
+
+## ncaaf-total-move
+
+Stamped by model_ncaaf.py on the morning run, never by hand.
+Idea: the NCAAF ratings' total knows where the line is going, not where the game lands. Walk-forward backtest, 540 games: close - open = 0.18 x (model - open), se 0.029; 0.13 and 0.24 in the two halves; with the model 4+ points off the open, the total moved toward it 1.3 points on average, about 60% of the time. Against the close the model has no edge (kTotal 0).
+Applies: NCAAF totals within 7 days, model 4+ points from the open. Fair = current total + the part of the expected move (0.18 x gap) not yet made. K fixed at 0.18; the weekly review can propose a new value.
+Note: edges are usually 0.7 to 1.5 points, mostly under the NCAAF totals half-bar (1.5), so most log as leans graded on CLV. A bar for measured-move patterns (with rest-spot) is Zack's call.
+Retire early if: CLV is below 0 after 30 reads.
