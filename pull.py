@@ -59,6 +59,11 @@ FLOOR = int(os.environ.get("EDGE_CREDIT_FLOOR", "300"))
 CREDITS = {"remaining": None, "used": None}
 SPORTS = {k: v for k, v in SPORTS.items() if v in ACTIVE}
 KEY_OF = {v: k for k, v in SPORTS.items()}
+# Books requested on every price call. Up to 10 books bill as one region, so adding books here
+# costs no extra credits. DraftKings stays the print; the others feed the sharp-vs-soft scan.
+BOOKS = os.environ.get("EDGE_BOOKS", "draftkings,betmgm,fanduel,williamhill_us,pinnacle")
+BOOK_NAMES = {"draftkings": "DraftKings", "betmgm": "BetMGM", "fanduel": "FanDuel",
+              "williamhill_us": "Caesars", "pinnacle": "Pinnacle"}
 SPREAD = {"americanfootball_nfl", "americanfootball_ncaaf", "basketball_nba"}
 # Hockey's main market is the moneyline; the puck line is almost always 1.5.
 TOTAL = SPREAD | {"icehockey_nhl", "baseball_mlb", "soccer_epl", "soccer_uefa_champs_league", "soccer_usa_mls"}
@@ -195,10 +200,11 @@ def markets_present(game):
     return found
 
 
-def build_snap(game, market, stamp):
-    """Both sides of one DraftKings market at one moment, or None if incomplete."""
-    dk = book(game, "draftkings")
-    mgm = book(game, "betmgm")
+def build_snap(game, market, stamp, bk="draftkings"):
+    """Both sides of one market at one book at one moment, or None if incomplete.
+    The default book is DraftKings, the print. Other books are stored under snap["books"]."""
+    dk = book(game, bk)
+    mgm = book(game, "betmgm") if bk == "draftkings" else {}
     home, away = game["home_team"], game["away_team"]
     if market == "spread":
         h, a = outcome(dk.get("spreads"), home), outcome(dk.get("spreads"), away)
@@ -225,8 +231,22 @@ def build_snap(game, market, stamp):
         if d and d.get("price") is not None:
             snap["draw"] = d["price"]
     snap["time"] = stamp
-    snap["book"] = "DraftKings"
+    snap["book"] = BOOK_NAMES.get(bk, bk)
     return snap
+
+
+def books_for(game, market, stamp):
+    """Every requested book's prices for one market, keyed by book. Each carries the book's own
+    last update time, so a stale sharp price can be skipped."""
+    out = {}
+    for item in game.get("bookmakers") or []:
+        key = item.get("key")
+        snap = build_snap(game, market, stamp, key)
+        if snap:
+            snap.pop("time", None)
+            snap["updated"] = item.get("last_update")
+            out[key] = snap
+    return out
 
 
 def legacy(row, which, snap):
@@ -287,7 +307,7 @@ def pull():
         try:
             games = get(f"/sports/{sport_key}/odds", {
                 "regions": "us", "markets": markets_for(sport_key),
-                "oddsFormat": "american", "bookmakers": "draftkings,betmgm"})
+                "oddsFormat": "american", "bookmakers": BOOKS})
         except Exception as exc:
             print(sport, "current", exc)
             continue
@@ -298,6 +318,7 @@ def pull():
                 snap = build_snap(game, market, now)
                 if not snap:
                     continue
+                snap["books"] = books_for(game, market, now)
                 row = row_for(rows, index, sport, game, market)
                 row["lastSnap"] = snap
                 if "openSnap" not in row and missing(row.get("openLine")) and missing(row.get("openPrice")):
@@ -335,7 +356,7 @@ def pull():
         try:
             resp = get(f"/historical/sports/{sport_key}/odds", {
                 "regions": "us", "markets": markets_for(sport_key), "oddsFormat": "american",
-                "bookmakers": "draftkings,betmgm", "date": iso(parse(commence) - timedelta(seconds=60))})
+                "bookmakers": BOOKS, "date": iso(parse(commence) - timedelta(seconds=60))})
         except Exception as exc:
             print(sport_key, "close", commence, exc)
             continue
@@ -346,6 +367,7 @@ def pull():
             if not snap:
                 row["closeTries"] = row.get("closeTries", 0) + 1
                 continue
+            snap["books"] = books_for(game, row["market"], stamp)
             row["closeSnap"] = snap
             row["closeGapMin"] = round((parse(commence) - parse(stamp)).total_seconds() / 60, 1)
             legacy(row, "close", snap)
@@ -380,7 +402,7 @@ def pull():
 
     ledger["rows"] = rows
     ledger["asOfCt"] = now
-    ledger["feed"] = "Odds API. DraftKings is the print. BetMGM line noted when it differs. Key is not in this file."
+    ledger["feed"] = "Odds API. DraftKings is the print. BetMGM line noted when it differs. FanDuel, Caesars and Pinnacle stored under books for the sharp-soft scan. Key is not in this file."
     save(LEDGER, ledger)
     ledger["credits"] = dict(CREDITS)
     save(LEDGER, ledger)
@@ -587,7 +609,7 @@ def make_read(a):
         "edge": round(edge, 3), "edgeUnit": unit, "bar": bar, "fullBar": edge >= bar,
         "confidence": a.confidence, "pattern": (a.pattern or "").strip() or None,
         "reason": a.reason.strip(), "falsifier": (a.falsifier or "").strip() or None,
-        "modelVersion": VERSION, "tier": tier, "stakeUnits": stake, "by": getattr(a, "by", "grok") or "grok",
+        "modelVersion": VERSION, "tier": tier, "stakeUnits": stake, "by": getattr(a, "by", "claude") or "claude",
     }
     if note:
         entry["note"] = note
@@ -623,7 +645,7 @@ def main():
     r.add_argument("--pattern", default="", help="required when the read grades A or B")
     r.add_argument("--stake", default="0.5", help="units; used only for an A on an official pattern; capped at 1")
     r.add_argument("--big", action="store_true", help="confirm an edge over 4x the bar is not a sign error")
-    r.add_argument("--by", default="grok", help=argparse.SUPPRESS)
+    r.add_argument("--by", default="claude", help=argparse.SUPPRESS)
     args = ap.parse_args()
     if args.cmd == "read":
         make_read(args)

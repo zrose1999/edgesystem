@@ -41,3 +41,10 @@ Idea: when both teams have gone over (or under) in most games this season, the t
 Applies: NFL totals where both teams have at least 3 decisions and their combined over rate is 65% or more (lean under) or 35% or less (lean over).
 Backtest: 2010 to 2025 at the closing total, fading went 321-267 (54.6%). Following went 267-321.
 Retire early if: CLV is below 0 after 30 picks.
+
+## sharp-soft
+
+Stamped by sharp.py, never by hand.
+Idea: Pinnacle moves first. When a retail book (DraftKings, FanDuel, BetMGM, Caesars) hangs a better price than Pinnacle's no-vig probability on the same line, the retail price is stale and should beat the close.
+Applies: every pulled sport. Same line at both books, Pinnacle updated within 60 minutes of the soft book. A at a 3.0% probability edge, B at 1.5%. Over 10% is a data error and is skipped.
+Retire early if: CLV is below 0 after 30 picks.
