@@ -1,0 +1,41 @@
+# EDGE backtest. Rechecks the sizing.md values against nflverse history.
+# Runs on demand and once a month; writes stats/backtest_nfl*.md on branch data. No AI, no API key.
+name: EDGE backtest
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 10 1 * *"   # 1st of each month, ~5am CT
+
+permissions:
+  contents: write
+
+concurrency:
+  group: edge-data-writer
+  cancel-in-progress: false
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: data
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install numpy
+      - run: python backtest.py
+      - name: Push to branch data
+        run: |
+          git config user.name "EDGE"
+          git config user.email "edge@edgesystem.local"
+          git add stats/backtest_nfl*.json stats/backtest_nfl*.md
+          if git diff --cached --quiet; then echo "No changes."; exit 0; fi
+          git commit -q -m "EDGE: backtest refresh"
+          for i in 1 2 3; do
+            git pull -q --rebase origin data && git push -q origin HEAD:data && exit 0
+            echo "Push raced another writer, retrying ($i)"; sleep 15
+          done
+          exit 1
