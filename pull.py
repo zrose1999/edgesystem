@@ -168,7 +168,7 @@ def blank(sport, date, event, market):
 
 def markets_for(sport_key):
     if sport_key in SPREAD:
-        return "spreads,totals"
+        return "spreads,totals,h2h"     # h2h prices Kalshi winner markets; +1 credit per current call
     if sport_key in TOTAL:
         return "h2h,totals"
     return "h2h"
@@ -195,7 +195,7 @@ def markets_present(game):
         found.append("spread")
     if "totals" in dk:
         found.append("total")
-    if "h2h" in dk and "spreads" not in dk:
+    if "h2h" in dk:
         found.append("h2h")
     return found
 
@@ -370,6 +370,14 @@ def pull(near=None):
                 continue
             groups[(KEY_OF[row["sport"]], c)].append(row)
     calls = skipped = 0
+    # Spread-sport moneylines are pulled for current prices (Kalshi winner markets). Their closes cost
+    # 10 credits per call, so they are fetched only for rows that carry a pick.
+    picked = {p.get("rowId") for p in load(PICKS, {"picks": []}).get("picks") or []}
+    for key in list(groups):
+        if key[0] in SPREAD:
+            groups[key] = [r for r in groups[key] if r.get("market") != "h2h" or r.get("id") in picked]
+            if not groups[key]:
+                del groups[key]
     read_keys = {KEY_OF[s] for s in READ if s in KEY_OF}
     # READ sports first, so they keep their closes if credits run short.
     order = sorted(groups.items(), key=lambda kv: (kv[0][0] not in read_keys, kv[0][1]))
@@ -383,8 +391,11 @@ def pull(near=None):
             continue
         calls += 1
         try:
+            need = {r.get("market") for r in group}
+            mk = ",".join(m for m in markets_for(sport_key).split(",")
+                          if {"spreads": "spread", "totals": "total"}.get(m, m) in need)
             resp = get(f"/historical/sports/{sport_key}/odds", {
-                "regions": "us", "markets": markets_for(sport_key), "oddsFormat": "american",
+                "regions": "us", "markets": mk, "oddsFormat": "american",
                 "bookmakers": BOOKS, "date": iso(parse(commence) - timedelta(seconds=60))})
         except Exception as exc:
             print(sport_key, "close", commence, exc)

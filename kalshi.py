@@ -73,7 +73,7 @@ PER_POINT = {("NFL", "spread"): 0.030, ("NFL", "total"): 0.022, ("NCAAF", "sprea
              ("NCAAF", "total"): 0.018, ("NBA", "spread"): 0.030, ("NBA", "total"): 0.025}
 MARGIN_SD = {"NFL": 13.5, "NCAAF": 15.5, "NBA": 12.0}   # spread -> win probability, normal approximation
 # Off: on the first scan a normal curve made every NFL underdog look 4-6 cents cheap, a model artefact, not value.
-# Winner markets for spread sports wait until pull.py stores real moneylines.
+# Winner markets for spread sports are priced from the real Pinnacle moneyline pull.py stores (since 2026-10-14).
 WINNER_FROM_SPREAD = False
 ALT_MAX = 1.0
 PIN_STALE_MIN = 60

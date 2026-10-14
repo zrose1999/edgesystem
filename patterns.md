@@ -72,3 +72,11 @@ Stamped by model_nba.py, never by hand.
 Idea: the nba-stats-model spread read, kept only when the model's side is the market favourite. The live test of the Rose desk's NBA spreads bucket (15-13, +1.06 pts CLV on 4 real closes; see stats/history_audit.md).
 Applies: NBA spreads within 48 hours where the model takes the favourite.
 Retire early if: CLV is below 0 after 30 picks, or it tracks nba-stats-model so closely that it adds nothing.
+
+## rest-spot
+
+Stamped by rest_nba.py, never by hand.
+Idea: NBA lines open without fully pricing a back-to-back. Second night of a back-to-back against a team with 2+ days off: in 2025-26 the home line moved 0.93 points toward the rested home team (se 0.19, n 123) and 0.50 toward a rested away team (se 0.18, n 111), in both halves of the season. At the close neither spot beat the spread, so the edge is beating the move. See stats/backtest_nba_rest.md.
+Applies: NBA spreads within 36 hours. Fair = current line + the part of the usual move (0.9 or 0.5) not yet made since this desk's open. Drift the other way is never counted.
+Note: edges are at most 0.9 points, under the NBA spread half-bar (1.0), so under the current bars these log as leans: graded on CLV in the pattern's full test, never promoted. A pattern bar change is Zack's call.
+Retire early if: CLV is below 0 after 30 reads.
