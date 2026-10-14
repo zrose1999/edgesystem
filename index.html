@@ -122,6 +122,27 @@ nav button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--gold
 .stats{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:8px;font-size:14px}
 .stats span{color:var(--muted)}
 
+/* trading */
+.tstatus{background:var(--paper);border-radius:6px;box-shadow:var(--shadow);padding:14px 16px;margin:18px 0 10px;display:flex;gap:12px;align-items:flex-start}
+.tstatus .dot{width:12px;height:12px;border-radius:50%;margin-top:6px;flex:none;background:var(--muted)}
+.tstatus.live .dot{background:var(--up)} .tstatus.stopped .dot{background:var(--down)}
+.tstatus > div{min-width:0}
+.tstatus strong{display:block;font:600 20px/1.2 var(--cond)}
+.tstatus p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.guard{background:var(--paper);border-radius:6px;box-shadow:var(--shadow);padding:12px 16px;margin:0 0 12px}
+.guard .track{position:relative;height:10px;border-radius:5px;background:linear-gradient(90deg,var(--down-soft),var(--chip) 50%,var(--up-soft));margin:8px 0 6px}
+.guard .pin{position:absolute;top:-4px;width:4px;height:18px;border-radius:2px;background:var(--ink);transform:translateX(-2px)}
+.guard .ends{display:flex;justify-content:space-between;font-size:13px;color:var(--muted)}
+.chartbox{background:var(--paper);border-radius:6px;box-shadow:var(--shadow);padding:12px 8px 6px;margin:0 0 16px}
+.chartbox h3{margin:0 8px 6px;font:600 17px/1.2 var(--cond)}
+.chartbox svg{display:block;width:100%;height:auto}
+.rules{background:var(--paper);border-radius:6px;box-shadow:var(--shadow);padding:14px 16px;margin:18px 0}
+.rules h3{margin:0 0 8px;font:600 19px/1.2 var(--cond)}
+.rules dl{display:grid;grid-template-columns:max-content 1fr;gap:4px 14px;margin:0;font-size:15px}
+.rules dt{color:var(--muted)} .rules dd{margin:0}
+.rules p{margin:10px 0 0;color:var(--muted);font-size:14px}
+.sub2{font:600 19px/1.2 var(--cond);margin:22px 0 8px}
+
 /* about */
 .about h2{font:600 22px/1.2 var(--cond);margin:26px 0 6px}
 .about p{margin:0 0 10px;max-width:64ch}
@@ -153,6 +174,7 @@ footer a{color:var(--muted)}
     <button role="tab" aria-selected="true" data-tab="board">Picks</button>
     <button role="tab" aria-selected="false" data-tab="results">Results</button>
     <button role="tab" aria-selected="false" data-tab="strategies">Strategies</button>
+    <button role="tab" aria-selected="false" data-tab="trading">Trading</button>
     <button role="tab" aria-selected="false" data-tab="about">How it works</button>
   </nav>
 </header>
@@ -175,6 +197,16 @@ footer a{color:var(--muted)}
     <div id="stratList"></div>
   </section>
 
+  <section id="trading" role="tabpanel" class="hidden">
+    <div id="tradeStatus"></div>
+    <div class="filters" id="bookPick" aria-label="Choose book"></div>
+    <div class="scoreline" id="tradeScore"></div>
+    <div id="guard"></div>
+    <div id="chart"></div>
+    <div id="tradeList"></div>
+    <div id="tradeRules"></div>
+  </section>
+
   <section id="about" role="tabpanel" class="hidden about">
     <h2>What a pick is</h2>
     <p>A pick is a side at a price, taken from the market at the moment the desk saw it. The price is locked and never edited. Grade A means the edge cleared the full bar for that sport and market; B cleared half of it.</p>
@@ -184,6 +216,8 @@ footer a{color:var(--muted)}
     <p>By closing line value: did the price we took beat the price at kickoff? Over hundreds of bets, beating the close is the most reliable sign of a real edge, and it shows up long before wins and losses settle down. A strategy goes official after 30 graded full-bar picks with an average edge over the close above zero and a t-stat of at least 1.5. It is retired after 30 if it is not beating the close. Win rate never promotes anything.</p>
     <h2>Market moved our way</h2>
     <p>On each open pick, the desk compares the price taken with the latest price. If the line has moved toward our side since, the ticket shows it in green. That is the closing line value building in real time.</p>
+    <h2>Trading on Kalshi</h2>
+    <p>The desk prices every Kalshi game, spread and total contract against Pinnacle's fair price and against EDGE's own picks, after Kalshi's fee. A paper book logs every trade it would make. Real orders are placed only after you approve, only from the sources you allow, and stop at your stop loss or take profit until you approve again.</p>
     <h2>Where the numbers come from</h2>
     <p>Prices from DraftKings, FanDuel, BetMGM, Caesars and Pinnacle via The Odds API. Weather from weather.gov. Injury reports and depth charts from ESPN. Team ratings from nflverse and ESPN results. The desk updates about every hour on game days.</p>
   </section>
@@ -220,9 +254,12 @@ const dayLabel = iso => {
   const nice = new Date(iso).toLocaleDateString("en-US", { timeZone: TZ, weekday: "long", month: "short", day: "numeric" });
   return k === today ? ["Today", nice] : k === tmr ? ["Tomorrow", nice] : [nice.split(",")[0], nice.split(", ").slice(1).join(", ")];
 };
+const GENERIC = new Set(["United", "City", "FC", "Town", "Albion", "Rovers", "Athletic", "Wanderers", "Villa", "Palace", "Forest", "County", "Hotspur", "Wednesday", "Argyle"]);
 const short = team => {
   const words = String(team || "").split(" ");
-  return words.length > 1 ? words.slice(-1)[0] : team;
+  if (words.length < 2) return team;
+  const last = words[words.length - 1];
+  return GENERIC.has(last) ? team : last;   // soccer clubs keep their full name
 };
 const teams = ev => { const [a, h] = String(ev).split(" at "); return { away: a, home: h }; };
 
@@ -430,7 +467,86 @@ function renderStrategies() {
   }).join("") || `<div class="empty"><strong>No strategies have picks yet</strong><p>They appear here as soon as one stamps its first pick.</p></div>`;
 }
 
-function render() { renderBoard(); renderResults(); renderStrategies(); }
+const money = (x, sign) => (sign && x > 0 ? "+" : x < 0 ? "−" : "") + "$" + Math.abs(x).toFixed(2);
+const SRC = s => s.startsWith("mirror:") ? `EDGE pick: ${stratName(s.slice(7))}` : s === "kalshi-sharp" ? "Kalshi vs Pinnacle" : s === "kalshi-sharp-alt" ? "Kalshi vs Pinnacle, nearby line" : s;
+state.book = "paper";
+
+function chart(book, cfg) {
+  const pts = (book.equity || []).map(e => [new Date(e.t).getTime(), e.equity]);
+  const start = book.start, lo = start - cfg.stopLoss, hi = start + cfg.takeProfit;
+  if (pts.length < 2) return `<div class="chartbox"><h3>Equity</h3><p class="note" style="margin:4px 8px 10px">The chart starts once the book has a few settled trades.</p></div>`;
+  const W = 400, H = 220, P = 14;
+  const x0 = pts[0][0], x1 = pts[pts.length - 1][0];
+  const ymin = Math.min(lo, ...pts.map(p => p[1])), ymax = Math.max(hi, ...pts.map(p => p[1]));
+  const X = t => P + (W - 2 * P) * (x1 === x0 ? 0 : (t - x0) / (x1 - x0));
+  const Y = v => H - P - (H - 2 * P) * (v - ymin) / (ymax - ymin || 1);
+  const d = pts.map((p, i) => (i ? "L" : "M") + X(p[0]).toFixed(1) + " " + Y(p[1]).toFixed(1)).join(" ");
+  const last = pts[pts.length - 1][1], col = last >= start ? "var(--up)" : "var(--down)";
+  const hline = (v, c, label) => `<line x1="${P}" x2="${W - P}" y1="${Y(v)}" y2="${Y(v)}" stroke="${c}" stroke-dasharray="4 4" stroke-width="1"/><text x="${P}" y="${Y(v) - 5}" font-size="13" fill="${c}">${label}</text>`;
+  return `<div class="chartbox"><h3>Equity</h3><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Equity from ${money(pts[0][1])} to ${money(last)}">
+    ${hline(hi, "var(--up)", "Take profit " + money(hi))}${hline(start, "var(--muted)", "Start " + money(start))}${hline(lo, "var(--down)", "Stop loss " + money(lo))}
+    <path d="${d}" fill="none" stroke="${col}" stroke-width="2.5" stroke-linejoin="round"/>
+    <circle cx="${X(pts[pts.length - 1][0])}" cy="${Y(last)}" r="4" fill="${col}"/></svg></div>`;
+}
+
+function tradeRow(t) {
+  const res = t.status === "settled" ? (t.won ? "W" : "L") : "";
+  const bet = `${t.side === "yes" ? "Yes" : "No"}: ${t.title}`;
+  const log = [{ c: "", h: `Bought ${t.count} at ${t.ask.toFixed(2)} (${money(t.cost)} + ${money(t.fee)} fee)`, s: `${new Date(t.time).toLocaleString("en-US", { timeZone: TZ, weekday: "short", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })} CT. ${SRC(t.source)}. Fair ${(t.fair * 100).toFixed(1)}%, edge ${pct(t.edge)} a contract. ${t.why}` }];
+  if (t.status === "settled") log.push({ c: t.won ? "good" : "bad", h: `Settled ${t.result.toUpperCase()}: ${t.won ? "won" : "lost"} ${money(t.pnl, true)}`, s: `Paid ${money(t.payout)} on ${t.count} contract${t.count === 1 ? "" : "s"}.` });
+  else log.push({ c: "", h: "Open", s: `Settles after ${t.event}, ${dayLabel(t.commence).join(", ")}, ${timeCT(t.commence)} CT.` });
+  return `<div class="res"><button aria-expanded="false">
+    <div class="mark ${res}">${res || "…"}</div>
+    <div class="what">${esc(bet)}</div>
+    <div class="num">${t.status === "settled" ? money(t.pnl, true) : money(t.cost + t.fee)}<small>${t.status === "settled" ? "P/L" : "at risk"}</small></div>
+    <div class="sub">${esc(t.sport)} ${esc(short(teams(t.event).away))} at ${esc(short(teams(t.event).home))}, ${esc(SRC(t.source))}</div>
+  </button><div class="detail"><ul class="log">${log.map(x => `<li class="${x.c}"><b>${esc(x.h)}</b><span>${esc(x.s)}</span></li>`).join("")}</ul></div></div>`;
+}
+
+function renderTrading() {
+  const tr = state.data.trading, cfg = state.data.tradeCfg || {};
+  if (!tr || !tr.status) {
+    $("#tradeStatus").innerHTML = `<div class="empty"><strong>Trading hasn't run yet</strong><p>The first Kalshi scan runs with the next desk update.</p></div>`;
+    ["#bookPick", "#tradeScore", "#guard", "#chart", "#tradeList", "#tradeRules"].forEach(x => $(x).innerHTML = "");
+    return;
+  }
+  const st = tr.status, live = st.liveActive, stopped = state.book === "live" ? st.liveStopped : st.paperStopped;
+  const head = st.mode === "paper" ? ["Paper trading", "Every qualifying Kalshi trade is logged with its real price and fee, but no orders are placed."]
+    : live ? [`${st.mode === "demo" ? "Demo" : "Live"} trading is on`, `Real orders within your limits. ${st.liveWhy}.`]
+    : [`${st.mode === "demo" ? "Demo" : "Live"} trading is waiting`, `No orders are placed: ${st.liveWhy}. The paper book keeps running.`];
+  $("#tradeStatus").innerHTML = `<div class="tstatus ${live ? "live" : ""} ${stopped ? "stopped" : ""}"><span class="dot"></span><div><strong>${head[0]}</strong><p>${esc(head[1])}${stopped ? ` This book stopped at its ${stopped.why} limit on ${new Date(stopped.at).toLocaleDateString("en-US", { timeZone: TZ, month: "short", day: "numeric" })}; it restarts only with your approval.` : ""}</p></div></div>`;
+  $("#bookPick").innerHTML = ["paper", "live"].map(b => `<button class="chip" data-book="${b}" aria-pressed="${state.book === b}">${b === "paper" ? "Paper book" : "Real money"}</button>`).join("");
+  const book = tr[state.book] || { trades: [], equity: [], start: cfg.startingBankroll };
+  const s = state.book === "live" ? st.live : st.paper;
+  const settledT = book.trades.filter(t => t.status === "settled"), w = settledT.filter(t => t.won).length;
+  const staked = settledT.reduce((a, t) => a + t.cost + t.fee, 0);
+  $("#tradeScore").innerHTML = `
+    <div><span>Equity</span><strong>${money(s.equity)}</strong></div>
+    <div><span>Profit / loss</span><strong>${money(s.realized, true)}</strong></div>
+    <div><span>Record</span><strong>${w}-${settledT.length - w}</strong></div>
+    <div><span>Return on stakes</span><strong>${staked ? pct(s.realized / staked) : "n/a"}</strong></div>`;
+  const lo = book.start - cfg.stopLoss, hi = book.start + cfg.takeProfit;
+  const pos = Math.min(100, Math.max(0, 100 * (s.equity - lo) / (hi - lo)));
+  $("#guard").innerHTML = `<div class="guard"><div class="ends"><span>Stop loss ${money(lo)}</span><span>${money(s.open)} at risk now</span><span>Take profit ${money(hi)}</span></div><div class="track"><span class="pin" style="left:${pos}%"></span></div></div>`;
+  $("#chart").innerHTML = chart(book, cfg);
+  const open = book.trades.filter(t => t.status === "open").sort((a, b) => a.commence.localeCompare(b.commence));
+  const done = settledT.sort((a, b) => (b.settledAt || "").localeCompare(a.settledAt || ""));
+  $("#tradeList").innerHTML = (open.length ? `<h2 class="sub2">Open positions</h2>${open.map(tradeRow).join("")}` : "")
+    + (done.length ? `<h2 class="sub2">Settled</h2>${done.map(tradeRow).join("")}` : "")
+    + (!open.length && !done.length ? `<div class="empty"><strong>No trades in this book yet</strong><p>${state.book === "live" ? "Real orders start after you approve live trading, and only for the sources you allow." : "Paper trades appear as soon as a Kalshi price clears the edge bar."}</p></div>` : "");
+  const srcs = (cfg.liveSources || []).map(x => x === "official" ? "official EDGE strategies" : SRC(x)).join(", ");
+  $("#tradeRules").innerHTML = `<div class="rules"><h3>Your limits</h3><dl>
+    <dt>Starting bankroll</dt><dd>${money(cfg.startingBankroll || 0)}</dd>
+    <dt>Stop loss</dt><dd>${money(cfg.stopLoss || 0)} below start</dd>
+    <dt>Take profit</dt><dd>${money(cfg.takeProfit || 0)} above start</dd>
+    <dt>Per trade</dt><dd>${cfg.kellyFraction * 100}% Kelly, at most ${cfg.maxPerTradePct}% of equity</dd>
+    <dt>Per day</dt><dd>${money(cfg.maxPerDay || 0)}</dd>
+    <dt>Edge needed</dt><dd>${Math.round((cfg.minEdge || 0) * 100)}¢ a contract after Kalshi's fee</dd>
+    <dt>Real orders from</dt><dd>${esc(srcs || "nothing yet")}</dd>
+  </dl><p>To change any of these or approve trading, tell Claude, or edit trading/config.json on GitHub. Prices are Kalshi asks plus the taker fee; fair is Pinnacle's price with the margin removed.</p></div>`;
+}
+
+function render() { renderBoard(); renderResults(); renderStrategies(); renderTrading(); }
 
 document.addEventListener("click", e => {
   const tab = e.target.closest("nav button");
@@ -441,6 +557,8 @@ document.addEventListener("click", e => {
     window.scrollTo(0, 0);
     return;
   }
+  const bk = e.target.closest("[data-book]");
+  if (bk) { state.book = bk.dataset.book; renderTrading(); return; }
   const chip = e.target.closest(".chip");
   if (chip) {
     if (chip.dataset.f === "sport") state.sport = chip.dataset.v;
@@ -459,9 +577,10 @@ document.addEventListener("click", e => {
 
 async function load() {
   const get = (p, d) => fetch(BASE + p + "?t=" + Date.now()).then(r => r.ok ? r.json() : d).catch(() => d);
-  const [pk, sc, lg] = await Promise.all([get("ledger/picks.json", { picks: [] }), get("score.json", {}), get("ledger/ledger.json", { rows: [] })]);
+  const [pk, sc, lg, tl, tc] = await Promise.all([get("ledger/picks.json", { picks: [] }), get("score.json", {}), get("ledger/ledger.json", { rows: [] }),
+    get("trading/ledger.json", null), get("trading/config.json", {})]);
   const rows = Object.fromEntries((lg.rows || []).map(r => [r.id, r]));
-  state.data = { picks: pk.picks || [], score: sc, rows };
+  state.data = { picks: pk.picks || [], score: sc, rows, trading: tl, tradeCfg: tc };
   const asof = lg.asOfCt ? new Date(lg.asOfCt) : null;
   $("#asof").textContent = asof ? `Updated ${asof.toLocaleString("en-US", { timeZone: TZ, weekday: "short", hour: "numeric", minute: "2-digit" })} CT` : "Update time unknown";
   render();
