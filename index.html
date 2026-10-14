@@ -143,6 +143,33 @@ nav button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--gold
 .rules p{margin:10px 0 0;color:var(--muted);font-size:14px}
 .sub2{font:600 19px/1.2 var(--cond);margin:22px 0 8px}
 
+/* control panel */
+.ctl{background:var(--paper);border-radius:6px;box-shadow:var(--shadow);padding:16px;margin:18px 0 10px}
+.ctl-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.ctl-head h2{margin:0;font:600 22px/1.15 var(--cond)}
+.ctl-head p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.switch{position:relative;width:64px;height:36px;border-radius:18px;border:0;background:var(--rule);cursor:pointer;flex:none;padding:0}
+.switch::after{content:"";position:absolute;top:4px;left:4px;width:28px;height:28px;border-radius:50%;background:var(--paper);box-shadow:0 1px 2px rgba(0,0,0,.25);transition:left .15s}
+.switch[aria-checked="true"]{background:var(--up)}
+.switch[aria-checked="true"]::after{left:32px}
+.switch:disabled{opacity:.5;cursor:default}
+.ctl-row{display:grid;grid-template-columns:1fr 1fr;gap:10px 12px;margin:14px 0 0}
+.ctl label{display:block;font-size:13px;color:var(--muted)}
+.ctl input[type=number],.ctl input[type=password]{width:100%;margin-top:4px;padding:9px 10px;border:1px solid var(--rule);border-radius:4px;background:var(--bg);color:var(--ink);font:600 18px/1.2 var(--cond)}
+.ctl input:disabled{opacity:.6}
+.ctl fieldset{border:0;padding:0;margin:14px 0 0}
+.ctl legend{font-size:13px;color:var(--muted);padding:0;margin-bottom:4px}
+.ctl .check{display:flex;gap:8px;align-items:center;font-size:15px;color:var(--ink);margin:6px 0}
+.ctl details{margin:4px 0 0}
+.ctl summary{cursor:pointer;font-size:14px;color:var(--muted)}
+.units{margin:12px 0 0;padding:10px 12px;background:var(--chip);border-radius:4px;font-size:14px}
+.ctl-actions{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
+.btn{border:1px solid var(--ink);background:var(--ink);color:var(--paper);border-radius:4px;padding:9px 14px;font:600 16px/1 var(--cond);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn:disabled{opacity:.5;cursor:default}
+.ctl-msg{margin:10px 0 0;font-size:14px}
+.ctl-msg.err{color:var(--down)} .ctl-msg.ok{color:var(--up)}
+
 /* about */
 .about h2{font:600 22px/1.2 var(--cond);margin:26px 0 6px}
 .about p{margin:0 0 10px;max-width:64ch}
@@ -198,6 +225,7 @@ footer a{color:var(--muted)}
   </section>
 
   <section id="trading" role="tabpanel" class="hidden">
+    <div id="controlPanel"></div>
     <div id="tradeStatus"></div>
     <div class="filters" id="bookPick" aria-label="Choose book"></div>
     <div class="scoreline" id="tradeScore"></div>
@@ -217,7 +245,7 @@ footer a{color:var(--muted)}
     <h2>Market moved our way</h2>
     <p>On each open pick, the desk compares the price taken with the latest price. If the line has moved toward our side since, the ticket shows it in green. That is the closing line value building in real time.</p>
     <h2>Trading on Kalshi</h2>
-    <p>The desk prices every Kalshi game, spread and total contract against Pinnacle's fair price and against EDGE's own picks, after Kalshi's fee. A paper book logs every trade it would make. Real orders are placed only after you approve, only from the sources you allow, and stop at your stop loss or take profit until you approve again.</p>
+    <p>The desk prices every Kalshi game, spread and total contract against Pinnacle's fair price and against EDGE's own picks, after Kalshi's fee. A paper book logs every trade it would make. Real orders are placed only while your switch on the Trading tab is on and not paused, only from the sources you tick, sized from the starting balance you set. Hitting your stop loss or take profit ends the session; switching off and on starts a new one. Changes need your PIN.</p>
     <h2>Where the numbers come from</h2>
     <p>Prices from DraftKings, FanDuel, BetMGM, Caesars and Pinnacle via The Odds API. Weather from weather.gov. Injury reports and depth charts from ESPN. Team ratings from nflverse and ESPN results. The desk updates about every hour on game days.</p>
   </section>
@@ -503,17 +531,112 @@ function tradeRow(t) {
   </button><div class="detail"><ul class="log">${log.map(x => `<li class="${x.c}"><b>${esc(x.h)}</b><span>${esc(x.s)}</span></li>`).join("")}</ul></div></div>`;
 }
 
+// ---------- control panel (talks to /api/control on this site) ----------
+const PIN_KEY = "edge-control-pin";
+const pinGet = () => { try { return localStorage.getItem(PIN_KEY) || sessionStorage.getItem(PIN_KEY) || ""; } catch (_) { return ""; } };
+const pinPut = (v, remember) => { try { (remember ? localStorage : sessionStorage).setItem(PIN_KEY, v); if (!remember) localStorage.removeItem(PIN_KEY); } catch (_) {} };
+const CTL_SOURCES = [["kalshi-sharp", "Kalshi vs Pinnacle, same line"], ["kalshi-sharp-alt", "Kalshi vs Pinnacle, nearby line"], ["official", "Official EDGE strategies"]];
+const CTL_MIRRORS = ["sharp-soft", "sharp-soft-alt", "news-lag", "wind-total", "stats-model", "trend-fade"];
+state.ctl = null; state.ctlMsg = null;
+
+async function loadControl() {
+  try {
+    const r = await fetch("/api/control?t=" + Date.now(), { cache: "no-store" });
+    state.ctl = r.ok ? await r.json() : { unavailable: true };
+  } catch (_) { state.ctl = { unavailable: true }; }
+  renderControl();
+}
+
+function ctlSettings() {
+  const v = id => document.getElementById(id).value;
+  const src = [...document.querySelectorAll(".ctl input[name=src]:checked")].map(x => x.value);
+  return { bankroll: v("cBank"), stopLoss: v("cStop"), takeProfit: v("cTake"), maxPerTradePct: v("cTrade"), maxPerDayPct: v("cDay"), liveSources: src };
+}
+
+function ctlNote(kind, text) {
+  // Message only: the form keeps whatever was typed.
+  const box = document.querySelector(".ctl");
+  let m = box.querySelector(".ctl-msg");
+  if (!m) { m = document.createElement("p"); m.setAttribute("role", "status"); box.appendChild(m); }
+  m.className = "ctl-msg " + kind;
+  m.textContent = text;
+  box.querySelectorAll("button").forEach(b => b.disabled = false);
+  if (!state.ctl.pinSet) document.getElementById("cSwitch").disabled = true;
+}
+
+async function sendControl(action) {
+  const pin = document.getElementById("cPin").value.trim();
+  if (!pin) { ctlNote("err", "Enter your PIN first."); return; }
+  const s = ctlSettings();
+  if (action === "on" && !confirm(`Start real-money trading with a $${Number(s.bankroll).toFixed(2)} balance? Orders begin at the next desk update.`)) return;
+  if (action === "off" && !confirm("Turn real-money trading off? Open positions stay open and settle as normal; the session ends.")) return;
+  pinPut(pin, document.getElementById("cRemember").checked);
+  document.querySelectorAll(".ctl button").forEach(b => b.disabled = true);
+  try {
+    const r = await fetch("/api/control", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ pin, action, settings: s }) });
+    const j = await r.json().catch(() => ({}));
+    if (!r.ok) { ctlNote("err", j.error || `Not saved (error ${r.status}).`); return; }
+    state.ctl = j;
+    const said = { on: "Trading is on.", off: "Trading is off.", pause: "Paused.", resume: "Resumed.", save: "Limits saved." }[action];
+    state.ctlMsg = ["ok", `${said} The desk picks this up at its next update, within the hour.`];
+    renderControl();
+  } catch (_) { ctlNote("err", "Couldn't reach the control service. Check your connection and try again."); }
+}
+
+function renderControl() {
+  const c = state.ctl, box = $("#controlPanel");
+  if (!c) { box.innerHTML = ""; return; }
+  if (c.unavailable) { box.innerHTML = `<div class="ctl"><div class="ctl-head"><div><h2>Real-money trading</h2><p>Controls aren't reachable from this page. Open the live site to use them.</p></div></div></div>`; return; }
+  const on = !!c.enabled, paused = !!c.paused;
+  const bank = Number(c.bankroll || 0), unit = bank / 100;
+  const perTrade = bank * (c.maxPerTradePct || 0) / 100, perDay = bank * (c.maxPerDayPct || 0) / 100;
+  const sub = !c.pinSet ? "Set your PIN in Netlify to use these controls."
+    : on ? (paused ? "Paused. Open positions stay; no new orders." : `On since ${new Date(c.sessionId).toLocaleString("en-US", { timeZone: TZ, month: "short", day: "numeric", hour: "numeric", minute: "2-digit" })} CT.`)
+    : "Off. The paper book keeps running.";
+  const srcBox = (val, label) => `<label class="check"><input type="checkbox" name="src" value="${val}" ${(c.liveSources || []).includes(val) ? "checked" : ""}> ${esc(label)}</label>`;
+  box.innerHTML = `<div class="ctl">
+    <div class="ctl-head"><div><h2>Real-money trading</h2><p>${esc(sub)}</p></div>
+      <button class="switch" role="switch" aria-checked="${on}" aria-label="Real-money trading" id="cSwitch" ${c.pinSet ? "" : "disabled"}></button></div>
+    <div class="ctl-row">
+      <label>Starting balance ($)<input id="cBank" type="number" min="1" step="1" value="${bank}" ${on ? "disabled title=\"Turn trading off to change the balance\"" : ""}></label>
+      <label>Stop loss ($ below start)<input id="cStop" type="number" min="0" step="1" value="${c.stopLoss}"></label>
+      <label>Take profit ($ above start)<input id="cTake" type="number" min="0" step="1" value="${c.takeProfit}"></label>
+      <label>Max per trade (% of balance)<input id="cTrade" type="number" min="0.1" max="25" step="0.5" value="${c.maxPerTradePct}"></label>
+      <label>Max per day (% of balance)<input id="cDay" type="number" min="0.1" max="100" step="1" value="${c.maxPerDayPct}"></label>
+    </div>
+    <div class="units">1 unit = $${unit.toFixed(2)} (1% of balance). Each trade is sized by its edge, up to $${perTrade.toFixed(2)}; at most $${perDay.toFixed(2)} a day. Trading stops at $${(bank - c.stopLoss).toFixed(2)} or $${(bank + Number(c.takeProfit)).toFixed(2)}.</div>
+    <fieldset><legend>Real orders come from</legend>
+      ${CTL_SOURCES.map(([v, l]) => srcBox(v, l)).join("")}
+      <details><summary>EDGE picks mirrored onto Kalshi</summary>${CTL_MIRRORS.map(m => srcBox("mirror:" + m, stratName(m))).join("")}</details>
+    </fieldset>
+    <div class="ctl-row">
+      <label>PIN<input id="cPin" type="password" autocomplete="current-password" value="${esc(pinGet())}"></label>
+      <label class="check" style="align-self:end"><input id="cRemember" type="checkbox" ${(() => { try { return localStorage.getItem(PIN_KEY) ? "checked" : ""; } catch (_) { return ""; } })()}> Remember on this device</label>
+    </div>
+    <div class="ctl-actions">
+      ${on ? `<button class="btn ghost" data-ctl="${paused ? "resume" : "pause"}">${paused ? "Resume" : "Pause"}</button>` : ""}
+      <button class="btn" data-ctl="save">Save limits</button>
+    </div>
+    ${state.ctlMsg ? `<p class="ctl-msg ${state.ctlMsg[0]}" role="status">${esc(state.ctlMsg[1])}</p>` : ""}
+  </div>`;
+  // live unit preview while typing
+  ["cBank", "cTrade", "cDay", "cStop", "cTake"].forEach(id => document.getElementById(id).addEventListener("input", () => {
+    const s = ctlSettings(), b = Number(s.bankroll) || 0;
+    box.querySelector(".units").textContent = `1 unit = $${(b / 100).toFixed(2)} (1% of balance). Each trade is sized by its edge, up to $${(b * s.maxPerTradePct / 100).toFixed(2)}; at most $${(b * s.maxPerDayPct / 100).toFixed(2)} a day. Trading stops at $${(b - s.stopLoss).toFixed(2)} or $${(b + Number(s.takeProfit)).toFixed(2)}.`;
+  }));
+}
+
 function renderTrading() {
-  const tr = state.data.trading, cfg = state.data.tradeCfg || {};
+  const tr = state.data.trading, fileCfg = state.data.tradeCfg || {};
   if (!tr || !tr.status) {
     $("#tradeStatus").innerHTML = `<div class="empty"><strong>Trading hasn't run yet</strong><p>The first Kalshi scan runs with the next desk update.</p></div>`;
     ["#bookPick", "#tradeScore", "#guard", "#chart", "#tradeList", "#tradeRules"].forEach(x => $(x).innerHTML = "");
     return;
   }
   const st = tr.status, live = st.liveActive, stopped = state.book === "live" ? st.liveStopped : st.paperStopped;
-  const head = st.mode === "paper" ? ["Paper trading", "Every qualifying Kalshi trade is logged with its real price and fee, but no orders are placed."]
-    : live ? [`${st.mode === "demo" ? "Demo" : "Live"} trading is on`, `Real orders within your limits. ${st.liveWhy}.`]
-    : [`${st.mode === "demo" ? "Demo" : "Live"} trading is waiting`, `No orders are placed: ${st.liveWhy}. The paper book keeps running.`];
+  const cfg = state.book === "live" ? (st.config || fileCfg) : { ...fileCfg, ...(st.paperConfig || {}) };
+  const head = live ? ["Placing real orders", `Within your limits, from the sources you chose. The paper book runs alongside.`]
+    : ["No real orders", `Real-money trading is ${st.liveWhy}. The paper book logs every qualifying trade with its real price and fee.`];
   const acct = tr.account || {};
   const acctLine = acct.keys === "ok" ? ` Kalshi account connected: ${money(acct.balance)} available.`
     : acct.keys === "error" ? " The Kalshi key was rejected; check the GitHub secrets." : " No Kalshi key connected yet.";
@@ -538,16 +661,9 @@ function renderTrading() {
   $("#tradeList").innerHTML = (open.length ? `<h2 class="sub2">Open positions</h2>${open.map(tradeRow).join("")}` : "")
     + (done.length ? `<h2 class="sub2">Settled</h2>${done.map(tradeRow).join("")}` : "")
     + (!open.length && !done.length ? `<div class="empty"><strong>No trades in this book yet</strong><p>${state.book === "live" ? "Real orders start after you approve live trading, and only for the sources you allow." : "Paper trades appear as soon as a Kalshi price clears the edge bar."}</p></div>` : "");
-  const srcs = (cfg.liveSources || []).map(x => x === "official" ? "official EDGE strategies" : SRC(x)).join(", ");
-  $("#tradeRules").innerHTML = `<div class="rules"><h3>Your limits</h3><dl>
-    <dt>Starting bankroll</dt><dd>${money(cfg.startingBankroll || 0)}</dd>
-    <dt>Stop loss</dt><dd>${money(cfg.stopLoss || 0)} below start</dd>
-    <dt>Take profit</dt><dd>${money(cfg.takeProfit || 0)} above start</dd>
-    <dt>Per trade</dt><dd>${cfg.kellyFraction * 100}% Kelly, at most ${cfg.maxPerTradePct}% of equity</dd>
-    <dt>Per day</dt><dd>${money(cfg.maxPerDay || 0)}</dd>
-    <dt>Edge needed</dt><dd>${Math.round((cfg.minEdge || 0) * 100)}¢ a contract after Kalshi's fee</dd>
-    <dt>Real orders from</dt><dd>${esc(srcs || "nothing yet")}</dd>
-  </dl><p>To change any of these or approve trading, tell Claude, or edit trading/config.json on GitHub. Prices are Kalshi asks plus the taker fee; fair is Pinnacle's price with the margin removed.</p></div>`;
+  $("#tradeRules").innerHTML = state.book === "paper"
+    ? `<p class="note" style="margin-top:14px">The paper book tests every source at once from a $${Number(cfg.startingBankroll || 0).toFixed(0)} balance, each source with its own $${Number(cfg.maxPerDay || 0).toFixed(0)} daily cap, and never stops, so you can see which sources earn their place in the real-money list above.</p>`
+    : `<p class="note" style="margin-top:14px">This book follows the switch panel above: its balance, limits and sources. Each time you switch on, a new session starts and the last one is kept in the record.</p>`;
 }
 
 function render() { renderBoard(); renderResults(); renderStrategies(); renderTrading(); }
@@ -561,6 +677,10 @@ document.addEventListener("click", e => {
     window.scrollTo(0, 0);
     return;
   }
+  const sw = e.target.closest("#cSwitch");
+  if (sw) { sendControl(sw.getAttribute("aria-checked") === "true" ? "off" : "on"); return; }
+  const ca = e.target.closest("[data-ctl]");
+  if (ca) { sendControl(ca.dataset.ctl); return; }
   const bk = e.target.closest("[data-book]");
   if (bk) { state.book = bk.dataset.book; renderTrading(); return; }
   const chip = e.target.closest(".chip");
@@ -588,6 +708,7 @@ async function load() {
   const asof = lg.asOfCt ? new Date(lg.asOfCt) : null;
   $("#asof").textContent = asof ? `Updated ${asof.toLocaleString("en-US", { timeZone: TZ, weekday: "short", hour: "numeric", minute: "2-digit" })} CT` : "Update time unknown";
   render();
+  if (!state.ctl) loadControl();      // once; later changes come back from the panel itself, so typing is never wiped
 }
 const start = (location.hash || "").slice(1);
 if (start) { const b = document.querySelector(`nav button[data-tab="${start}"]`); if (b) b.click(); }
