@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-10-14: injury.py added. Tracks every NFL injury-report status with first-seen times (tracking began today, so earlier news counts 0) and stamps news-lag reads for starting-QB changes after the open, through pull.py read. Writes the injury field on affected rows.
 - 2026-10-14: wind.py added. Fills the weather field on outdoor NFL and NCAAF rows from weather.gov (ESPN for venue and roof, Open-Meteo geocoding cached in stats/venues.json) and stamps wind-total reads through pull.py read. NCAAF is open to scripted weather reads only.
 - 2026-10-14: sharp-soft-alt added, a separate test for retail books on a different line, valued with grade.py per-point numbers. pull.py pull --near N: prices only, only for sports with a game in the next N hours, skipped under the credit reserve. Near runs go hourly between the full runs.
 - 2026-10-14: Jobs moved from Grok to GitHub Actions (main: .github/workflows/edge-data.yml). Same scripts, same files, same branch. pull.py now stores FanDuel, Caesars and Pinnacle prices under books on every snap (no extra credits: 10 books bill as one region). New pattern sharp-soft, stamped by sharp.py, shadow until grade.py says otherwise. Reads now default to by=claude.
