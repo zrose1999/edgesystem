@@ -317,6 +317,7 @@ const teams = ev => { const [a, h] = String(ev).split(" at "); return { away: a,
 function betText(p) {
   const t = teams(p.event);
   if (p.market === "total") return `${p.side === "over" ? "Over" : "Under"} ${p.lineAtPick}`;
+  if (p.side === "draw") return `Draw: ${short(t.away)} at ${short(t.home)}`;
   const who = short(p.side === "home" ? t.home : t.away);
   if (p.market === "spread") return `${who} ${fmtLine(p.lineAtPick)}`;
   return `${who} to win`;
