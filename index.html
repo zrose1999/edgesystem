@@ -514,6 +514,10 @@ function renderTrading() {
   const head = st.mode === "paper" ? ["Paper trading", "Every qualifying Kalshi trade is logged with its real price and fee, but no orders are placed."]
     : live ? [`${st.mode === "demo" ? "Demo" : "Live"} trading is on`, `Real orders within your limits. ${st.liveWhy}.`]
     : [`${st.mode === "demo" ? "Demo" : "Live"} trading is waiting`, `No orders are placed: ${st.liveWhy}. The paper book keeps running.`];
+  const acct = tr.account || {};
+  const acctLine = acct.keys === "ok" ? ` Kalshi account connected: ${money(acct.balance)} available.`
+    : acct.keys === "error" ? " The Kalshi key was rejected; check the GitHub secrets." : " No Kalshi key connected yet.";
+  head[1] += acctLine;
   $("#tradeStatus").innerHTML = `<div class="tstatus ${live ? "live" : ""} ${stopped ? "stopped" : ""}"><span class="dot"></span><div><strong>${head[0]}</strong><p>${esc(head[1])}${stopped ? ` This book stopped at its ${stopped.why} limit on ${new Date(stopped.at).toLocaleDateString("en-US", { timeZone: TZ, month: "short", day: "numeric" })}; it restarts only with your approval.` : ""}</p></div></div>`;
   $("#bookPick").innerHTML = ["paper", "live"].map(b => `<button class="chip" data-book="${b}" aria-pressed="${state.book === b}">${b === "paper" ? "Paper book" : "Real money"}</button>`).join("");
   const book = tr[state.book] || { trades: [], equity: [], start: cfg.startingBankroll };
