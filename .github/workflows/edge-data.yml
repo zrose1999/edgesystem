@@ -60,6 +60,9 @@ jobs:
       - name: Sharp vs soft scan
         run: python sharp.py || echo "::warning::sharp.py failed; continuing"
 
+      - name: Weather and wind-total reads
+        run: python wind.py || echo "::warning::wind.py failed; continuing"
+
       - name: Grade
         run: python grade.py
 
