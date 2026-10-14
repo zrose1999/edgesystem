@@ -8,10 +8,15 @@ on:
     # Times are UTC. CT = UTC-5 during daylight time.
     - cron: "7 11 * * *"           # ~6am CT  full run: prices, stats, model reads, grade
     - cron: "7 15,19,23 * * *"     # ~10am, 2pm, 6pm CT  prices + closes + grade
+    - cron: "37 0-3,16-18,20-22 * * *"   # hourly ~11:30am-10:30pm CT  near-game prices only (sharp scan)
   workflow_dispatch:
     inputs:
       full:
         description: "Run stats and model too"
+        type: boolean
+        default: false
+      near:
+        description: "Near-game prices only (ignored if full)"
         type: boolean
         default: false
 
@@ -38,7 +43,12 @@ jobs:
       - name: Pull prices, closes and scores
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-        run: python pull.py
+        run: |
+          if [ "${{ github.event.schedule }}" = "37 0-3,16-18,20-22 * * *" ] || { [ "${{ inputs.near }}" = "true" ] && [ "${{ inputs.full }}" != "true" ]; }; then
+            python pull.py pull --near 12
+          else
+            python pull.py
+          fi
 
       - name: Stats and model reads (morning run only)
         if: github.event.schedule == '7 11 * * *' || inputs.full
