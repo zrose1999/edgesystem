@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """EDGE Kalshi desk (v1). Prices Kalshi's game contracts against Pinnacle and EDGE's picks, sizes trades
-from Zack's bankroll rules, keeps a paper book always, and places real orders only when Zack approves.
+from Zack's bankroll rules, keeps a paper book always, and places real orders only while Zack's switch is On.
 
-  python3 kalshi.py           scan, settle, trade (paper always; live/demo only if approved)
+  python3 kalshi.py           scan, settle, trade (paper always; real orders only while the switch is On)
   python3 kalshi.py --dry     scan and print candidates, write nothing
 
 Signal sources (each tracked on its own record)
@@ -22,11 +22,13 @@ Books
   paper  every source, every qualifying contract, sized from startingBankroll, each source with its own daily
          cap so none crowds another out. Never places an order and never stops: where stopLoss or takeProfit
          would have hit is recorded instead.
-  live   only sources in liveSources, only when mode is live (or demo) and approved, never after a stop.
+  live   real orders, only while Zack's switch on the site is On and not paused (read from /api/control at
+         the start of every run; unreadable = off), only from the sources he allows, sized from the starting
+         balance he set. Switching On starts a new session at that balance; the old session is archived.
   One position per game, market (winner, spread or total) and source in each book: the best edge is taken,
   never several neighbouring strikes or both sides of the same bet.
-  A book stops when its equity reaches startingBankroll - stopLoss or + takeProfit. A stopped live book
-  needs a new approval (approvedAt later than the stop) to restart.
+  A book stops when its equity reaches its start - stopLoss or + takeProfit. A stopped live session stays
+  stopped until Zack switches trading off and on again, which starts a new session.
 
 Safety
   No order on a game that has started, on a Pinnacle price older than PIN_STALE_MIN, on a ledger price older
@@ -55,6 +57,7 @@ ROOT = Path(__file__).resolve().parent
 CONFIG = ROOT / "trading" / "config.json"
 BOOK = ROOT / "trading" / "ledger.json"
 PROD = "https://api.elections.kalshi.com/trade-api/v2"
+CONTROL_URL = os.environ.get("EDGE_CONTROL_URL", "https://edgesystem.netlify.app/api/control")
 DEMO = "https://demo-api.kalshi.co/trade-api/v2"
 ET = ZoneInfo("America/New_York")
 CT = ZoneInfo("America/Chicago")
@@ -485,7 +488,7 @@ def main(dry=False):
     for name in ("paper", "live"):
         if name not in state:
             state[name] = new_book(cfg)
-        if not state[name]["trades"]:            # a book that has never traded follows the configured bankroll
+        if name == "paper" and not state[name]["trades"]:   # a paper book that never traded follows the config
             state[name]["start"] = state[name]["cash"] = cfg["startingBankroll"]
     ledger = pull.load(pull.LEDGER, {"rows": []})
     picks = pull.load(pull.PICKS, {"picks": []})
@@ -494,10 +497,23 @@ def main(dry=False):
     open_picks = [p for p in picks["picks"] if p.get("kind") == "pick" and p.get("side")
                   and p.get("commence", "") > iso(now)]
 
-    mode = cfg.get("mode", "paper")
+    control = fetch_control()
+    cfg_live = live_cfg(cfg, control)
+    mode = "demo" if cfg.get("mode") == "demo" else "live"
     base = DEMO if mode == "demo" else PROD
+    live = state["live"]
+    if control and control.get("enabled") and control.get("sessionId") and live.get("sessionId") != control["sessionId"]:
+        if live["trades"]:
+            state.setdefault("sessions", []).append(dict(live, endedAt=iso(now), summary=book_state(live)))
+        state["live"] = new_book(cfg_live)
+        state["live"]["sessionId"] = control["sessionId"]
+    elif not state["live"]["trades"]:
+        state["live"]["start"] = state["live"]["cash"] = cfg_live["startingBankroll"]
     settled = {name: settle(state[name], DEMO if (name == "live" and mode == "demo") else PROD, now)
                for name in ("paper", "live")}
+    for old in state.get("sessions") or []:          # earlier sessions' open positions still settle
+        settled["live"] += settle(old, DEMO if old.get("mode") == "demo" else PROD, now)
+        old["summary"] = book_state(old)
 
     # Scan every configured series.
     cands, matched, unmatched, fetched = [], 0, 0, 0
@@ -578,7 +594,7 @@ def main(dry=False):
         return
 
     placed = {"paper": 0, "live": 0}
-    live_ok, live_why = live_allowed(cfg, state["live"], now)
+    live_ok, live_why = live_allowed(control, state["live"])
     signer = None
     if live_ok:
         try:
@@ -589,26 +605,24 @@ def main(dry=False):
 
     for name in ("paper", "live"):
         book = state[name]
-        stop = check_stop(book, cfg, now)
+        bcfg = cfg_live if name == "live" else cfg
+        stop = check_stop(book, bcfg, now)
         if stop and not book.get("stopped"):
             book["stopped"] = {"why": stop, "at": iso(now)}
             if name == "paper":
                 book.setdefault("wouldHaveStopped", []).append(book["stopped"])
         if name == "paper":
             book["stopped"] = None          # research never stops; the mark above shows where the limit hit
-        if name == "live" and not live_ok:
+        if name == "live" and (not live_ok or book.get("stopped")):
+            snapshot(book, now)
             continue
-        if book.get("stopped") and not (name == "live" and approved_after(cfg, book["stopped"]["at"])):
-            continue
-        if name == "live" and book.get("stopped"):
-            book["stopped"] = None          # re-approved after a stop
         have = {(t["event"], t["kind"], t["source"]) for t in book["trades"]}
         for c in cands:
             if (c["event"], c["kind"], c["source"]) in have:
                 continue
-            if name == "live" and not source_allowed(c, cfg, official):
+            if name == "live" and not source_allowed(c, cfg_live, official):
                 continue
-            n = size(cfg, book, c["ask"], c["fair"], now, c["source"] if name == "paper" else None)
+            n = size(bcfg, book, c["ask"], c["fair"], now, c["source"] if name == "paper" else None)
             if n < 1:
                 continue
             trade = {k: c[k] for k in ("ticker", "title", "sport", "kind", "event", "commence", "side", "ask",
@@ -623,17 +637,21 @@ def main(dry=False):
             book["trades"].append(trade)
             have.add((c["event"], c["kind"], c["source"]))
             placed[name] += 1
-            if check_stop(book, cfg, now):
+            if check_stop(book, bcfg, now):
                 break
         snapshot(book, now)
 
     state["account"] = account_check(mode)
     state["asOf"] = iso(now)
-    state["status"] = {"mode": mode, "approved": bool(cfg.get("approved")), "liveActive": live_ok,
+    if state["live"].get("stopped") is None and check_stop(state["live"], cfg_live, now):
+        state["live"]["stopped"] = {"why": check_stop(state["live"], cfg_live, now), "at": iso(now)}
+    state["status"] = {"mode": mode, "switch": control_view(control), "liveActive": live_ok,
                        "liveWhy": live_why, "paper": book_state(state["paper"]), "live": book_state(state["live"]),
                        "paperStopped": state["paper"].get("stopped"), "liveStopped": state["live"].get("stopped"),
-                       "config": {k: cfg.get(k) for k in ("startingBankroll", "stopLoss", "takeProfit", "kellyFraction",
-                                                          "maxPerTradePct", "maxPerDay", "minEdge", "liveSources")},
+                       "config": {k: cfg_live.get(k) for k in ("startingBankroll", "stopLoss", "takeProfit", "kellyFraction",
+                                                               "maxPerTradePct", "maxPerDay", "minEdge", "liveSources")},
+                       "unit": round(cfg_live["startingBankroll"] / 100, 2),
+                       "paperConfig": {k: cfg.get(k) for k in ("startingBankroll", "stopLoss", "takeProfit", "maxPerDay")},
                        "lastScan": {"kalshiMarkets": fetched, "eventsMatched": matched,
                                     "eventsUnmatched": unmatched, "candidates": len(cands)}}
     save(BOOK, state)
@@ -663,19 +681,52 @@ def _other(team_side, kind):
         if kind != "game" else {"home": "away", "away": "home"}.get(team_side)
 
 
-def approved_after(cfg, when):
-    return bool(cfg.get("approved") and cfg.get("approvedAt") and cfg["approvedAt"] > when)
+def fetch_control():
+    """Zack's switch and limits from the site. Any failure returns None, which means off."""
+    try:
+        req = urllib.request.Request(CONTROL_URL + "?t=" + str(int(time.time())),
+                                     headers={"User-Agent": "EDGE desk", "Accept": "application/json"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            c = json.loads(r.read().decode())
+        if not isinstance(c, dict) or "enabled" not in c:
+            return None
+        return c
+    except Exception as exc:  # noqa: BLE001
+        print("control", exc)
+        return None
 
 
-def live_allowed(cfg, book, now):
-    mode = cfg.get("mode", "paper")
-    if mode not in ("live", "demo"):
-        return False, "paper mode"
-    if not cfg.get("approved") or not cfg.get("approvedAt"):
-        return False, "not approved"
-    if book.get("stopped") and not approved_after(cfg, book["stopped"]["at"]):
-        return False, f"stopped ({book['stopped']['why']}) and waiting for a new approval"
-    return True, f"{mode} trading approved {cfg['approvedAt']}"
+def live_cfg(cfg, control):
+    """The live book's limits: Zack's numbers from the switch panel over the file defaults."""
+    out = dict(cfg)
+    if control:
+        bank = float(control.get("bankroll") or cfg["startingBankroll"])
+        out.update(startingBankroll=bank, stopLoss=float(control.get("stopLoss", cfg["stopLoss"])),
+                   takeProfit=float(control.get("takeProfit", cfg["takeProfit"])),
+                   maxPerTradePct=float(control.get("maxPerTradePct", cfg["maxPerTradePct"])),
+                   maxPerDay=round(bank * float(control.get("maxPerDayPct", 20)) / 100, 2),
+                   liveSources=control.get("liveSources") or cfg.get("liveSources") or [])
+    return out
+
+
+def control_view(control):
+    if not control:
+        return {"read": False}
+    return {"read": True, **{k: control.get(k) for k in ("enabled", "paused", "bankroll", "stopLoss", "takeProfit",
+                                                         "maxPerTradePct", "maxPerDayPct", "liveSources",
+                                                         "sessionId", "updatedAt")}}
+
+
+def live_allowed(control, book):
+    if not control:
+        return False, "the on/off switch could not be read, so it counts as off"
+    if not control.get("enabled"):
+        return False, "switched off"
+    if control.get("paused"):
+        return False, "paused"
+    if book.get("stopped"):
+        return False, f"stopped at the {book['stopped']['why']} limit; switch off and on to start a new session"
+    return True, f"on since {control.get('sessionId')}"
 
 
 def source_allowed(c, cfg, official):
