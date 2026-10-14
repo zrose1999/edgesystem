@@ -13,7 +13,8 @@ import { createHash, timingSafeEqual } from "node:crypto";
 const STORE = "edge-controls";
 const KEY = "trading";
 const SOURCES = ["official", "kalshi-sharp", "kalshi-sharp-alt", "mirror:sharp-soft", "mirror:sharp-soft-alt",
-  "mirror:news-lag", "mirror:wind-total", "mirror:stats-model", "mirror:trend-fade"];
+  "mirror:news-lag", "mirror:wind-total", "mirror:stats-model", "mirror:trend-fade",
+  "mirror:nba-stats-model", "mirror:nba-model-fav"];
 const DEFAULTS = {
   enabled: false, paused: false, bankroll: 100, stopLoss: 25, takeProfit: 50,
   maxPerTradePct: 5, maxPerDayPct: 20, liveSources: ["official"], sessionId: null, updatedAt: null,
