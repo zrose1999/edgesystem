@@ -627,6 +627,7 @@ def main(dry=False):
                 break
         snapshot(book, now)
 
+    state["account"] = account_check(mode)
     state["asOf"] = iso(now)
     state["status"] = {"mode": mode, "approved": bool(cfg.get("approved")), "liveActive": live_ok,
                        "liveWhy": live_why, "paper": book_state(state["paper"]), "live": book_state(state["live"]),
@@ -639,6 +640,22 @@ def main(dry=False):
     print(json.dumps({"mode": mode, "live": live_why, "kalshiMarkets": fetched, "eventsMatched": matched,
                       "candidates": len(cands), "placed": placed, "settled": settled,
                       "paper": book_state(state["paper"]), "liveBook": book_state(state["live"])}))
+
+
+def account_check(mode):
+    """Read-only: confirms the Kalshi key works and reads the balance. Never places or changes anything."""
+    pre = "KALSHI_DEMO_" if mode == "demo" else "KALSHI_"
+    if not os.environ.get(pre + "KEY_ID") or not os.environ.get(pre + "PRIVATE_KEY"):
+        return {"keys": "missing", "checkedAt": iso(now_utc())}
+    try:
+        signer = Signer(os.environ[pre + "KEY_ID"], os.environ[pre + "PRIVATE_KEY"])
+        bal = signer.call(DEMO if mode == "demo" else PROD, "GET", "/portfolio/balance")
+    except Exception as exc:  # noqa: BLE001
+        return {"keys": "error", "error": f"{type(exc).__name__}: {str(exc)[:160]}", "checkedAt": iso(now_utc())}
+    cents = bal.get("balance")
+    dollars = f(bal.get("balance_dollars"))
+    return {"keys": "ok", "balance": round(dollars if dollars is not None else (cents or 0) / 100, 2),
+            "env": "demo" if mode == "demo" else "production", "checkedAt": iso(now_utc())}
 
 
 def _other(team_side, kind):
