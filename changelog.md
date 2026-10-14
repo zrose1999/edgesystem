@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-10-14: Tennis Elo study (tennis_backtest.py, EDGE research workflow) could not run: tennis-data.co.uk returns 403 to GitHub's servers too. Waiting on files from Zack.
 - 2026-10-14: notify.py: phone alerts through ntfy (NTFY_TOPIC secret) for real trades placed and settled, stop loss or take profit, the switch, strategies turning official or retired, and a rejected Kalshi key.
 - 2026-10-14: New pattern ncaaf-total-move (model_ncaaf.py, morning run): the NCAAF ratings' gap from the opening total, times 0.18, as the expected move to the close. Built from the walk-forward kMove result (540 games, se 0.029, stable across both halves).
 - 2026-10-14: CS2 (roadmap #5). cs2.py builds a map-level Elo from PandaScore results (needs PANDASCORE_TOKEN) and prices upcoming series; kalshi.py trades the new cs2-elo source on Kalshi CS2 match markets, paper-only, tight books only. Every Kalshi trade now records a close (last same-side mid before start, spreads of 10 cents or less) and its CLV; the book summary shows mean CLV. Fixed: the three-way soccer draw guard covered only EPL and UCL; it now covers every soccer league. Kalshi 'vs.' titles now parse.
