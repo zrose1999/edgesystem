@@ -63,6 +63,9 @@ jobs:
       - name: Weather and wind-total reads
         run: python wind.py || echo "::warning::wind.py failed; continuing"
 
+      - name: Injury report and news-lag reads
+        run: python injury.py || echo "::warning::injury.py failed; continuing"
+
       - name: Grade
         run: python grade.py
 
