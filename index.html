@@ -280,6 +280,7 @@ const STRAT = {
   "trend-fade": ["Fade the totals trend", "Both teams keep going over (or under); the total is priced too far that way."],
   "nba-stats-model": ["NBA model", "NBA team ratings, using a quarter of their gap from the market. Spreads and totals."],
   "nba-model-fav": ["NBA model on favourites", "The NBA model's spread picks, only when its side is the favourite. Tests the Rose desk's best NBA idea."],
+  "rest-spot": ["NBA rest spots", "One team on the second night of a back-to-back, the other rested. Lines move toward the rested team before tip-off."],
   "luck-reversion": ["Luck reversion", "Record running ahead of or behind efficiency."],
   "early-number": ["Early number", "Early-week lines softer than the close."]
 };
@@ -509,7 +510,7 @@ function renderStrategies() {
   const { picks, score } = state.data;
   const pats = (score && score.patterns) || [];
   const byId = Object.fromEntries(pats.map(p => [p.id, p]));
-  const always = ["sharp-soft", "sharp-soft-alt", "news-lag", "wind-total", "stats-model", "trend-fade", "nba-stats-model", "nba-model-fav"];
+  const always = ["sharp-soft", "sharp-soft-alt", "news-lag", "wind-total", "stats-model", "trend-fade", "nba-stats-model", "nba-model-fav", "rest-spot"];
   const names = [...new Set([...always, ...Object.keys(STRAT).filter(k => byId[k] || picks.some(p => p.pattern === k)), ...pats.map(p => p.id)])];
   const N = 30;
   $("#stratList").innerHTML = names.map(id => {
