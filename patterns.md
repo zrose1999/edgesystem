@@ -48,3 +48,10 @@ Stamped by sharp.py, never by hand.
 Idea: Pinnacle moves first. When a retail book (DraftKings, FanDuel, BetMGM, Caesars) hangs a better price than Pinnacle's no-vig probability on the same line, the retail price is stale and should beat the close.
 Applies: every pulled sport. Same line at both books, Pinnacle updated within 60 minutes of the soft book. A at a 3.0% probability edge, B at 1.5%. Over 10% is a data error and is skipped.
 Retire early if: CLV is below 0 after 30 picks.
+
+## sharp-soft-alt
+
+Stamped by sharp.py, never by hand.
+Idea: same as sharp-soft, but the retail book sits on a different spread or total number than Pinnacle, at most 1 point away. Pinnacle's fair probability is moved to the retail line with the per-point and key-number values grade.py uses (0.03 per crossing of 3 or 7 on NFL and NCAAF spreads).
+Applies: NFL, NCAAF and NBA spreads and totals only. Goal and run totals are not priced this way.
+Retire early if: CLV is below 0 after 30 picks. If it trails sharp-soft by a wide margin, the per-point values are wrong, not the idea.

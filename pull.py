@@ -294,16 +294,35 @@ def find_game(data, row):
     return None
 
 
-def pull():
+def near_sports(rows, now_dt, hours):
+    """Sport keys with a game starting in the next `hours`, read from the ledger, so no credits are spent finding them."""
+    lo, hi = iso(now_dt), iso(now_dt + timedelta(hours=hours))
+    return {KEY_OF[r["sport"]] for r in rows if r.get("sport") in KEY_OF and r.get("commence") and lo < r["commence"] <= hi}
+
+
+def pull(near=None):
+    """Full pull: prices, closes and scores. near=N: current prices only, and only for sports with a
+    game starting in the next N hours. Near runs feed the sharp-soft scan between the full runs."""
     ledger = load(LEDGER, {"rows": []})
     rows = ledger.get("rows") or []
     index = {r.get("id"): r for r in rows}
     now_dt = datetime.now(timezone.utc)
     now = iso(now_dt)
     opened = closed = scored = 0
+    keys = SPORTS
+    if near:
+        last = (ledger.get("credits") or {}).get("remaining")
+        if last is not None and last < RESERVE:
+            print(json.dumps({"near": near, "skipped": f"credits {last} under reserve {RESERVE}"}))
+            return
+        wanted = near_sports(rows, now_dt, near)
+        keys = {k: v for k, v in SPORTS.items() if k in wanted}
+        if not keys:
+            print(json.dumps({"near": near, "sports": [], "note": "no games starting soon"}))
+            return
 
     # 1. Current prices. Started games are skipped, so an in-play line never becomes an open.
-    for sport_key, sport in SPORTS.items():
+    for sport_key, sport in keys.items():
         try:
             games = get(f"/sports/{sport_key}/odds", {
                 "regions": "us", "markets": markets_for(sport_key),
@@ -325,6 +344,16 @@ def pull():
                     row["openSnap"] = snap
                     legacy(row, "open", snap)
                     opened += 1
+
+    if near:
+        ledger["rows"] = rows
+        ledger["asOfCt"] = now
+        if CREDITS["remaining"] is not None:
+            ledger["credits"] = dict(CREDITS)
+        save(LEDGER, ledger)
+        print(json.dumps({"near": near, "sports": sorted(keys.values()), "opened": opened,
+                          "creditsRemaining": CREDITS["remaining"]}))
+        return
 
     # 2. Closes, from history, one call per sport and kickoff time.
     floor = iso(now_dt - timedelta(days=7))
@@ -624,7 +653,9 @@ def make_read(a):
 def main():
     ap = argparse.ArgumentParser(description="EDGE price puller and pick stamper")
     sub = ap.add_subparsers(dest="cmd")
-    sub.add_parser("pull")
+    pp = sub.add_parser("pull")
+    pp.add_argument("--near", type=float, default=None,
+                    help="prices only, for sports with a game starting within this many hours")
     p = sub.add_parser("pick")
     p.add_argument("--id", required=True, help="row id: sport|date|event|market")
     p.add_argument("--side", required=True, help="home/away for spread and moneyline, over/under for total")
@@ -651,6 +682,8 @@ def main():
         make_read(args)
     elif args.cmd == "pick":
         make_pick(args)
+    elif args.cmd == "pull":
+        pull(args.near)
     else:
         pull()
 

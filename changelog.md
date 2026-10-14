@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-10-14: sharp-soft-alt added, a separate test for retail books on a different line, valued with grade.py per-point numbers. pull.py pull --near N: prices only, only for sports with a game in the next N hours, skipped under the credit reserve. Near runs go hourly between the full runs.
 - 2026-10-14: Jobs moved from Grok to GitHub Actions (main: .github/workflows/edge-data.yml). Same scripts, same files, same branch. pull.py now stores FanDuel, Caesars and Pinnacle prices under books on every snap (no extra credits: 10 books bill as one region). New pattern sharp-soft, stamped by sharp.py, shadow until grade.py says otherwise. Reads now default to by=claude.
 - 2026-10-06: v1 frozen. Blend of points scored and allowed through four games, shrunk toward the market. pull.py and grade.py moved to v2: picks are their own rows with a stamped price; CLV is graded on the picked side; closes come from history; scores are written by the script.
 
