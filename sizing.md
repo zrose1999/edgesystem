@@ -56,6 +56,17 @@ Weather counts only from a forecast inside 36 hours of kickoff. Before that, wri
 
 Status weight: out 1.0, doubtful 0.75, questionable 0.5, probable 0.1, other day-to-day 0.4. Only the change in weight since the open counts. Current season once a player has 10 games, last season before that.
 
+## NHL goalie values (starting values; goalie_nhl.py)
+
+| Item | Value |
+|---|---|
+| Goalie quality q | GSAx per 60, this season + 0.7 x last season, shrunk with 10 hours of league-average play; unknown goalie -0.15 |
+| Moneyline | 0.06 win probability per goal of q change (home change minus away change) |
+| Total | expected goals change = -0.35 x (home change + away change); P(over) moves by the Poisson chance of exactly floor(line) goals |
+| Expected (not confirmed) starter | counts 0.6, the rest stays on the team's No. 1 |
+
+Check on the first live case: Washington's switch from Thompson to Lindgren (2026-10-14) values at 3.2 points of win probability; the market moved about 3.5 (-135 to -120).
+
 ## Grade check
 
 Across a full read, some C leans are normal. If a full slate comes back all P, write one line on why the table and the line moves matched on every game. That should be rare.

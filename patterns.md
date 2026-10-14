@@ -80,3 +80,10 @@ Idea: NBA lines open without fully pricing a back-to-back. Second night of a bac
 Applies: NBA spreads within 36 hours. Fair = current line + the part of the usual move (0.9 or 0.5) not yet made since this desk's open. Drift the other way is never counted.
 Note: edges are at most 0.9 points, under the NBA spread half-bar (1.0), so under the current bars these log as leans: graded on CLV in the pattern's full test, never promoted. A pattern bar change is Zack's call.
 Retire early if: CLV is below 0 after 30 reads.
+
+## goalie-news
+
+Stamped by goalie_nhl.py, never by hand.
+Idea: NHL starting-goalie news (ESPN probable starters, expected or confirmed) moves the moneyline and total before the market fully adjusts. Backtest 2025-26 (1,018 games, quality from the season before): the home moneyline moved 1.85 points of win probability per goal of GSAx/60 gap between the starter and the team's No. 1 (se 0.29); the close priced it. Totals moved 0.12 goals down per goal of combined gap (se 0.05).
+Applies: NHL moneylines and totals within 30 hours. Only goalie news this desk first saw after the open counts (tracking began 2026-10-14). Totals only while the line is still the open line. Values in sizing.md.
+Retire early if: CLV is below 0 after 30 picks.
