@@ -60,6 +60,7 @@ jobs:
           python cfbd.py || echo "::warning::cfbd.py failed; continuing"
           python model.py || echo "::warning::model.py failed; continuing"
           python model_nba.py || echo "::warning::model_nba.py failed; continuing"
+          python model_ncaaf.py || echo "::warning::model_ncaaf.py failed; continuing"
 
       - name: Sharp vs soft scan
         run: python sharp.py || echo "::warning::sharp.py failed; continuing"
@@ -91,6 +92,11 @@ jobs:
         run: |
           pip install -q cryptography
           python kalshi.py || echo "::warning::kalshi.py failed; continuing"
+
+      - name: Phone alerts (ntfy)
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: python notify.py || echo "::warning::notify.py failed; continuing"
 
       - name: Push to branch data
         run: |
