@@ -47,6 +47,15 @@ When a stats file has the player's EPA, use the EPA math instead and say so.
 
 Weather counts only from a forecast inside 36 hours of kickoff. Before that, write the forecast and value it at 0.
 
+## NBA values (starting values; injury_nba.py)
+
+| Player out | Spread value | Total value |
+|---|---|---|
+| Any player | (GmSc per 36 - 9) x minutes/36 x 0.30, capped at 7 | 0.6 of the spread value, off the total |
+| Below 0.25 | noted, not valued | |
+
+Status weight: out 1.0, doubtful 0.75, questionable 0.5, probable 0.1, other day-to-day 0.4. Only the change in weight since the open counts. Current season once a player has 10 games, last season before that.
+
 ## Grade check
 
 Across a full read, some C leans are normal. If a full slate comes back all P, write one line on why the table and the line moves matched on every game. That should be rare.

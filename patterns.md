@@ -8,6 +8,7 @@ Starter news is stamped by injury.py, never by hand: status history from the ESP
 Idea: starter changes, late scratches, and injury upgrades or downgrades in the window before the market fully moves.
 Applies: the line has not yet moved the amount the news implies.
 Retire early if: the move is already in the number when the pick is stamped.
+NBA (injury_nba.py): same rule, NBA values. Player value = production per 36 minutes above replacement (Game Score 9) x share of 36 minutes x 0.30, capped at 7 (Jokic about 6, a rotation starter about 1.5). Status weight from the ESPN comment: out 1.0, doubtful 0.75, questionable or game-time 0.5, probable 0.1, other day-to-day 0.4. Totals: 0.6 of the spread value off the total. Tracking began 2026-10-14. Shares the news-lag record with NFL; split it if one sport drags the other.
 
 ## early-number
 
@@ -57,3 +58,17 @@ Stamped by sharp.py, never by hand.
 Idea: same as sharp-soft, but the retail book sits on a different spread or total number than Pinnacle, at most 1 point away. Pinnacle's fair probability is moved to the retail line with the per-point and key-number values grade.py uses (0.03 per crossing of 3 or 7 on NFL and NCAAF spreads).
 Applies: NFL, NCAAF and NBA spreads and totals only. Goal and run totals are not priced this way.
 Retire early if: CLV is below 0 after 30 picks. If it trails sharp-soft by a wide margin, the per-point values are wrong, not the idea.
+
+## nba-stats-model
+
+Stamped by model_nba.py on the morning run, never by hand.
+Idea: the NBA team ratings in stats_more.py, at a quarter of their gap from the market (fair = market + 0.25 x (raw - market)), same as the NFL stats-model. Its own record, so NBA does not borrow NFL's.
+Applies: NBA spreads and totals tipping within 48 hours. Calibration k is 0 on both (stats/nba_matchups.json), so these start as a test of the raw number, not a proven edge. Early-season ratings lean on last season.
+Retire early if: CLV is below 0 after 30 picks.
+
+## nba-model-fav
+
+Stamped by model_nba.py, never by hand.
+Idea: the nba-stats-model spread read, kept only when the model's side is the market favourite. The live test of the Rose desk's NBA spreads bucket (15-13, +1.06 pts CLV on 4 real closes; see stats/history_audit.md).
+Applies: NBA spreads within 48 hours where the model takes the favourite.
+Retire early if: CLV is below 0 after 30 picks, or it tracks nba-stats-model so closely that it adds nothing.
