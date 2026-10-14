@@ -1,0 +1,64 @@
+# EDGE data jobs. Runs the scripts Grok used to run, for free, on GitHub's servers.
+# No AI here: pull.py, stats, model.py and grade.py are plain Python.
+# Writes go to branch `data` only. Netlify is never touched.
+name: EDGE data
+
+on:
+  schedule:
+    # Times are UTC. CT = UTC-5 during daylight time.
+    - cron: "7 11 * * *"           # ~6am CT  full run: prices, stats, model reads, grade
+    - cron: "7 15,19,23 * * *"     # ~10am, 2pm, 6pm CT  prices + closes + grade
+  workflow_dispatch:
+    inputs:
+      full:
+        description: "Run stats and model too"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: edge-data-writer
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: data
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Pull prices, closes and scores
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python pull.py
+
+      - name: Stats and model reads (morning run only)
+        if: github.event.schedule == '7 11 * * *' || inputs.full
+        run: |
+          python stats.py || echo "::warning::stats.py failed; continuing"
+          python stats_more.py || echo "::warning::stats_more.py failed; continuing"
+          python model.py || echo "::warning::model.py failed; continuing"
+
+      - name: Grade
+        run: python grade.py
+
+      - name: Push to branch data
+        run: |
+          git config user.name "EDGE"
+          git config user.email "edge@edgesystem.local"
+          git add -A
+          if git diff --cached --quiet; then echo "No changes."; exit 0; fi
+          git commit -q -m "EDGE: pull.py and grade.py update"
+          for i in 1 2 3; do
+            git pull -q --rebase origin data && git push -q origin HEAD:data && exit 0
+            echo "Push raced another writer, retrying ($i)"; sleep 15
+          done
+          echo "::error::Could not push after 3 tries"; exit 1
