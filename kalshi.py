@@ -66,8 +66,14 @@ SERIES = {
     "NCAAF": {"game": "KXNCAAFGAME", "spread": "KXNCAAFSPREAD", "total": "KXNCAAFTOTAL"},
     "NBA": {"game": "KXNBAGAME", "spread": "KXNBASPREAD", "total": "KXNBATOTAL"},
     "NHL": {"game": "KXNHLGAME", "spread": "KXNHLSPREAD", "total": "KXNHLTOTAL"},
-    "UCL": {"game": "KXUCLGAME"},
-    "EPL": {"game": "KXEPLGAME"},
+    "UCL": {"game": "KXUCLGAME", "total": "KXUCLTOTAL"},
+    "EPL": {"game": "KXEPLGAME", "total": "KXEPLTOTAL"},
+    "UEL": {"game": "KXUELGAME", "total": "KXUELTOTAL"},
+    "LaLiga": {"game": "KXLALIGAGAME", "total": "KXLALIGATOTAL"},
+    "SerieA": {"game": "KXSERIEAGAME", "total": "KXSERIEATOTAL"},
+    "Bundesliga": {"game": "KXBUNDESLIGAGAME", "total": "KXBUNDESLIGATOTAL"},
+    "Ligue1": {"game": "KXLIGUE1GAME", "total": "KXLIGUE1TOTAL"},
+    "MLS": {"game": "KXMLSGAME", "total": "KXMLSTOTAL"},
 }
 PER_POINT = {("NFL", "spread"): 0.030, ("NFL", "total"): 0.022, ("NCAAF", "spread"): 0.025,
              ("NCAAF", "total"): 0.018, ("NBA", "spread"): 0.030, ("NBA", "total"): 0.025}
@@ -253,16 +259,29 @@ def ledger_games(rows, sports):
 
 
 def match_game(sport, event, by_day):
+    """The ledger game for a Kalshi event, and Kalshi's labels by side: (game, {"home": .., "away": ..}).
+    'A at B' is away at home. 'A vs B' is home first on soccer and away first on some US series, so both
+    orientations are scored and the better one must win clearly (2026-10-14: a reversed soccer match priced
+    the wrong team)."""
     d = ticker_date(event["event_ticker"])
-    away, home = split_title(event.get("title"))
-    if not d or not away:
-        return None
-    best, score = None, 0.0
+    title = (event.get("title") or "").split(":")[0]
+    first, second = split_title(title)
+    if not d or not first:
+        return None, None
+    fixed = " at " in title or " @ " in title
+    best, best_s, best_lab, runner = None, 0.0, None, 0.0
     for g in by_day.get((sport, d), []):
-        s = min(team_score(away, g["away"]), team_score(home, g["home"]))
-        if s > score:
-            best, score = g, s
-    return best if score >= 0.5 else None
+        a_first = min(team_score(first, g["away"]), team_score(second, g["home"]))
+        h_first = 0.0 if fixed else min(team_score(first, g["home"]), team_score(second, g["away"]))
+        for s, lab in ((a_first, {"away": first, "home": second}), (h_first, {"home": first, "away": second})):
+            if s > best_s:
+                runner = max(runner, best_s)
+                best, best_s, best_lab = g, s, lab
+            else:
+                runner = max(runner, s)
+    if best_s < 0.5 or best_s - runner < 0.25:
+        return None, None
+    return best, best_lab
 
 
 # ---------- fair prices ----------
@@ -527,10 +546,9 @@ def main(dry=False):
             fetched += len(mks)
             games = {}
             for et, e in evs.items():
-                g = match_game(sport, e, by_day)
+                g, labels = match_game(sport, e, by_day)
                 if g:
-                    away_l, home_l = split_title(e.get("title"))
-                    g = dict(g, labels={"away": away_l, "home": home_l})
+                    g = dict(g, labels=labels)
                 games[et] = g
                 matched += bool(g)
                 unmatched += not g
@@ -622,6 +640,8 @@ def main(dry=False):
                 continue
             if name == "live" and not source_allowed(c, cfg_live, official):
                 continue
+            if name == "live" and c["sport"] not in (cfg.get("liveSports") or cfg.get("sports") or []):
+                continue          # new sports and leagues trade on paper until their matching has been checked
             n = size(bcfg, book, c["ask"], c["fair"], now, c["source"] if name == "paper" else None)
             if n < 1:
                 continue

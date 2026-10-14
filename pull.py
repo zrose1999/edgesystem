@@ -43,12 +43,17 @@ SPORTS = {
     "soccer_epl": "EPL",
     "soccer_uefa_champs_league": "UCL",
     "soccer_usa_mls": "MLS",
+    "soccer_spain_la_liga": "LaLiga",
+    "soccer_italy_serie_a": "SerieA",
+    "soccer_germany_bundesliga": "Bundesliga",
+    "soccer_france_ligue_one": "Ligue1",
+    "soccer_uefa_europa_league": "UEL",
     "mma_mixed_martial_arts": "UFC",
 }
 # Only sports the desk actually reads are pulled. Each sport costs Odds API credits,
 # and history calls for closes cost the most. Add a sport here when it gets real reads.
 # EDGE_SPORTS overrides this, e.g. EDGE_SPORTS=NFL,NCAAF
-ACTIVE = ["NFL", "NCAAF", "NBA", "NHL", "EPL", "UCL"]   # prices collected
+ACTIVE = ["NFL", "NCAAF", "NBA", "NHL", "EPL", "UCL", "LaLiga", "SerieA", "Bundesliga", "Ligue1", "UEL", "MLS"]   # prices collected
 READ = ["NFL"]                                          # sports the analyst reads and picks
 _env = [s.strip().upper() for s in os.environ.get("EDGE_SPORTS", "").split(",") if s.strip()]
 ACTIVE = _env or ACTIVE
@@ -66,7 +71,8 @@ BOOK_NAMES = {"draftkings": "DraftKings", "betmgm": "BetMGM", "fanduel": "FanDue
               "williamhill_us": "Caesars", "pinnacle": "Pinnacle"}
 SPREAD = {"americanfootball_nfl", "americanfootball_ncaaf", "basketball_nba"}
 # Hockey's main market is the moneyline; the puck line is almost always 1.5.
-TOTAL = SPREAD | {"icehockey_nhl", "baseball_mlb", "soccer_epl", "soccer_uefa_champs_league", "soccer_usa_mls"}
+TOTAL = SPREAD | {"icehockey_nhl", "baseball_mlb", "soccer_epl", "soccer_uefa_champs_league", "soccer_usa_mls",
+                  "soccer_spain_la_liga", "soccer_italy_serie_a", "soccer_germany_bundesliga", "soccer_france_ligue_one", "soccer_uefa_europa_league"}
 VALID_SIDES = {"spread": {"home", "away"}, "total": {"over", "under"}, "h2h": {"home", "away"}}
 
 # The betting bar, by sport and market, in points (moneyline: win probability).
@@ -79,11 +85,13 @@ BARS = {
     ("NBA", "spread"): 2.0, ("NBA", "total"): 3.0,
     ("NHL", "total"): 0.4, ("MLB", "total"): 0.5,
     ("EPL", "total"): 0.3, ("UCL", "total"): 0.3, ("MLS", "total"): 0.3,
+    ("LaLiga", "total"): 0.3, ("SerieA", "total"): 0.3, ("Bundesliga", "total"): 0.3, ("Ligue1", "total"): 0.3, ("UEL", "total"): 0.3,
 }
 KEY_BAR = 2.5
 # Goal and run totals are priced mostly through the odds (5.5 at -135), so for these sports
 # a total pick's projection is the fair probability of the OVER and the edge is in probability.
-PROB_TOTALS = {"NHL", "EPL", "UCL", "MLS", "MLB"}
+SOCCER = {"EPL", "UCL", "MLS", "LaLiga", "SerieA", "Bundesliga", "Ligue1", "UEL"}
+PROB_TOTALS = {"NHL", "MLB"} | SOCCER
 H2H_BAR = 0.03
 KEY_NUMBERS = (3, 7)
 
@@ -370,14 +378,13 @@ def pull(near=None):
                 continue
             groups[(KEY_OF[row["sport"]], c)].append(row)
     calls = skipped = 0
-    # Spread-sport moneylines are pulled for current prices (Kalshi winner markets). Their closes cost
-    # 10 credits per call, so they are fetched only for rows that carry a pick.
-    picked = {p.get("rowId") for p in load(PICKS, {"picks": []}).get("picks") or []}
+    # Closes are only used to grade picks and leans (CLV), and each history call costs 10 credits per market,
+    # so they are fetched only for rows that carry a pick or a lean (since 2026-10-14; before, every row).
+    picked = {p.get("rowId") for p in load(PICKS, {"picks": []}).get("picks") or [] if p.get("kind") in ("pick", "lean")}
     for key in list(groups):
-        if key[0] in SPREAD:
-            groups[key] = [r for r in groups[key] if r.get("market") != "h2h" or r.get("id") in picked]
-            if not groups[key]:
-                del groups[key]
+        groups[key] = [r for r in groups[key] if r.get("id") in picked]
+        if not groups[key]:
+            del groups[key]
     read_keys = {KEY_OF[s] for s in READ if s in KEY_OF}
     # READ sports first, so they keep their closes if credits run short.
     order = sorted(groups.items(), key=lambda kv: (kv[0][0] not in read_keys, kv[0][1]))
@@ -386,7 +393,7 @@ def pull(near=None):
             print("history call cap reached; the rest wait for the next run")
             break
         left = CREDITS["remaining"]
-        if left is not None and (left < FLOOR or (left < RESERVE and sport_key not in read_keys)):
+        if left is not None and left < FLOOR:
             skipped += 1
             continue
         calls += 1

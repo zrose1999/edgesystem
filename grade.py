@@ -41,6 +41,8 @@ PER_POINT = {
     ("NBA", "spread"): 0.030, ("NBA", "total"): 0.025,
     ("NHL", "spread"): 0.15, ("NHL", "total"): 0.12,
     ("MLB", "total"): 0.10, ("EPL", "total"): 0.20, ("UCL", "total"): 0.20, ("MLS", "total"): 0.20,
+    ("LaLiga", "total"): 0.20, ("SerieA", "total"): 0.20, ("Bundesliga", "total"): 0.20, ("Ligue1", "total"): 0.20,
+    ("UEL", "total"): 0.20,
 }
 KEY_NUMBERS = {3, 7}
 
