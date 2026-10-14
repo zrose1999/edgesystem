@@ -9,8 +9,9 @@ Same idea as stats.py, one file per sport:
 
 Sources (all free, no key):
   NBA, NHL  ESPN results, and DraftKings open and close per game from ESPN game summaries
-  NCAAF     ESPN results. No free line history, so k is learned from the ledger's own closes
-            once 40 graded games exist. Until then k is 0.
+  NCAAF     ESPN results, and DraftKings open and close per game from ESPN game summaries (ESPN keeps
+            about the last ten months). cfbd.py back-fills older games from CollegeFootballData when
+            CFBD_API_KEY is set. Before either, k was learned from the ledger's own closes.
   EPL       football-data.co.uk results with Pinnacle closing odds
 
 Two tests run for each sport with market history:
@@ -43,6 +44,7 @@ LEDGER = ROOT / "ledger" / "ledger.json"
 ESPN = "https://site.api.espn.com/apis/site/v2/sports/{}/{}"
 FD = "https://www.football-data.co.uk/mmz4281/{}/{}.csv"
 LOOKBACK = int(os.environ.get("EDGE_LOOKBACK_DAYS", "430"))
+BACKFILL = int(os.environ.get("EDGE_LINES_BACKFILL", "1500"))   # older games given a line lookup per run
 WORKERS = 8
 K_MAX = 0.5
 MIN_N = 40
@@ -52,7 +54,7 @@ BIG_GAP = {"NBA": 5.0, "NCAAF": 7.0}
 CONFIG = {
     "NBA": {"kind": "points", "espn": "basketball/nba", "summaries": True,
             "halflife": 60, "ridge": 6.0, "bar": {"spread": 2.0, "total": 3.0}},
-    "NCAAF": {"kind": "points", "espn": "football/college-football", "groups": "80", "summaries": False,
+    "NCAAF": {"kind": "points", "espn": "football/college-football", "groups": "80", "summaries": True,
               "halflife": 150, "ridge": 3.0, "bar": {"spread": 2.5, "total": 3.0}},
     "NHL": {"kind": "hockey", "espn": "hockey/nhl", "summaries": True,
             "halflife": 90, "ridge": 8.0, "bar": {"h2h": 0.03}},
@@ -247,9 +249,15 @@ def update_espn(sport, cfg):
         if past and all_final:
             done.add(d)
     floor = iso(now_utc() - timedelta(days=LOOKBACK + 30))
+    # Back-fill: finished games stored before lines were collected for this sport (one look per game).
+    if cfg.get("summaries"):
+        queued = set(need_lines)
+        older = sorted((g for gid, g in games.items() if g.get("final") and "lines" not in g and gid not in queued
+                        and g["date"] >= floor), key=lambda g: g["date"], reverse=True)
+        need_lines += [g["id"] for g in older[:BACKFILL]]
 
     def save():
-        store["games"] = {k: v for k, v in games.items() if v["date"] >= floor and v.get("seasonType") != 1}
+        store["games"] ={k: v for k, v in games.items() if v["date"] >= floor and v.get("seasonType") != 1}
         store["done"] = sorted(x for x in done if x >= (today - timedelta(days=LOOKBACK + 30)).strftime("%Y%m%d"))
         OUT.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(store, separators=(",", ":")) + "\n")
