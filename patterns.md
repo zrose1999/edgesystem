@@ -16,6 +16,7 @@ Retire early if: CLV on early picks is no better than on late picks.
 
 ## wind-total
 
+Stamped by wind.py, never by hand. Forecast from weather.gov, written on every outdoor NFL and NCAAF row inside 72 hours. Valued inside 36 hours with the sizing.md midpoints (15 to 19 mph -2.0, 20+ mph -3.5, heavy rain or snow -1.0). One read per row inside 24 hours, fair = open total + value, skipped when the open was taken inside 36 hours.
 Idea: kickoff wind of 15 mph or more is underpriced on outdoor totals.
 Applies: outdoor NFL or NCAAF totals with a real forecast within 24 hours of kickoff.
 Retire early if: totals already move the full amount before the forecast firms up.
