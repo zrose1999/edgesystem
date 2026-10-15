@@ -1,0 +1,66 @@
+# EDGE college QB watch. Reads every FBS depth chart on cfbdepth.com (politely, ~10 minutes) and CFBD box-score
+# starters, then commits stats/cfb_qb*.json and stats/history/cfb_qb on branch data.
+# The slow read runs outside the data-writer lock so it never holds up the price runs; only the short commit job waits.
+name: EDGE college QB
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "40 11,17,22 * * *"   # ~6:40am, 12:40pm, 5:40pm CT
+    - cron: "40 14 * * 5,6"       # extra Friday and Saturday ~9:40am CT
+
+permissions:
+  contents: write
+
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: data
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Read depth charts and box scores
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: python cfb_qb.py --force
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cfb-qb
+          path: |
+            stats/cfb_qb.json
+            stats/cfb_qb_starts.json
+            stats/history/cfb_qb
+          if-no-files-found: ignore
+          retention-days: 2
+
+  commit:
+    needs: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: edge-data-writer
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: data
+      - uses: actions/download-artifact@v4
+        with:
+          name: cfb-qb
+          path: stats
+      - name: Push to branch data
+        run: |
+          git config user.name "EDGE"
+          git config user.email "edge@edgesystem.local"
+          git add stats/cfb_qb.json stats/cfb_qb_starts.json stats/history/cfb_qb
+          if git diff --cached --quiet; then echo "No changes."; exit 0; fi
+          git commit -q -m "EDGE: college QB watch"
+          for i in 1 2 3; do
+            git pull -q --rebase origin data && git push -q origin HEAD:data && exit 0
+            echo "Push raced another writer, retrying ($i)"; sleep 15
+          done
+          exit 1
