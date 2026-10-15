@@ -19,6 +19,10 @@ on:
         description: "Near-game prices only (ignored if full)"
         type: boolean
         default: false
+      fast:
+        description: "Fast run: games in the next 3 hours only (started by the Netlify clock every 15 minutes)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -44,7 +48,9 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: |
-          if [ "${{ github.event.schedule }}" = "37 0-3,16-18,20-22 * * *" ] || { [ "${{ inputs.near }}" = "true" ] && [ "${{ inputs.full }}" != "true" ]; }; then
+          if [ "${{ inputs.fast }}" = "true" ]; then
+            EDGE_FAST=1 python pull.py pull --near 3
+          elif [ "${{ github.event.schedule }}" = "37 0-3,16-18,20-22 * * *" ] || { [ "${{ inputs.near }}" = "true" ] && [ "${{ inputs.full }}" != "true" ]; }; then
             python pull.py pull --near 12
           else
             python pull.py
@@ -66,6 +72,7 @@ jobs:
         run: python sharp.py || echo "::warning::sharp.py failed; continuing"
 
       - name: Weather and wind-total reads
+        if: ${{ !inputs.fast }}
         run: python wind.py || echo "::warning::wind.py failed; continuing"
 
       - name: Injury, rest and goalie news reads
@@ -76,6 +83,7 @@ jobs:
           python goalie_nhl.py || echo "::warning::goalie_nhl.py failed; continuing"
 
       - name: CS2 ratings (PandaScore)
+        if: ${{ !inputs.fast }}
         env:
           PANDASCORE_TOKEN: ${{ secrets.PANDASCORE_TOKEN }}
         run: python cs2.py || echo "::warning::cs2.py failed; continuing"
@@ -104,7 +112,7 @@ jobs:
           git config user.email "edge@edgesystem.local"
           git add -A
           if git diff --cached --quiet; then echo "No changes."; exit 0; fi
-          git commit -q -m "EDGE: pull.py and grade.py update"
+          git commit -q -m "EDGE: ${{ inputs.fast && 'fast run' || 'pull.py and grade.py update' }}"
           for i in 1 2 3; do
             git pull -q --rebase origin data && git push -q origin HEAD:data && exit 0
             echo "Push raced another writer, retrying ($i)"; sleep 15

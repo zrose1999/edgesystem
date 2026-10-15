@@ -7,6 +7,7 @@
 //   :07 at 11          full run (stats and model reads)
 //   :07 at 15, 19, 23  prices, closes, grade
 //   :37 at 0-3, 16-18, 20-22  near-game prices only
+//   :24 and :54, 6am to midnight CT   fast run: games in the next 3 hours (prices, news, Kalshi)
 
 const REPO = "zrose1999/edgesystem";
 const WORKFLOW = "edge-data.yml";
@@ -23,6 +24,10 @@ const gh = (path, init = {}) => fetch(`https://api.github.com/repos/${REPO}${pat
 
 function slot(now) {
   const h = now.getUTCHours(), m = now.getUTCMinutes();
+  // :24 and :54 -> fast run (games in the next 3 hours), 6am to midnight CT.
+  if ((m >= 20 && m < 30) || m >= 50) {
+    return (h >= 11 || h <= 4) ? { full: "false", near: "false", fast: "true" } : null;
+  }
   if (m < 30) {
     if (h === 11) return { full: "true", near: "false" };
     if ([15, 19, 23].includes(h)) return { full: "false", near: "false" };
@@ -41,9 +46,10 @@ export default async () => {
   const inputs = slot(now);
   if (!inputs) return;
   const runs = await gh(`/actions/workflows/${WORKFLOW}/runs?per_page=5`).then((r) => r.json()).catch(() => null);
-  const recent = (runs?.workflow_runs || []).some((r) => now - new Date(r.created_at) < 20 * 60 * 1000);
+  const window = inputs.fast === "true" ? 8 : 20;      // minutes
+  const recent = (runs?.workflow_runs || []).some((r) => now - new Date(r.created_at) < window * 60 * 1000);
   if (recent) {
-    console.log("tick: a run started in the last 20 minutes; skipping");
+    console.log(`tick: a run started in the last ${window} minutes; skipping`);
     return;
   }
   const r = await gh(`/actions/workflows/${WORKFLOW}/dispatches`, {
@@ -53,4 +59,4 @@ export default async () => {
   console.log(`tick: dispatched ${JSON.stringify(inputs)} -> ${r.status}`);
 };
 
-export const config = { schedule: "9,39 * * * *" };
+export const config = { schedule: "9,24,39,54 * * * *" };
