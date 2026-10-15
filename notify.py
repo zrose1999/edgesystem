@@ -55,6 +55,8 @@ def main():
         "switch": bool(status.get("liveActive")),
         "patterns": {p["id"]: p.get("status") for p in ledger.get("patterns") or [] if p.get("id")},
         "keyError": (trades.get("account") or {}).get("keys") == "error",
+        "loop": {s: v.get("status") for s, v in (load(ROOT / "stats" / "loop_status.json", {}).get("sports") or {}).items()
+                 if v.get("status") not in ("ok", "quiet", "loading history")},
     }
     before = load(STATE, None)
     msgs = []
@@ -83,6 +85,10 @@ def main():
                 msgs.append((f"Strategy {'official' if st == 'official' else 'retired'}",
                              f"{pid} is now {st}." + (" Its A picks now carry a stake." if st == "official" else ""),
                              "trophy" if st == "official" else "wastebasket", "high"))
+        for sport, problem in now["loop"].items():
+            if (before.get("loop") or {}).get(sport) != problem:
+                msgs.append((f"{sport} data problem", f"{sport}: {problem}. The loop check runs every data run; "
+                             "this clears on its own once the data catches up.", "warning", "default"))
         if now["keyError"] and not before.get("keyError"):
             msgs.append(("Kalshi key rejected", "The desk could not use the Kalshi key. Check the GitHub secrets.",
                          "warning", "high"))
