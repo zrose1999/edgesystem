@@ -36,6 +36,22 @@ nav{max-width:760px;margin:0 auto;padding:0 8px;display:flex;gap:2px;overflow-x:
 nav::-webkit-scrollbar{display:none}
 nav button{background:none;border:0;padding:12px 10px 10px;font:600 17px/1 var(--cond);color:var(--muted);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
 nav button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--gold)}
+.sportnav{padding:6px 8px 0;gap:6px;border-bottom:1px solid var(--rule)}
+.sportnav button{border:1px solid var(--rule);border-radius:999px;padding:6px 12px;margin-bottom:8px;font:600 15px/1 var(--cond);background:var(--paper)}
+.sportnav button[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.shead{background:var(--paper);border-radius:6px;box-shadow:var(--shadow);padding:14px 16px;margin:18px 0 6px}
+.shead h2{margin:0 0 2px;font:700 26px/1.1 var(--cond);display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.shead p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border-radius:6px;overflow:hidden;margin:12px 0 4px}
+.kpis div{background:var(--paper);padding:10px}
+.kpis span{display:block;font-size:12px;color:var(--muted)}
+.kpis strong{font:700 22px/1.1 var(--cond)}
+.models{margin:10px 0 0;font-size:14px}
+.models div{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-top:1px solid var(--rule)}
+.models b{font-weight:600}
+.models .status{align-self:center;flex:none}
+.models small{color:var(--muted);display:block}
+@media (max-width:420px){.kpis{grid-template-columns:repeat(2,1fr)}}
 
 /* summary line */
 .lede{margin:20px 0 6px;font-size:17px}
@@ -206,7 +222,8 @@ footer a{color:var(--muted)}
     <h1 class="logo">EDGE<span>.</span></h1>
     <div class="asof" id="asof">Loading the desk</div>
   </div>
-  <nav role="tablist" aria-label="Sections">
+  <nav class="sportnav" id="sportnav" role="tablist" aria-label="Sports"></nav>
+  <nav role="tablist" aria-label="Sections" id="secnav">
     <button role="tab" aria-selected="true" data-tab="board">Picks</button>
     <button role="tab" aria-selected="false" data-tab="results">Results</button>
     <button role="tab" aria-selected="false" data-tab="strategies">Strategies</button>
@@ -216,6 +233,7 @@ footer a{color:var(--muted)}
 </header>
 
 <main class="wrap">
+  <div id="sportHead"></div>
   <section id="board" role="tabpanel">
     <p class="lede" id="boardLede"></p>
     <div class="filters" id="filters" aria-label="Filter picks"></div>
@@ -318,7 +336,29 @@ const STRAT = {
 };
 const archName = p => { const m = /^learned-archive-(.+)-([a-z0-9]+)$/.exec(p || ""); return m ? [`${m[1].toUpperCase()} learned model, ${m[2]}`, "Learned from EDGE's own collected history for this sport and market, once it had 300+ games and passed the out-of-sample gate."] : null; };
 const stratName = p => (STRAT[p] || archName(p) || [p || "Analyst read"])[0];
-const state = { sport: "All", grade: "AB", betsOnly: false, data: null };
+const state = { sport: "All", grade: "AB", betsOnly: false, data: null, group: "All", tab: "board" };
+// Each sport gets its own tab; every section below (picks, results, strategies, trading) follows it.
+const GROUPS = [
+  ["All", "All sports", null],
+  ["NFL", "NFL", ["NFL"]],
+  ["NCAAF", "College football", ["NCAAF"]],
+  ["NBA", "NBA", ["NBA"]],
+  ["NHL", "NHL", ["NHL"]],
+  ["Soccer", "Soccer", ["EPL", "LaLiga", "SerieA", "Bundesliga", "Ligue1", "UCL", "UEL", "MLS"]],
+  ["Tennis", "Tennis", ["ATP", "WTA"]],
+  ["CS2", "CS2", ["CS2"]]
+];
+const GROUP_OF = Object.fromEntries(GROUPS.flatMap(([g, , ss]) => (ss || []).map(s => [s, g])));
+const inGroup = sport => state.group === "All" || GROUP_OF[sport] === state.group;
+const groupSports = () => (GROUPS.find(g => g[0] === state.group) || [])[2] || null;
+const MODELS = {
+  NFL: [["nfl_spread", "Spread"], ["nfl_total", "Total"], ["nfl_ml", "Moneyline"]],
+  NCAAF: [["ncaaf_spread", "Spread"], ["ncaaf_total", "Total"]],
+  NBA: [["nba_spread", "Spread"], ["nba_total", "Total"], ["nba_ml", "Moneyline"]],
+  NHL: [["nhl_ml", "Moneyline"], ["nhl_over", "Total"]],
+  Soccer: [["soccer_home", "Home win"], ["soccer_draw", "Draw"], ["soccer_away", "Away win"], ["soccer_over", "Over 2.5"]],
+  Tennis: [], CS2: []
+};
 
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -432,8 +472,8 @@ function card(rows, picks) {
 function renderBoard() {
   const { picks, rows } = state.data;
   const now = new Date().toISOString();
-  const open = picks.filter(p => p.kind === "pick" && p.side && p.commence > now);
-  const sports = ["All", ...new Set(open.map(p => p.sport))];
+  const open = picks.filter(p => p.kind === "pick" && p.side && p.commence > now && inGroup(p.sport));
+  const sports = ["All", ...new Set(open.map(p => p.sport))];   // leagues within the sport tab
   if (!sports.includes(state.sport)) state.sport = "All";
   const shown = open.filter(p => (state.sport === "All" || p.sport === state.sport)
     && (state.grade === "AB" || p.grade === "A") && (!state.betsOnly || p.tier === "official"));
@@ -443,12 +483,12 @@ function renderBoard() {
     ? `<b>${shown.length} pick${shown.length === 1 ? "" : "s"}</b> across ${games.size} game${games.size === 1 ? "" : "s"}. ${bets ? `<b>${bets}</b> carry a stake.` : "None carry a stake yet: every strategy is still proving itself."}`
     : "";
   $("#filters").innerHTML = open.length ? [
-    ...sports.map(s => `<button class="chip" data-f="sport" data-v="${s}" aria-pressed="${state.sport === s}">${s}</button>`),
+    ...(sports.length > 2 ? sports.map(s => `<button class="chip" data-f="sport" data-v="${s}" aria-pressed="${state.sport === s}">${esc(s === "All" ? "All" : (SPORT_NAME[s] || s))}</button>`) : []),
     `<button class="chip sep" data-f="grade" aria-pressed="${state.grade === "A"}">A only</button>`,
     `<button class="chip" data-f="bets" aria-pressed="${state.betsOnly}">Bets only</button>`
   ].join("") : "";
   if (!open.length) {
-    $("#boardList").innerHTML = `<div class="empty"><strong>No open picks right now</strong><p>The desk scans every hour on game days. New picks show up here as soon as a strategy finds one.</p></div>`;
+    $("#boardList").innerHTML = `<div class="empty"><strong>No open ${state.group === "All" ? "" : esc(groupName()) + " "}picks right now</strong><p>The desk scans every hour on game days. New picks show up here as soon as a strategy finds one.</p></div>`;
     return;
   }
   if (!shown.length) {
@@ -479,7 +519,7 @@ function renderBoard() {
 function renderResults() {
   const { picks, rows, score } = state.data;
   const now = new Date().toISOString();
-  const real = picks.filter(p => p.kind === "pick" && p.side);
+  const real = picks.filter(p => p.kind === "pick" && p.side && inGroup(p.sport));
   const settled = real.filter(p => p.result);
   const graded = real.filter(p => p.clvProb != null);
   const started = real.filter(p => p.commence <= now);
@@ -539,11 +579,11 @@ function renderRose() {
     `<tr><td>${esc(b)}</td><td>${r}</td><td class="${units >= 0 ? "up" : "down"}">${u(units)}</td><td>${roi > 0 ? "+" : roi < 0 ? "−" : ""}${Math.abs(roi)}%</td><td>${clv}</td></tr>`).join("");
 }
 
-const SPORT_NAME = { LaLiga: "La Liga", SerieA: "Serie A", Ligue1: "Ligue 1", UEL: "Europa League", UCL: "Champions League", NCAAF: "College football" };
+const SPORT_NAME = { LaLiga: "La Liga", SerieA: "Serie A", Ligue1: "Ligue 1", UEL: "Europa League", UCL: "Champions League", NCAAF: "College football", EPL: "Premier League" };
 function renderLoop() {
   const lp = state.data.loop;
   if (!lp || !lp.sports) { $("#loopRows").innerHTML = `<tr><td colspan="7">The first loop check arrives with the next data run.</td></tr>`; $("#loopBadge").textContent = ""; return; }
-  const ents = Object.entries(lp.sports);
+  const ents = Object.entries(lp.sports).filter(([s]) => inGroup(s));
   const bad = ents.filter(([, v]) => !["ok", "quiet", "loading history"].includes(v.status)).length;
   $("#loopBadge").textContent = bad ? `${bad} need attention` : "All running";
   $("#loopBadge").className = "status " + (bad ? "retire" : "official");
@@ -561,9 +601,11 @@ function renderStrategies() {
   const { picks, score } = state.data;
   const pats = (score && score.patterns) || [];
   const byId = Object.fromEntries(pats.map(p => [p.id, p]));
+  $("#roseHist").classList.toggle("hidden", state.group !== "All");
+  if (state.group !== "All") { renderStrategiesSport(picks, byId); return; }
   const always = ["sharp-soft", "sharp-soft-alt", "news-lag", "wind-total", "stats-model", "trend-fade", "nba-stats-model", "nba-model-fav", "rest-spot", "goalie-news", "ncaaf-total-move", "ncaaf-spot", "nhl-ml-move", "nhl-total-move", "tennis-elo", "tennis-fatigue", "edge-stack", "sharp-drift", "soccer-drift", "learned-nhl-ml", "learned-nhl-over", "learned-soccer-1x2", "learned-soccer-over", "learned-nba-total", "learned-ncaaf-spread", "learned-ncaaf-total"];
   const names = [...new Set([...always, ...Object.keys(STRAT).filter(k => byId[k] || picks.some(p => p.pattern === k)), ...pats.map(p => p.id)])];
-  const N = 30;
+  const N = 15;
   $("#stratList").innerHTML = names.map(id => {
     const s = byId[id] || { status: "shadow", picks: picks.filter(p => p.pattern === id && p.kind === "pick").length, clvN: 0 };
     const [name, desc] = STRAT[id] || archName(id) || [id, ""];
@@ -574,7 +616,8 @@ function renderStrategies() {
       ${desc ? `<p>${esc(desc)}</p>` : ""}
       <div class="bar" role="img" aria-label="${n} of ${N} graded picks needed"><i style="width:${Math.min(100, 100 * n / N)}%"></i></div>
       <div class="stats">
-        <div><span>Graded </span>${n} of ${N}</div>
+        <div><span>Graded </span>${n}${n < N ? " of " + N : ""}</div>
+        ${s.tNeeded ? `<div><span>t needed </span>${s.tNeeded}${s.track === "fast" ? " (fast track)" : ""}</div>` : ""}
         <div><span>Picks </span>${s.picks || 0}</div>
         <div><span>Avg edge over close </span>${n ? pct(s.meanClvProb) : "n/a"}</div>
         ${n ? `<div><span>t-stat </span>${s.tStat}</div><div><span>Record </span>${s.wins || 0}-${s.losses || 0}</div>` : ""}
@@ -582,6 +625,120 @@ function renderStrategies() {
     </div>`;
   }).join("") || `<div class="empty"><strong>No strategies have picks yet</strong><p>They appear here as soon as one stamps its first pick.</p></div>`;
 }
+
+const groupName = () => (GROUPS.find(g => g[0] === state.group) || [, "All sports"])[1];
+
+// Per-sport strategy records, computed from this sport's own picks (a strategy can run in several sports).
+function tstat(v) {
+  if (v.length < 2) return 0;
+  const m = v.reduce((a, b) => a + b, 0) / v.length;
+  const sd = Math.sqrt(v.reduce((a, b) => a + (b - m) ** 2, 0) / (v.length - 1));
+  return sd ? m / (sd / Math.sqrt(v.length)) : 0;
+}
+function renderStrategiesSport(picks, byId) {
+  const ss = groupSports() || [];
+  const lp = (state.data.loop && state.data.loop.sports) || {};
+  const ids = new Set();
+  ss.forEach(s => ((lp[s] || {}).strategies || []).forEach(x => ids.add(x)));
+  picks.filter(p => inGroup(p.sport) && p.pattern).forEach(p => ids.add(p.pattern));
+  const N = 15;
+  const rows = [...ids].map(id => {
+    const mine = picks.filter(p => p.pattern === id && inGroup(p.sport));
+    const pk = mine.filter(p => p.kind === "pick");
+    const g = pk.filter(p => p.clvProb != null && p.fullBar !== false).map(p => p.clvProb);
+    const m = g.length ? g.reduce((a, b) => a + b, 0) / g.length : null;
+    const settled = pk.filter(p => p.result === "win" || p.result === "loss");
+    return { id, pk, leans: mine.filter(p => p.kind === "lean").length, g, m, t: tstat(g), w: settled.filter(p => p.result === "win").length, l: settled.filter(p => p.result === "loss").length, glob: byId[id] || {} };
+  }).sort((a, b) => b.pk.length + b.leans - (a.pk.length + a.leans));
+  $("#stratList").innerHTML = rows.map(r => {
+    const [name, desc] = STRAT[r.id] || archName(r.id) || [r.id, ""];
+    const st = r.glob.status === "official" ? ["official", "Official: bets carry a stake"] : r.glob.status === "retire" ? ["retire", "Retired"] : ["", "Tracking"];
+    const n = r.g.length;
+    return `<div class="strat">
+      <h3>${esc(name)}<span class="status ${st[0]}">${st[1]}</span></h3>
+      ${desc ? `<p>${esc(desc)}</p>` : ""}
+      <div class="bar" role="img" aria-label="${n} of ${N} graded picks"><i style="width:${Math.min(100, 100 * n / N)}%"></i></div>
+      <div class="stats">
+        <div><span>Graded here </span>${n}${n < N ? " of " + N : ""}</div>
+        <div><span>Picks </span>${r.pk.length}</div><div><span>Leans </span>${r.leans}</div>
+        <div><span>Avg edge over close </span>${n ? pct(r.m) : "n/a"}</div>
+        ${n ? `<div><span>t-stat </span>${r.t.toFixed(2)}</div><div><span>Record </span>${r.w}-${r.l}</div>` : ""}
+        ${r.glob.clvN && r.glob.clvN !== n ? `<div><span>All sports </span>${r.glob.clvN} graded, t ${r.glob.tStat}</div>` : ""}
+      </div>
+    </div>`;
+  }).join("") || `<div class="empty"><strong>No strategies have read ${esc(groupName())} yet</strong><p>They appear here as soon as one reads a game.</p></div>`;
+}
+
+// The sport header: its loop, its numbers, its learned models.
+// Model data-point names in plain words.
+const FEAT = {
+  elo_minus_open: "ratings (Elo) vs the opening line", elo_diff: "Elo gap", open_home: "the opening price", open_home_logit: "the opening price",
+  open_over: "the opening over price", open_total: "the opening total", open_spread: "the opening spread", open_d: "the opening draw price",
+  open_h: "the opening home price", open_a: "the opening away price", model_total_gap: "ratings total vs the open",
+  model_spread_gap: "ratings spread vs the open", conf_game: "conference game", neutral: "neutral site", week: "week of the season",
+  month: "time of season", roof: "roof", grass: "grass field", div_game: "division game", fbs: "top-division opponent"
+};
+const TOK = { ssn: "season", prev: "last season", l1: "last game", l3: "last 3", l5: "last 5", l8: "last 8", l10: "last 10", l25: "last 25",
+  ats: "results vs the spread", ou: "results vs the total", pf: "points scored", pa: "points allowed", mg: "margin", hdpct: "high-danger chance share",
+  xgpct: "expected-goals share", pp: "power play", pen: "penalties", win: "win rate", gq: "goalie quality", b2b: "back-to-back", rest: "rest",
+  xa: "expected goals against", xf: "expected goals for", luck: "finishing luck", n: "games played", gp: "games played", fbs: "top-division team",
+  successRate: "success rate", ppa: "EPA per play", explosiveness: "explosiveness", plays: "pace", qb: "QB", changed: "change", last: "last game" };
+function plainFeat(f) {
+  if (FEAT[f]) return FEAT[f];
+  if (/^lg_/.test(f)) return "league";
+  if (/_minus_pin_/.test(f)) return "other books vs Pinnacle";
+  const parts = f.split("_");
+  const side = { h: "home ", a: "away ", d: "gap in " }[parts[0]] || "";
+  const WIN = { xa: "expected goals against", xf: "expected goals for", gf: "goals for", ga: "goals against", luck: "finishing luck",
+    ppg: "points per game", xpg: "expected points", formgap: "points above expected", tot: "total goals" };
+  const rest = (side ? parts.slice(1) : parts).filter(t => t !== "o" && t !== "d").map(t => {
+    const m = /^([a-z]+)(\d+)$/.exec(t);
+    if (m && WIN[m[1]]) return `${WIN[m[1]]}, last ${m[2] === "38" ? "season" : m[2] === "1" ? "match" : m[2]}`;
+    return TOK[t] || t;
+  });
+  const unit = parts.includes("o") ? " (offense)" : parts.includes("d") && side ? (parts.indexOf("d") > 0 ? " (defense)" : "") : "";
+  return (side + rest.join(" ") + unit).trim();
+}
+
+function renderSportHead() {
+  const box = $("#sportHead");
+  if (state.group === "All") { box.innerHTML = ""; return; }
+  const ss = groupSports() || [];
+  const lp = (state.data.loop && state.data.loop.sports) || {};
+  const now = new Date().toISOString();
+  const mine = state.data.picks.filter(p => inGroup(p.sport) && p.side);
+  const pk = mine.filter(p => p.kind === "pick");
+  const g = pk.filter(p => p.clvProb != null).map(p => p.clvProb);
+  const upcoming = ss.reduce((a, s) => a + ((lp[s] || {}).upcoming || 0), 0);
+  const statuses = ss.map(s => (lp[s] || {}).status).filter(Boolean);
+  const okAll = statuses.length && statuses.every(x => ["ok", "quiet", "loading history"].includes(x));
+  const leagues = ss.length > 1 ? ss.map(s => `${SPORT_NAME[s] || s}${lp[s] ? "" : " (not tracked)"}`).join(", ") : "";
+  const models = (MODELS[state.group] || []).map(([k, label]) => {
+    const r = state.models[k];
+    if (!r) return `<div><span><b>${label}</b><small>Not built yet</small></span><span>–</span></div>`;
+    const res = (r.results || {})[r.chosen] || {};
+    const top = [...new Set((r.signals || []).slice(0, 4).map(x => plainFeat(x.feature)))].slice(0, 3).join("; ");
+    return `<div><span><b>${label}</b><small>${r.rows || ""} games${top ? ". Leans on " + esc(top) : ""}</small></span><span class="status ${r.live ? "official" : ""}">${r.live ? "Live, t " + (res.t ?? "") : "Failed the test" + (res.t != null ? ", t " + res.t : "")}</span></div>`;
+  });
+  const arch = Object.keys(state.archive || {}).filter(n => ss.some(s => n.startsWith("archive_" + s.toLowerCase() + "_")));
+  arch.forEach(n => { const r = state.models[n]; models.push(`<div><span><b>${esc(archName("learned-" + n.replace(/_/g, "-"))[0])}</b><small>Built from EDGE's own history</small></span><span class="status ${r && r.live ? "official" : ""}">${r ? (r.live ? "Live" : "Failed the test") : "Training"}</span></div>`); });
+  box.innerHTML = `<div class="shead">
+    <h2>${esc(groupName())}<span class="status ${okAll ? "official" : "retire"}">${statuses.length ? (okAll ? "Data loop running" : "Loop needs attention") : "No loop yet"}</span></h2>
+    ${leagues ? `<p>${esc(leagues)}</p>` : ""}
+    <div class="kpis">
+      <div><span>${state.group === "CS2" ? "Matches ahead" : "Markets ahead"}</span><strong>${upcoming}</strong></div>
+      <div><span>Open picks</span><strong>${pk.filter(p => p.commence > now).length}</strong></div>
+      <div><span>Graded</span><strong>${g.length}</strong></div>
+      <div><span>Avg edge over close</span><strong>${g.length ? pct(g.reduce((a, b) => a + b, 0) / g.length) : "n/a"}</strong></div>
+    </div>
+    ${models.length ? `<div class="models">${models.join("")}</div>` : `<p>No learned model for ${esc(groupName())} yet; one is built automatically once EDGE has collected 300 games.</p>`}
+  </div>`;
+}
+
+function renderSportNav() {
+  $("#sportnav").innerHTML = GROUPS.map(([k, label]) => `<button role="tab" data-group="${k}" aria-selected="${state.group === k}">${esc(label)}</button>`).join("");
+}
+function setHash() { try { history.replaceState(null, "", "#" + (state.group === "All" ? "" : state.group.toLowerCase() + "/") + state.tab); } catch (_) {} }
 
 const money = (x, sign) => (sign && x > 0 ? "+" : x < 0 ? "−" : "") + "$" + Math.abs(x).toFixed(2);
 const SRC = s => s.startsWith("mirror:") ? `EDGE pick: ${stratName(s.slice(7))}` : s === "kalshi-sharp" ? "Kalshi vs Pinnacle" : s === "kalshi-sharp-alt" ? "Kalshi vs Pinnacle, nearby line" : s === "cs2-elo" ? "CS2 map ratings" : s === "kalshi-drift" ? "Kalshi vs Pinnacle plus drift" : s;
@@ -625,7 +782,7 @@ const PIN_KEY = "edge-control-pin";
 const pinGet = () => { try { return localStorage.getItem(PIN_KEY) || sessionStorage.getItem(PIN_KEY) || ""; } catch (_) { return ""; } };
 const pinPut = (v, remember) => { try { (remember ? localStorage : sessionStorage).setItem(PIN_KEY, v); if (!remember) localStorage.removeItem(PIN_KEY); } catch (_) {} };
 const CTL_SOURCES = [["kalshi-sharp", "Kalshi vs Pinnacle, same line"], ["kalshi-sharp-alt", "Kalshi vs Pinnacle, nearby line"], ["official", "Official EDGE strategies"]];
-const CTL_MIRRORS = ["sharp-soft", "sharp-soft-alt", "news-lag", "wind-total", "stats-model", "trend-fade"];
+const CTL_MIRRORS = ["sharp-soft", "sharp-soft-alt", "news-lag", "wind-total", "trend-fade", "rest-spot", "goalie-news", "ncaaf-total-move", "ncaaf-spot", "nhl-ml-move", "nhl-total-move", "tennis-elo", "tennis-fatigue", "edge-stack", "sharp-drift", "soccer-drift", "learned-nhl-ml", "learned-nhl-over", "learned-soccer-1x2", "learned-soccer-over", "learned-nba-total", "learned-ncaaf-spread", "learned-ncaaf-total", "learned-nfl-spread", "learned-nfl-total", "learned-nfl-ml"];
 state.ctl = null; state.ctlMsg = null;
 
 async function loadControl() {
@@ -746,24 +903,32 @@ function renderTrading() {
   const pos = Math.min(100, Math.max(0, 100 * (s.equity - lo) / (hi - lo)));
   $("#guard").innerHTML = `<div class="guard"><div class="ends"><span>Stop loss ${money(lo)}</span><span>${money(s.open)} at risk now</span><span>Take profit ${money(hi)}</span></div><div class="track"><span class="pin" style="left:${pos}%"></span></div></div>`;
   $("#chart").innerHTML = chart(book, cfg);
-  const open = book.trades.filter(t => t.status === "open").sort((a, b) => a.commence.localeCompare(b.commence));
-  const done = settledT.sort((a, b) => (b.settledAt || "").localeCompare(a.settledAt || ""));
+  const open = book.trades.filter(t => t.status === "open" && inGroup(t.sport)).sort((a, b) => a.commence.localeCompare(b.commence));
+  const done = settledT.filter(t => inGroup(t.sport)).sort((a, b) => (b.settledAt || "").localeCompare(a.settledAt || ""));
   $("#tradeList").innerHTML = (open.length ? `<h2 class="sub2">Open positions</h2>${open.map(tradeRow).join("")}` : "")
     + (done.length ? `<h2 class="sub2">Settled</h2>${done.map(tradeRow).join("")}` : "")
     + (!open.length && !done.length ? `<div class="empty"><strong>No trades in this book yet</strong><p>${state.book === "live" ? "Real orders start after you approve live trading, and only for the sources you allow." : "Paper trades appear as soon as a Kalshi price clears the edge bar."}</p></div>` : "");
-  $("#tradeRules").innerHTML = state.book === "paper"
+  const tNote = state.group === "All" ? "" : `<p class="note" style="margin-top:14px">Balance, record and chart cover the whole book; the list above shows ${esc(groupName())} trades only.${["Soccer", "Tennis", "CS2"].includes(state.group) ? " This sport trades on paper only until you approve it for real money." : ""}</p>`;
+  $("#tradeRules").innerHTML = tNote + (state.book === "paper"
     ? `<p class="note" style="margin-top:14px">The paper book tests every source at once from a $${Number(cfg.startingBankroll || 0).toFixed(0)} balance, each source with its own $${Number(cfg.maxPerDay || 0).toFixed(0)} daily cap, and never stops, so you can see which sources earn their place in the real-money list above.</p>`
-    : `<p class="note" style="margin-top:14px">This book follows the switch panel above: its balance, limits and sources. Each time you switch on, a new session starts and the last one is kept in the record.</p>`;
+    : `<p class="note" style="margin-top:14px">This book follows the switch panel above: its balance, limits and sources. Each time you switch on, a new session starts and the last one is kept in the record.</p>`);
 }
 
-function render() { renderBoard(); renderResults(); renderStrategies(); renderTrading(); }
+function render() { renderSportNav(); renderSportHead(); renderBoard(); renderResults(); renderStrategies(); renderTrading(); }
 
 document.addEventListener("click", e => {
-  const tab = e.target.closest("nav button");
+  const grp = e.target.closest("#sportnav button");
+  if (grp) {
+    state.group = grp.dataset.group; state.sport = "All";
+    setHash(); window.scrollTo(0, 0);
+    if (state.data) render(); else renderSportNav();
+    return;
+  }
+  const tab = e.target.closest("#secnav button");
   if (tab) {
-    document.querySelectorAll("nav button").forEach(b => b.setAttribute("aria-selected", b === tab));
+    document.querySelectorAll("#secnav button").forEach(b => b.setAttribute("aria-selected", b === tab));
     document.querySelectorAll("main > section").forEach(s => s.classList.toggle("hidden", s.id !== tab.dataset.tab));
-    try { history.replaceState(null, "", "#" + tab.dataset.tab); } catch (_) {}
+    state.tab = tab.dataset.tab; setHash();
     window.scrollTo(0, 0);
     return;
   }
@@ -795,13 +960,27 @@ async function load() {
     get("trading/ledger.json", null), get("trading/config.json", {}), get("stats/loop_status.json", null)]);
   const rows = Object.fromEntries((lg.rows || []).map(r => [r.id, r]));
   state.data = { picks: pk.picks || [], score: sc, rows, trading: tl, tradeCfg: tc, loop: lp };
+  if (!state.modelsAt || Date.now() - state.modelsAt > 30 * 60 * 1000) {      // model reports change monthly
+    state.archive = await get("stats/features/archive_targets.json", {});
+    const names = [...Object.values(MODELS).flat().map(m => m[0]), ...Object.keys(state.archive || {})];
+    const reps = await Promise.all(names.map(n => get(`stats/models/${n}.json`, null)));
+    state.models = Object.fromEntries(names.map((n, i) => [n, reps[i] && reps[i].target ? reps[i] : null]));
+    state.modelsAt = Date.now();
+  }
   const asof = lg.asOfCt ? new Date(lg.asOfCt) : null;
   $("#asof").textContent = asof ? `Updated ${asof.toLocaleString("en-US", { timeZone: TZ, weekday: "short", hour: "numeric", minute: "2-digit" })} CT` : "Update time unknown";
   render();
   if (!state.ctl) loadControl();      // once; later changes come back from the panel itself, so typing is never wiped
 }
-const start = (location.hash || "").slice(1);
-if (start) { const b = document.querySelector(`nav button[data-tab="${start}"]`); if (b) b.click(); }
+state.models = {}; state.archive = {};
+renderSportNav();
+{
+  const h = (location.hash || "").slice(1).split("/");
+  const tabName = h.length > 1 ? h[1] : h[0];
+  if (h.length > 1) { const gq = GROUPS.find(g => g[0].toLowerCase() === h[0]); if (gq) state.group = gq[0]; }
+  renderSportNav();
+  const b = tabName && document.querySelector(`#secnav button[data-tab="${tabName}"]`); if (b) b.click();
+}
 load();
 setInterval(load, 5 * 60 * 1000);
 </script>
