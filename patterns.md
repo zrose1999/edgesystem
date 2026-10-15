@@ -124,3 +124,8 @@ Retire early if: CLV is below 0 after 30 picks.
 Stamped by tennis.py every run (history refreshed from ESPN twice a day: every ATP and WTA singles match since 2024, 28,575 at launch). Surface Elo (overall + surface, FiveThirtyEight K), walk-forward calibration in stats/backtest_tennis.md (70-80% favourites won 71.1%, 80-90% won 80.5%: slightly overconfident at the top). tennis-elo: fair = market no-vig + 0.20 x (Elo - market), gap 5+ points. tennis-fatigue: opponent played 30+ more games in the last 2 days, fair +0.02 toward the fresher player (starting value, unmeasured).
 No tennis market history exists yet; the archive builds it and the weekly review sets the weight from CLV.
 Retire early if: CLV is below 0 after 30 reads.
+
+## ncaaf-spot
+
+Stamped by ncaaf_spots.py on the morning run. Situational open-to-close moves measured on 9 FBS seasons of CFBD lines (stats/backtest_ncaaf_spots.md, every value held in both halves): home off a bye vs normal rest -0.55, away off a bye +0.43, power home vs Group of 5 -0.37 / other non-conference -0.20 / weeks 0-2 -0.25 (largest of the three), home favourite 21+ -0.34; totals: home underdog 7+ -0.49, opening total under 45 -0.35, weeks 10+ -0.23. Summed x0.8. Neutral sites skipped.
+Retire early if: CLV is below 0 after 30 reads.

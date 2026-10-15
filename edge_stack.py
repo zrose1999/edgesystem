@@ -32,7 +32,8 @@ import fair as fairlib
 import pull
 
 ROOT = Path(__file__).resolve().parent
-STACKABLE = {"news-lag", "rest-spot", "goalie-news", "wind-total", "ncaaf-total-move", "nhl-ml-move", "nhl-total-move"}
+STACKABLE = {"news-lag", "rest-spot", "goalie-news", "wind-total", "ncaaf-total-move", "ncaaf-spot", "nhl-ml-move",
+             "nhl-total-move", "tennis-fatigue"}
 SHRINK = 0.85                 # overlap between sources (e.g. a back-to-back and the backup goalie it brings)
 SOCCER_1X2 = {               # home, draw, away probability drift, Pinnacle early to close
     "EPL": (-0.0008, 0.0030, -0.0022), "LaLiga": (0.0010, 0.0040, -0.0050), "Bundesliga": (-0.0002, 0.0041, -0.0039),
