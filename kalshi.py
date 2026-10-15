@@ -51,6 +51,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import fair
+import edge_stack
 import pull
 
 ROOT = Path(__file__).resolve().parent
@@ -510,6 +511,8 @@ def snapshot(book, now):
 # ---------- CS2 (cs2.py ratings, no sportsbook price) ----------
 
 QUOTES = {}
+_nhl = pull.load(ROOT / "stats" / "nhl_games.json", {}).get("games") or {}
+NHL_GAMES = list(_nhl.values()) if isinstance(_nhl, dict) else _nhl
 CS2_SERIES = "KXCS2GAME"
 CS2_RATINGS = ROOT / "stats" / "cs2_ratings.json"
 CS2_MAX_EDGE = 0.15        # a model, not a sharp price: bigger gaps are more likely a rating error
@@ -694,6 +697,19 @@ def main(dry=False):
                     if edge > MAX_EDGE:
                         print(f"skip {m['ticker']} {side}: edge {edge:.3f} over {MAX_EDGE}, treated as a data error")
                         continue
+                    # Same price, aimed at where Pinnacle is expected to close (edge_stack's measured drifts).
+                    if not est:
+                        drow = g["rows"].get({"game": "h2h"}.get(kind, kind))
+                        dp = edge_stack.drift_prob(drow, now, NHL_GAMES) if drow else None
+                        dside = team_side if kind == "game" else "over"
+                        if dp and dside in dp:
+                            shift = dp[dside] if side == "yes" else -dp[dside]
+                            dedge = p_side + shift - cost
+                            if cfg["minEdge"] <= dedge <= MAX_EDGE:
+                                cands.append(dict(contract, source="kalshi-drift", fair=round(p_side + shift, 4),
+                                                  edge=round(dedge, 4), estimated=True,
+                                                  why=f"Pinnacle fair {p_side:.1%} plus the measured drift still to come "
+                                                      f"{shift:+.2%}; Kalshi {side.upper()} {ask:.2f} + fee = {cost:.3f}."))
                     if edge >= cfg["minEdge"]:
                         cands.append(dict(contract, source="kalshi-sharp-alt" if est else "kalshi-sharp",
                                           fair=round(p_side, 4), edge=round(edge, 4), estimated=est,
