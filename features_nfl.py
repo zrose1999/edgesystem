@@ -136,8 +136,12 @@ def opens_index():
                     continue
                 day = e["commence"][:10]
                 rec = {"so": b.get("spread"), "to": b.get("total"), "mo": novig(b.get("ml_home"), b.get("ml_away"))}
+                rec["snap"] = wk.get("snapshot") or wk.get("asked")
                 for d in (day, (datetime.fromisoformat(day) - timedelta(days=1)).date().isoformat()):
-                    idx.setdefault((e["home"], e["away"], d), rec)       # UTC evening games fall on the next date
+                    k = (e["home"], e["away"], d)                       # UTC evening games fall on the next date
+                    # Week 1 carries season-long lookahead lines; the game week's own Tuesday line is the open.
+                    if k not in idx or rec["snap"] > idx[k]["snap"]:
+                        idx[k] = rec
     return idx
 
 
