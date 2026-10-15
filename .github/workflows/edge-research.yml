@@ -63,8 +63,9 @@ jobs:
         run: |
           git config user.name "EDGE"
           git config user.email "edge@edgesystem.local"
-          git add stats/backtest_tennis.md stats/backtest_tennis.json stats/backtest_ncaaf_spots.md stats/backtest_ncaaf_spots.json 2>/dev/null || true
-          git add stats/history/nfl_open stats/history/ncaaf stats/models 2>/dev/null || true
+          for p in stats/backtest_tennis.md stats/backtest_tennis.json stats/backtest_ncaaf_spots.md stats/backtest_ncaaf_spots.json stats/history/nfl_open stats/history/ncaaf stats/models; do
+            if [ -e "$p" ]; then git add "$p"; fi       # one path at a time: a missing path must not drop the others
+          done
           if git diff --cached --quiet; then echo "No changes."; exit 0; fi
           git commit -q -m "EDGE: research report"
           for i in 1 2 3; do
