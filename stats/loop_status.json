@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-15T02:54:46Z",
+ "asOf": "2026-10-15T03:00:06Z",
  "sports": {
   "NFL": {
    "status": "ok",
@@ -24,10 +24,11 @@
     "stats-model",
     "trend-fade",
     "sharp-soft",
-    "sharp-soft-alt"
+    "sharp-soft-alt",
+    "edge-stack"
    ],
    "sources": {
-    "stats/injuries.json": "2026-10-15T02:54:15Z",
+    "stats/injuries.json": "2026-10-15T02:59:28Z",
     "stats/nfl_depth.json": "2026-10-14T19:39:29Z",
     "stats/nfl_matchups.json": "2026-10-14T20:27:01Z"
    }
@@ -42,14 +43,20 @@
    "finals3d": 4,
    "picksNeedingClose": 0,
    "closed": 0,
-   "picks7d": {},
+   "picks7d": {
+    "ncaaf-spot": 30,
+    "edge-stack": 12
+   },
    "graded": 0,
    "history": 227,
    "strategies": [
     "ncaaf-total-move",
+    "ncaaf-spot",
     "wind-total",
     "sharp-soft",
-    "sharp-soft-alt"
+    "sharp-soft-alt",
+    "sharp-drift",
+    "edge-stack"
    ],
    "sources": {
     "stats/ncaaf_matchups.json": "2026-10-14T20:27:23Z",
@@ -78,10 +85,11 @@
     "nba-stats-model",
     "nba-model-fav",
     "sharp-soft",
-    "sharp-soft-alt"
+    "sharp-soft-alt",
+    "edge-stack"
    ],
    "sources": {
-    "stats/injuries_nba.json": "2026-10-15T02:54:16Z",
+    "stats/injuries_nba.json": "2026-10-15T02:59:29Z",
     "stats/nba_player_values.json": "2026-10-14T23:10:31Z",
     "stats/nba_matchups.json": "2026-10-14T20:27:03Z"
    }
@@ -96,15 +104,21 @@
    "finals3d": 36,
    "picksNeedingClose": 0,
    "closed": 0,
-   "picks7d": {},
+   "picks7d": {
+    "nhl-total-move": 1
+   },
    "graded": 0,
    "history": 62,
    "strategies": [
     "goalie-news",
-    "sharp-soft"
+    "nhl-ml-move",
+    "nhl-total-move",
+    "sharp-soft",
+    "sharp-drift",
+    "edge-stack"
    ],
    "sources": {
-    "stats/nhl_goalies.json": "2026-10-15T02:54:16Z",
+    "stats/nhl_goalies.json": "2026-10-15T02:59:30Z",
     "stats/nhl_games.json": null
    }
   },
@@ -122,11 +136,13 @@
    "graded": 0,
    "history": 40,
    "strategies": [
+    "sharp-drift (form, luck, draw and under drift)",
     "sharp-soft",
-    "kalshi-sharp"
+    "kalshi-drift"
    ],
    "sources": {
-    "stats/epl_games.json": null
+    "stats/epl_games.json": null,
+    "stats/soccer_form.json": "2026-10-15T02:49:13Z"
    }
   },
   "UCL": {
@@ -181,10 +197,13 @@
    "graded": 0,
    "history": 42,
    "strategies": [
+    "sharp-drift (form, luck, draw and under drift)",
     "sharp-soft",
-    "kalshi-sharp"
+    "kalshi-drift"
    ],
-   "sources": {}
+   "sources": {
+    "stats/soccer_form.json": "2026-10-15T02:49:13Z"
+   }
   },
   "SerieA": {
    "status": "ok",
@@ -200,10 +219,13 @@
    "graded": 0,
    "history": 40,
    "strategies": [
+    "sharp-drift (form, luck, draw and under drift)",
     "sharp-soft",
-    "kalshi-sharp"
+    "kalshi-drift"
    ],
-   "sources": {}
+   "sources": {
+    "stats/soccer_form.json": "2026-10-15T02:49:13Z"
+   }
   },
   "Bundesliga": {
    "status": "ok",
@@ -219,10 +241,13 @@
    "graded": 0,
    "history": 36,
    "strategies": [
+    "sharp-drift (form, luck, draw and under drift)",
     "sharp-soft",
-    "kalshi-sharp"
+    "kalshi-drift"
    ],
-   "sources": {}
+   "sources": {
+    "stats/soccer_form.json": "2026-10-15T02:49:13Z"
+   }
   },
   "Ligue1": {
    "status": "ok",
@@ -240,10 +265,13 @@
    "graded": 0,
    "history": 36,
    "strategies": [
+    "sharp-drift (form, luck, draw and under drift)",
     "sharp-soft",
-    "kalshi-sharp"
+    "kalshi-drift"
    ],
-   "sources": {}
+   "sources": {
+    "stats/soccer_form.json": "2026-10-15T02:49:13Z"
+   }
   },
   "MLS": {
    "status": "ok",
@@ -270,45 +298,57 @@
    "status": "ok",
    "upcoming": 4,
    "next48h": 4,
-   "lastPrice": "2026-10-15T02:39:12Z",
+   "lastPrice": "2026-10-15T02:59:18Z",
    "withPinnacle": 4,
    "started3d": 0,
    "finals3d": 0,
    "picksNeedingClose": 0,
    "closed": 0,
-   "picks7d": {},
+   "picks7d": {
+    "tennis-elo": 1
+   },
    "graded": 0,
    "history": 4,
    "strategies": [
+    "tennis-elo",
+    "tennis-fatigue",
     "sharp-soft",
-    "kalshi-sharp"
+    "edge-stack"
    ],
-   "sources": {}
+   "sources": {
+    "stats/tennis_matches.json": "2026-10-15T02:46:58Z"
+   }
   },
   "WTA": {
    "status": "ok",
    "upcoming": 8,
    "next48h": 8,
-   "lastPrice": "2026-10-15T02:54:14Z",
+   "lastPrice": "2026-10-15T02:59:18Z",
    "withPinnacle": 8,
    "started3d": 0,
    "finals3d": 0,
    "picksNeedingClose": 0,
    "closed": 0,
-   "picks7d": {},
+   "picks7d": {
+    "tennis-elo": 1
+   },
    "graded": 0,
    "history": 8,
    "strategies": [
+    "tennis-elo",
+    "tennis-fatigue",
     "sharp-soft",
-    "kalshi-sharp"
+    "edge-stack"
    ],
-   "sources": {}
+   "sources": {
+    "stats/tennis_matches.json": "2026-10-15T02:46:58Z"
+   }
   },
   "CS2": {
    "status": "ok",
    "upcoming": 57,
-   "lastPrice": "2026-10-15T02:39:25Z",
-   "history": 16834,
+   "lastPrice": "2026-10-15T02:59:34Z",
+   "history": 16836,
    "strategies": [
     "cs2-elo"
    ],
