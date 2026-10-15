@@ -1,6 +1,6 @@
 {
-  "picks": 48,
-  "reads": 159,
+  "picks": 50,
+  "reads": 175,
   "graded": 0,
   "meanClvProb": null,
   "beatClose": 0,
@@ -18,7 +18,7 @@
       "record": "0-0-0"
     },
     "B": {
-      "reads": 34,
+      "reads": 36,
       "graded": 0,
       "meanClvProb": null,
       "beatClose": 0,
@@ -26,15 +26,15 @@
       "record": "0-0-0"
     },
     "C": {
-      "reads": 94,
-      "graded": 0,
-      "meanClvProb": null,
+      "reads": 105,
+      "graded": 1,
+      "meanClvProb": -0.0404,
       "beatClose": 0,
       "tStat": 0.0,
       "record": "0-0-0"
     },
     "P": {
-      "reads": 16
+      "reads": 19
     }
   },
   "byPattern": {
@@ -111,6 +111,26 @@
     "tennis-elo": {
       "reads": 2,
       "picks": 0,
+      "graded": 1,
+      "meanClvProb": -0.0404,
+      "beatClose": 0,
+      "tStat": 0.0,
+      "record": "0-0-0",
+      "flatUnits": 0
+    },
+    "ncaaf-total-move": {
+      "reads": 19,
+      "picks": 1,
+      "graded": 0,
+      "meanClvProb": null,
+      "beatClose": 0,
+      "tStat": 0.0,
+      "record": "0-0-0",
+      "flatUnits": 0
+    },
+    "learned-nhl-ml": {
+      "reads": 2,
+      "picks": 0,
       "graded": 0,
       "meanClvProb": null,
       "beatClose": 0,
@@ -119,8 +139,8 @@
       "flatUnits": 0
     },
     "edge-stack": {
-      "reads": 12,
-      "picks": 0,
+      "reads": 4,
+      "picks": 1,
       "graded": 0,
       "meanClvProb": null,
       "beatClose": 0,
@@ -130,6 +150,36 @@
     }
   },
   "patterns": [
+    {
+      "id": "edge-stack",
+      "status": "shadow",
+      "picks": 1,
+      "clvN": 0,
+      "meanClvProb": 0.0,
+      "tStat": 0.0,
+      "halfBarN": 0,
+      "halfBarMeanClv": null,
+      "beatClose": 0,
+      "wins": 0,
+      "losses": 0,
+      "flatUnits": 0,
+      "note": "Promotion needs 30 graded full-bar picks, mean CLV above 0, t at least 1.5. Win rate never promotes."
+    },
+    {
+      "id": "ncaaf-total-move",
+      "status": "shadow",
+      "picks": 1,
+      "clvN": 0,
+      "meanClvProb": 0.0,
+      "tStat": 0.0,
+      "halfBarN": 0,
+      "halfBarMeanClv": null,
+      "beatClose": 0,
+      "wins": 0,
+      "losses": 0,
+      "flatUnits": 0,
+      "note": "Promotion needs 30 graded full-bar picks, mean CLV above 0, t at least 1.5. Win rate never promotes."
+    },
     {
       "id": "news-lag",
       "status": "shadow",

@@ -1,11 +1,11 @@
 {
- "asOf": "2026-10-15T03:00:06Z",
+ "asOf": "2026-10-15T03:21:42Z",
  "sports": {
   "NFL": {
    "status": "ok",
    "upcoming": 84,
    "next48h": 3,
-   "lastPrice": "2026-10-15T01:20:29Z",
+   "lastPrice": "2026-10-15T03:19:53Z",
    "withPinnacle": 42,
    "started3d": 2,
    "finals3d": 2,
@@ -28,16 +28,16 @@
     "edge-stack"
    ],
    "sources": {
-    "stats/injuries.json": "2026-10-15T02:59:28Z",
+    "stats/injuries.json": "2026-10-15T03:20:54Z",
     "stats/nfl_depth.json": "2026-10-14T19:39:29Z",
-    "stats/nfl_matchups.json": "2026-10-14T20:27:01Z"
+    "stats/nfl_matchups.json": "2026-10-15T03:20:08Z"
    }
   },
   "NCAAF": {
    "status": "ok",
    "upcoming": 217,
    "next48h": 18,
-   "lastPrice": "2026-10-15T01:20:29Z",
+   "lastPrice": "2026-10-15T03:19:53Z",
    "withPinnacle": 165,
    "started3d": 4,
    "finals3d": 4,
@@ -45,7 +45,8 @@
    "closed": 0,
    "picks7d": {
     "ncaaf-spot": 30,
-    "edge-stack": 12
+    "ncaaf-total-move": 19,
+    "edge-stack": 4
    },
    "graded": 0,
    "history": 227,
@@ -59,7 +60,7 @@
     "edge-stack"
    ],
    "sources": {
-    "stats/ncaaf_matchups.json": "2026-10-14T20:27:23Z",
+    "stats/ncaaf_matchups.json": "2026-10-15T03:20:12Z",
     "stats/ncaaf_games.json": null
    }
   },
@@ -67,7 +68,7 @@
    "status": "ok",
    "upcoming": 138,
    "next48h": 0,
-   "lastPrice": "2026-10-15T01:20:29Z",
+   "lastPrice": "2026-10-15T03:19:53Z",
    "withPinnacle": 36,
    "started3d": 0,
    "finals3d": 0,
@@ -89,27 +90,30 @@
     "edge-stack"
    ],
    "sources": {
-    "stats/injuries_nba.json": "2026-10-15T02:59:29Z",
+    "stats/injuries_nba.json": "2026-10-15T03:20:55Z",
     "stats/nba_player_values.json": "2026-10-14T23:10:31Z",
-    "stats/nba_matchups.json": "2026-10-14T20:27:03Z"
+    "stats/nba_matchups.json": "2026-10-15T03:20:10Z"
    }
   },
   "NHL": {
    "status": "ok",
    "upcoming": 22,
    "next48h": 22,
-   "lastPrice": "2026-10-15T01:20:29Z",
+   "lastPrice": "2026-10-15T03:19:53Z",
    "withPinnacle": 22,
    "started3d": 36,
    "finals3d": 36,
    "picksNeedingClose": 0,
    "closed": 0,
    "picks7d": {
-    "nhl-total-move": 1
+    "nhl-total-move": 1,
+    "learned-nhl-ml": 2
    },
    "graded": 0,
    "history": 62,
    "strategies": [
+    "learned-nhl-ml",
+    "learned-nhl-over",
     "goalie-news",
     "nhl-ml-move",
     "nhl-total-move",
@@ -118,7 +122,7 @@
     "edge-stack"
    ],
    "sources": {
-    "stats/nhl_goalies.json": "2026-10-15T02:59:30Z",
+    "stats/nhl_goalies.json": "2026-10-15T03:20:55Z",
     "stats/nhl_games.json": null
    }
   },
@@ -126,7 +130,7 @@
    "status": "ok",
    "upcoming": 40,
    "next48h": 0,
-   "lastPrice": "2026-10-15T01:20:29Z",
+   "lastPrice": "2026-10-15T03:19:53Z",
    "withPinnacle": 40,
    "started3d": 0,
    "finals3d": 0,
@@ -136,20 +140,23 @@
    "graded": 0,
    "history": 40,
    "strategies": [
-    "sharp-drift (form, luck, draw and under drift)",
+    "learned-soccer-1x2",
+    "learned-soccer-over",
+    "soccer-drift",
+    "sharp-drift",
     "sharp-soft",
     "kalshi-drift"
    ],
    "sources": {
     "stats/epl_games.json": null,
-    "stats/soccer_form.json": "2026-10-15T02:49:13Z"
+    "stats/soccer_form.json": "2026-10-15T03:20:20Z"
    }
   },
   "UCL": {
    "status": "ok",
    "upcoming": 36,
    "next48h": 0,
-   "lastPrice": "2026-10-15T01:20:29Z",
+   "lastPrice": "2026-10-15T03:19:53Z",
    "withPinnacle": 36,
    "started3d": 18,
    "finals3d": 18,
@@ -168,7 +175,7 @@
    "status": "ok",
    "upcoming": 36,
    "next48h": 36,
-   "lastPrice": "2026-10-15T01:20:29Z",
+   "lastPrice": "2026-10-15T03:19:53Z",
    "withPinnacle": 36,
    "started3d": 0,
    "finals3d": 0,
@@ -187,7 +194,7 @@
    "status": "ok",
    "upcoming": 42,
    "next48h": 2,
-   "lastPrice": "2026-10-15T01:20:29Z",
+   "lastPrice": "2026-10-15T03:19:53Z",
    "withPinnacle": 41,
    "started3d": 0,
    "finals3d": 0,
@@ -197,19 +204,22 @@
    "graded": 0,
    "history": 42,
    "strategies": [
-    "sharp-drift (form, luck, draw and under drift)",
+    "learned-soccer-1x2",
+    "learned-soccer-over",
+    "soccer-drift",
+    "sharp-drift",
     "sharp-soft",
     "kalshi-drift"
    ],
    "sources": {
-    "stats/soccer_form.json": "2026-10-15T02:49:13Z"
+    "stats/soccer_form.json": "2026-10-15T03:20:20Z"
    }
   },
   "SerieA": {
    "status": "ok",
    "upcoming": 40,
    "next48h": 2,
-   "lastPrice": "2026-10-15T01:20:29Z",
+   "lastPrice": "2026-10-15T03:19:53Z",
    "withPinnacle": 40,
    "started3d": 0,
    "finals3d": 0,
@@ -219,19 +229,22 @@
    "graded": 0,
    "history": 40,
    "strategies": [
-    "sharp-drift (form, luck, draw and under drift)",
+    "learned-soccer-1x2",
+    "learned-soccer-over",
+    "soccer-drift",
+    "sharp-drift",
     "sharp-soft",
     "kalshi-drift"
    ],
    "sources": {
-    "stats/soccer_form.json": "2026-10-15T02:49:13Z"
+    "stats/soccer_form.json": "2026-10-15T03:20:20Z"
    }
   },
   "Bundesliga": {
    "status": "ok",
    "upcoming": 36,
    "next48h": 2,
-   "lastPrice": "2026-10-15T01:20:29Z",
+   "lastPrice": "2026-10-15T03:19:53Z",
    "withPinnacle": 36,
    "started3d": 0,
    "finals3d": 0,
@@ -241,19 +254,22 @@
    "graded": 0,
    "history": 36,
    "strategies": [
-    "sharp-drift (form, luck, draw and under drift)",
+    "learned-soccer-1x2",
+    "learned-soccer-over",
+    "soccer-drift",
+    "sharp-drift",
     "sharp-soft",
     "kalshi-drift"
    ],
    "sources": {
-    "stats/soccer_form.json": "2026-10-15T02:49:13Z"
+    "stats/soccer_form.json": "2026-10-15T03:20:20Z"
    }
   },
   "Ligue1": {
    "status": "ok",
    "upcoming": 36,
    "next48h": 2,
-   "lastPrice": "2026-10-15T01:20:29Z",
+   "lastPrice": "2026-10-15T03:19:53Z",
    "withPinnacle": 36,
    "started3d": 0,
    "finals3d": 0,
@@ -265,20 +281,23 @@
    "graded": 0,
    "history": 36,
    "strategies": [
-    "sharp-drift (form, luck, draw and under drift)",
+    "learned-soccer-1x2",
+    "learned-soccer-over",
+    "soccer-drift",
+    "sharp-drift",
     "sharp-soft",
     "kalshi-drift"
    ],
    "sources": {
-    "stats/soccer_form.json": "2026-10-15T02:49:13Z"
+    "stats/soccer_form.json": "2026-10-15T03:20:20Z"
    }
   },
   "MLS": {
    "status": "ok",
    "upcoming": 30,
    "next48h": 0,
-   "lastPrice": "2026-10-15T02:24:14Z",
-   "withPinnacle": 20,
+   "lastPrice": "2026-10-15T03:19:53Z",
+   "withPinnacle": 30,
    "started3d": 0,
    "finals3d": 0,
    "picksNeedingClose": 0,
@@ -298,7 +317,7 @@
    "status": "ok",
    "upcoming": 4,
    "next48h": 4,
-   "lastPrice": "2026-10-15T02:59:18Z",
+   "lastPrice": "2026-10-15T03:19:53Z",
    "withPinnacle": 4,
    "started3d": 0,
    "finals3d": 0,
@@ -321,10 +340,10 @@
   },
   "WTA": {
    "status": "ok",
-   "upcoming": 8,
-   "next48h": 8,
-   "lastPrice": "2026-10-15T02:59:18Z",
-   "withPinnacle": 8,
+   "upcoming": 7,
+   "next48h": 7,
+   "lastPrice": "2026-10-15T03:19:53Z",
+   "withPinnacle": 7,
    "started3d": 0,
    "finals3d": 0,
    "picksNeedingClose": 0,
@@ -332,7 +351,7 @@
    "picks7d": {
     "tennis-elo": 1
    },
-   "graded": 0,
+   "graded": 1,
    "history": 8,
    "strategies": [
     "tennis-elo",
@@ -346,8 +365,8 @@
   },
   "CS2": {
    "status": "ok",
-   "upcoming": 57,
-   "lastPrice": "2026-10-15T02:59:34Z",
+   "upcoming": 56,
+   "lastPrice": "2026-10-15T03:21:10Z",
    "history": 16836,
    "strategies": [
     "cs2-elo"
