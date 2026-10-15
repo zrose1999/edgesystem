@@ -259,6 +259,9 @@ def sharp_drift(rows, now, nhl_games, have):
     return entries
 
 
+SOCCER_MIN_MOVE = 0.015   # set by Zack 2026-10-14: a smaller expected move still reads, but only as a lean (graded, stackable, never a pick) (over probability)
+
+
 def soccer_reads(rows, now, done):
     """soccer-drift: on 2.5-goal totals in the five measured leagues, the over/under side the drift model (league
     drift + last-match totals) expects to gain, read once per game within 48 hours. Leans unless the gap is large;
@@ -275,6 +278,8 @@ def soccer_reads(rows, now, done):
         if not mp or not dp or abs(dp["over"]) < 0.003:
             continue
         fair = min(max(mp["over"] + dp["over"], 0.02), 0.98)
+        if abs(dp["over"]) < SOCCER_MIN_MOVE:
+            pull.LEAN_CAP.add((row["id"], "soccer-drift"))
         out.append((row, fair, f"Soccer drift model: league under-drift and last-match totals give over {dp['over']:+.2%} "
                                f"still to come; over now {mp['over']:.1%}, fair {fair:.1%}."))
     return out

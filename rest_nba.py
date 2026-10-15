@@ -33,6 +33,7 @@ OUT = ROOT / "stats" / "backtest_nba_rest"
 PATTERN = "rest-spot"
 WINDOW_H = 36
 # Average open-to-close move of the HOME line, rounded from the backtest. Negative: toward the home team.
+MIN_MOVE = 0.75          # set by Zack 2026-10-14: a smaller expected move still reads, but only as a lean (graded, stackable, never a pick) (points)
 MOVE = {"away-b2b": -0.9, "home-b2b": +0.5}
 
 
@@ -124,6 +125,9 @@ def main(dry=False):
         reason = (f"{tired} on the second night of a back-to-back, {rested} rested {rh if kind == 'away-b2b' else ra} days. "
                   f"Lines in this spot moved {abs(MOVE[kind]):g} toward the rested team from open to close in 2025-26. "
                   f"Open home line {open_line:+g}, now {cur:+g}, {remaining:.2f} of the move still to come, fair {fair:+.2f}.")
+        if remaining < MIN_MOVE:
+            pull.LEAN_CAP.add((row["id"], PATTERN))
+            reason += " (Under the pattern's minimum move: lean only.)"
         todo.append((row, fair, reason))
     if dry:
         for row, fair, reason in todo:

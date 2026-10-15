@@ -34,6 +34,7 @@ PATTERN = "ncaaf-spot"
 BOARD = "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates={d}&groups=80&limit=400"
 P5 = {"1", "4", "5", "8", "9"}            # ACC, Big 12, Big Ten, SEC, Pac-12 (ESPN conference ids)
 INDEPENDENT_P5 = {"Notre Dame Fighting Irish"}
+MIN_MOVE = 1.0           # set by Zack 2026-10-14: a smaller expected move still reads, but only as a lean (graded, stackable, never a pick) (points)
 SHRINK = 0.8
 WINDOW_D = 7
 
@@ -139,6 +140,9 @@ def main(dry=False):
         fair = c["line"] + (remaining if move > 0 else -remaining)
         why = (f"{'; '.join(f'{n} {v:+.2f}' for n, v in parts)} (x{SHRINK} overlap) = expected move {move:+.2f}. "
                f"Open {o['line']:g}, now {c['line']:g}, {remaining:.2f} still to come; fair {fair:+.2f}.")
+        if remaining < MIN_MOVE:
+            pull.LEAN_CAP.add((row["id"], PATTERN))
+            why += " (Under the pattern's minimum move: lean only.)"
         todo.append((row, fair, why))
     if dry:
         for row, fair, why in todo:

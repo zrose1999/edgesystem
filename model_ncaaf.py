@@ -29,6 +29,7 @@ CAL = ROOT / "stats" / "ncaaf_calibration.json"
 PATTERN = "ncaaf-total-move"
 K_MOVE = 0.18
 MIN_GAMES = 8
+MIN_MOVE = 1.0           # set by Zack 2026-10-14: a smaller expected move still reads, but only as a lean (graded, stackable, never a pick) (points)
 MIN_GAP = 4.0             # under this the expected move is under 0.75 points: noise
 WINDOW_D = 7
 
@@ -71,6 +72,9 @@ def main(dry=False):
         reason = (f"NCAAF ratings total {raw:.1f}, open {open_line:g} (gap {gap:+.1f}). Lines moved {K_MOVE} x the gap "
                   f"from open to close in the backtest (current calibration {cal.get('kMove')}, se {cal.get('se')}, "
                   f"n {cal.get('n')}). Expected move {move:+.2f}, {remaining:.2f} still to come; now {cur:g}, fair {fair:.2f}.")
+        if remaining < MIN_MOVE:
+            pull.LEAN_CAP.add((row["id"], PATTERN))
+            reason += " (Under the pattern's minimum move: lean only.)"
         todo.append((row, fair, reason))
     if dry:
         for row, fair, reason in todo:

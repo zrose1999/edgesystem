@@ -27,6 +27,7 @@ ROOT = Path(__file__).resolve().parent
 MATCHUPS = ROOT / "stats" / "nhl_matchups.json"
 K = {"h2h": 0.10, "total": 0.20}
 PATTERN = {"h2h": "nhl-ml-move", "total": "nhl-total-move"}
+MIN_MOVE = 0.02          # set by Zack 2026-10-14: a smaller expected move still reads, but only as a lean (graded, stackable, never a pick) (probability)
 MIN_GAP = 0.04
 WINDOW_H = 36
 
@@ -78,6 +79,9 @@ def main(dry=False):
             reason = (f"NHL ratings {what} {model:.3f}, open {p0:.3f} (gap {gap:+.3f}). Prices moved {K[market]} x the "
                       f"gap from open to close in the backtest. Expected move {move:+.3f}, {remaining:.3f} still to come; "
                       f"now {p1:.3f}, fair {fair:.3f}.")
+            if remaining < MIN_MOVE:
+                pull.LEAN_CAP.add((row["id"], PATTERN[market]))
+                reason += " (Under the pattern's minimum move: lean only.)"
             todo.append((row, fair, reason, PATTERN[market]))
     if dry:
         for row, fair, reason, pat in todo:

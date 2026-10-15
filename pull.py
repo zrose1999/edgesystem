@@ -619,6 +619,9 @@ def grade_for(edge, bar, confidence):
     return g
 
 
+LEAN_CAP = set()   # (row id, pattern) pairs whose read may be at most a lean: expected move under the pattern's minimum
+
+
 def make_read(a):
     """Stamp a read on one market: the fair number, the market number, the lean, and an A/B/C grade.
     The grade comes from the edge against the bar, never from the analyst:
@@ -668,6 +671,8 @@ def make_read(a):
         fail(f"edge {edge:.2f} {unit} is over 4x the bar. The market is {shown}. For spreads, --fair is the HOME line "
              f"in the same sign as the market ({home} -3 means {home} favored by 3). If the number is right, add --big.")
     grade = grade_for(edge, bar, a.confidence)
+    if (a.id, (a.pattern or "").strip()) in LEAN_CAP and grade in ("A", "B"):
+        grade = "C"                          # expected move under the pattern's minimum: lean only
 
     picks = load(PICKS, {"picks": []})
     kind = {"A": "pick", "B": "pick", "C": "lean", "P": "pass"}[grade]
