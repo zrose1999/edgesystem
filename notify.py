@@ -38,6 +38,17 @@ def send(topic, title, body, tags="", priority="default"):
         return False
 
 
+def soon_ncaaf(ledger, days=8):
+    """Team names (full, as the odds feed spells them) with a college game in the next `days` days."""
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    end = datetime.fromtimestamp(datetime.now(timezone.utc).timestamp() + days * 86400, timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    out = set()
+    for r in ledger.get("rows") or []:
+        if r.get("sport") == "NCAAF" and now < (r.get("commence") or "") <= end:
+            out.update((r.get("home"), r.get("away")))
+    return out
+
+
 def tid(t):
     return f"{t.get('ticker')}|{t.get('side')}|{t.get('time')}"
 
@@ -55,6 +66,8 @@ def main():
         "switch": bool(status.get("liveActive")),
         "patterns": {p["id"]: p.get("status") for p in ledger.get("patterns") or [] if p.get("id")},
         "keyError": (trades.get("account") or {}).get("keys") == "error",
+        "qb": sorted(f"{c['team']}|{c['to']}|{c['at']}" for c in (load(ROOT / "stats" / "cfb_qb.json", {}).get("changes") or [])
+                     if c.get("team") in soon_ncaaf(ledger)),
         "loop": {s: v.get("status") for s, v in (load(ROOT / "stats" / "loop_status.json", {}).get("sports") or {}).items()
                  if v.get("status") not in ("ok", "quiet", "loading history")},
     }
@@ -89,6 +102,11 @@ def main():
             if (before.get("loop") or {}).get(sport) != problem:
                 msgs.append((f"{sport} data problem", f"{sport}: {problem}. The loop check runs every data run; "
                              "this clears on its own once the data catches up.", "warning", "default"))
+        for k in set(now["qb"]) - set(before.get("qb") or []):
+            team, to, _ = k.split("|")
+            c = next(c for c in load(ROOT / "stats" / "cfb_qb.json", {}).get("changes") or [] if c["team"] == team and c["to"] == to)
+            msgs.append((f"College QB: {team}", (f"Listed QB1 changed: {c['from']} -> {c['to']}." if c.get("kind") == "qb1"
+                         else f"QB1 now listed {c['to']}.") + " Source: cfbdepth.com depth chart.", "football", "default"))
         if now["keyError"] and not before.get("keyError"):
             msgs.append(("Kalshi key rejected", "The desk could not use the Kalshi key. Check the GitHub secrets.",
                          "warning", "high"))

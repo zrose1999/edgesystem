@@ -11,7 +11,8 @@ book's prices at both) becomes a training row. Features, all known at the open:
   the opening no-vig price (and line), how far each US book was from Pinnacle at the open, how much the books
   disagreed (spread of their implied probabilities, lines), whether the print book was the best price, hours from
   the open to the start, day of week and hour, the number of books, plus sport extras where the desk has them:
-  tennis surface-Elo gap and fatigue (tennis.py history), CS2 is handled through Kalshi marks separately.
+  tennis surface-Elo gap and fatigue (tennis.py history), college QB depth-chart and starter data (cfb_qb.py), CS2 through
+  Kalshi marks separately.
 Target: the move in Pinnacle's no-vig probability (or line) from the open to the last pre-start snapshot; the print
 book's move when Pinnacle is missing.
 """
@@ -154,19 +155,85 @@ def tennis_extras():
     return ex
 
 
+def cfb_extras():
+    """College QB data points from cfb_qb.py history (CFBDepth depth charts + CFBD box-score starters), per side:
+    QB1 rating and the drop to QB2 at the open; QB1 flagged (questionable/doubtful/out) at the open; QB1 season starts;
+    and what changed between the open and the latest snapshot (QB1 swapped, newly flagged). As-of lookups only."""
+    hist_dir = ROOT / "stats" / "history" / "cfb_qb"
+    if not hist_dir.exists():
+        return None
+    H = defaultdict(list)
+    for f in sorted(hist_dir.glob("*.jsonl")):
+        for line in f.read_text().splitlines():
+            if line.strip():
+                rec = json.loads(line)
+                H[rec["team"]].append(rec)
+    if not H:
+        return None
+
+    def at(team, when):
+        best = None
+        for rec in H.get(team, []):
+            if rec["at"] <= when:
+                best = rec
+            else:
+                break
+        return best
+
+    flagged = lambda rec: 1.0 if rec and rec.get("status") not in (None, "probable") else 0.0
+
+    def ex(r):
+        o, c = r.get("openSnap") or {}, r.get("lastSnap") or {}
+        t0, t1 = o.get("time"), c.get("time") or o.get("time")
+        out = {}
+        for side, team in (("h", r.get("home")), ("a", r.get("away"))):
+            a0, a1 = at(team, t0 or ""), at(team, t1 or "")
+            if not a0 and not a1:
+                continue
+            base = a0 or a1
+            if base.get("r1") is not None:
+                out[f"{side}_qb_r1"] = base["r1"]
+                if base.get("r2") is not None:
+                    out[f"{side}_qb_drop"] = base["r1"] - base["r2"]
+            out[f"{side}_qb_flag"] = flagged(a0)
+            if base.get("starts") is not None:
+                out[f"{side}_qb_starts"] = float(base["starts"])
+            if a0 and a1:
+                out[f"{side}_qb_swapped"] = 1.0 if a0["qb1"] != a1["qb1"] else 0.0
+                out[f"{side}_qb_newflag"] = 1.0 if flagged(a1) and not flagged(a0) else 0.0
+                if a0["qb1"] != a1["qb1"] and a0.get("r1") is not None and a1.get("r1") is not None:
+                    out[f"{side}_qb_r1_change"] = a1["r1"] - a0["r1"]
+        if "h_qb_r1" in out and "a_qb_r1" in out:
+            out["d_qb_r1"] = out["h_qb_r1"] - out["a_qb_r1"]
+        return out
+    return ex
+
+
+def extras_for(sport, market, cache={}):
+    """The sport-specific data-point function for a row, built once per process."""
+    if sport in ("ATP", "WTA") and market == "h2h":
+        if "tennis" not in cache:
+            cache["tennis"] = tennis_extras()
+        return cache["tennis"]
+    if sport == "NCAAF":
+        if "cfb" not in cache:
+            cache["cfb"] = cfb_extras()
+        return cache["cfb"]
+    return None
+
+
 def build():
     rows = all_rows()
     groups = defaultdict(list)
-    tex = tennis_extras()
     for r in rows:
         y = target(r)
         if y is None:
             continue
-        ex = tex if r.get("sport") in ("ATP", "WTA") and r.get("market") == "h2h" else None
+        ex = extras_for(r.get("sport"), r.get("market"))
         f = row_features(r, ex)
         if f is None:
             continue
-        if ex and "elo_home" in f and "open_prob" in f:
+        if "elo_home" in f and "open_prob" in f:
             f["elo_gap"] = f["elo_home"] - f["open_prob"]
         groups[(r["sport"], r["market"])].append({"id": r["id"], "date": r["commence"], "f": f, "y": y})
     # CS2 (and any sport) on Kalshi: first-seen vs last pre-start mid, with the CS2 model's view at first sight.

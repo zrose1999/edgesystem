@@ -43,7 +43,7 @@ STRATEGIES = {
 }
 SOURCES = {
     "NFL": ["stats/injuries.json", "stats/nfl_depth.json", "stats/nfl_matchups.json"],
-    "NCAAF": ["stats/ncaaf_matchups.json", "stats/ncaaf_games.json"],
+    "NCAAF": ["stats/ncaaf_matchups.json", "stats/ncaaf_games.json", "stats/cfb_qb.json"],
     "NBA": ["stats/injuries_nba.json", "stats/nba_player_values.json", "stats/nba_matchups.json"],
     "NHL": ["stats/nhl_goalies.json", "stats/nhl_games.json"],
     "EPL": ["stats/epl_games.json", "stats/soccer_form.json"],

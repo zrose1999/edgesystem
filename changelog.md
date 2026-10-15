@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-10-14: College QB watch (cfb_qb.py, free): CFBDepth depth charts for 137 of 138 FBS teams (QB1, backup, ratings, status flags) plus CFBD box-score starters; history feeds the NCAAF archive learner; QB1 changes alert the phone. First read: 12 QB1s flagged (e.g. Oregon's Dante Moore out, Illinois' Katin Houser out).
 - 2026-10-14: Minimum expected move for picks (Zack): rest-spot 0.75 pt, college moves 1 pt, NHL moves 2%, soccer-drift 1.5%. Smaller moves still read as leans (graded, stackable), never picks.
 - 2026-10-14: NFL stats-model switched off (Zack). Backtest lost to the close; 28 live picks stay in the record and keep grading.
 - 2026-10-15: Learning engine (learner.py, learn_live.py, features_nhl.py, features_soccer.py): per sport and market, a fixed walk-forward procedure learns which data points predict the open-to-close move; models go live only through an out-of-sample gate and are retrained monthly. NHL ML (t 6.1) and totals (t 10.0), soccer home/away/draw/over (t 10-20) pass. Learned reads are priced at the best US book price. Every prediction is logged for a live out-of-sample check. model_ncaaf.py: teams need 8+ rated games (an FCS opponent gave a 13-point gap); 2 such reads removed. The 5 first learned NHL reads (priced at DraftKings only) were replaced by line-shopped ones.

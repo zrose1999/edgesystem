@@ -391,7 +391,6 @@ def archive_reads(rows, now, done):
     if not targets:
         return [], []
     import features_archive as FA
-    tex = FA.tennis_extras()
     reads, direct = [], []
     horizon = pull.iso(now + timedelta(hours=WINDOW_H))
     for name in targets:
@@ -405,7 +404,7 @@ def archive_reads(rows, now, done):
                 continue
             if not r.get("commence") or not (pull.iso(now) < r["commence"] <= horizon) or not r.get("openSnap") or not r.get("lastSnap"):
                 continue
-            f = FA.row_features(r, tex if r["sport"] in ("ATP", "WTA") and market == "h2h" else None)
+            f = FA.row_features(r, FA.extras_for(r["sport"], market))
             if not f:
                 continue
             if "elo_home" in f and "open_prob" in f:
