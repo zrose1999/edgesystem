@@ -34,6 +34,7 @@ API = "https://api.pandascore.co"
 START, K, K_NEW, NEW_MAPS = 1500.0, 24.0, 40.0, 15
 IDLE_DAYS, IDLE_PULL = 60, 0.3
 BACKFILL_DAYS = 400
+CALIBRATION = 0.80             # stats/backtest_cs2.md: 84% raw won 77%, 75% won 70%, 65% won 62%
 MAX_PAGES = 60                 # per run; the free plan allows 1,000 requests an hour
 
 
@@ -223,6 +224,7 @@ def main():
                 if min(R.n.get(a["id"], 0), R.n.get(b["id"], 0)) < 10:
                     continue                      # too few maps to rate
                 p = series_prob(map_prob(R.get(a["id"], s["begin"]), R.get(b["id"], s["begin"])), s["bestOf"])
+                p = 0.5 + CALIBRATION * (p - 0.5)     # walk-forward backtest: raw ratings are overconfident
                 upcoming.append({"id": s["id"], "begin": s["begin"], "bestOf": s["bestOf"], "tier": s["tier"],
                                  "league": s["league"], "a": a, "b": b, "pA": round(p, 4),
                                  "mapsA": R.n.get(a["id"], 0), "mapsB": R.n.get(b["id"], 0)})
