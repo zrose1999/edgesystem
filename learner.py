@@ -33,6 +33,9 @@ MODELS = ROOT / "stats" / "models"
 TARGETS = {
     "nhl_ml": {"file": "stats/features/nhl_history.json", "y": "y_ml", "unit": "prob"},
     "nhl_over": {"file": "stats/features/nhl_history.json", "y": "y_over", "unit": "prob"},
+    "nba_spread": {"file": "stats/features/nba_history.json", "y": "y_spread", "unit": "points"},
+    "nba_total": {"file": "stats/features/nba_history.json", "y": "y_total", "unit": "points"},
+    "nba_ml": {"file": "stats/features/nba_history.json", "y": "y_ml", "unit": "prob"},
     "soccer_home": {"file": "stats/features/soccer_history.json", "y": "y_home", "unit": "prob"},
     "soccer_away": {"file": "stats/features/soccer_history.json", "y": "y_away", "unit": "prob"},
     "soccer_draw": {"file": "stats/features/soccer_history.json", "y": "y_draw", "unit": "prob"},

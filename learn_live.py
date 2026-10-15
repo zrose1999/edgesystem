@@ -328,6 +328,63 @@ def soccer_reads(rows, now, done):
     return reads, direct
 
 
+def nba_reads(rows, now, done):
+    """NBA: learned models on spread/total (points) and moneyline (prob); only those that passed the gate."""
+    models = {k: load_model(f"nba_{k}") for k in ("spread", "total", "ml")}
+    if not any(models.values()):
+        return []
+    import features_nba as FB
+    g = pull.load(ROOT / "stats" / "nba_games.json", {}).get("games") or {}
+    games = sorted([x for x in (g.values() if isinstance(g, dict) else g) if x.get("final")], key=lambda x: x["date"])
+    book = FB.Book()
+    for x in games:
+        book.add(x)
+    mt = {x["event"]: x for x in (pull.load(ROOT / "stats" / "nba_matchups.json", {}).get("games") or [])}
+    horizon = pull.iso(now + timedelta(hours=WINDOW_H))
+    by_game = defaultdict(dict)
+    for r in rows:
+        if r.get("sport") == "NBA" and r.get("commence") and pull.iso(now) < r["commence"] <= horizon:
+            by_game[(r["home"], r["away"], r["commence"])][r["market"]] = r
+    out = []
+    for (home, away, when), mk in by_game.items():
+        sp, tt, ml = mk.get("spread"), mk.get("total"), mk.get("h2h")
+        if not sp or not sp.get("openSnap"):
+            continue
+        so = sp["openSnap"].get("line")
+        to = (tt or {}).get("openSnap", {}).get("line") if tt else None
+        mo = fairlib.probs(ml["openSnap"], ["home", "away"])["home"] if ml and ml.get("openSnap") and "home" in ml["openSnap"] else None
+        raw = (mt.get(sp.get("event")) or {}).get("raw") or {}
+        f = FB.game_features(book, home, away, when, so, to, mo, raw.get("margin"), raw.get("total"))
+        for name, row in (("spread", sp), ("total", tt), ("ml", ml)):
+            m, pat = models[name], f"learned-nba-{name}"
+            if not m or not row or not row.get("lastSnap") or (row["id"], pat) in done:
+                continue
+            pred = predict(m, f)
+            LOG.append({"target": f"nba_{name}", "rowId": row["id"], "pred": round(pred, 5),
+                        "open": (so if name == "spread" else to if name == "total" else mo), "top": abs(pred - m["center"]) >= m["threshold"],
+                        "at": pull.iso(now), "book": "print"})
+            if abs(pred - m["center"]) < m["threshold"]:
+                continue
+            if name == "ml":
+                cur = fairlib.probs(row["lastSnap"], ["home", "away"])["home"]
+                start = mo
+            else:
+                cur, start = row["lastSnap"].get("line"), row["openSnap"].get("line")
+            if cur is None or start is None:
+                continue
+            moved = cur - start
+            already = max(0.0, moved / pred) * abs(pred) if pred else 0.0
+            remaining = max(0.0, abs(pred) - already)
+            if remaining < (0.003 if name == "ml" else 0.15):
+                continue
+            fair = cur + (remaining if pred > 0 else -remaining)
+            why = (f"Learned NBA model ({m['kind']}, {len(m['keys'])} data points) predicts the {name} moves {pred:+.2f} "
+                   f"from the open; open {start}, now {cur}, {remaining:.2f} still to come. Fair {fair:.2f}. "
+                   f"Report: stats/models/nba_{name}.json.")
+            out.append((row, fair, pat, why))
+    return out
+
+
 def main(dry=False):
     now = datetime.now(timezone.utc)
     rows = pull.load(pull.LEDGER, {"rows": []}).get("rows") or []
@@ -335,6 +392,7 @@ def main(dry=False):
     done = {(p.get("rowId"), p.get("pattern")) for p in picks}
     todo = nhl_reads(rows, now, done)
     done3 = {(p.get("rowId"), p.get("pattern"), p.get("side")) for p in picks} | {(r, pt, None) for r, pt in done}
+    todo += nba_reads(rows, now, done)
     s_reads, s_direct = soccer_reads(rows, now, done3)
     todo += s_reads
     s_direct = DIRECT + s_direct
