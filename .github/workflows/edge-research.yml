@@ -8,7 +8,7 @@ on:
       study:
         description: "Which study"
         type: choice
-        options: [tennis]
+        options: [tennis, ncaaf]
         default: tennis
 
 permissions:
@@ -29,15 +29,21 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - run: pip install -q openpyxl
+      - run: pip install -q openpyxl numpy
       - name: Tennis surface Elo vs Pinnacle
         if: inputs.study == 'tennis'
         run: python tennis_backtest.py
+      - name: College football spots (CFBD)
+        if: inputs.study == 'ncaaf'
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: python ncaaf_research.py
+
       - name: Push report to branch data
         run: |
           git config user.name "EDGE"
           git config user.email "edge@edgesystem.local"
-          git add stats/backtest_tennis.md stats/backtest_tennis.json 2>/dev/null || true
+          git add stats/backtest_tennis.md stats/backtest_tennis.json stats/backtest_ncaaf_spots.md stats/backtest_ncaaf_spots.json 2>/dev/null || true
           if git diff --cached --quiet; then echo "No changes."; exit 0; fi
           git commit -q -m "EDGE: research report"
           for i in 1 2 3; do
