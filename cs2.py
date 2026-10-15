@@ -79,7 +79,18 @@ def slim(m):
     return {"id": m["id"], "begin": m.get("begin_at") or m.get("scheduled_at"), "bestOf": m.get("number_of_games"),
             "teams": [{"id": o.get("id"), "name": o.get("name"), "acronym": o.get("acronym")} for o in opp],
             "winner": m.get("winner_id"), "forfeit": bool(m.get("forfeit")), "games": sorted(games, key=lambda g: g["pos"] or 0),
-            "tier": (m.get("tournament") or {}).get("tier"), "league": (m.get("league") or {}).get("name")}
+            "tier": (m.get("tournament") or {}).get("tier"), "league": (m.get("league") or {}).get("name"),
+            "score": {str(r.get("team_id")): r.get("score") for r in m.get("results") or []}}
+
+
+def save_sample(token):
+    """A few raw matches, so what the PandaScore plan returns can be checked (stats/cs2_sample.json)."""
+    try:
+        past = get("/csgo/matches/past", {"sort": "-begin_at", "per_page": 5, "filter[tier]": "s,a"}, token)
+        up = get("/csgo/matches/upcoming", {"sort": "begin_at", "per_page": 3}, token)
+        save(ROOT / "stats" / "cs2_sample.json", {"pastTopTier": past, "upcoming": up})
+    except Exception as exc:  # noqa: BLE001
+        save(ROOT / "stats" / "cs2_sample.json", {"error": str(exc)})
 
 
 def update_history(hist, token, now):
@@ -174,6 +185,7 @@ def main():
         print(json.dumps({"cs2": f"history: {exc}"}))
         added = 0
     save(HIST, hist)
+    save_sample(token)
     R, _ = run_model(hist["matches"])
     upcoming = []
     try:
