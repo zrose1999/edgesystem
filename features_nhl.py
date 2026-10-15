@@ -74,7 +74,9 @@ KEEP = ["xGoalsFor", "xGoalsAgainst", "goalsFor", "goalsAgainst", "shotsOnGoalFo
 
 def refresh_team_games(min_season=2023):
     out = {}
+    import time
     for t in ABBR:
+        time.sleep(1)
         try:
             text = get(MP_TEAM.format(t=t), as_json=False)
         except Exception as exc:  # noqa: BLE001
@@ -103,7 +105,9 @@ def refresh_team_games(min_season=2023):
 
 def refresh_goalies(years):
     out = {}
+    import time
     for y in years:
+        time.sleep(3)                     # MoneyPuck rate-limits bursts
         try:
             text = get(MP_GOALIE.format(y=y), as_json=False)
         except Exception as exc:  # noqa: BLE001
