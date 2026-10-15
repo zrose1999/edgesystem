@@ -22,12 +22,18 @@ import pull
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "stats" / "loop_status.json"
 ARCH = ROOT / "ledger" / "archive"
+_AT = Path(__file__).resolve().parent / "stats" / "features" / "archive_targets.json"
+ARCHIVE_MODELS = {}
+for _n in (json.loads(_AT.read_text()) if _AT.exists() else {}):
+    _sp, _mk = _n[len("archive_"):].rsplit("_", 1)
+    ARCHIVE_MODELS.setdefault(_sp, []).append(f"learned-archive-{_sp}-{_mk}")
+
 SPORTS = ["NFL", "NCAAF", "NBA", "NHL", "EPL", "UCL", "UEL", "LaLiga", "SerieA", "Bundesliga", "Ligue1", "MLS",
           "ATP", "WTA"]
 STRATEGIES = {
     "NFL": ["news-lag", "wind-total", "stats-model", "trend-fade", "sharp-soft", "sharp-soft-alt", "edge-stack"],
     "NCAAF": ["ncaaf-total-move", "ncaaf-spot", "wind-total", "sharp-soft", "sharp-soft-alt", "sharp-drift", "edge-stack"],
-    "NBA": ["news-lag", "rest-spot", "nba-stats-model", "nba-model-fav", "sharp-soft", "sharp-soft-alt", "edge-stack"],
+    "NBA": ["learned-nba-total", "news-lag", "rest-spot", "nba-stats-model", "nba-model-fav", "sharp-soft", "sharp-soft-alt", "edge-stack"],
     "NHL": ["learned-nhl-ml", "learned-nhl-over", "goalie-news", "nhl-ml-move", "nhl-total-move", "sharp-soft", "sharp-drift", "edge-stack"],
     "ATP": ["tennis-elo", "tennis-fatigue", "sharp-soft", "edge-stack"],
     "WTA": ["tennis-elo", "tennis-fatigue", "sharp-soft", "edge-stack"],
@@ -109,7 +115,7 @@ def main():
             "picksNeedingClose": len(need_close), "closed": closed,
             "picks7d": dict(recent), "graded": graded,
             "history": len(rs) + arch.get(sport, 0),
-            "strategies": STRATEGIES.get(sport, ["sharp-soft", "kalshi-sharp"]),
+            "strategies": STRATEGIES.get(sport, ["sharp-soft", "kalshi-sharp"]) + ARCHIVE_MODELS.get(sport.lower(), []),
             "sources": {s: as_of(s) for s in SOURCES.get(sport, [])},
         }
     cs2 = pull.load(ROOT / "stats" / "cs2_ratings.json", {})
