@@ -161,3 +161,10 @@ Free sources only. CFBDepth (cfbdepth.com) depth charts for all FBS teams, read 
 
 ## Promotion rule (Zack, 2026-10-15)
 A pattern goes official on graded full-bar picks with mean CLV above 0 and a t-stat that clears its stage: 15-19 picks t >= 2.5, 20+ picks t >= 2.0. Learned models that passed the learner's out-of-sample gate take the fast track: 15+ picks, t >= 2.0. Retirement is unchanged (30+ picks, mean CLV at or below 0). Simulation (100,000 patterns, fat-tailed CLV, the grader rechecking after every pick): the old rule (30 picks, t >= 1.5) promoted a pattern with no edge 22% of the time over 100 picks; this rule does 12-13%, and a strong edge goes official around pick 18-20 instead of 30. Weak real edges take a little longer than before.
+
+
+### learned-ncaaf-spread and learned-ncaaf-total (features_ncaaf.py, CFBD history, free)
+330 pre-game data points per college game from CollegeFootballData (2016-2026, 2020 skipped; 5,142 games with opening and closing lines): scoring windows, results against the closing number, per-game EPA/success rate/explosiveness/line yards for offense and defense, Elo and the gap between Elo and the open, rest, conference and power-conference flags, week. Both passed the gate: spread t 13.0, 5 of 5 blocks, +1.45 points of line move on its top calls (926 out-of-sample trades); total t 6.4, 5 of 5 blocks, +0.55 points (650 trades). Strongest data points: Elo vs the open, recent results against the spread, season success rate; for totals, FBS/FCS opponent, defensive EPA, pace (plays). Live window 7 days. Current season refreshed from CFBD every ~2 days.
+
+### learned-nfl-* (features_nfl.py; not yet past the gate)
+nflverse closes (free) plus opening lines backfilled from the Odds API, one early-week snapshot per week (backfill_nfl.py, 30 credits per week). 2025 season loaded (285 games); spread t 1.9, 2 of 5 blocks: fails. 2024 is planned after the credit reset; the gate decides again then.

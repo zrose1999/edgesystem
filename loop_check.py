@@ -32,7 +32,7 @@ SPORTS = ["NFL", "NCAAF", "NBA", "NHL", "EPL", "UCL", "UEL", "LaLiga", "SerieA",
           "ATP", "WTA"]
 STRATEGIES = {
     "NFL": ["news-lag", "wind-total", "trend-fade", "sharp-soft", "sharp-soft-alt", "edge-stack"],
-    "NCAAF": ["ncaaf-total-move", "ncaaf-spot", "wind-total", "sharp-soft", "sharp-soft-alt", "sharp-drift", "edge-stack"],
+    "NCAAF": ["learned-ncaaf-spread", "learned-ncaaf-total", "ncaaf-total-move", "ncaaf-spot", "wind-total", "sharp-soft", "sharp-soft-alt", "sharp-drift", "edge-stack"],
     "NBA": ["learned-nba-total", "news-lag", "rest-spot", "nba-stats-model", "nba-model-fav", "sharp-soft", "sharp-soft-alt", "edge-stack"],
     "NHL": ["learned-nhl-ml", "learned-nhl-over", "goalie-news", "nhl-ml-move", "nhl-total-move", "sharp-soft", "sharp-drift", "edge-stack"],
     "ATP": ["tennis-elo", "tennis-fatigue", "sharp-soft", "edge-stack"],
