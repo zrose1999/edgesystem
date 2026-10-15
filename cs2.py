@@ -88,13 +88,20 @@ def save_sample(token):
     """A few raw matches, so what the PandaScore plan returns can be checked (stats/cs2_sample.json)."""
     try:
         out = {}
-        for name, path, params in (("past", "/csgo/matches/past", {"sort": "-begin_at", "per_page": 4}),
+        for name, path, params in (("page1", "/csgo/matches/past", {"filter%5Bstatus%5D": "finished", "sort": "-begin_at",
+                                                                     "per_page": 100, "page": 1}),
+                                   ("page2", "/csgo/matches/past", {"filter%5Bstatus%5D": "finished", "sort": "-begin_at",
+                                                                     "per_page": 100, "page": 2}),
                                    ("furia", "/csgo/matches/past", {"search%5Bname%5D": "FURIA", "per_page": 3}),
                                    ("upcoming", "/csgo/matches/upcoming", {"sort": "begin_at", "per_page": 5})):
             try:
                 out[name] = get(path, params, token)
             except Exception as exc:  # noqa: BLE001
                 out[name] = {"error": str(exc)}
+        for k in ("page1", "page2"):
+            if isinstance(out.get(k), list):
+                out[k] = [{"id": m.get("id"), "begin": m.get("begin_at"), "end": m.get("end_at"), "status": m.get("status"),
+                           "tier": (m.get("tournament") or {}).get("tier"), "name": m.get("name")} for m in out[k]]
         save(ROOT / "stats" / "cs2_sample.json", out)
     except Exception as exc:  # noqa: BLE001
         save(ROOT / "stats" / "cs2_sample.json", {"error": str(exc)})
