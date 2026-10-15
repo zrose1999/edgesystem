@@ -10,7 +10,12 @@ What it measures, per pick:
 
 Patterns (named ideas in patterns.md) move on evidence only:
   shadow   default. Tracked, no money.
-  official n >= OFFICIAL_N graded FULL-BAR picks, mean clvProb > 0, and t-stat >= T_MIN.
+  official graded FULL-BAR picks with mean clvProb > 0 and a t-stat that clears the stage it is at (Zack, 2026-10-15):
+             15-19 picks t >= 2.5, 20+ picks t >= 2.0.
+           Fast track for learned models that passed the learner's out-of-sample gate (their stats/models report says
+           live): 15+ picks, t >= 2.0.
+           Why these numbers: the old rule (30 picks, t >= 1.5, rechecked every run) promoted a no-edge pattern 22% of
+           the time over 100 picks in simulation; these promote one 12-13% of the time, and a strong edge sooner.
   retire   n >= OFFICIAL_N and mean clvProb <= 0. Retired patterns cannot take new picks.
 Win rate is shown but never promotes a pattern. Results are noise long before CLV is.
 
@@ -30,8 +35,35 @@ LEDGER = ROOT / "ledger" / "ledger.json"
 PICKS = ROOT / "ledger" / "picks.json"
 SCORE = ROOT / "score.json"
 
-OFFICIAL_N = int(os.environ.get("EDGE_OFFICIAL_N", "30"))
-T_MIN = float(os.environ.get("EDGE_T_MIN", "1.5"))
+OFFICIAL_N = int(os.environ.get("EDGE_OFFICIAL_N", "30"))     # retirement sample
+STAGES = [(15, 2.5), (20, 2.0)]          # (picks at least, t at least); the last stage that applies is used
+FAST_TRACK = [(15, 2.0)]                 # learned models that passed the out-of-sample gate
+MODELS = ROOT / "stats" / "models"
+
+
+def gate_passed(pattern):
+    """True when a learned pattern's model passed the learner's walk-forward gate (report says live)."""
+    if not (pattern or "").startswith("learned-"):
+        return False
+    base = pattern[len("learned-"):].replace("-", "_")
+    names = ["soccer_home", "soccer_away", "soccer_draw"] if base == "soccer_1x2" else [base]
+    for nm in names:
+        f = MODELS / f"{nm}.json"
+        if f.exists():
+            try:
+                if json.loads(f.read_text()).get("live"):
+                    return True
+            except ValueError:
+                pass
+    return False
+
+
+def stage_t(n, fast):
+    need = None
+    for k, t in (FAST_TRACK if fast else STAGES):
+        if n >= k:
+            need = t
+    return need
 
 # Rough win-probability value of one point of line, used only when the line moved.
 # Flagged as estimated on the pick. Near NFL key numbers 3 and 7 the true value is higher.
@@ -168,7 +200,9 @@ def main():
         n = len(graded)
         mean = sum(graded) / n if n else 0.0
         t = tstat(graded)
-        if n >= OFFICIAL_N and mean > 0 and t >= T_MIN:
+        fast = gate_passed(name)
+        need = stage_t(n, fast)
+        if need is not None and mean > 0 and t >= need:
             status = "official"
         elif n >= OFFICIAL_N and mean <= 0:
             status = "retire"
@@ -182,7 +216,12 @@ def main():
             "wins": sum(1 for p in settled if p["result"] == "win"),
             "losses": sum(1 for p in settled if p["result"] == "loss"),
             "flatUnits": round(sum(p.get("units", 0) for p in group), 2),
-            "note": f"Promotion needs {OFFICIAL_N} graded full-bar picks, mean CLV above 0, t at least {T_MIN}. Win rate never promotes.",
+            "track": "fast" if fast else "standard",
+            "tNeeded": need if need is not None else (FAST_TRACK if fast else STAGES)[0][1],
+            "nNeeded": max(0, (FAST_TRACK if fast else STAGES)[0][0] - n),
+            "note": ("Fast track (model passed the out-of-sample gate): 15+ graded full-bar picks, mean CLV above 0, t at least 2.0."
+                     if fast else "Promotion: graded full-bar picks with mean CLV above 0; t at least 2.5 at 15-19 picks, "
+                     "2.0 at 20+. Win rate never promotes."),
         })
 
     clv_all = [p["clvProb"] for p in real if "clvProb" in p]
