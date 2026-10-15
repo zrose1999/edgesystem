@@ -512,6 +512,7 @@ def snapshot(book, now):
 
 QUOTES = {}
 SPORT_OF = {}
+CS2_FAIR = {}
 _nhl = pull.load(ROOT / "stats" / "nhl_games.json", {}).get("games") or {}
 NHL_GAMES = list(_nhl.values()) if isinstance(_nhl, dict) else _nhl
 CS2_SERIES = "KXCS2GAME"
@@ -579,6 +580,8 @@ def cs2_candidates(cfg, now):
         if max(sa, sb) < 0.75 or abs(sa - sb) < 0.25:
             continue
         yes_fair = u["pA"] if sa > sb else 1 - u["pA"]
+        CS2_FAIR[m["ticker"]] = {"model": round(yes_fair, 4), "bestOf": u.get("bestOf"), "tier": u.get("tier"),
+                                 "maps": min(u.get("mapsA") or 0, u.get("mapsB") or 0)}
         for side, ask in (("yes", f(m.get("yes_ask_dollars"))), ("no", f(m.get("no_ask_dollars")))):
             if ask is None or not (cfg["priceBand"][0] <= ask <= cfg["priceBand"][1]):
                 continue
@@ -617,6 +620,8 @@ def record_marks(now, sports_of):
         rec = marks.setdefault(tk, {"event": m.get("event_ticker"), "title": m.get("title"), "start": close_t,
                                     "sport": sports_of.get(m.get("event_ticker")), "open": mid, "openT": t})
         rec.update(last=mid, lastT=t)
+        if tk in CS2_FAIR and "model" not in rec:
+            rec.update(CS2_FAIR[tk])            # the model's view at first sight, for CS2's own learned model
     keep, old = {}, {}
     for tk, rec in marks.items():
         if (rec.get("start") or t) < iso(now - timedelta(days=3)):

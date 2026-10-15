@@ -385,6 +385,64 @@ def nba_reads(rows, now, done):
     return out
 
 
+def archive_reads(rows, now, done):
+    """Models learned from EDGE's own archive (features_archive.py): any sport/market that passed the gate."""
+    targets = pull.load(ROOT / "stats" / "features" / "archive_targets.json", {})
+    if not targets:
+        return [], []
+    import features_archive as FA
+    tex = FA.tennis_extras()
+    reads, direct = [], []
+    horizon = pull.iso(now + timedelta(hours=WINDOW_H))
+    for name in targets:
+        m = load_model(name)
+        if not m:
+            continue
+        sport_l, market = name[len("archive_"):].rsplit("_", 1)
+        pat = "learned-" + name.replace("_", "-")
+        for r in rows:
+            if (r.get("sport") or "").lower() != sport_l or r.get("market") != market or (r.get("id"), pat) in done:
+                continue
+            if not r.get("commence") or not (pull.iso(now) < r["commence"] <= horizon) or not r.get("openSnap") or not r.get("lastSnap"):
+                continue
+            f = FA.row_features(r, tex if r["sport"] in ("ATP", "WTA") and market == "h2h" else None)
+            if not f:
+                continue
+            if "elo_home" in f and "open_prob" in f:
+                f["elo_gap"] = f["elo_home"] - f["open_prob"]
+            pred = predict(m, f)
+            LOG.append({"target": name, "rowId": r["id"], "pred": round(pred, 5), "open": f.get("open_prob", f.get("open_line")),
+                        "top": abs(pred - m["center"]) >= m["threshold"], "at": pull.iso(now), "book": "pinnacle"})
+            if abs(pred - m["center"]) < m["threshold"]:
+                continue
+            why = (f"Model learned from EDGE's own {r['sport']} {market} history ({m['kind']}, {len(m['keys'])} data points) "
+                   f"predicts a move of {pred:+.3f} from the open. Report: stats/models/{name}.json.")
+            if m.get("unit") == "points":
+                cur, start = r["lastSnap"].get("line"), r["openSnap"].get("line")
+                if cur is None or start is None:
+                    continue
+                remaining = max(0.0, abs(pred) - max(0.0, (cur - start) / pred) * abs(pred)) if pred else 0.0
+                if remaining >= 0.15:
+                    reads.append((r, cur + (remaining if pred > 0 else -remaining), pat, why))
+            else:
+                keys = FA.side_keys(r)
+                cur = fairlib.probs(r["lastSnap"], keys)[keys[0]] if all(k in r["lastSnap"] for k in keys) else None
+                if cur is None:
+                    continue
+                start = f.get("open_prob", cur)
+                remaining = max(0.0, abs(pred) - max(0.0, (cur - start) / pred) * abs(pred)) if pred else 0.0
+                if remaining < 0.003:
+                    continue
+                fair1 = min(max(cur + (remaining if pred > 0 else -remaining), 0.02), 0.98)
+                side = keys[0] if pred > 0 else keys[1]
+                if len(keys) == 3 and side == keys[1]:
+                    continue                    # three-way: only the side the model expects to gain
+                e = direct_entry(r, side, fair1 if side == keys[0] else 1 - fair1, pat, why, now)
+                if e:
+                    direct.append(e)
+    return reads, direct
+
+
 def main(dry=False):
     now = datetime.now(timezone.utc)
     rows = pull.load(pull.LEDGER, {"rows": []}).get("rows") or []
@@ -394,8 +452,9 @@ def main(dry=False):
     done3 = {(p.get("rowId"), p.get("pattern"), p.get("side")) for p in picks} | {(r, pt, None) for r, pt in done}
     todo += nba_reads(rows, now, done)
     s_reads, s_direct = soccer_reads(rows, now, done3)
-    todo += s_reads
-    s_direct = DIRECT + s_direct
+    a_reads, a_direct = archive_reads(rows, now, done)
+    todo += s_reads + a_reads
+    s_direct = DIRECT + s_direct + a_direct
     if dry:
         for row, fair, pat, why in todo:
             print(f"WOULD READ {pat} {row['id']} | {why}")
