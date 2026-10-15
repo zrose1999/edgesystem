@@ -28,10 +28,10 @@ STRATEGIES = {
     "NFL": ["news-lag", "wind-total", "stats-model", "trend-fade", "sharp-soft", "sharp-soft-alt", "edge-stack"],
     "NCAAF": ["ncaaf-total-move", "ncaaf-spot", "wind-total", "sharp-soft", "sharp-soft-alt", "sharp-drift", "edge-stack"],
     "NBA": ["news-lag", "rest-spot", "nba-stats-model", "nba-model-fav", "sharp-soft", "sharp-soft-alt", "edge-stack"],
-    "NHL": ["goalie-news", "nhl-ml-move", "nhl-total-move", "sharp-soft", "sharp-drift", "edge-stack"],
+    "NHL": ["learned-nhl-ml", "learned-nhl-over", "goalie-news", "nhl-ml-move", "nhl-total-move", "sharp-soft", "sharp-drift", "edge-stack"],
     "ATP": ["tennis-elo", "tennis-fatigue", "sharp-soft", "edge-stack"],
     "WTA": ["tennis-elo", "tennis-fatigue", "sharp-soft", "edge-stack"],
-    **{lg: ["sharp-drift (form, luck, draw and under drift)", "sharp-soft", "kalshi-drift"]
+    **{lg: ["learned-soccer-1x2", "learned-soccer-over", "soccer-drift", "sharp-drift", "sharp-soft", "kalshi-drift"]
        for lg in ("EPL", "LaLiga", "SerieA", "Bundesliga", "Ligue1")},
     **{lg: ["sharp-soft", "kalshi-sharp"] for lg in ("UCL", "UEL", "MLS")},
 }
