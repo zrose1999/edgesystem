@@ -73,6 +73,7 @@ jobs:
           python model_ncaaf.py || echo "::warning::model_ncaaf.py failed; continuing"
           python soccer_form.py || echo "::warning::soccer_form.py failed; continuing"
           python features_nhl.py refresh || echo "::warning::features_nhl.py refresh failed; continuing"
+          python features_ncaaf.py refresh || echo "::warning::features_ncaaf.py refresh failed; continuing"
           python discover.py || echo "::warning::discover.py failed; continuing"
 
       - name: Sharp vs soft scan

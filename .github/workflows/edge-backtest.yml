@@ -32,11 +32,16 @@ jobs:
       - run: python tennis.py --backtest || true
       - run: python discover.py || true
       - name: Retrain the learned models (rebuilt feature stores, walk-forward gate)
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: |
           python features_nhl.py refresh || true
           python features_nhl.py history
           python features_soccer.py history
           python features_nba.py history
+          CFBD_API_KEY="$CFBD_API_KEY" python features_ncaaf.py refresh || true
+          python features_ncaaf.py history
+          python features_nfl.py history
           python features_archive.py
           python learner.py all
           python learner.py live || true
@@ -44,7 +49,7 @@ jobs:
         run: |
           git config user.name "EDGE"
           git config user.email "edge@edgesystem.local"
-          git add stats/backtest_nfl*.json stats/backtest_nfl*.md stats/backtest_nba*.json stats/backtest_nba*.md stats/backtest_cs2.md stats/backtest_tennis.md stats/discovery.md stats/discovery.json stats/models stats/features/nhl_team_games.json stats/features/nhl_goalie_seasons.json stats/features/nhl_starters.json stats/features/archive_targets.json
+          git add stats/backtest_nfl*.json stats/backtest_nfl*.md stats/backtest_nba*.json stats/backtest_nba*.md stats/backtest_cs2.md stats/backtest_tennis.md stats/discovery.md stats/discovery.json stats/models stats/features/nhl_team_games.json stats/features/nhl_goalie_seasons.json stats/features/nhl_starters.json stats/features/archive_targets.json stats/history/ncaaf
           if git diff --cached --quiet; then echo "No changes."; exit 0; fi
           git commit -q -m "EDGE: backtest refresh"
           for i in 1 2 3; do

@@ -1,4 +1,4 @@
-# EDGE research. One-off studies that need sites this workspace cannot reach. Manual only, never trades.
+# EDGE research. One-off studies and backfills that need keys or sites this workspace cannot reach. Manual only, never trades.
 # Writes reports to stats/ on branch data.
 name: EDGE research
 
@@ -8,7 +8,7 @@ on:
       study:
         description: "Which study"
         type: choice
-        options: [tennis, ncaaf]
+        options: [tennis, ncaaf, nfl-test, nfl-backfill, models-nfl-ncaaf]
         default: tennis
 
 permissions:
@@ -28,8 +28,8 @@ jobs:
           ref: data
       - uses: actions/setup-python@v6
         with:
-          python-version: "3.12"
-      - run: pip install -q openpyxl numpy
+          python-version: "3.13"
+      - run: pip install -q openpyxl numpy==2.5.3 scikit-learn==1.9.1
       - name: Tennis surface Elo vs Pinnacle
         if: inputs.study == 'tennis'
         run: python tennis_backtest.py
@@ -38,12 +38,33 @@ jobs:
         env:
           CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
         run: python ncaaf_research.py
+      - name: NFL opening-line backfill, one test snapshot (30 credits)
+        if: inputs.study == 'nfl-test'
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python backfill_nfl.py --test
+      - name: NFL opening-line backfill, 2024 and 2025 seasons (~1,300 credits)
+        if: inputs.study == 'nfl-backfill'
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python backfill_nfl.py 2024 2025
+      - name: Learned models for NFL and college football
+        if: inputs.study == 'models-nfl-ncaaf'
+        env:
+          CFBD_API_KEY: ${{ secrets.CFBD_API_KEY }}
+        run: |
+          python features_ncaaf.py refresh --force
+          python features_ncaaf.py history
+          python features_nfl.py history
+          python learner.py ncaaf_spread ncaaf_total nfl_spread nfl_total nfl_ml
 
       - name: Push report to branch data
+        if: always()
         run: |
           git config user.name "EDGE"
           git config user.email "edge@edgesystem.local"
           git add stats/backtest_tennis.md stats/backtest_tennis.json stats/backtest_ncaaf_spots.md stats/backtest_ncaaf_spots.json 2>/dev/null || true
+          git add stats/history/nfl_open stats/history/ncaaf stats/models 2>/dev/null || true
           if git diff --cached --quiet; then echo "No changes."; exit 0; fi
           git commit -q -m "EDGE: research report"
           for i in 1 2 3; do
