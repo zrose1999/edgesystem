@@ -121,10 +121,13 @@ def update_history(hist, token, now):
             break
         # Stop once a whole page is already known (a match that ran long can land below known ones).
         stop = not resuming and all(m["id"] in known for m in batch)
-        older = 0
+        older = dated = 0
         for m in batch:
+            if not m.get("begin_at"):
+                continue                  # PandaScore lists undated (mostly very old) matches first: skip them
+            dated += 1
             s = slim(m)
-            if not s or not s["begin"]:
+            if not s:
                 continue
             if s["begin"] < oldest_wanted:
                 older += 1
@@ -133,7 +136,7 @@ def update_history(hist, token, now):
                 added.append(s)
                 known.add(m["id"])
         # Canceled and rescheduled matches carry stray dates; stop only once most of a page is past the limit.
-        if older > len(batch) // 2:
+        if dated and older > dated // 2:
             stop = True
         page += 1
         if stop:
