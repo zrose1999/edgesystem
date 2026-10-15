@@ -293,6 +293,13 @@ const STRAT = {
   "rest-spot": ["NBA rest spots", "One team on the second night of a back-to-back, the other rested. Lines move toward the rested team before tip-off."],
   "goalie-news": ["NHL goalie news", "A team's starting goalie changes after the line opens, valued by how much better or worse he stops shots."],
   "ncaaf-total-move": ["College totals move", "The ratings' total is far from the opening number; college totals tend to move that way before kickoff."],
+  "nhl-ml-move": ["NHL moneyline move", "NHL ratings far from the opening price; moneylines tend to move that way before puck drop."],
+  "nhl-total-move": ["NHL total move", "NHL ratings far from the opening total price; it tends to move that way."],
+  "ncaaf-spot": ["College spots", "Byes, power vs Group of 5, big favourites, early weeks and low totals: situations where college lines move predictably."],
+  "tennis-elo": ["Tennis ratings", "Surface Elo from every tour match since 2024, a fifth of its gap from the market."],
+  "tennis-fatigue": ["Tennis fatigue", "One player has played far more games in the last two days."],
+  "edge-stack": ["Edge stack", "Several independent measured edges agree on the same side; their expected moves are added up."],
+  "sharp-drift": ["Sharp price plus drift", "A retail price beats where Pinnacle is expected to close, using each market's measured drift."],
   "luck-reversion": ["Luck reversion", "Record running ahead of or behind efficiency."],
   "early-number": ["Early number", "Early-week lines softer than the close."]
 };
@@ -540,7 +547,7 @@ function renderStrategies() {
   const { picks, score } = state.data;
   const pats = (score && score.patterns) || [];
   const byId = Object.fromEntries(pats.map(p => [p.id, p]));
-  const always = ["sharp-soft", "sharp-soft-alt", "news-lag", "wind-total", "stats-model", "trend-fade", "nba-stats-model", "nba-model-fav", "rest-spot", "goalie-news", "ncaaf-total-move"];
+  const always = ["sharp-soft", "sharp-soft-alt", "news-lag", "wind-total", "stats-model", "trend-fade", "nba-stats-model", "nba-model-fav", "rest-spot", "goalie-news", "ncaaf-total-move", "ncaaf-spot", "nhl-ml-move", "nhl-total-move", "tennis-elo", "tennis-fatigue", "edge-stack", "sharp-drift"];
   const names = [...new Set([...always, ...Object.keys(STRAT).filter(k => byId[k] || picks.some(p => p.pattern === k)), ...pats.map(p => p.id)])];
   const N = 30;
   $("#stratList").innerHTML = names.map(id => {
@@ -563,7 +570,7 @@ function renderStrategies() {
 }
 
 const money = (x, sign) => (sign && x > 0 ? "+" : x < 0 ? "−" : "") + "$" + Math.abs(x).toFixed(2);
-const SRC = s => s.startsWith("mirror:") ? `EDGE pick: ${stratName(s.slice(7))}` : s === "kalshi-sharp" ? "Kalshi vs Pinnacle" : s === "kalshi-sharp-alt" ? "Kalshi vs Pinnacle, nearby line" : s === "cs2-elo" ? "CS2 map ratings" : s;
+const SRC = s => s.startsWith("mirror:") ? `EDGE pick: ${stratName(s.slice(7))}` : s === "kalshi-sharp" ? "Kalshi vs Pinnacle" : s === "kalshi-sharp-alt" ? "Kalshi vs Pinnacle, nearby line" : s === "cs2-elo" ? "CS2 map ratings" : s === "kalshi-drift" ? "Kalshi vs Pinnacle plus drift" : s;
 state.book = "paper";
 
 function chart(book, cfg) {

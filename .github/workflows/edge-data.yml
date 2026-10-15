@@ -68,6 +68,8 @@ jobs:
           python model.py || echo "::warning::model.py failed; continuing"
           python model_nba.py || echo "::warning::model_nba.py failed; continuing"
           python model_ncaaf.py || echo "::warning::model_ncaaf.py failed; continuing"
+          python soccer_form.py || echo "::warning::soccer_form.py failed; continuing"
+          python discover.py || echo "::warning::discover.py failed; continuing"
 
       - name: Sharp vs soft scan
         run: python sharp.py || echo "::warning::sharp.py failed; continuing"
@@ -82,6 +84,17 @@ jobs:
           python injury_nba.py || echo "::warning::injury_nba.py failed; continuing"
           python rest_nba.py || echo "::warning::rest_nba.py failed; continuing"
           python goalie_nhl.py || echo "::warning::goalie_nhl.py failed; continuing"
+
+      - name: Line-move and situational reads (NHL moves, college spots)
+        if: ${{ !inputs.fast }}
+        run: |
+          python move_nhl.py || echo "::warning::move_nhl.py failed; continuing"
+          python ncaaf_spots.py || echo "::warning::ncaaf_spots.py failed; continuing"
+
+      - name: Tennis ratings and reads, then the edge stack
+        run: |
+          python tennis.py || echo "::warning::tennis.py failed; continuing"
+          python edge_stack.py || echo "::warning::edge_stack.py failed; continuing"
 
       - name: CS2 ratings (PandaScore)
         if: ${{ !inputs.fast }}
