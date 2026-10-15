@@ -259,6 +259,27 @@ def sharp_drift(rows, now, nhl_games, have):
     return entries
 
 
+def soccer_reads(rows, now, done):
+    """soccer-drift: on 2.5-goal totals in the five measured leagues, the over/under side the drift model (league
+    drift + last-match totals) expects to gain, read once per game within 48 hours. Leans unless the gap is large;
+    their job is to build the CLV record for the soccer drift model."""
+    out = []
+    for row in rows.values():
+        if row.get("sport") not in SOCCER_OVER or row.get("market") != "total" or row.get("id") in done:
+            continue
+        if not row.get("commence") or not (pull.iso(now) < row["commence"] <= pull.iso(now + timedelta(hours=48))):
+            continue
+        snap = row.get("lastSnap") or {}
+        mp = novig(snap, ["over", "under"])
+        dp = drift_prob(row, now, [])
+        if not mp or not dp or abs(dp["over"]) < 0.003:
+            continue
+        fair = min(max(mp["over"] + dp["over"], 0.02), 0.98)
+        out.append((row, fair, f"Soccer drift model: league under-drift and last-match totals give over {dp['over']:+.2%} "
+                               f"still to come; over now {mp['over']:.1%}, fair {fair:.1%}."))
+    return out
+
+
 def main(dry=False):
     now = datetime.now(timezone.utc)
     ledger = pull.load(pull.LEDGER, {"rows": []})
@@ -269,10 +290,13 @@ def main(dry=False):
     nhl_games = list(nhl.values()) if isinstance(nhl, dict) else nhl
     done = {p.get("rowId") for p in picks if p.get("pattern") == "edge-stack"}
     stacks = stack(rows, picks, now, nhl_games, done)
+    socc = soccer_reads(rows, now, {p.get("rowId") for p in picks if p.get("pattern") == "soccer-drift"})
     drifts = sharp_drift(rows, now, nhl_games, {p.get("pickId") for p in picks})
     if dry:
         for row, fair, why in stacks:
             print("STACK", row["id"], why)
+        for row, fair, why in socc:
+            print("SOCCER", row["id"], why)
         for e in drifts:
             print("SHARP-DRIFT", e["grade"], e["rowId"], e["reason"])
     else:
@@ -283,6 +307,17 @@ def main(dry=False):
         for sport in {r["sport"] for r, _, _ in stacks}:
             if sport not in pull.READ:
                 pull.READ = pull.READ + [sport]
+        for sport in {r["sport"] for r, _, _ in socc}:
+            if sport not in pull.READ:
+                pull.READ = pull.READ + [sport]
+        for row, fair, why in socc:
+            args = Namespace(id=row["id"], fair=f"{fair:.3f}", confidence="medium", reason=why,
+                             falsifier="The over/under price closes at or past the current price on the other side.",
+                             pattern="soccer-drift", stake="0", big=True, by="edge_stack.py")
+            try:
+                pull.make_read(args)
+            except SystemExit as exc:
+                print(f"read not stamped {row['id']}: {exc}")
         for row, fair, why in stacks:
             args = Namespace(id=row["id"], fair=f"{fair:.3f}", confidence="medium", reason=why,
                              falsifier="The line closes at or past the current number on the other side.",
@@ -291,7 +326,7 @@ def main(dry=False):
                 pull.make_read(args)
             except SystemExit as exc:
                 print(f"read not stamped {row['id']}: {exc}")
-    print(json.dumps({"stacks": len(stacks), "sharpDrift": len(drifts), "dry": dry}))
+    print(json.dumps({"stacks": len(stacks), "sharpDrift": len(drifts), "soccerDrift": len(socc), "dry": dry}))
 
 
 if __name__ == "__main__":

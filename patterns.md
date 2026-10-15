@@ -129,3 +129,8 @@ Retire early if: CLV is below 0 after 30 reads.
 
 Stamped by ncaaf_spots.py on the morning run. Situational open-to-close moves measured on 9 FBS seasons of CFBD lines (stats/backtest_ncaaf_spots.md, every value held in both halves): home off a bye vs normal rest -0.55, away off a bye +0.43, power home vs Group of 5 -0.37 / other non-conference -0.20 / weeks 0-2 -0.25 (largest of the three), home favourite 21+ -0.34; totals: home underdog 7+ -0.49, opening total under 45 -0.35, weeks 10+ -0.23. Summed x0.8. Neutral sites skipped.
 Retire early if: CLV is below 0 after 30 reads.
+
+## soccer-drift
+
+Stamped by edge_stack.py on EPL, La Liga, Serie A, Bundesliga and Ligue 1 2.5-goal totals within 48 hours: the measured under-drift per league plus the last-match-totals effect (stats/backtest_soccer_spots.md, stats/backtest_drift.md). Mostly leans (well under 1 point); their job is to build the CLV record for the soccer drift model that also drives sharp-drift and kalshi-drift.
+Retire early if: CLV is below 0 after 30 reads.
