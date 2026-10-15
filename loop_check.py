@@ -25,17 +25,24 @@ ARCH = ROOT / "ledger" / "archive"
 SPORTS = ["NFL", "NCAAF", "NBA", "NHL", "EPL", "UCL", "UEL", "LaLiga", "SerieA", "Bundesliga", "Ligue1", "MLS",
           "ATP", "WTA"]
 STRATEGIES = {
-    "NFL": ["news-lag", "wind-total", "stats-model", "trend-fade", "sharp-soft", "sharp-soft-alt"],
-    "NCAAF": ["ncaaf-total-move", "wind-total", "sharp-soft", "sharp-soft-alt"],
-    "NBA": ["news-lag", "rest-spot", "nba-stats-model", "nba-model-fav", "sharp-soft", "sharp-soft-alt"],
-    "NHL": ["goalie-news", "sharp-soft"],
+    "NFL": ["news-lag", "wind-total", "stats-model", "trend-fade", "sharp-soft", "sharp-soft-alt", "edge-stack"],
+    "NCAAF": ["ncaaf-total-move", "ncaaf-spot", "wind-total", "sharp-soft", "sharp-soft-alt", "sharp-drift", "edge-stack"],
+    "NBA": ["news-lag", "rest-spot", "nba-stats-model", "nba-model-fav", "sharp-soft", "sharp-soft-alt", "edge-stack"],
+    "NHL": ["goalie-news", "nhl-ml-move", "nhl-total-move", "sharp-soft", "sharp-drift", "edge-stack"],
+    "ATP": ["tennis-elo", "tennis-fatigue", "sharp-soft", "edge-stack"],
+    "WTA": ["tennis-elo", "tennis-fatigue", "sharp-soft", "edge-stack"],
+    **{lg: ["sharp-drift (form, luck, draw and under drift)", "sharp-soft", "kalshi-drift"]
+       for lg in ("EPL", "LaLiga", "SerieA", "Bundesliga", "Ligue1")},
+    **{lg: ["sharp-soft", "kalshi-sharp"] for lg in ("UCL", "UEL", "MLS")},
 }
 SOURCES = {
     "NFL": ["stats/injuries.json", "stats/nfl_depth.json", "stats/nfl_matchups.json"],
     "NCAAF": ["stats/ncaaf_matchups.json", "stats/ncaaf_games.json"],
     "NBA": ["stats/injuries_nba.json", "stats/nba_player_values.json", "stats/nba_matchups.json"],
     "NHL": ["stats/nhl_goalies.json", "stats/nhl_games.json"],
-    "EPL": ["stats/epl_games.json"],
+    "EPL": ["stats/epl_games.json", "stats/soccer_form.json"],
+    "LaLiga": ["stats/soccer_form.json"], "SerieA": ["stats/soccer_form.json"], "Bundesliga": ["stats/soccer_form.json"],
+    "Ligue1": ["stats/soccer_form.json"], "ATP": ["stats/tennis_matches.json"], "WTA": ["stats/tennis_matches.json"],
 }
 
 
