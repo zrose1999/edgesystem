@@ -302,6 +302,11 @@ const STRAT = {
   "learned-nhl-over": ["NHL learned model, totals", "Learned from 191 data points per game which situations move NHL totals."],
   "learned-soccer-1x2": ["Soccer learned model, result", "Learned from 151 data points over 17,000 matches which situations move home, draw and away prices."],
   "learned-soccer-over": ["Soccer learned model, goals", "Learned which situations move the 2.5-goal price."],
+  "learned-ncaaf-spread": ["College learned model, spread", "Learned from 330 data points over 5,000 college games which situations move the spread."],
+  "learned-ncaaf-total": ["College learned model, totals", "Learned from 330 data points over 3,600 college games which situations move the total."],
+  "learned-nfl-spread": ["NFL learned model, spread", "Learned which situations move NFL spreads (not yet past the gate)."],
+  "learned-nfl-total": ["NFL learned model, totals", "Learned which situations move NFL totals (not yet past the gate)."],
+  "learned-nfl-ml": ["NFL learned model, moneyline", "Learned which situations move NFL moneylines (not yet past the gate)."],
   "learned-nba-total": ["NBA learned model, totals", "Learned from 89 data points per game which situations move NBA totals."],
   "learned-nba-spread": ["NBA learned model, spread", "Learned which situations move NBA spreads (not yet past the gate)."],
   "learned-nba-ml": ["NBA learned model, moneyline", "Learned which situations move NBA moneylines (not yet past the gate)."],
@@ -556,7 +561,7 @@ function renderStrategies() {
   const { picks, score } = state.data;
   const pats = (score && score.patterns) || [];
   const byId = Object.fromEntries(pats.map(p => [p.id, p]));
-  const always = ["sharp-soft", "sharp-soft-alt", "news-lag", "wind-total", "stats-model", "trend-fade", "nba-stats-model", "nba-model-fav", "rest-spot", "goalie-news", "ncaaf-total-move", "ncaaf-spot", "nhl-ml-move", "nhl-total-move", "tennis-elo", "tennis-fatigue", "edge-stack", "sharp-drift", "soccer-drift", "learned-nhl-ml", "learned-nhl-over", "learned-soccer-1x2", "learned-soccer-over", "learned-nba-total"];
+  const always = ["sharp-soft", "sharp-soft-alt", "news-lag", "wind-total", "stats-model", "trend-fade", "nba-stats-model", "nba-model-fav", "rest-spot", "goalie-news", "ncaaf-total-move", "ncaaf-spot", "nhl-ml-move", "nhl-total-move", "tennis-elo", "tennis-fatigue", "edge-stack", "sharp-drift", "soccer-drift", "learned-nhl-ml", "learned-nhl-over", "learned-soccer-1x2", "learned-soccer-over", "learned-nba-total", "learned-ncaaf-spread", "learned-ncaaf-total"];
   const names = [...new Set([...always, ...Object.keys(STRAT).filter(k => byId[k] || picks.some(p => p.pattern === k)), ...pats.map(p => p.id)])];
   const N = 30;
   $("#stratList").innerHTML = names.map(id => {

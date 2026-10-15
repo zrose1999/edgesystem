@@ -17,7 +17,7 @@ const SOURCES = ["official", "kalshi-sharp", "kalshi-sharp-alt", "mirror:sharp-s
   "mirror:nba-stats-model", "mirror:nba-model-fav", "mirror:rest-spot", "mirror:goalie-news", "mirror:ncaaf-total-move",
   "mirror:ncaaf-spot", "mirror:nhl-ml-move", "mirror:nhl-total-move", "mirror:tennis-elo", "mirror:tennis-fatigue",
   "mirror:edge-stack", "mirror:sharp-drift", "mirror:soccer-drift", "kalshi-drift",
-  "mirror:learned-nhl-ml", "mirror:learned-nhl-over", "mirror:learned-soccer-1x2", "mirror:learned-soccer-over", "mirror:learned-nba-total", "mirror:learned-nba-spread", "mirror:learned-nba-ml"];
+  "mirror:learned-nhl-ml", "mirror:learned-nhl-over", "mirror:learned-soccer-1x2", "mirror:learned-soccer-over", "mirror:learned-nba-total", "mirror:learned-nba-spread", "mirror:learned-nba-ml", "mirror:learned-ncaaf-spread", "mirror:learned-ncaaf-total", "mirror:learned-nfl-spread", "mirror:learned-nfl-total", "mirror:learned-nfl-ml"];
 const DEFAULTS = {
   enabled: false, paused: false, bankroll: 100, stopLoss: 25, takeProfit: 50,
   maxPerTradePct: 5, maxPerDayPct: 20, liveSources: ["official"], sessionId: null, updatedAt: null,
