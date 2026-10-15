@@ -118,3 +118,9 @@ Retire early if: CLV is below 0 after 30 reads, or below the best single source 
 
 Stamped by edge_stack.py. Pinnacle no-vig now plus the part of the measured open-to-close drift still to come (NHL, NCAAF totals, five soccer leagues incl. draws), against the best retail price on the same line. Bar as sharp-soft.
 Retire early if: CLV is below 0 after 30 picks.
+
+## tennis-elo and tennis-fatigue
+
+Stamped by tennis.py every run (history refreshed from ESPN twice a day: every ATP and WTA singles match since 2024, 28,575 at launch). Surface Elo (overall + surface, FiveThirtyEight K), walk-forward calibration in stats/backtest_tennis.md (70-80% favourites won 71.1%, 80-90% won 80.5%: slightly overconfident at the top). tennis-elo: fair = market no-vig + 0.20 x (Elo - market), gap 5+ points. tennis-fatigue: opponent played 30+ more games in the last 2 days, fair +0.02 toward the fresher player (starting value, unmeasured).
+No tennis market history exists yet; the archive builds it and the weekly review sets the weight from CLV.
+Retire early if: CLV is below 0 after 30 reads.
