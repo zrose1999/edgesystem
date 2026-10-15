@@ -32,6 +32,8 @@ Retire early if: CLV is flat after 30 picks.
 
 ## stats-model
 
+STATUS: OFF since 2026-10-14 (Zack's call; the backtest had it losing to the closing line). No new reads; its existing picks keep grading.
+
 Stamped by model.py, never by hand.
 Idea: the stats.py efficiency model's own number, using a quarter of its gap from the market.
 Applies: every NFL spread and total the model projects. One read per game and market.

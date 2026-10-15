@@ -28,6 +28,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
+STATS_MODEL_ON = False      # switched off 2026-10-14 by Zack: the backtest had it losing to the close. Existing picks still grade.
 sys.path.insert(0, str(ROOT))
 import pull  # noqa: E402
 
@@ -94,8 +95,10 @@ def main():
             if line is None:
                 continue
 
-            # stats-model
-            if (row["id"], "stats-model") in done:
+            # stats-model (off; see STATS_MODEL_ON)
+            if not STATS_MODEL_ON:
+                pass
+            elif (row["id"], "stats-model") in done:
                 out["already"] += 1
             else:
                 if market == "spread":
