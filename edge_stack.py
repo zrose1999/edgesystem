@@ -34,6 +34,7 @@ import pull
 ROOT = Path(__file__).resolve().parent
 STACKABLE = {"news-lag", "rest-spot", "goalie-news", "wind-total", "ncaaf-total-move", "ncaaf-spot", "nhl-ml-move",
              "nhl-total-move", "tennis-fatigue"}
+INCLUDES_DRIFT = {"ncaaf-spot", "rest-spot"}   # measured as raw moves: the average drift is already inside
 SHRINK = 0.85                 # overlap between sources (e.g. a back-to-back and the backup goalie it brings)
 SOCCER_1X2 = {               # home, draw, away probability drift, Pinnacle early to close
     "EPL": (-0.0008, 0.0030, -0.0022), "LaLiga": (0.0010, 0.0040, -0.0050), "Bundesliga": (-0.0002, 0.0041, -0.0039),
@@ -171,7 +172,8 @@ def stack(rows, picks, now, nhl_games, done):
                 continue
             unit = u
             parts.append((pat, c))
-        dp = drift_prob(row, now, nhl_games)
+        # Situational values measured as raw open-to-close moves already include the market's average drift.
+        dp = None if INCLUDES_DRIFT & set(reads) else drift_prob(row, now, nhl_games)
         if dp:
             if unit == "points" and row["market"] == "total" and row["sport"] == "NCAAF":
                 parts.append(("opening drift", (dp.get("over", 0)) / NCAAF_PER_POINT))
