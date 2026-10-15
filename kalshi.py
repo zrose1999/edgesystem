@@ -511,6 +511,7 @@ def snapshot(book, now):
 # ---------- CS2 (cs2.py ratings, no sportsbook price) ----------
 
 QUOTES = {}
+SPORT_OF = {}
 _nhl = pull.load(ROOT / "stats" / "nhl_games.json", {}).get("games") or {}
 NHL_GAMES = list(_nhl.values()) if isinstance(_nhl, dict) else _nhl
 CS2_SERIES = "KXCS2GAME"
@@ -547,6 +548,7 @@ def cs2_candidates(cfg, now):
         return [], 0
     for m in mks:
         QUOTES[m["ticker"]] = m
+        SPORT_OF[m.get("event_ticker")] = "CS2"
     games, matched = {}, 0
     for et, e in evs.items():
         d = ticker_date(et)
@@ -596,6 +598,39 @@ def cs2_candidates(cfg, now):
                                  f"(best of {u['bestOf']}, {u['mapsA']} and {u['mapsB']} rated maps); "
                                  f"Kalshi {side.upper()} {ask:.2f} + fee = {cost:.3f}."})
     return cands, matched
+
+
+MARKS = ROOT / "stats" / "kalshi_marks.json"
+
+
+def record_marks(now, sports_of):
+    """Kalshi price history for every sport: each liquid market's first-seen and last pre-start YES mid
+    (spread 15 cents or less). Markets 3+ days past their close move to ledger/archive/<month>/kalshi.jsonl."""
+    marks = load(MARKS, {})
+    t = iso(now)
+    for tk, m in QUOTES.items():
+        bid, ask = f(m.get("yes_bid_dollars")), f(m.get("yes_ask_dollars"))
+        close_t = m.get("occurrence_datetime") or m.get("expected_expiration_time") or m.get("close_time")
+        if bid is None or ask is None or not (0 < ask - bid <= 0.15) or not close_t or close_t <= t:
+            continue
+        mid = round((bid + ask) / 2, 4)
+        rec = marks.setdefault(tk, {"event": m.get("event_ticker"), "title": m.get("title"), "start": close_t,
+                                    "sport": sports_of.get(m.get("event_ticker")), "open": mid, "openT": t})
+        rec.update(last=mid, lastT=t)
+    keep, old = {}, {}
+    for tk, rec in marks.items():
+        if (rec.get("start") or t) < iso(now - timedelta(days=3)):
+            old.setdefault((rec.get("start") or t)[:7], []).append(dict(rec, ticker=tk))
+        else:
+            keep[tk] = rec
+    for month, recs in old.items():
+        path = ROOT / "ledger" / "archive" / month / "kalshi.jsonl"
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open("a") as fh:
+            for r in recs:
+                fh.write(json.dumps(r, separators=(",", ":")) + "\n")
+    MARKS.write_text(json.dumps(keep, separators=(",", ":")))
+    return len(keep)
 
 
 def track_close(book, now):
@@ -664,6 +699,7 @@ def main(dry=False):
             fetched += len(mks)
             for m in mks:
                 QUOTES[m["ticker"]] = m
+                SPORT_OF[m.get("event_ticker")] = sport
             games = {}
             for et, e in evs.items():
                 g, labels = match_game(sport, e, by_day)
@@ -738,6 +774,11 @@ def main(dry=False):
     matched += cs2_matched
     for name in ("paper", "live"):
         track_close(state[name], now)
+    if not dry:
+        try:
+            record_marks(now, SPORT_OF)
+        except Exception as exc:  # noqa: BLE001
+            print("kalshi marks", exc)
     # Best first, so caps go to the biggest edges.
     cands.sort(key=lambda c: -c["edge"])
 
