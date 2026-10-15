@@ -7707,6 +7707,40 @@
       "tier": null,
       "stakeUnits": 0.0,
       "by": "injury.py"
+    },
+    {
+      "pickId": "NCAAF|2026-10-17|Rutgers Scarlet Knights at Maryland Terrapins|spread|away|v1|lean|learned-ncaaf-spread|2026-10-15T20:39:39Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NCAAF|2026-10-17|Rutgers Scarlet Knights at Maryland Terrapins|spread",
+      "sport": "NCAAF",
+      "event": "Rutgers Scarlet Knights at Maryland Terrapins",
+      "commence": "2026-10-17T16:30:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 5.5,
+      "priceAtPick": -115,
+      "marketNumber": -5.5,
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-10-15T20:39:26Z",
+      "pickedAt": "2026-10-15T20:39:39Z",
+      "fair": -5.027,
+      "projection": -5.027,
+      "edge": 0.473,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-ncaaf-spread",
+      "reason": "Learned college model (ridge, 330 data points, trained on CFBD history) predicts the spread moves +0.97 from the open; open -6.0, now -5.5, 0.47 still to come. Fair -5.03. Report: stats/models/ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py"
     }
   ]
 }
