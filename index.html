@@ -267,7 +267,7 @@ footer a{color:var(--muted)}
     <h2>Bet or tracking</h2>
     <p><b>Bet</b> picks come from a strategy that has earned official status and carry a stake in units. <b>Tracking</b> picks are logged and graded the same way but stake nothing. Every strategy starts out tracking.</p>
     <h2>How strategies are judged</h2>
-    <p>By closing line value: did the price we took beat the price at kickoff? Over hundreds of bets, beating the close is the most reliable sign of a real edge, and it shows up long before wins and losses settle down. A strategy goes official after 30 graded full-bar picks with an average edge over the close above zero and a t-stat of at least 1.5. It is retired after 30 if it is not beating the close. Win rate never promotes anything.</p>
+    <p>By closing line value: did the price we took beat the price at kickoff? Over hundreds of bets, beating the close is the most reliable sign of a real edge, and it shows up long before wins and losses settle down. A strategy goes official once its graded full-bar picks beat the close on average with a t-stat of at least 2.5 at 15 to 19 picks, or 2.0 from 20 picks on. Learned models that already passed the out-of-sample test need 15 picks at 2.0. A strategy is retired after 30 picks if it is not beating the close. Win rate never promotes anything.</p>
     <h2>Market moved our way</h2>
     <p>On each open pick, the desk compares the price taken with the latest price. If the line has moved toward our side since, the ticket shows it in green. That is the closing line value building in real time.</p>
     <h2>Trading on Kalshi</h2>
