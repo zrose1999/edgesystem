@@ -28,6 +28,7 @@ MATCHUPS = ROOT / "stats" / "ncaaf_matchups.json"
 CAL = ROOT / "stats" / "ncaaf_calibration.json"
 PATTERN = "ncaaf-total-move"
 K_MOVE = 0.18
+MIN_GAMES = 8
 MIN_GAP = 4.0             # under this the expected move is under 0.75 points: noise
 WINDOW_D = 7
 
@@ -36,6 +37,7 @@ def main(dry=False):
     if not MATCHUPS.exists():
         sys.exit("stats/ncaaf_matchups.json is missing. Run python3 stats_more.py NCAAF first.")
     games = json.loads(MATCHUPS.read_text()).get("games") or []
+    teams = (pull.load(ROOT / "stats" / "ncaaf_teams.json", {}).get("teams") or {})
     cal = (pull.load(CAL, {}).get("moveTotal") or {})
     ledger = pull.load(pull.LEDGER, {"rows": []})
     rows = {r.get("id"): r for r in ledger.get("rows") or []}
@@ -45,6 +47,9 @@ def main(dry=False):
     todo = []
     for g in games:
         raw = (g.get("raw") or {}).get("total")
+        away_t, home_t = g["event"].split(" at ", 1) if " at " in g["event"] else (None, None)
+        if min((teams.get(away_t) or {}).get("games", 0), (teams.get(home_t) or {}).get("games", 0)) < MIN_GAMES:
+            continue                       # thinly rated teams (mostly FCS) give unreliable totals
         row = rows.get((g.get("total") or {}).get("rowId"))
         if raw is None or not row or row.get("id") in done:
             continue

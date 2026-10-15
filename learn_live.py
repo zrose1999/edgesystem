@@ -140,11 +140,15 @@ def nhl_reads(rows, now, done):
             why = (f"Learned model ({m['kind']}, {len(m['keys'])} data points, trained {m['trained'][:10]}) predicts the "
                    f"{what} price moves {pred:+.3f} from the open; open {start:.3f}, now {cur:.3f}, {remaining:.3f} still to come. "
                    f"Fair {fair:.3f}. Report: stats/models/{name}.json.")
-            out.append((row, fair, pat, why))
+            side = keys[0] if pred > 0 else keys[1]
+            e = direct_entry(row, side, fair if side == keys[0] else 1 - fair, pat, why, now)
+            if e:
+                DIRECT.append(e)
     return out
 
 
 LOG = []
+DIRECT = []
 LIVE_LOG = MODELS / "live_log.jsonl"
 
 
@@ -213,10 +217,13 @@ def book_trio(snap, bk):
 
 
 def direct_entry(row, side, fair, pattern, why, now):
-    """A read on a three-way market, priced side by side (pull.make_read assumes two-way)."""
+    """A read priced on one side at the best US price (pull.make_read prices the print book only, and assumes
+    two-way moneylines). fair is this side's probability."""
     snap = row["lastSnap"]
+    market = row["market"]
     # Line-shop the US books (Pinnacle is the reference, not a place to bet): the best price on this side.
-    books = {k: v for k, v in (snap.get("books") or {}).items() if k != "pinnacle" and side in v}
+    books = {k: v for k, v in (snap.get("books") or {}).items() if k != "pinnacle" and side in v
+             and (market != "total" or v.get("line") == snap.get("line"))}
     if books:
         bk = max(books, key=lambda k: books[k][side])
         price, book_name = books[bk][side], books[bk].get("book", bk)
@@ -230,9 +237,11 @@ def direct_entry(row, side, fair, pattern, why, now):
         return None
     pid = f"{row['id']}|{side}|{pull.VERSION}|{pattern}" + ("" if kind == "pick" else f"|{kind}|{pull.iso(now)}")
     return {"pickId": pid, "kind": kind, "grade": grade, "rowId": row["id"], "sport": row["sport"], "event": row["event"],
-            "commence": row["commence"], "market": "h2h", "side": side, "lineAtPick": None, "priceAtPick": price,
-            "bookAtPick": book_name, "marketNumber": None,
-            "marketPrices": {k: snap[k] for k in ("home", "away", "draw") if k in snap}, "priceTime": snap["time"],
+            "commence": row["commence"], "market": market, "side": side,
+            "lineAtPick": snap.get("line") if market == "total" else None, "priceAtPick": price,
+            "bookAtPick": book_name, "marketNumber": snap.get("line"),
+            "marketPrices": {k: snap[k] for k in ("home", "away", "draw", "over", "under") if k in snap},
+            "priceTime": snap["time"],
             "pickedAt": pull.iso(now), "fair": round(fair, 4), "projection": round(fair, 4), "edge": round(edge, 4),
             "edgeUnit": "prob", "bar": bar, "fullBar": edge >= bar, "confidence": "medium", "pattern": pattern,
             "reason": why, "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
@@ -328,6 +337,7 @@ def main(dry=False):
     done3 = {(p.get("rowId"), p.get("pattern"), p.get("side")) for p in picks} | {(r, pt, None) for r, pt in done}
     s_reads, s_direct = soccer_reads(rows, now, done3)
     todo += s_reads
+    s_direct = DIRECT + s_direct
     if dry:
         for row, fair, pat, why in todo:
             print(f"WOULD READ {pat} {row['id']} | {why}")
