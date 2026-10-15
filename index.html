@@ -298,6 +298,7 @@ const STRAT = {
   "ncaaf-spot": ["College spots", "Byes, power vs Group of 5, big favourites, early weeks and low totals: situations where college lines move predictably."],
   "tennis-elo": ["Tennis ratings", "Surface Elo from every tour match since 2024, a fifth of its gap from the market."],
   "tennis-fatigue": ["Tennis fatigue", "One player has played far more games in the last two days."],
+  "soccer-drift": ["Soccer drift", "Under-drift and recent-scoring overreaction on 2.5-goal totals in the top five leagues."],
   "edge-stack": ["Edge stack", "Several independent measured edges agree on the same side; their expected moves are added up."],
   "sharp-drift": ["Sharp price plus drift", "A retail price beats where Pinnacle is expected to close, using each market's measured drift."],
   "luck-reversion": ["Luck reversion", "Record running ahead of or behind efficiency."],
@@ -547,7 +548,7 @@ function renderStrategies() {
   const { picks, score } = state.data;
   const pats = (score && score.patterns) || [];
   const byId = Object.fromEntries(pats.map(p => [p.id, p]));
-  const always = ["sharp-soft", "sharp-soft-alt", "news-lag", "wind-total", "stats-model", "trend-fade", "nba-stats-model", "nba-model-fav", "rest-spot", "goalie-news", "ncaaf-total-move", "ncaaf-spot", "nhl-ml-move", "nhl-total-move", "tennis-elo", "tennis-fatigue", "edge-stack", "sharp-drift"];
+  const always = ["sharp-soft", "sharp-soft-alt", "news-lag", "wind-total", "stats-model", "trend-fade", "nba-stats-model", "nba-model-fav", "rest-spot", "goalie-news", "ncaaf-total-move", "ncaaf-spot", "nhl-ml-move", "nhl-total-move", "tennis-elo", "tennis-fatigue", "edge-stack", "sharp-drift", "soccer-drift"];
   const names = [...new Set([...always, ...Object.keys(STRAT).filter(k => byId[k] || picks.some(p => p.pattern === k)), ...pats.map(p => p.id)])];
   const N = 30;
   $("#stratList").innerHTML = names.map(id => {
