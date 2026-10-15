@@ -46,8 +46,12 @@ export default async () => {
   const inputs = slot(now);
   if (!inputs) return;
   const runs = await gh(`/actions/workflows/${WORKFLOW}/runs?per_page=5`).then((r) => r.json()).catch(() => null);
-  const window = inputs.fast === "true" ? 8 : 20;      // minutes
-  const recent = (runs?.workflow_runs || []).some((r) => now - new Date(r.created_at) < window * 60 * 1000);
+  // A fast slot skips if any run started in the last 8 minutes. A regular slot skips only for a regular run
+  // (GitHub's own schedule) in the last 20 minutes: fast runs price fewer sports and never stand in for it.
+  const fast = inputs.fast === "true";
+  const window = fast ? 8 : 20;      // minutes
+  const recent = (runs?.workflow_runs || []).some((r) => now - new Date(r.created_at) < window * 60 * 1000
+    && (fast || !String(r.display_title || "").includes("(fast)")));
   if (recent) {
     console.log(`tick: a run started in the last ${window} minutes; skipping`);
     return;

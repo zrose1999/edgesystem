@@ -2,6 +2,7 @@
 # No AI here: pull.py, stats, the model and injury scripts, kalshi.py and grade.py are plain Python.
 # Writes go to branch `data` only. Netlify is never touched.
 name: EDGE data
+run-name: "EDGE data${{ inputs.fast && ' (fast)' || '' }}"
 
 on:
   schedule:
