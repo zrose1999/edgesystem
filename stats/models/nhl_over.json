@@ -1,11 +1,11 @@
 {
  "target": "nhl_over",
- "trained": "2026-10-15T03:13:26Z",
- "rows": 841,
+ "trained": "2026-10-15T06:11:07Z",
+ "rows": 842,
  "features": 191,
  "unit": "prob",
  "from": "2025-11-26T02:00Z",
- "to": "2026-10-14T03:15Z",
+ "to": "2026-10-14T23:30Z",
  "results": {
   "baseline": {
    "blocks": [
@@ -39,16 +39,16 @@
     },
     {
      "from": 740,
-     "to": 841,
-     "trades": 101,
-     "meanMove": 0.007240855874069337,
-     "t": 3.006328633446087
+     "to": 842,
+     "trades": 102,
+     "meanMove": 0.007233885615793376,
+     "t": 3.0333073559901695
     }
    ],
    "oosCorr": null,
-   "trades": 505,
-   "meanMove": 0.008755508044848617,
-   "t": 7.44,
+   "trades": 506,
+   "meanMove": 0.00875110958928552,
+   "t": 7.45,
    "positiveBlocks": 5
   },
   "ridge": {
@@ -56,43 +56,43 @@
     {
      "from": 336,
      "to": 437,
-     "trades": 24,
-     "meanMove": 0.02604494409062701,
-     "t": 5.218349448550639
+     "trades": 26,
+     "meanMove": 0.02768137336122613,
+     "t": 6.198869168592221
     },
     {
      "from": 437,
      "to": 538,
-     "trades": 31,
-     "meanMove": 0.026327410440020686,
-     "t": 6.128317645523377
+     "trades": 30,
+     "meanMove": 0.027204990788021372,
+     "t": 6.25684981799885
     },
     {
      "from": 538,
      "to": 639,
-     "trades": 33,
-     "meanMove": 0.027322243235859228,
-     "t": 6.331598749497017
+     "trades": 32,
+     "meanMove": 0.02750002282819284,
+     "t": 6.181912293536397
     },
     {
      "from": 639,
      "to": 740,
-     "trades": 36,
-     "meanMove": 0.025674357035568474,
-     "t": 4.95308413842408
+     "trades": 37,
+     "meanMove": 0.024980455494066623,
+     "t": 4.908717866075107
     },
     {
      "from": 740,
-     "to": 841,
-     "trades": 51,
-     "meanMove": 0.015167244584219555,
-     "t": 3.894936931625999
+     "to": 842,
+     "trades": 47,
+     "meanMove": 0.012688489627508568,
+     "t": 3.162957914607155
     }
    ],
-   "oosCorr": 0.4679,
+   "oosCorr": 0.475,
    "trades": 155,
-   "meanMove": 0.02154816416977717,
-   "t": 9.96,
+   "meanMove": 0.023041073430688945,
+   "t": 11.28,
    "positiveBlocks": 5
   },
   "gbm": {
@@ -100,43 +100,43 @@
     {
      "from": 336,
      "to": 437,
-     "trades": 17,
-     "meanMove": 0.028486083941046653,
-     "t": 3.951028453574017
+     "trades": 18,
+     "meanMove": 0.02807043529613367,
+     "t": 4.121852136069068
     },
     {
      "from": 437,
      "to": 538,
-     "trades": 37,
-     "meanMove": 0.025340730161630354,
-     "t": 5.2576278771868195
+     "trades": 36,
+     "meanMove": 0.02345158868483689,
+     "t": 4.94254172694242
     },
     {
      "from": 538,
      "to": 639,
      "trades": 20,
-     "meanMove": 0.02919385607042213,
-     "t": 5.047083624047698
+     "meanMove": 0.031224199996932135,
+     "t": 5.496932481472974
     },
     {
      "from": 639,
      "to": 740,
-     "trades": 18,
-     "meanMove": 0.03362282809443454,
-     "t": 5.782654677067332
+     "trades": 17,
+     "meanMove": 0.03372362371286911,
+     "t": 5.46910495785805
     },
     {
      "from": 740,
-     "to": 841,
-     "trades": 14,
-     "meanMove": 0.019964895310389787,
-     "t": 2.7099574988750157
+     "to": 842,
+     "trades": 15,
+     "meanMove": 0.018633902289697135,
+     "t": 2.6671380170299575
     }
    ],
-   "oosCorr": 0.5219,
+   "oosCorr": 0.5214,
    "trades": 155,
-   "meanMove": 0.020027715730255687,
-   "t": 9.46,
+   "meanMove": 0.019395145561785013,
+   "t": 9.26,
    "positiveBlocks": 5
   }
  },
@@ -146,78 +146,78 @@
  "signals": [
   {
    "feature": "open_over",
-   "mseGain": 0.0009845682029854836,
+   "mseGain": 0.0009974114551398326,
    "corrWithMove": -0.535
   },
   {
    "feature": "model_total_gap",
-   "mseGain": 0.0005239318431067626,
+   "mseGain": 0.00041151952004159567,
    "corrWithMove": 0.033
   },
   {
-   "feature": "h_ssn_xgpct",
-   "mseGain": 0.0001755120232681442,
-   "corrWithMove": 0.102
+   "feature": "a_l10_hdpct",
+   "mseGain": 0.00013712270186957,
+   "corrWithMove": -0.025
   },
   {
    "feature": "a_ssn_win",
-   "mseGain": 0.00012260376733753357,
-   "corrWithMove": 0.063
+   "mseGain": 0.00012448676635357526,
+   "corrWithMove": 0.062
+  },
+  {
+   "feature": "h_l5_pdo",
+   "mseGain": 0.00010527355493983879,
+   "corrWithMove": 0.007
+  },
+  {
+   "feature": "h_ssn_xgpct",
+   "mseGain": 9.917024299401465e-05,
+   "corrWithMove": 0.102
   },
   {
    "feature": "a_l10_pen",
-   "mseGain": 9.290245329645242e-05,
+   "mseGain": 9.555335004091526e-05,
    "corrWithMove": 0.013
   },
   {
    "feature": "a_ssn_xgpct",
-   "mseGain": 9.211662493681058e-05,
+   "mseGain": 9.012908262739558e-05,
    "corrWithMove": 0.024
   },
   {
+   "feature": "d_ssn_win",
+   "mseGain": 7.127479846853334e-05,
+   "corrWithMove": 0.032
+  },
+  {
+   "feature": "h_l10_hdpct",
+   "mseGain": 5.92407982257675e-05,
+   "corrWithMove": 0.1
+  },
+  {
    "feature": "h_l25_pp",
-   "mseGain": 8.680206888405013e-05,
+   "mseGain": 5.819472014588663e-05,
    "corrWithMove": 0.086
   },
   {
    "feature": "h_ssn_xgf",
-   "mseGain": 8.345603648193855e-05,
+   "mseGain": 5.723396107495168e-05,
    "corrWithMove": 0.184
   },
   {
-   "feature": "a_l10_hdpct",
-   "mseGain": 7.881465407086796e-05,
-   "corrWithMove": -0.025
-  },
-  {
-   "feature": "d_ssn_win",
-   "mseGain": 7.125510880978832e-05,
-   "corrWithMove": 0.032
-  },
-  {
    "feature": "open_total",
-   "mseGain": 6.8096422600087e-05,
+   "mseGain": 5.3310585491879794e-05,
    "corrWithMove": 0.425
   },
   {
    "feature": "a_ssn_pp",
-   "mseGain": 6.80884738856176e-05,
+   "mseGain": 5.266649692144208e-05,
    "corrWithMove": 0.049
   },
   {
-   "feature": "h_l5_pdo",
-   "mseGain": 6.63633878868787e-05,
-   "corrWithMove": 0.007
-  },
-  {
-   "feature": "a_ssn_pk",
-   "mseGain": 6.0705530645691974e-05,
-   "corrWithMove": 0.048
-  },
-  {
-   "feature": "h_ssn_pdo",
-   "mseGain": 5.4750743326652945e-05,
-   "corrWithMove": 0.034
+   "feature": "a_ssn_xga",
+   "mseGain": 4.721240370548065e-05,
+   "corrWithMove": 0.109
   }
  ]
 }

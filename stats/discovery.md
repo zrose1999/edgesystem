@@ -1,6 +1,6 @@
 # Discovery report (discover.py)
 
-2026-10-15T03:20:43Z. 9145 game-markets, 86 situations tested. Candidates: 150+ games, |t| >= 3.0, same direction in both halves. Moves are close minus open: home line (spreads), total line, home or over probability. Leads for the weekly review, not patterns.
+2026-10-15T06:09:40Z. 9145 game-markets, 86 situations tested. Candidates: 150+ games, |t| >= 3.0, same direction in both halves. Moves are close minus open: home line (spreads), total line, home or over probability. Leads for the weekly review, not patterns.
 
 | Sport | Market | Situation | Games | Avg move | t | 1st half | 2nd half |
 |---|---|---|---|---|---|---|---|
