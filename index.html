@@ -302,13 +302,17 @@ const STRAT = {
   "learned-nhl-over": ["NHL learned model, totals", "Learned from 191 data points per game which situations move NHL totals."],
   "learned-soccer-1x2": ["Soccer learned model, result", "Learned from 151 data points over 17,000 matches which situations move home, draw and away prices."],
   "learned-soccer-over": ["Soccer learned model, goals", "Learned which situations move the 2.5-goal price."],
+  "learned-nba-total": ["NBA learned model, totals", "Learned from 89 data points per game which situations move NBA totals."],
+  "learned-nba-spread": ["NBA learned model, spread", "Learned which situations move NBA spreads (not yet past the gate)."],
+  "learned-nba-ml": ["NBA learned model, moneyline", "Learned which situations move NBA moneylines (not yet past the gate)."],
   "soccer-drift": ["Soccer drift", "Under-drift and recent-scoring overreaction on 2.5-goal totals in the top five leagues."],
   "edge-stack": ["Edge stack", "Several independent measured edges agree on the same side; their expected moves are added up."],
   "sharp-drift": ["Sharp price plus drift", "A retail price beats where Pinnacle is expected to close, using each market's measured drift."],
   "luck-reversion": ["Luck reversion", "Record running ahead of or behind efficiency."],
   "early-number": ["Early number", "Early-week lines softer than the close."]
 };
-const stratName = p => (STRAT[p] || [p || "Analyst read"])[0];
+const archName = p => { const m = /^learned-archive-(.+)-([a-z0-9]+)$/.exec(p || ""); return m ? [`${m[1].toUpperCase()} learned model, ${m[2]}`, "Learned from EDGE's own collected history for this sport and market, once it had 300+ games and passed the out-of-sample gate."] : null; };
+const stratName = p => (STRAT[p] || archName(p) || [p || "Analyst read"])[0];
 const state = { sport: "All", grade: "AB", betsOnly: false, data: null };
 
 const $ = s => document.querySelector(s);
@@ -552,12 +556,12 @@ function renderStrategies() {
   const { picks, score } = state.data;
   const pats = (score && score.patterns) || [];
   const byId = Object.fromEntries(pats.map(p => [p.id, p]));
-  const always = ["sharp-soft", "sharp-soft-alt", "news-lag", "wind-total", "stats-model", "trend-fade", "nba-stats-model", "nba-model-fav", "rest-spot", "goalie-news", "ncaaf-total-move", "ncaaf-spot", "nhl-ml-move", "nhl-total-move", "tennis-elo", "tennis-fatigue", "edge-stack", "sharp-drift", "soccer-drift", "learned-nhl-ml", "learned-nhl-over", "learned-soccer-1x2", "learned-soccer-over"];
+  const always = ["sharp-soft", "sharp-soft-alt", "news-lag", "wind-total", "stats-model", "trend-fade", "nba-stats-model", "nba-model-fav", "rest-spot", "goalie-news", "ncaaf-total-move", "ncaaf-spot", "nhl-ml-move", "nhl-total-move", "tennis-elo", "tennis-fatigue", "edge-stack", "sharp-drift", "soccer-drift", "learned-nhl-ml", "learned-nhl-over", "learned-soccer-1x2", "learned-soccer-over", "learned-nba-total"];
   const names = [...new Set([...always, ...Object.keys(STRAT).filter(k => byId[k] || picks.some(p => p.pattern === k)), ...pats.map(p => p.id)])];
   const N = 30;
   $("#stratList").innerHTML = names.map(id => {
     const s = byId[id] || { status: "shadow", picks: picks.filter(p => p.pattern === id && p.kind === "pick").length, clvN: 0 };
-    const [name, desc] = STRAT[id] || [id, ""];
+    const [name, desc] = STRAT[id] || archName(id) || [id, ""];
     const status = s.status === "official" ? ["official", "Official: bets carry a stake"] : s.status === "retire" ? ["retire", "Retired"] : ["", "Tracking"];
     const n = s.clvN || 0;
     return `<div class="strat">

@@ -17,7 +17,7 @@ const SOURCES = ["official", "kalshi-sharp", "kalshi-sharp-alt", "mirror:sharp-s
   "mirror:nba-stats-model", "mirror:nba-model-fav", "mirror:rest-spot", "mirror:goalie-news", "mirror:ncaaf-total-move",
   "mirror:ncaaf-spot", "mirror:nhl-ml-move", "mirror:nhl-total-move", "mirror:tennis-elo", "mirror:tennis-fatigue",
   "mirror:edge-stack", "mirror:sharp-drift", "mirror:soccer-drift", "kalshi-drift",
-  "mirror:learned-nhl-ml", "mirror:learned-nhl-over", "mirror:learned-soccer-1x2", "mirror:learned-soccer-over"];
+  "mirror:learned-nhl-ml", "mirror:learned-nhl-over", "mirror:learned-soccer-1x2", "mirror:learned-soccer-over", "mirror:learned-nba-total", "mirror:learned-nba-spread", "mirror:learned-nba-ml"];
 const DEFAULTS = {
   enabled: false, paused: false, bankroll: 100, stopLoss: 25, takeProfit: 50,
   maxPerTradePct: 5, maxPerDayPct: 20, liveSources: ["official"], sessionId: null, updatedAt: null,
@@ -64,7 +64,7 @@ export default async (req) => {
       if ("maxPerTradePct" in s) next.maxPerTradePct = num(s.maxPerTradePct, 0.1, 25, "Max per trade %");
       if ("maxPerDayPct" in s) next.maxPerDayPct = num(s.maxPerDayPct, 0.1, 100, "Max per day %");
       if ("liveSources" in s) {
-        if (!Array.isArray(s.liveSources) || s.liveSources.some((x) => !SOURCES.includes(x))) throw new Error("Unknown source.");
+        if (!Array.isArray(s.liveSources) || s.liveSources.some((x) => !SOURCES.includes(x) && !/^mirror:learned-archive-[a-z0-9]+-[a-z0-9]+$/.test(x))) throw new Error("Unknown source.");
         next.liveSources = [...new Set(s.liveSources)];
       }
     }

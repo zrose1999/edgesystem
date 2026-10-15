@@ -36,13 +36,15 @@ jobs:
           python features_nhl.py refresh || true
           python features_nhl.py history
           python features_soccer.py history
+          python features_nba.py history
+          python features_archive.py
           python learner.py all
           python learner.py live || true
       - name: Push to branch data
         run: |
           git config user.name "EDGE"
           git config user.email "edge@edgesystem.local"
-          git add stats/backtest_nfl*.json stats/backtest_nfl*.md stats/backtest_nba*.json stats/backtest_nba*.md stats/backtest_cs2.md stats/backtest_tennis.md stats/discovery.md stats/discovery.json stats/models stats/features/nhl_team_games.json stats/features/nhl_goalie_seasons.json stats/features/nhl_starters.json
+          git add stats/backtest_nfl*.json stats/backtest_nfl*.md stats/backtest_nba*.json stats/backtest_nba*.md stats/backtest_cs2.md stats/backtest_tennis.md stats/discovery.md stats/discovery.json stats/models stats/features/nhl_team_games.json stats/features/nhl_goalie_seasons.json stats/features/nhl_starters.json stats/features/archive_targets.json
           if git diff --cached --quiet; then echo "No changes."; exit 0; fi
           git commit -q -m "EDGE: backtest refresh"
           for i in 1 2 3; do
