@@ -124,6 +124,8 @@ def nhl_reads(rows, now, done):
             if name == "nhl_over" and (row["openSnap"].get("line") != row["lastSnap"].get("line") or t_over is None):
                 continue
             pred = predict(m, f)
+            LOG.append({"target": name, "rowId": row["id"], "pred": round(pred, 5), "open": round(start_of(name, p_open, t_over), 5),
+                        "top": abs(pred - m["center"]) >= m["threshold"], "at": pull.iso(now), "book": "print"})
             if abs(pred - m["center"]) < m["threshold"]:
                 continue
             cur = fairlib.probs(row["lastSnap"], keys)[keys[0]]
@@ -142,16 +144,200 @@ def nhl_reads(rows, now, done):
     return out
 
 
+LOG = []
+LIVE_LOG = MODELS / "live_log.jsonl"
+
+
+def start_of(name, p_open, t_over):
+    return p_open if name == "nhl_ml" else (t_over or 0.0)
+
+
+def opn_of(pin, side):
+    return dict(zip(("home", "draw", "away"), pin))[side]
+
+
+def write_log():
+    """First prediction per game and target is kept: that is the one the open-to-close move tests."""
+    seen = set()
+    if LIVE_LOG.exists():
+        for line in LIVE_LOG.read_text().splitlines():
+            if line.strip():
+                r = json.loads(line)
+                seen.add((r["target"], r["rowId"]))
+    new = [r for r in LOG if (r["target"], r["rowId"]) not in seen]
+    if new:
+        with LIVE_LOG.open("a") as fh:
+            for r in new:
+                fh.write(json.dumps(r, separators=(",", ":")) + "\n")
+    return len(new)
+
+
+SOCCER_SPORTS = {"EPL", "LaLiga", "Bundesliga", "SerieA", "Ligue1"}
+_FORMS = None
+
+
+ALIASES = {"athletic bilbao": "athletic club", "as roma": "roma", "1. fc koln": "fc cologne", "fc koln": "fc cologne",
+           "1. fc union berlin": "union berlin", "bayer leverkusen": "bayer leverkusen", "borussia monchengladbach":
+           "borussia m.gladbach", "paris saint germain": "paris saint germain", "inter milan": "inter",
+           "ac milan": "ac milan", "atletico madrid": "atletico madrid", "real betis": "real betis",
+           "celta vigo": "celta vigo", "rayo vallecano": "rayo vallecano", "1. fsv mainz 05": "mainz 05",
+           "fsv mainz 05": "mainz 05", "tsg hoffenheim": "hoffenheim", "vfl wolfsburg": "wolfsburg",
+           "sc freiburg": "freiburg", "fc augsburg": "augsburg", "vfb stuttgart": "vfb stuttgart",
+           "hamburger sv": "hamburger sv", "fc st. pauli": "st. pauli", "1. fc heidenheim": "fc heidenheim",
+           "real racing club de santander": "racing santander", "deportivo la coruna": "deportivo la coruna",
+           "stade rennais": "rennes", "olympique lyonnais": "lyon", "olympique marseille": "marseille",
+           "as monaco": "monaco", "ogc nice": "nice", "rc lens": "lens", "rc strasbourg": "strasbourg",
+           "stade brestois 29": "brest", "losc lille": "lille", "hellas verona": "verona", "wolverhampton wanderers":
+           "wolverhampton wanderers", "brighton and hove albion": "brighton", "nottingham forest": "nottingham forest"}
+
+
+def soccer_team(form, name):
+    import difflib
+    n = norm(name)
+    n = ALIASES.get(n, n)
+    best, score = None, 0.0
+    for t in form.h:
+        tn = norm(t)
+        sc = 1.0 if (n.startswith(tn) or tn.startswith(n)) else difflib.SequenceMatcher(None, n, tn).ratio()
+        if sc > score:
+            best, score = t, sc
+    return best if score >= 0.75 else None
+
+
+def book_trio(snap, bk):
+    b = (snap.get("books") or {}).get(bk) or {}
+    if not all(k in b for k in ("home", "draw", "away")):
+        return None
+    p = fairlib.probs(b, ["home", "draw", "away"])
+    return p["home"], p["draw"], p["away"]
+
+
+def direct_entry(row, side, fair, pattern, why, now):
+    """A read on a three-way market, priced side by side (pull.make_read assumes two-way)."""
+    snap = row["lastSnap"]
+    # Line-shop the US books (Pinnacle is the reference, not a place to bet): the best price on this side.
+    books = {k: v for k, v in (snap.get("books") or {}).items() if k != "pinnacle" and side in v}
+    if books:
+        bk = max(books, key=lambda k: books[k][side])
+        price, book_name = books[bk][side], books[bk].get("book", bk)
+    else:
+        price, book_name = snap[side], snap.get("book")
+    edge = fair - pull.implied(price)
+    bar = pull.H2H_BAR
+    grade = pull.grade_for(edge, bar, "medium")
+    kind = {"A": "pick", "B": "pick", "C": "lean", "P": "pass"}[grade]
+    if kind == "pass":
+        return None
+    pid = f"{row['id']}|{side}|{pull.VERSION}|{pattern}" + ("" if kind == "pick" else f"|{kind}|{pull.iso(now)}")
+    return {"pickId": pid, "kind": kind, "grade": grade, "rowId": row["id"], "sport": row["sport"], "event": row["event"],
+            "commence": row["commence"], "market": "h2h", "side": side, "lineAtPick": None, "priceAtPick": price,
+            "bookAtPick": book_name, "marketNumber": None,
+            "marketPrices": {k: snap[k] for k in ("home", "away", "draw") if k in snap}, "priceTime": snap["time"],
+            "pickedAt": pull.iso(now), "fair": round(fair, 4), "projection": round(fair, 4), "edge": round(edge, 4),
+            "edgeUnit": "prob", "bar": bar, "fullBar": edge >= bar, "confidence": "medium", "pattern": pattern,
+            "reason": why, "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+            "modelVersion": pull.VERSION, "tier": "shadow" if kind == "pick" else None, "stakeUnits": 0.0,
+            "by": "learn_live.py"}
+
+
+def soccer_reads(rows, now, done):
+    global _FORMS
+    models = {k: load_model(f"soccer_{k}") for k in ("home", "draw", "away", "over")}
+    if not any(models.values()):
+        return [], []
+    import features_soccer as FS
+    if _FORMS is None:
+        _FORMS = FS.live_form(now.year if now.month >= 7 else now.year - 1)
+    horizon = pull.iso(now + timedelta(hours=48))
+    games = defaultdict(dict)
+    for r in rows:
+        if r.get("sport") in SOCCER_SPORTS and r.get("commence") and pull.iso(now) < r["commence"] <= horizon:
+            games[(r["sport"], r["home"], r["away"], r["commence"])][r["market"]] = r
+    reads, direct = [], []
+    for (league, home, away, when), mk in games.items():
+        ml = mk.get("h2h")
+        if not ml or not ml.get("openSnap") or not ml.get("lastSnap") or league not in _FORMS:
+            continue
+        form, promoted = _FORMS[league]
+        h, a = soccer_team(form, home), soccer_team(form, away)
+        pin = book_trio(ml["openSnap"], "pinnacle")
+        if not h or not a or not pin:
+            continue
+        f = FS.match_features(form, h, a, when[:10], league, promoted)
+        others = [t for t in (book_trio(ml["openSnap"], b) for b in ("draftkings", "fanduel", "betmgm", "williamhill_us", "pinnacle")) if t]
+        avg = tuple(sum(t[i] for t in others) / len(others) for i in range(3)) if others else None
+        tot = mk.get("total")
+        pin_over = None
+        if tot and tot.get("openSnap") and tot["openSnap"].get("line") == 2.5:
+            pb = (tot["openSnap"].get("books") or {}).get("pinnacle") or {}
+            if "over" in pb and "under" in pb:
+                pin_over = fairlib.probs(pb, ["over", "under"])["over"]
+        FS.market_features(f, pin[0], pin[1], pin[2], pin_over, avg=avg)
+        cur_pin = book_trio(ml["lastSnap"], "pinnacle") or pin
+        cur = dict(zip(("home", "draw", "away"), cur_pin))
+        opn = dict(zip(("home", "draw", "away"), pin))
+        for side in ("home", "draw", "away"):
+            m, pat = models[side], "learned-soccer-1x2"
+            if not m:
+                continue
+            pred = predict(m, f)
+            LOG.append({"target": f"soccer_{side}", "rowId": ml["id"], "pred": round(pred, 5), "open": round(opn_of(pin, side), 5),
+                        "top": abs(pred - m["center"]) >= m["threshold"], "at": pull.iso(now), "book": "pinnacle"})
+            if (ml["id"], pat, side) in done:
+                continue
+            if abs(pred - m["center"]) < m["threshold"] or pred <= 0:
+                continue                         # take the side the model expects to gain
+            moved = cur[side] - opn[side]
+            remaining = max(0.0, pred - max(0.0, moved))
+            if remaining < 0.002:
+                continue
+            fair = cur[side] + remaining
+            why = (f"Learned soccer model ({m['kind']}, {len(m['keys'])} data points) predicts Pinnacle's {side} "
+                   f"probability gains {pred:+.3f} from the open; Pinnacle open {opn[side]:.3f}, now {cur[side]:.3f}, "
+                   f"{remaining:.3f} still to come. Fair {fair:.3f}. Report: stats/models/soccer_{side}.json.")
+            e = direct_entry(ml, side, fair, pat, why, now)
+            if e:
+                direct.append(e)
+        m = models["over"]
+        if m and tot and pin_over is not None and (tot["id"], "learned-soccer-over") not in {(x[0], x[1]) for x in done}:
+            if tot["lastSnap"].get("line") == 2.5:
+                pred = predict(m, f)
+                LOG.append({"target": "soccer_over", "rowId": tot["id"], "pred": round(pred, 5), "open": round(pin_over, 5),
+                            "top": abs(pred - m["center"]) >= m["threshold"], "at": pull.iso(now), "book": "pinnacle"})
+                if abs(pred - m["center"]) >= m["threshold"]:
+                    pb = (tot["lastSnap"].get("books") or {}).get("pinnacle") or tot["lastSnap"]
+                    cur_o = fairlib.probs(pb, ["over", "under"])["over"] if "over" in pb else pin_over
+                    moved = cur_o - pin_over
+                    already = max(0.0, moved / pred) * abs(pred) if pred else 0.0
+                    remaining = max(0.0, abs(pred) - already)
+                    if remaining >= 0.002:
+                        fair = min(max(cur_o + (remaining if pred > 0 else -remaining), 0.02), 0.98)
+                        reads.append((tot, fair, "learned-soccer-over",
+                                      f"Learned soccer model ({m['kind']}) predicts Pinnacle's over 2.5 probability moves "
+                                      f"{pred:+.3f} from the open; open {pin_over:.3f}, now {cur_o:.3f}, {remaining:.3f} "
+                                      f"still to come. Fair {fair:.3f}. Report: stats/models/soccer_over.json."))
+    return reads, direct
+
+
 def main(dry=False):
     now = datetime.now(timezone.utc)
     rows = pull.load(pull.LEDGER, {"rows": []}).get("rows") or []
     picks = pull.load(pull.PICKS, {"picks": []})["picks"]
     done = {(p.get("rowId"), p.get("pattern")) for p in picks}
     todo = nhl_reads(rows, now, done)
+    done3 = {(p.get("rowId"), p.get("pattern"), p.get("side")) for p in picks} | {(r, pt, None) for r, pt in done}
+    s_reads, s_direct = soccer_reads(rows, now, done3)
+    todo += s_reads
     if dry:
         for row, fair, pat, why in todo:
             print(f"WOULD READ {pat} {row['id']} | {why}")
+        for e in s_direct:
+            print(f"WOULD STAMP {e['grade']} {e['pattern']} {e['rowId']} {e['side']} {e['priceAtPick']:+g} edge {e['edge']:+.3f}")
     else:
+        if s_direct:
+            doc = pull.load(pull.PICKS, {"picks": []})
+            doc["picks"].extend(s_direct)
+            pull.save(pull.PICKS, doc)
         for sport in {r["sport"] for r, _, _, _ in todo}:
             if sport not in pull.READ:
                 pull.READ = pull.READ + [sport]
@@ -163,7 +349,8 @@ def main(dry=False):
                 pull.make_read(args)
             except SystemExit as exc:
                 print(f"read not stamped {row['id']}: {exc}")
-    print(json.dumps({"learned": len(todo), "dry": dry}))
+    logged = 0 if dry else write_log()
+    print(json.dumps({"learned": len(todo), "learned3way": len(s_direct), "predictionsLogged": logged, "dry": dry}))
 
 
 if __name__ == "__main__":

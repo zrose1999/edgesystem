@@ -33,6 +33,10 @@ MODELS = ROOT / "stats" / "models"
 TARGETS = {
     "nhl_ml": {"file": "stats/features/nhl_history.json", "y": "y_ml", "unit": "prob"},
     "nhl_over": {"file": "stats/features/nhl_history.json", "y": "y_over", "unit": "prob"},
+    "soccer_home": {"file": "stats/features/soccer_history.json", "y": "y_home", "unit": "prob"},
+    "soccer_away": {"file": "stats/features/soccer_history.json", "y": "y_away", "unit": "prob"},
+    "soccer_draw": {"file": "stats/features/soccer_history.json", "y": "y_draw", "unit": "prob"},
+    "soccer_over": {"file": "stats/features/soccer_history.json", "y": "y_over", "unit": "prob"},
 }
 BLOCKS, TEST_SHARE, TOP_SHARE = 5, 0.6, 0.30
 GATE_T, GATE_BLOCKS = 2.5, 4
@@ -195,8 +199,58 @@ def summary(rep):
     return "\n".join(lines)
 
 
+def live_check():
+    """Live out-of-sample check of every learned model: first logged prediction per game vs the realized move from
+    the open to the last pre-start price (archive and ledger). Same top-30% trade test as the walk-forward."""
+    import fair as fairlib
+    log = [json.loads(l) for l in (MODELS / "live_log.jsonl").read_text().splitlines() if l.strip()] \
+        if (MODELS / "live_log.jsonl").exists() else []
+    rows = {}
+    arch = ROOT / "ledger" / "archive"
+    if arch.exists():
+        for f in arch.glob("*/*.jsonl"):
+            if f.stem != "kalshi":
+                for l in f.read_text().splitlines():
+                    if l.strip():
+                        r = json.loads(l)
+                        rows[r.get("id")] = r
+    for r in json.loads((ROOT / "ledger" / "ledger.json").read_text()).get("rows") or []:
+        rows.setdefault(r.get("id"), r)
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    out = {}
+    for rec in log:
+        r = rows.get(rec["rowId"])
+        if not r or (r.get("commence") or "9") > now:
+            continue
+        snap = r.get("closeSnap") or r.get("lastSnap") or {}
+        t = rec["target"]
+        if rec.get("book") == "pinnacle":
+            b = (snap.get("books") or {}).get("pinnacle") or {}
+            keys = ["home", "draw", "away"] if t.startswith("soccer_") and t != "soccer_over" else ["over", "under"]
+            side = t.split("_")[1] if t != "soccer_over" else "over"
+        else:
+            b = snap
+            keys = ["home", "away"] if t.endswith("_ml") else ["over", "under"]
+            side = keys[0]
+        if not all(k in b for k in keys):
+            continue
+        realized = fairlib.probs(b, keys)[side] - rec["open"]
+        out.setdefault(t, []).append((rec["pred"], realized, rec["top"]))
+    rep = {}
+    for t, xs in out.items():
+        top = [np.sign(p) * y for p, y, top in xs if top]
+        allc = np.corrcoef([p for p, _, _ in xs], [y for _, y, _ in xs])[0, 1] if len(xs) > 2 else None
+        rep[t] = {"games": len(xs), "corr": None if allc is None or np.isnan(allc) else round(float(allc), 3),
+                  "topTrades": len(top), "topMeanMove": round(float(np.mean(top)), 4) if top else None, "topT": round(tstat(top), 2)}
+    (MODELS / "live_check.json").write_text(json.dumps({"asOf": now, "targets": rep}, indent=1))
+    return rep
+
+
 if __name__ == "__main__":
     import learner as _L          # run through the module, so saved models load from any script
     which = sys.argv[1:] or ["all"]
+    if which == ["live"]:
+        print(json.dumps(_L.live_check(), indent=1))
+        sys.exit(0)
     for t in (_L.TARGETS if which == ["all"] else which):
         print(_L.summary(_L.run(t)))

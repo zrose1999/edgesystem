@@ -1,0 +1,223 @@
+{
+ "target": "soccer_home",
+ "trained": "2026-10-15T03:15:03Z",
+ "rows": 17013,
+ "features": 151,
+ "unit": "prob",
+ "from": "2016-08-12 22:00:00",
+ "to": "2026-01-14 19:45:00",
+ "results": {
+  "baseline": {
+   "blocks": [
+    {
+     "from": 6805,
+     "to": 8846,
+     "trades": 2041,
+     "meanMove": 0.003059092197905389,
+     "t": 4.094272571171755
+    },
+    {
+     "from": 8846,
+     "to": 10888,
+     "trades": 2042,
+     "meanMove": -0.002178371334578419,
+     "t": -3.3216059350421703
+    },
+    {
+     "from": 10888,
+     "to": 12929,
+     "trades": 2041,
+     "meanMove": 0.0017283019607102139,
+     "t": 2.76246495669369
+    },
+    {
+     "from": 12929,
+     "to": 14971,
+     "trades": 2042,
+     "meanMove": -0.0013552973333166031,
+     "t": -2.096120668553089
+    },
+    {
+     "from": 14971,
+     "to": 17013,
+     "trades": 2042,
+     "meanMove": 0.0038559638948560105,
+     "t": 6.074041048588372
+    }
+   ],
+   "oosCorr": null,
+   "trades": 10208,
+   "meanMove": 0.0010216691155161427,
+   "t": 3.43,
+   "positiveBlocks": 3
+  },
+  "ridge": {
+   "blocks": [
+    {
+     "from": 6805,
+     "to": 8846,
+     "trades": 636,
+     "meanMove": 0.004300450777247058,
+     "t": 3.26379944123495
+    },
+    {
+     "from": 8846,
+     "to": 10888,
+     "trades": 615,
+     "meanMove": 0.002759566362288548,
+     "t": 2.260229148729525
+    },
+    {
+     "from": 10888,
+     "to": 12929,
+     "trades": 650,
+     "meanMove": 0.003635729447071091,
+     "t": 3.183293093429277
+    },
+    {
+     "from": 12929,
+     "to": 14971,
+     "trades": 666,
+     "meanMove": 0.009419294464988962,
+     "t": 8.313781411455265
+    },
+    {
+     "from": 14971,
+     "to": 17013,
+     "trades": 625,
+     "meanMove": 0.008054686311008278,
+     "t": 6.858012161812291
+    }
+   ],
+   "oosCorr": 0.1233,
+   "trades": 3065,
+   "meanMove": 0.006446979721486527,
+   "t": 11.81,
+   "positiveBlocks": 5
+  },
+  "gbm": {
+   "blocks": [
+    {
+     "from": 6805,
+     "to": 8846,
+     "trades": 698,
+     "meanMove": 0.0053593820428316005,
+     "t": 4.1358782999580495
+    },
+    {
+     "from": 8846,
+     "to": 10888,
+     "trades": 644,
+     "meanMove": 0.0011844429632256648,
+     "t": 1.0092882375760683
+    },
+    {
+     "from": 10888,
+     "to": 12929,
+     "trades": 539,
+     "meanMove": 0.0010340828911100052,
+     "t": 0.824601010198767
+    },
+    {
+     "from": 12929,
+     "to": 14971,
+     "trades": 573,
+     "meanMove": 0.01004368613328588,
+     "t": 8.153884787230385
+    },
+    {
+     "from": 14971,
+     "to": 17013,
+     "trades": 667,
+     "meanMove": 0.005997670152318291,
+     "t": 5.0852696745446355
+    }
+   ],
+   "oosCorr": 0.0871,
+   "trades": 3065,
+   "meanMove": 0.005303425572283546,
+   "t": 9.76,
+   "positiveBlocks": 5
+  }
+ },
+ "chosen": "ridge",
+ "live": true,
+ "gate": "pooled OOS t >= 2.5, 4/5 blocks positive, beats drift baseline",
+ "signals": [
+  {
+   "feature": "a_xa5",
+   "mseGain": 1.342007563210788e-06,
+   "corrWithMove": 0.076
+  },
+  {
+   "feature": "a_xa3",
+   "mseGain": 1.2549426255865394e-06,
+   "corrWithMove": 0.081
+  },
+  {
+   "feature": "lg_LaLiga",
+   "mseGain": 1.045817318011638e-06,
+   "corrWithMove": 0.023
+  },
+  {
+   "feature": "d_xa1",
+   "mseGain": 1.0455742349140418e-06,
+   "corrWithMove": -0.082
+  },
+  {
+   "feature": "d_xa3",
+   "mseGain": 8.228419689274534e-07,
+   "corrWithMove": -0.086
+  },
+  {
+   "feature": "avg_minus_pin_d",
+   "mseGain": 7.735481973326084e-07,
+   "corrWithMove": -0.026
+  },
+  {
+   "feature": "d_xa5",
+   "mseGain": 7.108059037749326e-07,
+   "corrWithMove": -0.074
+  },
+  {
+   "feature": "d_formgap5",
+   "mseGain": 6.861593951076406e-07,
+   "corrWithMove": -0.092
+  },
+  {
+   "feature": "d_luck10",
+   "mseGain": 5.566732224063968e-07,
+   "corrWithMove": -0.087
+  },
+  {
+   "feature": "h_xa1",
+   "mseGain": 5.524555552986884e-07,
+   "corrWithMove": -0.044
+  },
+  {
+   "feature": "a_gf38",
+   "mseGain": 5.473166802957494e-07,
+   "corrWithMove": 0.026
+  },
+  {
+   "feature": "a_xa1",
+   "mseGain": 5.455746824565861e-07,
+   "corrWithMove": 0.072
+  },
+  {
+   "feature": "h_xf1",
+   "mseGain": 4.714983924187415e-07,
+   "corrWithMove": 0.041
+  },
+  {
+   "feature": "lg_EPL",
+   "mseGain": 4.569644714091199e-07,
+   "corrWithMove": -0.01
+  },
+  {
+   "feature": "h_xpg1",
+   "mseGain": 4.4148169010068024e-07,
+   "corrWithMove": 0.051
+  }
+ ]
+}
