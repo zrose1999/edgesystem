@@ -535,8 +535,8 @@ def cs2_candidates(cfg, now):
         return [], 0
     ratings = load(CS2_RATINGS, {})
     ups = ratings.get("upcoming") or []
-    if not ups:
-        return [], 0
+    if not ups or ratings.get("backfillPending"):
+        return [], 0          # ratings from a part-loaded history are not ready to price anything
     try:
         evs, mks = events(PROD, CS2_SERIES), markets(PROD, CS2_SERIES)
     except Exception as exc:  # noqa: BLE001

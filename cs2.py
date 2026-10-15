@@ -210,7 +210,6 @@ def main():
         print(json.dumps({"cs2": f"history: {exc}"}))
         added = 0
     save(HIST, hist)
-    save_sample(token)
     R, _ = run_model(hist["matches"])
     upcoming = []
     try:
