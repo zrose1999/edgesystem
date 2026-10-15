@@ -103,3 +103,18 @@ Idea: the NCAAF ratings' total knows where the line is going, not where the game
 Applies: NCAAF totals within 7 days, model 4+ points from the open. Fair = current total + the part of the expected move (0.18 x gap) not yet made. K fixed at 0.18; the weekly review can propose a new value.
 Note: edges are usually 0.7 to 1.5 points, mostly under the NCAAF totals half-bar (1.5), so most log as leans graded on CLV. A bar for measured-move patterns (with rest-spot) is Zack's call.
 Retire early if: CLV is below 0 after 30 reads.
+
+## nhl-ml-move and nhl-total-move
+
+Stamped by move_nhl.py on the morning run. The NHL ratings used only for where the price goes between the open and the close: moneyline k 0.10 (backtest 0.104, se 0.015; halves 0.12, 0.06), total k 0.20 (0.236, se 0.018; halves 0.28, 0.16). Gap 4+ points from the open. Fair = current + the part of the expected move not yet made.
+Retire early if: CLV is below 0 after 30 reads.
+
+## edge-stack
+
+Stamped by edge_stack.py. The expected remaining moves of every measured pattern on one game and side (news-lag, rest-spot, goalie-news, wind-total, ncaaf-total-move, nhl-ml-move, nhl-total-move), plus the measured opening drift and NHL home back-to-back (stats/backtest_drift.md), summed x0.85 for overlap. Two or more sources, all the same direction. Model-only patterns without proven CLV (stats-model, nba-stats-model, trend-fade) and price gaps are not stacked.
+Retire early if: CLV is below 0 after 30 reads, or below the best single source it is built from.
+
+## sharp-drift
+
+Stamped by edge_stack.py. Pinnacle no-vig now plus the part of the measured open-to-close drift still to come (NHL, NCAAF totals, five soccer leagues incl. draws), against the best retail price on the same line. Bar as sharp-soft.
+Retire early if: CLV is below 0 after 30 picks.
