@@ -38,6 +38,31 @@ SOCCER_1X2 = {               # home, draw, away probability drift, Pinnacle earl
     "EPL": (-0.0008, 0.0030, -0.0022), "LaLiga": (0.0010, 0.0040, -0.0050), "Bundesliga": (-0.0002, 0.0041, -0.0039),
     "SerieA": (-0.0033, 0.0056, -0.0023), "Ligue1": (-0.0039, 0.0037, 0.0002)}
 SOCCER_OVER = {"EPL": -0.0043, "LaLiga": -0.0047, "Bundesliga": -0.0056, "SerieA": -0.0048, "Ligue1": -0.0044}
+# Soccer early-price overreaction (stats/backtest_soccer_spots.md), probability per unit
+LUCK = 0.0010            # per goal of (luck for minus luck against) in the last match, home minus away
+FORM_H, FORM_A = 0.0009, 0.00075   # per point of points minus expected points over 5
+FORM_X = 0.0004          # the other side's form gap, half-measured cross effect
+LAST_TOTALS = 0.00072    # over 2.5, per goal of both teams' last-match totals above 5.5
+_FORM = None
+
+
+def team_form(league, name):
+    global _FORM
+    if _FORM is None:
+        _FORM = (pull.load(ROOT / "stats" / "soccer_form.json", {}).get("leagues") or {})
+    teams = _FORM.get(league) or {}
+    import difflib
+    import unicodedata
+    n = unicodedata.normalize("NFKD", name or "").encode("ascii", "ignore").decode().lower()
+    best, score = None, 0.0
+    for t, v in teams.items():
+        tn = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode().lower()
+        sc = 1.0 if (n.startswith(tn) or tn.startswith(n)) else difflib.SequenceMatcher(None, n, tn).ratio()
+        if sc > score:
+            best, score = v, sc
+    return best if score >= 0.75 else None
+
+
 NHL_HOME = -0.006
 NHL_OVER = 0.0055
 NHL_HOME_B2B = -0.010
@@ -96,9 +121,20 @@ def drift_prob(row, now, nhl_games):
         return {"under": d, "over": -d}
     if sport in SOCCER_1X2 and market == "h2h":
         h, d, a = SOCCER_1X2[sport]
+        fh, fa = team_form(sport, row["home"]), team_form(sport, row["away"])
+        if fh and fa:                      # early prices overreact to luck and to points above expected points
+            lh, la = fh["luck1"], fa["luck1"]
+            gh, ga = fh.get("formgap5") or 0.0, fa.get("formgap5") or 0.0
+            ah = -LUCK * (lh - la) - FORM_H * gh + FORM_X * ga
+            aa = -LUCK * (la - lh) - FORM_A * ga + FORM_X * gh
+            h, a, d = h + ah, a + aa, d - ah - aa
         return {"home": h * share, "draw": d * share, "away": a * share}
     if sport in SOCCER_OVER and market == "total" and (row.get("lastSnap") or {}).get("line") == 2.5:
-        o = SOCCER_OVER[sport] * share
+        o = SOCCER_OVER[sport]
+        fh, fa = team_form(sport, row["home"]), team_form(sport, row["away"])
+        if fh and fa:
+            o += LAST_TOTALS * (fh["tot1"] + fa["tot1"] - 5.5)
+        o *= share
         return {"over": o, "under": -o}
     return None
 
