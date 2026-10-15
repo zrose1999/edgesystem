@@ -36,6 +36,11 @@ TARGETS = {
     "nba_spread": {"file": "stats/features/nba_history.json", "y": "y_spread", "unit": "points"},
     "nba_total": {"file": "stats/features/nba_history.json", "y": "y_total", "unit": "points"},
     "nba_ml": {"file": "stats/features/nba_history.json", "y": "y_ml", "unit": "prob"},
+    "nfl_spread": {"file": "stats/features/nfl_history.json", "y": "y_spread", "unit": "points"},
+    "nfl_total": {"file": "stats/features/nfl_history.json", "y": "y_total", "unit": "points"},
+    "nfl_ml": {"file": "stats/features/nfl_history.json", "y": "y_ml", "unit": "prob"},
+    "ncaaf_spread": {"file": "stats/features/ncaaf_history.json", "y": "y_spread", "unit": "points"},
+    "ncaaf_total": {"file": "stats/features/ncaaf_history.json", "y": "y_total", "unit": "points"},
     "soccer_home": {"file": "stats/features/soccer_history.json", "y": "y_home", "unit": "prob"},
     "soccer_away": {"file": "stats/features/soccer_history.json", "y": "y_away", "unit": "prob"},
     "soccer_draw": {"file": "stats/features/soccer_history.json", "y": "y_draw", "unit": "prob"},
@@ -260,4 +265,10 @@ if __name__ == "__main__":
         print(json.dumps(_L.live_check(), indent=1))
         sys.exit(0)
     for t in (_L.TARGETS if which == ["all"] else which):
-        print(_L.summary(_L.run(t)))
+        if not (_L.ROOT / _L.TARGETS[t]["file"]).exists():
+            print(json.dumps({"target": t, "skipped": "feature file not built"}))
+            continue
+        try:
+            print(_L.summary(_L.run(t)))
+        except Exception as exc:  # noqa: BLE001  one target failing must not stop the others
+            print(json.dumps({"target": t, "error": str(exc)[:200]}))

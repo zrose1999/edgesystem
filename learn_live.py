@@ -385,6 +385,113 @@ def nba_reads(rows, now, done):
     return out
 
 
+def nfl_reads(rows, now, done):
+    """NFL: learned models on spread/total (points) and moneyline (prob) from nflverse + backfilled opening lines."""
+    models = {k: load_model(f"nfl_{k}") for k in ("spread", "total", "ml")}
+    if not any(models.values()):
+        return []
+    import features_nfl as FL
+    book, upcoming = FL.live_book()
+    horizon = pull.iso(now + timedelta(days=7))
+    by_game = defaultdict(dict)
+    for r in rows:
+        if r.get("sport") == "NFL" and r.get("commence") and pull.iso(now) < r["commence"] <= horizon:
+            by_game[(r["home"], r["away"])][r["market"]] = r
+    out = []
+    for g in upcoming:
+        mk = by_game.get((FL.NAMES.get(g["home_team"], g["home_team"]), FL.NAMES.get(g["away_team"], g["away_team"])))
+        if not mk:
+            continue
+        sp, tt, ml = mk.get("spread"), mk.get("total"), mk.get("h2h")
+        if not sp or not sp.get("openSnap"):
+            continue
+        so = sp["openSnap"].get("line")
+        to = (tt or {}).get("openSnap", {}).get("line") if tt else None
+        mo = fairlib.probs(ml["openSnap"], ["home", "away"])["home"] if ml and ml.get("openSnap") and "home" in ml["openSnap"] else None
+        f = FL.game_features(book, g, so, to, mo)
+        for name, row in (("spread", sp), ("total", tt), ("ml", ml)):
+            m, pat = models[name], f"learned-nfl-{name}"
+            if not m or not row or not row.get("lastSnap") or (row["id"], pat) in done:
+                continue
+            pred = predict(m, f)
+            LOG.append({"target": f"nfl_{name}", "rowId": row["id"], "pred": round(pred, 5),
+                        "open": so if name == "spread" else to if name == "total" else mo,
+                        "top": abs(pred - m["center"]) >= m["threshold"], "at": pull.iso(now), "book": "print"})
+            if abs(pred - m["center"]) < m["threshold"]:
+                continue
+            if name == "ml":
+                cur, start = fairlib.probs(row["lastSnap"], ["home", "away"])["home"], mo
+            else:
+                cur, start = row["lastSnap"].get("line"), row["openSnap"].get("line")
+            if cur is None or start is None:
+                continue
+            already = max(0.0, (cur - start) / pred) * abs(pred) if pred else 0.0
+            remaining = max(0.0, abs(pred) - already)
+            if remaining < (0.003 if name == "ml" else 0.15):
+                continue
+            fair = cur + (remaining if pred > 0 else -remaining)
+            why = (f"Learned NFL model ({m['kind']}, {len(m['keys'])} data points; nflverse closes with backfilled opens) "
+                   f"predicts the {name} moves {pred:+.3f} from the open; open {start}, now {cur}, {remaining:.3f} still "
+                   f"to come. Fair {fair:.3f}. Report: stats/models/nfl_{name}.json.")
+            out.append((row, fair, pat, why))
+    return out
+
+
+def ncaaf_reads(rows, now, done):
+    """College football: learned models on spread and total (points), built from CFBD history (features_ncaaf.py).
+    Lines open about a week ahead, so the window is 7 days."""
+    models = {k: load_model(f"ncaaf_{k}") for k in ("spread", "total")}
+    if not any(models.values()):
+        return []
+    import cfb_qb
+    import features_ncaaf as FN
+    book, upcoming = FN.live_book()
+    horizon = pull.iso(now + timedelta(days=7))
+    by_game = defaultdict(dict)
+    for r in rows:
+        if r.get("sport") == "NCAAF" and r.get("commence") and pull.iso(now) < r["commence"] <= horizon:
+            by_game[(r["home"], r["away"])][r["market"]] = r
+    if not by_game:
+        return []
+    to_odds = cfb_qb.school_index(sorted({n for k in by_game for n in k}))
+    out = []
+    for x in upcoming:
+        h, a = to_odds(x["home"]), to_odds(x["away"])
+        mk = by_game.get((h, a))
+        if not mk:
+            continue
+        sp, tt = mk.get("spread"), mk.get("total")
+        if not sp or not sp.get("openSnap"):
+            continue
+        so = sp["openSnap"].get("line")
+        to = (tt or {}).get("openSnap", {}).get("line") if tt else None
+        f = FN.game_features(book, x, so, to)
+        for name, row in (("spread", sp), ("total", tt)):
+            m, pat = models[name], f"learned-ncaaf-{name}"
+            if not m or not row or not row.get("lastSnap") or (row["id"], pat) in done:
+                continue
+            pred = predict(m, f)
+            LOG.append({"target": f"ncaaf_{name}", "rowId": row["id"], "pred": round(pred, 5),
+                        "open": so if name == "spread" else to, "top": abs(pred - m["center"]) >= m["threshold"],
+                        "at": pull.iso(now), "book": "print"})
+            if abs(pred - m["center"]) < m["threshold"]:
+                continue
+            cur, start = row["lastSnap"].get("line"), row["openSnap"].get("line")
+            if cur is None or start is None:
+                continue
+            moved = cur - start
+            already = max(0.0, moved / pred) * abs(pred) if pred else 0.0
+            remaining = max(0.0, abs(pred) - already)
+            if remaining < 0.15:
+                continue
+            fair = cur + (remaining if pred > 0 else -remaining)
+            why = (f"Learned college model ({m['kind']}, {len(m['keys'])} data points, trained on CFBD history) predicts the "
+                   f"{name} moves {pred:+.2f} from the open; open {start}, now {cur}, {remaining:.2f} still to come. "
+                   f"Fair {fair:.2f}. Report: stats/models/ncaaf_{name}.json.")
+            out.append((row, fair, pat, why))
+    return out
+
+
 def archive_reads(rows, now, done):
     """Models learned from EDGE's own archive (features_archive.py): any sport/market that passed the gate."""
     targets = pull.load(ROOT / "stats" / "features" / "archive_targets.json", {})
@@ -450,6 +557,8 @@ def main(dry=False):
     todo = nhl_reads(rows, now, done)
     done3 = {(p.get("rowId"), p.get("pattern"), p.get("side")) for p in picks} | {(r, pt, None) for r, pt in done}
     todo += nba_reads(rows, now, done)
+    todo += ncaaf_reads(rows, now, done)
+    todo += nfl_reads(rows, now, done)
     s_reads, s_direct = soccer_reads(rows, now, done3)
     a_reads, a_direct = archive_reads(rows, now, done)
     todo += s_reads + a_reads
