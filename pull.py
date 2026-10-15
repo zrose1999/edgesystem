@@ -61,6 +61,9 @@ ACTIVE = _env or ACTIVE
 # Credit guard. The Odds API reports credits left on every response.
 # Under RESERVE, closes are looked up only for READ sports. Under FLOOR, no close lookups at all.
 RESERVE = int(os.environ.get("EDGE_CREDIT_RESERVE", "3000"))
+# Fast runs (every 15 minutes, games in the next 3 hours) stop earlier, so they never eat the credits that full
+# runs and closes need.
+FAST_RESERVE = int(os.environ.get("EDGE_FAST_RESERVE", "6000"))
 FLOOR = int(os.environ.get("EDGE_CREDIT_FLOOR", "300"))
 CREDITS = {"remaining": None, "used": None}
 SPORTS = {k: v for k, v in SPORTS.items() if v in ACTIVE}
@@ -358,8 +361,9 @@ def pull(near=None):
     keys = SPORTS
     if near:
         last = (ledger.get("credits") or {}).get("remaining")
-        if last is not None and last < RESERVE:
-            print(json.dumps({"near": near, "skipped": f"credits {last} under reserve {RESERVE}"}))
+        reserve = FAST_RESERVE if os.environ.get("EDGE_FAST") else RESERVE
+        if last is not None and last < reserve:
+            print(json.dumps({"near": near, "skipped": f"credits {last} under reserve {reserve}"}))
             return
         wanted = near_sports(rows, now_dt, near)
         keys = {k: v for k, v in SPORTS.items() if k in wanted}
