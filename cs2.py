@@ -77,6 +77,7 @@ def slim(m):
     games = [{"pos": g.get("position"), "winner": (g.get("winner") or {}).get("id")}
              for g in m.get("games") or [] if g.get("finished") and not g.get("forfeit") and (g.get("winner") or {}).get("id")]
     return {"id": m["id"], "begin": m.get("begin_at") or m.get("scheduled_at"), "bestOf": m.get("number_of_games"),
+            "status": m.get("status"),
             "teams": [{"id": o.get("id"), "name": o.get("name"), "acronym": o.get("acronym")} for o in opp],
             "winner": m.get("winner_id"), "forfeit": bool(m.get("forfeit")), "games": sorted(games, key=lambda g: g["pos"] or 0),
             "tier": (m.get("tournament") or {}).get("tier"), "league": (m.get("league") or {}).get("name"),
@@ -112,13 +113,20 @@ def update_history(hist, token, now):
             break
         # Stop once a whole page is already known (a match that ran long can land below known ones).
         stop = not resuming and all(m["id"] in known for m in batch)
+        older = 0
         for m in batch:
             s = slim(m)
-            if s and s["begin"] and s["begin"] >= oldest_wanted and m["id"] not in known:
+            if not s or not s["begin"]:
+                continue
+            if s["begin"] < oldest_wanted:
+                older += 1
+                continue
+            if s["status"] == "finished" and m["id"] not in known:
                 added.append(s)
                 known.add(m["id"])
-            if s and s["begin"] and s["begin"] < oldest_wanted:
-                stop = True
+        # Canceled and rescheduled matches carry stray dates; stop only once most of a page is past the limit.
+        if older > len(batch) // 2:
+            stop = True
         page += 1
         if stop:
             hist["resumePage"] = None
@@ -166,7 +174,7 @@ class Ratings:
 def run_model(matches, collect=False):
     R, preds = Ratings(), []
     for m in matches:
-        if m["forfeit"] or not m["games"] or not m["begin"]:
+        if m.get("status", "finished") != "finished" or m["forfeit"] or not m["games"] or not m["begin"]:
             continue
         a, b = m["teams"][0]["id"], m["teams"][1]["id"]
         if collect and m["winner"] in (a, b) and min(R.n.get(a, 0), R.n.get(b, 0)) >= 10:
