@@ -17,25 +17,32 @@ concurrency:
 jobs:
   backtest:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v5
         with:
           ref: data
       - uses: actions/setup-python@v6
         with:
-          python-version: "3.12"
-      - run: pip install numpy
+          python-version: "3.13"
+      - run: pip install -q numpy==2.5.3 scikit-learn==1.9.1
       - run: python backtest.py
       - run: python rest_nba.py --backtest
       - run: python cs2.py --backtest || true
       - run: python tennis.py --backtest || true
       - run: python discover.py || true
+      - name: Retrain the learned models (rebuilt feature stores, walk-forward gate)
+        run: |
+          python features_nhl.py refresh || true
+          python features_nhl.py history
+          python features_soccer.py history
+          python learner.py all
+          python learner.py live || true
       - name: Push to branch data
         run: |
           git config user.name "EDGE"
           git config user.email "edge@edgesystem.local"
-          git add stats/backtest_nfl*.json stats/backtest_nfl*.md stats/backtest_nba*.json stats/backtest_nba*.md stats/backtest_cs2.md stats/backtest_tennis.md stats/discovery.md stats/discovery.json
+          git add stats/backtest_nfl*.json stats/backtest_nfl*.md stats/backtest_nba*.json stats/backtest_nba*.md stats/backtest_cs2.md stats/backtest_tennis.md stats/discovery.md stats/discovery.json stats/models stats/features/nhl_team_games.json stats/features/nhl_goalie_seasons.json stats/features/nhl_starters.json
           if git diff --cached --quiet; then echo "No changes."; exit 0; fi
           git commit -q -m "EDGE: backtest refresh"
           for i in 1 2 3; do

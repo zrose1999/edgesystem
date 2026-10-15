@@ -43,7 +43,10 @@ jobs:
 
       - uses: actions/setup-python@v6
         with:
-          python-version: "3.12"
+          python-version: "3.13"
+
+      - name: "Python packages, pinned (the learned models are saved with these versions)"
+        run: pip install -q numpy==2.5.3 scikit-learn==1.9.1 cryptography
 
       - name: Pull prices, closes and scores
         env:
@@ -69,6 +72,7 @@ jobs:
           python model_nba.py || echo "::warning::model_nba.py failed; continuing"
           python model_ncaaf.py || echo "::warning::model_ncaaf.py failed; continuing"
           python soccer_form.py || echo "::warning::soccer_form.py failed; continuing"
+          python features_nhl.py refresh || echo "::warning::features_nhl.py refresh failed; continuing"
           python discover.py || echo "::warning::discover.py failed; continuing"
 
       - name: Sharp vs soft scan
@@ -91,9 +95,10 @@ jobs:
           python move_nhl.py || echo "::warning::move_nhl.py failed; continuing"
           python ncaaf_spots.py || echo "::warning::ncaaf_spots.py failed; continuing"
 
-      - name: Tennis ratings and reads, then the edge stack
+      - name: Tennis, learned models, then the edge stack
         run: |
           python tennis.py || echo "::warning::tennis.py failed; continuing"
+          python learn_live.py || echo "::warning::learn_live.py failed; continuing"
           python edge_stack.py || echo "::warning::edge_stack.py failed; continuing"
 
       - name: CS2 ratings (PandaScore)
@@ -112,7 +117,6 @@ jobs:
           KALSHI_DEMO_KEY_ID: ${{ secrets.KALSHI_DEMO_KEY_ID }}
           KALSHI_DEMO_PRIVATE_KEY: ${{ secrets.KALSHI_DEMO_PRIVATE_KEY }}
         run: |
-          pip install -q cryptography
           python kalshi.py || echo "::warning::kalshi.py failed; continuing"
 
       - name: Archive finished games and check every sport's loop
