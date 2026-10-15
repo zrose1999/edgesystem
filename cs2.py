@@ -107,7 +107,8 @@ def update_history(hist, token, now):
     added, page = [], hist.get("resumePage") or 1
     resuming = page > 1
     for _ in range(MAX_PAGES):
-        batch = get("/csgo/matches/past", {"sort": "-begin_at", "per_page": 100, "page": page}, token)
+        batch = get("/csgo/matches/past", {"filter%5Bstatus%5D": "finished", "sort": "-begin_at",
+                                           "per_page": 100, "page": page}, token)
         if not batch:
             hist["resumePage"] = None
             break
