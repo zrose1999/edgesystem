@@ -1,0 +1,223 @@
+{
+ "target": "ncaaf_total",
+ "trained": "2026-10-15T06:04:04Z",
+ "rows": 3594,
+ "features": 330,
+ "unit": "points",
+ "from": "2021-08-28T17:20:00.000Z",
+ "to": "2026-10-15T00:00:00.000Z",
+ "results": {
+  "baseline": {
+   "blocks": [
+    {
+     "from": 1437,
+     "to": 1868,
+     "trades": 431,
+     "meanMove": 0.3839907192575406,
+     "t": 3.2553165021102703
+    },
+    {
+     "from": 1868,
+     "to": 2299,
+     "trades": 431,
+     "meanMove": 0.6032482598607889,
+     "t": 7.1829909836103445
+    },
+    {
+     "from": 2299,
+     "to": 2731,
+     "trades": 432,
+     "meanMove": 0.05092592592592592,
+     "t": 0.5901716699662245
+    },
+    {
+     "from": 2731,
+     "to": 3162,
+     "trades": 431,
+     "meanMove": 0.08236658932714618,
+     "t": 0.675580118397676
+    },
+    {
+     "from": 3162,
+     "to": 3594,
+     "trades": 432,
+     "meanMove": 0.3020833333333333,
+     "t": 2.4718391116283156
+    }
+   ],
+   "oosCorr": null,
+   "trades": 2157,
+   "meanMove": 0.28442280945758,
+   "t": 5.88,
+   "positiveBlocks": 5
+  },
+  "ridge": {
+   "blocks": [
+    {
+     "from": 1437,
+     "to": 1868,
+     "trades": 165,
+     "meanMove": 0.7242424242424242,
+     "t": 3.733624730997798
+    },
+    {
+     "from": 1868,
+     "to": 2299,
+     "trades": 165,
+     "meanMove": 0.6242424242424243,
+     "t": 4.491482042800266
+    },
+    {
+     "from": 2299,
+     "to": 2731,
+     "trades": 120,
+     "meanMove": 0.17916666666666667,
+     "t": 1.0600969231455233
+    },
+    {
+     "from": 2731,
+     "to": 3162,
+     "trades": 165,
+     "meanMove": 0.3181818181818182,
+     "t": 1.700802334697793
+    },
+    {
+     "from": 3162,
+     "to": 3594,
+     "trades": 130,
+     "meanMove": 1.0692307692307692,
+     "t": 5.0818957021682944
+    }
+   ],
+   "oosCorr": 0.14,
+   "trades": 650,
+   "meanMove": 0.5515384615384615,
+   "t": 6.36,
+   "positiveBlocks": 5
+  },
+  "gbm": {
+   "blocks": [
+    {
+     "from": 1437,
+     "to": 1868,
+     "trades": 148,
+     "meanMove": 0.7466216216216216,
+     "t": 3.89903506623332
+    },
+    {
+     "from": 1868,
+     "to": 2299,
+     "trades": 123,
+     "meanMove": 0.6178861788617886,
+     "t": 3.751647795734313
+    },
+    {
+     "from": 2299,
+     "to": 2731,
+     "trades": 80,
+     "meanMove": 0.3875,
+     "t": 1.9803127314608857
+    },
+    {
+     "from": 2731,
+     "to": 3162,
+     "trades": 84,
+     "meanMove": 0.47023809523809523,
+     "t": 1.9627780790068003
+    },
+    {
+     "from": 3162,
+     "to": 3594,
+     "trades": 85,
+     "meanMove": 1.0823529411764705,
+     "t": 3.948790542649088
+    }
+   ],
+   "oosCorr": 0.1507,
+   "trades": 650,
+   "meanMove": 0.536923076923077,
+   "t": 6.1,
+   "positiveBlocks": 5
+  }
+ },
+ "chosen": "ridge",
+ "live": true,
+ "gate": "pooled OOS t >= 2.5, 4/5 blocks positive, beats drift baseline",
+ "signals": [
+  {
+   "feature": "a_fbs",
+   "mseGain": 0.11481027477608308,
+   "corrWithMove": -0.094
+  },
+  {
+   "feature": "h_ssn_d_ppa",
+   "mseGain": 0.04221878350263086,
+   "corrWithMove": 0.057
+  },
+  {
+   "feature": "open_spread",
+   "mseGain": 0.0417965693414688,
+   "corrWithMove": -0.094
+  },
+  {
+   "feature": "h_ssn_o_plays",
+   "mseGain": 0.033641616958913545,
+   "corrWithMove": 0.057
+  },
+  {
+   "feature": "open_total",
+   "mseGain": 0.03209662086744114,
+   "corrWithMove": 0.036
+  },
+  {
+   "feature": "h_ssn_d_successRate",
+   "mseGain": 0.030529115179004584,
+   "corrWithMove": 0.062
+  },
+  {
+   "feature": "a_ssn_ats",
+   "mseGain": 0.028027990964432092,
+   "corrWithMove": -0.014
+  },
+  {
+   "feature": "a_ssn_d_ppa",
+   "mseGain": 0.02692423659586929,
+   "corrWithMove": 0.04
+  },
+  {
+   "feature": "h_l3_d_lineYards",
+   "mseGain": 0.02558332832164023,
+   "corrWithMove": 0.055
+  },
+  {
+   "feature": "a_ssn_d_rush_ppa",
+   "mseGain": 0.02522633503751681,
+   "corrWithMove": 0.056
+  },
+  {
+   "feature": "a_l3_d_plays",
+   "mseGain": 0.024211980190555593,
+   "corrWithMove": 0.057
+  },
+  {
+   "feature": "a_ssn_d_successRate",
+   "mseGain": 0.023117774196001584,
+   "corrWithMove": 0.036
+  },
+  {
+   "feature": "h_ssn_o_ppa",
+   "mseGain": 0.022069282930800682,
+   "corrWithMove": 0.083
+  },
+  {
+   "feature": "h_l3_d_plays",
+   "mseGain": 0.021895130097790094,
+   "corrWithMove": 0.07
+  },
+  {
+   "feature": "h_prev_d_secondLevelYards",
+   "mseGain": 0.02134017886020345,
+   "corrWithMove": -0.01
+  }
+ ]
+}

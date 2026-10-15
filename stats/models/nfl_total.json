@@ -1,0 +1,223 @@
+{
+ "target": "nfl_total",
+ "trained": "2026-10-15T06:04:05Z",
+ "rows": 285,
+ "features": 82,
+ "unit": "points",
+ "from": "2025-09-04",
+ "to": "2026-02-08",
+ "results": {
+  "baseline": {
+   "blocks": [
+    {
+     "from": 114,
+     "to": 148,
+     "trades": 34,
+     "meanMove": 0.029411764705882353,
+     "t": 0.15391516481891823
+    },
+    {
+     "from": 148,
+     "to": 182,
+     "trades": 34,
+     "meanMove": 0.38235294117647056,
+     "t": 1.600556862213201
+    },
+    {
+     "from": 182,
+     "to": 216,
+     "trades": 34,
+     "meanMove": 0.35294117647058826,
+     "t": 1.3955432575189342
+    },
+    {
+     "from": 216,
+     "to": 250,
+     "trades": 34,
+     "meanMove": 0.20588235294117646,
+     "t": 0.9089910290279805
+    },
+    {
+     "from": 250,
+     "to": 285,
+     "trades": 35,
+     "meanMove": 0.3142857142857143,
+     "t": 1.3191932108604763
+    }
+   ],
+   "oosCorr": null,
+   "trades": 171,
+   "meanMove": 0.2573099415204678,
+   "t": 2.51,
+   "positiveBlocks": 5
+  },
+  "ridge": {
+   "blocks": [
+    {
+     "from": 114,
+     "to": 148,
+     "trades": 6,
+     "meanMove": 0.3333333333333333,
+     "t": 0.7905694150420948
+    },
+    {
+     "from": 148,
+     "to": 182,
+     "trades": 14,
+     "meanMove": 0.2857142857142857,
+     "t": 0.9388055880763544
+    },
+    {
+     "from": 182,
+     "to": 216,
+     "trades": 14,
+     "meanMove": 0.21428571428571427,
+     "t": 0.8982742074245134
+    },
+    {
+     "from": 216,
+     "to": 250,
+     "trades": 16,
+     "meanMove": 0.0,
+     "t": 0.0
+    },
+    {
+     "from": 250,
+     "to": 285,
+     "trades": 9,
+     "meanMove": 0.0,
+     "t": 0.0
+    }
+   ],
+   "oosCorr": 0.0062,
+   "trades": 51,
+   "meanMove": 0.0196078431372549,
+   "t": 0.11,
+   "positiveBlocks": 3
+  },
+  "gbm": {
+   "blocks": [
+    {
+     "from": 114,
+     "to": 148,
+     "trades": 15,
+     "meanMove": 0.4,
+     "t": 1.4675987714106857
+    },
+    {
+     "from": 148,
+     "to": 182,
+     "trades": 8,
+     "meanMove": -0.25,
+     "t": -0.42365927286816174
+    },
+    {
+     "from": 182,
+     "to": 216,
+     "trades": 16,
+     "meanMove": -0.1875,
+     "t": -0.4812077430156859
+    },
+    {
+     "from": 216,
+     "to": 250,
+     "trades": 8,
+     "meanMove": 0.0,
+     "t": 0.0
+    },
+    {
+     "from": 250,
+     "to": 285,
+     "trades": 7,
+     "meanMove": 0.14285714285714285,
+     "t": 0.2027212135198458
+    }
+   ],
+   "oosCorr": 0.01,
+   "trades": 51,
+   "meanMove": 0.0392156862745098,
+   "t": 0.19,
+   "positiveBlocks": 2
+  }
+ },
+ "chosen": "gbm",
+ "live": false,
+ "gate": "pooled OOS t >= 2.5, 4/5 blocks positive, beats drift baseline",
+ "signals": [
+  {
+   "feature": "roof",
+   "mseGain": 0.05157643404535728,
+   "corrWithMove": 0.153
+  },
+  {
+   "feature": "h_l8_ou",
+   "mseGain": 0.045866630755929894,
+   "corrWithMove": 0.027
+  },
+  {
+   "feature": "a_l8_pf",
+   "mseGain": 0.040865702242660173,
+   "corrWithMove": 0.077
+  },
+  {
+   "feature": "a_l3_pf",
+   "mseGain": 0.019653519791648755,
+   "corrWithMove": 0.041
+  },
+  {
+   "feature": "d_l1_pa",
+   "mseGain": 0.017168132398692304,
+   "corrWithMove": 0.049
+  },
+  {
+   "feature": "a_l3_mg",
+   "mseGain": 0.015904470016769867,
+   "corrWithMove": 0.068
+  },
+  {
+   "feature": "h_ssn_pa",
+   "mseGain": 0.015634030955967937,
+   "corrWithMove": -0.01
+  },
+  {
+   "feature": "d_l1_ats",
+   "mseGain": 0.012560646966913502,
+   "corrWithMove": -0.026
+  },
+  {
+   "feature": "h_ssn_ats",
+   "mseGain": 0.00974456196468143,
+   "corrWithMove": 0.035
+  },
+  {
+   "feature": "a_l8_ou",
+   "mseGain": 0.005271479301152571,
+   "corrWithMove": 0.033
+  },
+  {
+   "feature": "open_total",
+   "mseGain": 0.004258244261389432,
+   "corrWithMove": -0.018
+  },
+  {
+   "feature": "d_l8_ats",
+   "mseGain": 0.0038616783271523403,
+   "corrWithMove": -0.049
+  },
+  {
+   "feature": "h_l3_pa",
+   "mseGain": 0.0038088197184711348,
+   "corrWithMove": 0.068
+  },
+  {
+   "feature": "a_l8_pa",
+   "mseGain": 0.001877774808373367,
+   "corrWithMove": -0.066
+  },
+  {
+   "feature": "d_l8_ou",
+   "mseGain": 0.0013222704482389602,
+   "corrWithMove": -0.005
+  }
+ ]
+}

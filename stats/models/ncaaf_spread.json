@@ -1,0 +1,223 @@
+{
+ "target": "ncaaf_spread",
+ "trained": "2026-10-15T06:04:01Z",
+ "rows": 5142,
+ "features": 330,
+ "unit": "points",
+ "from": "2021-08-28T17:20:00.000Z",
+ "to": "2026-10-15T00:00:00.000Z",
+ "results": {
+  "baseline": {
+   "blocks": [
+    {
+     "from": 2056,
+     "to": 2673,
+     "trades": 617,
+     "meanMove": 0.05753646677471637,
+     "t": 0.7258386702479266
+    },
+    {
+     "from": 2673,
+     "to": 3290,
+     "trades": 617,
+     "meanMove": 0.15721231766612642,
+     "t": 1.1041092273995117
+    },
+    {
+     "from": 3290,
+     "to": 3907,
+     "trades": 617,
+     "meanMove": -0.24554294975688817,
+     "t": -1.9901603621128803
+    },
+    {
+     "from": 3907,
+     "to": 4524,
+     "trades": 617,
+     "meanMove": -0.03889789303079417,
+     "t": -0.3032824104331742
+    },
+    {
+     "from": 4524,
+     "to": 5142,
+     "trades": 618,
+     "meanMove": -0.14401294498381878,
+     "t": -1.55531637795684
+    }
+   ],
+   "oosCorr": null,
+   "trades": 3086,
+   "meanMove": -0.04277381723914452,
+   "t": -0.83,
+   "positiveBlocks": 2
+  },
+  "ridge": {
+   "blocks": [
+    {
+     "from": 2056,
+     "to": 2673,
+     "trades": 167,
+     "meanMove": 0.8143712574850299,
+     "t": 4.673522230580558
+    },
+    {
+     "from": 2673,
+     "to": 3290,
+     "trades": 238,
+     "meanMove": 1.8865546218487395,
+     "t": 7.051025210012969
+    },
+    {
+     "from": 3290,
+     "to": 3907,
+     "trades": 228,
+     "meanMove": 1.3223684210526316,
+     "t": 5.922106104008563
+    },
+    {
+     "from": 3907,
+     "to": 4524,
+     "trades": 171,
+     "meanMove": 1.7543859649122806,
+     "t": 5.8000618221649
+    },
+    {
+     "from": 4524,
+     "to": 5142,
+     "trades": 250,
+     "meanMove": 1.048,
+     "t": 6.896655212131231
+    }
+   ],
+   "oosCorr": 0.3026,
+   "trades": 926,
+   "meanMove": 1.4535637149028078,
+   "t": 12.98,
+   "positiveBlocks": 5
+  },
+  "gbm": {
+   "blocks": [
+    {
+     "from": 2056,
+     "to": 2673,
+     "trades": 145,
+     "meanMove": 0.5896551724137931,
+     "t": 3.2277399895849403
+    },
+    {
+     "from": 2673,
+     "to": 3290,
+     "trades": 193,
+     "meanMove": 2.1295336787564767,
+     "t": 6.838158237140403
+    },
+    {
+     "from": 3290,
+     "to": 3907,
+     "trades": 223,
+     "meanMove": 1.4484304932735426,
+     "t": 6.161632044547831
+    },
+    {
+     "from": 3907,
+     "to": 4524,
+     "trades": 178,
+     "meanMove": 2.092696629213483,
+     "t": 6.715796352882809
+    },
+    {
+     "from": 4524,
+     "to": 5142,
+     "trades": 213,
+     "meanMove": 1.0234741784037558,
+     "t": 6.06740371973675
+    }
+   ],
+   "oosCorr": 0.3287,
+   "trades": 926,
+   "meanMove": 1.4762419006479481,
+   "t": 12.66,
+   "positiveBlocks": 5
+  }
+ },
+ "chosen": "ridge",
+ "live": true,
+ "gate": "pooled OOS t >= 2.5, 4/5 blocks positive, beats drift baseline",
+ "signals": [
+  {
+   "feature": "elo_minus_open",
+   "mseGain": 0.332340446835822,
+   "corrWithMove": -0.136
+  },
+  {
+   "feature": "d_ssn_ats",
+   "mseGain": 0.06920728844669988,
+   "corrWithMove": -0.194
+  },
+  {
+   "feature": "d_l1_ats",
+   "mseGain": 0.049610091037713744,
+   "corrWithMove": -0.165
+  },
+  {
+   "feature": "h_ssn_o_successRate",
+   "mseGain": 0.04386088057623283,
+   "corrWithMove": -0.103
+  },
+  {
+   "feature": "h_ssn_ats",
+   "mseGain": 0.0383709189459136,
+   "corrWithMove": -0.134
+  },
+  {
+   "feature": "conf_game",
+   "mseGain": 0.03249618886523287,
+   "corrWithMove": 0.07
+  },
+  {
+   "feature": "d_ssn_o_successRate",
+   "mseGain": 0.029754384767858966,
+   "corrWithMove": -0.151
+  },
+  {
+   "feature": "a_ssn_ats",
+   "mseGain": 0.028907216973385275,
+   "corrWithMove": 0.14
+  },
+  {
+   "feature": "d_rest",
+   "mseGain": 0.026061731289942713,
+   "corrWithMove": -0.056
+  },
+  {
+   "feature": "a_prev_o_drives",
+   "mseGain": 0.02545074453447249,
+   "corrWithMove": -0.008
+  },
+  {
+   "feature": "h_prev_d_openFieldYards",
+   "mseGain": 0.023171358588729873,
+   "corrWithMove": 0.001
+  },
+  {
+   "feature": "h_ssn_o_rush_sr",
+   "mseGain": 0.021393349560254293,
+   "corrWithMove": -0.078
+  },
+  {
+   "feature": "d_ssn_o_ppa",
+   "mseGain": 0.019002025475614914,
+   "corrWithMove": -0.151
+  },
+  {
+   "feature": "h_l1_ats",
+   "mseGain": 0.018811012757790735,
+   "corrWithMove": -0.105
+  },
+  {
+   "feature": "d_prev_pa",
+   "mseGain": 0.01812498003200247,
+   "corrWithMove": -0.043
+  }
+ ]
+}
