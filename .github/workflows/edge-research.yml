@@ -10,6 +10,10 @@ on:
         type: choice
         options: [tennis, ncaaf, nfl-test, nfl-backfill, models-nfl-ncaaf]
         default: tennis
+      seasons:
+        description: "NFL backfill seasons (space separated)"
+        type: string
+        default: "2025"
 
 permissions:
   contents: write
@@ -43,11 +47,11 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: python backfill_nfl.py --test
-      - name: NFL opening-line backfill, 2024 and 2025 seasons (~1,300 credits)
+      - name: NFL opening-line backfill (~660 credits per season)
         if: inputs.study == 'nfl-backfill'
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
-        run: python backfill_nfl.py 2024 2025
+        run: python backfill_nfl.py ${{ inputs.seasons }}
       - name: Learned models for NFL and college football
         if: inputs.study == 'models-nfl-ncaaf'
         env:
