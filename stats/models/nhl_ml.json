@@ -1,0 +1,223 @@
+{
+ "target": "nhl_ml",
+ "trained": "2026-10-15T03:13:23Z",
+ "rows": 1123,
+ "features": 191,
+ "unit": "prob",
+ "from": "2025-11-26T02:00Z",
+ "to": "2026-10-14T03:15Z",
+ "results": {
+  "baseline": {
+   "blocks": [
+    {
+     "from": 449,
+     "to": 583,
+     "trades": 134,
+     "meanMove": 0.005658953599020722,
+     "t": 2.2780299738972736
+    },
+    {
+     "from": 583,
+     "to": 718,
+     "trades": 135,
+     "meanMove": 0.007226487140142012,
+     "t": 3.187188814349602
+    },
+    {
+     "from": 718,
+     "to": 853,
+     "trades": 135,
+     "meanMove": 0.0048506654854784705,
+     "t": 2.429453421801716
+    },
+    {
+     "from": 853,
+     "to": 988,
+     "trades": 135,
+     "meanMove": -0.003562288832269769,
+     "t": -0.8687585885739013
+    },
+    {
+     "from": 988,
+     "to": 1123,
+     "trades": 135,
+     "meanMove": 0.0021256087808849203,
+     "t": 0.6988734027651027
+    }
+   ],
+   "oosCorr": null,
+   "trades": 674,
+   "meanMove": 0.0032563257860394475,
+   "t": 2.52,
+   "positiveBlocks": 4
+  },
+  "ridge": {
+   "blocks": [
+    {
+     "from": 449,
+     "to": 583,
+     "trades": 28,
+     "meanMove": 0.016890705093871566,
+     "t": 2.232124119935056
+    },
+    {
+     "from": 583,
+     "to": 718,
+     "trades": 40,
+     "meanMove": 0.01891119011760613,
+     "t": 5.068260545729159
+    },
+    {
+     "from": 718,
+     "to": 853,
+     "trades": 42,
+     "meanMove": 0.01154482382607498,
+     "t": 3.4167732225048986
+    },
+    {
+     "from": 853,
+     "to": 988,
+     "trades": 36,
+     "meanMove": 0.009727230726640926,
+     "t": 1.4250863409583088
+    },
+    {
+     "from": 988,
+     "to": 1123,
+     "trades": 53,
+     "meanMove": 0.015271508623617926,
+     "t": 3.074011113381159
+    }
+   ],
+   "oosCorr": 0.3051,
+   "trades": 204,
+   "meanMove": 0.015248573213043373,
+   "t": 6.13,
+   "positiveBlocks": 5
+  },
+  "gbm": {
+   "blocks": [
+    {
+     "from": 449,
+     "to": 583,
+     "trades": 22,
+     "meanMove": 0.022632671529467782,
+     "t": 2.848015141984846
+    },
+    {
+     "from": 583,
+     "to": 718,
+     "trades": 16,
+     "meanMove": 0.02692053298473521,
+     "t": 4.880023611324055
+    },
+    {
+     "from": 718,
+     "to": 853,
+     "trades": 19,
+     "meanMove": 0.01122437929826053,
+     "t": 2.445177135438807
+    },
+    {
+     "from": 853,
+     "to": 988,
+     "trades": 22,
+     "meanMove": 0.0019114641783780058,
+     "t": 0.15069392836958628
+    },
+    {
+     "from": 988,
+     "to": 1123,
+     "trades": 30,
+     "meanMove": 0.024728613290939973,
+     "t": 3.77718602841417
+    }
+   ],
+   "oosCorr": 0.2866,
+   "trades": 204,
+   "meanMove": 0.014356457282098826,
+   "t": 5.19,
+   "positiveBlocks": 5
+  }
+ },
+ "chosen": "ridge",
+ "live": true,
+ "gate": "pooled OOS t >= 2.5, 4/5 blocks positive, beats drift baseline",
+ "signals": [
+  {
+   "feature": "open_home",
+   "mseGain": 9.63517116626734e-05,
+   "corrWithMove": 0.036
+  },
+  {
+   "feature": "open_home_logit",
+   "mseGain": 2.5379361557798527e-05,
+   "corrWithMove": 0.037
+  },
+  {
+   "feature": "d_b2b",
+   "mseGain": 2.4847528965810106e-05,
+   "corrWithMove": -0.14
+  },
+  {
+   "feature": "d_gq",
+   "mseGain": 2.3336080898729225e-05,
+   "corrWithMove": 0.161
+  },
+  {
+   "feature": "a_l10_hdpct",
+   "mseGain": 2.0920467969607302e-05,
+   "corrWithMove": -0.082
+  },
+  {
+   "feature": "a_ssn_hdpct",
+   "mseGain": 2.041899406612273e-05,
+   "corrWithMove": -0.115
+  },
+  {
+   "feature": "a_b2b",
+   "mseGain": 1.90552540511263e-05,
+   "corrWithMove": 0.126
+  },
+  {
+   "feature": "model_gap",
+   "mseGain": 1.5727439713231857e-05,
+   "corrWithMove": 0.209
+  },
+  {
+   "feature": "h_gp",
+   "mseGain": 1.5671800190017633e-05,
+   "corrWithMove": 0.088
+  },
+  {
+   "feature": "h_ssn_pp",
+   "mseGain": 1.3456637152193217e-05,
+   "corrWithMove": 0.064
+  },
+  {
+   "feature": "d_ssn_pk",
+   "mseGain": 1.3037504592174282e-05,
+   "corrWithMove": -0.131
+  },
+  {
+   "feature": "a_ssn_xga",
+   "mseGain": 1.2216563180177413e-05,
+   "corrWithMove": 0.127
+  },
+  {
+   "feature": "d_ssn_hdpct",
+   "mseGain": 1.1748010587212974e-05,
+   "corrWithMove": 0.128
+  },
+  {
+   "feature": "a_ssn_pk",
+   "mseGain": 1.0328827069756201e-05,
+   "corrWithMove": 0.119
+  },
+  {
+   "feature": "a_ssn_win",
+   "mseGain": 1.0273093229128507e-05,
+   "corrWithMove": -0.055
+  }
+ ]
+}
