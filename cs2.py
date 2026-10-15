@@ -86,9 +86,15 @@ def slim(m):
 def save_sample(token):
     """A few raw matches, so what the PandaScore plan returns can be checked (stats/cs2_sample.json)."""
     try:
-        past = get("/csgo/matches/past", {"sort": "-begin_at", "per_page": 5, "filter[tier]": "s,a"}, token)
-        up = get("/csgo/matches/upcoming", {"sort": "begin_at", "per_page": 3}, token)
-        save(ROOT / "stats" / "cs2_sample.json", {"pastTopTier": past, "upcoming": up})
+        out = {}
+        for name, path, params in (("past", "/csgo/matches/past", {"sort": "-begin_at", "per_page": 4}),
+                                   ("furia", "/csgo/matches/past", {"search%5Bname%5D": "FURIA", "per_page": 3}),
+                                   ("upcoming", "/csgo/matches/upcoming", {"sort": "begin_at", "per_page": 5})):
+            try:
+                out[name] = get(path, params, token)
+            except Exception as exc:  # noqa: BLE001
+                out[name] = {"error": str(exc)}
+        save(ROOT / "stats" / "cs2_sample.json", out)
     except Exception as exc:  # noqa: BLE001
         save(ROOT / "stats" / "cs2_sample.json", {"error": str(exc)})
 
