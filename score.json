@@ -1,6 +1,6 @@
 {
-  "picks": 69,
-  "reads": 261,
+  "picks": 70,
+  "reads": 273,
   "graded": 4,
   "meanClvProb": -0.0096,
   "beatClose": 1,
@@ -18,7 +18,7 @@
       "record": "1-0-0"
     },
     "B": {
-      "reads": 53,
+      "reads": 54,
       "graded": 3,
       "meanClvProb": -0.0049,
       "beatClose": 1,
@@ -26,15 +26,15 @@
       "record": "2-1-0"
     },
     "C": {
-      "reads": 149,
+      "reads": 159,
       "graded": 15,
       "meanClvProb": -0.0257,
       "beatClose": 1,
       "tStat": -4.51,
-      "record": "4-10-0"
+      "record": "4-11-0"
     },
     "P": {
-      "reads": 33
+      "reads": 34
     }
   },
   "byPattern": {
@@ -99,7 +99,7 @@
       "flatUnits": -1.0
     },
     "ncaaf-spot": {
-      "reads": 32,
+      "reads": 33,
       "picks": 0,
       "graded": 0,
       "meanClvProb": null,
@@ -109,14 +109,14 @@
       "flatUnits": 0
     },
     "tennis-elo": {
-      "reads": 2,
+      "reads": 3,
       "picks": 0,
       "graded": 2,
       "meanClvProb": -0.0358,
       "beatClose": 0,
       "tStat": -7.78,
-      "record": "0-1-0",
-      "flatUnits": -1.0
+      "record": "0-2-0",
+      "flatUnits": -2.0
     },
     "ncaaf-total-move": {
       "reads": 18,
@@ -139,7 +139,7 @@
       "flatUnits": 0
     },
     "learned-nhl-ml": {
-      "reads": 4,
+      "reads": 8,
       "picks": 1,
       "graded": 4,
       "meanClvProb": -0.002,
@@ -170,6 +170,16 @@
     },
     "wind-total": {
       "reads": 2,
+      "picks": 1,
+      "graded": 0,
+      "meanClvProb": null,
+      "beatClose": 0,
+      "tStat": 0.0,
+      "record": "0-0-0",
+      "flatUnits": 0
+    },
+    "learned-nhl-over": {
+      "reads": 5,
       "picks": 1,
       "graded": 0,
       "meanClvProb": null,
@@ -211,6 +221,24 @@
       "wins": 1,
       "losses": 0,
       "flatUnits": 1.04,
+      "track": "fast",
+      "tNeeded": 2.0,
+      "nNeeded": 15,
+      "note": "Fast track (model passed the out-of-sample gate): 15+ graded full-bar picks, mean CLV above 0, t at least 2.0."
+    },
+    {
+      "id": "learned-nhl-over",
+      "status": "shadow",
+      "picks": 1,
+      "clvN": 0,
+      "meanClvProb": 0.0,
+      "tStat": 0.0,
+      "halfBarN": 0,
+      "halfBarMeanClv": null,
+      "beatClose": 0,
+      "wins": 0,
+      "losses": 0,
+      "flatUnits": 0,
       "track": "fast",
       "tNeeded": 2.0,
       "nNeeded": 15,
