@@ -1,6 +1,6 @@
 {
-  "picks": 93,
-  "reads": 392,
+  "picks": 97,
+  "reads": 403,
   "graded": 6,
   "meanClvProb": -0.0063,
   "beatClose": 2,
@@ -10,7 +10,7 @@
   "officialUnits": 0,
   "byGrade": {
     "A": {
-      "reads": 20,
+      "reads": 22,
       "graded": 2,
       "meanClvProb": -0.0238,
       "beatClose": 0,
@@ -18,7 +18,7 @@
       "record": "2-0-0"
     },
     "B": {
-      "reads": 73,
+      "reads": 75,
       "graded": 4,
       "meanClvProb": 0.0025,
       "beatClose": 2,
@@ -26,7 +26,7 @@
       "record": "2-2-0"
     },
     "C": {
-      "reads": 219,
+      "reads": 226,
       "graded": 22,
       "meanClvProb": -0.0237,
       "beatClose": 2,
@@ -69,8 +69,8 @@
       "flatUnits": 0
     },
     "news-lag": {
-      "reads": 95,
-      "picks": 13,
+      "reads": 104,
+      "picks": 16,
       "graded": 6,
       "meanClvProb": -0.0161,
       "beatClose": 0,
@@ -217,6 +217,16 @@
       "tStat": 0.0,
       "record": "0-1-0",
       "flatUnits": -1.0
+    },
+    "goalie-news": {
+      "reads": 2,
+      "picks": 1,
+      "graded": 0,
+      "meanClvProb": null,
+      "beatClose": 0,
+      "tStat": 0.0,
+      "record": "0-0-0",
+      "flatUnits": 0
     }
   },
   "patterns": [
@@ -224,6 +234,24 @@
       "id": "edge-stack",
       "status": "shadow",
       "picks": 5,
+      "clvN": 0,
+      "meanClvProb": 0.0,
+      "tStat": 0.0,
+      "halfBarN": 0,
+      "halfBarMeanClv": null,
+      "beatClose": 0,
+      "wins": 0,
+      "losses": 0,
+      "flatUnits": 0,
+      "track": "standard",
+      "tNeeded": 2.5,
+      "nNeeded": 15,
+      "note": "Promotion: graded full-bar picks with mean CLV above 0; t at least 2.5 at 15-19 picks, 2.0 at 20+. Win rate never promotes."
+    },
+    {
+      "id": "goalie-news",
+      "status": "shadow",
+      "picks": 1,
       "clvN": 0,
       "meanClvProb": 0.0,
       "tStat": 0.0,
@@ -295,7 +323,7 @@
     {
       "id": "news-lag",
       "status": "shadow",
-      "picks": 13,
+      "picks": 16,
       "clvN": 0,
       "meanClvProb": 0.0,
       "tStat": 0.0,
