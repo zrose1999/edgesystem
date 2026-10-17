@@ -12544,6 +12544,40 @@
       "tier": "shadow",
       "stakeUnits": 0.0,
       "by": "sharp.py"
+    },
+    {
+      "pickId": "NCAAF|2026-10-24|Iowa Hawkeyes at Minnesota Golden Gophers|spread|away|v1|learned-ncaaf-spread",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-10-24|Iowa Hawkeyes at Minnesota Golden Gophers|spread",
+      "sport": "NCAAF",
+      "event": "Iowa Hawkeyes at Minnesota Golden Gophers",
+      "commence": "2026-10-24T04:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": -4.5,
+      "priceAtPick": -110,
+      "marketNumber": 4.5,
+      "marketPrices": {
+        "home": -110,
+        "away": -110
+      },
+      "priceTime": "2026-10-17T01:12:29Z",
+      "pickedAt": "2026-10-17T04:24:28Z",
+      "fair": 6.536,
+      "projection": 6.536,
+      "edge": 2.036,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-ncaaf-spread",
+      "reason": "Learned college model (ridge, 330 data points, trained on CFBD history) predicts the spread moves +2.04 from the open; open 4.5, now 4.5, 2.04 still to come. Fair 6.54. Report: stats/models/ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "learn_live.py"
     }
   ]
 }
