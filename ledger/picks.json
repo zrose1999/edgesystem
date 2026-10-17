@@ -13016,6 +13016,41 @@
       "tier": null,
       "stakeUnits": 0.0,
       "by": "learn_live.py"
+    },
+    {
+      "pickId": "NHL|2026-10-17|Buffalo Sabres at Montr\u00e9al Canadiens|h2h|away|v1|learned-nhl-ml|lean|2026-10-17T15:24:29Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NHL|2026-10-17|Buffalo Sabres at Montr\u00e9al Canadiens|h2h",
+      "sport": "NHL",
+      "event": "Buffalo Sabres at Montr\u00e9al Canadiens",
+      "commence": "2026-10-17T23:10:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 121,
+      "bookAtPick": "Caesars",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -142,
+        "away": 120
+      },
+      "priceTime": "2026-10-17T15:24:26Z",
+      "pickedAt": "2026-10-17T15:24:29Z",
+      "fair": 0.4581,
+      "projection": 0.4581,
+      "edge": 0.0056,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-nhl-ml",
+      "reason": "Learned model (ridge, 191 data points, trained 2026-10-15) predicts the home win price moves -0.024 from the open; open 0.554, now 0.566, 0.024 still to come. Fair 0.542. Report: stats/models/nhl_ml.json.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py"
     }
   ]
 }
