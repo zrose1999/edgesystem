@@ -9200,7 +9200,9 @@
       "closeNoVig": 0.3614,
       "estimated": false,
       "clvPoints": 0.0,
-      "clvProb": -0.0247
+      "clvProb": -0.0247,
+      "result": "win",
+      "units": 1.59
     },
     {
       "pickId": "WTA|2026-10-17|Maja Chwalinska at Iga Swiatek|h2h|none|v1|pass|tennis-elo|2026-10-16T15:09:50Z",
@@ -12774,6 +12776,40 @@
       "tier": null,
       "stakeUnits": 0.0,
       "by": "injury.py"
+    },
+    {
+      "pickId": "NCAAF|2026-10-17|Rutgers Scarlet Knights at Maryland Terrapins|spread|away|v1|lean|ncaaf-spot|2026-10-17T14:10:45Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NCAAF|2026-10-17|Rutgers Scarlet Knights at Maryland Terrapins|spread",
+      "sport": "NCAAF",
+      "event": "Rutgers Scarlet Knights at Maryland Terrapins",
+      "commence": "2026-10-17T16:30:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 6.0,
+      "priceAtPick": -112,
+      "marketNumber": -6.0,
+      "marketPrices": {
+        "home": -108,
+        "away": -112
+      },
+      "priceTime": "2026-10-17T14:08:51Z",
+      "pickedAt": "2026-10-17T14:10:45Z",
+      "fair": -5.66,
+      "projection": -5.66,
+      "edge": 0.34,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "ncaaf-spot",
+      "reason": "away off a bye +0.43 (x0.8 overlap) = expected move +0.34. Open -6, now -6, 0.34 still to come; fair -5.66. (Under the pattern's minimum move: lean only.)",
+      "falsifier": "The line closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "ncaaf_spots.py"
     }
   ]
 }
