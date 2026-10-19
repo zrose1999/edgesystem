@@ -407,8 +407,9 @@ def build():
     for f in feats:
         if f["status"] == "early-negative" and f["n"] >= 15 and not f["feature"].startswith("confidence="):
             best, tested = pocket(slice_entries(graded, f), f["feature"].split("=")[0], with_sport=f["sport"] == "ALL")
+            pb, pt = pair_pocket(slice_entries(graded, f), f["feature"].split("=")[0])
             research["pockets"].append({"slice": f["key"], "n": f["n"], "meanClvProb": f["meanClvProb"],
-                                        "pocket": best, "tested": tested})
+                                        "pocket": best, "tested": tested, "pairPocket": pb, "pairsTested": pt})
 
     MEM.mkdir(parents=True, exist_ok=True)
     RESEARCH.write_text(json.dumps(research, indent=1) + "\n")
@@ -480,6 +481,34 @@ def pocket(entries, exclude_key, with_sport=True):
         return None, len(tested)
     tok, v = max(hits, key=lambda h: (sum(h[1]) / len(h[1]), len(h[1])))
     return {"feature": tok, "n": len(v), "meanClvProb": round(sum(v) / len(v), 4), "tStat": round(grade.tstat(v), 2)}, len(tested)
+
+
+# Pre-defined two-feature interactions tested inside the largest early-negative slices (2026-10-19). Fixed in advance
+# so the search stays small; a pair that includes the slice's own feature is skipped.
+INTERACTIONS = [("wind", "role"), ("role", "rest"), ("role", "moveBeforePick"), ("timing", "sharpDivPick"),
+                ("timing", "sharpGapOpen"), ("venue", "role"), ("injury", "role"), ("edgeBar", "timing")]
+
+
+def pair_pocket(entries, exclude_key):
+    """Best value combination of a pre-defined feature pair inside a slice, with CLV >= 0 and n >= POCKET_MIN_N.
+    Returns (best or None, combinations tested)."""
+    groups = defaultdict(list)
+    for e in entries:
+        f = e.get("features") or {}
+        for a, b in INTERACTIONS:
+            if exclude_key in (a, b) or a not in f or b not in f:
+                continue
+            va = f[a] if isinstance(f[a], list) else [f[a]]
+            vb = f[b] if isinstance(f[b], list) else [f[b]]
+            for x in va:
+                for y in vb:
+                    groups[f"{a}={'yes' if x is True else x} + {b}={'yes' if y is True else y}"].append(e["clvProb"])
+    tested = [(k, v) for k, v in groups.items() if len(v) >= POCKET_MIN_N and len(v) < len(entries)]
+    hits = [(k, v) for k, v in tested if sum(v) / len(v) >= 0]
+    if not hits:
+        return None, len(tested)
+    k, v = max(hits, key=lambda h: (sum(h[1]) / len(h[1]), len(h[1])))
+    return {"feature": k, "n": len(v), "meanClvProb": round(sum(v) / len(v), 4), "tStat": round(grade.tstat(v), 2)}, len(tested)
 
 
 def grade_order_pockets(graded, min_n=5):
@@ -555,10 +584,16 @@ def summary(research, now, patterns, graded):
     if not leads:
         lines.append("- none yet")
     lines.append("Early negative, still collecting (largest samples):")
-    for f in neg:
+    for i, f in enumerate(neg):
         lines.append(f"- {fmt(f)}")
-        best, tested = pocket(slice_entries(graded, f), f["feature"].split("=")[0], with_sport=f["sport"] == "ALL")
-        lines.append(pocket_line(best, tested, f["feature"]))
+        ents = slice_entries(graded, f)
+        best, tested = pocket(ents, f["feature"].split("=")[0], with_sport=f["sport"] == "ALL")
+        line = pocket_line(best, tested, f["feature"])
+        if i < 3:
+            pb, pt = pair_pocket(ents, f["feature"].split("=")[0])
+            line += (f" | pair: {pb['feature']} n {pb['n']}, CLV {pb['meanClvProb'] * 100:+.1f}% (best of {pt})" if pb
+                     else f" | pair: none ({pt} pair combos tested)")
+        lines.append(line)
     if not neg:
         lines.append("- none")
     go = next((x for x in research["flags"] if x["type"] == "grade-order"), None)

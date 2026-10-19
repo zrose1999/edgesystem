@@ -72,6 +72,8 @@ cross-sport slices) and reports the best sub-slice with CLV >= 0 and 8+ reads, o
 current features". For the grade order it checks inside grade A and lists features where A > B > C holds (5+ reads
 per grade). Each line says how many combinations were tested: with that many tests some pockets appear by chance, so
 a pocket is a lead to keep watching, never a rule.
+Pairs: the top 3 early-negative slices also test 8 pre-defined feature pairs (memory.py INTERACTIONS), reported after
+"| pair:". The list is fixed in advance so the search stays small; the same reads often show up in several slices.
 
 Before proposing a lean or pattern, query similar past reads:
 

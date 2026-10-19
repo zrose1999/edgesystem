@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-10-19 17:53Z)
+# What EDGE is learning (2026-10-19 17:54Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 204 graded reads counted, 391 logged. CLV is mean clvProb. Patterns move only by grade.py.
 
@@ -6,11 +6,11 @@ Early positive leads (one of many being tested; no acceleration):
 - NHL pattern=learned-nhl-ml: n 11, CLV +0.8%, t +1.1, last 30d +0.8% on 11; grade.py needs 15 more graded full-bar picks (has 0), t >= 2.0
 Early negative, still collecting (largest samples):
 - ALL edgeBar=<0.5x: n 125, CLV -1.8%, t -6.3, last 30d -1.8% on 125
-  > pocket: pattern=learned-nhl-ml inside edgeBar=<0.5x: n 10, CLV +0.9%, t +1.1 (best of 26 tested; a lead to watch)
+  > pocket: pattern=learned-nhl-ml inside edgeBar=<0.5x: n 10, CLV +0.9%, t +1.1 (best of 26 tested; a lead to watch) | pair: role=dog + moveBeforePick=none n 14, CLV +0.8% (best of 9)
 - ALL timing=early: n 116, CLV -2.0%, t -6.2, last 30d -2.0% on 116
-  > no conditional pocket found in current features (24 combos tested inside timing=early)
+  > no conditional pocket found in current features (24 combos tested inside timing=early) | pair: role=dog + moveBeforePick=none n 15, CLV +0.9% (best of 11)
 - ALL market=total: n 102, CLV -2.4%, t -10.5, last 30d -2.4% on 102
-  > no conditional pocket found in current features (25 combos tested inside market=total)
+  > no conditional pocket found in current features (25 combos tested inside market=total) | pair: none (10 pair combos tested)
 - ALL moveBeforePick=none: n 92, CLV -2.2%, t -7.5, last 30d -2.2% on 92
   > pocket: role=dog inside moveBeforePick=none: n 16, CLV +0.8%, t +0.9 (best of 26 tested; a lead to watch)
 Observation: edge size is not yet predicting CLV (A -2.4% on 18, B -1.8% on 60, C -1.9% on 126).

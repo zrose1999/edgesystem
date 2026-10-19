@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-19T17:53:44Z",
+ "asOf": "2026-10-19T17:54:15Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 204,
  "loggedReads": 391,
@@ -3746,7 +3746,9 @@
     "meanClvProb": 0.0102,
     "tStat": 0.98
    },
-   "tested": 8
+   "tested": 8,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "ALL|edgeBar=0.5-1x",
@@ -3758,14 +3760,23 @@
     "meanClvProb": 0.0008,
     "tStat": 0.11
    },
-   "tested": 23
+   "tested": 23,
+   "pairPocket": {
+    "feature": "venue=away + role=dog",
+    "n": 11,
+    "meanClvProb": 0.0111,
+    "tStat": 1.16
+   },
+   "pairsTested": 3
   },
   {
    "slice": "ALL|edgeBar=1-2x",
    "n": 18,
    "meanClvProb": -0.0236,
    "pocket": null,
-   "tested": 4
+   "tested": 4,
+   "pairPocket": null,
+   "pairsTested": 0
   },
   {
    "slice": "ALL|edgeBar=<0.5x",
@@ -3777,14 +3788,23 @@
     "meanClvProb": 0.0086,
     "tStat": 1.08
    },
-   "tested": 26
+   "tested": 26,
+   "pairPocket": {
+    "feature": "role=dog + moveBeforePick=none",
+    "n": 14,
+    "meanClvProb": 0.0077,
+    "tStat": 0.82
+   },
+   "pairsTested": 9
   },
   {
    "slice": "ALL|grade=A",
    "n": 18,
    "meanClvProb": -0.0236,
    "pocket": null,
-   "tested": 4
+   "tested": 4,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "ALL|grade=B",
@@ -3796,7 +3816,14 @@
     "meanClvProb": 0.0008,
     "tStat": 0.11
    },
-   "tested": 22
+   "tested": 22,
+   "pairPocket": {
+    "feature": "venue=away + role=dog",
+    "n": 11,
+    "meanClvProb": 0.0111,
+    "tStat": 1.16
+   },
+   "pairsTested": 6
   },
   {
    "slice": "ALL|grade=C",
@@ -3808,14 +3835,23 @@
     "meanClvProb": 0.0086,
     "tStat": 1.08
    },
-   "tested": 27
+   "tested": 27,
+   "pairPocket": {
+    "feature": "role=dog + moveBeforePick=none",
+    "n": 14,
+    "meanClvProb": 0.0077,
+    "tStat": 0.82
+   },
+   "pairsTested": 11
   },
   {
    "slice": "ALL|injury=any",
    "n": 33,
    "meanClvProb": -0.0191,
    "pocket": null,
-   "tested": 16
+   "tested": 16,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "ALL|keyNumber=yes",
@@ -3827,7 +3863,9 @@
     "meanClvProb": 0.0026,
     "tStat": 0.27
    },
-   "tested": 15
+   "tested": 15,
+   "pairPocket": null,
+   "pairsTested": 5
   },
   {
    "slice": "ALL|market=h2h",
@@ -3839,35 +3877,50 @@
     "meanClvProb": 0.0102,
     "tStat": 0.98
    },
-   "tested": 14
+   "tested": 14,
+   "pairPocket": null,
+   "pairsTested": 2
   },
   {
    "slice": "ALL|market=spread",
    "n": 70,
    "meanClvProb": -0.017,
    "pocket": null,
-   "tested": 20
+   "tested": 20,
+   "pairPocket": {
+    "feature": "venue=away + role=dog",
+    "n": 18,
+    "meanClvProb": 0.011,
+    "tStat": 1.03
+   },
+   "pairsTested": 12
   },
   {
    "slice": "ALL|market=total",
    "n": 102,
    "meanClvProb": -0.0238,
    "pocket": null,
-   "tested": 25
+   "tested": 25,
+   "pairPocket": null,
+   "pairsTested": 10
   },
   {
    "slice": "ALL|moveBeforePick=against",
    "n": 28,
    "meanClvProb": -0.0215,
    "pocket": null,
-   "tested": 12
+   "tested": 12,
+   "pairPocket": null,
+   "pairsTested": 2
   },
   {
    "slice": "ALL|moveBeforePick=for",
    "n": 52,
    "meanClvProb": -0.0187,
    "pocket": null,
-   "tested": 21
+   "tested": 21,
+   "pairPocket": null,
+   "pairsTested": 3
   },
   {
    "slice": "ALL|moveBeforePick=none",
@@ -3879,42 +3932,69 @@
     "meanClvProb": 0.0075,
     "tStat": 0.88
    },
-   "tested": 26
+   "tested": 26,
+   "pairPocket": {
+    "feature": "venue=away + role=dog",
+    "n": 11,
+    "meanClvProb": 0.0168,
+    "tStat": 1.56
+   },
+   "pairsTested": 5
   },
   {
    "slice": "ALL|pattern=learned-ncaaf-spread",
    "n": 16,
    "meanClvProb": -0.0217,
    "pocket": null,
-   "tested": 6
+   "tested": 6,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "ALL|pattern=ncaaf-spot",
    "n": 32,
    "meanClvProb": -0.0227,
    "pocket": null,
-   "tested": 8
+   "tested": 8,
+   "pairPocket": {
+    "feature": "role=dog + moveBeforePick=none",
+    "n": 9,
+    "meanClvProb": 0.0029,
+    "tStat": 0.25
+   },
+   "pairsTested": 4
   },
   {
    "slice": "ALL|pattern=ncaaf-total-move",
    "n": 17,
    "meanClvProb": -0.0194,
    "pocket": null,
-   "tested": 4
+   "tested": 4,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "ALL|pattern=news-lag",
    "n": 33,
    "meanClvProb": -0.0191,
    "pocket": null,
-   "tested": 16
+   "tested": 16,
+   "pairPocket": null,
+   "pairsTested": 4
   },
   {
    "slice": "ALL|pattern=stats-model",
    "n": 25,
    "meanClvProb": -0.0208,
    "pocket": null,
-   "tested": 11
+   "tested": 11,
+   "pairPocket": {
+    "feature": "edgeBar=<0.5x + timing=early",
+    "n": 8,
+    "meanClvProb": 0.0025,
+    "tStat": 0.14
+   },
+   "pairsTested": 2
   },
   {
    "slice": "ALL|role=dog",
@@ -3926,7 +4006,14 @@
     "meanClvProb": 0.0075,
     "tStat": 0.88
    },
-   "tested": 20
+   "tested": 20,
+   "pairPocket": {
+    "feature": "edgeBar=<0.5x + timing=early",
+    "n": 19,
+    "meanClvProb": 0.0056,
+    "tStat": 0.56
+   },
+   "pairsTested": 2
   },
   {
    "slice": "ALL|role=fav",
@@ -3938,21 +4025,27 @@
     "meanClvProb": 0.0008,
     "tStat": 0.08
    },
-   "tested": 20
+   "tested": 20,
+   "pairPocket": null,
+   "pairsTested": 3
   },
   {
    "slice": "ALL|role=over",
    "n": 37,
    "meanClvProb": -0.0255,
    "pocket": null,
-   "tested": 12
+   "tested": 12,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "ALL|role=under",
    "n": 65,
    "meanClvProb": -0.0229,
    "pocket": null,
-   "tested": 17
+   "tested": 17,
+   "pairPocket": null,
+   "pairsTested": 3
   },
   {
    "slice": "ALL|timing=day",
@@ -3964,21 +4057,32 @@
     "meanClvProb": 0.0077,
     "tStat": 1.06
    },
-   "tested": 24
+   "tested": 24,
+   "pairPocket": null,
+   "pairsTested": 3
   },
   {
    "slice": "ALL|timing=early",
    "n": 116,
    "meanClvProb": -0.0199,
    "pocket": null,
-   "tested": 24
+   "tested": 24,
+   "pairPocket": {
+    "feature": "role=dog + moveBeforePick=none",
+    "n": 15,
+    "meanClvProb": 0.0091,
+    "tStat": 1.01
+   },
+   "pairsTested": 11
   },
   {
    "slice": "ALL|timing=late",
    "n": 21,
    "meanClvProb": -0.015,
    "pocket": null,
-   "tested": 8
+   "tested": 8,
+   "pairPocket": null,
+   "pairsTested": 0
   },
   {
    "slice": "ALL|venue=away",
@@ -3990,42 +4094,64 @@
     "meanClvProb": 0.0142,
     "tStat": 1.58
    },
-   "tested": 21
+   "tested": 21,
+   "pairPocket": {
+    "feature": "role=dog + moveBeforePick=none",
+    "n": 11,
+    "meanClvProb": 0.0168,
+    "tStat": 1.56
+   },
+   "pairsTested": 5
   },
   {
    "slice": "ALL|venue=home",
    "n": 51,
    "meanClvProb": -0.0237,
    "pocket": null,
-   "tested": 20
+   "tested": 20,
+   "pairPocket": null,
+   "pairsTested": 2
   },
   {
    "slice": "NCAAF|edgeBar=0.5-1x",
    "n": 19,
    "meanClvProb": -0.0146,
    "pocket": null,
-   "tested": 5
+   "tested": 5,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "NCAAF|edgeBar=<0.5x",
    "n": 73,
    "meanClvProb": -0.0231,
    "pocket": null,
-   "tested": 17
+   "tested": 17,
+   "pairPocket": {
+    "feature": "role=dog + moveBeforePick=none",
+    "n": 10,
+    "meanClvProb": 0.0103,
+    "tStat": 0.8
+   },
+   "pairsTested": 6
   },
   {
    "slice": "NCAAF|moveBeforePick=against",
    "n": 17,
    "meanClvProb": -0.026,
    "pocket": null,
-   "tested": 7
+   "tested": 7,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "NCAAF|moveBeforePick=for",
    "n": 23,
    "meanClvProb": -0.0236,
    "pocket": null,
-   "tested": 6
+   "tested": 6,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "NCAAF|moveBeforePick=none",
@@ -4037,56 +4163,82 @@
     "meanClvProb": 0.0072,
     "tStat": 0.6
    },
-   "tested": 15
+   "tested": 15,
+   "pairPocket": {
+    "feature": "venue=away + role=dog",
+    "n": 8,
+    "meanClvProb": 0.015,
+    "tStat": 1.01
+   },
+   "pairsTested": 3
   },
   {
    "slice": "NCAAF|pattern=learned-ncaaf-spread",
    "n": 16,
    "meanClvProb": -0.0217,
    "pocket": null,
-   "tested": 6
+   "tested": 6,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "NCAAF|pattern=ncaaf-spot",
    "n": 32,
    "meanClvProb": -0.0227,
    "pocket": null,
-   "tested": 8
+   "tested": 8,
+   "pairPocket": {
+    "feature": "role=dog + moveBeforePick=none",
+    "n": 9,
+    "meanClvProb": 0.0029,
+    "tStat": 0.25
+   },
+   "pairsTested": 4
   },
   {
    "slice": "NCAAF|pattern=ncaaf-total-move",
    "n": 17,
    "meanClvProb": -0.0194,
    "pocket": null,
-   "tested": 4
+   "tested": 4,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "NCAAF|role=fav",
    "n": 22,
    "meanClvProb": -0.0303,
    "pocket": null,
-   "tested": 9
+   "tested": 9,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "NCAAF|role=over",
    "n": 16,
    "meanClvProb": -0.0186,
    "pocket": null,
-   "tested": 3
+   "tested": 3,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "NCAAF|role=under",
    "n": 40,
    "meanClvProb": -0.0284,
    "pocket": null,
-   "tested": 11
+   "tested": 11,
+   "pairPocket": null,
+   "pairsTested": 3
   },
   {
    "slice": "NCAAF|timing=day",
    "n": 25,
    "meanClvProb": -0.029,
    "pocket": null,
-   "tested": 9
+   "tested": 9,
+   "pairPocket": null,
+   "pairsTested": 2
   },
   {
    "slice": "NCAAF|timing=early",
@@ -4098,7 +4250,14 @@
     "meanClvProb": 0.003,
     "tStat": 0.23
    },
-   "tested": 16
+   "tested": 16,
+   "pairPocket": {
+    "feature": "venue=away + role=dog",
+    "n": 10,
+    "meanClvProb": 0.0107,
+    "tStat": 0.61
+   },
+   "pairsTested": 6
   },
   {
    "slice": "NCAAF|venue=away",
@@ -4110,21 +4269,32 @@
     "meanClvProb": 0.0067,
     "tStat": 0.51
    },
-   "tested": 11
+   "tested": 11,
+   "pairPocket": {
+    "feature": "role=dog + moveBeforePick=none",
+    "n": 8,
+    "meanClvProb": 0.015,
+    "tStat": 1.01
+   },
+   "pairsTested": 2
   },
   {
    "slice": "NCAAF|venue=home",
    "n": 18,
    "meanClvProb": -0.0256,
    "pocket": null,
-   "tested": 6
+   "tested": 6,
+   "pairPocket": null,
+   "pairsTested": 2
   },
   {
    "slice": "NFL|edgeBar=0.5-1x",
    "n": 28,
    "meanClvProb": -0.0231,
    "pocket": null,
-   "tested": 11
+   "tested": 11,
+   "pairPocket": null,
+   "pairsTested": 0
   },
   {
    "slice": "NFL|edgeBar=<0.5x",
@@ -4136,84 +4306,113 @@
     "meanClvProb": 0.0068,
     "tStat": 0.58
    },
-   "tested": 11
+   "tested": 11,
+   "pairPocket": null,
+   "pairsTested": 0
   },
   {
    "slice": "NFL|injury=any",
    "n": 33,
    "meanClvProb": -0.0191,
    "pocket": null,
-   "tested": 16
+   "tested": 16,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "NFL|keyNumber=yes",
    "n": 15,
    "meanClvProb": -0.0315,
    "pocket": null,
-   "tested": 7
+   "tested": 7,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "NFL|moveBeforePick=for",
    "n": 29,
    "meanClvProb": -0.0148,
    "pocket": null,
-   "tested": 12
+   "tested": 12,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "NFL|moveBeforePick=none",
    "n": 24,
    "meanClvProb": -0.0265,
    "pocket": null,
-   "tested": 11
+   "tested": 11,
+   "pairPocket": null,
+   "pairsTested": 2
   },
   {
    "slice": "NFL|pattern=news-lag",
    "n": 33,
    "meanClvProb": -0.0191,
    "pocket": null,
-   "tested": 16
+   "tested": 16,
+   "pairPocket": null,
+   "pairsTested": 4
   },
   {
    "slice": "NFL|pattern=stats-model",
    "n": 25,
    "meanClvProb": -0.0208,
    "pocket": null,
-   "tested": 11
+   "tested": 11,
+   "pairPocket": {
+    "feature": "edgeBar=<0.5x + timing=early",
+    "n": 8,
+    "meanClvProb": 0.0025,
+    "tStat": 0.14
+   },
+   "pairsTested": 2
   },
   {
    "slice": "NFL|role=fav",
    "n": 18,
    "meanClvProb": -0.0282,
    "pocket": null,
-   "tested": 9
+   "tested": 9,
+   "pairPocket": null,
+   "pairsTested": 0
   },
   {
    "slice": "NFL|role=over",
    "n": 17,
    "meanClvProb": -0.0335,
    "pocket": null,
-   "tested": 5
+   "tested": 5,
+   "pairPocket": null,
+   "pairsTested": 0
   },
   {
    "slice": "NFL|role=under",
    "n": 15,
    "meanClvProb": -0.0065,
    "pocket": null,
-   "tested": 4
+   "tested": 4,
+   "pairPocket": null,
+   "pairsTested": 0
   },
   {
    "slice": "NFL|timing=early",
    "n": 47,
    "meanClvProb": -0.02,
    "pocket": null,
-   "tested": 18
+   "tested": 18,
+   "pairPocket": null,
+   "pairsTested": 2
   },
   {
    "slice": "NFL|venue=home",
    "n": 20,
    "meanClvProb": -0.0307,
    "pocket": null,
-   "tested": 10
+   "tested": 10,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "NHL|edgeBar=<0.5x",
@@ -4225,7 +4424,9 @@
     "meanClvProb": 0.0086,
     "tStat": 1.08
    },
-   "tested": 6
+   "tested": 6,
+   "pairPocket": null,
+   "pairsTested": 0
   },
   {
    "slice": "NHL|timing=day",
@@ -4237,7 +4438,9 @@
     "meanClvProb": 0.0077,
     "tStat": 1.06
    },
-   "tested": 11
+   "tested": 11,
+   "pairPocket": null,
+   "pairsTested": 1
   }
  ]
 }
