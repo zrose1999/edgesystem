@@ -65,6 +65,16 @@ FEATURE_TIMING = {
 POST_PICK_FIELDS = ["closeLine", "closePrice", "closeNoVig", "clvProb", "clvPoints", "result", "units", "score",
                     "injuryLatest", "weatherLatest"]
 MIN_READS_FOR_ALARM = 10
+CYCLE_HOURS = 26   # one daily health-check cycle, with slack: still at 0 after this is breakage
+
+# Coverage of every added feature on graded reads: (log field, shipped at, sports in scope or None for all, note).
+COVERED = [
+    ("pinAtPick", "2026-10-19T18:00:00Z", None, "Pinnacle at the pick"),
+    ("contextAtPick", "2026-10-19T18:00:00Z", None, "weather/injury/goalie as stamped"),
+    ("sharpDivergenceAtPick", "2026-10-19T18:00:00Z", None, "needs Pinnacle on the same line"),
+    ("daysRestHome", None, ("NBA", "NHL", "NCAAF"), "schedules in stats/; NFL is a gap"),
+    ("sharpDivergence", "2026-10-14T00:00:00Z", None, "Pinnacle at the open"),
+]
 
 # Candidate features EDGE wants to test but does not collect yet. Listed so they stay visible, with what is missing.
 # Each note says what it would take to start collecting.
@@ -233,14 +243,30 @@ def sharp_divergence_at_pick(pick):
         return None
 
 
-def coverage(picks):
-    """For each shipped feature: reads stamped since it shipped, and how many carry it."""
+def coverage(picks, now=None):
+    """For each field stamped on picks: reads stamped since it shipped, and how many carry it (key present)."""
+    now = now or datetime.now(timezone.utc)
     out = {}
     for name, since in SHIPPED.items():
         new = [p for p in picks if p.get("side") and (p.get("pickedAt") or "") >= since]
-        have = sum(1 for p in new if p.get(name))
+        have = sum(1 for p in new if p.get(name) is not None)
+        late = (now - parse(since)).total_seconds() / 3600 > CYCLE_HOURS
         out[name] = {"since": since, "reads": len(new), "with": have,
-                     "alarm": len(new) >= MIN_READS_FOR_ALARM and have == 0}
+                     "alarm": have == 0 and (len(new) >= MIN_READS_FOR_ALARM or (late and len(new) > 0))}
+    return out
+
+
+def graded_coverage(graded, now=None):
+    """Each added feature on graded reads in scope since it shipped: 'feature X on N of M graded reads'."""
+    now = now or datetime.now(timezone.utc)
+    out = []
+    for field, since, sports, note in COVERED:
+        scope = [e for e in graded if (not since or (e.get("pickedAt") or "") >= since)
+                 and (not sports or e.get("sport") in sports)]
+        have = sum(1 for e in scope if e.get(field) is not None)
+        late = bool(since) and (now - parse(since)).total_seconds() / 3600 > CYCLE_HOURS
+        out.append({"field": field, "since": since, "sports": list(sports) if sports else None, "note": note,
+                    "graded": len(scope), "with": have, "alarm": late and len(scope) > 0 and have == 0})
     return out
 
 
@@ -466,7 +492,8 @@ def build():
         "gradedReads": len(graded), "loggedReads": len(log),
         "newPatternsThisRun": new_patterns,
         "notCollected": NOT_COLLECTED,
-        "coverage": coverage(picks),
+        "coverage": coverage(picks, now),
+        "gradedCoverage": graded_coverage(graded, now),
         "featureTiming": FEATURE_TIMING, "postPickFields": POST_PICK_FIELDS,
         "sharpDivergenceCoverage": {"graded": len(graded),
                                     "withData": sum(1 for e in graded if e.get("sharpDivergence") is not None)},
@@ -640,7 +667,7 @@ def summary(research, now, patterns, graded):
                    key=lambda f: -f["n"])
     # Largest samples first, not the worst t: the point is where the most is being learned, not what to cut.
     neg = sorted([f for f in feats if f["status"] == "early-negative" and not f["feature"].startswith("confidence=")],
-                 key=lambda f: -f["n"])[:4]
+                 key=lambda f: -f["n"])[:3]
     other = [f for f in feats if f["n"] >= 8 and f["recentN"] >= 8 and not f["feature"].startswith(("pattern=", "market="))]
     top2 = sorted([f for f in other if f["recentMeanClvProb"] > 0], key=lambda f: -f["recentMeanClvProb"])[:2]
     low2 = sorted([f for f in other if f["recentMeanClvProb"] < 0], key=lambda f: f["recentMeanClvProb"])[:2]
@@ -648,7 +675,7 @@ def summary(research, now, patterns, graded):
              "Phase: data collection and learning. Samples are small and key features are still being added. "
              "Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.",
              f"{research['gradedReads']} graded reads counted, {research['loggedReads']} logged. CLV is mean clvProb. "
-             "Patterns move only by grade.py.", "",
+             "Patterns move only by grade.py.",
              "Early positive leads (one of many being tested; no acceleration):"]
     for f in leads[:3]:
         ps = pstat.get(f["feature"][8:]) or {}
@@ -692,19 +719,20 @@ def summary(research, now, patterns, graded):
                 + f" ({len(holds)} of {tested} features tested)")
         else:
             lines.append(f"  > grade order holds inside no feature yet ({tested} tested with 5+ reads per grade)")
-    lines += ["", "Other slices, last 30d (context, not leads): best " + ("; ".join(fmt(f) for f in top2) or "none")
-              + " | worst " + ("; ".join(fmt(f) for f in low2) or "none"),
-              "", "Data gaps, free (building next):"]
+    lines += ["Data gaps, free (building next):"]
     lines += [f"- {k}: {GAP_SHORT[k]}" for k in ("late-steam", "travel", "nfl-rest") if k in research["notCollected"]]
-    lines.append("Data gaps, waiting on a source:")
-    lines += [f"- {k}: {GAP_SHORT[k]}" for k in ("public-pct", "guru") if k in research["notCollected"]]
-    for name, c in (research.get("coverage") or {}).items():
-        pct = f" ({c['with'] / c['reads']:.0%})" if c["reads"] else ""
-        lines.append(f"{'BREAKAGE: ' if c['alarm'] else ''}{name} (shipped {c['since'][:16]}Z): on {c['with']} of "
-                     f"{c['reads']} new reads{pct}" + (" -- shipped feature not flowing; fix as breakage" if c["alarm"] else ""))
-    sd = research.get("sharpDivergenceCoverage") or {}
-    lines.append(f"sharpDivergence (at the open) on {sd.get('withData', 0)} of {sd.get('graded', 0)} graded reads; "
-                 "Pinnacle opens stored since 2026-10-14.")
+    lines.append("Data gaps, waiting on a source: " + "; ".join(
+        f"{k} ({GAP_SHORT[k]})" for k in ("public-pct", "guru") if k in research["notCollected"]))
+    lines.append("Coverage of added features (BREAKAGE if still 0 one health-check cycle after shipping):")
+    new = research.get("coverage") or {}
+    for c in research.get("gradedCoverage") or []:
+        scope = f" {'/'.join(c['sports'])}" if c["sports"] else ""
+        since = f" since {c['since'][5:16].replace('T', ' ')}Z" if c["since"] else ""
+        stamped = new.get(c["field"])
+        tail = f"; {stamped['with']} of {stamped['reads']} new reads stamped" if stamped else ""
+        alarm = c["alarm"] or (stamped or {}).get("alarm")
+        lines.append(f"- {'BREAKAGE: ' if alarm else ''}{c['field']} on {c['with']} of {c['graded']} graded{scope} reads"
+                     f"{since}{tail} ({c['note']})")
     return "\n".join(lines[:30]) + "\n"
 
 

@@ -59,9 +59,10 @@ print book rates our side higher than Pinnacle (we are paying above the sharp pr
 pin-for / aligned / pin-against at 1%) and sharpGapPick (size: <1%, 1-2%, 2%+), with sharpDiv / sharpGapOpen for the
 open. Tracked in research.json; never a betting rule.
 
-Coverage and breakage: each shipped data feature has a start time (memory.py SHIPPED). summary.md shows how many reads
-stamped since then carry it. A shipped feature on 0 of 10+ new reads prints a BREAKAGE line: the health check fixes it
-as a broken data path, not a quiet gap. Late steam and travel get the same treatment when they ship.
+Coverage and breakage: every added feature is listed in memory.py COVERED with its start time and scope. summary.md
+ends with "<field> on N of M graded reads" for each, plus new reads stamped (SHIPPED fields). A feature still at 0 one
+health-check cycle (26 hours) after shipping, or on 0 of 10+ new reads, prints a BREAKAGE line: the health check fixes
+it as a broken data path, not a quiet gap. Late steam and travel get added to COVERED when they ship.
 
 Grade reliability: summary.md shows mean CLV by grade on the last 50 graded reads and whether A > B > C holds
 there, under the full-sample grade order (research.json `gradeReliability`). Diagnostic only.

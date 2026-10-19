@@ -161,7 +161,7 @@ def context_at_pick(row):
         out["injury"] = row["injury"]
     if row.get("goalieSig"):
         out["goalie"] = row["goalieSig"]
-    return out or None
+    return out   # {} = stamped, nothing to record (kept distinct from a builder that never stamped it)
 
 
 def bar_for(sport, market, home_line=None, fair_home=None):
