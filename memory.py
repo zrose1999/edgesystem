@@ -595,6 +595,11 @@ def build():
     }
     patterns = load_json(grade.LEDGER, {}).get("patterns") or []
     research["flags"] = flags(feats, patterns)
+    pstat = {p["id"]: p for p in patterns}
+    for f in feats:
+        why = why_not_promoted(f, pstat)
+        if why:
+            f["why_not_promoted"] = why
     research["gradeReliability"] = grade_reliability(graded)
     # Conditional pockets for every early-negative slice with 15+ reads, and for grade A.
     research["pockets"] = []
@@ -634,6 +639,35 @@ def dedupe(features):
     sports = {f["sport"] for f in features} - {"ALL"}
     return [f for f in features if not (f["sport"] == "ALL" and any(
         (by_key.get((s, f["feature"])) or {}).get("n") == f["n"] for s in sports))]
+
+
+WHY_NOT_N = 30
+
+
+def why_not_promoted(f, pstat):
+    """One line for a feature or slice with n >= WHY_NOT_N that is at or below 0 CLV or short of its bar.
+    Learning phase: an explanation, never a retirement call."""
+    if f["n"] < WHY_NOT_N or f["status"] == "at-promotion-bar":
+        return None
+    fast = f["feature"].startswith("pattern=") and grade.gate_passed(f["feature"][8:])
+    need = grade.stage_t(f["n"], fast)
+    m, t = f["meanClvProb"] or 0.0, f["tStat"]
+    if m <= 0:
+        why = f"mean CLV {m * 100:+.1f}% is at or below 0; promotion needs mean CLV > 0 and t >= {need}"
+    else:
+        why = f"mean CLV {m * 100:+.1f}% is positive but t {t:+.1f} is under the t >= {need} bar at n {f['n']}"
+    if f["feature"].startswith("pattern="):
+        ps = pstat.get(f["feature"][8:])
+        first_n = (grade.FAST_TRACK if fast else grade.STAGES)[0][0]
+        if ps:
+            why += (f"; grade.py promotes on graded full-bar picks only: {ps.get('clvN', 0)} of the "
+                    f"{ps.get('nNeeded', 0) + ps.get('clvN', 0)} needed (leans never promote)")
+        else:
+            why += (f"; every read so far is a lean, so grade.py has no graded full-bar picks for it "
+                    f"({first_n} needed; leans never promote)")
+    else:
+        why += "; a feature slice is research only and is never promoted on its own"
+    return why + ". Still collecting."
 
 
 def flags(features, patterns):

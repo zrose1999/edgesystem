@@ -45,6 +45,8 @@ edgeBar (edge as a multiple of the bar), injury (any, qb, goalie), rest, wind (<
 Status: `research` (under 8 graded reads), `early-positive`, `early-negative` (still collecting; never a retirement
 call in the learning phase), `at-promotion-bar` (clears grade.py's promotion bar; a lead for review, not a rule).
 memory.py never changes a pattern.
+why_not_promoted: features with n >= 30 at or below 0 CLV, or short of their bar, carry a one-line reason in
+research.json (CLV and t vs grade.py's bar; for patterns, graded full-bar picks vs needed). Never a retirement call.
 
 Posture (Zack, 2026-10-19): data collection and learning phase. Negative CLV on early features is expected and is
 logged to learn from. The grade order (A > B > C) is reported as an observation, not a defect.
