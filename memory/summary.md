@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-10-19 18:22Z)
+# What EDGE is learning (2026-10-19 18:23Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 204 graded reads counted, 391 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Early positive leads (one of many being tested; no acceleration):
@@ -26,3 +26,4 @@ Coverage of added features (BREAKAGE if still 0 one health-check cycle after shi
 - daysRestHome on 128 of 128 graded NBA/NHL/NCAAF reads (schedules in stats/; NFL is a gap)
 - sharpDivergence on 13 of 204 graded reads since 10-14 00:00Z (Pinnacle at the open)
 - pinMoveBeforePick on 0 of 0 graded reads since 10-19 18:15Z (needs a stored snap 30m-6h before the pick)
+Interaction coverage: 0 graded reads have at least two of (sharpDivergenceAtPick, steamBeforePick, daysRest, contextAtPick) populated.

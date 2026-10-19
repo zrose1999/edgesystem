@@ -138,6 +138,21 @@ def pin_move_before_pick(pick):
     return round(pin["noVig"] - nv, 4), round((t - parse(prev["t"])).total_seconds() / 60)
 
 
+INTERACTION_FIELDS = {
+    "sharpDivergenceAtPick": lambda e: e.get("sharpDivergenceAtPick") is not None,
+    "steamBeforePick": lambda e: e.get("pinMoveBeforePick") is not None,
+    "daysRest": lambda e: e.get("daysRestHome") is not None and e.get("daysRestAway") is not None,
+    "contextAtPick": lambda e: bool(e.get("contextAtPick")),   # {} = stamped with nothing to record: not populated
+}
+
+
+def interaction_coverage(graded):
+    """Graded reads with at least two of the interaction fields populated (so pair tests across them are possible)."""
+    counts = [sum(1 for f in INTERACTION_FIELDS.values() if f(e)) for e in graded]
+    return {"fields": list(INTERACTION_FIELDS), "atLeastTwo": sum(1 for c in counts if c >= 2), "graded": len(graded),
+            "byField": {k: sum(1 for e in graded if f(e)) for k, f in INTERACTION_FIELDS.items()}}
+
+
 def snap_writer(now):
     """Snapshot lines written in the last CYCLE_HOURS; 0 after the first cycle is breakage."""
     rows = snap_rows()
@@ -572,6 +587,7 @@ def build():
         "coverage": coverage(picks, now),
         "gradedCoverage": graded_coverage(graded, now),
         "snapWriter": snap_writer(now),
+        "interactionCoverage": interaction_coverage(graded),
         "featureTiming": FEATURE_TIMING, "postPickFields": POST_PICK_FIELDS,
         "sharpDivergenceCoverage": {"graded": len(graded),
                                     "withData": sum(1 for e in graded if e.get("sharpDivergence") is not None)},
@@ -864,6 +880,10 @@ def summary(research, now, patterns, graded):
         alarm = c["alarm"] or (stamped or {}).get("alarm")
         lines.append(f"- {'BREAKAGE: ' if alarm else ''}{c['field']} on {c['with']} of {c['graded']} graded{scope} reads"
                      f"{since}{tail} ({c['note']})")
+    ic = research.get("interactionCoverage") or {}
+    if ic:
+        lines.append(f"Interaction coverage: {ic['atLeastTwo']} graded reads have at least two of "
+                     f"({', '.join(ic['fields'])}) populated.")
     return "\n".join(lines[:30]) + "\n"
 
 

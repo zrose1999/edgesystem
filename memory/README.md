@@ -72,6 +72,9 @@ health-check cycle (26 hours) after shipping, or on 0 of 10+ new reads, prints a
 it as a broken data path, not a quiet gap. The snapshot writer has its own line (snaps stored in the last 26 hours; BREAKAGE at 0 after the first cycle).
 Travel gets added to COVERED when it ships.
 
+Interaction coverage: the last summary.md line counts graded reads with at least two of sharpDivergenceAtPick,
+steamBeforePick (pinMoveBeforePick), daysRest and contextAtPick populated (research.json `interactionCoverage`).
+
 Grade reliability: summary.md shows mean CLV by grade on the last 50 graded reads and whether A > B > C holds
 there, under the full-sample grade order (research.json `gradeReliability`). Diagnostic only.
 
