@@ -1,4 +1,4 @@
-# What has worked (2026-10-19 17:12Z)
+# What has worked (2026-10-19 17:14Z)
 204 graded reads counted, 391 logged. CLV is mean clvProb. Leads only; patterns move by grade.py.
 
 Beating the close lately:
@@ -13,7 +13,7 @@ Losing to the close lately:
 - NCAAF role=fav: n 22, CLV -3.0%, t -4.3, last 30d -3.0% on 22
 - NCAAF timing=day: n 25, CLV -2.9%, t -6.6, last 30d -2.9% on 25
 Closest to the promotion bar:
-- NHL pattern=learned-nhl-ml: n 11, CLV +0.8%, t +1.1, last 30d +0.8% on 11 (needs 4 more, t short 1.44)
+- NHL pattern=learned-nhl-ml: n 11, CLV +0.8%, t +1.1, last 30d +0.8% on 11 (needs 4 more, t short 0.94)
 - NFL venue=away: n 12, CLV +0.5%, t +0.4, last 30d +0.5% on 12 (needs 3 more, t short 2.08)
 - NCAAF role=dog: n 18, CLV +0.2%, t +0.1, last 30d +0.2% on 18 (needs 0 more, t short 2.35)
 Kill candidates (n 30+, CLV <= 0):

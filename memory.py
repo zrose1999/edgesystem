@@ -194,14 +194,15 @@ def stats(vals):
             "beatClose": sum(1 for v in vals if v > 0)}
 
 
-def status_for(n, mean, t):
-    """Where a feature stands against grade.py's own bars. Never changes a pattern."""
-    need = grade.stage_t(n, False)
+def status_for(n, mean, t, fast=False):
+    """Where a feature stands against grade.py's own bars (fast track for gate-passed learned patterns, as in
+    grade.py). Never changes a pattern."""
+    need = grade.stage_t(n, fast)
     if need is not None and mean is not None and mean > 0 and t >= need:
         return "at-promotion-bar", 0, 0.0
     if n >= grade.OFFICIAL_N and mean is not None and mean <= 0:
         return "kill-candidate", 0, 0.0
-    first_n, first_t = grade.STAGES[0]
+    first_n, first_t = (grade.FAST_TRACK if fast else grade.STAGES)[0]
     return "research", max(0, first_n - n), round(max(0.0, (need or first_t) - t), 2)
 
 
@@ -262,7 +263,8 @@ def build():
         picks_only = [e["clvProb"] for e in es if e["kind"] == "pick"]
         recent = [e["clvProb"] for e in es if (e.get("date") or "") >= cutoff]
         s = stats(vals)
-        st, n_short, t_short = status_for(s["n"], s["meanClvProb"], s["tStat"])
+        fast = tok.startswith("pattern=") and grade.gate_passed(tok[8:])
+        st, n_short, t_short = status_for(s["n"], s["meanClvProb"], s["tStat"], fast)
         settled = [e for e in es if e.get("result") in ("win", "loss", "push")]
         key = f"{sport}|{tok}"
         feats.append({
