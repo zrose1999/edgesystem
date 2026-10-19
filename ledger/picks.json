@@ -27612,6 +27612,101 @@
         "noVig": 0.3062
       },
       "contextAtPick": {}
+    },
+    {
+      "pickId": "NBA|2026-10-22|Golden State Warriors at Los Angeles Lakers|spread|home|v1|news-lag",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NBA|2026-10-22|Golden State Warriors at Los Angeles Lakers|spread",
+      "sport": "NBA",
+      "event": "Golden State Warriors at Los Angeles Lakers",
+      "commence": "2026-10-22T02:00:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -5.5,
+      "priceAtPick": -112,
+      "marketNumber": -5.5,
+      "marketPrices": {
+        "home": -112,
+        "away": -108
+      },
+      "priceTime": "2026-10-19T19:09:26Z",
+      "pickedAt": "2026-10-19T19:24:28Z",
+      "fair": -6.85,
+      "projection": -6.85,
+      "edge": 1.35,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "Ziaire Williams (Lakers, worth 0.51): weight 1 at the open, 0 now, -0.51 spread, +0.31 total | Luka Doncic (Lakers, worth 5.4): weight 0.4 at the open, 0 now, -2.16 spread, +1.30 total | Kristaps Porzingis (Warriors, worth 2.05): weight 0.4 at the open, 1 now, +1.23 spread, -0.74 total | Draymond Green (Warriors, worth 0.33): weight 1 at the open, 0 now, -0.33 spread, +0.20 total | Al Horford (Warriors, worth 0.86): weight 1 at the open, 0 now, -0.86 spread, +0.52 total | Gui Santos (Warriors, worth 0.74): weight 0.4 at the open, 0 now, -0.30 spread, +0.18 total | Stephen Curry (Warriors, worth 3.54): weight 0.4 at the open, 0.1 now, -1.06 spread, +0.64 total. Open home line -5.5, fair -6.85.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before tip-off.",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "injury_nba.py",
+      "pinAtPick": {
+        "line": -6.0,
+        "prices": {
+          "home": 100,
+          "away": -112
+        },
+        "updated": "2026-10-19T19:09:26Z",
+        "snapTime": "2026-10-19T19:09:26Z",
+        "noVig": 0.4858
+      },
+      "contextAtPick": {
+        "injury": "Ziaire Williams (Lakers, worth 0.51): weight 1 at the open, 0 now, -0.51 spread, +0.31 total | Luka Doncic (Lakers, worth 5.4): weight 0.4 at the open, 0 now, -2.16 spread, +1.30 total | Kristaps Porzingis (Warriors, worth 2.05): weight 0.4 at the open, 1 now, +1.23 spread, -0.74 total | Draymond Green (Warriors, worth 0.33): weight 1 at the open, 0 now, -0.33 spread, +0.20 total | Al Horford (Warriors, worth 0.86): weight 1 at the open, 0 now, -0.86 spread, +0.52 total | Gui Santos (Warriors, worth 0.74): weight 0.4 at the open, 0 now, -0.30 spread, +0.18 total | Stephen Curry (Warriors, worth 3.54): weight 0.4 at the open, 0.1 now, -1.06 spread, +0.64 total"
+      }
+    },
+    {
+      "pickId": "NBA|2026-10-22|Golden State Warriors at Los Angeles Lakers|total|over|v1|reread|news-lag|2026-10-19T19:24:28Z",
+      "kind": "reread",
+      "grade": "A",
+      "rowId": "NBA|2026-10-22|Golden State Warriors at Los Angeles Lakers|total",
+      "sport": "NBA",
+      "event": "Golden State Warriors at Los Angeles Lakers",
+      "commence": "2026-10-22T02:00:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 234.5,
+      "priceAtPick": -110,
+      "marketNumber": 234.5,
+      "marketPrices": {
+        "over": -110,
+        "under": -110
+      },
+      "priceTime": "2026-10-19T19:09:26Z",
+      "pickedAt": "2026-10-19T19:24:28Z",
+      "fair": 237.89,
+      "projection": 237.89,
+      "edge": 3.39,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "Ziaire Williams (Lakers, worth 0.51): weight 1 at the open, 0 now, -0.51 spread, +0.31 total | Luka Doncic (Lakers, worth 5.4): weight 0.4 at the open, 0 now, -2.16 spread, +1.30 total | Kristaps Porzingis (Warriors, worth 2.05): weight 0.4 at the open, 1 now, +1.23 spread, -0.74 total | Draymond Green (Warriors, worth 0.33): weight 1 at the open, 0 now, -0.33 spread, +0.20 total | Al Horford (Warriors, worth 0.86): weight 1 at the open, 0 now, -0.86 spread, +0.52 total | Gui Santos (Warriors, worth 0.74): weight 0.4 at the open, 0 now, -0.30 spread, +0.18 total | Stephen Curry (Warriors, worth 3.54): weight 0.4 at the open, 0.1 now, -1.06 spread, +0.64 total. Open total 235.5, fair 237.89.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before tip-off.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury_nba.py",
+      "pinAtPick": {
+        "line": 232.0,
+        "prices": {
+          "over": -103,
+          "under": -111
+        },
+        "updated": "2026-10-19T19:09:26Z",
+        "snapTime": "2026-10-19T19:09:26Z",
+        "noVig": 0.4907
+      },
+      "contextAtPick": {
+        "injury": "Ziaire Williams (Lakers, worth 0.51): weight 1 at the open, 0 now, -0.51 spread, +0.31 total | Luka Doncic (Lakers, worth 5.4): weight 0.4 at the open, 0 now, -2.16 spread, +1.30 total | Kristaps Porzingis (Warriors, worth 2.05): weight 0.4 at the open, 1 now, +1.23 spread, -0.74 total | Draymond Green (Warriors, worth 0.33): weight 1 at the open, 0 now, -0.33 spread, +0.20 total | Al Horford (Warriors, worth 0.86): weight 1 at the open, 0 now, -0.86 spread, +0.52 total | Gui Santos (Warriors, worth 0.74): weight 0.4 at the open, 0 now, -0.30 spread, +0.18 total | Stephen Curry (Warriors, worth 3.54): weight 0.4 at the open, 0.1 now, -1.06 spread, +0.64 total"
+      },
+      "note": "Same side already picked. Logged as a reread, graded, not counted."
     }
   ]
 }
