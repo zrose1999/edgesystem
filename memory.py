@@ -61,6 +61,8 @@ FEATURE_TIMING = {
     "wind": "pre-pick (contextAtPick, or a row forecast whose asOf is before the pick)", "precip": "pre-pick (as wind)",
     "sharpDiv": "pre-pick (open snapshot)", "sharpDivPick": "pre-pick (pinAtPick)",
     "steamBeforePick": "pre-pick (stored snap 30m-6h before the pick vs pinAtPick)",
+    "travel": "pre-pick (schedule + stats/team_venues.json)", "travelEdge": "pre-pick (schedule + team venues)",
+    "tzShift": "pre-pick (schedule + team venues)",
     "restDays": "pre-pick (schedule)", "restEdge": "pre-pick (schedule)", "shortWeek": "pre-pick (schedule)",
     "sharpGapOpen": "pre-pick (open snapshot)", "sharpGapPick": "pre-pick (pinAtPick)", "bookAtPick": "pre-pick (stamped)",
 }
@@ -77,6 +79,7 @@ COVERED = [
     ("daysRestHome", None, ("NBA", "NHL", "NCAAF"), "schedules in stats/; NFL is a gap"),
     ("sharpDivergence", "2026-10-14T00:00:00Z", None, "Pinnacle at the open"),
     ("pinMoveBeforePick", "2026-10-19T18:15:00Z", None, "needs a stored snap 30m-6h before the pick"),
+    ("travelMilesAway", None, ("NBA", "NHL", "NCAAF"), "schedules + team_venues.json; neutral sites skipped"),
 ]
 SNAPS_SHIPPED = "2026-10-19T18:15:00Z"
 SNAPS = ROOT / "ledger" / "snaps"
@@ -174,8 +177,6 @@ NOT_COLLECTED = {
     "nfl-rest": "NFL days rest and short week need a stored schedule: stats.py already downloads free nflverse data on "
                 "GitHub; saving its schedule (stats/nfl_schedule.json) is a code-only change. NBA, NHL and NCAAF rest "
                 "are built from the schedules in stats/.",
-    "travel": "Needs each team's previous venue joined to stats/venues.json coordinates (miles, time zones crossed, "
-              "days since). Free; code only.",
     "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). "
             "Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md).",
 }
@@ -223,6 +224,74 @@ def days_rest(sport, team, commence):
         return (now.date() - parse(prev[-1]).date()).days
     except ValueError:
         return None
+
+
+_VENUES = None
+_GAMES = {}
+
+
+def team_home(sport, team):
+    """Home location from stats/team_venues.json (built by team_venues.py): lat, lon, tz. None if unknown."""
+    global _VENUES
+    if _VENUES is None:
+        _VENUES = load_json(ROOT / "stats" / "team_venues.json", {}).get("teams") or {}
+    return (_VENUES.get(sport) or {}).get(team_key(team))
+
+
+def team_games(sport):
+    """Each team's games from the stored schedule: [(start, location team key or None if neutral)], oldest first."""
+    if sport not in _GAMES:
+        out = defaultdict(list)
+        name = SCHEDULES.get(sport)
+        games = (load_json(ROOT / "stats" / f"{name}.json", {}).get("games") or {}) if name else {}
+        for g in (games.values() if isinstance(games, dict) else games):
+            if not (g.get("home") and g.get("away") and g.get("date")):
+                continue
+            t = g["date"].replace("Z", ":00Z") if len(g["date"]) == 17 else g["date"]
+            where = None if g.get("neutral") else team_key(g["home"])
+            for side in ("home", "away"):
+                out[team_key(g[side])].append((t, where))
+        for k in out:
+            out[k].sort()
+        _GAMES[sport] = out
+    return _GAMES[sport]
+
+
+def miles(a, b):
+    import math
+    la1, lo1, la2, lo2 = map(math.radians, (a["lat"], a["lon"], b["lat"], b["lon"]))
+    h = math.sin((la2 - la1) / 2) ** 2 + math.cos(la1) * math.cos(la2) * math.sin((lo2 - lo1) / 2) ** 2
+    return 3958.8 * 2 * math.asin(math.sqrt(h))
+
+
+def utc_hours(tz, when):
+    from zoneinfo import ZoneInfo
+    return when.astimezone(ZoneInfo(tz)).utcoffset().total_seconds() / 3600
+
+
+def travel(sport, team, commence, home_team):
+    """(miles, time zones crossed) from the team's previous game location to this game (at home_team's venue).
+    Positive zones: traveled east. None when the schedule, either location, or a neutral site leaves it unknown."""
+    if not commence:
+        return None, None
+    try:
+        now = parse(commence)
+    except ValueError:
+        return None, None
+    games = team_games(sport).get(team_key(team)) or []
+    this = [w for t, w in games if abs((parse(t) - now).total_seconds()) <= 6 * 3600]
+    prev = [(t, w) for t, w in games if parse(t) < now - timedelta(hours=6)]
+    if not prev or (this and this[0] is None):
+        return None, None
+    a = team_home(sport, prev[-1][1]) if prev[-1][1] else None
+    b = team_home(sport, home_team)
+    if not a or not b:
+        return None, None
+    return round(miles(a, b)), round(utc_hours(b["tz"], now) - utc_hours(a["tz"], parse(prev[-1][0])), 1)
+
+
+def travel_bucket(m):
+    return None if m is None else "none" if m < 50 else "<500" if m < 500 else "500-1500" if m < 1500 else "1500+"
 
 
 def rest_bucket(sport, d):
@@ -431,6 +500,16 @@ def features(pick, row):
             f["restDays"] = rest_bucket(sport, min(dh, da))
         if sport in ("NFL", "NCAAF"):
             f["shortWeek"] = (min(dh, da) if side in ("over", "under") else (dh if side == "home" else da)) < 6
+    mh, zh = travel(sport, row.get("home"), pick.get("commence"), row.get("home"))
+    ma, za = travel(sport, row.get("away"), pick.get("commence"), row.get("home"))
+    if mh is not None and ma is not None:
+        if side in ("home", "away"):
+            mine, theirs, zone = (mh, ma, zh) if side == "home" else (ma, mh, za)
+            f["travel"] = travel_bucket(mine)
+            f["travelEdge"] = "less" if mine < theirs - 200 else "more" if mine > theirs + 200 else "even"
+            f["tzShift"] = "east" if zone >= 1 else "west" if zone <= -1 else "none"
+        elif side in ("over", "under"):
+            f["travel"] = travel_bucket(max(mh, ma))
     wd = ctx.get("weather") or {}
     if not wd:
         rw = row.get("weatherData") or {}
@@ -458,6 +537,10 @@ def entry(pick, row, counted):
         "minutesToKick": minutes_to_kick(pick), "sharpDivergence": sharp_divergence(pick, row),
         "pinAtPick": pick.get("pinAtPick"), "sharpDivergenceAtPick": sharp_divergence_at_pick(pick),
         "pinMoveBeforePick": pin_move_before_pick(pick)[0], "pinMoveWindowMin": pin_move_before_pick(pick)[1],
+        "travelMilesHome": travel(pick.get("sport"), row.get("home"), pick.get("commence"), row.get("home"))[0],
+        "travelMilesAway": travel(pick.get("sport"), row.get("away"), pick.get("commence"), row.get("home"))[0],
+        "tzShiftAway": travel(pick.get("sport"), row.get("away"), pick.get("commence"), row.get("home"))[1],
+        "tzShiftHome": travel(pick.get("sport"), row.get("home"), pick.get("commence"), row.get("home"))[1],
         "daysRestHome": days_rest(pick.get("sport"), row.get("home"), pick.get("commence")),
         "daysRestAway": days_rest(pick.get("sport"), row.get("away"), pick.get("commence")),
         "fair": pick.get("fair"), "edge": pick.get("edge"), "edgeUnit": pick.get("edgeUnit"), "bar": pick.get("bar"),
@@ -627,7 +710,6 @@ def fmt(f):
 
 GAP_SHORT = {
     "public-pct": "needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack",
-    "travel": "needs previous venue joined to stats/venues.json (miles, time zones); free, code only",
     "nfl-rest": "needs stats.py to save the free nflverse schedule (stats/nfl_schedule.json); code only",
     "guru": "needs an account list + reader (Reddit API free, X API paid); log account, number, time, result",
 }
@@ -896,7 +978,7 @@ def summary(research, now, patterns, graded):
         else:
             lines.append(f"  > grade order holds inside no feature yet ({tested} tested with 5+ reads per grade)")
     lines += ["Data gaps, free (building next):"]
-    lines += [f"- {k}: {GAP_SHORT[k]}" for k in ("travel", "nfl-rest") if k in research["notCollected"]]
+    lines += [f"- {k}: {GAP_SHORT[k]}" for k in ("nfl-rest",) if k in research["notCollected"]]
     lines.append("Data gaps, waiting on a source: " + "; ".join(
         f"{k} ({GAP_SHORT[k]})" for k in ("public-pct", "guru") if k in research["notCollected"]))
     lines.append("Coverage of added features (BREAKAGE if still 0 one health-check cycle after shipping):")

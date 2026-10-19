@@ -31,7 +31,8 @@ Guaranteed pre-pick: pattern, grade, confidence, market (stamped on the read); t
 commence); venue, role, keyNumber, edgeBar (line, price, fair and bar at the pick); moveBeforePick and sharpDiv (the
 open snapshot); sharpDivPick and pinAtPick (Pinnacle in the snapshot the read was priced from); injury (contextAtPick
 or the read's own reason text); rest (reason text); wind and precip (contextAtPick, or a row forecast whose asOf is
-before the pick); bookAtPick; restDays, restEdge, shortWeek and daysRestHome/Away (schedules in stats/, NBA/NHL/NCAAF).
+before the pick); bookAtPick; restDays, restEdge, shortWeek and daysRestHome/Away (schedules in stats/, NBA/NHL/NCAAF); travel,
+travelEdge, tzShift and travelMilesHome/Away, tzShiftHome/Away (schedules + stats/team_venues.json).
 
 Post-pick, never features: closeLine, closePrice, closeNoVig, clvProb, clvPoints, result, units, score, and
 injuryLatest / weatherLatest (the row's latest text, refreshed until kickoff).
@@ -41,7 +42,7 @@ kickoff; only 9 of 211 graded reads had a forecast from before the pick. From 20
 contextAtPick (weather, injury text, goalie signal as they stood at the pick).
 
 Planned features, timing: late steam before the pick = pre-pick (shipped: steamBeforePick); late steam in the final hour = post-pick (market
-studies only, never a read feature); travel and days rest = pre-pick (schedules are known in advance).
+studies only, never a read feature); travel and days rest = pre-pick (shipped; schedules are known in advance).
 
 Features (known at the pick, never after it): pattern, grade, confidence, market, timing (early >48h, day 6-48h,
 late <6h), venue (home/away), role (fav/dog/pk, or over/under), keyNumber (NFL/NCAAF spreads at or across 3 and 7),
@@ -78,7 +79,11 @@ Coverage and breakage: every added feature is listed in memory.py COVERED with i
 ends with "<field> on N of M graded reads" for each, plus new reads stamped (SHIPPED fields). A feature still at 0 one
 health-check cycle (26 hours) after shipping, or on 0 of 10+ new reads, prints a BREAKAGE line: the health check fixes
 it as a broken data path, not a quiet gap. The snapshot writer has its own line (snaps stored in the last 26 hours; BREAKAGE at 0 after the first cycle).
-Travel gets added to COVERED when it ships.
+Travel (2026-10-19): stats/team_venues.json holds every NBA, NHL and NCAAF team's home city, coordinates and time zone
+(built by hand with team_venues.py from ESPN venues and the offline GeoNames table; rerun when a team moves). For each
+team, memory.py measures miles and time zones crossed from its previous game's location to this game's venue
+(neutral sites unknown, skipped). Features: travel (none <50 mi, <500, 500-1500, 1500+; totals use the longer trip),
+travelEdge (picked team vs opponent, 200-mile band: less/even/more) and tzShift (east/west/none). Pre-pick.
 
 Interaction coverage: the last summary.md line counts graded reads with at least two of sharpDivergenceAtPick,
 steamBeforePick (pinMoveBeforePick), daysRest and contextAtPick populated (research.json `interactionCoverage`).
