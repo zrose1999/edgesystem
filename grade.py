@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""EDGE grader (v2). Grades the picks, not the market.
+"""EDGE grader. Last changed 2026-10-19 (one test per pattern, row and side); history in changelog.md.
+Grades the picks, not the market. Ends by refreshing the living memory (memory.py).
 
 What it measures, per pick:
   CLV     did the price we took beat the closing price on the SAME side?
@@ -291,6 +292,14 @@ def main():
     save(PICKS, picks)
     save(SCORE, score)
     print(json.dumps(ledger["score"]))
+
+    # Living memory: settled reads, feature research ledger and the rolling summary. It only reads what grade wrote;
+    # a failure here never blocks grading.
+    try:
+        import memory
+        print(json.dumps({"memory": memory.build()}))
+    except Exception as exc:  # noqa: BLE001
+        print(f"::warning::memory.py failed: {exc}")
 
 
 if __name__ == "__main__":

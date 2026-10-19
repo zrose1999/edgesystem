@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""EDGE price puller, read stamper and pick stamper (v3).
+"""EDGE price puller, read stamper and pick stamper. Last changed 2026-10-19; history in changelog.md.
+(Was labeled v3, the 2026-10 read-stamper rewrite. EDGE_MODEL_VERSION, stamped on every pick as modelVersion,
+stays v1 on purpose: it is part of every pickId, and changing it would let a duplicate pick through.)
 
   python pull.py            pull prices, closes and scores. This is what the jobs run.
   python pull.py read ...   stamp a read: fair number vs the stored market number, the lean,
@@ -514,7 +516,6 @@ def pull(near=None):
     ledger["rows"] = rows
     ledger["asOfCt"] = now
     ledger["feed"] = "Odds API. DraftKings is the print. BetMGM line noted when it differs. FanDuel, Caesars and Pinnacle stored under books for the sharp-soft scan. Key is not in this file."
-    save(LEDGER, ledger)
     ledger["credits"] = dict(CREDITS)
     save(LEDGER, ledger)
     print(json.dumps({"opened": opened, "closed": closed, "scored": scored, "rows": len(rows),
