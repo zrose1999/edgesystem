@@ -6,6 +6,7 @@ Built by `memory.py`, which runs at the end of every `grade.py` run. Do not edit
 |---|---|
 | `summary.md` | Under 30 lines. What has beaten the close lately, what has not, early positive leads, largest early-negative slices (still collecting), the grade-order observation, data gaps. Read first in every session and health check. |
 | `research.json` | Feature research ledger: every feature, overall (`ALL`) and per sport, with n, mean CLV, t, beat-close count, last-30-day CLV, record, status and distance to grade.py's bars. |
+| `hypotheses.md` | Neutral-or-positive conditional pockets, one row the first time each combination is seen (memory.py appends; rows are never edited). Re-checked on the weekly review. Nothing is promoted from it. |
 | `log/<YYYY-MM>.jsonl` | One line per settled read (pick, lean, pass, reread), keyed by `pickId`, upserted, never dropped. |
 
 Log entry fields: sport, date, event, home, away, market, kind, counted, side, pattern, grade, openLine, openPrices,

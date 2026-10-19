@@ -43,6 +43,7 @@ MEM = ROOT / "memory"
 LOG = MEM / "log"
 RESEARCH = MEM / "research.json"
 SUMMARY = MEM / "summary.md"
+HYPOTHESES = MEM / "hypotheses.md"
 ARCH = ROOT / "ledger" / "archive"
 RECENT_DAYS = 30
 
@@ -589,6 +590,7 @@ def build():
                                         "pocket": best, "tested": tested, "pairPocket": pb, "pairsTested": pt})
 
     MEM.mkdir(parents=True, exist_ok=True)
+    research["hypothesesAdded"] = append_hypotheses(research.get("pockets") or [], now)
     RESEARCH.write_text(json.dumps(research, indent=1) + "\n")
     SUMMARY.write_text(summary(research, now, patterns, graded))
     return {"logged": len(log), "newLogEntries": added, "graded": len(graded), "features": len(feats),
@@ -734,6 +736,54 @@ def pocket_line(best, tested, inside):
         return f"  > no conditional pocket found in current features ({tested} combos tested inside {inside})"
     return (f"  > pocket: {best['feature']} inside {inside}: n {best['n']}, CLV {best['meanClvProb'] * 100:+.1f}%, "
             f"t {best['tStat']:+.1f} (best of {tested} tested; a lead to watch)")
+
+
+def combo_key(*parts):
+    """Order-free name for a feature combination: 'role=dog inside moveBeforePick=none' and the reverse are one."""
+    toks = sorted({t.strip() for p in parts for t in p.split(" + ")})
+    return " + ".join(toks)
+
+
+def append_hypotheses(pockets, now):
+    """Append each neutral-or-positive pocket the first time its combination is seen. Rows already in the file are
+    never edited or removed. A single pocket inside a slice is the slice plus the feature; a pair pocket is the pair.
+    Leads to watch only: nothing is promoted from this file."""
+    if not HYPOTHESES.exists():
+        return 0
+    text = HYPOTHESES.read_text()
+    have = set()
+    for line in text.splitlines():
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) >= 5 and cells[0][:4].isdigit():
+            have.add(combo_key(cells[1].split(": ", 1)[-1]) if ": " in cells[1] else combo_key(cells[1]))
+            have.add(cells[1])
+    rows = []
+    # A cross-sport (ALL) pocket whose whole sample is one sport is the same lead as that sport's row: keep the sport's.
+    sport_ns = set()
+    for p in pockets:
+        sport, slice_tok = p["slice"].split("|", 1)
+        if sport != "ALL":
+            for kind, bb in (("single", p.get("pocket")), ("pair", p.get("pairPocket"))):
+                if bb:
+                    sport_ns.add((combo_key(slice_tok, bb["feature"]) if kind == "single" else combo_key(bb["feature"]), bb["n"]))
+    for p in pockets:
+        sport, slice_tok = p["slice"].split("|", 1)
+        for kind, b, tested in (("single", p.get("pocket"), p.get("tested")), ("pair", p.get("pairPocket"), p.get("pairsTested"))):
+            if not b or b["meanClvProb"] < 0:
+                continue
+            combo = combo_key(slice_tok, b["feature"]) if kind == "single" else combo_key(b["feature"])
+            if sport == "ALL" and (combo, b["n"]) in sport_ns:
+                continue
+            name = combo if sport == "ALL" else f"{sport}: {combo}"
+            if name in have or combo_key(name) in have:
+                continue
+            have.add(name)
+            note = (f"found inside {sport} {slice_tok} (best of {tested} {'pairs' if kind == 'pair' else 'features'} tested); "
+                    "small sample, may share reads with other rows")
+            rows.append(f"| {now.strftime('%Y-%m-%d')} | {name} | {b['n']} | {b['meanClvProb'] * 100:+.1f}% | {note} |")
+    if rows:
+        HYPOTHESES.write_text(text.rstrip("\n") + "\n" + "\n".join(rows) + "\n")
+    return len(rows)
 
 
 def summary(research, now, patterns, graded):
