@@ -57,7 +57,14 @@ jobs:
           if [ "${{ inputs.fast }}" = "true" ]; then
             EDGE_FAST=1 python pull.py pull --near 3
           elif [ "${{ github.event.schedule }}" = "37 1,17,21 * * *" ] || { [ "${{ inputs.near }}" = "true" ] && [ "${{ inputs.full }}" != "true" ]; }; then
-            python pull.py pull --near 12
+            # The Netlify clock is deployed by upload and may still send hourly near runs; only the
+            # 1, 17 and 21 UTC slots spend credits (2026-10-19). For an off-slot price check, dispatch full or fast.
+            h=$(date -u +%-H)
+            if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "$h" != "1" ] && [ "$h" != "17" ] && [ "$h" != "21" ]; then
+              echo '{"near": 12, "skipped": "outside the 1, 17, 21 UTC near slots"}'
+            else
+              python pull.py pull --near 12
+            fi
           else
             python pull.py
           fi
