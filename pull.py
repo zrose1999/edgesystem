@@ -63,8 +63,12 @@ ACTIVE = _env or ACTIVE
 RESERVE = int(os.environ.get("EDGE_CREDIT_RESERVE", "3000"))
 # Fast runs (every 15 minutes, games in the next 3 hours) stop earlier, so they never eat the credits that full
 # runs and closes need.
-FAST_RESERVE = int(os.environ.get("EDGE_FAST_RESERVE", "6000"))
+# 2026-10-19: 6000 -> 1500. Fast runs cost ~6 credits and, since then, also supply the free closes (step 2a),
+# so stopping them early would cost more in history calls than it saves.
+FAST_RESERVE = int(os.environ.get("EDGE_FAST_RESERVE", "1500"))
 FLOOR = int(os.environ.get("EDGE_CREDIT_FLOOR", "300"))
+# A stored snap this many minutes or less before the start counts as the close (no history call).
+CLOSE_SNAP_MIN = float(os.environ.get("EDGE_CLOSE_SNAP_MIN", "15"))
 CREDITS = {"remaining": None, "used": None}
 SPORTS = {k: v for k, v in SPORTS.items() if v in ACTIVE}
 KEY_OF = {v: k for k, v in SPORTS.items()}
@@ -406,7 +410,24 @@ def pull(near=None):
                           "creditsRemaining": CREDITS["remaining"]}))
         return
 
-    # 2. Closes, from history, one call per sport and kickoff time.
+    # 2a. Free closes (2026-10-19). Fast runs price every game in its last 3 hours, so a started game's last stored
+    # snap is usually minutes before kickoff. Checked on 98 rows that had both: same line on 92, median price
+    # difference 0, 94% within 5 cents. A snap that close to the start is the close; no history call is paid.
+    free = 0
+    for row in rows:
+        c, last = row.get("commence"), row.get("lastSnap")
+        if not c or c > now or "closeSnap" in row or not last or not last.get("time"):
+            continue
+        gap = (parse(c) - parse(last["time"])).total_seconds() / 60
+        if 0 <= gap <= CLOSE_SNAP_MIN:
+            row["closeSnap"] = dict(last)
+            row["closeGapMin"] = round(gap, 1)
+            row["closeSource"] = "lastSnap"
+            legacy(row, "close", row["closeSnap"])
+            closed += 1
+            free += 1
+
+    # 2b. Closes, from history, one call per sport and kickoff time.
     floor = iso(now_dt - timedelta(days=7))
     groups = defaultdict(list)
     for row in rows:
@@ -497,7 +518,7 @@ def pull(near=None):
     ledger["credits"] = dict(CREDITS)
     save(LEDGER, ledger)
     print(json.dumps({"opened": opened, "closed": closed, "scored": scored, "rows": len(rows),
-                      "historyCalls": calls, "closesSkippedForCredits": skipped,
+                      "historyCalls": calls, "freeCloses": free, "closesSkippedForCredits": skipped,
                       "creditsRemaining": CREDITS["remaining"]}))
 
 
@@ -691,6 +712,15 @@ def make_read(a):
         if any(p.get("pickId") == pick_id for p in picks["picks"]):
             kind, tier, stake = "reread", None, 0.0
             note = "Same side already picked. Logged as a reread, graded, not counted."
+    if kind == "lean":
+        # One test entry per row, side and pattern (2026-10-19). A news feed that flickers used to stamp the same
+        # lean a dozen times (Patriots at Bears spread: 13 rows), which inflated every pattern's n and t.
+        # A repeat is still logged, as a reread: graded, never counted.
+        pat = (a.pattern or "").strip() or None
+        if any(p.get("rowId") == row["id"] and p.get("side") == side and p.get("pattern") == pat
+               and p.get("kind") in ("pick", "lean") for p in picks["picks"]):
+            kind = "reread"
+            note = "Same side already read for this pattern. Logged as a reread, graded, not counted."
     if kind != "pick":
         pick_id = f"{row['id']}|{side if grade != 'P' else 'none'}|{VERSION}|{kind}|{(a.pattern or '').strip() or 'none'}|{now}"
 

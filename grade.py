@@ -228,9 +228,18 @@ def main():
     settled = [p for p in real if p.get("result") in ("win", "loss", "push")]
 
     # The grade test: if the grades mean anything, A beats the close more than B, and B more than C.
+    # One test entry per pattern, row and side (2026-10-19): the pick if there is one, else the first lean.
+    # Repeat leans stamped before the pull.py fix stay in picks.json but are not counted twice.
+    first = {}
+    for p in sorted(picks["picks"], key=lambda p: (p.get("kind", "pick") != "pick", p.get("pickedAt") or "")):
+        if p.get("kind", "pick") in ("pick", "lean") and p.get("side"):
+            first.setdefault((p.get("pattern"), p.get("rowId"), p.get("side")), p)
+    tests = [p for p in picks["picks"] if first.get((p.get("pattern"), p.get("rowId"), p.get("side"))) is p]
+    dupes = sum(1 for p in picks["picks"] if p.get("kind", "pick") in ("pick", "lean") and p.get("side")) - len(tests)
+
     by_grade = {}
     for gr in ("A", "B", "C"):
-        grp = [p for p in picks["picks"] if p.get("grade") == gr and p.get("kind", "pick") in ("pick", "lean")]
+        grp = [p for p in tests if p.get("grade") == gr]
         vals = [p["clvProb"] for p in grp if "clvProb" in p]
         res = [p for p in grp if p.get("result") in ("win", "loss", "push")]
         by_grade[gr] = {
@@ -243,8 +252,8 @@ def main():
 
     # Each pattern's full test: its picks and its leans, graded the same way. This is how strategies are compared.
     by_pattern = {}
-    for p in picks["picks"]:
-        if p.get("kind", "pick") not in ("pick", "lean") or not p.get("pattern"):
+    for p in tests:
+        if not p.get("pattern"):
             continue
         by_pattern.setdefault(p["pattern"], []).append(p)
     for name, grp in list(by_pattern.items()):
@@ -270,6 +279,7 @@ def main():
         "officialUnits": round(sum(p.get("unitsStaked", 0) for p in official), 2),
         "byGrade": by_grade,
         "byPattern": by_pattern,
+        "duplicateReadsNotCounted": dupes,
         "patterns": patterns,
     }
 

@@ -60,7 +60,16 @@ def as_of(path):
         d = json.loads(p.read_text())
     except Exception:  # noqa: BLE001
         return None
-    return d.get("asOf") if isinstance(d, dict) else None
+    if not isinstance(d, dict):
+        return None
+    # cfb_qb.json stamps "at"; the *_games.json history files carry no stamp, so use their newest final game.
+    stamp = d.get("asOf") or d.get("at")
+    if not stamp and isinstance(d.get("games"), (list, dict)):
+        games = d["games"].values() if isinstance(d["games"], dict) else d["games"]
+        times = [g.get(k) for g in games if isinstance(g, dict) and g.get("final")
+                 for k in ("date", "commence", "start") if g.get(k)]
+        stamp = max(times) if times else None
+    return stamp
 
 
 def archived_counts():

@@ -442,7 +442,7 @@ def new_book(cfg):
 def book_state(book):
     open_cost = sum(t["cost"] + t["fee"] for t in book["trades"] if t["status"] == "open")
     realized = sum(t.get("pnl", 0) for t in book["trades"] if t["status"] == "settled")
-    clv = [t["clv"] for t in book["trades"] if t.get("clv") is not None]
+    clv = [t["clv"] for t in book["trades"] if t.get("clv") is not None and not t.get("trackOnly")]
     return {"open": round(open_cost, 2), "realized": round(realized, 2),
             "equity": round(book["start"] + realized, 2),
             "clvN": len(clv), "meanClv": round(sum(clv) / len(clv), 4) if clv else None}
@@ -518,6 +518,10 @@ NHL_GAMES = list(_nhl.values()) if isinstance(_nhl, dict) else _nhl
 CS2_SERIES = "KXCS2GAME"
 CS2_RATINGS = ROOT / "stats" / "cs2_ratings.json"
 CS2_MAX_EDGE = 0.15        # a model, not a sharp price: bigger gaps are more likely a rating error
+# The walk-forward backtest (stats/backtest_cs2.md, 12,705 series) shows the Elo is overconfident: 74.6% favourites
+# won 69.8%, 84.1% won 76.7%. Shrinking toward 50% by 0.8 matches that table (64.7 -> 61.8 vs 62.3 won,
+# 74.6 -> 69.7 vs 69.8, 84.1 -> 77.3 vs 76.7). Added 2026-10-19 after 40 paper trades lost $43 at -4.1% mean CLV.
+CS2_SHRINK = 0.8
 
 
 def cs2_name_score(label, team):
@@ -579,7 +583,8 @@ def cs2_candidates(cfg, now):
         sa, sb = cs2_name_score(label, u["a"]), cs2_name_score(label, u["b"])
         if max(sa, sb) < 0.75 or abs(sa - sb) < 0.25:
             continue
-        yes_fair = u["pA"] if sa > sb else 1 - u["pA"]
+        p_a = 0.5 + CS2_SHRINK * (u["pA"] - 0.5)
+        yes_fair = p_a if sa > sb else 1 - p_a
         CS2_FAIR[m["ticker"]] = {"model": round(yes_fair, 4), "bestOf": u.get("bestOf"), "tier": u.get("tier"),
                                  "maps": min(u.get("mapsA") or 0, u.get("mapsB") or 0)}
         for side, ask in (("yes", f(m.get("yes_ask_dollars"))), ("no", f(m.get("no_ask_dollars")))):
@@ -826,13 +831,20 @@ def main(dry=False):
                 continue
             if name == "live" and c["sport"] not in (cfg.get("liveSports") or cfg.get("sports") or []):
                 continue          # new sports and leagues trade on paper until their matching has been checked
-            n = size(bcfg, book, c["ask"], c["fair"], now, c["source"] if name == "paper" else None)
-            if n < 1:
+            track = name == "paper" and c["source"] in (cfg.get("trackOnlySources") or [])
+            if name == "live" and c["source"] in (cfg.get("trackOnlySources") or []):
+                continue
+            n = 0 if track else size(bcfg, book, c["ask"], c["fair"], now, c["source"] if name == "paper" else None)
+            if n < 1 and not track:
                 continue
             trade = {k: c[k] for k in ("ticker", "title", "sport", "kind", "event", "commence", "side", "ask",
                                        "strike", "source", "fair", "edge", "estimated", "why") if k in c}
-            trade.update(time=iso(now), count=n, cost=round(n * c["ask"], 2), fee=fee(c["ask"], n),
+            # Track-only sources (trading/config.json) log the price, close and CLV with no money on them,
+            # so a source still being tested cannot drain the paper book the other sources are sized from.
+            trade.update(time=iso(now), count=n, cost=round(n * c["ask"], 2), fee=fee(c["ask"], n) if n else 0.0,
                          status="open", book=name, mode=mode if name == "live" else "paper")
+            if track:
+                trade["trackOnly"] = True
             if name == "live":
                 filled = place(signer, base, c, n)
                 if not filled:
