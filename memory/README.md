@@ -2,6 +2,12 @@
 
 Built by `memory.py`, which runs at the end of every `grade.py` run. Do not edit these files by hand.
 
+**Single writer.** Only the EDGE data job commits memory/log, research.json, summary.md and hypotheses.md. Chat
+sessions, the health check and the weekly review commit code and docs only: after testing locally, run
+`git checkout -- memory/log memory/research.json memory/summary.md memory/hypotheses.md` before committing, and let the
+next job run rebuild them. (2026-10-19: three fast runs failed to push because a session committed rebuilt memory
+files while they were running; their rebase conflicted on research.json.)
+
 | File | What it is |
 |---|---|
 | `summary.md` | Under 30 lines. What has beaten the close lately, what has not, early positive leads, largest early-negative slices (still collecting), the grade-order observation, data gaps. Read first in every session and health check. |
