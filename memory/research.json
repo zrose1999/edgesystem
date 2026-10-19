@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-19T17:54:15Z",
+ "asOf": "2026-10-19T17:55:24Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 204,
  "loggedReads": 391,
@@ -7,6 +7,7 @@
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "late-steam": "Needs a per-row price history: fast runs already price every game every 15 min in its last 3 hours but overwrite lastSnap. Appending those snaps costs no extra credits; code change in pull.py.",
+  "nfl-rest": "NFL days rest and short week need a stored schedule: stats.py already downloads free nflverse data on GitHub; saving its schedule (stats/nfl_schedule.json) is a code-only change. NBA, NHL and NCAAF rest are built from the schedules in stats/.",
   "travel": "Needs each team's previous venue joined to stats/venues.json coordinates (miles, time zones crossed, days since). Free; code only.",
   "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md)."
  },
@@ -41,6 +42,9 @@
   "precip": "pre-pick (as wind)",
   "sharpDiv": "pre-pick (open snapshot)",
   "sharpDivPick": "pre-pick (pinAtPick)",
+  "restDays": "pre-pick (schedule)",
+  "restEdge": "pre-pick (schedule)",
+  "shortWeek": "pre-pick (schedule)",
   "sharpGapOpen": "pre-pick (open snapshot)",
   "sharpGapPick": "pre-pick (pinAtPick)",
   "bookAtPick": "pre-pick (stamped)"
@@ -783,6 +787,168 @@
    "firstSeen": "2026-10-19"
   },
   {
+   "key": "ALL|restDays=1day",
+   "sport": "ALL",
+   "feature": "restDays=1day",
+   "n": 19,
+   "meanClvProb": -0.0112,
+   "tStat": -1.92,
+   "beatClose": 4,
+   "status": "early-negative",
+   "picksN": 4,
+   "picksMeanClvProb": -0.0253,
+   "recentN": 19,
+   "recentMeanClvProb": -0.0112,
+   "nShortOfFirstStage": 0,
+   "tShort": 4.42,
+   "record": "10-9-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "ALL|restDays=2+days",
+   "sport": "ALL",
+   "feature": "restDays=2+days",
+   "n": 3,
+   "meanClvProb": 0.0144,
+   "tStat": 0.73,
+   "beatClose": 1,
+   "status": "research",
+   "picksN": 1,
+   "picksMeanClvProb": -0.008,
+   "recentN": 3,
+   "recentMeanClvProb": 0.0144,
+   "nShortOfFirstStage": 12,
+   "tShort": 1.77,
+   "record": "2-1-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "ALL|restDays=b2b",
+   "sport": "ALL",
+   "feature": "restDays=b2b",
+   "n": 10,
+   "meanClvProb": -0.0231,
+   "tStat": -4.52,
+   "beatClose": 0,
+   "status": "early-negative",
+   "picksN": 5,
+   "picksMeanClvProb": -0.0129,
+   "recentN": 10,
+   "recentMeanClvProb": -0.0231,
+   "nShortOfFirstStage": 5,
+   "tShort": 7.02,
+   "record": "6-4-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "ALL|restDays=long",
+   "sport": "ALL",
+   "feature": "restDays=long",
+   "n": 23,
+   "meanClvProb": -0.0125,
+   "tStat": -1.46,
+   "beatClose": 7,
+   "status": "early-negative",
+   "picksN": 0,
+   "picksMeanClvProb": null,
+   "recentN": 23,
+   "recentMeanClvProb": -0.0125,
+   "nShortOfFirstStage": 0,
+   "tShort": 3.46,
+   "record": "9-14-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "ALL|restDays=normal",
+   "sport": "ALL",
+   "feature": "restDays=normal",
+   "n": 71,
+   "meanClvProb": -0.0234,
+   "tStat": -7.53,
+   "beatClose": 11,
+   "status": "early-negative",
+   "picksN": 23,
+   "picksMeanClvProb": -0.0169,
+   "recentN": 71,
+   "recentMeanClvProb": -0.0234,
+   "nShortOfFirstStage": 0,
+   "tShort": 9.53,
+   "record": "40-31-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "ALL|restDays=short",
+   "sport": "ALL",
+   "feature": "restDays=short",
+   "n": 2,
+   "meanClvProb": -0.0631,
+   "tStat": -4.32,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 0,
+   "picksMeanClvProb": null,
+   "recentN": 2,
+   "recentMeanClvProb": -0.0631,
+   "nShortOfFirstStage": 13,
+   "tShort": 6.82,
+   "record": "2-0-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "ALL|restEdge=even",
+   "sport": "ALL",
+   "feature": "restEdge=even",
+   "n": 18,
+   "meanClvProb": -0.0115,
+   "tStat": -1.43,
+   "beatClose": 6,
+   "status": "early-negative",
+   "picksN": 7,
+   "picksMeanClvProb": -0.0035,
+   "recentN": 18,
+   "recentMeanClvProb": -0.0115,
+   "nShortOfFirstStage": 0,
+   "tShort": 3.93,
+   "record": "11-7-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "ALL|restEdge=less",
+   "sport": "ALL",
+   "feature": "restEdge=less",
+   "n": 15,
+   "meanClvProb": -0.0199,
+   "tStat": -2.17,
+   "beatClose": 3,
+   "status": "early-negative",
+   "picksN": 6,
+   "picksMeanClvProb": -0.0071,
+   "recentN": 15,
+   "recentMeanClvProb": -0.0199,
+   "nShortOfFirstStage": 0,
+   "tShort": 4.67,
+   "record": "4-11-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "ALL|restEdge=more",
+   "sport": "ALL",
+   "feature": "restEdge=more",
+   "n": 25,
+   "meanClvProb": -0.0081,
+   "tStat": -0.97,
+   "beatClose": 8,
+   "status": "early-negative",
+   "picksN": 2,
+   "picksMeanClvProb": -0.0047,
+   "recentN": 25,
+   "recentMeanClvProb": -0.0081,
+   "nShortOfFirstStage": 0,
+   "tShort": 2.97,
+   "record": "13-12-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
    "key": "ALL|role=dog",
    "sport": "ALL",
    "feature": "role=dog",
@@ -960,6 +1126,24 @@
    "nShortOfFirstStage": 9,
    "tShort": 3.21,
    "record": "3-3-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "ALL|shortWeek=yes",
+   "sport": "ALL",
+   "feature": "shortWeek=yes",
+   "n": 2,
+   "meanClvProb": -0.0631,
+   "tStat": -4.32,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 0,
+   "picksMeanClvProb": null,
+   "recentN": 2,
+   "recentMeanClvProb": -0.0631,
+   "nShortOfFirstStage": 13,
+   "tShort": 6.82,
+   "record": "2-0-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -2223,6 +2407,114 @@
    "firstSeen": "2026-10-19"
   },
   {
+   "key": "NCAAF|restDays=long",
+   "sport": "NCAAF",
+   "feature": "restDays=long",
+   "n": 23,
+   "meanClvProb": -0.0125,
+   "tStat": -1.46,
+   "beatClose": 7,
+   "status": "early-negative",
+   "picksN": 0,
+   "picksMeanClvProb": null,
+   "recentN": 23,
+   "recentMeanClvProb": -0.0125,
+   "nShortOfFirstStage": 0,
+   "tShort": 3.46,
+   "record": "9-14-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "NCAAF|restDays=normal",
+   "sport": "NCAAF",
+   "feature": "restDays=normal",
+   "n": 71,
+   "meanClvProb": -0.0234,
+   "tStat": -7.53,
+   "beatClose": 11,
+   "status": "early-negative",
+   "picksN": 23,
+   "picksMeanClvProb": -0.0169,
+   "recentN": 71,
+   "recentMeanClvProb": -0.0234,
+   "nShortOfFirstStage": 0,
+   "tShort": 9.53,
+   "record": "40-31-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "NCAAF|restDays=short",
+   "sport": "NCAAF",
+   "feature": "restDays=short",
+   "n": 2,
+   "meanClvProb": -0.0631,
+   "tStat": -4.32,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 0,
+   "picksMeanClvProb": null,
+   "recentN": 2,
+   "recentMeanClvProb": -0.0631,
+   "nShortOfFirstStage": 13,
+   "tShort": 6.82,
+   "record": "2-0-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "NCAAF|restEdge=even",
+   "sport": "NCAAF",
+   "feature": "restEdge=even",
+   "n": 12,
+   "meanClvProb": -0.017,
+   "tStat": -1.52,
+   "beatClose": 4,
+   "status": "early-negative",
+   "picksN": 6,
+   "picksMeanClvProb": -0.0001,
+   "recentN": 12,
+   "recentMeanClvProb": -0.017,
+   "nShortOfFirstStage": 3,
+   "tShort": 4.02,
+   "record": "8-4-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "NCAAF|restEdge=less",
+   "sport": "NCAAF",
+   "feature": "restEdge=less",
+   "n": 8,
+   "meanClvProb": -0.024,
+   "tStat": -1.55,
+   "beatClose": 2,
+   "status": "early-negative",
+   "picksN": 3,
+   "picksMeanClvProb": -0.0004,
+   "recentN": 8,
+   "recentMeanClvProb": -0.024,
+   "nShortOfFirstStage": 7,
+   "tShort": 4.05,
+   "record": "2-6-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "NCAAF|restEdge=more",
+   "sport": "NCAAF",
+   "feature": "restEdge=more",
+   "n": 20,
+   "meanClvProb": -0.0121,
+   "tStat": -1.23,
+   "beatClose": 7,
+   "status": "early-negative",
+   "picksN": 0,
+   "picksMeanClvProb": null,
+   "recentN": 20,
+   "recentMeanClvProb": -0.0121,
+   "nShortOfFirstStage": 0,
+   "tShort": 3.23,
+   "record": "9-11-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
    "key": "NCAAF|role=dog",
    "sport": "NCAAF",
    "feature": "role=dog",
@@ -2328,6 +2620,24 @@
    "nShortOfFirstStage": 13,
    "tShort": 2.68,
    "record": "1-1-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "NCAAF|shortWeek=yes",
+   "sport": "NCAAF",
+   "feature": "shortWeek=yes",
+   "n": 2,
+   "meanClvProb": -0.0631,
+   "tStat": -4.32,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 0,
+   "picksMeanClvProb": null,
+   "recentN": 2,
+   "recentMeanClvProb": -0.0631,
+   "nShortOfFirstStage": 13,
+   "tShort": 6.82,
+   "record": "2-0-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -3159,6 +3469,114 @@
    "firstSeen": "2026-10-19"
   },
   {
+   "key": "NHL|restDays=1day",
+   "sport": "NHL",
+   "feature": "restDays=1day",
+   "n": 19,
+   "meanClvProb": -0.0112,
+   "tStat": -1.92,
+   "beatClose": 4,
+   "status": "early-negative",
+   "picksN": 4,
+   "picksMeanClvProb": -0.0253,
+   "recentN": 19,
+   "recentMeanClvProb": -0.0112,
+   "nShortOfFirstStage": 0,
+   "tShort": 4.42,
+   "record": "10-9-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "NHL|restDays=2+days",
+   "sport": "NHL",
+   "feature": "restDays=2+days",
+   "n": 3,
+   "meanClvProb": 0.0144,
+   "tStat": 0.73,
+   "beatClose": 1,
+   "status": "research",
+   "picksN": 1,
+   "picksMeanClvProb": -0.008,
+   "recentN": 3,
+   "recentMeanClvProb": 0.0144,
+   "nShortOfFirstStage": 12,
+   "tShort": 1.77,
+   "record": "2-1-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "NHL|restDays=b2b",
+   "sport": "NHL",
+   "feature": "restDays=b2b",
+   "n": 10,
+   "meanClvProb": -0.0231,
+   "tStat": -4.52,
+   "beatClose": 0,
+   "status": "early-negative",
+   "picksN": 5,
+   "picksMeanClvProb": -0.0129,
+   "recentN": 10,
+   "recentMeanClvProb": -0.0231,
+   "nShortOfFirstStage": 5,
+   "tShort": 7.02,
+   "record": "6-4-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "NHL|restEdge=even",
+   "sport": "NHL",
+   "feature": "restEdge=even",
+   "n": 6,
+   "meanClvProb": -0.0007,
+   "tStat": -0.08,
+   "beatClose": 2,
+   "status": "research",
+   "picksN": 1,
+   "picksMeanClvProb": -0.0235,
+   "recentN": 6,
+   "recentMeanClvProb": -0.0007,
+   "nShortOfFirstStage": 9,
+   "tShort": 2.58,
+   "record": "3-3-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "NHL|restEdge=less",
+   "sport": "NHL",
+   "feature": "restEdge=less",
+   "n": 7,
+   "meanClvProb": -0.0152,
+   "tStat": -1.56,
+   "beatClose": 1,
+   "status": "research",
+   "picksN": 3,
+   "picksMeanClvProb": -0.0138,
+   "recentN": 7,
+   "recentMeanClvProb": -0.0152,
+   "nShortOfFirstStage": 8,
+   "tShort": 4.06,
+   "record": "2-5-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "NHL|restEdge=more",
+   "sport": "NHL",
+   "feature": "restEdge=more",
+   "n": 5,
+   "meanClvProb": 0.0081,
+   "tStat": 0.7,
+   "beatClose": 1,
+   "status": "research",
+   "picksN": 2,
+   "picksMeanClvProb": -0.0047,
+   "recentN": 5,
+   "recentMeanClvProb": 0.0081,
+   "nShortOfFirstStage": 10,
+   "tShort": 1.8,
+   "record": "4-1-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
    "key": "NHL|role=dog",
    "sport": "NHL",
    "feature": "role=dog",
@@ -3746,7 +4164,7 @@
     "meanClvProb": 0.0102,
     "tStat": 0.98
    },
-   "tested": 8,
+   "tested": 9,
    "pairPocket": null,
    "pairsTested": 1
   },
@@ -3760,7 +4178,7 @@
     "meanClvProb": 0.0008,
     "tStat": 0.11
    },
-   "tested": 23,
+   "tested": 24,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 11,
@@ -3788,7 +4206,7 @@
     "meanClvProb": 0.0086,
     "tStat": 1.08
    },
-   "tested": 26,
+   "tested": 32,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 14,
@@ -3816,7 +4234,7 @@
     "meanClvProb": 0.0008,
     "tStat": 0.11
    },
-   "tested": 22,
+   "tested": 23,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 11,
@@ -3835,7 +4253,7 @@
     "meanClvProb": 0.0086,
     "tStat": 1.08
    },
-   "tested": 27,
+   "tested": 33,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 14,
@@ -3863,7 +4281,7 @@
     "meanClvProb": 0.0026,
     "tStat": 0.27
    },
-   "tested": 15,
+   "tested": 16,
    "pairPocket": null,
    "pairsTested": 5
   },
@@ -3877,7 +4295,7 @@
     "meanClvProb": 0.0102,
     "tStat": 0.98
    },
-   "tested": 14,
+   "tested": 16,
    "pairPocket": null,
    "pairsTested": 2
   },
@@ -3886,7 +4304,7 @@
    "n": 70,
    "meanClvProb": -0.017,
    "pocket": null,
-   "tested": 20,
+   "tested": 25,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 18,
@@ -3900,7 +4318,7 @@
    "n": 102,
    "meanClvProb": -0.0238,
    "pocket": null,
-   "tested": 25,
+   "tested": 27,
    "pairPocket": null,
    "pairsTested": 10
   },
@@ -3909,7 +4327,7 @@
    "n": 28,
    "meanClvProb": -0.0215,
    "pocket": null,
-   "tested": 12,
+   "tested": 13,
    "pairPocket": null,
    "pairsTested": 2
   },
@@ -3918,7 +4336,7 @@
    "n": 52,
    "meanClvProb": -0.0187,
    "pocket": null,
-   "tested": 21,
+   "tested": 22,
    "pairPocket": null,
    "pairsTested": 3
   },
@@ -3932,7 +4350,7 @@
     "meanClvProb": 0.0075,
     "tStat": 0.88
    },
-   "tested": 26,
+   "tested": 30,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 11,
@@ -3946,7 +4364,7 @@
    "n": 16,
    "meanClvProb": -0.0217,
    "pocket": null,
-   "tested": 6,
+   "tested": 7,
    "pairPocket": null,
    "pairsTested": 1
   },
@@ -3955,7 +4373,7 @@
    "n": 32,
    "meanClvProb": -0.0227,
    "pocket": null,
-   "tested": 8,
+   "tested": 11,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 9,
@@ -3997,6 +4415,80 @@
    "pairsTested": 2
   },
   {
+   "slice": "ALL|restDays=1day",
+   "n": 19,
+   "meanClvProb": -0.0112,
+   "pocket": {
+    "feature": "pattern=learned-nhl-ml",
+    "n": 9,
+    "meanClvProb": 0.0037,
+    "tStat": 0.54
+   },
+   "tested": 8,
+   "pairPocket": null,
+   "pairsTested": 1
+  },
+  {
+   "slice": "ALL|restDays=long",
+   "n": 23,
+   "meanClvProb": -0.0125,
+   "pocket": null,
+   "tested": 9,
+   "pairPocket": {
+    "feature": "role=dog + moveBeforePick=none",
+    "n": 10,
+    "meanClvProb": 0.0103,
+    "tStat": 0.8
+   },
+   "pairsTested": 4
+  },
+  {
+   "slice": "ALL|restDays=normal",
+   "n": 71,
+   "meanClvProb": -0.0234,
+   "pocket": null,
+   "tested": 22,
+   "pairPocket": null,
+   "pairsTested": 5
+  },
+  {
+   "slice": "ALL|restEdge=even",
+   "n": 18,
+   "meanClvProb": -0.0115,
+   "pocket": null,
+   "tested": 9,
+   "pairPocket": null,
+   "pairsTested": 0
+  },
+  {
+   "slice": "ALL|restEdge=less",
+   "n": 15,
+   "meanClvProb": -0.0199,
+   "pocket": null,
+   "tested": 6,
+   "pairPocket": null,
+   "pairsTested": 0
+  },
+  {
+   "slice": "ALL|restEdge=more",
+   "n": 25,
+   "meanClvProb": -0.0081,
+   "pocket": {
+    "feature": "moveBeforePick=none",
+    "n": 14,
+    "meanClvProb": 0.0023,
+    "tStat": 0.21
+   },
+   "tested": 12,
+   "pairPocket": {
+    "feature": "role=dog + moveBeforePick=none",
+    "n": 10,
+    "meanClvProb": 0.0103,
+    "tStat": 0.8
+   },
+   "pairsTested": 4
+  },
+  {
    "slice": "ALL|role=dog",
    "n": 53,
    "meanClvProb": -0.0051,
@@ -4006,7 +4498,7 @@
     "meanClvProb": 0.0075,
     "tStat": 0.88
    },
-   "tested": 20,
+   "tested": 23,
    "pairPocket": {
     "feature": "edgeBar=<0.5x + timing=early",
     "n": 19,
@@ -4025,7 +4517,7 @@
     "meanClvProb": 0.0008,
     "tStat": 0.08
    },
-   "tested": 20,
+   "tested": 24,
    "pairPocket": null,
    "pairsTested": 3
   },
@@ -4034,7 +4526,7 @@
    "n": 37,
    "meanClvProb": -0.0255,
    "pocket": null,
-   "tested": 12,
+   "tested": 13,
    "pairPocket": null,
    "pairsTested": 1
   },
@@ -4043,7 +4535,7 @@
    "n": 65,
    "meanClvProb": -0.0229,
    "pocket": null,
-   "tested": 17,
+   "tested": 18,
    "pairPocket": null,
    "pairsTested": 3
   },
@@ -4057,7 +4549,7 @@
     "meanClvProb": 0.0077,
     "tStat": 1.06
    },
-   "tested": 24,
+   "tested": 26,
    "pairPocket": null,
    "pairsTested": 3
   },
@@ -4066,7 +4558,7 @@
    "n": 116,
    "meanClvProb": -0.0199,
    "pocket": null,
-   "tested": 24,
+   "tested": 28,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 15,
@@ -4094,7 +4586,7 @@
     "meanClvProb": 0.0142,
     "tStat": 1.58
    },
-   "tested": 21,
+   "tested": 26,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 11,
@@ -4108,7 +4600,7 @@
    "n": 51,
    "meanClvProb": -0.0237,
    "pocket": null,
-   "tested": 20,
+   "tested": 22,
    "pairPocket": null,
    "pairsTested": 2
   },
@@ -4126,7 +4618,7 @@
    "n": 73,
    "meanClvProb": -0.0231,
    "pocket": null,
-   "tested": 17,
+   "tested": 20,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 10,
@@ -4140,7 +4632,7 @@
    "n": 17,
    "meanClvProb": -0.026,
    "pocket": null,
-   "tested": 7,
+   "tested": 8,
    "pairPocket": null,
    "pairsTested": 1
   },
@@ -4149,7 +4641,7 @@
    "n": 23,
    "meanClvProb": -0.0236,
    "pocket": null,
-   "tested": 6,
+   "tested": 7,
    "pairPocket": null,
    "pairsTested": 1
   },
@@ -4163,7 +4655,7 @@
     "meanClvProb": 0.0072,
     "tStat": 0.6
    },
-   "tested": 15,
+   "tested": 18,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 8,
@@ -4177,7 +4669,7 @@
    "n": 16,
    "meanClvProb": -0.0217,
    "pocket": null,
-   "tested": 6,
+   "tested": 7,
    "pairPocket": null,
    "pairsTested": 1
   },
@@ -4186,7 +4678,7 @@
    "n": 32,
    "meanClvProb": -0.0227,
    "pocket": null,
-   "tested": 8,
+   "tested": 11,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 9,
@@ -4205,11 +4697,53 @@
    "pairsTested": 1
   },
   {
+   "slice": "NCAAF|restDays=long",
+   "n": 23,
+   "meanClvProb": -0.0125,
+   "pocket": null,
+   "tested": 9,
+   "pairPocket": {
+    "feature": "role=dog + moveBeforePick=none",
+    "n": 10,
+    "meanClvProb": 0.0103,
+    "tStat": 0.8
+   },
+   "pairsTested": 4
+  },
+  {
+   "slice": "NCAAF|restDays=normal",
+   "n": 71,
+   "meanClvProb": -0.0234,
+   "pocket": null,
+   "tested": 22,
+   "pairPocket": null,
+   "pairsTested": 5
+  },
+  {
+   "slice": "NCAAF|restEdge=more",
+   "n": 20,
+   "meanClvProb": -0.0121,
+   "pocket": {
+    "feature": "moveBeforePick=none",
+    "n": 14,
+    "meanClvProb": 0.0023,
+    "tStat": 0.21
+   },
+   "tested": 7,
+   "pairPocket": {
+    "feature": "role=dog + moveBeforePick=none",
+    "n": 10,
+    "meanClvProb": 0.0103,
+    "tStat": 0.8
+   },
+   "pairsTested": 3
+  },
+  {
    "slice": "NCAAF|role=fav",
    "n": 22,
    "meanClvProb": -0.0303,
    "pocket": null,
-   "tested": 9,
+   "tested": 12,
    "pairPocket": null,
    "pairsTested": 1
   },
@@ -4218,7 +4752,7 @@
    "n": 16,
    "meanClvProb": -0.0186,
    "pocket": null,
-   "tested": 3,
+   "tested": 4,
    "pairPocket": null,
    "pairsTested": 1
   },
@@ -4227,7 +4761,7 @@
    "n": 40,
    "meanClvProb": -0.0284,
    "pocket": null,
-   "tested": 11,
+   "tested": 12,
    "pairPocket": null,
    "pairsTested": 3
   },
@@ -4236,7 +4770,7 @@
    "n": 25,
    "meanClvProb": -0.029,
    "pocket": null,
-   "tested": 9,
+   "tested": 10,
    "pairPocket": null,
    "pairsTested": 2
   },
@@ -4250,7 +4784,7 @@
     "meanClvProb": 0.003,
     "tStat": 0.23
    },
-   "tested": 16,
+   "tested": 20,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 10,
@@ -4269,7 +4803,7 @@
     "meanClvProb": 0.0067,
     "tStat": 0.51
    },
-   "tested": 11,
+   "tested": 15,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 8,
@@ -4283,7 +4817,7 @@
    "n": 18,
    "meanClvProb": -0.0256,
    "pocket": null,
-   "tested": 6,
+   "tested": 8,
    "pairPocket": null,
    "pairsTested": 2
   },
@@ -4424,9 +4958,23 @@
     "meanClvProb": 0.0086,
     "tStat": 1.08
    },
-   "tested": 6,
+   "tested": 7,
    "pairPocket": null,
    "pairsTested": 0
+  },
+  {
+   "slice": "NHL|restDays=1day",
+   "n": 19,
+   "meanClvProb": -0.0112,
+   "pocket": {
+    "feature": "pattern=learned-nhl-ml",
+    "n": 9,
+    "meanClvProb": 0.0037,
+    "tStat": 0.54
+   },
+   "tested": 8,
+   "pairPocket": null,
+   "pairsTested": 1
   },
   {
    "slice": "NHL|timing=day",
@@ -4438,7 +4986,7 @@
     "meanClvProb": 0.0077,
     "tStat": 1.06
    },
-   "tested": 11,
+   "tested": 12,
    "pairPocket": null,
    "pairsTested": 1
   }

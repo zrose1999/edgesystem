@@ -59,6 +59,7 @@ FEATURE_TIMING = {
     "injury": "pre-pick (contextAtPick or the read's reason text only)", "rest": "pre-pick (reason text)",
     "wind": "pre-pick (contextAtPick, or a row forecast whose asOf is before the pick)", "precip": "pre-pick (as wind)",
     "sharpDiv": "pre-pick (open snapshot)", "sharpDivPick": "pre-pick (pinAtPick)",
+    "restDays": "pre-pick (schedule)", "restEdge": "pre-pick (schedule)", "shortWeek": "pre-pick (schedule)",
     "sharpGapOpen": "pre-pick (open snapshot)", "sharpGapPick": "pre-pick (pinAtPick)", "bookAtPick": "pre-pick (stamped)",
 }
 POST_PICK_FIELDS = ["closeLine", "closePrice", "closeNoVig", "clvProb", "clvPoints", "result", "units", "score",
@@ -72,11 +73,67 @@ NOT_COLLECTED = {
                   "open and near kickoff per game. No free API in the stack today.",
     "late-steam": "Needs a per-row price history: fast runs already price every game every 15 min in its last 3 hours "
                   "but overwrite lastSnap. Appending those snaps costs no extra credits; code change in pull.py.",
+    "nfl-rest": "NFL days rest and short week need a stored schedule: stats.py already downloads free nflverse data on "
+                "GitHub; saving its schedule (stats/nfl_schedule.json) is a code-only change. NBA, NHL and NCAAF rest "
+                "are built from the schedules in stats/.",
     "travel": "Needs each team's previous venue joined to stats/venues.json coordinates (miles, time zones crossed, "
               "days since). Free; code only.",
     "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). "
             "Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md).",
 }
+
+SCHEDULES = {"NBA": "nba_games", "NHL": "nhl_games", "NCAAF": "ncaaf_games"}   # NFL: no schedule file yet (free gap)
+TEAM_ALIAS = {"southern mississippi golden eagles": "southern miss golden eagles",
+              "umass minutemen": "massachusetts minutemen"}
+_SCHED = {}
+
+
+def team_key(name):
+    import unicodedata
+    t = unicodedata.normalize("NFKD", name or "").encode("ascii", "ignore").decode().lower()
+    t = re.sub(r"[^a-z0-9 ]", "", t)
+    t = re.sub(r" +", " ", t).strip()
+    return TEAM_ALIAS.get(t, t)
+
+
+def schedule(sport):
+    """Each team's game start times for a sport, from the schedule files already in stats/. Cached per run."""
+    if sport not in _SCHED:
+        out = defaultdict(list)
+        name = SCHEDULES.get(sport)
+        games = (load_json(ROOT / "stats" / f"{name}.json", {}).get("games") or {}) if name else {}
+        for g in (games.values() if isinstance(games, dict) else games):
+            for side in ("home", "away"):
+                if g.get(side) and g.get("date"):
+                    out[team_key(g[side])].append(g["date"].replace("Z", ":00Z") if len(g["date"]) == 17 else g["date"])
+        for k in out:
+            out[k].sort()
+        _SCHED[sport] = out
+    return _SCHED[sport]
+
+
+def days_rest(sport, team, commence):
+    """Whole days since the team's previous game start, or None when the schedule does not have it."""
+    times = schedule(sport).get(team_key(team))
+    if not times or not commence:
+        return None
+    try:
+        now = parse(commence)
+        prev = [t for t in times if parse(t) < now - timedelta(hours=6)]
+        if not prev:
+            return None
+        return (now.date() - parse(prev[-1]).date()).days
+    except ValueError:
+        return None
+
+
+def rest_bucket(sport, d):
+    if d is None:
+        return None
+    if sport in ("NFL", "NCAAF"):
+        return "short" if d < 6 else "normal" if d <= 8 else "long"
+    return "b2b" if d <= 1 else "1day" if d == 2 else "2+days"
+
 
 QB_WORDS = re.compile(r"\bQB\d?\b|quarterback", re.I)
 GOALIE_WORDS = re.compile(r"goalie|goaltender", re.I)
@@ -243,6 +300,20 @@ def features(pick, row):
         f["injury"] = inj
     if REST_WORDS.search(pick.get("reason") or ""):
         f["rest"] = True
+    # Days rest from the schedule (known in advance, so pre-pick). Side picks: the picked team, and its rest against
+    # the opponent's. Totals: the shorter rest of the two teams.
+    sport = pick.get("sport")
+    dh = days_rest(sport, row.get("home"), pick.get("commence"))
+    da = days_rest(sport, row.get("away"), pick.get("commence"))
+    if dh is not None and da is not None:
+        if side in ("home", "away"):
+            mine, theirs = (dh, da) if side == "home" else (da, dh)
+            f["restDays"] = rest_bucket(sport, mine)
+            f["restEdge"] = "more" if mine > theirs else "less" if mine < theirs else "even"
+        elif side in ("over", "under"):
+            f["restDays"] = rest_bucket(sport, min(dh, da))
+        if sport in ("NFL", "NCAAF"):
+            f["shortWeek"] = (min(dh, da) if side in ("over", "under") else (dh if side == "home" else da)) < 6
     wd = ctx.get("weather") or {}
     if not wd:
         rw = row.get("weatherData") or {}
@@ -269,6 +340,8 @@ def entry(pick, row, counted):
         "lineAtPick": pick.get("lineAtPick"), "priceAtPick": pick.get("priceAtPick"), "pickedAt": pick.get("pickedAt"),
         "minutesToKick": minutes_to_kick(pick), "sharpDivergence": sharp_divergence(pick, row),
         "pinAtPick": pick.get("pinAtPick"), "sharpDivergenceAtPick": sharp_divergence_at_pick(pick),
+        "daysRestHome": days_rest(pick.get("sport"), row.get("home"), pick.get("commence")),
+        "daysRestAway": days_rest(pick.get("sport"), row.get("away"), pick.get("commence")),
         "fair": pick.get("fair"), "edge": pick.get("edge"), "edgeUnit": pick.get("edgeUnit"), "bar": pick.get("bar"),
         "closeLine": snap_c.get("line"), "closePrice": pick.get("closePrice"), "closeNoVig": pick.get("closeNoVig"),
         "clvProb": pick.get("clvProb"), "clvPoints": pick.get("clvPoints"), "clvEstimated": pick.get("estimated"),
@@ -429,6 +502,7 @@ GAP_SHORT = {
     "public-pct": "needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack",
     "late-steam": "needs pull.py to append fast-run snaps per row instead of overwriting lastSnap; no extra credits",
     "travel": "needs previous venue joined to stats/venues.json (miles, time zones); free, code only",
+    "nfl-rest": "needs stats.py to save the free nflverse schedule (stats/nfl_schedule.json); code only",
     "guru": "needs an account list + reader (Reddit API free, X API paid); log account, number, time, result",
 }
 
@@ -621,7 +695,7 @@ def summary(research, now, patterns, graded):
     lines += ["", "Other slices, last 30d (context, not leads): best " + ("; ".join(fmt(f) for f in top2) or "none")
               + " | worst " + ("; ".join(fmt(f) for f in low2) or "none"),
               "", "Data gaps, free (building next):"]
-    lines += [f"- {k}: {GAP_SHORT[k]}" for k in ("late-steam", "travel", "sharp-divergence-at-pick") if k in research["notCollected"]]
+    lines += [f"- {k}: {GAP_SHORT[k]}" for k in ("late-steam", "travel", "nfl-rest") if k in research["notCollected"]]
     lines.append("Data gaps, waiting on a source:")
     lines += [f"- {k}: {GAP_SHORT[k]}" for k in ("public-pct", "guru") if k in research["notCollected"]]
     for name, c in (research.get("coverage") or {}).items():

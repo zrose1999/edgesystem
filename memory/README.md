@@ -24,7 +24,7 @@ Guaranteed pre-pick: pattern, grade, confidence, market (stamped on the read); t
 commence); venue, role, keyNumber, edgeBar (line, price, fair and bar at the pick); moveBeforePick and sharpDiv (the
 open snapshot); sharpDivPick and pinAtPick (Pinnacle in the snapshot the read was priced from); injury (contextAtPick
 or the read's own reason text); rest (reason text); wind and precip (contextAtPick, or a row forecast whose asOf is
-before the pick); bookAtPick.
+before the pick); bookAtPick; restDays, restEdge, shortWeek and daysRestHome/Away (schedules in stats/, NBA/NHL/NCAAF).
 
 Post-pick, never features: closeLine, closePrice, closeNoVig, clvProb, clvPoints, result, units, score, and
 injuryLatest / weatherLatest (the row's latest text, refreshed until kickoff).
