@@ -1,10 +1,10 @@
 # Discovery report (discover.py)
 
-2026-10-18T14:30:11Z. 9932 game-markets, 92 situations tested. Candidates: 150+ games, |t| >= 3.0, same direction in both halves. Moves are close minus open: home line (spreads), total line, home or over probability. Leads for the weekly review, not patterns.
+2026-10-19T11:11:36Z. 10811 game-markets, 110 situations tested. Candidates: 150+ games, |t| >= 3.0, same direction in both halves. Moves are close minus open: home line (spreads), total line, home or over probability. Leads for the weekly review, not patterns.
 
 | Sport | Market | Situation | Games | Avg move | t | 1st half | 2nd half |
 |---|---|---|---|---|---|---|---|
-| NHL | h2h | all: all | 1199 | -0.65% | -6.9 | -0.95% | -0.36% |
+| NHL | h2h | all: all | 1203 | -0.65% | -6.9 | -0.94% | -0.36% |
 | NHL | h2h | day: Wed | 192 | -1.31% | -5.3 | -1.54% | -1.09% |
 | NHL | h2h | size: even | 428 | -0.75% | -4.2 | -0.79% | -0.72% |
 | NCAAF | total | all: all | 864 | -0.36 pts | -4.1 | -0.31 pts | -0.41 pts |
