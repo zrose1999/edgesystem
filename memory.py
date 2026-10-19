@@ -59,6 +59,7 @@ FEATURE_TIMING = {
     "injury": "pre-pick (contextAtPick or the read's reason text only)", "rest": "pre-pick (reason text)",
     "wind": "pre-pick (contextAtPick, or a row forecast whose asOf is before the pick)", "precip": "pre-pick (as wind)",
     "sharpDiv": "pre-pick (open snapshot)", "sharpDivPick": "pre-pick (pinAtPick)",
+    "steamBeforePick": "pre-pick (stored snap 30m-6h before the pick vs pinAtPick)",
     "restDays": "pre-pick (schedule)", "restEdge": "pre-pick (schedule)", "shortWeek": "pre-pick (schedule)",
     "sharpGapOpen": "pre-pick (open snapshot)", "sharpGapPick": "pre-pick (pinAtPick)", "bookAtPick": "pre-pick (stamped)",
 }
@@ -74,15 +75,86 @@ COVERED = [
     ("sharpDivergenceAtPick", "2026-10-19T18:00:00Z", None, "needs Pinnacle on the same line"),
     ("daysRestHome", None, ("NBA", "NHL", "NCAAF"), "schedules in stats/; NFL is a gap"),
     ("sharpDivergence", "2026-10-14T00:00:00Z", None, "Pinnacle at the open"),
+    ("pinMoveBeforePick", "2026-10-19T18:15:00Z", None, "needs a stored snap 30m-6h before the pick"),
 ]
+SNAPS_SHIPPED = "2026-10-19T18:15:00Z"
+SNAPS = ROOT / "ledger" / "snaps"
+STEAM_MIN, STEAM_MAX_H = 30, 6   # the earlier snapshot must be 30 minutes to 6 hours before the pick
+_SNAPROWS = None
+
+
+def snap_rows():
+    """Stored price snapshots by row id, oldest first (ledger/snaps, written by pull.py from 2026-10-19)."""
+    global _SNAPROWS
+    if _SNAPROWS is None:
+        _SNAPROWS = defaultdict(list)
+        if SNAPS.exists():
+            for path in sorted(SNAPS.glob("*/*.jsonl")):
+                for line in path.read_text().splitlines():
+                    if line.strip():
+                        try:
+                            r = json.loads(line)
+                            _SNAPROWS[r["id"]].append(r)
+                        except (ValueError, KeyError):
+                            continue
+            for k in _SNAPROWS:
+                _SNAPROWS[k].sort(key=lambda r: r.get("t") or "")
+    return _SNAPROWS
+
+
+def pin_no_vig(prices, side):
+    keys = [k for k in ("home", "away", "draw", "over", "under") if k in (prices or {})]
+    if side not in keys or len(keys) < 2:
+        return None
+    try:
+        import fair as fairlib
+        return fairlib.probs({k: prices[k] for k in keys})[side]
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def pin_move_before_pick(pick):
+    """Pinnacle's no-vig move on the picked side from the last stored snapshot 30 minutes to 6 hours before the pick
+    to the pick itself (pinAtPick). Positive: Pinnacle moved toward our side before we took it. Pre-pick only.
+    Returns (move, minutes) or (None, None)."""
+    side, pin = pick.get("side"), pick.get("pinAtPick") or {}
+    if not side or pin.get("noVig") is None or not pick.get("pickedAt"):
+        return None, None
+    try:
+        t = parse(pick["pickedAt"])
+    except ValueError:
+        return None, None
+    earlier = [r for r in snap_rows().get(pick.get("rowId"), []) if r.get("pin") and r.get("t")
+               and timedelta(minutes=STEAM_MIN) <= t - parse(r["t"]) <= timedelta(hours=STEAM_MAX_H)]
+    if not earlier:
+        return None, None
+    prev = earlier[-1]
+    if pick.get("market") != "h2h" and prev["pin"].get("line") != pin.get("line"):
+        return None, None   # a line move: the no-vig numbers are on different lines
+    nv = pin_no_vig(prev["pin"].get("p"), side)
+    if nv is None:
+        return None, None
+    return round(pin["noVig"] - nv, 4), round((t - parse(prev["t"])).total_seconds() / 60)
+
+
+def snap_writer(now):
+    """Snapshot lines written in the last CYCLE_HOURS; 0 after the first cycle is breakage."""
+    rows = snap_rows()
+    cut = pull_iso(now - timedelta(hours=CYCLE_HOURS))
+    recent = [r["t"] for v in rows.values() for r in v if (r.get("t") or "") >= cut]
+    late = (now - parse(SNAPS_SHIPPED)).total_seconds() / 3600 > CYCLE_HOURS
+    return {"since": SNAPS_SHIPPED, "linesLastCycle": len(recent), "latest": max(recent) if recent else None,
+            "rowsWithHistory": sum(1 for v in rows.values() if len(v) >= 2), "alarm": late and not recent}
+
+
+def pull_iso(dt):
+    return dt.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 # Candidate features EDGE wants to test but does not collect yet. Listed so they stay visible, with what is missing.
 # Each note says what it would take to start collecting.
 NOT_COLLECTED = {
     "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the "
                   "open and near kickoff per game. No free API in the stack today.",
-    "late-steam": "Needs a per-row price history: fast runs already price every game every 15 min in its last 3 hours "
-                  "but overwrite lastSnap. Appending those snaps costs no extra credits; code change in pull.py.",
     "nfl-rest": "NFL days rest and short week need a stored schedule: stats.py already downloads free nflverse data on "
                 "GitHub; saving its schedule (stats/nfl_schedule.json) is a code-only change. NBA, NHL and NCAAF rest "
                 "are built from the schedules in stats/.",
@@ -283,6 +355,9 @@ def features(pick, row):
     if div is not None:
         f["sharpDiv"] = "pin-for" if div >= 0.01 else "pin-against" if div <= -0.01 else "aligned"
     dp = sharp_divergence_at_pick(pick)
+    mv, _ = pin_move_before_pick(pick)
+    if mv is not None:
+        f["steamBeforePick"] = "toward" if mv >= 0.005 else "away" if mv <= -0.005 else "flat"
     if dp is not None:
         f["sharpDivPick"] = "pin-for" if dp >= 0.01 else "pin-against" if dp <= -0.01 else "aligned"
         f["sharpGapPick"] = gap_bucket(dp)
@@ -366,6 +441,7 @@ def entry(pick, row, counted):
         "lineAtPick": pick.get("lineAtPick"), "priceAtPick": pick.get("priceAtPick"), "pickedAt": pick.get("pickedAt"),
         "minutesToKick": minutes_to_kick(pick), "sharpDivergence": sharp_divergence(pick, row),
         "pinAtPick": pick.get("pinAtPick"), "sharpDivergenceAtPick": sharp_divergence_at_pick(pick),
+        "pinMoveBeforePick": pin_move_before_pick(pick)[0], "pinMoveWindowMin": pin_move_before_pick(pick)[1],
         "daysRestHome": days_rest(pick.get("sport"), row.get("home"), pick.get("commence")),
         "daysRestAway": days_rest(pick.get("sport"), row.get("away"), pick.get("commence")),
         "fair": pick.get("fair"), "edge": pick.get("edge"), "edgeUnit": pick.get("edgeUnit"), "bar": pick.get("bar"),
@@ -494,6 +570,7 @@ def build():
         "notCollected": NOT_COLLECTED,
         "coverage": coverage(picks, now),
         "gradedCoverage": graded_coverage(graded, now),
+        "snapWriter": snap_writer(now),
         "featureTiming": FEATURE_TIMING, "postPickFields": POST_PICK_FIELDS,
         "sharpDivergenceCoverage": {"graded": len(graded),
                                     "withData": sum(1 for e in graded if e.get("sharpDivergence") is not None)},
@@ -527,7 +604,6 @@ def fmt(f):
 
 GAP_SHORT = {
     "public-pct": "needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack",
-    "late-steam": "needs pull.py to append fast-run snaps per row instead of overwriting lastSnap; no extra credits",
     "travel": "needs previous venue joined to stats/venues.json (miles, time zones); free, code only",
     "nfl-rest": "needs stats.py to save the free nflverse schedule (stats/nfl_schedule.json); code only",
     "guru": "needs an account list + reader (Reddit API free, X API paid); log account, number, time, result",
@@ -720,10 +796,15 @@ def summary(research, now, patterns, graded):
         else:
             lines.append(f"  > grade order holds inside no feature yet ({tested} tested with 5+ reads per grade)")
     lines += ["Data gaps, free (building next):"]
-    lines += [f"- {k}: {GAP_SHORT[k]}" for k in ("late-steam", "travel", "nfl-rest") if k in research["notCollected"]]
+    lines += [f"- {k}: {GAP_SHORT[k]}" for k in ("travel", "nfl-rest") if k in research["notCollected"]]
     lines.append("Data gaps, waiting on a source: " + "; ".join(
         f"{k} ({GAP_SHORT[k]})" for k in ("public-pct", "guru") if k in research["notCollected"]))
     lines.append("Coverage of added features (BREAKAGE if still 0 one health-check cycle after shipping):")
+    sw = research.get("snapWriter") or {}
+    if sw:
+        lines.append(f"- {'BREAKAGE: ' if sw['alarm'] else ''}snaps: {sw['linesLastCycle']} price snapshots stored in the last "
+                     f"{CYCLE_HOURS}h, latest {sw['latest'][5:16].replace('T', ' ') + 'Z' if sw['latest'] else 'none'}, "
+                     f"{sw['rowsWithHistory']} games with 2+ (late steam, since {sw['since'][5:16].replace('T', ' ')}Z)")
     new = research.get("coverage") or {}
     for c in research.get("gradedCoverage") or []:
         scope = f" {'/'.join(c['sports'])}" if c["sports"] else ""

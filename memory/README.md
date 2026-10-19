@@ -33,7 +33,7 @@ Found and fixed in the audit: wind and injury used the row's latest values, whic
 kickoff; only 9 of 211 graded reads had a forecast from before the pick. From 2026-10-19 every read stamps
 contextAtPick (weather, injury text, goalie signal as they stood at the pick).
 
-Planned features, timing: late steam before the pick = pre-pick; late steam in the final hour = post-pick (market
+Planned features, timing: late steam before the pick = pre-pick (shipped: steamBeforePick); late steam in the final hour = post-pick (market
 studies only, never a read feature); travel and days rest = pre-pick (schedules are known in advance).
 
 Features (known at the pick, never after it): pattern, grade, confidence, market, timing (early >48h, day 6-48h,
@@ -59,10 +59,17 @@ print book rates our side higher than Pinnacle (we are paying above the sharp pr
 pin-for / aligned / pin-against at 1%) and sharpGapPick (size: <1%, 1-2%, 2%+), with sharpDiv / sharpGapOpen for the
 open. Tracked in research.json; never a betting rule.
 
+Late steam (2026-10-19): pull.py appends a compact price snapshot (print book line and prices, Pinnacle line and prices)
+to ledger/snaps/<YYYY-MM>/<sport>.jsonl on every run, for games within 72 hours of kickoff, only when a price changed
+(row snapSig). pinMoveBeforePick = Pinnacle no-vig on the picked side at the pick (pinAtPick) minus the last stored
+snapshot 30 minutes to 6 hours earlier, same line only; feature steamBeforePick (toward / flat / away at 0.5%). Pre-pick.
+The final-hour move (last snapshot to the close) is post-pick: market studies only, never a read feature.
+
 Coverage and breakage: every added feature is listed in memory.py COVERED with its start time and scope. summary.md
 ends with "<field> on N of M graded reads" for each, plus new reads stamped (SHIPPED fields). A feature still at 0 one
 health-check cycle (26 hours) after shipping, or on 0 of 10+ new reads, prints a BREAKAGE line: the health check fixes
-it as a broken data path, not a quiet gap. Late steam and travel get added to COVERED when they ship.
+it as a broken data path, not a quiet gap. The snapshot writer has its own line (snaps stored in the last 26 hours; BREAKAGE at 0 after the first cycle).
+Travel gets added to COVERED when it ships.
 
 Grade reliability: summary.md shows mean CLV by grade on the last 50 graded reads and whether A > B > C holds
 there, under the full-sample grade order (research.json `gradeReliability`). Diagnostic only.

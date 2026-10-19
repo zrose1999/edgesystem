@@ -1,12 +1,11 @@
 {
- "asOf": "2026-10-19T17:56:56Z",
+ "asOf": "2026-10-19T18:01:19Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 204,
  "loggedReads": 391,
  "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
-  "late-steam": "Needs a per-row price history: fast runs already price every game every 15 min in its last 3 hours but overwrite lastSnap. Appending those snaps costs no extra credits; code change in pull.py.",
   "nfl-rest": "NFL days rest and short week need a stored schedule: stats.py already downloads free nflverse data on GitHub; saving its schedule (stats/nfl_schedule.json) is a code-only change. NBA, NHL and NCAAF rest are built from the schedules in stats/.",
   "travel": "Needs each team's previous venue joined to stats/venues.json coordinates (miles, time zones crossed, days since). Free; code only.",
   "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md)."
@@ -74,8 +73,24 @@
    "graded": 204,
    "with": 13,
    "alarm": false
+  },
+  {
+   "field": "pinMoveBeforePick",
+   "since": "2026-10-19T18:15:00Z",
+   "sports": null,
+   "note": "needs a stored snap 30m-6h before the pick",
+   "graded": 0,
+   "with": 0,
+   "alarm": false
   }
  ],
+ "snapWriter": {
+  "since": "2026-10-19T18:15:00Z",
+  "linesLastCycle": 0,
+  "latest": null,
+  "rowsWithHistory": 0,
+  "alarm": false
+ },
  "featureTiming": {
   "pattern": "pre-pick (stamped on the read)",
   "grade": "pre-pick (stamped)",
@@ -93,6 +108,7 @@
   "precip": "pre-pick (as wind)",
   "sharpDiv": "pre-pick (open snapshot)",
   "sharpDivPick": "pre-pick (pinAtPick)",
+  "steamBeforePick": "pre-pick (stored snap 30m-6h before the pick vs pinAtPick)",
   "restDays": "pre-pick (schedule)",
   "restEdge": "pre-pick (schedule)",
   "shortWeek": "pre-pick (schedule)",

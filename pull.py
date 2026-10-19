@@ -387,6 +387,55 @@ def near_sports(rows, now_dt, hours):
     return {key_of(r) for r in rows if key_of(r) in SPORTS and r.get("commence") and lo < r["commence"] <= hi}
 
 
+SNAPS = ROOT / "ledger" / "snaps"
+SNAP_HOURS = 72   # keep a price history for games starting within this many hours
+
+
+def snap_record(row, snap):
+    """Compact price snapshot for the late-steam history: print book line and prices, Pinnacle line and prices."""
+    rec = {"id": row["id"], "t": snap["time"], "book": snap.get("book"), "line": snap.get("line"),
+           "p": {k: snap[k] for k in ("home", "away", "draw", "over", "under") if k in snap}}
+    pin = (snap.get("books") or {}).get("pinnacle")
+    if pin:
+        rec["pin"] = {"line": pin.get("line"), "p": {k: pin[k] for k in ("home", "away", "draw", "over", "under") if k in pin},
+                      "updated": pin.get("updated")}
+    return rec
+
+
+def queue_snap(pending, row, snap, now_dt):
+    """Queue a snapshot when the game is within SNAP_HOURS and a price changed since the last stored one
+    (2026-10-19). row["snapSig"] remembers the last stored prices across runs."""
+    try:
+        if (parse(row["commence"]) - now_dt).total_seconds() / 3600 > SNAP_HOURS:
+            return
+        rec = snap_record(row, snap)
+        import hashlib
+        sig = hashlib.md5(json.dumps({k: v for k, v in rec.items() if k != "t"} | {"pin": {k: v for k, v in (rec.get("pin") or {}).items() if k != "updated"}},
+                                     sort_keys=True).encode()).hexdigest()[:12]
+        if row.get("snapSig") == sig:
+            return
+        row["snapSig"] = sig
+        pending.setdefault((row["commence"][:7], row["sport"]), []).append(rec)
+    except Exception as exc:  # noqa: BLE001
+        print("snap queue", row.get("id"), exc)
+
+
+def flush_snaps(pending):
+    """Append queued snapshots to ledger/snaps/<YYYY-MM>/<sport>.jsonl. A failure here never stops the pull."""
+    written = 0
+    for (month, sport), recs in pending.items():
+        try:
+            path = SNAPS / month / f"{sport}.jsonl"
+            path.parent.mkdir(parents=True, exist_ok=True)
+            with path.open("a") as fh:
+                for rec in recs:
+                    fh.write(json.dumps(rec, ensure_ascii=False, separators=(",", ":")) + "\n")
+            written += len(recs)
+        except Exception as exc:  # noqa: BLE001
+            print("snap write", month, sport, exc)
+    return written
+
+
 def pull(near=None):
     """Full pull: prices, closes and scores. near=N: current prices only, and only for sports with a
     game starting in the next N hours. Near runs feed the sharp-soft scan between the full runs."""
@@ -396,6 +445,7 @@ def pull(near=None):
     now_dt = datetime.now(timezone.utc)
     now = iso(now_dt)
     opened = closed = scored = 0
+    pending = {}
     discover()
     keys = SPORTS
     if near:
@@ -430,10 +480,13 @@ def pull(near=None):
                 row = row_for(rows, index, sport, game, market)
                 row.setdefault("printBook", bk)
                 row["lastSnap"] = snap
+                queue_snap(pending, row, snap, now_dt)
                 if "openSnap" not in row and missing(row.get("openLine")) and missing(row.get("openPrice")):
                     row["openSnap"] = snap
                     legacy(row, "open", snap)
                     opened += 1
+
+    snaps = flush_snaps(pending)
 
     if near:
         ledger["rows"] = rows
@@ -441,7 +494,7 @@ def pull(near=None):
         if CREDITS["remaining"] is not None:
             ledger["credits"] = dict(CREDITS)
         save(LEDGER, ledger)
-        print(json.dumps({"near": near, "sports": sorted(keys.values()), "opened": opened,
+        print(json.dumps({"near": near, "sports": sorted(keys.values()), "opened": opened, "snaps": snaps,
                           "creditsRemaining": CREDITS["remaining"]}))
         return
 
@@ -552,7 +605,7 @@ def pull(near=None):
     ledger["credits"] = dict(CREDITS)
     save(LEDGER, ledger)
     print(json.dumps({"opened": opened, "closed": closed, "scored": scored, "rows": len(rows),
-                      "historyCalls": calls, "freeCloses": free, "closesSkippedForCredits": skipped,
+                      "historyCalls": calls, "freeCloses": free, "snaps": snaps, "closesSkippedForCredits": skipped,
                       "creditsRemaining": CREDITS["remaining"]}))
 
 
