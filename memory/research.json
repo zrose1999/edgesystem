@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-19T17:32:20Z",
+ "asOf": "2026-10-19T17:47:22Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 204,
  "loggedReads": 391,
@@ -8,8 +8,15 @@
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "late-steam": "Needs a per-row price history: fast runs already price every game every 15 min in its last 3 hours but overwrite lastSnap. Appending those snaps costs no extra credits; code change in pull.py.",
   "travel": "Needs each team's previous venue joined to stats/venues.json coordinates (miles, time zones crossed, days since). Free; code only.",
-  "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md).",
-  "sharp-divergence-at-pick": "Pinnacle at the pick time is only in the reason text of sharp-soft picks. Needs pull.py read/pick stamps to store the Pinnacle price beside priceAtPick. The open's divergence is logged (sharpDivergence), stored since 2026-10-14 only."
+  "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md)."
+ },
+ "coverage": {
+  "pinAtPick": {
+   "since": "2026-10-19T18:00:00Z",
+   "reads": 0,
+   "with": 0,
+   "alarm": false
+  }
  },
  "sharpDivergenceCoverage": {
   "graded": 204,

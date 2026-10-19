@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-10-19 17:32Z)
+# What EDGE is learning (2026-10-19 17:47Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 204 graded reads counted, 391 logged. CLV is mean clvProb. Patterns move only by grade.py.
 
@@ -22,8 +22,8 @@ Other slices, last 30d (context, not leads): best NFL venue=away: n 12, CLV +0.5
 Data gaps, free (building next):
 - late-steam: needs pull.py to append fast-run snaps per row instead of overwriting lastSnap; no extra credits
 - travel: needs previous venue joined to stats/venues.json (miles, time zones); free, code only
-- sharp-divergence-at-pick: needs pull.py to stamp Pinnacle's price beside priceAtPick; only the open's is logged
 Data gaps, waiting on a source:
 - public-pct: needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack
 - guru: needs an account list + reader (Reddit API free, X API paid); log account, number, time, result
+pinAtPick (shipped 2026-10-19T18:00Z): on 0 of 0 new reads
 sharpDivergence (at the open) on 13 of 204 graded reads; Pinnacle opens stored since 2026-10-14.

@@ -131,6 +131,25 @@ H2H_BAR = 0.03
 KEY_NUMBERS = (3, 7)
 
 
+def pin_at_pick(snap, side):
+    """Pinnacle's price in the snapshot a read is priced from: line, prices, its own update time, and the no-vig
+    probability of the picked side. Stored on every read (2026-10-19) so the sharp gap at the pick can be studied.
+    None when the snapshot has no Pinnacle price. Never used to price or grade the read."""
+    pin = (snap or {}).get("books", {}).get("pinnacle")
+    if not pin:
+        return None
+    keys = [k for k in ("home", "away", "draw", "over", "under") if k in pin]
+    out = {"line": pin.get("line"), "prices": {k: pin[k] for k in keys}, "updated": pin.get("updated"),
+           "snapTime": snap.get("time")}
+    if side in keys and len(keys) >= 2:
+        try:
+            import fair as fairlib
+            out["noVig"] = round(fairlib.probs({k: pin[k] for k in keys})[side], 4)
+        except Exception:  # noqa: BLE001
+            pass
+    return out
+
+
 def bar_for(sport, market, home_line=None, fair_home=None):
     if market == "h2h":
         return H2H_BAR
@@ -604,7 +623,7 @@ def make_pick(a):
         "confidence": a.confidence, "pattern": a.pattern, "reason": a.reason.strip(),
         "falsifier": a.falsifier.strip(), "modelVersion": VERSION, "tier": tier,
         "stakeUnits": stake, "kind": "pick", "grade": grade_for(edge, bar, a.confidence),
-        "commence": row.get("commence"),
+        "commence": row.get("commence"), "pinAtPick": pin_at_pick(snap, a.side),
     })
     save(PICKS, picks)
     print(json.dumps({"stamped": pick_id, "line": line, "price": price, "edge": round(edge, 3),
@@ -736,6 +755,7 @@ def make_read(a):
         "confidence": a.confidence, "pattern": (a.pattern or "").strip() or None,
         "reason": a.reason.strip(), "falsifier": (a.falsifier or "").strip() or None,
         "modelVersion": VERSION, "tier": tier, "stakeUnits": stake, "by": getattr(a, "by", "claude") or "claude",
+        "pinAtPick": pin_at_pick(snap, side if grade != "P" else None),
     }
     if note:
         entry["note"] = note

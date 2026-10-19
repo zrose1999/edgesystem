@@ -46,6 +46,11 @@ SUMMARY = MEM / "summary.md"
 ARCH = ROOT / "ledger" / "archive"
 RECENT_DAYS = 30
 
+# Shipped data features: when each began, so coverage is measured only on reads stamped after it. A shipped feature
+# at 0 coverage after MIN_READS_FOR_ALARM new reads is breakage (health check), not a quiet gap.
+SHIPPED = {"pinAtPick": "2026-10-19T18:00:00Z"}
+MIN_READS_FOR_ALARM = 10
+
 # Candidate features EDGE wants to test but does not collect yet. Listed so they stay visible, with what is missing.
 # Each note says what it would take to start collecting.
 NOT_COLLECTED = {
@@ -57,9 +62,6 @@ NOT_COLLECTED = {
               "days since). Free; code only.",
     "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). "
             "Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md).",
-    "sharp-divergence-at-pick": "Pinnacle at the pick time is only in the reason text of sharp-soft picks. Needs pull.py "
-                                "read/pick stamps to store the Pinnacle price beside priceAtPick. The open's divergence is "
-                                "logged (sharpDivergence), stored since 2026-10-14 only.",
 }
 
 QB_WORDS = re.compile(r"\bQB\d?\b|quarterback", re.I)
@@ -136,6 +138,35 @@ def sharp_divergence(pick, row):
         return None
 
 
+def sharp_divergence_at_pick(pick):
+    """Pinnacle minus the print book, no-vig probability of the picked side, in the snapshot the read was priced
+    from. Same line only. Stored from 2026-10-19 (pinAtPick)."""
+    pin, side, mp = pick.get("pinAtPick") or {}, pick.get("side"), pick.get("marketPrices") or {}
+    if not side or "noVig" not in pin or side not in mp:
+        return None
+    if pick.get("market") != "h2h" and pin.get("line") != pick.get("marketNumber"):
+        return None
+    keys = [k for k in ("home", "away", "draw", "over", "under") if k in mp and k in (pin.get("prices") or {})]
+    if len(keys) < 2:
+        return None
+    try:
+        import fair as fairlib
+        return round(pin["noVig"] - fairlib.probs({k: mp[k] for k in keys})[side], 4)
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def coverage(picks):
+    """For each shipped feature: reads stamped since it shipped, and how many carry it."""
+    out = {}
+    for name, since in SHIPPED.items():
+        new = [p for p in picks if p.get("side") and (p.get("pickedAt") or "") >= since]
+        have = sum(1 for p in new if p.get(name))
+        out[name] = {"since": since, "reads": len(new), "with": have,
+                     "alarm": len(new) >= MIN_READS_FOR_ALARM and have == 0}
+    return out
+
+
 def features(pick, row):
     """Features present when the read was stamped. Keys are stable; values are short labels."""
     f = {"pattern": pick.get("pattern") or "none", "grade": pick.get("grade"), "confidence": pick.get("confidence"),
@@ -148,6 +179,9 @@ def features(pick, row):
     div = sharp_divergence(pick, row)
     if div is not None:
         f["sharpDiv"] = "pin-for" if div >= 0.01 else "pin-against" if div <= -0.01 else "aligned"
+    dp = sharp_divergence_at_pick(pick)
+    if dp is not None:
+        f["sharpDivPick"] = "pin-for" if dp >= 0.01 else "pin-against" if dp <= -0.01 else "aligned"
     if side:
         line, price = pick.get("lineAtPick"), pick.get("priceAtPick")
         if market in ("spread", "h2h"):
@@ -204,6 +238,7 @@ def entry(pick, row, counted):
         "openLine": snap_o.get("line"), "openPrices": {k: snap_o[k] for k in ("home", "away", "over", "under", "draw") if k in snap_o},
         "lineAtPick": pick.get("lineAtPick"), "priceAtPick": pick.get("priceAtPick"), "pickedAt": pick.get("pickedAt"),
         "minutesToKick": minutes_to_kick(pick), "sharpDivergence": sharp_divergence(pick, row),
+        "pinAtPick": pick.get("pinAtPick"), "sharpDivergenceAtPick": sharp_divergence_at_pick(pick),
         "fair": pick.get("fair"), "edge": pick.get("edge"), "edgeUnit": pick.get("edgeUnit"), "bar": pick.get("bar"),
         "closeLine": snap_c.get("line"), "closePrice": pick.get("closePrice"), "closeNoVig": pick.get("closeNoVig"),
         "clvProb": pick.get("clvProb"), "clvPoints": pick.get("clvPoints"), "clvEstimated": pick.get("estimated"),
@@ -326,6 +361,7 @@ def build():
         "gradedReads": len(graded), "loggedReads": len(log),
         "newPatternsThisRun": new_patterns,
         "notCollected": NOT_COLLECTED,
+        "coverage": coverage(picks),
         "sharpDivergenceCoverage": {"graded": len(graded),
                                     "withData": sum(1 for e in graded if e.get("sharpDivergence") is not None)},
         "features": feats,
@@ -359,7 +395,6 @@ GAP_SHORT = {
     "late-steam": "needs pull.py to append fast-run snaps per row instead of overwriting lastSnap; no extra credits",
     "travel": "needs previous venue joined to stats/venues.json (miles, time zones); free, code only",
     "guru": "needs an account list + reader (Reddit API free, X API paid); log account, number, time, result",
-    "sharp-divergence-at-pick": "needs pull.py to stamp Pinnacle's price beside priceAtPick; only the open's is logged",
 }
 
 
@@ -499,6 +534,10 @@ def summary(research, now, patterns, graded):
     lines += [f"- {k}: {GAP_SHORT[k]}" for k in ("late-steam", "travel", "sharp-divergence-at-pick") if k in research["notCollected"]]
     lines.append("Data gaps, waiting on a source:")
     lines += [f"- {k}: {GAP_SHORT[k]}" for k in ("public-pct", "guru") if k in research["notCollected"]]
+    for name, c in (research.get("coverage") or {}).items():
+        pct = f" ({c['with'] / c['reads']:.0%})" if c["reads"] else ""
+        lines.append(f"{'BREAKAGE: ' if c['alarm'] else ''}{name} (shipped {c['since'][:16]}Z): on {c['with']} of "
+                     f"{c['reads']} new reads{pct}" + (" -- shipped feature not flowing; fix as breakage" if c["alarm"] else ""))
     sd = research.get("sharpDivergenceCoverage") or {}
     lines.append(f"sharpDivergence (at the open) on {sd.get('withData', 0)} of {sd.get('graded', 0)} graded reads; "
                  "Pinnacle opens stored since 2026-10-14.")

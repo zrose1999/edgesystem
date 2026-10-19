@@ -255,7 +255,8 @@ def sharp_drift(rows, now, nhl_games, have):
                        f"{best['pin']:.1%} plus the measured drift still to come {best['drift']:+.2%} = {best['fair']:.1%}. "
                        f"Edge {best['edge']:+.1%}."),
             "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
-            "modelVersion": pull.VERSION, "tier": "shadow", "stakeUnits": 0.0, "by": "edge_stack.py"})
+            "modelVersion": pull.VERSION, "tier": "shadow", "stakeUnits": 0.0, "by": "edge_stack.py",
+            "pinAtPick": pull.pin_at_pick(snap, best["side"])})
     return entries
 
 

@@ -28,7 +28,13 @@ Posture (Zack, 2026-10-19): data collection and learning phase. Negative CLV on 
 logged to learn from. The grade order (A > B > C) is reported as an observation, not a defect.
 
 Also logged per entry: minutesToKick, and sharpDivergence (Pinnacle minus the print book, no-vig probability of the
-picked side, at the open, same line only; Pinnacle opens are stored since 2026-10-14).
+picked side, at the open, same line only; Pinnacle opens are stored since 2026-10-14), pinAtPick (Pinnacle's line,
+prices, update time and no-vig on the picked side in the snapshot the read was priced from; every read from
+2026-10-19 18:00Z) and sharpDivergenceAtPick (the same Pinnacle-minus-print gap at the pick; feature sharpDivPick).
+
+Coverage and breakage: each shipped data feature has a start time (memory.py SHIPPED). summary.md shows how many reads
+stamped since then carry it. A shipped feature on 0 of 10+ new reads prints a BREAKAGE line: the health check fixes it
+as a broken data path, not a quiet gap. Late steam and travel get the same treatment when they ship.
 
 Conditional pockets: under every early-negative slice in summary.md (and in research.json `pockets` for every
 early-negative slice with 15+ reads), memory.py tests each other logged feature inside the slice (and the sport, for
