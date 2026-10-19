@@ -9,7 +9,9 @@ on:
     # Times are UTC. CT = UTC-5 during daylight time.
     - cron: "7 11 * * *"           # ~6am CT  full run: prices, stats, model reads, grade
     - cron: "7 15,19,23 * * *"     # ~10am, 2pm, 6pm CT  prices + closes + grade
-    - cron: "37 0-3,16-18,20-22 * * *"   # hourly ~11:30am-10:30pm CT  near-game prices only (sharp scan)
+    - cron: "37 1,17,21 * * *"   # ~12:30pm, 4:30pm, 8:30pm CT  near-game prices only (sharp scan). Was hourly until
+                                 # 2026-10-19: fast runs already price every game in its last 3 hours, and hourly
+                                 # near runs were ~45% of Odds API credit use.
   workflow_dispatch:
     inputs:
       full:
@@ -54,7 +56,7 @@ jobs:
         run: |
           if [ "${{ inputs.fast }}" = "true" ]; then
             EDGE_FAST=1 python pull.py pull --near 3
-          elif [ "${{ github.event.schedule }}" = "37 0-3,16-18,20-22 * * *" ] || { [ "${{ inputs.near }}" = "true" ] && [ "${{ inputs.full }}" != "true" ]; }; then
+          elif [ "${{ github.event.schedule }}" = "37 1,17,21 * * *" ] || { [ "${{ inputs.near }}" = "true" ] && [ "${{ inputs.full }}" != "true" ]; }; then
             python pull.py pull --near 12
           else
             python pull.py

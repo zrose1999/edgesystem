@@ -6,7 +6,7 @@
 // Timetable (UTC, same as .github/workflows/edge-data.yml):
 //   :07 at 11          full run (stats and model reads)
 //   :07 at 15, 19, 23  prices, closes, grade
-//   :37 at 0-3, 16-18, 20-22  near-game prices only
+//   :37 at 1, 17, 21  near-game prices only (hourly until 2026-10-19; cut to save Odds API credits)
 //   :24 and :54, 6am to midnight CT   fast run: games in the next 3 hours (prices, news, Kalshi)
 
 const REPO = "zrose1999/edgesystem";
@@ -31,7 +31,7 @@ function slot(now) {
   if (m < 30) {
     if (h === 11) return { full: "true", near: "false" };
     if ([15, 19, 23].includes(h)) return { full: "false", near: "false" };
-  } else if ([0, 1, 2, 3, 16, 17, 18, 20, 21, 22].includes(h)) {
+  } else if ([1, 17, 21].includes(h)) {
     return { full: "false", near: "true" };
   }
   return null;
