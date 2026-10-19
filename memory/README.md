@@ -53,6 +53,12 @@ picked side, at the open, same line only; Pinnacle opens are stored since 2026-1
 prices, update time and no-vig on the picked side in the snapshot the read was priced from; every read from
 2026-10-19 18:00Z) and sharpDivergenceAtPick (the same Pinnacle-minus-print gap at the pick; feature sharpDivPick).
 
+Sharp vs soft: sharpDivergenceAtPick = Pinnacle no-vig minus print-book no-vig on the picked side, same line only.
+Positive: Pinnacle rates our side higher than the print book (the print price is soft in our favor). Negative: the
+print book rates our side higher than Pinnacle (we are paying above the sharp price). Features: sharpDivPick (direction:
+pin-for / aligned / pin-against at 1%) and sharpGapPick (size: <1%, 1-2%, 2%+), with sharpDiv / sharpGapOpen for the
+open. Tracked in research.json; never a betting rule.
+
 Coverage and breakage: each shipped data feature has a start time (memory.py SHIPPED). summary.md shows how many reads
 stamped since then carry it. A shipped feature on 0 of 10+ new reads prints a BREAKAGE line: the health check fixes it
 as a broken data path, not a quiet gap. Late steam and travel get the same treatment when they ship.

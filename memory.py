@@ -58,7 +58,8 @@ FEATURE_TIMING = {
     "moveBeforePick": "pre-pick (open snapshot vs line at the pick)", "edgeBar": "pre-pick (edge and bar at the pick)",
     "injury": "pre-pick (contextAtPick or the read's reason text only)", "rest": "pre-pick (reason text)",
     "wind": "pre-pick (contextAtPick, or a row forecast whose asOf is before the pick)", "precip": "pre-pick (as wind)",
-    "sharpDiv": "pre-pick (open snapshot)", "sharpDivPick": "pre-pick (pinAtPick)", "bookAtPick": "pre-pick (stamped)",
+    "sharpDiv": "pre-pick (open snapshot)", "sharpDivPick": "pre-pick (pinAtPick)",
+    "sharpGapOpen": "pre-pick (open snapshot)", "sharpGapPick": "pre-pick (pinAtPick)", "bookAtPick": "pre-pick (stamped)",
 }
 POST_PICK_FIELDS = ["closeLine", "closePrice", "closeNoVig", "clvProb", "clvPoints", "result", "units", "score",
                     "injuryLatest", "weatherLatest"]
@@ -151,6 +152,12 @@ def sharp_divergence(pick, row):
         return None
 
 
+def gap_bucket(d):
+    """Size of the Pinnacle-vs-print gap, either direction, in no-vig probability."""
+    a = abs(d)
+    return "<1%" if a < 0.01 else "1-2%" if a < 0.02 else "2%+"
+
+
 def sharp_divergence_at_pick(pick):
     """Pinnacle minus the print book, no-vig probability of the picked side, in the snapshot the read was priced
     from. Same line only. Stored from 2026-10-19 (pinAtPick)."""
@@ -195,6 +202,9 @@ def features(pick, row):
     dp = sharp_divergence_at_pick(pick)
     if dp is not None:
         f["sharpDivPick"] = "pin-for" if dp >= 0.01 else "pin-against" if dp <= -0.01 else "aligned"
+        f["sharpGapPick"] = gap_bucket(dp)
+    if div is not None:
+        f["sharpGapOpen"] = gap_bucket(div)
     if side:
         line, price = pick.get("lineAtPick"), pick.get("priceAtPick")
         if market in ("spread", "h2h"):
