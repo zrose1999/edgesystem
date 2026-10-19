@@ -13,15 +13,19 @@ What it writes
   memory/research.json        every candidate feature: sample, mean CLV, t, beat-close rate, last-30-day CLV, and how
                               far it is from grade.py's promotion bar or the retirement bar.
   memory/summary.md           under 30 lines: what has beaten the close recently, what has not, closest to promotion,
-                              closest to a kill, and data gaps. Read this first in every session.
+                              the largest early-negative slices (still collecting), and data gaps.
+                              Read this first in every session.
 
 Rules
   Features are recorded only from data stored before or at the pick (the row's open, the pick's line and time, the
   injury, weather and goalie fields). Nothing after the pick is a feature, so CLV is never explained by itself.
   The test sample is the same one grade.py uses: one entry per pattern, row and side (the pick, else the first lean).
   Rereads and passes are logged but never counted in a feature's CLV.
-  Status thresholds come from grade.py (STAGES, OFFICIAL_N). This file proposes; it never promotes, retires or
-  changes a pattern. A feature that clears the bar is a lead for review, not a rule.
+  Status thresholds come from grade.py (STAGES). This file proposes; it never promotes, retires or changes a pattern.
+  A feature that clears the bar is a lead for review, not a rule.
+  Posture (Zack, 2026-10-19): EDGE is in its data-collection and learning phase. Negative CLV on early features is
+  expected and is logged to learn from; no slice is labeled for retirement here. Statuses: research (too few reads to
+  say), early-positive, early-negative (still collecting), at-promotion-bar.
 """
 
 import argparse
@@ -236,10 +240,9 @@ def status_for(n, mean, t, fast=False):
     need = grade.stage_t(n, fast)
     if need is not None and mean is not None and mean > 0 and t >= need:
         return "at-promotion-bar", 0, 0.0
-    if n >= grade.OFFICIAL_N and mean is not None and mean <= 0:
-        return "kill-candidate", 0, 0.0
     first_n, first_t = (grade.FAST_TRACK if fast else grade.STAGES)[0]
-    return "research", max(0, first_n - n), round(max(0.0, (need or first_t) - t), 2)
+    label = "research" if n < 8 or mean is None else "early-positive" if mean > 0 else "early-negative"
+    return label, max(0, first_n - n), round(max(0.0, (need or first_t) - t), 2)
 
 
 def build():
@@ -317,8 +320,9 @@ def build():
         "asOf": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "rules": (f"Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 "
                   f"and t >= {grade.STAGES[0][1]} at {grade.STAGES[0][0]}+ (t >= {grade.STAGES[-1][1]} at "
-                  f"{grade.STAGES[-1][0]}+); kill candidate at n >= {grade.OFFICIAL_N} with mean CLV <= 0. A feature "
-                  f"at a bar is a lead for review; this file never changes a pattern. Win rate never counts."),
+                  f"{grade.STAGES[-1][0]}+). Learning phase: early-negative means still collecting, never a "
+                  f"retirement call. A feature at a bar is a lead for review; this file never changes a pattern. "
+                  f"Win rate never counts."),
         "gradedReads": len(graded), "loggedReads": len(log),
         "newPatternsThisRun": new_patterns,
         "notCollected": NOT_COLLECTED,
@@ -328,9 +332,7 @@ def build():
     }
     patterns = load_json(grade.LEDGER, {}).get("patterns") or []
     research["flags"] = flags(feats, patterns)
-    for f in feats:
-        if f["status"] == "kill-candidate":
-            f["flag"] = "kill-candidate: flagged for review, nothing retired"
+
     MEM.mkdir(parents=True, exist_ok=True)
     RESEARCH.write_text(json.dumps(research, indent=1) + "\n")
     SUMMARY.write_text(summary(research, now, patterns))
@@ -363,13 +365,8 @@ def dedupe(features):
 
 
 def flags(features, patterns):
-    """Standing flags for every health check: kill candidates and the grade-order test. Flags never change a rule."""
+    """Standing observations for every health check. They never change a rule."""
     out = []
-    meta = ("grade=", "confidence=")   # grade and confidence slices cover almost every read; the grade test covers them
-    for f in sorted(dedupe([f for f in features if f["status"] == "kill-candidate" and not f["feature"].startswith(meta)]),
-                    key=lambda f: f["tStat"]):
-        out.append({"type": "kill-candidate", "key": f["key"], "n": f["n"], "meanClvProb": f["meanClvProb"],
-                    "tStat": f["tStat"], "action": "flagged for review; nothing retired"})
     g = {f["feature"][6:]: f for f in features if f["sport"] == "ALL" and f["feature"].startswith("grade=")
          and f["meanClvProb"] is not None}
     if all(k in g for k in "ABC"):
@@ -377,48 +374,49 @@ def flags(features, patterns):
         out.append({"type": "grade-order", "ordered": a > b > c,
                     "A": {"n": g["A"]["n"], "meanClvProb": a}, "B": {"n": g["B"]["n"], "meanClvProb": b},
                     "C": {"n": g["C"]["n"], "meanClvProb": c},
-                    "note": "Grades should rank A > B > C on CLV. When they do not, edge size is not predicting the "
-                            "close and A/B/C carries no information yet."})
+                    "note": "Observation, not a defect: in a working system A > B > C on CLV. Until it is, edge size "
+                            "is not yet predicting CLV."})
     return out
 
 
 def summary(research, now, patterns):
     feats = dedupe([f for f in research["features"] if not f["feature"].startswith(("grade=", "confidence="))])
     pstat = {p["id"]: p for p in patterns}
-    leads = sorted([f for f in feats if f["feature"].startswith("pattern=") and f["n"] >= 8 and (f["meanClvProb"] or 0) > 0],
-                   key=lambda f: -f["tStat"])
-    kill = [x for x in research["flags"] if x["type"] == "kill-candidate"][:4]
-    by_key = {f["key"]: f for f in research["features"]}
-    trend = sorted([f for f in feats if f["status"] != "kill-candidate" and f["n"] >= grade.STAGES[0][0]
-                    and (f["meanClvProb"] or 0) < 0 and f["tStat"] <= -2], key=lambda f: f["tStat"])[:3]
+    leads = sorted([f for f in feats if f["feature"].startswith("pattern=") and f["status"] == "early-positive"],
+                   key=lambda f: -f["n"])
+    # Largest samples first, not the worst t: the point is where the most is being learned, not what to cut.
+    neg = sorted([f for f in feats if f["status"] == "early-negative" and not f["feature"].startswith("confidence=")],
+                 key=lambda f: -f["n"])[:5]
     other = [f for f in feats if f["n"] >= 8 and f["recentN"] >= 8 and not f["feature"].startswith(("pattern=", "market="))]
     best = sorted([f for f in other if f["recentMeanClvProb"] > 0], key=lambda f: -f["recentMeanClvProb"])[:2]
     worst = sorted([f for f in other if f["recentMeanClvProb"] < 0], key=lambda f: f["recentMeanClvProb"])[:2]
-    lines = [f"# What has worked ({now.strftime('%Y-%m-%d %H:%M')}Z)",
+    lines = [f"# What EDGE is learning ({now.strftime('%Y-%m-%d %H:%M')}Z)",
+             "Phase: data collection and learning. Samples are small and key features are still being added. "
+             "Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.",
              f"{research['gradedReads']} graded reads counted, {research['loggedReads']} logged. CLV is mean clvProb. "
-             f"Leads and flags only; patterns move by grade.py.", "",
-             "Positive leads (patterns, 8+ graded reads, CLV > 0):"]
+             "Patterns move only by grade.py.", "",
+             "Early positive leads (one of many being tested; no acceleration):"]
     for f in leads[:3]:
         ps = pstat.get(f["feature"][8:]) or {}
-        need = (f"; promotion needs {ps.get('nNeeded', '?')} more graded full-bar picks (has {ps.get('clvN', 0)}) "
-                f"and t >= {ps.get('tNeeded', '?')}, {ps.get('track', 'standard')} track") if ps else ""
+        need = (f"; grade.py needs {ps.get('nNeeded', '?')} more graded full-bar picks (has {ps.get('clvN', 0)}), "
+                f"t >= {ps.get('tNeeded', '?')}") if ps else ""
         lines.append(f"- {fmt(f)}{need}")
     if not leads:
-        lines.append("- none")
-    lines.append(f"Kill candidates (n {grade.OFFICIAL_N}+, CLV <= 0; FLAGGED, not retired):")
-    lines += [f"- {fmt(by_key[x['key']])}" for x in kill] or ["- none"]
-    lines.append(f"Trending toward a kill (n {grade.STAGES[0][0]}+, t <= -2):")
-    lines += [f"- {fmt(f)}" for f in trend] or ["- none"]
+        lines.append("- none yet")
+    lines.append("Early negative, still collecting (largest samples):")
+    lines += [f"- {fmt(f)}" for f in neg] or ["- none"]
     go = next((x for x in research["flags"] if x["type"] == "grade-order"), None)
     if go:
         txt = ", ".join(f"{k} {go[k]['meanClvProb'] * 100:+.1f}% on {go[k]['n']}" for k in "ABC")
-        lines.append(f"GRADE ORDER {'OK' if go['ordered'] else 'INVERTED'}: {txt}"
-                     + ("" if go["ordered"] else ". A should beat B beat C; edge size is not predicting the close."))
+        lines.append(f"Observation: {'grades rank A > B > C' if go['ordered'] else 'edge size is not yet predicting CLV'}"
+                     f" ({txt}).")
     lines += ["", "Other slices, last 30d (context, not leads):",
               "- best: " + ("; ".join(fmt(f) for f in best) or "none"),
               "- worst: " + ("; ".join(fmt(f) for f in worst) or "none"),
-              "", "Data gaps (not collected yet):"]
-    lines += [f"- {k}: {v}" for k, v in GAP_SHORT.items()]
+              "", "Data gaps, free (building next):"]
+    lines += [f"- {k}: {GAP_SHORT[k]}" for k in ("late-steam", "travel", "sharp-divergence-at-pick") if k in research["notCollected"]]
+    lines.append("Data gaps, waiting on a source:")
+    lines += [f"- {k}: {GAP_SHORT[k]}" for k in ("public-pct", "guru") if k in research["notCollected"]]
     sd = research.get("sharpDivergenceCoverage") or {}
     lines.append(f"sharpDivergence (at the open) on {sd.get('withData', 0)} of {sd.get('graded', 0)} graded reads; "
                  "Pinnacle opens stored since 2026-10-14.")
