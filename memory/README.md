@@ -57,6 +57,9 @@ Coverage and breakage: each shipped data feature has a start time (memory.py SHI
 stamped since then carry it. A shipped feature on 0 of 10+ new reads prints a BREAKAGE line: the health check fixes it
 as a broken data path, not a quiet gap. Late steam and travel get the same treatment when they ship.
 
+Grade reliability: summary.md shows mean CLV by grade on the last 50 graded reads and whether A > B > C holds
+there, under the full-sample grade order (research.json `gradeReliability`). Diagnostic only.
+
 Conditional pockets: under every early-negative slice in summary.md (and in research.json `pockets` for every
 early-negative slice with 15+ reads), memory.py tests each other logged feature inside the slice (and the sport, for
 cross-sport slices) and reports the best sub-slice with CLV >= 0 and 8+ reads, or "no conditional pocket found in

@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-19T17:52:57Z",
+ "asOf": "2026-10-19T17:53:19Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 204,
  "loggedReads": 391,
@@ -3500,6 +3500,23 @@
    "note": "Observation, not a defect: in a working system A > B > C on CLV. Until it is, edge size is not yet predicting CLV."
   }
  ],
+ "gradeReliability": {
+  "window": 50,
+  "from": "2026-10-16T16:39:39Z",
+  "A": {
+   "n": 9,
+   "meanClvProb": -0.0256
+  },
+  "B": {
+   "n": 27,
+   "meanClvProb": -0.013
+  },
+  "C": {
+   "n": 14,
+   "meanClvProb": -0.0234
+  },
+  "ordered": false
+ },
  "pockets": [
   {
    "slice": "ALL|bookAtPick=DraftKings",

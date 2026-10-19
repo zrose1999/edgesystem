@@ -391,6 +391,7 @@ def build():
     }
     patterns = load_json(grade.LEDGER, {}).get("patterns") or []
     research["flags"] = flags(feats, patterns)
+    research["gradeReliability"] = grade_reliability(graded)
     # Conditional pockets for every early-negative slice with 15+ reads, and for grade A.
     research["pockets"] = []
     for f in feats:
@@ -492,6 +493,21 @@ def grade_order_pockets(graded, min_n=5):
     return holds, tested
 
 
+RELIABILITY_WINDOW = 50
+
+
+def grade_reliability(graded, window=RELIABILITY_WINDOW):
+    """Diagnostic: on the last `window` graded reads (by pick time), mean CLV by grade and whether A > B > C."""
+    last = sorted(graded, key=lambda e: e.get("pickedAt") or "")[-window:]
+    out = {"window": len(last), "from": (last[0].get("pickedAt") if last else None)}
+    for g in "ABC":
+        v = [e["clvProb"] for e in last if (e.get("features") or {}).get("grade") == g]
+        out[g] = {"n": len(v), "meanClvProb": round(sum(v) / len(v), 4) if v else None}
+    m = [out[g]["meanClvProb"] for g in "ABC"]
+    out["ordered"] = None if None in m else m[0] > m[1] > m[2]
+    return out
+
+
 def slice_entries(graded, f):
     return [e for e in graded if (f["sport"] == "ALL" or e.get("sport") == f["sport"])
             and f["feature"] in pocket_tokens(e, False)]
@@ -540,6 +556,12 @@ def summary(research, now, patterns, graded):
         txt = ", ".join(f"{k} {go[k]['meanClvProb'] * 100:+.1f}% on {go[k]['n']}" for k in "ABC")
         lines.append(f"Observation: {'grades rank A > B > C' if go['ordered'] else 'edge size is not yet predicting CLV'}"
                      f" ({txt}).")
+        gr = research.get("gradeReliability") or {}
+        if gr.get("window"):
+            verdict = {True: "A > B > C holds", False: "order still wrong", None: "a grade is missing"}[gr["ordered"]]
+            lines.append(f"  > last {gr['window']} graded reads: " + ", ".join(
+                f"{k} {gr[k]['meanClvProb'] * 100:+.1f}% on {gr[k]['n']}" if gr[k]["meanClvProb"] is not None
+                else f"{k} none" for k in "ABC") + f" ({verdict}; diagnostic only)")
         ga = [e for e in graded if (e.get("features") or {}).get("grade") == "A"]
         best, tested = pocket(ga, "grade")
         lines.append(pocket_line(best, tested, "grade A"))

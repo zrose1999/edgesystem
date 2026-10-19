@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-10-19 17:52Z)
+# What EDGE is learning (2026-10-19 17:53Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 204 graded reads counted, 391 logged. CLV is mean clvProb. Patterns move only by grade.py.
 
@@ -14,6 +14,7 @@ Early negative, still collecting (largest samples):
 - ALL moveBeforePick=none: n 92, CLV -2.2%, t -7.5, last 30d -2.2% on 92
   > pocket: role=dog inside moveBeforePick=none: n 16, CLV +0.8%, t +0.9 (best of 26 tested; a lead to watch)
 Observation: edge size is not yet predicting CLV (A -2.4% on 18, B -1.8% on 60, C -1.9% on 126).
+  > last 50 graded reads: A -2.6% on 9, B -1.3% on 27, C -2.3% on 14 (order still wrong; diagnostic only)
   > no conditional pocket found in current features (4 combos tested inside grade A)
   > order holds inside market=total: A -1.6% on 10, B -2.3% on 29, C -2.5% on 63 (2 of 13 features tested)
 
@@ -27,4 +28,3 @@ Data gaps, waiting on a source:
 - guru: needs an account list + reader (Reddit API free, X API paid); log account, number, time, result
 pinAtPick (shipped 2026-10-19T18:00Z): on 0 of 0 new reads
 contextAtPick (shipped 2026-10-19T18:00Z): on 0 of 0 new reads
-sharpDivergence (at the open) on 13 of 204 graded reads; Pinnacle opens stored since 2026-10-14.
