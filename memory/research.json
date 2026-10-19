@@ -1,14 +1,19 @@
 {
- "asOf": "2026-10-19T17:14:32Z",
+ "asOf": "2026-10-19T17:19:38Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+); kill candidate at n >= 30 with mean CLV <= 0. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 204,
  "loggedReads": 391,
  "newPatternsThisRun": [],
  "notCollected": {
-  "public-pct": "Public bet and money percentages. Needs a source (e.g. Action Network, VSiN); none is pulled.",
-  "late-steam": "Sharp moves in the last hour. Needs intraday snapshots stored per row; only open, last and close are kept.",
-  "travel": "Travel distance and time zones crossed (NFL, NBA, NHL). Venues are stored (stats/venues.json); not joined yet.",
-  "guru": "X or Reddit handicapper calls (MISSION.md). Not collected."
+  "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
+  "late-steam": "Needs a per-row price history: fast runs already price every game every 15 min in its last 3 hours but overwrite lastSnap. Appending those snaps costs no extra credits; code change in pull.py.",
+  "travel": "Needs each team's previous venue joined to stats/venues.json coordinates (miles, time zones crossed, days since). Free; code only.",
+  "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md).",
+  "sharp-divergence-at-pick": "Pinnacle at the pick time is only in the reason text of sharp-soft picks. Needs pull.py read/pick stamps to store the Pinnacle price beside priceAtPick. The open's divergence is logged (sharpDivergence), stored since 2026-10-14 only."
+ },
+ "sharpDivergenceCoverage": {
+  "graded": 204,
+  "withData": 13
  },
  "features": [
   {
@@ -99,7 +104,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "99-105-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|edgeBar=0.5-1x",
@@ -117,7 +123,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "26-35-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|edgeBar=1-2x",
@@ -153,7 +160,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "64-61-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|grade=A",
@@ -189,7 +197,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "26-34-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|grade=C",
@@ -207,7 +216,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "64-62-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|injury=any",
@@ -225,7 +235,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "27-35-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|injury=goalie",
@@ -297,7 +308,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "12-20-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|market=spread",
@@ -315,7 +327,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "30-40-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|market=total",
@@ -333,7 +346,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "57-45-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|moveBeforePick=against",
@@ -369,7 +383,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "25-27-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|moveBeforePick=none",
@@ -387,7 +402,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "49-43-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|pattern=edge-stack",
@@ -531,7 +547,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "16-16-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|pattern=ncaaf-total-move",
@@ -567,7 +584,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "15-18-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|pattern=nhl-ml-move",
@@ -747,7 +765,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "22-31-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|role=fav",
@@ -765,7 +784,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "20-29-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|role=over",
@@ -783,7 +803,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "21-16-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|role=under",
@@ -801,6 +822,61 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "36-29-0",
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
+  },
+  {
+   "key": "ALL|sharpDiv=aligned",
+   "sport": "ALL",
+   "feature": "sharpDiv=aligned",
+   "n": 6,
+   "meanClvProb": -0.0069,
+   "tStat": -0.71,
+   "beatClose": 3,
+   "status": "research",
+   "picksN": 3,
+   "picksMeanClvProb": 0.0019,
+   "recentN": 6,
+   "recentMeanClvProb": -0.0069,
+   "nShortOfFirstStage": 9,
+   "tShort": 3.21,
+   "record": "3-3-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "ALL|sharpDiv=pin-against",
+   "sport": "ALL",
+   "feature": "sharpDiv=pin-against",
+   "n": 1,
+   "meanClvProb": -0.0312,
+   "tStat": 0.0,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 0,
+   "picksMeanClvProb": null,
+   "recentN": 1,
+   "recentMeanClvProb": -0.0312,
+   "nShortOfFirstStage": 14,
+   "tShort": 2.5,
+   "record": "0-1-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "ALL|sharpDiv=pin-for",
+   "sport": "ALL",
+   "feature": "sharpDiv=pin-for",
+   "n": 6,
+   "meanClvProb": -0.0149,
+   "tStat": -1.74,
+   "beatClose": 1,
+   "status": "research",
+   "picksN": 6,
+   "picksMeanClvProb": -0.0149,
+   "recentN": 6,
+   "recentMeanClvProb": -0.0149,
+   "nShortOfFirstStage": 9,
+   "tShort": 4.24,
+   "record": "0-6-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -819,7 +895,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "37-30-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|timing=early",
@@ -837,7 +914,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "52-64-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|timing=late",
@@ -873,7 +951,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "22-27-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|venue=draw",
@@ -909,7 +988,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "20-31-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|wind=10-15",
@@ -945,7 +1025,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "18-17-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ALL|wind=<10",
@@ -963,7 +1044,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "46-33-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "ATP|bookAtPick=FanDuel",
@@ -1077,6 +1159,60 @@
    "key": "ATP|role=fav",
    "sport": "ATP",
    "feature": "role=fav",
+   "n": 1,
+   "meanClvProb": 0.0247,
+   "tStat": 0.0,
+   "beatClose": 1,
+   "status": "research",
+   "picksN": 1,
+   "picksMeanClvProb": 0.0247,
+   "recentN": 1,
+   "recentMeanClvProb": 0.0247,
+   "nShortOfFirstStage": 14,
+   "tShort": 2.5,
+   "record": "0-1-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "ATP|sharpDiv=aligned",
+   "sport": "ATP",
+   "feature": "sharpDiv=aligned",
+   "n": 1,
+   "meanClvProb": -0.0247,
+   "tStat": 0.0,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 0,
+   "picksMeanClvProb": null,
+   "recentN": 1,
+   "recentMeanClvProb": -0.0247,
+   "nShortOfFirstStage": 14,
+   "tShort": 2.5,
+   "record": "1-0-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "ATP|sharpDiv=pin-against",
+   "sport": "ATP",
+   "feature": "sharpDiv=pin-against",
+   "n": 1,
+   "meanClvProb": -0.0312,
+   "tStat": 0.0,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 0,
+   "picksMeanClvProb": null,
+   "recentN": 1,
+   "recentMeanClvProb": -0.0312,
+   "nShortOfFirstStage": 14,
+   "tShort": 2.5,
+   "record": "0-1-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "ATP|sharpDiv=pin-for",
+   "sport": "ATP",
+   "feature": "sharpDiv=pin-for",
    "n": 1,
    "meanClvProb": 0.0247,
    "tStat": 0.0,
@@ -1218,6 +1354,24 @@
    "firstSeen": "2026-10-19"
   },
   {
+   "key": "LaLiga|sharpDiv=aligned",
+   "sport": "LaLiga",
+   "feature": "sharpDiv=aligned",
+   "n": 1,
+   "meanClvProb": 0.018,
+   "tStat": 0.0,
+   "beatClose": 1,
+   "status": "research",
+   "picksN": 0,
+   "picksMeanClvProb": null,
+   "recentN": 1,
+   "recentMeanClvProb": 0.018,
+   "nShortOfFirstStage": 14,
+   "tShort": 2.5,
+   "record": "0-1-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
    "key": "LaLiga|timing=late",
    "sport": "LaLiga",
    "feature": "timing=late",
@@ -1329,6 +1483,24 @@
    "key": "Ligue1|role=dog",
    "sport": "Ligue1",
    "feature": "role=dog",
+   "n": 2,
+   "meanClvProb": -0.0213,
+   "tStat": 0.0,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 2,
+   "picksMeanClvProb": -0.0213,
+   "recentN": 2,
+   "recentMeanClvProb": -0.0213,
+   "nShortOfFirstStage": 13,
+   "tShort": 2.5,
+   "record": "0-2-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "Ligue1|sharpDiv=pin-for",
+   "sport": "Ligue1",
+   "feature": "sharpDiv=pin-for",
    "n": 2,
    "meanClvProb": -0.0213,
    "tStat": 0.0,
@@ -1473,6 +1645,24 @@
    "key": "MLS|role=dog",
    "sport": "MLS",
    "feature": "role=dog",
+   "n": 2,
+   "meanClvProb": -0.0238,
+   "tStat": -1.92,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 2,
+   "picksMeanClvProb": -0.0238,
+   "recentN": 2,
+   "recentMeanClvProb": -0.0238,
+   "nShortOfFirstStage": 13,
+   "tShort": 4.42,
+   "record": "0-2-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "MLS|sharpDiv=pin-for",
+   "sport": "MLS",
+   "feature": "sharpDiv=pin-for",
    "n": 2,
    "meanClvProb": -0.0238,
    "tStat": -1.92,
@@ -1665,7 +1855,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "37-36-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "NCAAF|keyNumber=yes",
@@ -1737,7 +1928,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "29-25-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "NCAAF|pattern=edge-stack",
@@ -1809,7 +2001,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "16-16-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "NCAAF|pattern=ncaaf-total-move",
@@ -1953,6 +2146,25 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "23-17-0",
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
+  },
+  {
+   "key": "NCAAF|sharpDiv=aligned",
+   "sport": "NCAAF",
+   "feature": "sharpDiv=aligned",
+   "n": 2,
+   "meanClvProb": -0.0026,
+   "tStat": -0.18,
+   "beatClose": 1,
+   "status": "research",
+   "picksN": 2,
+   "picksMeanClvProb": -0.0026,
+   "recentN": 2,
+   "recentMeanClvProb": -0.0026,
+   "nShortOfFirstStage": 13,
+   "tShort": 2.68,
+   "record": "1-1-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -1989,7 +2201,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "32-34-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "NCAAF|timing=late",
@@ -2079,7 +2292,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "15-15-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "NCAAF|wind=<10",
@@ -2097,7 +2311,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "27-15-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "NFL|bookAtPick=BetMGM",
@@ -2187,7 +2402,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "27-35-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "NFL|injury=qb",
@@ -2295,7 +2511,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "15-18-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "NFL|pattern=sharp-soft-alt",
@@ -2475,7 +2692,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "20-27-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "NFL|timing=late",
@@ -2565,7 +2783,8 @@
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
    "record": "19-18-0",
-   "firstSeen": "2026-10-19"
+   "firstSeen": "2026-10-19",
+   "flag": "kill-candidate: flagged for review, nothing retired"
   },
   {
    "key": "NHL|bookAtPick=Caesars",
@@ -3036,6 +3255,24 @@
    "firstSeen": "2026-10-19"
   },
   {
+   "key": "UEL|sharpDiv=aligned",
+   "sport": "UEL",
+   "feature": "sharpDiv=aligned",
+   "n": 1,
+   "meanClvProb": 0.0108,
+   "tStat": 0.0,
+   "beatClose": 1,
+   "status": "research",
+   "picksN": 1,
+   "picksMeanClvProb": 0.0108,
+   "recentN": 1,
+   "recentMeanClvProb": 0.0108,
+   "nShortOfFirstStage": 14,
+   "tShort": 2.5,
+   "record": "1-0-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
    "key": "UEL|timing=late",
    "sport": "UEL",
    "feature": "timing=late",
@@ -3198,6 +3435,42 @@
    "firstSeen": "2026-10-19"
   },
   {
+   "key": "WTA|sharpDiv=aligned",
+   "sport": "WTA",
+   "feature": "sharpDiv=aligned",
+   "n": 1,
+   "meanClvProb": -0.0404,
+   "tStat": 0.0,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 0,
+   "picksMeanClvProb": null,
+   "recentN": 1,
+   "recentMeanClvProb": -0.0404,
+   "nShortOfFirstStage": 14,
+   "tShort": 2.5,
+   "record": "0-1-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "WTA|sharpDiv=pin-for",
+   "sport": "WTA",
+   "feature": "sharpDiv=pin-for",
+   "n": 1,
+   "meanClvProb": -0.0239,
+   "tStat": 0.0,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 1,
+   "picksMeanClvProb": -0.0239,
+   "recentN": 1,
+   "recentMeanClvProb": -0.0239,
+   "nShortOfFirstStage": 14,
+   "tShort": 2.5,
+   "record": "0-1-0",
+   "firstSeen": "2026-10-19"
+  },
+  {
    "key": "WTA|timing=day",
    "sport": "WTA",
    "feature": "timing=day",
@@ -3250,6 +3523,249 @@
    "tShort": 4.18,
    "record": "0-3-0",
    "firstSeen": "2026-10-19"
+  }
+ ],
+ "flags": [
+  {
+   "type": "kill-candidate",
+   "key": "ALL|market=total",
+   "n": 102,
+   "meanClvProb": -0.0238,
+   "tStat": -10.52,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "NCAAF|role=under",
+   "n": 40,
+   "meanClvProb": -0.0284,
+   "tStat": -9.9,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "ALL|role=under",
+   "n": 65,
+   "meanClvProb": -0.0229,
+   "tStat": -7.79,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "ALL|moveBeforePick=none",
+   "n": 92,
+   "meanClvProb": -0.0223,
+   "tStat": -7.53,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "ALL|role=over",
+   "n": 37,
+   "meanClvProb": -0.0255,
+   "tStat": -7.17,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "ALL|edgeBar=<0.5x",
+   "n": 125,
+   "meanClvProb": -0.0184,
+   "tStat": -6.3,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "NCAAF|edgeBar=<0.5x",
+   "n": 73,
+   "meanClvProb": -0.0231,
+   "tStat": -6.22,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "ALL|timing=early",
+   "n": 116,
+   "meanClvProb": -0.0199,
+   "tStat": -6.15,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "ALL|timing=day",
+   "n": 67,
+   "meanClvProb": -0.0183,
+   "tStat": -5.59,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "ALL|venue=home",
+   "n": 51,
+   "meanClvProb": -0.0237,
+   "tStat": -5.17,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "ALL|edgeBar=0.5-1x",
+   "n": 61,
+   "meanClvProb": -0.0185,
+   "tStat": -5.12,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "NCAAF|moveBeforePick=none",
+   "n": 54,
+   "meanClvProb": -0.0201,
+   "tStat": -4.86,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "ALL|role=fav",
+   "n": 49,
+   "meanClvProb": -0.0235,
+   "tStat": -4.72,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "NCAAF|timing=early",
+   "n": 66,
+   "meanClvProb": -0.0198,
+   "tStat": -4.69,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "NCAAF|wind=<10",
+   "n": 42,
+   "meanClvProb": -0.0185,
+   "tStat": -4.53,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "ALL|wind=<10",
+   "n": 79,
+   "meanClvProb": -0.016,
+   "tStat": -4.24,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "NFL|injury=any",
+   "n": 62,
+   "meanClvProb": -0.019,
+   "tStat": -4.21,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "ALL|wind=15+",
+   "n": 35,
+   "meanClvProb": -0.0248,
+   "tStat": -3.85,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "NFL|timing=early",
+   "n": 47,
+   "meanClvProb": -0.02,
+   "tStat": -3.68,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "NCAAF|pattern=ncaaf-spot",
+   "n": 32,
+   "meanClvProb": -0.0227,
+   "tStat": -3.46,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "ALL|market=spread",
+   "n": 70,
+   "meanClvProb": -0.017,
+   "tStat": -3.43,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "NCAAF|wind=15+",
+   "n": 30,
+   "meanClvProb": -0.0241,
+   "tStat": -3.42,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "ALL|moveBeforePick=for",
+   "n": 52,
+   "meanClvProb": -0.0187,
+   "tStat": -3.37,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "NFL|pattern=news-lag",
+   "n": 33,
+   "meanClvProb": -0.0191,
+   "tStat": -3.28,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "NFL|wind=<10",
+   "n": 37,
+   "meanClvProb": -0.0131,
+   "tStat": -1.98,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "ALL|market=h2h",
+   "n": 32,
+   "meanClvProb": -0.0072,
+   "tStat": -1.74,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "ALL|role=dog",
+   "n": 53,
+   "meanClvProb": -0.0051,
+   "tStat": -1.0,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "kill-candidate",
+   "key": "ALL|venue=away",
+   "n": 49,
+   "meanClvProb": -0.0034,
+   "tStat": -0.61,
+   "action": "flagged for review; nothing retired"
+  },
+  {
+   "type": "grade-order",
+   "ordered": false,
+   "A": {
+    "n": 18,
+    "meanClvProb": -0.0236
+   },
+   "B": {
+    "n": 60,
+    "meanClvProb": -0.0181
+   },
+   "C": {
+    "n": 126,
+    "meanClvProb": -0.0186
+   },
+   "note": "Grades should rank A > B > C on CLV. When they do not, edge size is not predicting the close and A/B/C carries no information yet."
   }
  ]
 }

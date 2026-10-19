@@ -43,11 +43,19 @@ ARCH = ROOT / "ledger" / "archive"
 RECENT_DAYS = 30
 
 # Candidate features EDGE wants to test but does not collect yet. Listed so they stay visible, with what is missing.
+# Each note says what it would take to start collecting.
 NOT_COLLECTED = {
-    "public-pct": "Public bet and money percentages. Needs a source (e.g. Action Network, VSiN); none is pulled.",
-    "late-steam": "Sharp moves in the last hour. Needs intraday snapshots stored per row; only open, last and close are kept.",
-    "travel": "Travel distance and time zones crossed (NFL, NBA, NHL). Venues are stored (stats/venues.json); not joined yet.",
-    "guru": "X or Reddit handicapper calls (MISSION.md). Not collected.",
+    "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the "
+                  "open and near kickoff per game. No free API in the stack today.",
+    "late-steam": "Needs a per-row price history: fast runs already price every game every 15 min in its last 3 hours "
+                  "but overwrite lastSnap. Appending those snaps costs no extra credits; code change in pull.py.",
+    "travel": "Needs each team's previous venue joined to stats/venues.json coordinates (miles, time zones crossed, "
+              "days since). Free; code only.",
+    "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). "
+            "Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md).",
+    "sharp-divergence-at-pick": "Pinnacle at the pick time is only in the reason text of sharp-soft picks. Needs pull.py "
+                                "read/pick stamps to store the Pinnacle price beside priceAtPick. The open's divergence is "
+                                "logged (sharpDivergence), stored since 2026-10-14 only.",
 }
 
 QB_WORDS = re.compile(r"\bQB\d?\b|quarterback", re.I)
@@ -96,17 +104,46 @@ def side_open_line(row, pick):
     return line
 
 
+def minutes_to_kick(pick):
+    try:
+        return round((parse(pick["commence"]) - parse(pick["pickedAt"])).total_seconds() / 60)
+    except (KeyError, TypeError, ValueError):
+        return None
+
+
+def sharp_divergence(pick, row):
+    """Pinnacle minus the print book, no-vig probability of the picked side, at the OPEN (known before the pick).
+    Positive: Pinnacle rated our side higher than the print book did. Only when both books show the same line."""
+    side = pick.get("side")
+    snap = row.get("openSnap") or {}
+    books = snap.get("books") or {}
+    pin = books.get("pinnacle")
+    if not side or not pin:
+        return None
+    keys = [k for k in ("home", "away", "draw", "over", "under") if k in snap and k in pin]
+    if side not in keys or len(keys) < 2:
+        return None
+    if pick.get("market") != "h2h" and pin.get("line") != snap.get("line"):
+        return None
+    try:
+        import fair as fairlib
+        return round(fairlib.probs({k: pin[k] for k in keys})[side] - fairlib.probs({k: snap[k] for k in keys})[side], 4)
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def features(pick, row):
     """Features present when the read was stamped. Keys are stable; values are short labels."""
     f = {"pattern": pick.get("pattern") or "none", "grade": pick.get("grade"), "confidence": pick.get("confidence"),
          "market": pick.get("market")}
     side, market = pick.get("side"), pick.get("market")
-    try:
-        hrs = (parse(pick["commence"]) - parse(pick["pickedAt"])).total_seconds() / 3600
+    mins = minutes_to_kick(pick)
+    if mins is not None:
+        hrs = mins / 60
         f["timing"] = "early" if hrs > 48 else "day" if hrs > 6 else "late"
-        f["hoursBefore"] = round(hrs, 1)
-    except (KeyError, TypeError, ValueError):
-        pass
+    div = sharp_divergence(pick, row)
+    if div is not None:
+        f["sharpDiv"] = "pin-for" if div >= 0.01 else "pin-against" if div <= -0.01 else "aligned"
     if side:
         line, price = pick.get("lineAtPick"), pick.get("priceAtPick")
         if market in ("spread", "h2h"):
@@ -162,6 +199,7 @@ def entry(pick, row, counted):
         "side": pick.get("side"), "pattern": pick.get("pattern"), "grade": pick.get("grade"),
         "openLine": snap_o.get("line"), "openPrices": {k: snap_o[k] for k in ("home", "away", "over", "under", "draw") if k in snap_o},
         "lineAtPick": pick.get("lineAtPick"), "priceAtPick": pick.get("priceAtPick"), "pickedAt": pick.get("pickedAt"),
+        "minutesToKick": minutes_to_kick(pick), "sharpDivergence": sharp_divergence(pick, row),
         "fair": pick.get("fair"), "edge": pick.get("edge"), "edgeUnit": pick.get("edgeUnit"), "bar": pick.get("bar"),
         "closeLine": snap_c.get("line"), "closePrice": pick.get("closePrice"), "closeNoVig": pick.get("closeNoVig"),
         "clvProb": pick.get("clvProb"), "clvPoints": pick.get("clvPoints"), "clvEstimated": pick.get("estimated"),
@@ -178,8 +216,6 @@ def tokens(f):
     """Feature tokens used for research and queries, e.g. timing=early, injury=qb."""
     out = []
     for k, v in f.items():
-        if k in ("hoursBefore",):
-            continue
         for val in (v if isinstance(v, list) else [v]):
             if val is None or val is False:
                 continue
@@ -286,11 +322,18 @@ def build():
         "gradedReads": len(graded), "loggedReads": len(log),
         "newPatternsThisRun": new_patterns,
         "notCollected": NOT_COLLECTED,
+        "sharpDivergenceCoverage": {"graded": len(graded),
+                                    "withData": sum(1 for e in graded if e.get("sharpDivergence") is not None)},
         "features": feats,
     }
+    patterns = load_json(grade.LEDGER, {}).get("patterns") or []
+    research["flags"] = flags(feats, patterns)
+    for f in feats:
+        if f["status"] == "kill-candidate":
+            f["flag"] = "kill-candidate: flagged for review, nothing retired"
     MEM.mkdir(parents=True, exist_ok=True)
     RESEARCH.write_text(json.dumps(research, indent=1) + "\n")
-    SUMMARY.write_text(summary(research, now))
+    SUMMARY.write_text(summary(research, now, patterns))
     return {"logged": len(log), "newLogEntries": added, "graded": len(graded), "features": len(feats),
             "newPatterns": new_patterns}
 
@@ -302,44 +345,84 @@ def fmt(f):
             + (f", last {RECENT_DAYS}d {r * 100:+.1f}% on {f['recentN']}" if r is not None else ""))
 
 
-def summary(research, now):
-    # A cross-sport (ALL) line is dropped when one sport holds the whole sample: it would just repeat that sport's line.
-    by_key = {(f["sport"], f["feature"]): f for f in research["features"]}
-    sports = {f["sport"] for f in research["features"]} - {"ALL"}
-    def twin(f):
-        return f["sport"] == "ALL" and any((by_key.get((s, f["feature"])) or {}).get("n") == f["n"] for s in sports)
-    feats = [f for f in research["features"] if not twin(f) and not f["feature"].startswith(("grade=", "confidence="))]
-    real = [f for f in feats if f["n"] >= 8]
-    up = sorted([f for f in real if (f["recentMeanClvProb"] or 0) > 0 and f["recentN"] >= 8],
-                key=lambda f: -f["recentMeanClvProb"])[:5]
-    down = sorted([f for f in real if (f["recentMeanClvProb"] or 0) < 0 and f["recentN"] >= 8],
-                  key=lambda f: f["recentMeanClvProb"])[:5]
-    near = sorted([f for f in feats if f["status"] == "research" and (f["meanClvProb"] or 0) > 0 and f["n"] >= 8],
-                  key=lambda f: (f["tShort"], f["nShortOfFirstStage"]))[:3]
-    # Kill candidates use grade.py's retirement sample. "Trending" is a watch list at 15+ reads and t <= -2.
-    kill = sorted([f for f in feats if f["status"] == "kill-candidate"], key=lambda f: f["tStat"])[:3]
+GAP_SHORT = {
+    "public-pct": "needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack",
+    "late-steam": "needs pull.py to append fast-run snaps per row instead of overwriting lastSnap; no extra credits",
+    "travel": "needs previous venue joined to stats/venues.json (miles, time zones); free, code only",
+    "guru": "needs an account list + reader (Reddit API free, X API paid); log account, number, time, result",
+    "sharp-divergence-at-pick": "needs pull.py to stamp Pinnacle's price beside priceAtPick; only the open's is logged",
+}
+
+
+def dedupe(features):
+    """Drop a cross-sport (ALL) line when one sport holds the whole sample: it would repeat that sport's line."""
+    by_key = {(f["sport"], f["feature"]): f for f in features}
+    sports = {f["sport"] for f in features} - {"ALL"}
+    return [f for f in features if not (f["sport"] == "ALL" and any(
+        (by_key.get((s, f["feature"])) or {}).get("n") == f["n"] for s in sports))]
+
+
+def flags(features, patterns):
+    """Standing flags for every health check: kill candidates and the grade-order test. Flags never change a rule."""
+    out = []
+    meta = ("grade=", "confidence=")   # grade and confidence slices cover almost every read; the grade test covers them
+    for f in sorted(dedupe([f for f in features if f["status"] == "kill-candidate" and not f["feature"].startswith(meta)]),
+                    key=lambda f: f["tStat"]):
+        out.append({"type": "kill-candidate", "key": f["key"], "n": f["n"], "meanClvProb": f["meanClvProb"],
+                    "tStat": f["tStat"], "action": "flagged for review; nothing retired"})
+    g = {f["feature"][6:]: f for f in features if f["sport"] == "ALL" and f["feature"].startswith("grade=")
+         and f["meanClvProb"] is not None}
+    if all(k in g for k in "ABC"):
+        a, b, c = (g[k]["meanClvProb"] for k in "ABC")
+        out.append({"type": "grade-order", "ordered": a > b > c,
+                    "A": {"n": g["A"]["n"], "meanClvProb": a}, "B": {"n": g["B"]["n"], "meanClvProb": b},
+                    "C": {"n": g["C"]["n"], "meanClvProb": c},
+                    "note": "Grades should rank A > B > C on CLV. When they do not, edge size is not predicting the "
+                            "close and A/B/C carries no information yet."})
+    return out
+
+
+def summary(research, now, patterns):
+    feats = dedupe([f for f in research["features"] if not f["feature"].startswith(("grade=", "confidence="))])
+    pstat = {p["id"]: p for p in patterns}
+    leads = sorted([f for f in feats if f["feature"].startswith("pattern=") and f["n"] >= 8 and (f["meanClvProb"] or 0) > 0],
+                   key=lambda f: -f["tStat"])
+    kill = [x for x in research["flags"] if x["type"] == "kill-candidate"][:4]
+    by_key = {f["key"]: f for f in research["features"]}
     trend = sorted([f for f in feats if f["status"] != "kill-candidate" and f["n"] >= grade.STAGES[0][0]
                     and (f["meanClvProb"] or 0) < 0 and f["tStat"] <= -2], key=lambda f: f["tStat"])[:3]
-    bar = [f for f in feats if f["status"] == "at-promotion-bar"]
-    g = {f["feature"]: f for f in research["features"] if f["sport"] == "ALL" and f["feature"].startswith("grade=")}
+    other = [f for f in feats if f["n"] >= 8 and f["recentN"] >= 8 and not f["feature"].startswith(("pattern=", "market="))]
+    best = sorted([f for f in other if f["recentMeanClvProb"] > 0], key=lambda f: -f["recentMeanClvProb"])[:2]
+    worst = sorted([f for f in other if f["recentMeanClvProb"] < 0], key=lambda f: f["recentMeanClvProb"])[:2]
     lines = [f"# What has worked ({now.strftime('%Y-%m-%d %H:%M')}Z)",
              f"{research['gradedReads']} graded reads counted, {research['loggedReads']} logged. CLV is mean clvProb. "
-             f"Leads only; patterns move by grade.py.", "",
-             "Beating the close lately:"] + [f"- {fmt(f)}" for f in up] + (["- none with 8+ recent reads"] if not up else []) + [
-             "Losing to the close lately:"] + [f"- {fmt(f)}" for f in down] + (["- none"] if not down else []) + [
-             "Closest to the promotion bar:"] + [f"- {fmt(f)} (needs {f['nShortOfFirstStage']} more, t short {f['tShort']})" for f in near] + (
-             ["- none positive yet"] if not near else []) + [
-             f"Kill candidates (n {grade.OFFICIAL_N}+, CLV <= 0):"] + [f"- {fmt(f)}" for f in kill] + (["- none"] if not kill else []) + [
-             "Trending toward a kill:"] + [f"- {fmt(f)}" for f in trend] + (["- none"] if not trend else [])
-    if bar:
-        lines += ["At the promotion bar (review, do not auto-adopt):"] + [f"- {fmt(f)}" for f in bar[:3]]
-    if g:
-        lines.append("Grade test (A > B > C?): " + ", ".join(
-            f"{k[6:]} {v['meanClvProb'] * 100:+.1f}% on {v['n']}" for k, v in sorted(g.items()) if v["meanClvProb"] is not None))
-    if research["newPatternsThisRun"]:
-        lines.append("New patterns added to research: " + ", ".join(research["newPatternsThisRun"][:6]))
-    lines.append("Not collected: " + ", ".join(research["notCollected"]))
-    return "\n".join(lines[:29]) + "\n"
+             f"Leads and flags only; patterns move by grade.py.", "",
+             "Positive leads (patterns, 8+ graded reads, CLV > 0):"]
+    for f in leads[:3]:
+        ps = pstat.get(f["feature"][8:]) or {}
+        need = (f"; promotion needs {ps.get('nNeeded', '?')} more graded full-bar picks (has {ps.get('clvN', 0)}) "
+                f"and t >= {ps.get('tNeeded', '?')}, {ps.get('track', 'standard')} track") if ps else ""
+        lines.append(f"- {fmt(f)}{need}")
+    if not leads:
+        lines.append("- none")
+    lines.append(f"Kill candidates (n {grade.OFFICIAL_N}+, CLV <= 0; FLAGGED, not retired):")
+    lines += [f"- {fmt(by_key[x['key']])}" for x in kill] or ["- none"]
+    lines.append(f"Trending toward a kill (n {grade.STAGES[0][0]}+, t <= -2):")
+    lines += [f"- {fmt(f)}" for f in trend] or ["- none"]
+    go = next((x for x in research["flags"] if x["type"] == "grade-order"), None)
+    if go:
+        txt = ", ".join(f"{k} {go[k]['meanClvProb'] * 100:+.1f}% on {go[k]['n']}" for k in "ABC")
+        lines.append(f"GRADE ORDER {'OK' if go['ordered'] else 'INVERTED'}: {txt}"
+                     + ("" if go["ordered"] else ". A should beat B beat C; edge size is not predicting the close."))
+    lines += ["", "Other slices, last 30d (context, not leads):",
+              "- best: " + ("; ".join(fmt(f) for f in best) or "none"),
+              "- worst: " + ("; ".join(fmt(f) for f in worst) or "none"),
+              "", "Data gaps (not collected yet):"]
+    lines += [f"- {k}: {v}" for k, v in GAP_SHORT.items()]
+    sd = research.get("sharpDivergenceCoverage") or {}
+    lines.append(f"sharpDivergence (at the open) on {sd.get('withData', 0)} of {sd.get('graded', 0)} graded reads; "
+                 "Pinnacle opens stored since 2026-10-14.")
+    return "\n".join(lines[:30]) + "\n"
 
 
 def query(a):
