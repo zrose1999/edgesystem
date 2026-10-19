@@ -4,7 +4,7 @@ Built by `memory.py`, which runs at the end of every `grade.py` run. Do not edit
 
 | File | What it is |
 |---|---|
-| `summary.md` | Under 30 lines. What has beaten the close lately, what has not, closest to promotion, kill candidates, gaps. Read first in every session and health check. |
+| `summary.md` | Under 30 lines. What has beaten the close lately, what has not, early positive leads, largest early-negative slices (still collecting), the grade-order observation, data gaps. Read first in every session and health check. |
 | `research.json` | Feature research ledger: every feature, overall (`ALL`) and per sport, with n, mean CLV, t, beat-close count, last-30-day CLV, record, status and distance to grade.py's bars. |
 | `log/<YYYY-MM>.jsonl` | One line per settled read (pick, lean, pass, reread), keyed by `pickId`, upserted, never dropped. |
 
