@@ -332,10 +332,17 @@ def build():
     }
     patterns = load_json(grade.LEDGER, {}).get("patterns") or []
     research["flags"] = flags(feats, patterns)
+    # Conditional pockets for every early-negative slice with 15+ reads, and for grade A.
+    research["pockets"] = []
+    for f in feats:
+        if f["status"] == "early-negative" and f["n"] >= 15 and not f["feature"].startswith("confidence="):
+            best, tested = pocket(slice_entries(graded, f), f["feature"].split("=")[0], with_sport=f["sport"] == "ALL")
+            research["pockets"].append({"slice": f["key"], "n": f["n"], "meanClvProb": f["meanClvProb"],
+                                        "pocket": best, "tested": tested})
 
     MEM.mkdir(parents=True, exist_ok=True)
     RESEARCH.write_text(json.dumps(research, indent=1) + "\n")
-    SUMMARY.write_text(summary(research, now, patterns))
+    SUMMARY.write_text(summary(research, now, patterns, graded))
     return {"logged": len(log), "newLogEntries": added, "graded": len(graded), "features": len(feats),
             "newPatterns": new_patterns}
 
@@ -379,17 +386,77 @@ def flags(features, patterns):
     return out
 
 
-def summary(research, now, patterns):
+POCKET_MIN_N = 8
+
+
+def pocket_tokens(e, with_sport):
+    toks = set(tokens(e.get("features") or {}))
+    if with_sport:
+        toks.add(f"sport={e.get('sport')}")
+    return toks
+
+
+def pocket(entries, exclude_key, with_sport=True):
+    """Inside one slice, the best one-feature sub-slice with mean CLV >= 0 and n >= POCKET_MIN_N.
+    Returns (best or None, combinations tested). Many combinations are tested, so a pocket is a lead to keep
+    watching, not a finding."""
+    groups = defaultdict(list)
+    for e in entries:
+        for tok in pocket_tokens(e, with_sport):
+            if tok.split("=")[0] != exclude_key and not tok.startswith("confidence="):
+                groups[tok].append(e["clvProb"])
+    tested = [(tok, v) for tok, v in groups.items() if len(v) >= POCKET_MIN_N and len(v) < len(entries)]
+    hits = [(tok, v) for tok, v in tested if sum(v) / len(v) >= 0]
+    if not hits:
+        return None, len(tested)
+    tok, v = max(hits, key=lambda h: (sum(h[1]) / len(h[1]), len(h[1])))
+    return {"feature": tok, "n": len(v), "meanClvProb": round(sum(v) / len(v), 4), "tStat": round(grade.tstat(v), 2)}, len(tested)
+
+
+def grade_order_pockets(graded, min_n=5):
+    """Features inside which the grade order holds (A > B > C on CLV, each grade with min_n+ reads)."""
+    by = defaultdict(lambda: defaultdict(list))
+    for e in graded:
+        g = (e.get("features") or {}).get("grade")
+        if g not in ("A", "B", "C"):
+            continue
+        for tok in pocket_tokens(e, True):
+            if not tok.startswith(("grade=", "confidence=")):
+                by[tok][g].append(e["clvProb"])
+    tested, holds = 0, []
+    for tok, gs in by.items():
+        if all(len(gs[k]) >= min_n for k in "ABC"):
+            tested += 1
+            m = {k: sum(gs[k]) / len(gs[k]) for k in "ABC"}
+            if m["A"] > m["B"] > m["C"]:
+                holds.append({"feature": tok, **{k: {"n": len(gs[k]), "meanClvProb": round(m[k], 4)} for k in "ABC"}})
+    holds.sort(key=lambda h: -(h["A"]["meanClvProb"] - h["C"]["meanClvProb"]))
+    return holds, tested
+
+
+def slice_entries(graded, f):
+    return [e for e in graded if (f["sport"] == "ALL" or e.get("sport") == f["sport"])
+            and f["feature"] in pocket_tokens(e, False)]
+
+
+def pocket_line(best, tested, inside):
+    if best is None:
+        return f"  > no conditional pocket found in current features ({tested} combos tested inside {inside})"
+    return (f"  > pocket: {best['feature']} inside {inside}: n {best['n']}, CLV {best['meanClvProb'] * 100:+.1f}%, "
+            f"t {best['tStat']:+.1f} (best of {tested} tested; a lead to watch)")
+
+
+def summary(research, now, patterns, graded):
     feats = dedupe([f for f in research["features"] if not f["feature"].startswith(("grade=", "confidence="))])
     pstat = {p["id"]: p for p in patterns}
     leads = sorted([f for f in feats if f["feature"].startswith("pattern=") and f["status"] == "early-positive"],
                    key=lambda f: -f["n"])
     # Largest samples first, not the worst t: the point is where the most is being learned, not what to cut.
     neg = sorted([f for f in feats if f["status"] == "early-negative" and not f["feature"].startswith("confidence=")],
-                 key=lambda f: -f["n"])[:5]
+                 key=lambda f: -f["n"])[:4]
     other = [f for f in feats if f["n"] >= 8 and f["recentN"] >= 8 and not f["feature"].startswith(("pattern=", "market="))]
-    best = sorted([f for f in other if f["recentMeanClvProb"] > 0], key=lambda f: -f["recentMeanClvProb"])[:2]
-    worst = sorted([f for f in other if f["recentMeanClvProb"] < 0], key=lambda f: f["recentMeanClvProb"])[:2]
+    top2 = sorted([f for f in other if f["recentMeanClvProb"] > 0], key=lambda f: -f["recentMeanClvProb"])[:2]
+    low2 = sorted([f for f in other if f["recentMeanClvProb"] < 0], key=lambda f: f["recentMeanClvProb"])[:2]
     lines = [f"# What EDGE is learning ({now.strftime('%Y-%m-%d %H:%M')}Z)",
              "Phase: data collection and learning. Samples are small and key features are still being added. "
              "Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.",
@@ -404,15 +471,30 @@ def summary(research, now, patterns):
     if not leads:
         lines.append("- none yet")
     lines.append("Early negative, still collecting (largest samples):")
-    lines += [f"- {fmt(f)}" for f in neg] or ["- none"]
+    for f in neg:
+        lines.append(f"- {fmt(f)}")
+        best, tested = pocket(slice_entries(graded, f), f["feature"].split("=")[0], with_sport=f["sport"] == "ALL")
+        lines.append(pocket_line(best, tested, f["feature"]))
+    if not neg:
+        lines.append("- none")
     go = next((x for x in research["flags"] if x["type"] == "grade-order"), None)
     if go:
         txt = ", ".join(f"{k} {go[k]['meanClvProb'] * 100:+.1f}% on {go[k]['n']}" for k in "ABC")
         lines.append(f"Observation: {'grades rank A > B > C' if go['ordered'] else 'edge size is not yet predicting CLV'}"
                      f" ({txt}).")
-    lines += ["", "Other slices, last 30d (context, not leads):",
-              "- best: " + ("; ".join(fmt(f) for f in best) or "none"),
-              "- worst: " + ("; ".join(fmt(f) for f in worst) or "none"),
+        ga = [e for e in graded if (e.get("features") or {}).get("grade") == "A"]
+        best, tested = pocket(ga, "grade")
+        lines.append(pocket_line(best, tested, "grade A"))
+        holds, tested = grade_order_pockets(graded)
+        if holds:
+            h = holds[0]
+            lines.append(f"  > order holds inside {h['feature']}: " + ", ".join(
+                f"{k} {h[k]['meanClvProb'] * 100:+.1f}% on {h[k]['n']}" for k in "ABC")
+                + f" ({len(holds)} of {tested} features tested)")
+        else:
+            lines.append(f"  > grade order holds inside no feature yet ({tested} tested with 5+ reads per grade)")
+    lines += ["", "Other slices, last 30d (context, not leads): best " + ("; ".join(fmt(f) for f in top2) or "none")
+              + " | worst " + ("; ".join(fmt(f) for f in low2) or "none"),
               "", "Data gaps, free (building next):"]
     lines += [f"- {k}: {GAP_SHORT[k]}" for k in ("late-steam", "travel", "sharp-divergence-at-pick") if k in research["notCollected"]]
     lines.append("Data gaps, waiting on a source:")

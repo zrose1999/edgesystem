@@ -30,6 +30,13 @@ logged to learn from. The grade order (A > B > C) is reported as an observation,
 Also logged per entry: minutesToKick, and sharpDivergence (Pinnacle minus the print book, no-vig probability of the
 picked side, at the open, same line only; Pinnacle opens are stored since 2026-10-14).
 
+Conditional pockets: under every early-negative slice in summary.md (and in research.json `pockets` for every
+early-negative slice with 15+ reads), memory.py tests each other logged feature inside the slice (and the sport, for
+cross-sport slices) and reports the best sub-slice with CLV >= 0 and 8+ reads, or "no conditional pocket found in
+current features". For the grade order it checks inside grade A and lists features where A > B > C holds (5+ reads
+per grade). Each line says how many combinations were tested: with that many tests some pockets appear by chance, so
+a pocket is a lead to keep watching, never a rule.
+
 Before proposing a lean or pattern, query similar past reads:
 
     python3 memory.py query --sport NFL --market total --feature wind=15+
