@@ -150,6 +150,20 @@ def pin_at_pick(snap, side):
     return out
 
 
+def context_at_pick(row):
+    """The row's news context as it stood when a read was stamped: weather forecast, injury text, goalie signal.
+    These row fields keep being refreshed until kickoff, so only this copy is safe to use as a pre-pick feature
+    (2026-10-19). Never used to price or grade the read."""
+    out = {}
+    if row.get("weatherData"):
+        out["weather"] = row["weatherData"]
+    if row.get("injury") not in (None, "", "missing"):
+        out["injury"] = row["injury"]
+    if row.get("goalieSig"):
+        out["goalie"] = row["goalieSig"]
+    return out or None
+
+
 def bar_for(sport, market, home_line=None, fair_home=None):
     if market == "h2h":
         return H2H_BAR
@@ -624,6 +638,7 @@ def make_pick(a):
         "falsifier": a.falsifier.strip(), "modelVersion": VERSION, "tier": tier,
         "stakeUnits": stake, "kind": "pick", "grade": grade_for(edge, bar, a.confidence),
         "commence": row.get("commence"), "pinAtPick": pin_at_pick(snap, a.side),
+        "contextAtPick": context_at_pick(row),
     })
     save(PICKS, picks)
     print(json.dumps({"stamped": pick_id, "line": line, "price": price, "edge": round(edge, 3),
@@ -755,7 +770,7 @@ def make_read(a):
         "confidence": a.confidence, "pattern": (a.pattern or "").strip() or None,
         "reason": a.reason.strip(), "falsifier": (a.falsifier or "").strip() or None,
         "modelVersion": VERSION, "tier": tier, "stakeUnits": stake, "by": getattr(a, "by", "claude") or "claude",
-        "pinAtPick": pin_at_pick(snap, side if grade != "P" else None),
+        "pinAtPick": pin_at_pick(snap, side if grade != "P" else None), "contextAtPick": context_at_pick(row),
     }
     if note:
         entry["note"] = note

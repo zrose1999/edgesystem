@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-19T17:47:22Z",
+ "asOf": "2026-10-19T17:52:57Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 204,
  "loggedReads": 391,
@@ -16,8 +16,45 @@
    "reads": 0,
    "with": 0,
    "alarm": false
+  },
+  "contextAtPick": {
+   "since": "2026-10-19T18:00:00Z",
+   "reads": 0,
+   "with": 0,
+   "alarm": false
   }
  },
+ "featureTiming": {
+  "pattern": "pre-pick (stamped on the read)",
+  "grade": "pre-pick (stamped)",
+  "confidence": "pre-pick (stamped)",
+  "market": "pre-pick (row id)",
+  "timing": "pre-pick (pickedAt vs commence)",
+  "venue": "pre-pick (picked side)",
+  "role": "pre-pick (line and price at the pick)",
+  "keyNumber": "pre-pick (line at the pick and fair)",
+  "moveBeforePick": "pre-pick (open snapshot vs line at the pick)",
+  "edgeBar": "pre-pick (edge and bar at the pick)",
+  "injury": "pre-pick (contextAtPick or the read's reason text only)",
+  "rest": "pre-pick (reason text)",
+  "wind": "pre-pick (contextAtPick, or a row forecast whose asOf is before the pick)",
+  "precip": "pre-pick (as wind)",
+  "sharpDiv": "pre-pick (open snapshot)",
+  "sharpDivPick": "pre-pick (pinAtPick)",
+  "bookAtPick": "pre-pick (stamped)"
+ },
+ "postPickFields": [
+  "closeLine",
+  "closePrice",
+  "closeNoVig",
+  "clvProb",
+  "clvPoints",
+  "result",
+  "units",
+  "score",
+  "injuryLatest",
+  "weatherLatest"
+ ],
  "sharpDivergenceCoverage": {
   "graded": 204,
   "withData": 13
@@ -225,54 +262,54 @@
    "key": "ALL|injury=any",
    "sport": "ALL",
    "feature": "injury=any",
-   "n": 62,
-   "meanClvProb": -0.019,
-   "tStat": -4.21,
-   "beatClose": 12,
+   "n": 33,
+   "meanClvProb": -0.0191,
+   "tStat": -3.28,
+   "beatClose": 7,
    "status": "early-negative",
-   "picksN": 36,
-   "picksMeanClvProb": -0.0228,
-   "recentN": 62,
-   "recentMeanClvProb": -0.019,
+   "picksN": 16,
+   "picksMeanClvProb": -0.0185,
+   "recentN": 33,
+   "recentMeanClvProb": -0.0191,
    "nShortOfFirstStage": 0,
-   "tShort": 6.21,
-   "record": "27-35-0",
+   "tShort": 5.28,
+   "record": "15-18-0",
    "firstSeen": "2026-10-19"
   },
   {
    "key": "ALL|injury=goalie",
    "sport": "ALL",
    "feature": "injury=goalie",
-   "n": 18,
-   "meanClvProb": -0.015,
-   "tStat": -3.04,
-   "beatClose": 1,
-   "status": "early-negative",
-   "picksN": 7,
-   "picksMeanClvProb": -0.0175,
-   "recentN": 18,
-   "recentMeanClvProb": -0.015,
-   "nShortOfFirstStage": 0,
-   "tShort": 5.54,
-   "record": "11-7-0",
+   "n": 5,
+   "meanClvProb": -0.0146,
+   "tStat": -4.49,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 5,
+   "picksMeanClvProb": -0.0146,
+   "recentN": 5,
+   "recentMeanClvProb": -0.0146,
+   "nShortOfFirstStage": 10,
+   "tShort": 6.99,
+   "record": "2-3-0",
    "firstSeen": "2026-10-19"
   },
   {
    "key": "ALL|injury=qb",
    "sport": "ALL",
    "feature": "injury=qb",
-   "n": 14,
-   "meanClvProb": -0.0017,
-   "tStat": -0.12,
-   "beatClose": 6,
-   "status": "early-negative",
-   "picksN": 8,
-   "picksMeanClvProb": -0.0275,
-   "recentN": 14,
-   "recentMeanClvProb": -0.0017,
-   "nShortOfFirstStage": 1,
-   "tShort": 2.62,
-   "record": "8-6-0",
+   "n": 5,
+   "meanClvProb": -0.0142,
+   "tStat": -1.42,
+   "beatClose": 1,
+   "status": "research",
+   "picksN": 3,
+   "picksMeanClvProb": -0.013,
+   "recentN": 5,
+   "recentMeanClvProb": -0.0142,
+   "nShortOfFirstStage": 10,
+   "tShort": 3.92,
+   "record": "3-2-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -981,54 +1018,36 @@
    "key": "ALL|wind=10-15",
    "sport": "ALL",
    "feature": "wind=10-15",
-   "n": 20,
-   "meanClvProb": -0.0278,
-   "tStat": -5.14,
-   "beatClose": 3,
-   "status": "early-negative",
-   "picksN": 3,
-   "picksMeanClvProb": -0.0327,
-   "recentN": 20,
-   "recentMeanClvProb": -0.0278,
-   "nShortOfFirstStage": 0,
-   "tShort": 7.14,
-   "record": "6-14-0",
-   "firstSeen": "2026-10-19"
-  },
-  {
-   "key": "ALL|wind=15+",
-   "sport": "ALL",
-   "feature": "wind=15+",
-   "n": 35,
-   "meanClvProb": -0.0248,
-   "tStat": -3.85,
-   "beatClose": 5,
-   "status": "early-negative",
-   "picksN": 15,
-   "picksMeanClvProb": -0.0193,
-   "recentN": 35,
-   "recentMeanClvProb": -0.0248,
-   "nShortOfFirstStage": 0,
-   "tShort": 5.85,
-   "record": "18-17-0",
+   "n": 1,
+   "meanClvProb": 0.0113,
+   "tStat": 0.0,
+   "beatClose": 1,
+   "status": "research",
+   "picksN": 1,
+   "picksMeanClvProb": 0.0113,
+   "recentN": 1,
+   "recentMeanClvProb": 0.0113,
+   "nShortOfFirstStage": 14,
+   "tShort": 2.5,
+   "record": "0-1-0",
    "firstSeen": "2026-10-19"
   },
   {
    "key": "ALL|wind=<10",
    "sport": "ALL",
    "feature": "wind=<10",
-   "n": 79,
-   "meanClvProb": -0.016,
-   "tStat": -4.24,
-   "beatClose": 19,
-   "status": "early-negative",
-   "picksN": 28,
-   "picksMeanClvProb": -0.0207,
-   "recentN": 79,
-   "recentMeanClvProb": -0.016,
-   "nShortOfFirstStage": 0,
-   "tShort": 6.24,
-   "record": "46-33-0",
+   "n": 4,
+   "meanClvProb": -0.0249,
+   "tStat": -7.64,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 3,
+   "picksMeanClvProb": -0.0238,
+   "recentN": 4,
+   "recentMeanClvProb": -0.0249,
+   "nShortOfFirstStage": 11,
+   "tShort": 10.14,
+   "record": "4-0-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -2241,54 +2260,36 @@
    "key": "NCAAF|wind=10-15",
    "sport": "NCAAF",
    "feature": "wind=10-15",
-   "n": 20,
-   "meanClvProb": -0.0278,
-   "tStat": -5.14,
-   "beatClose": 3,
-   "status": "early-negative",
-   "picksN": 3,
-   "picksMeanClvProb": -0.0327,
-   "recentN": 20,
-   "recentMeanClvProb": -0.0278,
-   "nShortOfFirstStage": 0,
-   "tShort": 7.14,
-   "record": "6-14-0",
-   "firstSeen": "2026-10-19"
-  },
-  {
-   "key": "NCAAF|wind=15+",
-   "sport": "NCAAF",
-   "feature": "wind=15+",
-   "n": 30,
-   "meanClvProb": -0.0241,
-   "tStat": -3.42,
-   "beatClose": 3,
-   "status": "early-negative",
-   "picksN": 12,
-   "picksMeanClvProb": -0.0232,
-   "recentN": 30,
-   "recentMeanClvProb": -0.0241,
-   "nShortOfFirstStage": 0,
-   "tShort": 5.42,
-   "record": "15-15-0",
+   "n": 1,
+   "meanClvProb": 0.0113,
+   "tStat": 0.0,
+   "beatClose": 1,
+   "status": "research",
+   "picksN": 1,
+   "picksMeanClvProb": 0.0113,
+   "recentN": 1,
+   "recentMeanClvProb": 0.0113,
+   "nShortOfFirstStage": 14,
+   "tShort": 2.5,
+   "record": "0-1-0",
    "firstSeen": "2026-10-19"
   },
   {
    "key": "NCAAF|wind=<10",
    "sport": "NCAAF",
    "feature": "wind=<10",
-   "n": 42,
-   "meanClvProb": -0.0185,
-   "tStat": -4.53,
-   "beatClose": 11,
-   "status": "early-negative",
-   "picksN": 6,
-   "picksMeanClvProb": -0.0075,
-   "recentN": 42,
-   "recentMeanClvProb": -0.0185,
-   "nShortOfFirstStage": 0,
-   "tShort": 6.53,
-   "record": "27-15-0",
+   "n": 2,
+   "meanClvProb": -0.0223,
+   "tStat": -3.78,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 1,
+   "picksMeanClvProb": -0.0164,
+   "recentN": 2,
+   "recentMeanClvProb": -0.0223,
+   "nShortOfFirstStage": 13,
+   "tShort": 6.28,
+   "record": "2-0-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -2367,36 +2368,36 @@
    "key": "NFL|injury=any",
    "sport": "NFL",
    "feature": "injury=any",
-   "n": 62,
-   "meanClvProb": -0.019,
-   "tStat": -4.21,
-   "beatClose": 12,
+   "n": 33,
+   "meanClvProb": -0.0191,
+   "tStat": -3.28,
+   "beatClose": 7,
    "status": "early-negative",
-   "picksN": 36,
-   "picksMeanClvProb": -0.0228,
-   "recentN": 62,
-   "recentMeanClvProb": -0.019,
+   "picksN": 16,
+   "picksMeanClvProb": -0.0185,
+   "recentN": 33,
+   "recentMeanClvProb": -0.0191,
    "nShortOfFirstStage": 0,
-   "tShort": 6.21,
-   "record": "27-35-0",
+   "tShort": 5.28,
+   "record": "15-18-0",
    "firstSeen": "2026-10-19"
   },
   {
    "key": "NFL|injury=qb",
    "sport": "NFL",
    "feature": "injury=qb",
-   "n": 14,
-   "meanClvProb": -0.0017,
-   "tStat": -0.12,
-   "beatClose": 6,
-   "status": "early-negative",
-   "picksN": 8,
-   "picksMeanClvProb": -0.0275,
-   "recentN": 14,
-   "recentMeanClvProb": -0.0017,
-   "nShortOfFirstStage": 1,
-   "tShort": 2.62,
-   "record": "8-6-0",
+   "n": 5,
+   "meanClvProb": -0.0142,
+   "tStat": -1.42,
+   "beatClose": 1,
+   "status": "research",
+   "picksN": 3,
+   "picksMeanClvProb": -0.013,
+   "recentN": 5,
+   "recentMeanClvProb": -0.0142,
+   "nShortOfFirstStage": 10,
+   "tShort": 3.92,
+   "record": "3-2-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -2724,39 +2725,21 @@
    "firstSeen": "2026-10-19"
   },
   {
-   "key": "NFL|wind=15+",
-   "sport": "NFL",
-   "feature": "wind=15+",
-   "n": 5,
-   "meanClvProb": -0.0289,
-   "tStat": -1.68,
-   "beatClose": 2,
-   "status": "research",
-   "picksN": 3,
-   "picksMeanClvProb": -0.0039,
-   "recentN": 5,
-   "recentMeanClvProb": -0.0289,
-   "nShortOfFirstStage": 10,
-   "tShort": 4.18,
-   "record": "3-2-0",
-   "firstSeen": "2026-10-19"
-  },
-  {
    "key": "NFL|wind=<10",
    "sport": "NFL",
    "feature": "wind=<10",
-   "n": 37,
-   "meanClvProb": -0.0131,
-   "tStat": -1.98,
-   "beatClose": 8,
-   "status": "early-negative",
-   "picksN": 22,
-   "picksMeanClvProb": -0.0243,
-   "recentN": 37,
-   "recentMeanClvProb": -0.0131,
-   "nShortOfFirstStage": 0,
-   "tShort": 3.98,
-   "record": "19-18-0",
+   "n": 2,
+   "meanClvProb": -0.0274,
+   "tStat": -6.95,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 2,
+   "picksMeanClvProb": -0.0274,
+   "recentN": 2,
+   "recentMeanClvProb": -0.0274,
+   "nShortOfFirstStage": 13,
+   "tShort": 9.45,
+   "record": "2-0-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -2871,18 +2854,18 @@
    "key": "NHL|injury=goalie",
    "sport": "NHL",
    "feature": "injury=goalie",
-   "n": 18,
-   "meanClvProb": -0.015,
-   "tStat": -3.04,
-   "beatClose": 1,
-   "status": "early-negative",
-   "picksN": 7,
-   "picksMeanClvProb": -0.0175,
-   "recentN": 18,
-   "recentMeanClvProb": -0.015,
-   "nShortOfFirstStage": 0,
-   "tShort": 5.54,
-   "record": "11-7-0",
+   "n": 5,
+   "meanClvProb": -0.0146,
+   "tStat": -4.49,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 5,
+   "picksMeanClvProb": -0.0146,
+   "recentN": 5,
+   "recentMeanClvProb": -0.0146,
+   "nShortOfFirstStage": 10,
+   "tShort": 6.99,
+   "record": "2-3-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -3540,14 +3523,14 @@
     "meanClvProb": 0.0008,
     "tStat": 0.11
    },
-   "tested": 25
+   "tested": 23
   },
   {
    "slice": "ALL|edgeBar=1-2x",
    "n": 18,
    "meanClvProb": -0.0236,
    "pocket": null,
-   "tested": 5
+   "tested": 4
   },
   {
    "slice": "ALL|edgeBar=<0.5x",
@@ -3559,14 +3542,14 @@
     "meanClvProb": 0.0086,
     "tStat": 1.08
    },
-   "tested": 30
+   "tested": 26
   },
   {
    "slice": "ALL|grade=A",
    "n": 18,
    "meanClvProb": -0.0236,
    "pocket": null,
-   "tested": 5
+   "tested": 4
   },
   {
    "slice": "ALL|grade=B",
@@ -3578,7 +3561,7 @@
     "meanClvProb": 0.0008,
     "tStat": 0.11
    },
-   "tested": 24
+   "tested": 22
   },
   {
    "slice": "ALL|grade=C",
@@ -3590,26 +3573,14 @@
     "meanClvProb": 0.0086,
     "tStat": 1.08
    },
-   "tested": 31
+   "tested": 27
   },
   {
    "slice": "ALL|injury=any",
-   "n": 62,
-   "meanClvProb": -0.019,
-   "pocket": {
-    "feature": "venue=away",
-    "n": 12,
-    "meanClvProb": 0.0046,
-    "tStat": 0.42
-   },
-   "tested": 24
-  },
-  {
-   "slice": "ALL|injury=goalie",
-   "n": 18,
-   "meanClvProb": -0.015,
+   "n": 33,
+   "meanClvProb": -0.0191,
    "pocket": null,
-   "tested": 4
+   "tested": 16
   },
   {
    "slice": "ALL|keyNumber=yes",
@@ -3621,7 +3592,7 @@
     "meanClvProb": 0.0026,
     "tStat": 0.27
    },
-   "tested": 16
+   "tested": 15
   },
   {
    "slice": "ALL|market=h2h",
@@ -3633,40 +3604,35 @@
     "meanClvProb": 0.0102,
     "tStat": 0.98
    },
-   "tested": 15
+   "tested": 14
   },
   {
    "slice": "ALL|market=spread",
    "n": 70,
    "meanClvProb": -0.017,
    "pocket": null,
-   "tested": 23
+   "tested": 20
   },
   {
    "slice": "ALL|market=total",
    "n": 102,
    "meanClvProb": -0.0238,
-   "pocket": {
-    "feature": "injury=qb",
-    "n": 8,
-    "meanClvProb": 0.001,
-    "tStat": 0.07
-   },
-   "tested": 29
+   "pocket": null,
+   "tested": 25
   },
   {
    "slice": "ALL|moveBeforePick=against",
    "n": 28,
    "meanClvProb": -0.0215,
    "pocket": null,
-   "tested": 15
+   "tested": 12
   },
   {
    "slice": "ALL|moveBeforePick=for",
    "n": 52,
    "meanClvProb": -0.0187,
    "pocket": null,
-   "tested": 24
+   "tested": 21
   },
   {
    "slice": "ALL|moveBeforePick=none",
@@ -3678,42 +3644,42 @@
     "meanClvProb": 0.0075,
     "tStat": 0.88
    },
-   "tested": 29
+   "tested": 26
   },
   {
    "slice": "ALL|pattern=learned-ncaaf-spread",
    "n": 16,
    "meanClvProb": -0.0217,
    "pocket": null,
-   "tested": 7
+   "tested": 6
   },
   {
    "slice": "ALL|pattern=ncaaf-spot",
    "n": 32,
    "meanClvProb": -0.0227,
    "pocket": null,
-   "tested": 10
+   "tested": 8
   },
   {
    "slice": "ALL|pattern=ncaaf-total-move",
    "n": 17,
    "meanClvProb": -0.0194,
    "pocket": null,
-   "tested": 5
+   "tested": 4
   },
   {
    "slice": "ALL|pattern=news-lag",
    "n": 33,
    "meanClvProb": -0.0191,
    "pocket": null,
-   "tested": 18
+   "tested": 16
   },
   {
    "slice": "ALL|pattern=stats-model",
    "n": 25,
    "meanClvProb": -0.0208,
    "pocket": null,
-   "tested": 13
+   "tested": 11
   },
   {
    "slice": "ALL|role=dog",
@@ -3725,7 +3691,7 @@
     "meanClvProb": 0.0075,
     "tStat": 0.88
    },
-   "tested": 21
+   "tested": 20
   },
   {
    "slice": "ALL|role=fav",
@@ -3737,21 +3703,21 @@
     "meanClvProb": 0.0008,
     "tStat": 0.08
    },
-   "tested": 21
+   "tested": 20
   },
   {
    "slice": "ALL|role=over",
    "n": 37,
    "meanClvProb": -0.0255,
    "pocket": null,
-   "tested": 13
+   "tested": 12
   },
   {
    "slice": "ALL|role=under",
    "n": 65,
    "meanClvProb": -0.0229,
    "pocket": null,
-   "tested": 20
+   "tested": 17
   },
   {
    "slice": "ALL|timing=day",
@@ -3763,21 +3729,21 @@
     "meanClvProb": 0.0077,
     "tStat": 1.06
    },
-   "tested": 28
+   "tested": 24
   },
   {
    "slice": "ALL|timing=early",
    "n": 116,
    "meanClvProb": -0.0199,
    "pocket": null,
-   "tested": 28
+   "tested": 24
   },
   {
    "slice": "ALL|timing=late",
    "n": 21,
    "meanClvProb": -0.015,
    "pocket": null,
-   "tested": 9
+   "tested": 8
   },
   {
    "slice": "ALL|venue=away",
@@ -3789,68 +3755,42 @@
     "meanClvProb": 0.0142,
     "tStat": 1.58
    },
-   "tested": 22
+   "tested": 21
   },
   {
    "slice": "ALL|venue=home",
    "n": 51,
    "meanClvProb": -0.0237,
    "pocket": null,
-   "tested": 21
-  },
-  {
-   "slice": "ALL|wind=10-15",
-   "n": 20,
-   "meanClvProb": -0.0278,
-   "pocket": null,
-   "tested": 7
-  },
-  {
-   "slice": "ALL|wind=15+",
-   "n": 35,
-   "meanClvProb": -0.0248,
-   "pocket": null,
-   "tested": 14
-  },
-  {
-   "slice": "ALL|wind=<10",
-   "n": 79,
-   "meanClvProb": -0.016,
-   "pocket": {
-    "feature": "injury=qb",
-    "n": 10,
-    "meanClvProb": 0.0045,
-    "tStat": 0.24
-   },
-   "tested": 28
+   "tested": 20
   },
   {
    "slice": "NCAAF|edgeBar=0.5-1x",
    "n": 19,
    "meanClvProb": -0.0146,
    "pocket": null,
-   "tested": 6
+   "tested": 5
   },
   {
    "slice": "NCAAF|edgeBar=<0.5x",
    "n": 73,
    "meanClvProb": -0.0231,
    "pocket": null,
-   "tested": 20
+   "tested": 17
   },
   {
    "slice": "NCAAF|moveBeforePick=against",
    "n": 17,
    "meanClvProb": -0.026,
    "pocket": null,
-   "tested": 8
+   "tested": 7
   },
   {
    "slice": "NCAAF|moveBeforePick=for",
    "n": 23,
    "meanClvProb": -0.0236,
    "pocket": null,
-   "tested": 8
+   "tested": 6
   },
   {
    "slice": "NCAAF|moveBeforePick=none",
@@ -3862,56 +3802,56 @@
     "meanClvProb": 0.0072,
     "tStat": 0.6
    },
-   "tested": 18
+   "tested": 15
   },
   {
    "slice": "NCAAF|pattern=learned-ncaaf-spread",
    "n": 16,
    "meanClvProb": -0.0217,
    "pocket": null,
-   "tested": 7
+   "tested": 6
   },
   {
    "slice": "NCAAF|pattern=ncaaf-spot",
    "n": 32,
    "meanClvProb": -0.0227,
    "pocket": null,
-   "tested": 10
+   "tested": 8
   },
   {
    "slice": "NCAAF|pattern=ncaaf-total-move",
    "n": 17,
    "meanClvProb": -0.0194,
    "pocket": null,
-   "tested": 5
+   "tested": 4
   },
   {
    "slice": "NCAAF|role=fav",
    "n": 22,
    "meanClvProb": -0.0303,
    "pocket": null,
-   "tested": 10
+   "tested": 9
   },
   {
    "slice": "NCAAF|role=over",
    "n": 16,
    "meanClvProb": -0.0186,
    "pocket": null,
-   "tested": 4
+   "tested": 3
   },
   {
    "slice": "NCAAF|role=under",
    "n": 40,
    "meanClvProb": -0.0284,
    "pocket": null,
-   "tested": 13
+   "tested": 11
   },
   {
    "slice": "NCAAF|timing=day",
    "n": 25,
    "meanClvProb": -0.029,
    "pocket": null,
-   "tested": 10
+   "tested": 9
   },
   {
    "slice": "NCAAF|timing=early",
@@ -3923,7 +3863,7 @@
     "meanClvProb": 0.003,
     "tStat": 0.23
    },
-   "tested": 19
+   "tested": 16
   },
   {
    "slice": "NCAAF|venue=away",
@@ -3935,42 +3875,21 @@
     "meanClvProb": 0.0067,
     "tStat": 0.51
    },
-   "tested": 12
+   "tested": 11
   },
   {
    "slice": "NCAAF|venue=home",
    "n": 18,
    "meanClvProb": -0.0256,
    "pocket": null,
-   "tested": 7
-  },
-  {
-   "slice": "NCAAF|wind=10-15",
-   "n": 20,
-   "meanClvProb": -0.0278,
-   "pocket": null,
-   "tested": 7
-  },
-  {
-   "slice": "NCAAF|wind=15+",
-   "n": 30,
-   "meanClvProb": -0.0241,
-   "pocket": null,
-   "tested": 13
-  },
-  {
-   "slice": "NCAAF|wind=<10",
-   "n": 42,
-   "meanClvProb": -0.0185,
-   "pocket": null,
-   "tested": 16
+   "tested": 6
   },
   {
    "slice": "NFL|edgeBar=0.5-1x",
    "n": 28,
    "meanClvProb": -0.0231,
    "pocket": null,
-   "tested": 12
+   "tested": 11
   },
   {
    "slice": "NFL|edgeBar=<0.5x",
@@ -3986,15 +3905,10 @@
   },
   {
    "slice": "NFL|injury=any",
-   "n": 62,
-   "meanClvProb": -0.019,
-   "pocket": {
-    "feature": "venue=away",
-    "n": 12,
-    "meanClvProb": 0.0046,
-    "tStat": 0.42
-   },
-   "tested": 24
+   "n": 33,
+   "meanClvProb": -0.0191,
+   "pocket": null,
+   "tested": 16
   },
   {
    "slice": "NFL|keyNumber=yes",
@@ -4008,28 +3922,28 @@
    "n": 29,
    "meanClvProb": -0.0148,
    "pocket": null,
-   "tested": 13
+   "tested": 12
   },
   {
    "slice": "NFL|moveBeforePick=none",
    "n": 24,
    "meanClvProb": -0.0265,
    "pocket": null,
-   "tested": 12
+   "tested": 11
   },
   {
    "slice": "NFL|pattern=news-lag",
    "n": 33,
    "meanClvProb": -0.0191,
    "pocket": null,
-   "tested": 18
+   "tested": 16
   },
   {
    "slice": "NFL|pattern=stats-model",
    "n": 25,
    "meanClvProb": -0.0208,
    "pocket": null,
-   "tested": 13
+   "tested": 11
   },
   {
    "slice": "NFL|role=fav",
@@ -4043,21 +3957,21 @@
    "n": 17,
    "meanClvProb": -0.0335,
    "pocket": null,
-   "tested": 6
+   "tested": 5
   },
   {
    "slice": "NFL|role=under",
    "n": 15,
    "meanClvProb": -0.0065,
    "pocket": null,
-   "tested": 6
+   "tested": 4
   },
   {
    "slice": "NFL|timing=early",
    "n": 47,
    "meanClvProb": -0.02,
    "pocket": null,
-   "tested": 20
+   "tested": 18
   },
   {
    "slice": "NFL|venue=home",
@@ -4065,18 +3979,6 @@
    "meanClvProb": -0.0307,
    "pocket": null,
    "tested": 10
-  },
-  {
-   "slice": "NFL|wind=<10",
-   "n": 37,
-   "meanClvProb": -0.0131,
-   "pocket": {
-    "feature": "venue=away",
-    "n": 8,
-    "meanClvProb": 0.0092,
-    "tStat": 0.59
-   },
-   "tested": 19
   },
   {
    "slice": "NHL|edgeBar=<0.5x",
@@ -4088,14 +3990,7 @@
     "meanClvProb": 0.0086,
     "tStat": 1.08
    },
-   "tested": 7
-  },
-  {
-   "slice": "NHL|injury=goalie",
-   "n": 18,
-   "meanClvProb": -0.015,
-   "pocket": null,
-   "tested": 4
+   "tested": 6
   },
   {
    "slice": "NHL|timing=day",
@@ -4107,7 +4002,7 @@
     "meanClvProb": 0.0077,
     "tStat": 1.06
    },
-   "tested": 12
+   "tested": 11
   }
  ]
 }

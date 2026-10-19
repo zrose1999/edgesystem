@@ -205,7 +205,7 @@ def stamp_one(row, snap, books, pattern, alt, status, have, reasons, now):
                    + f". Edge {best['edge']:+.1%}."),
         "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
         "modelVersion": pull.VERSION, "tier": tier, "stakeUnits": stake, "by": "sharp.py",
-        "pinAtPick": pull.pin_at_pick(snap, side),
+        "pinAtPick": pull.pin_at_pick(snap, side), "contextAtPick": pull.context_at_pick(row),
     }
     if alt:
         entry["estimated"] = True

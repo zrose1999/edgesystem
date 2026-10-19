@@ -15,6 +15,27 @@ clvPoints, result, units, score, features, injury, weather, reason, falsifier, b
 `counted` is true for the one test entry per pattern, row and side that grade.py counts. Only counted, graded entries
 feed research.json and queries.
 
+## Pre-pick discipline
+
+Every feature is built only from data that existed when the read was stamped (audit 2026-10-19). research.json
+`featureTiming` records each feature's pre-pick source; a feature without one does not go in.
+
+Guaranteed pre-pick: pattern, grade, confidence, market (stamped on the read); timing and minutesToKick (pickedAt vs
+commence); venue, role, keyNumber, edgeBar (line, price, fair and bar at the pick); moveBeforePick and sharpDiv (the
+open snapshot); sharpDivPick and pinAtPick (Pinnacle in the snapshot the read was priced from); injury (contextAtPick
+or the read's own reason text); rest (reason text); wind and precip (contextAtPick, or a row forecast whose asOf is
+before the pick); bookAtPick.
+
+Post-pick, never features: closeLine, closePrice, closeNoVig, clvProb, clvPoints, result, units, score, and
+injuryLatest / weatherLatest (the row's latest text, refreshed until kickoff).
+
+Found and fixed in the audit: wind and injury used the row's latest values, which injury.py and wind.py refresh until
+kickoff; only 9 of 211 graded reads had a forecast from before the pick. From 2026-10-19 every read stamps
+contextAtPick (weather, injury text, goalie signal as they stood at the pick).
+
+Planned features, timing: late steam before the pick = pre-pick; late steam in the final hour = post-pick (market
+studies only, never a read feature); travel and days rest = pre-pick (schedules are known in advance).
+
 Features (known at the pick, never after it): pattern, grade, confidence, market, timing (early >48h, day 6-48h,
 late <6h), venue (home/away), role (fav/dog/pk, or over/under), keyNumber (NFL/NCAAF spreads at or across 3 and 7),
 moveBeforePick (for/against/none: did the number move for or against our side between the open and the pick),

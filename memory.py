@@ -48,7 +48,20 @@ RECENT_DAYS = 30
 
 # Shipped data features: when each began, so coverage is measured only on reads stamped after it. A shipped feature
 # at 0 coverage after MIN_READS_FOR_ALARM new reads is breakage (health check), not a quiet gap.
-SHIPPED = {"pinAtPick": "2026-10-19T18:00:00Z"}
+SHIPPED = {"pinAtPick": "2026-10-19T18:00:00Z", "contextAtPick": "2026-10-19T18:00:00Z"}
+
+# When each feature's inputs exist, relative to the pick. Every feature in research.json must be "pre-pick".
+FEATURE_TIMING = {
+    "pattern": "pre-pick (stamped on the read)", "grade": "pre-pick (stamped)", "confidence": "pre-pick (stamped)",
+    "market": "pre-pick (row id)", "timing": "pre-pick (pickedAt vs commence)", "venue": "pre-pick (picked side)",
+    "role": "pre-pick (line and price at the pick)", "keyNumber": "pre-pick (line at the pick and fair)",
+    "moveBeforePick": "pre-pick (open snapshot vs line at the pick)", "edgeBar": "pre-pick (edge and bar at the pick)",
+    "injury": "pre-pick (contextAtPick or the read's reason text only)", "rest": "pre-pick (reason text)",
+    "wind": "pre-pick (contextAtPick, or a row forecast whose asOf is before the pick)", "precip": "pre-pick (as wind)",
+    "sharpDiv": "pre-pick (open snapshot)", "sharpDivPick": "pre-pick (pinAtPick)", "bookAtPick": "pre-pick (stamped)",
+}
+POST_PICK_FIELDS = ["closeLine", "closePrice", "closeNoVig", "clvProb", "clvPoints", "result", "units", "score",
+                    "injuryLatest", "weatherLatest"]
 MIN_READS_FOR_ALARM = 10
 
 # Candidate features EDGE wants to test but does not collect yet. Listed so they stay visible, with what is missing.
@@ -205,19 +218,26 @@ def features(pick, row):
         if isinstance(edge, (int, float)) and bar:
             ratio = edge / bar
             f["edgeBar"] = "<0.5x" if ratio < 0.5 else "0.5-1x" if ratio < 1 else "1-2x" if ratio < 2 else "2x+"
+    # Pre-pick only (2026-10-19 audit): the row's injury, goalie and weather fields keep refreshing until kickoff, so
+    # they are read only from the copy stamped on the pick (contextAtPick) or from the pick's own reason text.
+    ctx = pick.get("contextAtPick") or {}
     inj = []
-    text = " ".join(str(x) for x in (row.get("injury"), row.get("newsLagSig"), pick.get("reason")) if x and x != "missing")
-    if row.get("injury") not in (None, "missing") or row.get("newsLagSig"):
+    text = " ".join(str(x) for x in (ctx.get("injury"), pick.get("reason")) if x)
+    if ctx.get("injury") or (pick.get("pattern") == "news-lag" and pick.get("reason")):
         inj.append("any")
     if QB_WORDS.search(text):
         inj.append("qb")
-    if row.get("goalieSig") or GOALIE_WORDS.search(text):
+    if ctx.get("goalie") or GOALIE_WORDS.search(text):
         inj.append("goalie")
     if inj:
         f["injury"] = inj
     if REST_WORDS.search(pick.get("reason") or ""):
         f["rest"] = True
-    wd = row.get("weatherData") or {}
+    wd = ctx.get("weather") or {}
+    if not wd:
+        rw = row.get("weatherData") or {}
+        if rw.get("asOf") and pick.get("pickedAt") and rw["asOf"] <= pick["pickedAt"]:
+            wd = rw   # the row's forecast is still the one that existed at the pick
     if isinstance(wd.get("windMph"), (int, float)):
         w = wd["windMph"]
         f["wind"] = "15+" if w >= 15 else "10-15" if w >= 10 else "<10"
@@ -244,8 +264,10 @@ def entry(pick, row, counted):
         "clvProb": pick.get("clvProb"), "clvPoints": pick.get("clvPoints"), "clvEstimated": pick.get("estimated"),
         "result": pick.get("result"), "units": pick.get("units"), "score": row.get("score"),
         "features": features(pick, row),
-        "injury": row.get("injury") if row.get("injury") != "missing" else None,
-        "weather": row.get("weather") if row.get("weather") != "missing" else None,
+        "contextAtPick": pick.get("contextAtPick"),
+        # Context only, never features: these row fields are the latest values, which can postdate the pick.
+        "injuryLatest": row.get("injury") if row.get("injury") != "missing" else None,
+        "weatherLatest": row.get("weather") if row.get("weather") != "missing" else None,
         "reason": pick.get("reason"), "falsifier": pick.get("falsifier"), "by": pick.get("by"),
         "notes": pick.get("note"),
     }
@@ -362,6 +384,7 @@ def build():
         "newPatternsThisRun": new_patterns,
         "notCollected": NOT_COLLECTED,
         "coverage": coverage(picks),
+        "featureTiming": FEATURE_TIMING, "postPickFields": POST_PICK_FIELDS,
         "sharpDivergenceCoverage": {"graded": len(graded),
                                     "withData": sum(1 for e in graded if e.get("sharpDivergence") is not None)},
         "features": feats,
