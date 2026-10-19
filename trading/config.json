@@ -25,9 +25,10 @@
   ],
   "_liveSources": "Which signal sources may place real orders. official = any EDGE strategy grade.py has made official, mirrored onto Kalshi. Named sources (kalshi-sharp, kalshi-sharp-alt, mirror:wind-total, ...) can be added by Zack. Paper trading always logs every source.",
   "trackOnlySources": [
-    "cs2-elo"
+    "cs2-elo",
+    "mirror:stats-model"
   ],
-  "_trackOnlySources": "Sources that log every candidate with its close and CLV but stake nothing, on paper or live. cs2-elo moved here 2026-10-19 (40 paper trades, -$43, mean CLV -4.1%). Take a source off this list once its track-only CLV is above 0 over 30+ trades.",
+  "_trackOnlySources": "Sources that log every candidate with its close and CLV but stake nothing, on paper or live. cs2-elo moved here 2026-10-19 (40 paper trades, -$43, mean CLV -4.1%). Take a source off this list once its track-only CLV is above 0 over 30+ trades. mirror:stats-model added 2026-10-19: the NFL stats-model is OFF (Zack, 2026-10-14), but its old open picks were still being mirrored onto Kalshi as new staked paper trades (18 trades, -$8.67, mean CLV -0.9%); it now logs only, like the picks themselves.",
   "sports": [
     "NFL",
     "NCAAF",
