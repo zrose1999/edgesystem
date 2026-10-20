@@ -35,3 +35,7 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-19 | NCAAF: timing=early + travelEdge=even | 10 | +0.7% | found inside NCAAF timing=early (best of 28 features tested); small sample, may share reads with other rows |
 | 2026-10-19 | NCAAF: travel=<500 + travelEdge=even | 9 | +1.1% | found inside NCAAF travel=<500 (best of 18 features tested); small sample, may share reads with other rows |
 | 2026-10-19 | NCAAF: edgeBar=<0.5x + timing=early | 9 | +1.0% | found inside NCAAF travelEdge=even (best of 1 pairs tested); small sample, may share reads with other rows |
+| 2026-10-20 | restEdge=even + timing=day | 8 | +0.4% | found inside ALL restEdge=even (best of 12 features tested); small sample, may share reads with other rows |
+| 2026-10-20 | role=fav + sport=NHL | 8 | +0.7% | found inside ALL role=fav (best of 32 features tested); small sample, may share reads with other rows |
+| 2026-10-20 | NFL: grade=C + role=dog | 9 | +0.5% | found inside NFL role=dog (best of 6 features tested); small sample, may share reads with other rows |
+| 2026-10-20 | NFL: timing=early + venue=away | 8 | +0.3% | found inside NFL timing=early (best of 21 features tested); small sample, may share reads with other rows |
