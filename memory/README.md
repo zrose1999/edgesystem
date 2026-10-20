@@ -22,6 +22,27 @@ clvPoints, result, units, score, features, injury, weather, reason, falsifier, b
 `counted` is true for the one test entry per pattern, row and side that grade.py counts. Only counted, graded entries
 feed research.json and queries.
 
+## Autopsy (post-pick, explanation only)
+
+`autopsy.py` explains each settled read after the fact. It runs inside grade.py (box scores first, then memory.py
+attaches an `autopsy` field to every log entry). It is post-pick by definition: never a feature, never a rule.
+
+- **Market autopsy** (the part with signal): why the line moved between the pick and the close. Cause, first match
+  wins: `news-after-pick` (injury, goalie or QB change between the pick and the start, valued with the desk's own
+  tables: injury.py for NFL starters, nba_player_values for NBA, goalie quality for NHL, cfb_qb changes for NCAAF),
+  `sharps-against-at-pick` / `sharps-against-at-open`, `bet-into-steam`, `late-move` (final hour, no news),
+  `number-off` (the market moved against us with none of those: our fair number was off), `unknown` (too little
+  stored data). Reads that beat the close are `market-agreed` or `news-for-us`.
+- **Game autopsy** (mostly noise, labelled so it is not mistaken for signal): verdict `right-and-rewarded`,
+  `right-but-unlucky`, `lucky-win`, `market-was-right`, plus box-score variance tags marked helped/hurt
+  (close-margin, overtime, flipped-late, turnover-swing, defensive-td, three-point-outlier, free-throw-gap,
+  goalie-outlier, empty-net). ESPN box scores are cached in stats/autopsy_box.json (job output).
+- research.json `autopsy`: loss causes (n, CLV, sports, patterns) and, for each cause, the pre-pick feature that
+  could have warned us with that feature's own CLV. The pre-pick feature is what gets tested; the cause only points
+  at it. summary.md carries two lines. Query: `python3 memory.py query --cause news-after-pick`, `--verdict
+  right-but-unlucky`, `--tag overtime:hurt`.
+- Falsifiers are logged on every entry; judging them is left to the weekly review (free text).
+
 ## Pre-pick discipline
 
 Every feature is built only from data that existed when the read was stamped (audit 2026-10-19). research.json
