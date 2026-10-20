@@ -74,6 +74,10 @@ jobs:
           git commit -q -m "EDGE: research report"
           for i in 1 2 3; do
             git pull -q --rebase origin data && git push -q origin HEAD:data && exit 0
+            if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then
+              echo "::warning::Rebase conflict on: $(git diff --name-only --diff-filter=U | tr '\n' ' ')"
+              git rebase --abort
+            fi
             echo "Push raced another writer, retrying ($i)"; sleep 15
           done
           exit 1
