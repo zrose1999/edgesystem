@@ -1,11 +1,9 @@
 {
- "asOf": "2026-10-20T19:06:59Z",
+ "asOf": "2026-10-20T19:24:28Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 214,
  "loggedReads": 428,
- "newPatternsThisRun": [
-  "sharp-soft"
- ],
+ "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "nfl-rest": "NFL days rest and short week need a stored schedule: stats.py already downloads free nflverse data on GitHub; saving its schedule (stats/nfl_schedule.json) is a code-only change. NBA, NHL and NCAAF rest are built from the schedules in stats/.",
@@ -14,14 +12,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 129,
-   "with": 108,
+   "reads": 133,
+   "with": 112,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 129,
-   "with": 129,
+   "reads": 133,
+   "with": 133,
    "alarm": false
   }
  },
@@ -5946,7 +5944,7 @@
    "n": 15,
    "meanClvProb": -0.004,
    "pocket": {
-    "feature": "edgeBar=<0.5x",
+    "feature": "grade=C",
     "n": 9,
     "meanClvProb": 0.0049,
     "tStat": 0.47
