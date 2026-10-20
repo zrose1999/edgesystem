@@ -1,12 +1,9 @@
 {
- "asOf": "2026-10-20T22:15:15Z",
+ "asOf": "2026-10-20T22:24:34Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 218,
  "loggedReads": 448,
- "newPatternsThisRun": [
-  "nba-stats-model",
-  "news-lag"
- ],
+ "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "nfl-rest": "NFL days rest and short week need a stored schedule: stats.py already downloads free nflverse data on GitHub; saving its schedule (stats/nfl_schedule.json) is a code-only change. NBA, NHL and NCAAF rest are built from the schedules in stats/.",
@@ -15,14 +12,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 149,
-   "with": 128,
+   "reads": 153,
+   "with": 132,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 149,
-   "with": 149,
+   "reads": 153,
+   "with": 153,
    "alarm": false
   }
  },
@@ -101,9 +98,9 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1182,
-  "latest": "2026-10-20T22:14:57Z",
-  "rowsWithHistory": 197,
+  "linesLastCycle": 1187,
+  "latest": "2026-10-20T22:24:28Z",
+  "rowsWithHistory": 198,
   "alarm": false
  },
  "interactionCoverage": {
@@ -6505,5 +6502,5 @@
    "pairsTested": 1
   }
  ],
- "hypothesesAdded": 3
+ "hypothesesAdded": 0
 }
