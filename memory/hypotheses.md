@@ -39,3 +39,6 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-20 | role=fav + sport=NHL | 8 | +0.7% | found inside ALL role=fav (best of 32 features tested); small sample, may share reads with other rows |
 | 2026-10-20 | NFL: grade=C + role=dog | 9 | +0.5% | found inside NFL role=dog (best of 6 features tested); small sample, may share reads with other rows |
 | 2026-10-20 | NFL: timing=early + venue=away | 8 | +0.3% | found inside NFL timing=early (best of 21 features tested); small sample, may share reads with other rows |
+| 2026-10-20 | injury=any + venue=away | 11 | +0.0% | found inside ALL injury=any (best of 17 features tested); small sample, may share reads with other rows |
+| 2026-10-20 | market=spread + travelEdge=more | 11 | +0.3% | found inside ALL market=spread (best of 36 features tested); small sample, may share reads with other rows |
+| 2026-10-20 | pattern=news-lag + venue=away | 11 | +0.0% | found inside ALL pattern=news-lag (best of 17 features tested); small sample, may share reads with other rows |

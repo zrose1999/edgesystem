@@ -1,29 +1,29 @@
-# What EDGE is learning (2026-10-20 21:54Z)
+# What EDGE is learning (2026-10-20 22:15Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
-214 graded reads counted, 428 logged. CLV is mean clvProb. Patterns move only by grade.py.
+218 graded reads counted, 448 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Early positive leads (one of many being tested; no acceleration):
 - NHL pattern=learned-nhl-ml: n 12, CLV +0.8%, t +1.2, last 30d +0.8% on 12; grade.py needs 15 more graded full-bar picks (has 0), t >= 2.0
 Early negative, still collecting (largest samples):
-- ALL edgeBar=<0.5x: n 129, CLV -1.9%, t -6.6, last 30d -1.9% on 129
-  > pocket: pattern=learned-nhl-ml inside edgeBar=<0.5x: n 10, CLV +0.9%, t +1.1 (best of 42 tested; a lead to watch) | pair: role=dog + moveBeforePick=none n 15, CLV +0.7% (best of 9)
-- ALL timing=early: n 123, CLV -2.0%, t -6.6, last 30d -2.0% on 123
-  > pocket: travelEdge=even inside timing=early: n 10, CLV +0.7%, t +0.5 (best of 38 tested; a lead to watch) | pair: role=dog + moveBeforePick=none n 16, CLV +0.8% (best of 12)
-- ALL market=total: n 107, CLV -2.5%, t -10.8, last 30d -2.5% on 107
+- ALL edgeBar=<0.5x: n 131, CLV -1.9%, t -6.7, last 30d -1.9% on 131
+  > pocket: pattern=learned-nhl-ml inside edgeBar=<0.5x: n 10, CLV +0.9%, t +1.1 (best of 42 tested; a lead to watch) | pair: role=dog + moveBeforePick=none n 15, CLV +0.7% (best of 10)
+- ALL timing=early: n 125, CLV -2.0%, t -6.4, last 30d -2.0% on 125
+  > pocket: travelEdge=even inside timing=early: n 10, CLV +0.7%, t +0.5 (best of 38 tested; a lead to watch) | pair: venue=away + role=dog n 17, CLV +1.1% (best of 12)
+- ALL market=total: n 109, CLV -2.5%, t -10.8, last 30d -2.5% on 109
   > no conditional pocket found in current features (30 combos tested inside market=total) | pair: none (10 pair combos tested)
-Observation: edge size is not yet predicting CLV (A -2.4% on 20, B -1.8% on 64, C -1.9% on 130).
-  > last 50 graded reads: A -2.8% on 7, B -1.1% on 26, C -3.0% on 17 (order still wrong; diagnostic only)
-  > no conditional pocket found in current features (6 combos tested inside grade A)
-  > order holds inside market=total: A -1.6% on 11, B -2.4% on 31, C -2.7% on 65 (2 of 13 features tested)
+Observation: edge size is not yet predicting CLV (A -2.1% on 22, B -1.8% on 64, C -2.0% on 132).
+  > last 50 graded reads: A -2.0% on 9, B -0.9% on 23, C -3.1% on 18 (order still wrong; diagnostic only)
+  > no conditional pocket found in current features (7 combos tested inside grade A)
+  > order holds inside market=total: A -1.8% on 12, B -2.4% on 31, C -2.6% on 66 (2 of 14 features tested)
 Data gaps, free (building next):
 - nfl-rest: needs stats.py to save the free nflverse schedule (stats/nfl_schedule.json); code only
 Data gaps, waiting on a source: public-pct (needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack); guru (needs an account list + reader (Reddit API free, X API paid); log account, number, time, result)
 Coverage of added features (BREAKAGE if still 0 one health-check cycle after shipping):
-- snaps: 1125 price snapshots stored in the last 26h, latest 10-20 21:54Z, 192 games with 2+ (late steam, since 10-19 18:15Z)
-- pinAtPick on 0 of 0 graded reads since 10-19 18:00Z; 126 of 147 new reads stamped (Pinnacle at the pick)
-- contextAtPick on 0 of 0 graded reads since 10-19 18:00Z; 147 of 147 new reads stamped (weather/injury/goalie as stamped)
+- snaps: 1182 price snapshots stored in the last 26h, latest 10-20 22:14Z, 197 games with 2+ (late steam, since 10-19 18:15Z)
+- pinAtPick on 0 of 0 graded reads since 10-19 18:00Z; 128 of 149 new reads stamped (Pinnacle at the pick)
+- contextAtPick on 0 of 0 graded reads since 10-19 18:00Z; 149 of 149 new reads stamped (weather/injury/goalie as stamped)
 - sharpDivergenceAtPick on 0 of 0 graded reads since 10-19 18:00Z (needs Pinnacle on the same line)
-- daysRestHome on 131 of 131 graded NBA/NHL/NCAAF reads (schedules in stats/; NFL is a gap)
-- sharpDivergence on 14 of 214 graded reads since 10-14 00:00Z (Pinnacle at the open)
+- daysRestHome on 135 of 135 graded NBA/NHL/NCAAF reads (schedules in stats/; NFL is a gap)
+- sharpDivergence on 14 of 218 graded reads since 10-14 00:00Z (Pinnacle at the open)
 - pinMoveBeforePick on 0 of 0 graded reads since 10-19 18:15Z (needs a stored snap 30m-6h before the pick)
-- travelMilesAway on 131 of 131 graded NBA/NHL/NCAAF reads (schedules + team_venues.json; neutral sites skipped)
+- travelMilesAway on 135 of 135 graded NBA/NHL/NCAAF reads (schedules + team_venues.json; neutral sites skipped)
 Interaction coverage: 0 graded reads have at least two of (sharpDivergenceAtPick, steamBeforePick, daysRest, contextAtPick) populated.
