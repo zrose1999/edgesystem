@@ -43,6 +43,8 @@ SEASON = int(os.environ.get("EDGE_SEASON", "2026"))
 def stamp(row_id, fair, reason, falsifier, pattern):
     args = Namespace(id=row_id, fair=str(round(fair, 2)), confidence="medium", reason=reason,
                      falsifier=falsifier, pattern=pattern, stake="0", big=True, by="model")
+    if pattern in pull.PARKED:
+        return False                      # parked by the north star (pull.PARKED); no read, no noise
     try:
         pull.make_read(args)
         return True

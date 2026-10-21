@@ -2,6 +2,14 @@
 
 Hypotheses. Each earns trust only by beating the close. Shadow until grade.py says otherwise.
 
+## Parked (north star, 2026-10-21)
+No new reads, enforced in pull.py (PARKED); existing reads keep grading and stay in every record. A parked idea returns only as a new, measured pattern at a weekly review.
+- stats-model: rule 2, its backtest lost to the close.
+- trend-fade: rule 1, built on a win-rate backtest, never a CLV or move measurement.
+- nba-stats-model and nba-model-fav: rule 2, NBA calibration k is 0, so the model adds nothing to the market.
+- luck-reversion, early-number: never measured or never stamped.
+discover.py is retired too: scan.py does its job (history to live, CLV-graded strategies) with a false-discovery cut.
+
 ## news-lag
 
 Starter news is stamped by injury.py, never by hand: status history from the ESPN injury report with this desk's own first-seen times (stats/injuries.json), starters from ESPN depth charts refreshed daily (stats/nfl_depth.json, a starter in the last 10 days still counts), and the sizing.md values at the low end of each range (QB elite 6.0 / average 3.75 / weak 1.75 by EPA tier; WR1 0.5; RB1 0.25; LT or C 0.5; other OL 0.25; two+ OL out +0.5; kicker 0.5; defensive starter 0.25; totals QB -2.25, WR1 or RB1 -0.5, two+ OL -0.5). Only news after the open counts.
@@ -11,6 +19,8 @@ Retire early if: the move is already in the number when the pick is stamped.
 NBA (injury_nba.py): same rule, NBA values. Player value = production per 36 minutes above replacement (Game Score 9) x share of 36 minutes x 0.30, capped at 7 (Jokic about 6, a rotation starter about 1.5). Status weight from the ESPN comment: out 1.0, doubtful 0.75, questionable or game-time 0.5, probable 0.1, other day-to-day 0.4. Totals: 0.6 of the spread value off the total. Tracking began 2026-10-14. Shares the news-lag record with NFL; split it if one sport drags the other.
 
 ## early-number
+
+**PARKED 2026-10-21 (north star): never stamped; timing is tested as a feature (minutesToKick) instead.** No new reads; existing reads keep grading.
 
 Idea: early-week lines are softer than the close.
 Applies: picks stamped more than 48 hours before kickoff.
@@ -25,12 +35,16 @@ Retire early if: totals already move the full amount before the forecast firms u
 
 ## luck-reversion
 
+**PARKED 2026-10-21 (north star): parked before launch; never measured.** No new reads; existing reads keep grading.
+
 Status: parked until k is above 0. Do not stamp.
 Idea: teams whose record runs well ahead of or behind their efficiency (turnover margin, one-score games) are priced toward the record.
 Applies: a gap between record and efficiency that the reason can name.
 Retire early if: CLV is flat after 30 picks.
 
 ## stats-model
+
+**PARKED 2026-10-21 (north star): rule 2: its backtest lost to the close (off since 2026-10-14).** No new reads; existing reads keep grading.
 
 STATUS: OFF since 2026-10-14 (Zack's call; the backtest had it losing to the closing line). No new reads; its existing picks keep grading.
 
@@ -40,6 +54,8 @@ Applies: every NFL spread and total the model projects. One read per game and ma
 Retire early if: CLV is below 0 after 30 picks. The backtest expects this; the live test decides.
 
 ## trend-fade
+
+**PARKED 2026-10-21 (north star): rule 1: built on a win-rate backtest (54.6% fading), never a CLV or move measurement.** No new reads; existing reads keep grading.
 
 Stamped by model.py, never by hand.
 Idea: when both teams have gone over (or under) in most games this season, the total is priced too far that way. Lean against the trend.
@@ -63,12 +79,16 @@ Retire early if: CLV is below 0 after 30 picks. If it trails sharp-soft by a wid
 
 ## nba-stats-model
 
+**PARKED 2026-10-21 (north star): rule 2: NBA calibration k is 0 on spreads and totals, so the model adds nothing to the market.** No new reads; existing reads keep grading.
+
 Stamped by model_nba.py on the morning run, never by hand.
 Idea: the NBA team ratings in stats_more.py, at a quarter of their gap from the market (fair = market + 0.25 x (raw - market)), same as the NFL stats-model. Its own record, so NBA does not borrow NFL's.
 Applies: NBA spreads and totals tipping within 48 hours. Calibration k is 0 on both (stats/nba_matchups.json), so these start as a test of the raw number, not a proven edge. Early-season ratings lean on last season.
 Retire early if: CLV is below 0 after 30 picks.
 
 ## nba-model-fav
+
+**PARKED 2026-10-21 (north star): rule 2: a subset of nba-stats-model, same k of 0.** No new reads; existing reads keep grading.
 
 Stamped by model_nba.py, never by hand.
 Idea: the nba-stats-model spread read, kept only when the model's side is the market favourite. The live test of the Rose desk's NBA spreads bucket (15-13, +1.06 pts CLV on 4 real closes; see stats/history_audit.md).

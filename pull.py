@@ -151,6 +151,16 @@ def pin_at_pick(snap, side):
 
 
 US_BOOKS = ("draftkings", "fanduel", "betmgm", "williamhill_us")
+# Parked patterns take no new reads (north star, Zack 2026-10-21); their existing reads keep grading. Reasons in
+# patterns.md, "Parked". A parked idea comes back only as a new, measured pattern at a weekly review.
+PARKED = {
+    "stats-model": "rule 2: its backtest lost to the close (off since 2026-10-14)",
+    "trend-fade": "rule 1: built on a win-rate backtest (54.6% fading), never a CLV or move measurement",
+    "nba-stats-model": "rule 2: NBA calibration k is 0 on spreads and totals, so the model adds nothing to the market",
+    "nba-model-fav": "rule 2: a subset of nba-stats-model, same k of 0",
+    "luck-reversion": "parked before launch; never measured",
+    "early-number": "never stamped; timing is tested as a feature (minutesToKick) instead",
+}
 
 
 def best_at_pick(snap, side):
@@ -641,6 +651,8 @@ def make_pick(a):
         fail("no row with that id")
     if row.get("sport") not in READ:
         fail(f"{row.get('sport')} is collected for data only. Picks are open for {', '.join(READ)}.")
+    if (a.pattern or "").strip() in PARKED:
+        fail(f"pattern {a.pattern} is parked: {PARKED[a.pattern.strip()]}")
     snap = row.get("lastSnap")
     if not snap:
         fail("row has no stored price. Run pull.py first.")
@@ -667,7 +679,7 @@ def make_pick(a):
     if prob_total and not 0 < proj < 1:
         fail(f"for {row['sport']} totals, projection is the fair probability of the OVER, between 0 and 1")
 
-    price = snap[a.side]
+    price = (best_at_pick(snap, a.side) or {}).get("price", snap[a.side])   # best US book (north-star rule 3)
     if market == "spread":
         # projection is the fair HOME line: -4.5 means home by 4.5
         line = snap["line"] if a.side == "home" else -snap["line"]
@@ -706,6 +718,7 @@ def make_pick(a):
     picks["picks"].append({
         "pickId": pick_id, "rowId": row["id"], "sport": row["sport"], "event": row["event"],
         "market": market, "side": a.side, "lineAtPick": line, "priceAtPick": price,
+        "priceBook": (best_at_pick(snap, a.side) or {}).get("book"),
         "marketNumber": snap.get("line"), "priceTime": snap["time"], "pickedAt": now,
         "projection": proj, "edge": round(edge, 3), "edgeUnit": unit,
         "bar": bar, "fullBar": full_bar,
@@ -725,8 +738,10 @@ GRADES = "ABC"
 def side_edge(row, snap, market, side, proj):
     """Line, price, edge and unit for one side, given the read's fair number.
     spread: proj is the fair HOME line. total: fair total (prob totals: fair P(over)).
-    moneyline (read only): fair HOME win probability."""
-    price = snap[side]
+    moneyline (read only): fair HOME win probability.
+    The price is the best US book on the print's own line (north-star rule 3, 2026-10-21); the print's price stays in
+    marketPrices and grade.py scores it beside (clvProbAtPrintPrice)."""
+    price = (best_at_pick(snap, side) or {}).get("price", snap[side])
     prob_total = market == "total" and row["sport"] in PROB_TOTALS
     if market == "spread":
         line = snap["line"] if side == "home" else -snap["line"]
@@ -782,6 +797,8 @@ def make_read(a):
         fail(f"stored price is {age:.0f} minutes old. Run pull.py first.")
     if not (a.reason or "").strip():
         fail("--reason is required: the news items and what each is worth")
+    if (a.pattern or "").strip() in PARKED:
+        fail(f"pattern {a.pattern} is parked: {PARKED[a.pattern.strip()]}")
     try:
         fair = float(a.fair)
     except ValueError:
@@ -839,6 +856,7 @@ def make_read(a):
         "event": row["event"], "commence": row.get("commence"), "market": market,
         "side": side if grade != "P" else None, "lineAtPick": line if grade != "P" else None,
         "priceAtPick": price if grade != "P" else None, "marketNumber": snap.get("line"),
+        "priceBook": (best_at_pick(snap, side) or {}).get("book") if grade != "P" else None,
         "marketPrices": {k: snap[k] for k in ("home", "away", "over", "under", "draw") if k in snap},
         "priceTime": snap["time"], "pickedAt": now, "fair": fair, "projection": fair,
         "edge": round(edge, 3), "edgeUnit": unit, "bar": bar, "fullBar": edge >= bar,

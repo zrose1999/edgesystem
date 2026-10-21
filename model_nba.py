@@ -32,6 +32,8 @@ def stamp(row_id, fair, reason, pattern):
     args = Namespace(id=row_id, fair=str(round(fair, 2)), confidence="medium", reason=reason,
                      falsifier="The line moves away from the model side by the close.",
                      pattern=pattern, stake="0", big=True, by="model_nba")
+    if pattern in pull.PARKED:
+        return False                      # parked by the north star (pull.PARKED); no read, no noise
     try:
         pull.make_read(args)
         return True

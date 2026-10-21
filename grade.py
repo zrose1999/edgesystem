@@ -112,6 +112,9 @@ def score_pick(pick, close):
     best = pick.get("bestAtPick") or {}
     if best.get("price") is not None:
         pick["clvProbBest"] = clv(dict(pick, priceAtPick=best["price"]), bench)["clvProb"]
+    printed = (pick.get("marketPrices") or {}).get(pick["side"])
+    if printed is not None:   # what the same read would score at the print book's price (shopping's value)
+        pick["clvProbAtPrintPrice"] = clv(dict(pick, priceAtPick=printed), bench)["clvProb"]
 
 
 def benchmark_summary(tests):
@@ -123,7 +126,8 @@ def benchmark_summary(tests):
     return {"note": "clvProb uses Pinnacle's close where stored (clvBench pinnacle), else the print book's.",
             "onPinnacle": len(both), "onPrint": sum(1 for p in tests if p.get("clvBench") == "print"),
             "print": mean("clvProbPrint", tests), "pinnacle": mean("clvProbPin", tests),
-            "printWherePinnacleExists": mean("clvProbPrint", both), "bestPrice": mean("clvProbBest", tests)}
+            "printWherePinnacleExists": mean("clvProbPrint", both), "bestPrice": mean("clvProbBest", tests),
+            "atPrintPrice": mean("clvProbAtPrintPrice", tests)}
 
 
 def stage_t(n, fast):
