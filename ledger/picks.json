@@ -7763,7 +7763,13 @@
       "modelVersion": "v1",
       "tier": "shadow",
       "stakeUnits": 0.0,
-      "by": "sharp.py"
+      "by": "sharp.py",
+      "closeLine": null,
+      "closePrice": 600,
+      "closeNoVig": 0.1268,
+      "estimated": false,
+      "clvPoints": 0.0,
+      "clvProb": -0.0332
     },
     {
       "pickId": "NHL|2026-10-15|Vancouver Canucks at Florida Panthers|h2h|home|v1|learned-nhl-ml|lean|2026-10-15T11:11:13Z",
@@ -27649,7 +27655,13 @@
         "snapTime": "2026-10-19T18:39:26Z",
         "noVig": 0.3062
       },
-      "contextAtPick": {}
+      "contextAtPick": {},
+      "closeLine": null,
+      "closePrice": 225,
+      "closeNoVig": 0.293,
+      "estimated": false,
+      "clvPoints": 0.0,
+      "clvProb": 0.0073
     },
     {
       "pickId": "NFL|2026-10-27|Dallas Cowboys at Philadelphia Eagles|spread|home|v1|reread|news-lag|2026-10-19T18:39:29Z",
@@ -28123,7 +28135,13 @@
         "snapTime": "2026-10-19T18:39:26Z",
         "noVig": 0.3062
       },
-      "contextAtPick": {}
+      "contextAtPick": {},
+      "closeLine": null,
+      "closePrice": 225,
+      "closeNoVig": 0.293,
+      "estimated": false,
+      "clvPoints": 0.0,
+      "clvProb": 0.0073
     },
     {
       "pickId": "NBA|2026-10-22|Golden State Warriors at Los Angeles Lakers|spread|home|v1|news-lag",
@@ -38530,6 +38548,146 @@
         "injury": "CHI QB Caleb Williams, elite (+0.33 EPA/dropback): Questionable at the open, Active now, -3.50 spread, +1.12 total | CHI OL starter Jonah Jackson: Active at the open, Questionable now, +0.12 spread | CHI defensive starter T.J. Edwards: Doubtful at the open, Questionable now, -0.12 spread | CHI defensive starter Cam Lewis: Questionable at the open, Active now, -0.12 spread | CHI defensive starter Kyler Gordon: Out at the open, Active now, -0.25 spread | CHI defensive starter Tyrique Stevenson Sr.: Questionable at the open, Active now, -0.12 spread | NE WR1 A.J. Brown: Injured Reserve at the open, Questionable now, -0.25 spread, +0.25 total | NE WR1 Romeo Doubs: Active at the open, Injured Reserve now, +0.50 spread, -0.50 total | NE LT Will Campbell: Doubtful at the open, Active now, -0.50 spread | NE OL starter Morgan Moses: Active at the open, Questionable now, +0.12 spread | NE OL starter Alijah Vera-Tucker: Questionable at the open, Out now, +0.12 spread | NE OL starter Ben Brown: Questionable at the open, Out now, +0.12 spread | NE defensive starter Kevin Byard: Questionable at the open, Active now, -0.12 spread | NE defensive starter Dre'Mont Jones: Questionable at the open, Active now, -0.12 spread | NE defensive starter Carlton Davis III: Questionable at the open, Out now, +0.12 spread | NE defensive starter Cory Durden: Questionable at the open, Active now, -0.12 spread | NE defensive starter Marcus Jones: Questionable at the open, Active now, -0.12 spread | NE defensive starter Christian Gonzalez: Questionable at the open, Active now, -0.12 spread"
       },
       "note": "Same side already picked. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NFL|2026-10-25|Tampa Bay Buccaneers at Carolina Panthers|spread|away|v1|reread|news-lag|2026-10-21T19:09:36Z",
+      "kind": "reread",
+      "grade": "C",
+      "rowId": "NFL|2026-10-25|Tampa Bay Buccaneers at Carolina Panthers|spread",
+      "sport": "NFL",
+      "event": "Tampa Bay Buccaneers at Carolina Panthers",
+      "commence": "2026-10-25T17:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 3.5,
+      "priceAtPick": -115,
+      "marketNumber": -3.5,
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-10-21T19:09:27Z",
+      "pickedAt": "2026-10-21T19:09:36Z",
+      "fair": -2.5,
+      "projection": -2.5,
+      "edge": 1.0,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "CAR OL starter Taylor Moton: Out at the open, Active now, -0.25 spread | CAR OL starter Damien Lewis: Questionable at the open, Active now, -0.12 spread | CAR OL starter Monroe Freeling: Questionable at the open, Active now, -0.12 spread | CAR defensive starter Tershawn Wharton: Out at the open, Active now, -0.25 spread | CAR OL back under two out since the open, -0.50 spread, +0.50 total | TB QB Baker Mayfield, average (not the recent main passer): Doubtful at the open, Questionable now, -1.75 spread, +1.12 total. Open home line -3, fair -2.50.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before kickoff.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury.py",
+      "pinAtPick": {
+        "line": -3.0,
+        "prices": {
+          "home": -111,
+          "away": -101
+        },
+        "updated": "2026-10-21T19:09:17Z",
+        "snapTime": "2026-10-21T19:09:27Z",
+        "noVig": 0.4882
+      },
+      "contextAtPick": {
+        "injury": "CAR OL starter Taylor Moton: Out at the open, Active now, -0.25 spread | CAR OL starter Damien Lewis: Questionable at the open, Active now, -0.12 spread | CAR OL starter Monroe Freeling: Questionable at the open, Active now, -0.12 spread | CAR defensive starter Tershawn Wharton: Out at the open, Active now, -0.25 spread | CAR OL back under two out since the open, -0.50 spread, +0.50 total | TB QB Baker Mayfield, average (not the recent main passer): Doubtful at the open, Questionable now, -1.75 spread, +1.12 total"
+      },
+      "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NFL|2026-10-25|Tampa Bay Buccaneers at Carolina Panthers|total|over|v1|reread|news-lag|2026-10-21T19:09:36Z",
+      "kind": "reread",
+      "grade": "B",
+      "rowId": "NFL|2026-10-25|Tampa Bay Buccaneers at Carolina Panthers|total",
+      "sport": "NFL",
+      "event": "Tampa Bay Buccaneers at Carolina Panthers",
+      "commence": "2026-10-25T17:00:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 44.5,
+      "priceAtPick": -110,
+      "marketNumber": 44.5,
+      "marketPrices": {
+        "over": -110,
+        "under": -110
+      },
+      "priceTime": "2026-10-21T19:09:27Z",
+      "pickedAt": "2026-10-21T19:09:36Z",
+      "fair": 46.12,
+      "projection": 46.12,
+      "edge": 1.62,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "CAR OL starter Taylor Moton: Out at the open, Active now, -0.25 spread | CAR OL starter Damien Lewis: Questionable at the open, Active now, -0.12 spread | CAR OL starter Monroe Freeling: Questionable at the open, Active now, -0.12 spread | CAR defensive starter Tershawn Wharton: Out at the open, Active now, -0.25 spread | CAR OL back under two out since the open, -0.50 spread, +0.50 total | TB QB Baker Mayfield, average (not the recent main passer): Doubtful at the open, Questionable now, -1.75 spread, +1.12 total. Open total 44.5, fair 46.12.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before kickoff.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury.py",
+      "pinAtPick": {
+        "line": 45.0,
+        "prices": {
+          "over": -105,
+          "under": -111
+        },
+        "updated": "2026-10-21T19:09:17Z",
+        "snapTime": "2026-10-21T19:09:27Z",
+        "noVig": 0.4931
+      },
+      "contextAtPick": {
+        "injury": "CAR OL starter Taylor Moton: Out at the open, Active now, -0.25 spread | CAR OL starter Damien Lewis: Questionable at the open, Active now, -0.12 spread | CAR OL starter Monroe Freeling: Questionable at the open, Active now, -0.12 spread | CAR defensive starter Tershawn Wharton: Out at the open, Active now, -0.25 spread | CAR OL back under two out since the open, -0.50 spread, +0.50 total | TB QB Baker Mayfield, average (not the recent main passer): Doubtful at the open, Questionable now, -1.75 spread, +1.12 total"
+      },
+      "note": "Same side already picked. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "WTA|2026-10-23|Marie Bouzkova at Sara Bejlek|h2h|none|v1|pass|tennis-elo|2026-10-21T19:09:39Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "WTA|2026-10-23|Marie Bouzkova at Sara Bejlek|h2h",
+      "sport": "WTA",
+      "event": "Marie Bouzkova at Sara Bejlek",
+      "commence": "2026-10-23T05:00:00Z",
+      "market": "h2h",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 139,
+        "away": -170
+      },
+      "priceTime": "2026-10-21T19:09:27Z",
+      "pickedAt": "2026-10-21T19:09:39Z",
+      "fair": 0.415,
+      "projection": 0.415,
+      "edge": -0.003,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "tennis-elo",
+      "reason": "Surface Elo home win 0.499, market no-vig 0.394; fair = market + 0.2 x gap = 0.415. Hard. Games in the last 2 days: Sara Bejlek 28, Marie Bouzkova 20.",
+      "falsifier": "The price closes at or past the market's open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "tennis.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 147,
+          "away": -166
+        },
+        "updated": "2026-10-21T19:09:08Z",
+        "snapTime": "2026-10-21T19:09:27Z"
+      },
+      "contextAtPick": {}
     }
   ]
 }
