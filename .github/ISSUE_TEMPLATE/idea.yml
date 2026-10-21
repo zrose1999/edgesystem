@@ -1,0 +1,34 @@
+name: Idea for EDGE
+description: A strategy, data source or improvement for the weekly review to look at with Zack.
+title: "Idea: "
+labels: ["idea"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        EDGE judges every idea by one thing: does it get prices better than Pinnacle's closing line, after costs? Win rate never decides.
+        Before writing, have your Claude read STATE.md, DESK.md and patterns.md on the `data` branch (https://github.com/zrose1999/edgesystem/tree/data) so the idea fits what is already running or parked.
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: What situation, what side, which sport and market.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it should beat the close
+      description: What the market misses, and any evidence (studies, backtests, numbers).
+    validations:
+      required: true
+  - type: textarea
+    id: data
+    attributes:
+      label: Data it needs
+      description: What EDGE would have to collect or already collects (see STATE.md), and whether the source is free.
+  - type: textarea
+    id: test
+    attributes:
+      label: How to test it
+      description: What result would prove it wrong. Parked patterns come back only as a new, measured idea.
