@@ -83,7 +83,6 @@ jobs:
           python soccer_form.py || echo "::warning::soccer_form.py failed; continuing"
           python features_nhl.py refresh || echo "::warning::features_nhl.py refresh failed; continuing"
           python features_ncaaf.py refresh || echo "::warning::features_ncaaf.py refresh failed; continuing"
-          python discover.py || echo "::warning::discover.py failed; continuing"
           python scan.py || echo "::warning::scan.py failed; continuing"
           python scan.py learn || echo "::warning::scan.py learn failed; continuing"
 
