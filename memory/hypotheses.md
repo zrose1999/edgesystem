@@ -57,3 +57,6 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-21 | NHL: restDays=1day + venue=away | 8 | +0.7% | found inside NHL restDays=1day (best of 12 features tested); small sample, may share reads with other rows |
 | 2026-10-21 | NHL: bookAtPick=DraftKings + market=h2h | 8 | +1.5% | found inside NHL bookAtPick=DraftKings (best of 13 features tested); small sample, may share reads with other rows |
 | 2026-10-21 | restEdge=even + role=dog | 9 | +0.2% | found inside ALL restEdge=even (best of 19 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | pattern=learned-nhl-ml + restEdge=even | 8 | +0.2% | found inside ALL restEdge=even (best of 27 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | restEdge=more + venue=away | 19 | +1.7% | found inside ALL venue=away (best of 36 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | NFL: restEdge=even + role=dog | 9 | +0.0% | found inside NFL restEdge=even (best of 11 features tested); small sample, may share reads with other rows |

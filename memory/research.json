@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-21T15:54:33Z",
+ "asOf": "2026-10-21T15:57:31Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 243,
  "loggedReads": 503,
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 187,
-   "with": 155,
+   "reads": 198,
+   "with": 158,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 187,
-   "with": 187,
+   "reads": 198,
+   "with": 198,
    "alarm": false
   }
  },
@@ -61,7 +61,7 @@
    ],
    "note": "schedules in stats/ (NFL from 2026-10-21)",
    "graded": 230,
-   "with": 160,
+   "with": 230,
    "alarm": false
   },
   {
@@ -98,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1251,
-  "latest": "2026-10-21T15:54:27Z",
+  "linesLastCycle": 1311,
+  "latest": "2026-10-21T15:55:34Z",
   "rowsWithHistory": 229,
   "alarm": false
  },
@@ -115,7 +115,7 @@
   "byField": {
    "sharpDivergenceAtPick": 3,
    "steamBeforePick": 5,
-   "daysRest": 160,
+   "daysRest": 230,
    "contextAtPick": 6
   }
  },
@@ -1029,110 +1029,113 @@
    "key": "ALL|restDays=long",
    "sport": "ALL",
    "feature": "restDays=long",
-   "n": 24,
-   "meanClvProb": -0.0077,
-   "tStat": -0.81,
-   "beatClose": 8,
+   "n": 30,
+   "meanClvProb": -0.0042,
+   "tStat": -0.48,
+   "beatClose": 11,
    "status": "early-negative",
-   "picksN": 0,
-   "picksMeanClvProb": null,
-   "recentN": 24,
-   "recentMeanClvProb": -0.0077,
+   "picksN": 5,
+   "picksMeanClvProb": -0.0015,
+   "recentN": 30,
+   "recentMeanClvProb": -0.0042,
    "nShortOfFirstStage": 0,
-   "tShort": 2.81,
-   "record": "9-15-0",
-   "firstSeen": "2026-10-19"
+   "tShort": 2.48,
+   "record": "12-18-0",
+   "firstSeen": "2026-10-19",
+   "why_not_promoted": "mean CLV -0.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|restDays=normal",
    "sport": "ALL",
    "feature": "restDays=normal",
-   "n": 73,
-   "meanClvProb": -0.024,
-   "tStat": -7.87,
-   "beatClose": 11,
+   "n": 133,
+   "meanClvProb": -0.0234,
+   "tStat": -9.46,
+   "beatClose": 20,
    "status": "early-negative",
-   "picksN": 25,
-   "picksMeanClvProb": -0.0193,
-   "recentN": 73,
-   "recentMeanClvProb": -0.024,
+   "picksN": 61,
+   "picksMeanClvProb": -0.0236,
+   "recentN": 133,
+   "recentMeanClvProb": -0.0234,
    "nShortOfFirstStage": 0,
-   "tShort": 9.87,
-   "record": "40-33-0",
+   "tShort": 11.46,
+   "record": "66-67-0",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -2.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -2.3% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|restDays=short",
    "sport": "ALL",
    "feature": "restDays=short",
-   "n": 2,
-   "meanClvProb": -0.0631,
-   "tStat": -4.32,
+   "n": 6,
+   "meanClvProb": -0.0369,
+   "tStat": -3.6,
    "beatClose": 0,
    "status": "research",
-   "picksN": 0,
-   "picksMeanClvProb": null,
-   "recentN": 2,
-   "recentMeanClvProb": -0.0631,
-   "nShortOfFirstStage": 13,
-   "tShort": 6.82,
-   "record": "2-0-0",
+   "picksN": 1,
+   "picksMeanClvProb": -0.0238,
+   "recentN": 6,
+   "recentMeanClvProb": -0.0369,
+   "nShortOfFirstStage": 9,
+   "tShort": 6.1,
+   "record": "4-2-0",
    "firstSeen": "2026-10-19"
   },
   {
    "key": "ALL|restEdge=even",
    "sport": "ALL",
    "feature": "restEdge=even",
-   "n": 22,
-   "meanClvProb": -0.0139,
-   "tStat": -1.84,
-   "beatClose": 6,
+   "n": 42,
+   "meanClvProb": -0.0169,
+   "tStat": -3.21,
+   "beatClose": 9,
    "status": "early-negative",
-   "picksN": 11,
-   "picksMeanClvProb": -0.0099,
-   "recentN": 22,
-   "recentMeanClvProb": -0.0139,
+   "picksN": 18,
+   "picksMeanClvProb": -0.0222,
+   "recentN": 42,
+   "recentMeanClvProb": -0.0169,
    "nShortOfFirstStage": 0,
-   "tShort": 3.84,
-   "record": "12-10-0",
-   "firstSeen": "2026-10-19"
+   "tShort": 5.21,
+   "record": "19-23-0",
+   "firstSeen": "2026-10-19",
+   "why_not_promoted": "mean CLV -1.7% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|restEdge=less",
    "sport": "ALL",
    "feature": "restEdge=less",
-   "n": 19,
-   "meanClvProb": -0.0262,
-   "tStat": -2.82,
-   "beatClose": 3,
+   "n": 28,
+   "meanClvProb": -0.0285,
+   "tStat": -3.87,
+   "beatClose": 5,
    "status": "early-negative",
-   "picksN": 6,
-   "picksMeanClvProb": -0.0071,
-   "recentN": 19,
-   "recentMeanClvProb": -0.0262,
+   "picksN": 12,
+   "picksMeanClvProb": -0.0252,
+   "recentN": 28,
+   "recentMeanClvProb": -0.0285,
    "nShortOfFirstStage": 0,
-   "tShort": 5.32,
-   "record": "5-14-0",
+   "tShort": 5.87,
+   "record": "8-20-0",
    "firstSeen": "2026-10-19"
   },
   {
    "key": "ALL|restEdge=more",
    "sport": "ALL",
    "feature": "restEdge=more",
-   "n": 28,
-   "meanClvProb": -0.003,
-   "tStat": -0.35,
-   "beatClose": 12,
+   "n": 34,
+   "meanClvProb": -0.0007,
+   "tStat": -0.09,
+   "beatClose": 15,
    "status": "early-negative",
-   "picksN": 5,
-   "picksMeanClvProb": 0.0328,
-   "recentN": 28,
-   "recentMeanClvProb": -0.003,
+   "picksN": 10,
+   "picksMeanClvProb": 0.0157,
+   "recentN": 34,
+   "recentMeanClvProb": -0.0007,
    "nShortOfFirstStage": 0,
-   "tShort": 2.35,
-   "record": "15-13-0",
-   "firstSeen": "2026-10-19"
+   "tShort": 2.09,
+   "record": "18-16-0",
+   "firstSeen": "2026-10-19",
+   "why_not_promoted": "mean CLV -0.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|role=dog",
@@ -1394,18 +1397,18 @@
    "key": "ALL|shortWeek=yes",
    "sport": "ALL",
    "feature": "shortWeek=yes",
-   "n": 2,
-   "meanClvProb": -0.0631,
-   "tStat": -4.32,
+   "n": 6,
+   "meanClvProb": -0.0369,
+   "tStat": -3.6,
    "beatClose": 0,
    "status": "research",
-   "picksN": 0,
-   "picksMeanClvProb": null,
-   "recentN": 2,
-   "recentMeanClvProb": -0.0631,
-   "nShortOfFirstStage": 13,
-   "tShort": 6.82,
-   "record": "2-0-0",
+   "picksN": 1,
+   "picksMeanClvProb": -0.0238,
+   "recentN": 6,
+   "recentMeanClvProb": -0.0369,
+   "nShortOfFirstStage": 9,
+   "tShort": 6.1,
+   "record": "4-2-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -4398,6 +4401,115 @@
    "firstSeen": "2026-10-19"
   },
   {
+   "key": "NFL|restDays=long",
+   "sport": "NFL",
+   "feature": "restDays=long",
+   "n": 6,
+   "meanClvProb": 0.0101,
+   "tStat": 0.47,
+   "beatClose": 3,
+   "status": "research",
+   "picksN": 5,
+   "picksMeanClvProb": -0.0015,
+   "recentN": 6,
+   "recentMeanClvProb": 0.0101,
+   "nShortOfFirstStage": 9,
+   "tShort": 2.03,
+   "record": "3-3-0",
+   "firstSeen": "2026-10-21"
+  },
+  {
+   "key": "NFL|restDays=normal",
+   "sport": "NFL",
+   "feature": "restDays=normal",
+   "n": 60,
+   "meanClvProb": -0.0227,
+   "tStat": -5.58,
+   "beatClose": 9,
+   "status": "early-negative",
+   "picksN": 36,
+   "picksMeanClvProb": -0.0267,
+   "recentN": 60,
+   "recentMeanClvProb": -0.0227,
+   "nShortOfFirstStage": 0,
+   "tShort": 7.58,
+   "record": "26-34-0",
+   "firstSeen": "2026-10-21",
+   "why_not_promoted": "mean CLV -2.3% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+  },
+  {
+   "key": "NFL|restDays=short",
+   "sport": "NFL",
+   "feature": "restDays=short",
+   "n": 4,
+   "meanClvProb": -0.0238,
+   "tStat": -3.2,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 1,
+   "picksMeanClvProb": -0.0238,
+   "recentN": 4,
+   "recentMeanClvProb": -0.0238,
+   "nShortOfFirstStage": 11,
+   "tShort": 5.7,
+   "record": "2-2-0",
+   "firstSeen": "2026-10-21"
+  },
+  {
+   "key": "NFL|restEdge=even",
+   "sport": "NFL",
+   "feature": "restEdge=even",
+   "n": 20,
+   "meanClvProb": -0.0201,
+   "tStat": -2.72,
+   "beatClose": 3,
+   "status": "early-negative",
+   "picksN": 7,
+   "picksMeanClvProb": -0.0415,
+   "recentN": 20,
+   "recentMeanClvProb": -0.0201,
+   "nShortOfFirstStage": 0,
+   "tShort": 4.72,
+   "record": "7-13-0",
+   "firstSeen": "2026-10-21"
+  },
+  {
+   "key": "NFL|restEdge=less",
+   "sport": "NFL",
+   "feature": "restEdge=less",
+   "n": 9,
+   "meanClvProb": -0.0334,
+   "tStat": -2.67,
+   "beatClose": 2,
+   "status": "early-negative",
+   "picksN": 6,
+   "picksMeanClvProb": -0.0433,
+   "recentN": 9,
+   "recentMeanClvProb": -0.0334,
+   "nShortOfFirstStage": 6,
+   "tShort": 5.17,
+   "record": "3-6-0",
+   "firstSeen": "2026-10-21"
+  },
+  {
+   "key": "NFL|restEdge=more",
+   "sport": "NFL",
+   "feature": "restEdge=more",
+   "n": 6,
+   "meanClvProb": 0.0101,
+   "tStat": 0.47,
+   "beatClose": 3,
+   "status": "research",
+   "picksN": 5,
+   "picksMeanClvProb": -0.0015,
+   "recentN": 6,
+   "recentMeanClvProb": 0.0101,
+   "nShortOfFirstStage": 9,
+   "tShort": 2.03,
+   "record": "3-3-0",
+   "firstSeen": "2026-10-21"
+  },
+  {
    "key": "NFL|role=dog",
    "sport": "NFL",
    "feature": "role=dog",
@@ -4468,6 +4580,24 @@
    "tShort": 3.87,
    "record": "8-9-0",
    "firstSeen": "2026-10-19"
+  },
+  {
+   "key": "NFL|shortWeek=yes",
+   "sport": "NFL",
+   "feature": "shortWeek=yes",
+   "n": 4,
+   "meanClvProb": -0.0238,
+   "tStat": -3.2,
+   "beatClose": 0,
+   "status": "research",
+   "picksN": 1,
+   "picksMeanClvProb": -0.0238,
+   "recentN": 4,
+   "recentMeanClvProb": -0.0238,
+   "nShortOfFirstStage": 11,
+   "tShort": 5.7,
+   "record": "2-2-0",
+   "firstSeen": "2026-10-21"
   },
   {
    "key": "NFL|timing=day",
@@ -5919,7 +6049,7 @@
     "meanClvProb": 0.0001,
     "tStat": 0.02
    },
-   "tested": 32,
+   "tested": 33,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 12,
@@ -5933,7 +6063,7 @@
    "n": 24,
    "meanClvProb": -0.0173,
    "pocket": null,
-   "tested": 10,
+   "tested": 11,
    "pairPocket": null,
    "pairsTested": 0
   },
@@ -5961,7 +6091,7 @@
    "n": 25,
    "meanClvProb": -0.0178,
    "pocket": null,
-   "tested": 11,
+   "tested": 12,
    "pairPocket": null,
    "pairsTested": 2
   },
@@ -5975,7 +6105,7 @@
     "meanClvProb": 0.0001,
     "tStat": 0.02
    },
-   "tested": 31,
+   "tested": 32,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 12,
@@ -6013,7 +6143,7 @@
     "meanClvProb": 0.0075,
     "tStat": 0.69
    },
-   "tested": 23,
+   "tested": 26,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 8,
@@ -6032,7 +6162,7 @@
     "meanClvProb": 0.0014,
     "tStat": 0.16
    },
-   "tested": 16,
+   "tested": 17,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 8,
@@ -6097,7 +6227,7 @@
    "n": 60,
    "meanClvProb": -0.019,
    "pocket": null,
-   "tested": 26,
+   "tested": 28,
    "pairPocket": null,
    "pairsTested": 5
   },
@@ -6111,7 +6241,7 @@
     "meanClvProb": 0.0107,
     "tStat": 1.28
    },
-   "tested": 41,
+   "tested": 43,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 14,
@@ -6176,7 +6306,7 @@
     "meanClvProb": 0.0075,
     "tStat": 0.69
    },
-   "tested": 19,
+   "tested": 21,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 8,
@@ -6190,7 +6320,7 @@
    "n": 27,
    "meanClvProb": -0.0211,
    "pocket": null,
-   "tested": 11,
+   "tested": 12,
    "pairPocket": {
     "feature": "edgeBar=<0.5x + timing=early",
     "n": 8,
@@ -6224,64 +6354,69 @@
   },
   {
    "slice": "ALL|restDays=long",
-   "n": 24,
-   "meanClvProb": -0.0077,
+   "n": 30,
+   "meanClvProb": -0.0042,
    "pocket": {
     "feature": "travel=<500",
     "n": 10,
     "meanClvProb": 0.0152,
     "tStat": 0.76
    },
-   "tested": 12,
+   "tested": 15,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
-    "n": 10,
-    "meanClvProb": 0.0103,
-    "tStat": 0.8
+    "n": 11,
+    "meanClvProb": 0.0127,
+    "tStat": 1.07
    },
    "pairsTested": 4
   },
   {
    "slice": "ALL|restDays=normal",
-   "n": 73,
-   "meanClvProb": -0.024,
+   "n": 133,
+   "meanClvProb": -0.0234,
    "pocket": null,
-   "tested": 26,
-   "pairPocket": null,
-   "pairsTested": 5
-  },
-  {
-   "slice": "ALL|restEdge=even",
-   "n": 22,
-   "meanClvProb": -0.0139,
-   "pocket": {
-    "feature": "role=dog",
-    "n": 9,
-    "meanClvProb": 0.0024,
-    "tStat": 0.44
-   },
-   "tested": 19,
+   "tested": 37,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 9,
-    "meanClvProb": 0.0024,
-    "tStat": 0.44
+    "meanClvProb": 0.0109,
+    "tStat": 1.35
    },
-   "pairsTested": 3
+   "pairsTested": 20
+  },
+  {
+   "slice": "ALL|restEdge=even",
+   "n": 42,
+   "meanClvProb": -0.0169,
+   "pocket": {
+    "feature": "pattern=learned-nhl-ml",
+    "n": 8,
+    "meanClvProb": 0.0017,
+    "tStat": 0.29
+   },
+   "tested": 27,
+   "pairPocket": {
+    "feature": "venue=away + role=dog",
+    "n": 12,
+    "meanClvProb": 0.0017,
+    "tStat": 0.37
+   },
+   "pairsTested": 6
   },
   {
    "slice": "ALL|restEdge=less",
-   "n": 19,
-   "meanClvProb": -0.0262,
+   "n": 28,
+   "meanClvProb": -0.0285,
    "pocket": null,
-   "tested": 10,
+   "tested": 19,
    "pairPocket": null,
-   "pairsTested": 1
+   "pairsTested": 3
   },
   {
    "slice": "ALL|restEdge=more",
-   "n": 28,
-   "meanClvProb": -0.003,
+   "n": 34,
+   "meanClvProb": -0.0007,
    "pocket": {
     "feature": "travel=<500",
     "n": 11,
@@ -6290,12 +6425,12 @@
    },
    "tested": 19,
    "pairPocket": {
-    "feature": "role=dog + moveBeforePick=none",
-    "n": 12,
-    "meanClvProb": 0.0163,
-    "tStat": 1.31
+    "feature": "venue=away + role=dog",
+    "n": 14,
+    "meanClvProb": 0.0186,
+    "tStat": 1.27
    },
-   "pairsTested": 3
+   "pairsTested": 4
   },
   {
    "slice": "ALL|role=dog",
@@ -6307,7 +6442,7 @@
     "meanClvProb": 0.014,
     "tStat": 1.45
    },
-   "tested": 32,
+   "tested": 33,
    "pairPocket": {
     "feature": "edgeBar=<0.5x + timing=early",
     "n": 20,
@@ -6377,7 +6512,7 @@
     "meanClvProb": 0.0067,
     "tStat": 0.47
    },
-   "tested": 38,
+   "tested": 40,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 18,
@@ -6391,7 +6526,7 @@
    "n": 21,
    "meanClvProb": -0.015,
    "pocket": null,
-   "tested": 8,
+   "tested": 9,
    "pairPocket": null,
    "pairsTested": 0
   },
@@ -6517,12 +6652,12 @@
    "n": 56,
    "meanClvProb": -0.0005,
    "pocket": {
-    "feature": "bookAtPick=DraftKings",
-    "n": 8,
-    "meanClvProb": 0.0145,
-    "tStat": 1.56
+    "feature": "restEdge=more",
+    "n": 19,
+    "meanClvProb": 0.0168,
+    "tStat": 1.4
    },
-   "tested": 35,
+   "tested": 36,
    "pairPocket": {
     "feature": "injury=any + role=dog",
     "n": 8,
@@ -6536,7 +6671,7 @@
    "n": 58,
    "meanClvProb": -0.0278,
    "pocket": null,
-   "tested": 31,
+   "tested": 33,
    "pairPocket": null,
    "pairsTested": 5
   },
@@ -6865,7 +7000,7 @@
    "n": 30,
    "meanClvProb": -0.0239,
    "pocket": null,
-   "tested": 11,
+   "tested": 12,
    "pairPocket": null,
    "pairsTested": 0
   },
@@ -6879,7 +7014,7 @@
     "meanClvProb": 0.0049,
     "tStat": 0.47
    },
-   "tested": 13,
+   "tested": 15,
    "pairPocket": null,
    "pairsTested": 0
   },
@@ -6888,7 +7023,7 @@
    "n": 36,
    "meanClvProb": -0.0199,
    "pocket": null,
-   "tested": 16,
+   "tested": 18,
    "pairPocket": null,
    "pairsTested": 1
   },
@@ -6897,7 +7032,7 @@
    "n": 18,
    "meanClvProb": -0.0309,
    "pocket": null,
-   "tested": 9,
+   "tested": 11,
    "pairPocket": null,
    "pairsTested": 2
   },
@@ -6906,7 +7041,7 @@
    "n": 30,
    "meanClvProb": -0.0156,
    "pocket": null,
-   "tested": 12,
+   "tested": 13,
    "pairPocket": null,
    "pairsTested": 1
   },
@@ -6915,7 +7050,7 @@
    "n": 29,
    "meanClvProb": -0.0264,
    "pocket": null,
-   "tested": 13,
+   "tested": 15,
    "pairPocket": null,
    "pairsTested": 3
   },
@@ -6924,7 +7059,7 @@
    "n": 36,
    "meanClvProb": -0.0199,
    "pocket": null,
-   "tested": 16,
+   "tested": 18,
    "pairPocket": null,
    "pairsTested": 4
   },
@@ -6933,13 +7068,36 @@
    "n": 27,
    "meanClvProb": -0.0211,
    "pocket": null,
-   "tested": 11,
+   "tested": 12,
    "pairPocket": {
     "feature": "edgeBar=<0.5x + timing=early",
     "n": 8,
     "meanClvProb": 0.0025,
     "tStat": 0.14
    },
+   "pairsTested": 2
+  },
+  {
+   "slice": "NFL|restDays=normal",
+   "n": 60,
+   "meanClvProb": -0.0227,
+   "pocket": null,
+   "tested": 25,
+   "pairPocket": null,
+   "pairsTested": 8
+  },
+  {
+   "slice": "NFL|restEdge=even",
+   "n": 20,
+   "meanClvProb": -0.0201,
+   "pocket": {
+    "feature": "role=dog",
+    "n": 9,
+    "meanClvProb": 0.0001,
+    "tStat": 0.01
+   },
+   "tested": 11,
+   "pairPocket": null,
    "pairsTested": 2
   },
   {
@@ -6952,7 +7110,7 @@
     "meanClvProb": 0.0049,
     "tStat": 0.47
    },
-   "tested": 6,
+   "tested": 8,
    "pairPocket": {
     "feature": "edgeBar=<0.5x + timing=early",
     "n": 8,
@@ -6966,7 +7124,7 @@
    "n": 20,
    "meanClvProb": -0.0292,
    "pocket": null,
-   "tested": 12,
+   "tested": 14,
    "pairPocket": null,
    "pairsTested": 0
   },
@@ -6975,7 +7133,7 @@
    "n": 18,
    "meanClvProb": -0.0323,
    "pocket": null,
-   "tested": 6,
+   "tested": 7,
    "pairPocket": null,
    "pairsTested": 0
   },
@@ -6984,7 +7142,7 @@
    "n": 17,
    "meanClvProb": -0.01,
    "pocket": null,
-   "tested": 4,
+   "tested": 5,
    "pairPocket": null,
    "pairsTested": 0
   },
@@ -6998,7 +7156,7 @@
     "meanClvProb": 0.0032,
     "tStat": 0.23
    },
-   "tested": 21,
+   "tested": 23,
    "pairPocket": null,
    "pairsTested": 3
   },
@@ -7007,7 +7165,7 @@
    "n": 22,
    "meanClvProb": -0.0313,
    "pocket": null,
-   "tested": 10,
+   "tested": 12,
    "pairPocket": null,
    "pairsTested": 2
   },
@@ -7016,7 +7174,7 @@
    "n": 25,
    "meanClvProb": -0.0117,
    "pocket": {
-    "feature": "pattern=learned-nhl-ml",
+    "feature": "market=h2h",
     "n": 8,
     "meanClvProb": 0.0147,
     "tStat": 1.61
@@ -7105,5 +7263,5 @@
    "pairsTested": 1
   }
  ],
- "hypothesesAdded": 0
+ "hypothesesAdded": 3
 }
