@@ -462,9 +462,12 @@ def check_stop(book, cfg, now):
 
 def spent_today(book, now, source=None):
     day = now.astimezone(CT).strftime("%Y-%m-%d")
-    return sum(t["cost"] + t["fee"] for t in book["trades"]
-               if pull.parse(t["time"]).astimezone(CT).strftime("%Y-%m-%d") == day
-               and (source is None or t["source"] == source))
+    spent = sum(t["cost"] + t["fee"] for t in book["trades"]
+                if t.get("status") != "void" and pull.parse(t["time"]).astimezone(CT).strftime("%Y-%m-%d") == day
+                and (source is None or t["source"] == source))
+    # Resting live maker orders hold their unfilled remainder against the day's cap.
+    return spent + sum((o["count"] - o.get("filledSeen", 0)) * o["price"] for o in book.get("orders") or []
+                       if o.get("status") == "resting" and (source is None or o["source"] == source))
 
 
 def size(cfg, book, price, prob, now, source=None):
@@ -919,11 +922,17 @@ def main(dry=False):
         if name == "live" and (not live_ok or book.get("stopped")):
             snapshot(book, now)
             continue
-        have = {(t["event"], t["kind"], t["source"]) for t in book["trades"]}
+        if name == "live" and live_ok and signer:
+            try:
+                reconcile(book, signer, base, now)
+            except Exception as exc:  # noqa: BLE001
+                print("reconcile", exc)
+        have = {(t["event"], t["kind"], t["source"]) for t in book["trades"] if t.get("status") != "void"}
+        have |= {(o["event"], o["kind"], o["source"]) for o in book.get("orders") or [] if o.get("status") == "resting"}
         for c in cands:
             if (c["event"], c["kind"], c["source"]) in have:
                 continue
-            if name == "live" and not source_allowed(c, cfg_live, official):
+            if name == "live" and not source_allowed(c, cfg_live, official, state.get("sourceStatus")):
                 continue
             if name == "live" and c["sport"] not in (cfg.get("liveSports") or cfg.get("sports") or []):
                 continue          # new sports and leagues trade on paper until their matching has been checked
@@ -943,6 +952,20 @@ def main(dry=False):
                          status="open", book=name, mode=mode if name == "live" else "paper")
             if track:
                 trade["trackOnly"] = True
+            if name == "live" and cfg.get("liveOrderType") == "maker":
+                m = QUOTES.get(c["ticker"]) or {}
+                bid = f(m.get(f"{c['side']}_bid_dollars"))
+                mprice = None if bid is None else (round(bid + 0.01, 2) if bid + 0.01 < c["ask"] - 1e-9 else round(bid, 2))
+                if mprice is None or mprice < 0.01 or c["fair"] - mprice - maker_fee_raw(mprice) < cfg["minEdge"]:
+                    continue
+                order = place_maker(signer, base, c, n, mprice)
+                if not order:
+                    continue
+                order["time"] = iso(now)
+                book.setdefault("orders", []).append(order)
+                have.add((c["event"], c["kind"], c["source"]))
+                placed[name] += 1
+                continue
             if name == "live":
                 filled = place(signer, base, c, n)
                 if not filled:
@@ -956,6 +979,7 @@ def main(dry=False):
         snapshot(book, now)
 
     maker_posted = maker_post(maker, cands, cfg, now)
+    state["sourceStatus"] = source_status(state["paper"], state.get("sourceStatus"), now)
     state["account"] = account_check(mode)
     state["asOf"] = iso(now)
     if state["live"].get("stopped") is None and check_stop(state["live"], cfg_live, now):
@@ -964,6 +988,9 @@ def main(dry=False):
                        "liveWhy": live_why, "paper": book_state(state["paper"]), "live": book_state(state["live"]),
                        "paperStopped": state["paper"].get("stopped"), "liveStopped": state["live"].get("stopped"),
                        "maker": maker_summary(maker, state["paper"]),
+                       "sourceStatus": state.get("sourceStatus"),
+                       "liveRule": "Live money only for confirmed signals: mirrors of official EDGE patterns, or Kalshi "
+                                   "sources whose paper CLV net of fees cleared the bar and a 15-trade confirmation.",
                        "config": {k: cfg_live.get(k) for k in ("startingBankroll", "stopLoss", "takeProfit", "kellyFraction",
                                                                "maxPerTradePct", "maxPerDay", "minEdge", "liveSources")},
                        "unit": round(cfg_live["startingBankroll"] / 100, 2),
@@ -1046,32 +1073,199 @@ def live_allowed(control, book):
     return True, f"on since {control.get('sessionId')}"
 
 
-def source_allowed(c, cfg, official):
+SOURCE_STAGES = [(15, 2.5), (20, 2.0)]   # grade.py's promotion stages, applied to Kalshi CLV net of fees
+SOURCE_CONFIRM_N = 15
+
+
+def source_status(paper, prev, now):
+    """North-star rules 4 and 7 for Kalshi's own sources (kalshi-sharp, kalshi-sharp-alt, kalshi-drift, cs2-elo):
+    a source is official only after its paper CLV, net of the taker fee per contract, clears grade.py's bar and
+    then a confirmation run of SOURCE_CONFIRM_N fresh trades. Mirror sources follow their EDGE pattern instead."""
+    by = {}
+    for t in paper["trades"]:
+        if t.get("clv") is None or t["source"].startswith("mirror:"):
+            continue
+        per_fee = (t["fee"] / t["count"]) if t.get("count") else FEE_RATE * t["ask"] * (1 - t["ask"])
+        by.setdefault(t["source"], []).append((t["time"], t["clv"] - per_fee))
+    out = {}
+    for src, vals in by.items():
+        v = [x for _, x in vals]
+        n, mean = len(v), sum(v) / len(v)
+        sd = (sum((x - mean) ** 2 for x in v) / (n - 1)) ** 0.5 if n > 1 else 0
+        t = mean / (sd / n ** 0.5) if sd else 0.0
+        need = None
+        for k, tt in SOURCE_STAGES:
+            if n >= k:
+                need = tt
+        rec = dict((prev or {}).get(src) or {})
+        clears = need is not None and mean > 0 and t >= need
+        if clears and not rec.get("clearedAt"):
+            rec = {"clearedAt": iso(now)}
+        if not clears and rec.get("result") != "passed":
+            rec = {}
+        fresh = [x for when, x in vals if rec.get("clearedAt") and when > rec["clearedAt"]]
+        if rec.get("clearedAt") and not rec.get("result") and len(fresh) >= SOURCE_CONFIRM_N:
+            rec["result"] = "passed" if sum(fresh) / len(fresh) > 0 else None
+            if not rec["result"]:
+                rec = {}
+        if not clears:
+            rec = {}
+        status = "official" if rec.get("result") == "passed" else "confirming" if rec.get("clearedAt") else "shadow"
+        out[src] = {"status": status, "n": n, "meanClvNet": round(mean, 4), "t": round(t, 2), "tNeeded": need,
+                    "freshN": len(fresh), **({"clearedAt": rec["clearedAt"]} if rec.get("clearedAt") else {}),
+                    **({"result": rec["result"]} if rec.get("result") else {})}
+    return out
+
+
+def source_allowed(c, cfg, official, sources=None):
+    """Live money only for confirmed signals: a mirror of an official EDGE pattern, or a Kalshi source whose own
+    status is official. The switch panel's live-source list can narrow this further, never widen it."""
+    eligible = (c["source"].startswith("mirror:") and c.get("pattern") in official) \
+        or (sources or {}).get(c["source"], {}).get("status") == "official"
+    if not eligible:
+        return False
     allowed = cfg.get("liveSources") or []
-    if c["source"] in allowed:
+    if not allowed or "official" in allowed:
         return True
-    return "official" in allowed and c["source"].startswith("mirror:") and c.get("pattern") in official
+    return c["source"] in allowed
+
+
+def fp(x):
+    """Kalshi fixed-point strings ("12.00", "0.5600") or numbers to float; None when absent."""
+    try:
+        return None if x is None or x == "" else float(x)
+    except (TypeError, ValueError):
+        return None
+
+
+def order_numbers(o, price):
+    """Fills, cost and fee from a Kalshi order object, old or new field names (2026-10-21: Kalshi reports
+    fill_count_fp; the old code read fill_count, so a filled order looked unfilled and could be bought again)."""
+    filled = fp(o.get("fill_count_fp"))
+    if filled is None:
+        filled = fp(o.get("fill_count"))
+    filled = int(round(filled or 0))
+    cost = sum(v for v in (fp(o.get("taker_fill_cost_dollars")), fp(o.get("maker_fill_cost_dollars"))) if v) or filled * price
+    fees = [v for v in (fp(o.get("taker_fees_dollars")), fp(o.get("maker_fees_dollars"))) if v is not None]
+    return filled, round(cost, 2), round(sum(fees), 2) if fees else None
+
+
+def get_order(signer, base, order_id):
+    return (signer.call(base, "GET", f"/portfolio/orders/{order_id}") or {}).get("order") or {}
+
+
+def create_order(signer, base, c, n, price, tif, post_only=False, expiration=None):
+    """One limit order, current endpoint first (POST /portfolio/events/orders, bid = buy YES, ask = sell YES =
+    buy NO at 1 - price), the legacy endpoint if that path is refused. Returns (order_id, path) or (None, why)."""
+    cid = f"edge-{c['ticker']}-{c['side']}-{int(time.time() * 1000)}"
+    yes_price = price if c["side"] == "yes" else round(1 - price, 4)
+    body = {"ticker": c["ticker"], "side": "bid" if c["side"] == "yes" else "ask", "count": f"{n:.2f}",
+            "price": f"{yes_price:.4f}", "time_in_force": tif, "self_trade_prevention_type": "taker_at_cross",
+            "client_order_id": cid}
+    if post_only:
+        body["post_only"] = True
+    if expiration:
+        body["expiration_time"] = int(expiration)
+    try:
+        r = signer.call(base, "POST", "/portfolio/events/orders", body) or {}
+        if r.get("order_id"):
+            return r["order_id"], "v2"
+    except urllib.error.HTTPError as exc:
+        if exc.code not in (404, 405):
+            return None, f"v2 refused: HTTP {exc.code} {exc.read()[:200]!r}"
+    except Exception as exc:  # noqa: BLE001
+        return None, f"v2 failed: {exc}"
+    legacy = {"ticker": c["ticker"], "action": "buy", "side": c["side"], "count": n, "type": "limit",
+              "time_in_force": tif, "client_order_id": cid + "-l", f"{c['side']}_price": int(round(price * 100))}
+    if post_only:
+        legacy["post_only"] = True
+    if expiration:
+        legacy["expiration_ts"] = int(expiration)
+    try:
+        o = (signer.call(base, "POST", "/portfolio/orders", legacy) or {}).get("order") or {}
+        return (o.get("order_id"), "legacy") if o.get("order_id") else (None, "legacy: no order id")
+    except Exception as exc:  # noqa: BLE001
+        return None, f"legacy failed: {exc}"
 
 
 def place(signer, base, c, n):
-    """Buy n contracts at no worse than the ask, immediate-or-cancel. Returns fill info or None."""
-    body = {"ticker": c["ticker"], "action": "buy", "side": c["side"], "count": n, "type": "limit",
-            "time_in_force": "immediate_or_cancel",
-            "client_order_id": f"edge-{c['ticker']}-{c['side']}-{int(time.time())}"}
-    body[f"{c['side']}_price"] = int(round(c["ask"] * 100))
-    try:
-        o = signer.call(base, "POST", "/portfolio/orders", body).get("order") or {}
-    except Exception as exc:  # noqa: BLE001
-        print("order failed", c["ticker"], exc)
+    """Buy n contracts at no worse than the ask, immediate-or-cancel. Fills are read back from the order itself.
+    If the read-back fails the trade is kept as unconfirmed at the full count, so the same bet is never bought
+    twice, and reconcile() corrects it on the next run."""
+    oid, how = create_order(signer, base, c, n, c["ask"], "immediate_or_cancel")
+    if not oid:
+        print("order failed", c["ticker"], how)
         return None
-    filled = int(f(o.get("fill_count")) or 0)
+    try:
+        o = get_order(signer, base, oid)
+    except Exception as exc:  # noqa: BLE001
+        print("order read-back failed", c["ticker"], exc)
+        return {"count": n, "cost": round(n * c["ask"], 2), "fee": fee(c["ask"], n), "orderId": oid,
+                "orderPath": how, "unconfirmed": True}
+    filled, cost, fees = order_numbers(o, c["ask"])
     if filled < 1:
         print("order not filled", c["ticker"], o.get("status"))
         return None
-    cost = f(o.get("taker_fill_cost_dollars")) or filled * c["ask"]
-    fees = f(o.get("taker_fees_dollars"))
-    return {"count": filled, "cost": round(cost, 2), "fee": round(fees if fees is not None else fee(c["ask"], filled), 2),
-            "orderId": o.get("order_id"), "orderStatus": o.get("status")}
+    return {"count": filled, "cost": cost, "fee": fees if fees is not None else fee(c["ask"], filled), "orderId": oid,
+            "orderPath": how, "orderStatus": o.get("status")}
+
+
+def place_maker(signer, base, c, n, price):
+    """A resting post-only order at `price`, expiring 5 minutes before the start. Returns the order record or None.
+    Used only when trading/config.json liveOrderType is "maker" (north-star rule 3, off until the paper maker book
+    beats the taker book net of fees)."""
+    exp = pull.parse(c["commence"]).timestamp() - 300
+    oid, how = create_order(signer, base, c, n, price, "good_till_canceled", post_only=True, expiration=exp)
+    if not oid:
+        print("maker order failed", c["ticker"], how)
+        return None
+    keep = ("ticker", "title", "sport", "kind", "event", "commence", "side", "strike", "source", "fair", "edge",
+            "estimated", "why")
+    return {**{k: c[k] for k in keep if k in c}, "orderId": oid, "orderPath": how, "price": price, "count": n,
+            "filledSeen": 0, "status": "resting"}
+
+
+def reconcile(book, signer, base, now):
+    """Live book upkeep: unconfirmed taker fills get their real numbers, and resting maker orders turn their fills
+    into trades. Runs before new orders are placed."""
+    changed = 0
+    for t in book["trades"]:
+        if not t.get("unconfirmed") or not t.get("orderId"):
+            continue
+        try:
+            o = get_order(signer, base, t["orderId"])
+        except Exception as exc:  # noqa: BLE001
+            print("reconcile", t["ticker"], exc)
+            continue
+        filled, cost, fees = order_numbers(o, t["ask"])
+        t.update(count=filled, cost=cost, fee=fees if fees is not None else fee(t["ask"], max(filled, 1)) if filled else 0.0,
+                 unconfirmed=False, orderStatus=o.get("status"))
+        if filled < 1:
+            t.update(status="void", note="order read back with no fill")
+        changed += 1
+    for o in book.get("orders") or []:
+        if o["status"] != "resting":
+            continue
+        try:
+            got = get_order(signer, base, o["orderId"])
+        except Exception as exc:  # noqa: BLE001
+            print("maker reconcile", o["ticker"], exc)
+            continue
+        filled, cost, fees = order_numbers(got, o["price"])
+        if filled > o["filledSeen"]:
+            add = filled - o["filledSeen"]
+            share = add / filled if filled else 1
+            book["trades"].append({k: o[k] for k in ("ticker", "title", "sport", "kind", "event", "commence", "side",
+                                                     "strike", "source", "fair", "edge", "estimated", "why") if k in o}
+                                  | {"ask": o["price"], "count": add, "cost": round(cost * share, 2),
+                                     "fee": round((fees or 0) * share, 2), "time": iso(now), "status": "open",
+                                     "book": "live", "mode": "maker", "orderId": o["orderId"]})
+            o["filledSeen"] = filled
+            changed += 1
+        st = got.get("status")
+        if st in ("canceled", "executed") or pull.parse(o["commence"]) <= now:
+            o["status"] = st or "expired"
+    return changed
 
 
 if __name__ == "__main__":
