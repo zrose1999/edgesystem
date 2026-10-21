@@ -183,7 +183,9 @@ class Signer:
 
     def __init__(self, key_id, pem):
         from cryptography.hazmat.primitives import serialization   # only needed for real orders
-        self.key_id = key_id
+        self.key_id = key_id.strip()
+        # Tolerate secrets pasted with surrounding quotes, literal "\n" sequences or Windows line ends.
+        pem = pem.strip().strip('"').strip("'").replace("\\n", "\n").replace("\r\n", "\n")
         self.key = serialization.load_pem_private_key(pem.encode(), password=None)
 
     def headers(self, method, path):
