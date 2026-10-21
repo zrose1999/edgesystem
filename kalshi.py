@@ -965,6 +965,11 @@ def main(dry=False):
                     if not test_allowed(c, cfg_live, tcfg, track_only):
                         skip(name, "not confirmed, not test-eligible")
                         continue
+                    held = {(t["ticker"], t["side"]) for t in book["trades"] if t.get("status") != "void"} | \
+                        {(o["ticker"], o["side"]) for o in book.get("orders") or [] if o.get("status") == "resting"}
+                    if (c["ticker"], c["side"]) in held:
+                        skip(name, "test: same contract already held")   # two signals, one real bet
+                        continue
                     n_test = int(tcfg.get("contracts", 1))
                     if test_spent_today(book, now) + n_test * c["ask"] > float(tcfg.get("maxPerDay", 5.0)) + 1e-9:
                         skip(name, "test cap reached")
