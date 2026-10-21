@@ -73,3 +73,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-21 | NFL: injury=any + role=dog | 9 | +0.1% | found inside NFL timing=early (best of 3 pairs tested); small sample, may share reads with other rows |
 | 2026-10-21 | NHL: role=dog + venue=away | 8 | +0.1% | found inside NHL restDays=1day (best of 3 pairs tested); small sample, may share reads with other rows |
 | 2026-10-21 | NHL: travel=<500 + venue=away | 8 | +1.1% | found inside NHL venue=away (best of 8 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | grade=B + tzShift=east | 8 | +0.3% | found inside ALL tzShift=east (best of 15 features tested); small sample, may share reads with other rows |
