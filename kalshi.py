@@ -454,10 +454,13 @@ def book_state(book):
 
 
 def check_stop(book, cfg, now):
+    """Stop loss and take profit in dollars from the start. 0 or blank means no limit (2026-10-21: a take profit of 0
+    on the site stopped a fresh $35 book before its first order)."""
     st = book_state(book)
-    if st["equity"] <= book["start"] - cfg["stopLoss"]:
+    sl, tp = cfg.get("stopLoss") or 0, cfg.get("takeProfit") or 0
+    if sl > 0 and st["equity"] <= book["start"] - sl:
         return "stop-loss"
-    if st["equity"] >= book["start"] + cfg["takeProfit"]:
+    if tp > 0 and st["equity"] >= book["start"] + tp:
         return "take-profit"
     return None
 

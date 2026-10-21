@@ -31,6 +31,7 @@ How to write here:
 - 2026-10-21: Every chat and scheduled task reads STATE.md and DESK.md first and records Zack's decisions here before it ends.
 
 ## Decisions log
+- 2026-10-21: Zack switched live trading On (bankroll $35, sources official, stop loss $35, take profit 0). The first session stopped itself at once because take profit 0 was read as a limit; fixed (0 = no limit). Zack to switch off and on to start a fresh session. (chat: ideas tested this week)
 - 2026-10-21: Zack approved small real-money tests on Kalshi (balance about $35) instead of paper only. Built as liveTest: 1 contract, maker orders, $5 a day. Waiting on Zack to switch trading On and set the panel's live sources to "official" (currently kalshi-sharp only). (chat: ideas tested this week)
 - 2026-10-21: Zack: do everything the north star says, scrapping what conflicts. Done: reads priced at the best US book; Kalshi fill bug fixed, current order endpoint, live maker orders built (off), live money only for confirmed signals; stats-model, trend-fade, nba-stats-model, nba-model-fav, luck-reversion, early-number parked; discover.py retired. (chat: ideas tested this week)
 - 2026-10-21: First live run with the overhaul (19:51Z) green: bestAtPick on all 4 new reads, 395 picks scored on Pinnacle's close, modelcheck written, 58 Kalshi maker orders resting. (chat: ideas tested this week)
