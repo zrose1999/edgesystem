@@ -902,6 +902,10 @@ def main(dry=False):
         return
 
     placed = {"paper": 0, "live": 0}
+    skips = {"paper": {}, "live": {}}
+
+    def skip(book_name, why):
+        skips[book_name][why] = skips[book_name].get(why, 0) + 1
     live_ok, live_why = live_allowed(control, state["live"])
     signer = None
     if live_ok:
@@ -922,6 +926,7 @@ def main(dry=False):
         if name == "paper":
             book["stopped"] = None          # research never stops; the mark above shows where the limit hit
         if name == "live" and (not live_ok or book.get("stopped")):
+            skip("live", f"book not trading: {live_why if not live_ok else book['stopped']}")
             snapshot(book, now)
             continue
         if name == "live" and live_ok and signer:
@@ -933,8 +938,10 @@ def main(dry=False):
         have |= {(o["event"], o["kind"], o["source"]) for o in book.get("orders") or [] if o.get("status") == "resting"}
         for c in cands:
             if (c["event"], c["kind"], c["source"]) in have:
+                skip(name, "already held")
                 continue
             if name == "live" and c["sport"] not in (cfg.get("liveSports") or cfg.get("sports") or []):
+                skip(name, "sport paper-only")
                 continue          # new sports and leagues trade on paper until their matching has been checked
             # Scanner strategies (scan.py) are track-only until grade.py promotes them: price, close and CLV, no stake.
             track_only = c["source"] in (cfg.get("trackOnlySources") or []) or c["source"].startswith(("mirror:scan-", "mirror:learned-scan-"))
@@ -942,18 +949,22 @@ def main(dry=False):
             is_test = False
             if name == "live":
                 if track_only:
+                    skip(name, "track-only")
                     continue
                 if not source_allowed(c, cfg_live, official, state.get("sourceStatus")):
                     tcfg = cfg.get("liveTest") or {}
                     if not test_allowed(c, cfg_live, tcfg, track_only):
+                        skip(name, "not confirmed, not test-eligible")
                         continue
                     n_test = int(tcfg.get("contracts", 1))
                     if test_spent_today(book, now) + n_test * c["ask"] > float(tcfg.get("maxPerDay", 5.0)) + 1e-9:
+                        skip(name, "test cap reached")
                         continue
                     is_test = True
             n = int((cfg.get("liveTest") or {}).get("contracts", 1)) if is_test else \
                 (0 if track else size(bcfg, book, c["ask"], c["fair"], now, c["source"] if name == "paper" else None))
             if n < 1 and not track:
+                skip(name, "size 0")
                 continue
             trade = {k: c[k] for k in ("ticker", "title", "sport", "kind", "event", "commence", "side", "ask",
                                        "strike", "source", "fair", "edge", "estimated", "why") if k in c}
@@ -971,9 +982,11 @@ def main(dry=False):
                 bid = f(m.get(f"{c['side']}_bid_dollars"))
                 mprice = None if bid is None else (round(bid + 0.01, 2) if bid + 0.01 < c["ask"] - 1e-9 else round(bid, 2))
                 if mprice is None or mprice < 0.01 or c["fair"] - mprice - maker_fee_raw(mprice) < cfg["minEdge"]:
+                    skip(name, "no maker price with edge")
                     continue
                 order = place_maker(signer, base, c, n, mprice)
                 if not order:
+                    skip(name, "maker order failed")
                     continue
                 order["time"] = iso(now)
                 if is_test:
@@ -985,6 +998,7 @@ def main(dry=False):
             if name == "live":
                 filled = place(signer, base, c, n)
                 if not filled:
+                    skip(name, "taker order failed or unfilled")
                     continue
                 trade.update(filled)
             book["trades"].append(trade)
@@ -1004,6 +1018,7 @@ def main(dry=False):
                        "liveWhy": live_why, "paper": book_state(state["paper"]), "live": book_state(state["live"]),
                        "paperStopped": state["paper"].get("stopped"), "liveStopped": state["live"].get("stopped"),
                        "maker": maker_summary(maker, state["paper"]),
+                       "liveSkips": skips["live"], "liveCandidates": len(cands),
                        "sourceStatus": state.get("sourceStatus"),
                        "liveRule": "Full-size live money only for confirmed signals: mirrors of official EDGE patterns, or "
                                    "Kalshi sources whose paper CLV net of fees cleared the bar and a 15-trade confirmation. "
@@ -1021,7 +1036,7 @@ def main(dry=False):
     save(BOOK, state)
     print(json.dumps({"mode": mode, "live": live_why, "kalshiMarkets": fetched, "eventsMatched": matched,
                       "candidates": len(cands), "placed": placed, "settled": settled,
-                      "maker": {"posted": maker_posted, "filled": mfill, "expired": mexp},
+                      "maker": {"posted": maker_posted, "filled": mfill, "expired": mexp}, "liveSkips": skips["live"],
                       "paper": book_state(state["paper"]), "liveBook": book_state(state["live"])}))
 
 
