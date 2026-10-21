@@ -1,0 +1,398 @@
+{
+ "asOf": "2026-10-21T19:52:16Z",
+ "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
+ "patterns": {
+  "edge-stack": {
+   "pattern": "edge-stack",
+   "unit": "points",
+   "n": 10,
+   "meanPredicted": 1.7151,
+   "meanRealized": -0.1,
+   "tRealized": -0.32,
+   "capture": -0.06,
+   "rightWay": 0.5,
+   "noMove": 4,
+   "logLossGain": {
+    "n": 10,
+    "mean": -0.01326,
+    "t": -0.6
+   },
+   "verdict": "collecting"
+  },
+  "edge-stack|prob": {
+   "pattern": "edge-stack",
+   "unit": "prob",
+   "n": 2,
+   "meanPredicted": 0.0313,
+   "meanRealized": -0.0045,
+   "tRealized": -0.29,
+   "capture": -0.14,
+   "rightWay": 0.5,
+   "noMove": 0,
+   "logLossGain": {
+    "n": 2,
+    "mean": -0.00893,
+    "t": -0.15
+   },
+   "verdict": "collecting"
+  },
+  "goalie-news": {
+   "pattern": "goalie-news",
+   "unit": "prob",
+   "n": 8,
+   "meanPredicted": 0.0504,
+   "meanRealized": 0.0025,
+   "tRealized": 0.9,
+   "capture": 0.05,
+   "rightWay": 0.75,
+   "noMove": 4,
+   "logLossGain": {
+    "n": 8,
+    "mean": 0.03054,
+    "t": 0.8
+   },
+   "verdict": "collecting"
+  },
+  "learned-nba-total": {
+   "pattern": "learned-nba-total",
+   "unit": "points",
+   "n": 2,
+   "meanPredicted": 1.433,
+   "meanRealized": 1.0,
+   "tRealized": 1.0,
+   "capture": 0.7,
+   "rightWay": 1.0,
+   "noMove": 1,
+   "logLossGain": {
+    "n": 2,
+    "mean": 0.06973,
+    "t": 5.43
+   },
+   "verdict": "collecting"
+  },
+  "learned-ncaaf-spread": {
+   "pattern": "learned-ncaaf-spread",
+   "unit": "points",
+   "n": 16,
+   "meanPredicted": 1.0836,
+   "meanRealized": 0.0938,
+   "tRealized": 0.31,
+   "capture": 0.09,
+   "rightWay": 0.444,
+   "noMove": 7,
+   "logLossGain": {
+    "n": 16,
+    "mean": 0.00099,
+    "t": 0.07
+   },
+   "verdict": "collecting"
+  },
+  "learned-ncaaf-total": {
+   "pattern": "learned-ncaaf-total",
+   "unit": "points",
+   "n": 7,
+   "meanPredicted": 0.8613,
+   "meanRealized": -0.4286,
+   "tRealized": -0.81,
+   "capture": -0.5,
+   "rightWay": 0.286,
+   "noMove": 0,
+   "logLossGain": {
+    "n": 7,
+    "mean": 0.02619,
+    "t": 3.51
+   },
+   "verdict": "collecting"
+  },
+  "learned-nhl-ml": {
+   "pattern": "learned-nhl-ml",
+   "unit": "prob",
+   "n": 14,
+   "meanPredicted": 0.0263,
+   "meanRealized": 0.0233,
+   "tRealized": 3.53,
+   "capture": 0.89,
+   "rightWay": 1.0,
+   "noMove": 2,
+   "logLossGain": {
+    "n": 14,
+    "mean": -0.01777,
+    "t": -1.16
+   },
+   "verdict": "collecting"
+  },
+  "learned-nhl-over": {
+   "pattern": "learned-nhl-over",
+   "unit": "prob",
+   "n": 12,
+   "meanPredicted": 0.0355,
+   "meanRealized": 0.0119,
+   "tRealized": 1.74,
+   "capture": 0.33,
+   "rightWay": 0.75,
+   "noMove": 0,
+   "logLossGain": {
+    "n": 12,
+    "mean": 0.0367,
+    "t": 1.91
+   },
+   "verdict": "collecting"
+  },
+  "learned-soccer-1x2": {
+   "pattern": "learned-soccer-1x2",
+   "unit": "prob",
+   "n": 1,
+   "meanPredicted": 0.0203,
+   "meanRealized": 0.0374,
+   "tRealized": 0.0,
+   "capture": 1.84,
+   "rightWay": 1.0,
+   "noMove": 0,
+   "logLossGain": {
+    "n": 1,
+    "mean": -0.03732,
+    "t": 0.0
+   },
+   "verdict": "collecting"
+  },
+  "nba-model-fav": {
+   "pattern": "nba-model-fav",
+   "unit": "points",
+   "n": 2,
+   "meanPredicted": 0.64,
+   "meanRealized": -1.5,
+   "tRealized": -1.0,
+   "capture": -2.34,
+   "rightWay": 0.0,
+   "noMove": 1,
+   "logLossGain": {
+    "n": 2,
+    "mean": -0.03949,
+    "t": -1.59
+   },
+   "verdict": "collecting"
+  },
+  "nba-stats-model": {
+   "pattern": "nba-stats-model",
+   "unit": "points",
+   "n": 5,
+   "meanPredicted": 1.202,
+   "meanRealized": 0.8,
+   "tRealized": 1.63,
+   "capture": 0.67,
+   "rightWay": 1.0,
+   "noMove": 3,
+   "logLossGain": {
+    "n": 5,
+    "mean": 0.02521,
+    "t": 0.82
+   },
+   "verdict": "collecting"
+  },
+  "ncaaf-spot": {
+   "pattern": "ncaaf-spot",
+   "unit": "points",
+   "n": 32,
+   "meanPredicted": 0.36,
+   "meanRealized": 0.0,
+   "tRealized": 0.0,
+   "capture": 0.0,
+   "rightWay": 0.478,
+   "noMove": 9,
+   "logLossGain": {
+    "n": 32,
+    "mean": -0.00019,
+    "t": -0.06
+   },
+   "verdict": "collecting"
+  },
+  "ncaaf-total-move": {
+   "pattern": "ncaaf-total-move",
+   "unit": "points",
+   "n": 18,
+   "meanPredicted": 0.8844,
+   "meanRealized": 0.3889,
+   "tRealized": 0.96,
+   "capture": 0.44,
+   "rightWay": 0.643,
+   "noMove": 4,
+   "logLossGain": {
+    "n": 18,
+    "mean": -0.00303,
+    "t": -0.37
+   },
+   "verdict": "collecting"
+  },
+  "news-lag": {
+   "pattern": "news-lag",
+   "unit": "points",
+   "n": 43,
+   "meanPredicted": 1.3372,
+   "meanRealized": 0.1977,
+   "tRealized": 0.91,
+   "capture": 0.15,
+   "rightWay": 0.565,
+   "noMove": 20,
+   "logLossGain": {
+    "n": 43,
+    "mean": -0.01237,
+    "t": -0.71
+   },
+   "verdict": "collecting"
+  },
+  "nhl-ml-move": {
+   "pattern": "nhl-ml-move",
+   "unit": "prob",
+   "n": 1,
+   "meanPredicted": 0.0211,
+   "meanRealized": -0.0204,
+   "tRealized": 0.0,
+   "capture": -0.97,
+   "rightWay": 0.0,
+   "noMove": 0,
+   "logLossGain": {
+    "n": 1,
+    "mean": 0.04752,
+    "t": 0.0
+   },
+   "verdict": "collecting"
+  },
+  "nhl-total-move": {
+   "pattern": "nhl-total-move",
+   "unit": "prob",
+   "n": 2,
+   "meanPredicted": 0.0314,
+   "meanRealized": 0.0063,
+   "tRealized": 1.0,
+   "capture": 0.2,
+   "rightWay": 1.0,
+   "noMove": 1,
+   "logLossGain": {
+    "n": 2,
+    "mean": 0.01938,
+    "t": 0.3
+   },
+   "verdict": "collecting"
+  },
+  "sharp-drift": {
+   "pattern": "sharp-drift",
+   "unit": "prob",
+   "n": 2,
+   "meanPredicted": 0.0133,
+   "meanRealized": -0.0128,
+   "tRealized": -1.28,
+   "capture": -0.96,
+   "rightWay": 0.0,
+   "noMove": 0,
+   "logLossGain": {
+    "n": 1,
+    "mean": -0.02105,
+    "t": 0.0
+   },
+   "verdict": "collecting"
+  },
+  "sharp-soft": {
+   "pattern": "sharp-soft",
+   "unit": "prob",
+   "n": 11,
+   "meanPredicted": 0.0268,
+   "meanRealized": -0.0058,
+   "tRealized": -1.28,
+   "capture": -0.22,
+   "rightWay": 0.375,
+   "noMove": 3,
+   "logLossGain": {
+    "n": 9,
+    "mean": -0.02541,
+    "t": -2.05
+   },
+   "verdict": "collecting"
+  },
+  "sharp-soft-alt": {
+   "pattern": "sharp-soft-alt",
+   "unit": "points",
+   "n": 4,
+   "meanPredicted": 0.709,
+   "meanRealized": 1.25,
+   "tRealized": 1.99,
+   "capture": 1.76,
+   "rightWay": 1.0,
+   "noMove": 1,
+   "logLossGain": {
+    "n": 4,
+    "mean": 0.00257,
+    "t": 0.07
+   },
+   "verdict": "collecting"
+  },
+  "stats-model": {
+   "pattern": "stats-model",
+   "unit": "points",
+   "n": 27,
+   "meanPredicted": 1.4685,
+   "meanRealized": 0.0556,
+   "tRealized": 0.23,
+   "capture": 0.04,
+   "rightWay": 0.467,
+   "noMove": 12,
+   "logLossGain": {
+    "n": 27,
+    "mean": -0.02783,
+    "t": -1.64
+   },
+   "verdict": "collecting"
+  },
+  "tennis-elo": {
+   "pattern": "tennis-elo",
+   "unit": "prob",
+   "n": 4,
+   "meanPredicted": 0.03,
+   "meanRealized": 0.0009,
+   "tRealized": 0.1,
+   "capture": 0.03,
+   "rightWay": 0.333,
+   "noMove": 1,
+   "logLossGain": {
+    "n": 4,
+    "mean": -0.02221,
+    "t": -0.68
+   },
+   "verdict": "collecting"
+  },
+  "trend-fade": {
+   "pattern": "trend-fade",
+   "unit": "points",
+   "n": 5,
+   "meanPredicted": 1.4,
+   "meanRealized": -0.8,
+   "tRealized": -2.14,
+   "capture": -0.57,
+   "rightWay": 0.0,
+   "noMove": 2,
+   "logLossGain": {
+    "n": 5,
+    "mean": 0.01614,
+    "t": 0.54
+   },
+   "verdict": "collecting"
+  },
+  "wind-total": {
+   "pattern": "wind-total",
+   "unit": "points",
+   "n": 12,
+   "meanPredicted": 2.4583,
+   "meanRealized": 0.0,
+   "tRealized": 0.0,
+   "capture": 0.0,
+   "rightWay": 0.556,
+   "noMove": 3,
+   "logLossGain": {
+    "n": 12,
+    "mean": -0.00686,
+    "t": -0.24
+   },
+   "verdict": "collecting"
+  }
+ },
+ "proven": []
+}

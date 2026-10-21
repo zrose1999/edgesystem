@@ -60,3 +60,16 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-21 | pattern=learned-nhl-ml + restEdge=even | 8 | +0.2% | found inside ALL restEdge=even (best of 27 features tested); small sample, may share reads with other rows |
 | 2026-10-21 | restEdge=more + venue=away | 19 | +1.7% | found inside ALL venue=away (best of 36 features tested); small sample, may share reads with other rows |
 | 2026-10-21 | NFL: restEdge=even + role=dog | 9 | +0.0% | found inside NFL restEdge=even (best of 11 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | pattern=news-lag + role=dog | 13 | +0.8% | found inside ALL pattern=news-lag (best of 21 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | restDays=normal + role=dog | 17 | +0.4% | found inside ALL restDays=normal (best of 37 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | timing=late + venue=away | 8 | +0.2% | found inside ALL timing=late (best of 9 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | edgeBar=0.5-1x + tzShift=east | 8 | +0.3% | found inside ALL tzShift=east (best of 15 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | travel=<500 + tzShift=none | 18 | +0.9% | found inside ALL tzShift=none (best of 26 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | NCAAF: edgeBar=0.5-1x + venue=away | 8 | +0.9% | found inside NCAAF edgeBar=0.5-1x (best of 7 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | NCAAF: edgeBar=<0.5x + role=dog | 14 | +0.1% | found inside NCAAF edgeBar=<0.5x (best of 28 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | NCAAF: restDays=normal + venue=away | 11 | +0.1% | found inside NCAAF restDays=normal (best of 26 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | NCAAF: travelEdge=even + tzShift=none | 9 | +1.0% | found inside NCAAF tzShift=none (best of 15 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | NCAAF: travelEdge=even + venue=away | 9 | +1.6% | found inside NCAAF venue=away (best of 19 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | NFL: injury=any + role=dog | 9 | +0.1% | found inside NFL timing=early (best of 3 pairs tested); small sample, may share reads with other rows |
+| 2026-10-21 | NHL: role=dog + venue=away | 8 | +0.1% | found inside NHL restDays=1day (best of 3 pairs tested); small sample, may share reads with other rows |
+| 2026-10-21 | NHL: travel=<500 + venue=away | 8 | +1.1% | found inside NHL venue=away (best of 8 features tested); small sample, may share reads with other rows |
