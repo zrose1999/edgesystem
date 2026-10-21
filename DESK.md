@@ -29,6 +29,7 @@ How to write here:
 - 2026-10-21: Every chat and scheduled task reads STATE.md and DESK.md first and records Zack's decisions here before it ends.
 
 ## Decisions log
+- 2026-10-21: First live run with the overhaul (19:51Z) green: bestAtPick on all 4 new reads, 395 picks scored on Pinnacle's close, modelcheck written, 58 Kalshi maker orders resting. (chat: ideas tested this week)
 - 2026-10-21: Zack adopted the north-star plan and had Claude build it: best price at pick, Pinnacle-close scoring, confirmation runs, move and model checks feeding edge-stack, fixed scanner roster, Kalshi maker paper book. (chat: ideas tested this week)
 - 2026-10-21: Zack had the stale copies of patterns.md, pull.py and grade.py removed from the claude.ai project (the repo is the only copy; START-HERE.md points to it) and the old Rose "Weekly ledger audit" scheduled task turned off (paused, not deleted; it read the Rose Google Sheet). (chat: ideas tested this week)
 - 2026-10-21: Zack merged PR #4 (shared desk) and asked Claude to merge PR #2 (weekly review proposals: one lessons.md entry) and PR #3 (results autopsy). Merged together after resolving changelog and memory.py overlaps; grade.py tested end to end. (chat: ideas tested this week)
@@ -40,6 +41,7 @@ How to write here:
 - 2026-10-15: Learning engine replaces hand-written strategies; staged promotion rule approved. (chat: Betting app migration from Grok)
 
 ## Open threads
+- 2026-10-21: the Netlify clock skipped the 19:39Z fast run (nothing ran 19:24Z to 19:51Z; Claude dispatched one by hand, green). Owner: health check: count gaps over 20 minutes in yesterday's runs and fix the clock if it repeats.
 - Kalshi maker vs taker: compare in STATE.md (north-star checks) once 30+ maker fills have closes. Owner: weekly review. A live maker order is Zack's call from that comparison.
 - First fixed-roster review day: Tuesday 2026-10-27. The scanner's queuedForReview and wouldLapseAtReview lists get applied that morning; the weekly review reports them.
 - Best-price CLV (clvProbBest) starts on reads stamped after 2026-10-21 ~20Z. Owner: health check; BREAKAGE if bestAtPick is missing on new reads after one cycle.
