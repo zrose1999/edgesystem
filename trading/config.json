@@ -52,5 +52,12 @@
     "NBA",
     "NHL"
   ],
-  "_liveSports": "Sports whose Kalshi markets may get real orders. A new sport or league trades on paper first, until its team matching has been checked against real games. Soccer is paper-only after the 2026-10-14 home/away fix."
+  "_liveSports": "Sports whose Kalshi markets may get real orders. A new sport or league trades on paper first, until its team matching has been checked against real games. Soccer is paper-only after the 2026-10-14 home/away fix.",
+  "liveTest": {
+    "enabled": true,
+    "contracts": 1,
+    "maxPerDay": 5.0,
+    "orderType": "maker"
+  },
+  "_liveTest": "Small real-money tests (Zack, 2026-10-21): while the switch on the site is On, every signal that is not track-only and not a mirror of a parked pattern trades 1 contract (under $1), at most $5 a day, as a resting maker order (post-only, cancelled 5 minutes before the start). Confirmed signals trade full size instead. The site's stop loss, take profit and live-source list still apply. enabled false turns tests off."
 }

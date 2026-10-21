@@ -27,10 +27,11 @@ How to write here:
 - Budget: stay on The Odds API 20,000-credit plan ($30/mo); no paid college QB/injury source; keep Claude usage lean.
 - 2026-10-14: stats-model is off. Minimum expected moves for measured-move patterns are in patterns.md (Zack's call).
 - 2026-10-21: Parked patterns (pull.PARKED) take no new reads; one comes back only as a new, measured pattern at a weekly review.
-- 2026-10-21: Live money only for confirmed signals: mirrors of official EDGE patterns, or Kalshi sources that cleared the bar and a 15-trade confirmation on paper CLV net of fees. The switch panel can only narrow this.
+- 2026-10-21: Full-size live money only for confirmed signals: mirrors of official EDGE patterns, or Kalshi sources that cleared the bar and a 15-trade confirmation on paper CLV net of fees. Zack (same day): every other signal may trade as a small live test, 1 contract, maker order, $5 a day max (trading/config.json liveTest). The switch panel can narrow either, and only Zack's switch turns real money on.
 - 2026-10-21: Every chat and scheduled task reads STATE.md and DESK.md first and records Zack's decisions here before it ends.
 
 ## Decisions log
+- 2026-10-21: Zack approved small real-money tests on Kalshi (balance about $35) instead of paper only. Built as liveTest: 1 contract, maker orders, $5 a day. Waiting on Zack to switch trading On and set the panel's live sources to "official" (currently kalshi-sharp only). (chat: ideas tested this week)
 - 2026-10-21: Zack: do everything the north star says, scrapping what conflicts. Done: reads priced at the best US book; Kalshi fill bug fixed, current order endpoint, live maker orders built (off), live money only for confirmed signals; stats-model, trend-fade, nba-stats-model, nba-model-fav, luck-reversion, early-number parked; discover.py retired. (chat: ideas tested this week)
 - 2026-10-21: First live run with the overhaul (19:51Z) green: bestAtPick on all 4 new reads, 395 picks scored on Pinnacle's close, modelcheck written, 58 Kalshi maker orders resting. (chat: ideas tested this week)
 - 2026-10-21: Zack adopted the north-star plan and had Claude build it: best price at pick, Pinnacle-close scoring, confirmation runs, move and model checks feeding edge-stack, fixed scanner roster, Kalshi maker paper book. (chat: ideas tested this week)

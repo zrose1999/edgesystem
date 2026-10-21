@@ -934,16 +934,25 @@ def main(dry=False):
         for c in cands:
             if (c["event"], c["kind"], c["source"]) in have:
                 continue
-            if name == "live" and not source_allowed(c, cfg_live, official, state.get("sourceStatus")):
-                continue
             if name == "live" and c["sport"] not in (cfg.get("liveSports") or cfg.get("sports") or []):
                 continue          # new sports and leagues trade on paper until their matching has been checked
             # Scanner strategies (scan.py) are track-only until grade.py promotes them: price, close and CLV, no stake.
             track_only = c["source"] in (cfg.get("trackOnlySources") or []) or c["source"].startswith(("mirror:scan-", "mirror:learned-scan-"))
             track = name == "paper" and track_only
-            if name == "live" and track_only:
-                continue
-            n = 0 if track else size(bcfg, book, c["ask"], c["fair"], now, c["source"] if name == "paper" else None)
+            is_test = False
+            if name == "live":
+                if track_only:
+                    continue
+                if not source_allowed(c, cfg_live, official, state.get("sourceStatus")):
+                    tcfg = cfg.get("liveTest") or {}
+                    if not test_allowed(c, cfg_live, tcfg, track_only):
+                        continue
+                    n_test = int(tcfg.get("contracts", 1))
+                    if test_spent_today(book, now) + n_test * c["ask"] > float(tcfg.get("maxPerDay", 5.0)) + 1e-9:
+                        continue
+                    is_test = True
+            n = int((cfg.get("liveTest") or {}).get("contracts", 1)) if is_test else \
+                (0 if track else size(bcfg, book, c["ask"], c["fair"], now, c["source"] if name == "paper" else None))
             if n < 1 and not track:
                 continue
             trade = {k: c[k] for k in ("ticker", "title", "sport", "kind", "event", "commence", "side", "ask",
@@ -954,7 +963,10 @@ def main(dry=False):
                          status="open", book=name, mode=mode if name == "live" else "paper")
             if track:
                 trade["trackOnly"] = True
-            if name == "live" and cfg.get("liveOrderType") == "maker":
+            if is_test:
+                trade["test"] = True
+            order_type = (cfg.get("liveTest") or {}).get("orderType", "maker") if is_test else cfg.get("liveOrderType")
+            if name == "live" and order_type == "maker":
                 m = QUOTES.get(c["ticker"]) or {}
                 bid = f(m.get(f"{c['side']}_bid_dollars"))
                 mprice = None if bid is None else (round(bid + 0.01, 2) if bid + 0.01 < c["ask"] - 1e-9 else round(bid, 2))
@@ -964,6 +976,8 @@ def main(dry=False):
                 if not order:
                     continue
                 order["time"] = iso(now)
+                if is_test:
+                    order["test"] = True
                 book.setdefault("orders", []).append(order)
                 have.add((c["event"], c["kind"], c["source"]))
                 placed[name] += 1
@@ -991,8 +1005,13 @@ def main(dry=False):
                        "paperStopped": state["paper"].get("stopped"), "liveStopped": state["live"].get("stopped"),
                        "maker": maker_summary(maker, state["paper"]),
                        "sourceStatus": state.get("sourceStatus"),
-                       "liveRule": "Live money only for confirmed signals: mirrors of official EDGE patterns, or Kalshi "
-                                   "sources whose paper CLV net of fees cleared the bar and a 15-trade confirmation.",
+                       "liveRule": "Full-size live money only for confirmed signals: mirrors of official EDGE patterns, or "
+                                   "Kalshi sources whose paper CLV net of fees cleared the bar and a 15-trade confirmation. "
+                                   "Every other signal may trade as a small live test (liveTest in trading/config.json).",
+                       "liveTest": {**(cfg.get("liveTest") or {}), "spentToday": round(test_spent_today(state["live"], now), 2),
+                                    "trades": sum(1 for t in state["live"]["trades"] if t.get("test")),
+                                    "resting": sum(1 for o in state["live"].get("orders") or []
+                                                   if o.get("test") and o.get("status") == "resting")},
                        "config": {k: cfg_live.get(k) for k in ("startingBankroll", "stopLoss", "takeProfit", "kellyFraction",
                                                                "maxPerTradePct", "maxPerDay", "minEdge", "liveSources")},
                        "unit": round(cfg_live["startingBankroll"] / 100, 2),
@@ -1117,6 +1136,29 @@ def source_status(paper, prev, now):
                     "freshN": len(fresh), **({"clearedAt": rec["clearedAt"]} if rec.get("clearedAt") else {}),
                     **({"result": rec["result"]} if rec.get("result") else {})}
     return out
+
+
+def test_spent_today(book, now):
+    """Dollars committed today by live test trades and resting live test orders (Central time)."""
+    day = now.astimezone(CT).strftime("%Y-%m-%d")
+    spent = sum(t["cost"] + t["fee"] for t in book["trades"]
+                if t.get("test") and t.get("status") != "void"
+                and pull.parse(t["time"]).astimezone(CT).strftime("%Y-%m-%d") == day)
+    return spent + sum((o["count"] - o.get("filledSeen", 0)) * o["price"] for o in book.get("orders") or []
+                       if o.get("test") and o.get("status") == "resting"
+                       and pull.parse(o["time"]).astimezone(CT).strftime("%Y-%m-%d") == day)
+
+
+def test_allowed(c, cfg, tcfg, track_only):
+    """Small real-money tests (Zack, 2026-10-21: "use my real money ... just use small units to test the idea"):
+    any signal that is not track-only and not a mirror of a parked pattern, at tcfg["contracts"] contracts, capped at
+    tcfg["maxPerDay"] dollars a day. The switch panel's live-source list narrows it like full-size trades."""
+    if not tcfg.get("enabled") or track_only:
+        return False
+    if c["source"].startswith("mirror:") and c.get("pattern") in pull.PARKED:
+        return False
+    allowed = cfg.get("liveSources") or []
+    return not allowed or "official" in allowed or c["source"] in allowed
 
 
 def source_allowed(c, cfg, official, sources=None):
@@ -1261,7 +1303,8 @@ def reconcile(book, signer, base, now):
                                                      "strike", "source", "fair", "edge", "estimated", "why") if k in o}
                                   | {"ask": o["price"], "count": add, "cost": round(cost * share, 2),
                                      "fee": round((fees or 0) * share, 2), "time": iso(now), "status": "open",
-                                     "book": "live", "mode": "maker", "orderId": o["orderId"]})
+                                     "book": "live", "mode": "maker", "orderId": o["orderId"],
+                                     **({"test": True} if o.get("test") else {})})
             o["filledSeen"] = filled
             changed += 1
         st = got.get("status")
