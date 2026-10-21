@@ -832,7 +832,7 @@ def main(dry=False):
             if name == "live" and c["sport"] not in (cfg.get("liveSports") or cfg.get("sports") or []):
                 continue          # new sports and leagues trade on paper until their matching has been checked
             # Scanner strategies (scan.py) are track-only until grade.py promotes them: price, close and CLV, no stake.
-            track_only = c["source"] in (cfg.get("trackOnlySources") or []) or c["source"].startswith("mirror:scan-")
+            track_only = c["source"] in (cfg.get("trackOnlySources") or []) or c["source"].startswith(("mirror:scan-", "mirror:learned-scan-"))
             track = name == "paper" and track_only
             if name == "live" and track_only:
                 continue

@@ -4,6 +4,7 @@
   python3 scan.py           morning: generate hypotheses, test them on all stored history, adopt the survivors
   python3 scan.py stamp     every full/near run: stamp shadow reads for upcoming games that match a tracked strategy
   python3 scan.py --dry     test and report, adopt nothing
+  python3 scan.py learn     weekly: export the scanner's data as numbers and train learner.py on it (--force: now)
 
 1. Hypotheses. Every game in EDGE's history (ESPN DraftKings open/close for NBA, NHL, NCAAF; CFBD closes for NCAAF
    2021+; Pinnacle open/close for five soccer leagues since 2016; nflverse closes for the NFL when reachable) is
@@ -57,6 +58,8 @@ WINDOW_H = 72
 # Pick minimums set by Zack 2026-10-14 (rest-spot 0.75 pt, college 1 pt, NHL 2%, soccer 1.5%); smaller is a lean
 MIN_MOVE = {"NBA": 0.75, "NCAAF": 1.0, "NFL": 1.0, "NHL": 0.02, "soccer": 0.015}
 TRACK_ONLY_PREFIX = "mirror:scan-"
+CLOSE_KEYS = {"closeLine", "closeTotal"}
+CLOSE_WINDOW_H = 3          # fast runs (every 15 min, last 3 hours) stamp these near the close
 
 
 # ---------- helpers ----------
@@ -141,8 +144,14 @@ def pull_soccer(sport):
     return sport in pull.SOCCER
 
 
+def us_day(when):
+    """The game's calendar day in US time (UTC-6h, as rest_nba.py): a Thursday 8:20pm ET kickoff is Thursday."""
+    return when - timedelta(hours=6)
+
+
 def base_feats(sport, when, rh, ra):
-    f = {"dow": when.strftime("%a"), "month": when.strftime("%b")}
+    d = us_day(when)
+    f = {"dow": d.strftime("%a"), "month": d.strftime("%b")}
     bh, ba = rest_bucket(sport, rh), rest_bucket(sport, ra)
     if bh:
         f["restHome"] = bh
@@ -318,7 +327,7 @@ def soccer_samples():
                         hour=15, tzinfo=timezone.utc)
                 except ValueError:
                     continue
-                f0 = {"dow": when.strftime("%a"), "month": when.strftime("%b")}
+                f0 = {"dow": us_day(when).strftime("%a"), "month": us_day(when).strftime("%b")}
                 oo, ou, co, cu = (num(r.get(k)) for k in ("P>2.5", "P<2.5", "PC>2.5", "PC<2.5"))
                 if co and cu:
                     p_o, p_c = novig(oo, ou), novig(co, cu)
@@ -578,12 +587,17 @@ def row_feats(row, sched_cache):
     o = row.get("openSnap") or {}
     when = parse(row["commence"])
     if pull_soccer(sport):
-        f = {"dow": when.strftime("%a"), "month": when.strftime("%b")}
+        f = {"dow": us_day(when).strftime("%a"), "month": us_day(when).strftime("%b")}
     else:
         if sport not in sched_cache:
             sched_cache[sport] = load_schedule(sport) if sport in SCHED_FILES else Schedule()
         sc = sched_cache[sport]
         f = base_feats(sport, when, sc.rest(row["home"], when), sc.rest(row["away"], when))
+    c = row.get("lastSnap") or {}
+    if market == "spread" and c.get("line") is not None:
+        f["closeLine"] = spread_band(sport, c["line"])     # strategies found on closing numbers (NFL history)
+    if market == "total" and c.get("line") is not None and not pull_soccer(sport):
+        f["closeTotal"] = total_band(sport, c["line"])
     if market == "spread" and o.get("line") is not None:
         f["line"] = spread_band(sport, o["line"])
     elif market == "total" and o.get("line") is not None:
@@ -637,9 +651,6 @@ def fair_for(row, side, edge, unit):
 def stamp(dry=False):
     store = pull.load(OUT / "strategies.json", {"strategies": {}})
     strategies = [s for s in store["strategies"].values() if s.get("status") == "tracking"]
-    if not strategies:
-        print(json.dumps({"stamped": 0, "why": "no tracked strategies"}))
-        return
     now = datetime.now(timezone.utc)
     horizon = pull.iso(now + timedelta(hours=WINDOW_H))
     ledger = pull.load(pull.LEDGER, {"rows": []})
@@ -656,9 +667,12 @@ def stamp(dry=False):
         f = row_feats(row, cache)
         if not f:
             continue
+        to_kick = (parse(row["commence"]) - now).total_seconds() / 3600
         for s in mine:
             if not all(f.get(k) == v for k, v in s["conds"]):
                 continue
+            if any(k in CLOSE_KEYS for k, _ in s["conds"]) and to_kick > CLOSE_WINDOW_H:
+                continue                                   # a closing-number strategy reads only near kickoff
             side, unit = s["side"], s["unit"]
             if side not in (row["lastSnap"] or {}) or side == "draw":
                 continue                                   # three-way draw markets are tested, not stamped (v1)
@@ -681,6 +695,8 @@ def stamp(dry=False):
                 basis = f"result-only: ROI {r.get('mean', 0) * 100:+.1f}% on {r.get('n')} games (t {r.get('t', 0):+.1f}); no measured move, lean only"
             why = f"Scanner strategy {s['id']}: {s['sport']} {s['market']} {side} when {conds}; {basis}."
             todo.append((row, s, fair_for(row, side, edge, unit), why, lean))
+    learned = learned_stamp(ledger.get("rows") or [], now, done, dry)
+    todo += [(row, {"id": pat, "side": side}, fair, why, lean) for row, pat, fair, why, lean, side in learned]
     stamped = 0
     for row, s, fair, why, lean in todo:
         if dry:
@@ -698,7 +714,224 @@ def stamp(dry=False):
             stamped += 1
         except SystemExit as exc:
             print(f"read not stamped {row['id']} {s['id']}: {exc}")
-    print(json.dumps({"tracked": len(strategies), "matches": len(todo), "stamped": stamped, "dry": dry}))
+    print(json.dumps({"tracked": len(strategies), "matches": len(todo), "learnedReads": len(learned),
+                      "stamped": stamped, "dry": dry}))
+
+
+# ---------- learner on the scanner's whole feature set ----------
+# The scan tests conditions one and two at a time. learner.py (walk-forward ridge and gradient-boosted trees, the
+# same out-of-sample gate as every learned model) gets the same pre-pick data as numbers, so it can find thresholds
+# and interactions the condition search cannot. Targets: scan_<sport>_<market>, y = open-to-close move for the
+# first side (home / over). Only games with an opening number (the move needs it).
+DOW = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+LEARN_EVERY_D = 7
+
+
+def numeric(sport, market, when, open_line, open_prob, rh, ra):
+    day = us_day(when)
+    f = {"month": day.month, "weekend": 1.0 if day.strftime("%a") in ("Sat", "Sun") else 0.0}
+    for d in DOW:
+        f["dow_" + d] = 1.0 if day.strftime("%a") == d else 0.0
+    if open_line is not None:
+        f["open_line"] = open_line
+        if market == "spread":
+            f["open_abs_line"] = abs(open_line)
+    if open_prob is not None:
+        f["open_prob"] = open_prob
+    if rh is not None:
+        f["rest_home"] = min(rh, 30)
+    if ra is not None:
+        f["rest_away"] = min(ra, 30)
+    if rh is not None and ra is not None:
+        f["rest_diff"] = max(-14, min(14, rh - ra))
+    return f
+
+
+def learn_rows():
+    """learner.py rows per scan target, from the same histories as the condition search."""
+    out = defaultdict(list)
+    for sport in ("NBA", "NHL", "NCAAF"):
+        sched = load_schedule(sport)
+        g = pull.load(ROOT / "stats" / f"{sport.lower()}_games.json", {}).get("games") or {}
+        for x in (g.values() if isinstance(g, dict) else g):
+            L = x.get("lines") or {}
+            if not x.get("final") or x.get("seasonType") == 1 or not L:
+                continue
+            when = parse(x["date"])
+            rh, ra = sched.rest(x["home"], when), sched.rest(x["away"], when)
+            so, sc = L.get("spreadOpen"), L.get("spreadClose")
+            if sport != "NHL" and so is not None and sc is not None:
+                out[f"scan_{sport.lower()}_spread"].append({"date": x["date"], "y": so - sc,
+                                                           "f": numeric(sport, "spread", when, so, None, rh, ra)})
+            to, tc = L.get("totalOpen"), L.get("totalClose")
+            if to is not None and tc is not None:
+                if sport == "NHL":
+                    po = novig(dec(L.get("overOpenOdds")), dec(L.get("underOpenOdds")))
+                    pc = novig(dec(L.get("overCloseOdds")), dec(L.get("underCloseOdds")))
+                    if po is not None and pc is not None and to == tc:
+                        out["scan_nhl_total"].append({"date": x["date"], "y": pc - po,
+                                                      "f": numeric(sport, "total", when, to, po, rh, ra)})
+                else:
+                    out[f"scan_{sport.lower()}_total"].append({"date": x["date"], "y": tc - to,
+                                                              "f": numeric(sport, "total", when, to, None, rh, ra)})
+            po = novig(dec(L.get("mlHomeOpen")), dec(L.get("mlAwayOpen")))
+            pc = novig(dec(L.get("mlHomeClose")), dec(L.get("mlAwayClose")))
+            if po is not None and pc is not None:
+                out[f"scan_{sport.lower()}_h2h"].append({"date": x["date"], "y": pc - po,
+                                                        "f": numeric(sport, "h2h", when, so, po, rh, ra)})
+    # NCAAF seasons ESPN no longer keeps: CFBD spread open and close (neutral sites out, same as the condition search)
+    have = {r["date"] + "|" + str(r["f"].get("open_line")) for r in out["scan_ncaaf_spread"]}
+    sched = load_schedule("NCAAF")
+    for path in sorted(glob.glob(str(ROOT / "stats" / "history" / "ncaaf" / "cfbd_*.json"))):
+        d = pull.load(Path(path), {})
+        lines = d.get("lines") or {}
+        for g in d.get("games") or []:
+            L = lines.get(str(g.get("id")))
+            if not L or not g.get("done") or g.get("neutral") or L.get("so") is None or L.get("sc") is None:
+                continue
+            when = parse(g["date"])
+            date = when.strftime("%Y-%m-%dT%H:%MZ")
+            if date + "|" + str(L["so"]) in have:
+                continue
+            out["scan_ncaaf_spread"].append({"date": date, "y": L["so"] - L["sc"], "f": numeric(
+                "NCAAF", "spread", when, L["so"], None, sched.rest(g["home"], when), sched.rest(g["away"], when))})
+    # soccer totals: over-2.5 move with the opening no-vig over probability and the league as numbers
+    for path in sorted(glob.glob(str(ROOT / "stats" / "history" / "soccer" / "fd_*.csv"))):
+        code = Path(path).stem.split("_")[1]
+        sport = FD.get(code)
+        if not sport:
+            continue
+        with open(path, encoding="utf-8-sig", errors="ignore") as fh:
+            for r in csv.DictReader(fh):
+                oo, ou, co, cu = (num(r.get(k)) for k in ("P>2.5", "P<2.5", "PC>2.5", "PC<2.5"))
+                po, pc = novig(oo, ou), novig(co, cu)
+                if po is None or pc is None or not r.get("Date"):
+                    continue
+                try:
+                    day = r["Date"]
+                    when = datetime.strptime(day, "%d/%m/%Y" if len(day.split("/")[-1]) == 4 else "%d/%m/%y").replace(
+                        hour=15, tzinfo=timezone.utc)
+                except ValueError:
+                    continue
+                f = numeric(sport, "total", when, 2.5, po, None, None)
+                for lg in FD.values():
+                    f["league_" + lg] = 1.0 if lg == sport else 0.0
+                out["scan_soccer_total"].append({"date": when.strftime("%Y-%m-%dT%H:%MZ"), "y": pc - po, "f": f})
+    return out
+
+
+def target_unit(name):
+    return "prob" if name.endswith("_h2h") or name in ("scan_nhl_total", "scan_soccer_total") else "points"
+
+
+def learn(force=False):
+    """Export the rows, then train every scan target with learner.py (weekly; the gate decides what goes live)."""
+    import learner
+    feat_dir = ROOT / "stats" / "features"
+    feat_dir.mkdir(parents=True, exist_ok=True)
+    reg_path = feat_dir / "scan_targets.json"
+    reg = pull.load(reg_path, {})
+    rows = learn_rows()
+    out = {}
+    for name, rs in rows.items():
+        if len(rs) < 300:
+            continue
+        rs.sort(key=lambda r: r["date"])
+        (feat_dir / f"{name}.json").write_text(json.dumps({"rows": rs}))
+        reg[name] = {"file": f"stats/features/{name}.json", "y": "y", "unit": target_unit(name)}
+    reg_path.write_text(json.dumps(reg, indent=1) + "\n")
+    learner.TARGETS.update(reg)
+    for name in reg:
+        rep_path = ROOT / "stats" / "models" / f"{name}.json"
+        if not force and rep_path.exists():
+            age = datetime.now(timezone.utc) - parse(json.loads(rep_path.read_text())["trained"])
+            if age < timedelta(days=LEARN_EVERY_D):
+                out[name] = "fresh"
+                continue
+        try:
+            rep = learner.run(name)
+            out[name] = {"live": rep["live"], "chosen": rep["chosen"], "t": rep["results"][rep["chosen"]]["t"],
+                         "rows": rep["rows"]}
+        except Exception as exc:  # noqa: BLE001  one target failing must not stop the others
+            out[name] = f"error: {str(exc)[:120]}"
+    print(json.dumps({"learn": out}))
+    return out
+
+
+def live_numeric(row, cache):
+    sport, market = row["sport"], row["market"]
+    o = row.get("openSnap") or {}
+    when = parse(row["commence"])
+    rh = ra = None
+    if not pull_soccer(sport):
+        if sport not in cache:
+            cache[sport] = load_schedule(sport) if sport in SCHED_FILES else Schedule()
+        rh, ra = cache[sport].rest(row["home"], when), cache[sport].rest(row["away"], when)
+    if market == "h2h":
+        if "draw" in o:
+            return None
+        sp = None
+        p = novig(dec(o.get("home")), dec(o.get("away")))
+        return numeric(sport, market, when, sp, p, rh, ra) if p is not None else None
+    if market == "total" and (sport in pull.PROB_TOTALS):
+        if pull_soccer(sport) and o.get("line") != 2.5:
+            return None
+        p = novig(dec(o.get("over")), dec(o.get("under")))
+        if p is None:
+            return None
+        f = numeric(sport, market, when, o.get("line"), p, rh, ra)
+        if pull_soccer(sport):
+            for lg in FD.values():
+                f["league_" + lg] = 1.0 if lg == sport else 0.0
+        return f
+    return numeric(sport, market, when, o.get("line"), None, rh, ra) if o.get("line") is not None else None
+
+
+def learned_stamp(rows, now, done, dry):
+    """Reads from scan_* models that passed learner.py's gate: top 30% predicted moves, fair = current number + the
+    predicted move not yet made. Pattern learned-scan-<sport>-<market>, shadow, stake 0."""
+    import pickle
+    import numpy as np
+    import learner  # noqa: F401  (model classes for unpickling)
+    reg = pull.load(ROOT / "stats" / "features" / "scan_targets.json", {})
+    cache, todo = {}, []
+    horizon = pull.iso(now + timedelta(hours=WINDOW_H))
+    for name in reg:
+        mp = ROOT / "stats" / "models" / f"{name}.pkl"
+        if not mp.exists():
+            continue
+        m = pickle.loads(mp.read_bytes())
+        if not m.get("live"):
+            continue
+        _, sport_l, market = name.split("_", 2)
+        pat = "learned-" + name.replace("_", "-")
+        for r in rows:
+            sp = r.get("sport") or ""
+            if (sport_l == "soccer" and not (pull_soccer(sp) and sp in FD.values())) or \
+                    (sport_l != "soccer" and sp.lower() != sport_l):
+                continue
+            if r.get("market") != market or (r.get("id"), pat) in done or not r.get("lastSnap"):
+                continue
+            if not r.get("commence") or not (pull.iso(now) < r["commence"] <= horizon):
+                continue
+            f = live_numeric(r, cache)
+            if not f:
+                continue
+            x = np.array([[f.get(k, np.nan) for k in m["keys"]]], dtype=float)
+            pred = float(m["model"].predict(m["prep"].transform(x))[0])
+            if abs(pred - m["center"]) < m["threshold"] or not pred:
+                continue
+            side = ("home" if market in ("spread", "h2h") else "over") if pred > 0 else ("away" if market in ("spread", "h2h") else "under")
+            unit = m.get("unit", "points")
+            remaining = abs(pred) - max(0.0, moved_for_side(r, side, unit))
+            if remaining <= (0.15 if unit == "points" else 0.003):
+                continue
+            minimum = MIN_MOVE["soccer" if pull_soccer(sp) else sp] if (pull_soccer(sp) or sp in MIN_MOVE) else 0.0
+            why = (f"Model learned on the scanner's data ({m['kind']}, {len(m['keys'])} data points, passed the "
+                   f"out-of-sample gate) predicts a move of {pred:+.3g} from the open for {side}; {remaining:.3g} still "
+                   f"to come. Report: stats/models/{name}.json.")
+            todo.append((r, pat, fair_for(r, side, remaining, unit), why, remaining < minimum, side))
+    return todo
 
 
 def main(dry=False):
@@ -722,5 +955,7 @@ if __name__ == "__main__":
     a = sys.argv[1:]
     if a and a[0] == "stamp":
         stamp(dry="--dry" in a)
+    elif a and a[0] == "learn":
+        learn(force="--force" in a)
     else:
         main(dry="--dry" in a)

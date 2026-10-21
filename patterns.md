@@ -161,6 +161,12 @@ sample and clears a minimum effect. The strongest 40 become scan-<sport>-<market
 stamp shadow reads on matching games (fair = current line + 0.8 x the measured move not yet made; result-only
 strategies stamp leans). Stake 0, Kalshi mirrors track-only. Promotion only through grade.py's rule, like every
 pattern. A strategy that stops passing is lapsed (no new reads). Report: stats/scan/report.md.
+NFL strategies come from closing lines (nflverse) and read only in the last 3 hours before kickoff.
+
+### learned-scan-<sport>-<market> (scan.py learn, learner.py)
+learner.py trained on the scanner's data as numbers (opening line, opening price, rest, day, month, league), so it
+can find thresholds and interactions the condition search cannot. Retrained weekly; live only past the walk-forward
+gate (pooled out-of-sample t >= 2.5, 4 of 5 blocks, beats drift). Shadow, stake 0, Kalshi mirrors track-only.
 
 ## Minimum expected move (set by Zack 2026-10-14)
 A measured-move read can be a pick only if the move still to come is at least: rest-spot 0.75 point, ncaaf-total-move 1 point, ncaaf-spot 1 point, nhl-ml-move and nhl-total-move 2% probability, soccer-drift 1.5% over probability. A smaller expected move is still stamped, but capped at a lean (pull.LEAN_CAP): graded against the close and available to edge-stack, never a pick. On reads so far: ncaaf-total-move 4 of 18 clear, ncaaf-spot 0 of 30 (largest 0.67), NHL 1 of 3 each. rest-spot home back-to-back (0.5) can never clear on its own; away back-to-back (0.9) clears only before the line has moved.

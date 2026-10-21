@@ -50,6 +50,10 @@ TARGETS = {
 _ARCH_T = ROOT / "stats" / "features" / "archive_targets.json"
 if _ARCH_T.exists():
     TARGETS.update(json.loads(_ARCH_T.read_text()))
+# The strategy scanner's data as numbers (scan.py learn, 2026-10-21): scan_<sport>_<market>.
+_SCAN_T = ROOT / "stats" / "features" / "scan_targets.json"
+if _SCAN_T.exists():
+    TARGETS.update(json.loads(_SCAN_T.read_text()))
 BLOCKS, TEST_SHARE, TOP_SHARE = 5, 0.6, 0.30
 GATE_T, GATE_BLOCKS = 2.5, 4
 
