@@ -1,12 +1,9 @@
 {
- "asOf": "2026-10-21T19:10:00Z",
+ "asOf": "2026-10-21T19:11:54Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 246,
  "loggedReads": 506,
- "newPatternsThisRun": [
-  "sharp-drift",
-  "sharp-soft"
- ],
+ "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md)."
@@ -101,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1307,
-  "latest": "2026-10-21T19:09:27Z",
+  "linesLastCycle": 1308,
+  "latest": "2026-10-21T19:11:31Z",
   "rowsWithHistory": 270,
   "alarm": false
  },
@@ -6350,27 +6347,42 @@
     "beatClose": 0
    }
   },
-  "withBox": 158,
+  "withBox": 230,
   "varianceTags": {
-   "flipped-late:helped": {
-    "n": 21,
+   "close-margin:helped": {
+    "n": 35,
     "inVerdict": {
-     "lucky-win": 16,
-     "right-and-rewarded": 5
+     "lucky-win": 25,
+     "right-and-rewarded": 10
     }
    },
-   "close-margin:helped": {
-    "n": 19,
+   "flipped-late:helped": {
+    "n": 31,
     "inVerdict": {
-     "lucky-win": 14,
-     "right-and-rewarded": 5
+     "lucky-win": 23,
+     "right-and-rewarded": 8
+    }
+   },
+   "close-margin:hurt": {
+    "n": 25,
+    "inVerdict": {
+     "market-was-right": 23,
+     "right-but-unlucky": 2
     }
    },
    "flipped-late:hurt": {
-    "n": 15,
+    "n": 24,
     "inVerdict": {
-     "market-was-right": 10,
+     "market-was-right": 19,
      "right-but-unlucky": 5
+    }
+   },
+   "overtime:helped": {
+    "n": 13,
+    "inVerdict": {
+     "lucky-win": 6,
+     "market-was-right": 3,
+     "right-and-rewarded": 4
     }
    },
    "turnover-swing": {
@@ -6381,28 +6393,35 @@
      "right-and-rewarded": 1
     }
    },
-   "close-margin:hurt": {
-    "n": 13,
-    "inVerdict": {
-     "market-was-right": 12,
-     "right-but-unlucky": 1
-    }
-   },
-   "overtime:helped": {
-    "n": 8,
-    "inVerdict": {
-     "lucky-win": 3,
-     "market-was-right": 3,
-     "right-and-rewarded": 2
-    }
-   },
    "overtime:hurt": {
-    "n": 6,
+    "n": 12,
     "inVerdict": {
      "lucky-win": 2,
+     "market-was-right": 7,
+     "right-and-rewarded": 2,
+     "right-but-unlucky": 1
+    }
+   },
+   "goalie-outlier:helped": {
+    "n": 12,
+    "inVerdict": {
      "market-was-right": 2,
      "right-and-rewarded": 1,
-     "right-but-unlucky": 1
+     "lucky-win": 9
+    }
+   },
+   "goalie-outlier:hurt": {
+    "n": 9,
+    "inVerdict": {
+     "right-but-unlucky": 3,
+     "market-was-right": 6
+    }
+   },
+   "empty-net:helped": {
+    "n": 7,
+    "inVerdict": {
+     "right-and-rewarded": 2,
+     "lucky-win": 5
     }
    },
    "turnover-swing:hurt": {
@@ -6424,6 +6443,13 @@
     "inVerdict": {
      "right-and-rewarded": 1,
      "market-was-right": 2
+    }
+   },
+   "empty-net:hurt": {
+    "n": 2,
+    "inVerdict": {
+     "market-was-right": 1,
+     "right-but-unlucky": 1
     }
    },
    "defensive-td:helped": {

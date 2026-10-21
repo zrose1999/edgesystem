@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-10-21 19:10Z)
+# What EDGE is learning (2026-10-21 19:11Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 246 graded reads counted, 506 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Early positive leads (one of many being tested; no acceleration):
@@ -15,10 +15,10 @@ Observation: edge size is not yet predicting CLV (A -1.8% on 26, B -1.8% on 80, 
   > no conditional pocket found in current features (13 combos tested inside grade A)
   > order holds inside restDays=2+days: A +1.4% on 5, B -1.1% on 12, C -3.7% on 6 (5 of 18 features tested)
 Why reads lost to the close (autopsy, post-pick; 193 of 246, cause known on 167): news-after-pick 8 (-6.0%), sharps-against-at-open 1 (-3.1%), number-off 158 (-3.0%), unknown 26 (-3.3%)
-Process vs result: right-and-rewarded 28, right-but-unlucky 23, lucky-win 90, market-was-right 102; right-but-unlucky losses hurt most by flipped-late, close-margin, overtime (results are noise at this sample; CLV decides)
+Process vs result: right-and-rewarded 28, right-but-unlucky 23, lucky-win 90, market-was-right 102; right-but-unlucky losses hurt most by close-margin, flipped-late, overtime (results are noise at this sample; CLV decides)
 Data gaps, waiting on a source: public-pct (needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack); guru (needs an account list + reader (Reddit API free, X API paid); log account, number, time, result)
 Coverage of added features (BREAKAGE if still 0 one health-check cycle after shipping):
-- snaps: 1307 price snapshots stored in the last 26h, latest 10-21 19:09Z, 270 games with 2+ (late steam, since 10-19 18:15Z)
+- snaps: 1308 price snapshots stored in the last 26h, latest 10-21 19:11Z, 270 games with 2+ (late steam, since 10-19 18:15Z)
 - pinAtPick on 8 of 9 graded reads since 10-19 18:00Z; 171 of 211 new reads stamped (Pinnacle at the pick)
 - contextAtPick on 9 of 9 graded reads since 10-19 18:00Z; 211 of 211 new reads stamped (weather/injury/goalie as stamped)
 - sharpDivergenceAtPick on 5 of 9 graded reads since 10-19 18:00Z (needs Pinnacle on the same line)
