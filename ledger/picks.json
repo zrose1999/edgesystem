@@ -38237,6 +38237,87 @@
       "contextAtPick": {
         "injury": "NYJ RB1 Breece Hall: Doubtful at the open, Questionable now, -0.12 spread, +0.25 total | NYJ OL starter Dylan Parham: Doubtful at the open, Questionable now, -0.12 spread | NYJ defensive starter Kiko Mauigoa: Questionable at the open, Doubtful now, +0.12 spread"
       }
+    },
+    {
+      "pickId": "NHL|2026-10-21|Philadelphia Flyers at Buffalo Sabres|total|under|v1|nhl-total-move",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NHL|2026-10-21|Philadelphia Flyers at Buffalo Sabres|total",
+      "sport": "NHL",
+      "event": "Philadelphia Flyers at Buffalo Sabres",
+      "commence": "2026-10-21T23:40:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 5.5,
+      "priceAtPick": 114,
+      "marketNumber": 5.5,
+      "marketPrices": {
+        "over": -135,
+        "under": 114
+      },
+      "priceTime": "2026-10-21T17:39:30Z",
+      "pickedAt": "2026-10-21T17:39:36Z",
+      "fair": 0.515,
+      "projection": 0.515,
+      "edge": 0.018,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "nhl-total-move",
+      "reason": "NHL ratings over 5.5 0.352, open 0.545 (gap -0.193). Prices moved 0.2 x the gap from open to close in the backtest. Expected move -0.039, 0.039 still to come; now 0.554, fair 0.515.",
+      "falsifier": "The price closes at or past the open on the other side of the model.",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "move_nhl.py",
+      "pinAtPick": {
+        "line": 6.0,
+        "prices": {
+          "over": -105,
+          "under": -107
+        },
+        "updated": "2026-10-21T17:39:22Z",
+        "snapTime": "2026-10-21T17:39:30Z",
+        "noVig": 0.5024
+      },
+      "contextAtPick": {}
+    },
+    {
+      "pickId": "WTA|2026-10-23|Ekaterina Alexandrova at Leylah Fernandez|h2h|none|v1|pass|tennis-elo|2026-10-21T17:39:37Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "WTA|2026-10-23|Ekaterina Alexandrova at Leylah Fernandez|h2h",
+      "sport": "WTA",
+      "event": "Ekaterina Alexandrova at Leylah Fernandez",
+      "commence": "2026-10-23T04:00:00Z",
+      "market": "h2h",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 110,
+        "away": -134
+      },
+      "priceTime": "2026-10-21T17:39:30Z",
+      "pickedAt": "2026-10-21T17:39:37Z",
+      "fair": 0.471,
+      "projection": 0.471,
+      "edge": -0.005,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "tennis-elo",
+      "reason": "Surface Elo home win 0.546, market no-vig 0.452; fair = market + 0.2 x gap = 0.471. Hard. Games in the last 2 days: Leylah Fernandez 34, Ekaterina Alexandrova 17.",
+      "falsifier": "The price closes at or past the market's open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "tennis.py",
+      "pinAtPick": null,
+      "contextAtPick": {}
     }
   ]
 }
