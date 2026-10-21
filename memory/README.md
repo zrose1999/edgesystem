@@ -2,7 +2,7 @@
 
 Built by `memory.py`, which runs at the end of every `grade.py` run. Do not edit these files by hand.
 
-**Single writer.** Only the EDGE data job commits memory/log, research.json, summary.md and hypotheses.md. Chat
+**Single writer.** Only the EDGE data job commits memory/log, research.json, summary.md and hypotheses.md (and STATE.md at the repo root, from state.py). Chat
 sessions, the health check and the weekly review commit code and docs only: after testing locally, run
 `git checkout -- memory/log memory/research.json memory/summary.md memory/hypotheses.md` before committing, and let the
 next job run rebuild them. (2026-10-19: three fast runs failed to push because a session committed rebuilt memory

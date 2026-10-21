@@ -1,0 +1,43 @@
+# EDGE desk
+
+The shared notebook. Every chat in the EDGE project, every scheduled task and every review reads this file and
+STATE.md before doing anything, and writes back here before it ends. Nothing Zack says should live only in one chat.
+
+- **STATE.md** (generated after every grade run): what is running, what is waiting, what changed. Never edit it.
+- **This file** (written by hand, by Zack or any Claude session): standing rules, decisions, open threads.
+
+How to write here:
+- When Zack decides something, sets a rule, approves or declines a change, add one dated line under Decisions log
+  (newest first), with where it came from (chat title, scheduled task, PR number). Say what was decided, not the debate.
+- If it is a rule that should hold from now on, also add or edit a line under Standing rules.
+- Anything started but not finished, or anything to check later, goes under Open threads with who owns it.
+  Remove the line when it is done and log the outcome under Decisions log if it settled something.
+- Keep each line to one or two sentences. Details belong in changelog.md, patterns.md or the PR.
+- Pull before editing (`git pull --rebase`); a data job pushes about every 15 minutes.
+
+## Standing rules
+- 2026-10-15: Patterns are judged on CLV only, never win rate. Promotion is grade.py's staged rule (15-19 graded full-bar picks t >= 2.5, 20+ t >= 2.0; learned models past the gate: 15+ at t >= 2.0). Retirement: 30+ picks, mean CLV <= 0.
+- 2026-10-19: Learning phase. Early negative CLV means "still collecting", never a reason to retire, kill or prune a rule. Leads are not accelerated either.
+- 2026-10-19: Claude fixes breakage, logging gaps and data paths directly (tested, own commit, changelog line). Strategy rules, bars, promotion, sizing and trading changes go in a pull request with CLV evidence; Zack merges. Larger new features also go in a PR (2026-10-20).
+- 2026-10-14: Real-money Kalshi trading is controlled only by Zack from the site's switch panel (on/off, pause, balance, stop loss, take profit). No chat or task changes it.
+- 2026-10-19: Single writer. Only the data job commits generated files: memory/log, memory/research.json, memory/summary.md, memory/hypotheses.md, stats/autopsy_box.json, stats/scan/, STATE.md. Sessions restore them with `git checkout --` before committing.
+- 2026-10-15: No hand-picked strategies. Patterns come from data (learner.py, scan.py, measured moves); a hand idea must be measured before it takes reads.
+- 2026-10-15: The old Rose desk is a failure to learn from, not a template. Its history stays separate (ledger/history-rose-2026.json).
+- Budget: stay on The Odds API 20,000-credit plan ($30/mo); no paid college QB/injury source; keep Claude usage lean.
+- 2026-10-14: stats-model is off. Minimum expected moves for measured-move patterns are in patterns.md (Zack's call).
+- 2026-10-21: Every chat and scheduled task reads STATE.md and DESK.md first and records Zack's decisions here before it ends.
+
+## Decisions log
+- 2026-10-21: Zack wants every chat, scheduled task and automated run working from one shared, current picture. Added DESK.md, STATE.md (state.py) and CLAUDE.md. (chat: ideas tested this week)
+- 2026-10-21: Strategy scanner approved and built: scan.py tests history every morning and tracks up to 40 survivors as shadow scan-* patterns, stake 0. NFL and MLB added the same day. (chat: strategy scanner)
+- 2026-10-20: Results autopsy approved (market autopsy, box-score tags, memory labels). Built as PR #3. (chat: NBA data tracking systems)
+- 2026-10-19: Living memory, Pinnacle at pick, late-steam snaps and travel features approved and shipped; daily health check and Tuesday weekly review scheduled. (chat: Project overview)
+- 2026-10-19: cs2-elo moved to track-only on Kalshi; free closes and fewer near-game runs to save credits. (chat: Weekend operation maintenance)
+- 2026-10-15: Learning engine replaces hand-written strategies; staged promotion rule approved. (chat: Betting app migration from Grok)
+
+## Open threads
+- PR #2 (weekly review 2026-10-20 proposals) and PR #3 (results autopsy): waiting on Zack to merge or decline.
+- Scanner's first live stamping: morning job 2026-10-22 11:07Z. Owner: health check. If no scan-* reads appear after that run, treat it as breakage.
+- news-lag logged 119 rereads 2026-10-19 to 10-21 (injury feed flicker). Dedup keeps them out of the sample; owner: health check, watch whether it grows.
+- learned-nfl-*: 2024 season backfill planned after the Odds API credit reset, then the gate decides again.
+- Data gaps waiting on a source: public betting % and guru tracking (memory/summary.md lists what each needs).
