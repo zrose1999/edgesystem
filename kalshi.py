@@ -58,6 +58,9 @@ ROOT = Path(__file__).resolve().parent
 CONFIG = ROOT / "trading" / "config.json"
 BOOK = ROOT / "trading" / "ledger.json"
 PROD = "https://api.elections.kalshi.com/trade-api/v2"
+# Orders and the account go to the host Kalshi documents for trading (2026-10-21: v2 orders sent to the elections host
+# were refused as insufficient_balance on a funded account). Market data stays on PROD.
+TRADE_PROD = "https://external-api.kalshi.com/trade-api/v2"
 CONTROL_URL = os.environ.get("EDGE_CONTROL_URL", "https://edgesystem.netlify.app/api/control")
 DEMO = "https://demo-api.kalshi.co/trade-api/v2"
 ET = ZoneInfo("America/New_York")
@@ -781,7 +784,7 @@ def main(dry=False):
     control = fetch_control()
     cfg_live = live_cfg(cfg, control)
     mode = "demo" if cfg.get("mode") == "demo" else "live"
-    base = DEMO if mode == "demo" else PROD
+    base = DEMO if mode == "demo" else TRADE_PROD
     live = state["live"]
     if control and control.get("enabled") and control.get("sessionId") and live.get("sessionId") != control["sessionId"]:
         if live["trades"]:
@@ -1058,7 +1061,7 @@ def account_check(mode):
         return {"keys": "missing", "checkedAt": iso(now_utc())}
     try:
         signer = Signer(os.environ[pre + "KEY_ID"], os.environ[pre + "PRIVATE_KEY"])
-        bal = signer.call(DEMO if mode == "demo" else PROD, "GET", "/portfolio/balance")
+        bal = signer.call(DEMO if mode == "demo" else TRADE_PROD, "GET", "/portfolio/balance")
     except Exception as exc:  # noqa: BLE001
         return {"keys": "error", "error": f"{type(exc).__name__}: {str(exc)[:160]}", "checkedAt": iso(now_utc())}
     cents = bal.get("balance")
