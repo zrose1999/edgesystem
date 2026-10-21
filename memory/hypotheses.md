@@ -49,3 +49,9 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-21 | NHL: bookAtPick=DraftKings + travel=<500 | 9 | +1.1% | found inside NHL bookAtPick=DraftKings (best of 8 features tested); small sample, may share reads with other rows |
 | 2026-10-21 | NHL: edgeBar=<0.5x + travel=<500 | 8 | +2.0% | found inside NHL edgeBar=<0.5x (best of 13 features tested); small sample, may share reads with other rows |
 | 2026-10-21 | NHL: edgeBar=<0.5x + timing=day | 8 | +2.0% | found inside NHL travel=<500 (best of 1 pairs tested); small sample, may share reads with other rows |
+| 2026-10-21 | pattern=learned-nhl-ml + role=fav | 8 | +0.7% | found inside ALL role=fav (best of 36 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | market=h2h + travelEdge=less | 8 | +0.3% | found inside ALL travelEdge=less (best of 19 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | bookAtPick=DraftKings + venue=away | 8 | +1.5% | found inside ALL venue=away (best of 36 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | injury=any + role=dog | 8 | +2.5% | found inside ALL venue=away (best of 6 pairs tested); small sample, may share reads with other rows |
+| 2026-10-21 | NHL: bookAtPick=DraftKings + pattern=learned-nhl-ml | 8 | +1.5% | found inside NHL bookAtPick=DraftKings (best of 13 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | NHL: restDays=1day + venue=away | 8 | +0.7% | found inside NHL restDays=1day (best of 12 features tested); small sample, may share reads with other rows |
