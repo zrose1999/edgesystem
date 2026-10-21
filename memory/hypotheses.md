@@ -42,3 +42,10 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-20 | injury=any + venue=away | 11 | +0.0% | found inside ALL injury=any (best of 17 features tested); small sample, may share reads with other rows |
 | 2026-10-20 | market=spread + travelEdge=more | 11 | +0.3% | found inside ALL market=spread (best of 36 features tested); small sample, may share reads with other rows |
 | 2026-10-20 | pattern=news-lag + venue=away | 11 | +0.0% | found inside ALL pattern=news-lag (best of 17 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | travel=500-1500 + travelEdge=more | 8 | +1.1% | found inside ALL travel=500-1500 (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | edgeBar=<0.5x + timing=day | 10 | +0.5% | found inside ALL travel=<500 (best of 6 pairs tested); small sample, may share reads with other rows |
+| 2026-10-21 | NCAAF: moveBeforePick=none + travel=<500 | 16 | +1.1% | found inside NCAAF moveBeforePick=none (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | NCAAF: moveBeforePick=none + role=over | 8 | +0.1% | found inside NCAAF pattern=ncaaf-total-move (best of 2 pairs tested); small sample, may share reads with other rows |
+| 2026-10-21 | NHL: bookAtPick=DraftKings + travel=<500 | 9 | +1.1% | found inside NHL bookAtPick=DraftKings (best of 8 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | NHL: edgeBar=<0.5x + travel=<500 | 8 | +2.0% | found inside NHL edgeBar=<0.5x (best of 13 features tested); small sample, may share reads with other rows |
+| 2026-10-21 | NHL: edgeBar=<0.5x + timing=day | 8 | +2.0% | found inside NHL travel=<500 (best of 1 pairs tested); small sample, may share reads with other rows |
