@@ -76,7 +76,7 @@ COVERED = [
     ("pinAtPick", "2026-10-19T18:00:00Z", None, "Pinnacle at the pick"),
     ("contextAtPick", "2026-10-19T18:00:00Z", None, "weather/injury/goalie as stamped"),
     ("sharpDivergenceAtPick", "2026-10-19T18:00:00Z", None, "needs Pinnacle on the same line"),
-    ("daysRestHome", None, ("NBA", "NHL", "NCAAF"), "schedules in stats/; NFL is a gap"),
+    ("daysRestHome", None, ("NBA", "NHL", "NCAAF", "NFL"), "schedules in stats/ (NFL from 2026-10-21)"),
     ("sharpDivergence", "2026-10-14T00:00:00Z", None, "Pinnacle at the open"),
     ("pinMoveBeforePick", "2026-10-19T18:15:00Z", None, "needs a stored snap 30m-6h before the pick"),
     ("travelMilesAway", None, ("NBA", "NHL", "NCAAF"), "schedules + team_venues.json; neutral sites skipped"),
@@ -174,14 +174,12 @@ def pull_iso(dt):
 NOT_COLLECTED = {
     "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the "
                   "open and near kickoff per game. No free API in the stack today.",
-    "nfl-rest": "NFL days rest and short week need a stored schedule: stats.py already downloads free nflverse data on "
-                "GitHub; saving its schedule (stats/nfl_schedule.json) is a code-only change. NBA, NHL and NCAAF rest "
-                "are built from the schedules in stats/.",
     "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). "
             "Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md).",
 }
 
-SCHEDULES = {"NBA": "nba_games", "NHL": "nhl_games", "NCAAF": "ncaaf_games"}   # NFL: no schedule file yet (free gap)
+SCHEDULES = {"NBA": "nba_games", "NHL": "nhl_games", "NCAAF": "ncaaf_games",
+             "NFL": "nfl_schedule"}   # NFL: stats.py saves the ESPN schedule (2026-10-21)
 TEAM_ALIAS = {"southern mississippi golden eagles": "southern miss golden eagles",
               "umass minutemen": "massachusetts minutemen"}
 _SCHED = {}
@@ -221,7 +219,10 @@ def days_rest(sport, team, commence):
         prev = [t for t in times if parse(t) < now - timedelta(hours=6)]
         if not prev:
             return None
-        return (now.date() - parse(prev[-1]).date()).days
+        # Elapsed time in whole days, not UTC calendar dates: a 7pm ET game is the next UTC day, so UTC dates
+        # misbucketed ~25% of NBA/NHL/NCAAF gaps (b2b read as 1day and back). Rounded hours/24 matched the
+        # venue-local calendar on all 8,212 stored gaps (2026-10-21). rest_nba.py/edge_stack.py already use UTC-6h.
+        return round((now - parse(prev[-1])).total_seconds() / 86400)
     except ValueError:
         return None
 
@@ -977,8 +978,9 @@ def summary(research, now, patterns, graded):
                 + f" ({len(holds)} of {tested} features tested)")
         else:
             lines.append(f"  > grade order holds inside no feature yet ({tested} tested with 5+ reads per grade)")
-    lines += ["Data gaps, free (building next):"]
-    lines += [f"- {k}: {GAP_SHORT[k]}" for k in ("nfl-rest",) if k in research["notCollected"]]
+    free_gaps = [f"- {k}: {GAP_SHORT[k]}" for k in ("nfl-rest",) if k in research["notCollected"]]
+    if free_gaps:
+        lines += ["Data gaps, free (building next):"] + free_gaps
     lines.append("Data gaps, waiting on a source: " + "; ".join(
         f"{k} ({GAP_SHORT[k]})" for k in ("public-pct", "guru") if k in research["notCollected"]))
     lines.append("Coverage of added features (BREAKAGE if still 0 one health-check cycle after shipping):")

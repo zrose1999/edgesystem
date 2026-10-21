@@ -303,8 +303,56 @@ def matchups(R, pts, k_side, k_total):
     return out
 
 
+ESPN_NFL = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates={}&seasontype={}&week={}"
+
+
+def save_schedule():
+    """stats/nfl_schedule.json: every regular-season and playoff game this season with its kickoff time (ESPN, free,
+    no key). memory.py reads it for NFL days rest (same shape as stats/<sport>_games.json). Added 2026-10-21."""
+    import urllib.error
+    path = OUT / "nfl_schedule.json"
+    games = {}
+    if path.exists():
+        try:
+            games = json.loads(path.read_text()).get("games") or {}
+        except ValueError:
+            games = {}
+    fetched = errors = 0
+    for stype, weeks in ((2, range(1, 19)), (3, range(1, 6))):
+        for wk in weeks:
+            try:
+                req = urllib.request.Request(ESPN_NFL.format(SEASON, stype, wk), headers={"User-Agent": "EDGE"})
+                with urllib.request.urlopen(req, timeout=20) as r:
+                    events = json.loads(r.read().decode()).get("events") or []
+            except (urllib.error.URLError, OSError, ValueError):
+                errors += 1
+                continue
+            for e in events:
+                c = (e.get("competitions") or [{}])[0]
+                teams = c.get("competitors") or []
+                h = next((t for t in teams if t.get("homeAway") == "home"), None)
+                a = next((t for t in teams if t.get("homeAway") == "away"), None)
+                if not h or not a or not e.get("date"):
+                    continue
+                if "TBD" in (h["team"].get("displayName"), a["team"].get("displayName")):
+                    continue                     # playoff slots not yet set
+                games[e["id"]] = {"id": e["id"], "date": e["date"], "seasonType": stype, "week": wk,
+                                  "home": h["team"]["displayName"], "away": a["team"]["displayName"],
+                                  "neutral": bool(c.get("neutralSite")),
+                                  "final": bool(((c.get("status") or {}).get("type") or {}).get("completed"))}
+                fetched += 1
+    if fetched:   # never overwrite a good file with an empty one
+        path.write_text(json.dumps({"season": SEASON, "asOf": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                                    "source": "ESPN scoreboard", "games": games}, indent=1) + "\n")
+    return {"scheduleGames": len(games), "scheduleFetched": fetched, "scheduleErrors": errors}
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
+    try:
+        print(json.dumps(save_schedule()))
+    except Exception as exc:  # noqa: BLE001  the schedule never stops the ratings
+        print(f"schedule failed: {exc}")
     s2, s1, s0 = SEASON - 2, SEASON - 1, SEASON
 
     rows2, games2, _ = load(s2)
