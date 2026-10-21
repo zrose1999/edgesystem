@@ -1022,6 +1022,8 @@ def main(dry=False):
                 break
         snapshot(book, now)
 
+    if TRANSFERS:
+        state["live"].setdefault("transfers", []).extend(TRANSFERS)
     maker_posted = maker_post(maker, cands, cfg, now)
     state["sourceStatus"] = source_status(state["paper"], state.get("sourceStatus"), now)
     state["account"] = account_check(mode)
@@ -1205,6 +1207,53 @@ def source_allowed(c, cfg, official, sources=None):
 
 
 LAST_ORDER_WHY = {}
+TRANSFERS = []          # cross-shard funding moves made this run (stored on the live book)
+SHARD_FLOAT = 5.0       # dollars moved to a shard at a time for small orders (the live test day cap)
+
+
+def market_shard(base, ticker):
+    """The exchange shard a market trades on (GET /markets/{ticker} exchange_index). Basketball moved to shard 3 on
+    2026-09-10, and tennis, baseball and crypto are moving to their own instances; the account's cash sits on 0."""
+    try:
+        m = api_get(base, f"/markets/{ticker}").get("market") or {}
+        return int(m.get("exchange_index") or 0)
+    except Exception as exc:  # noqa: BLE001
+        print("market shard", ticker, exc)
+        return None
+
+
+def fund_shard(signer, base, shard, needed):
+    """Move cash from shard 0 to `shard` inside the same account, enough for `needed` dollars and at least
+    SHARD_FLOAT. The Kalshi app does this on its own for app orders (2026-10-08); API orders do not. Returns the
+    transfer record or None."""
+    try:
+        bal = signer.call(base, "GET", "/portfolio/balance") or {}
+        per = {int(b.get("exchange_index", 0)): fp(b.get("balance")) or 0.0 for b in bal.get("balance_breakdown") or []}
+    except Exception as exc:  # noqa: BLE001
+        print("shard balance", exc)
+        return None
+    have, home = per.get(shard, 0.0), per.get(0, 0.0)
+    if have >= needed:
+        return {"shard": shard, "note": "already funded", "have": have}
+    amount = round(min(home, max(needed - have, SHARD_FLOAT)), 2)
+    if amount < 0.01:
+        return None
+    body = {"source": "event_contract", "destination": "event_contract", "amount": int(round(amount * 10000)),
+            "source_exchange_shard": 0, "destination_exchange_shard": shard,
+            "client_transfer_id": str(__import__("uuid").uuid4())}
+    try:
+        r = signer.call(base, "POST", "/portfolio/intra_exchange_instance_transfer", body) or {}
+    except urllib.error.HTTPError as exc:
+        print("shard transfer refused", shard, exc.code, exc.read()[:200])
+        return None
+    except Exception as exc:  # noqa: BLE001
+        print("shard transfer failed", shard, exc)
+        return None
+    rec = {"time": iso(now_utc()), "fromShard": 0, "toShard": shard, "amount": amount, "transferId": r.get("transfer_id"),
+           "shardBalanceBefore": have, "homeBalanceBefore": home}
+    TRANSFERS.append(rec)
+    time.sleep(2.0)                            # transfers settle asynchronously
+    return rec
 
 
 def fp(x):
@@ -1244,20 +1293,28 @@ def create_order(signer, base, c, n, price, tif, post_only=False, expiration=Non
     if expiration:
         body["expiration_time"] = int(expiration)
     v2_why = None
-    time.sleep(ORDER_GAP_S)                    # stay under Kalshi's order rate limit
-    try:
-        r = signer.call(base, "POST", "/portfolio/events/orders", body) or {}
-        if r.get("order_id"):
-            return r["order_id"], "v2"
-    except urllib.error.HTTPError as exc:
-        text = exc.read()[:200]
-        v2_why = f"v2 refused: HTTP {exc.code} {text!r}"
-        # 2026-10-21: the v2 path answered insufficient_balance on a $35 account for 1-contract orders; the legacy
-        # path is tried before giving up. Other refusals (bad price, rate limit) are final for this order.
-        if exc.code not in (404, 405) and b"insufficient_balance" not in text:
-            return None, v2_why
-    except Exception as exc:  # noqa: BLE001
-        return None, f"v2 failed: {exc}"
+    for attempt in (1, 2):
+        time.sleep(ORDER_GAP_S)                # stay under Kalshi's order rate limit
+        try:
+            r = signer.call(base, "POST", "/portfolio/events/orders", dict(body, client_order_id=f"{cid}-{attempt}")) or {}
+            if r.get("order_id"):
+                return r["order_id"], "v2" if attempt == 1 else "v2 after shard funding"
+            return None, "v2: no order id"
+        except urllib.error.HTTPError as exc:
+            text = exc.read()[:200]
+            v2_why = f"v2 refused: HTTP {exc.code} {text!r}"
+            if exc.code in (404, 405):
+                break                           # path refused: try the legacy endpoint below
+            # insufficient_balance on a funded account = the market's shard holds no cash (2026-10-21, NBA on
+            # shard 3). Fund that shard from shard 0 once, then retry. Anything else is final for this order.
+            if b"insufficient_balance" not in text or attempt == 2:
+                return None, v2_why
+            shard = market_shard(base, c["ticker"])
+            needed = n * (price if c["side"] == "yes" else price) + FEE_RATE * n * price * (1 - price) + 0.01
+            if not shard or not fund_shard(signer, base, shard, needed):
+                return None, v2_why + f"; shard {shard} not funded"
+        except Exception as exc:  # noqa: BLE001
+            return None, f"v2 failed: {exc}"
     legacy = {"ticker": c["ticker"], "action": "buy", "side": c["side"], "count": n, "type": "limit",
               "time_in_force": tif, "client_order_id": cid + "-l", f"{c['side']}_price": int(round(price * 100))}
     if post_only:
