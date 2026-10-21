@@ -111,6 +111,8 @@ def f(x):
         return None
 
 
+ORDER_GAP_S = 0.35          # pause before each real order (Kalshi answered 429 at ~30 orders in a burst)
+REFUSALS_STOP = 3           # this many balance refusals in one run end live ordering for that run
 MAKER_FEE_RATE = 0.0175   # about a quarter of the taker rate; confirm against Kalshi's published schedule before live
 
 
@@ -937,6 +939,7 @@ def main(dry=False):
                 reconcile(book, signer, base, now)
             except Exception as exc:  # noqa: BLE001
                 print("reconcile", exc)
+        refusals = 0
         have = {(t["event"], t["kind"], t["source"]) for t in book["trades"] if t.get("status") != "void"}
         have |= {(o["event"], o["kind"], o["source"]) for o in book.get("orders") or [] if o.get("status") == "resting"}
         for c in cands:
@@ -990,6 +993,11 @@ def main(dry=False):
                 order = place_maker(signer, base, c, n, mprice)
                 if not order:
                     skip(name, "maker order failed")
+                    if LAST_ORDER_WHY.get("balance"):
+                        refusals += 1
+                        if refusals >= REFUSALS_STOP:
+                            skip(name, "stopped this run: repeated balance refusals")
+                            break
                     continue
                 order["time"] = iso(now)
                 if is_test:
@@ -1055,8 +1063,9 @@ def account_check(mode):
         return {"keys": "error", "error": f"{type(exc).__name__}: {str(exc)[:160]}", "checkedAt": iso(now_utc())}
     cents = bal.get("balance")
     dollars = f(bal.get("balance_dollars"))
+    detail = {k: v for k, v in bal.items() if isinstance(v, (int, float, str)) and len(str(v)) < 40}
     return {"keys": "ok", "balance": round(dollars if dollars is not None else (cents or 0) / 100, 2),
-            "env": "demo" if mode == "demo" else "production", "checkedAt": iso(now_utc())}
+            "detail": detail, "env": "demo" if mode == "demo" else "production", "checkedAt": iso(now_utc())}
 
 
 def _other(team_side, kind):
@@ -1192,6 +1201,9 @@ def source_allowed(c, cfg, official, sources=None):
     return c["source"] in allowed
 
 
+LAST_ORDER_WHY = {}
+
+
 def fp(x):
     """Kalshi fixed-point strings ("12.00", "0.5600") or numbers to float; None when absent."""
     try:
@@ -1228,13 +1240,19 @@ def create_order(signer, base, c, n, price, tif, post_only=False, expiration=Non
         body["post_only"] = True
     if expiration:
         body["expiration_time"] = int(expiration)
+    v2_why = None
+    time.sleep(ORDER_GAP_S)                    # stay under Kalshi's order rate limit
     try:
         r = signer.call(base, "POST", "/portfolio/events/orders", body) or {}
         if r.get("order_id"):
             return r["order_id"], "v2"
     except urllib.error.HTTPError as exc:
-        if exc.code not in (404, 405):
-            return None, f"v2 refused: HTTP {exc.code} {exc.read()[:200]!r}"
+        text = exc.read()[:200]
+        v2_why = f"v2 refused: HTTP {exc.code} {text!r}"
+        # 2026-10-21: the v2 path answered insufficient_balance on a $35 account for 1-contract orders; the legacy
+        # path is tried before giving up. Other refusals (bad price, rate limit) are final for this order.
+        if exc.code not in (404, 405) and b"insufficient_balance" not in text:
+            return None, v2_why
     except Exception as exc:  # noqa: BLE001
         return None, f"v2 failed: {exc}"
     legacy = {"ticker": c["ticker"], "action": "buy", "side": c["side"], "count": n, "type": "limit",
@@ -1246,8 +1264,10 @@ def create_order(signer, base, c, n, price, tif, post_only=False, expiration=Non
     try:
         o = (signer.call(base, "POST", "/portfolio/orders", legacy) or {}).get("order") or {}
         return (o.get("order_id"), "legacy") if o.get("order_id") else (None, "legacy: no order id")
+    except urllib.error.HTTPError as exc:
+        return None, f"{v2_why + '; ' if v2_why else ''}legacy refused: HTTP {exc.code} {exc.read()[:200]!r}"
     except Exception as exc:  # noqa: BLE001
-        return None, f"legacy failed: {exc}"
+        return None, f"{v2_why + '; ' if v2_why else ''}legacy failed: {exc}"
 
 
 def place(signer, base, c, n):
@@ -1278,8 +1298,10 @@ def place_maker(signer, base, c, n, price):
     beats the taker book net of fees)."""
     exp = pull.parse(c["commence"]).timestamp() - 300
     oid, how = create_order(signer, base, c, n, price, "good_till_canceled", post_only=True, expiration=exp)
+    LAST_ORDER_WHY.clear()
     if not oid:
         print("maker order failed", c["ticker"], how)
+        LAST_ORDER_WHY.update(why=how, balance="insufficient_balance" in how)
         return None
     keep = ("ticker", "title", "sport", "kind", "event", "commence", "side", "strike", "source", "fair", "edge",
             "estimated", "why")
