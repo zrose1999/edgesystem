@@ -301,6 +301,13 @@ def main():
     except Exception as exc:  # noqa: BLE001
         print(f"::warning::memory.py failed: {exc}")
 
+    # Desk state: STATE.md, the one-page picture every chat and scheduled task reads first (2026-10-21).
+    try:
+        import state
+        print(json.dumps(state.build()))
+    except Exception as exc:  # noqa: BLE001
+        print(f"::warning::state.py failed: {exc}")
+
 
 if __name__ == "__main__":
     main()
