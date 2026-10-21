@@ -8327,7 +8327,9 @@
       "clvProbPrint": -0.0332,
       "clvProbPin": -0.0338,
       "closeNoVigPin": 0.1262,
-      "clvBench": "pinnacle"
+      "clvBench": "pinnacle",
+      "result": "loss",
+      "units": -1.0
     },
     {
       "pickId": "NHL|2026-10-15|Vancouver Canucks at Florida Panthers|h2h|home|v1|learned-nhl-ml|lean|2026-10-15T11:11:13Z",
@@ -29173,7 +29175,9 @@
       "clvProbPrint": 0.0073,
       "clvProbPin": 0.0149,
       "closeNoVigPin": 0.3006,
-      "clvBench": "pinnacle"
+      "clvBench": "pinnacle",
+      "result": "loss",
+      "units": -1.0
     },
     {
       "pickId": "NFL|2026-10-27|Dallas Cowboys at Philadelphia Eagles|spread|home|v1|reread|news-lag|2026-10-19T18:39:29Z",
@@ -29669,7 +29673,9 @@
       "clvProbPrint": 0.0073,
       "clvProbPin": 0.0149,
       "closeNoVigPin": 0.3006,
-      "clvBench": "pinnacle"
+      "clvBench": "pinnacle",
+      "result": "loss",
+      "units": -1.0
     },
     {
       "pickId": "NBA|2026-10-22|Golden State Warriors at Los Angeles Lakers|spread|home|v1|news-lag",
@@ -43006,6 +43012,118 @@
         "price": -114,
         "line": 237.5,
         "implied": 0.5327,
+        "printImplied": 0.5349
+      },
+      "note": "Same side already picked. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NBA|2026-10-22|Utah Jazz at Memphis Grizzlies|spread|away|v1|reread|news-lag|2026-10-21T23:09:38Z",
+      "kind": "reread",
+      "grade": "A",
+      "rowId": "NBA|2026-10-22|Utah Jazz at Memphis Grizzlies|spread",
+      "sport": "NBA",
+      "event": "Utah Jazz at Memphis Grizzlies",
+      "commence": "2026-10-22T00:10:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 1.5,
+      "priceAtPick": -105,
+      "marketNumber": -1.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "home": -115,
+        "away": -105
+      },
+      "priceTime": "2026-10-21T23:09:24Z",
+      "pickedAt": "2026-10-21T23:09:38Z",
+      "fair": 1.45,
+      "projection": 1.45,
+      "edge": 2.95,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "Jerami Grant (Grizzlies, worth 1.52): weight 1 at the open, 0 now, -1.52 spread, +0.91 total | GG Jackson (Grizzlies, worth 1.18): weight 1 at the open, 0 now, -1.18 spread, +0.71 total | Blake Hinson (Jazz, worth 1.15): weight 1 at the open, 0 now, -1.15 spread, +0.69 total | Kyle Filipowski (Jazz, worth 1.24): weight 0.4 at the open, 0 now, -0.50 spread, +0.30 total. Open home line +2.5, fair +1.45.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before tip-off.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury_nba.py",
+      "pinAtPick": {
+        "line": -2.0,
+        "prices": {
+          "home": -107,
+          "away": -103
+        },
+        "updated": "2026-10-21T23:09:21Z",
+        "snapTime": "2026-10-21T23:09:24Z",
+        "noVig": 0.4952
+      },
+      "contextAtPick": {
+        "injury": "Jerami Grant (Grizzlies, worth 1.52): weight 1 at the open, 0 now, -1.52 spread, +0.91 total | GG Jackson (Grizzlies, worth 1.18): weight 1 at the open, 0 now, -1.18 spread, +0.71 total | Blake Hinson (Jazz, worth 1.15): weight 1 at the open, 0 now, -1.15 spread, +0.69 total | Kyle Filipowski (Jazz, worth 1.24): weight 0.4 at the open, 0 now, -0.50 spread, +0.30 total"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -105,
+        "line": -1.5,
+        "implied": 0.5122,
+        "printImplied": 0.5122
+      },
+      "note": "Same side already picked. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NBA|2026-10-22|Utah Jazz at Memphis Grizzlies|total|over|v1|reread|news-lag|2026-10-21T23:09:38Z",
+      "kind": "reread",
+      "grade": "A",
+      "rowId": "NBA|2026-10-22|Utah Jazz at Memphis Grizzlies|total",
+      "sport": "NBA",
+      "event": "Utah Jazz at Memphis Grizzlies",
+      "commence": "2026-10-22T00:10:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 240.5,
+      "priceAtPick": -115,
+      "marketNumber": 240.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -115,
+        "under": -105
+      },
+      "priceTime": "2026-10-21T23:09:24Z",
+      "pickedAt": "2026-10-21T23:09:38Z",
+      "fair": 245.11,
+      "projection": 245.11,
+      "edge": 4.61,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "Jerami Grant (Grizzlies, worth 1.52): weight 1 at the open, 0 now, -1.52 spread, +0.91 total | GG Jackson (Grizzlies, worth 1.18): weight 1 at the open, 0 now, -1.18 spread, +0.71 total | Blake Hinson (Jazz, worth 1.15): weight 1 at the open, 0 now, -1.15 spread, +0.69 total | Kyle Filipowski (Jazz, worth 1.24): weight 0.4 at the open, 0 now, -0.50 spread, +0.30 total. Open total 242.5, fair 245.11.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before tip-off.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury_nba.py",
+      "pinAtPick": {
+        "line": 241.5,
+        "prices": {
+          "over": -109,
+          "under": -103
+        },
+        "updated": "2026-10-21T23:09:21Z",
+        "snapTime": "2026-10-21T23:09:24Z",
+        "noVig": 0.5071
+      },
+      "contextAtPick": {
+        "injury": "Jerami Grant (Grizzlies, worth 1.52): weight 1 at the open, 0 now, -1.52 spread, +0.91 total | GG Jackson (Grizzlies, worth 1.18): weight 1 at the open, 0 now, -1.18 spread, +0.71 total | Blake Hinson (Jazz, worth 1.15): weight 1 at the open, 0 now, -1.15 spread, +0.69 total | Kyle Filipowski (Jazz, worth 1.24): weight 0.4 at the open, 0 now, -0.50 spread, +0.30 total"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -115,
+        "line": 240.5,
+        "implied": 0.5349,
         "printImplied": 0.5349
       },
       "note": "Same side already picked. Logged as a reread, graded, not counted."
