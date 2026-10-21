@@ -151,6 +151,17 @@ Retire early if: live_check shows the top-30% trades' realized move at or below 
 The generic layer for every sport. features_archive.py turns EDGE's own collected rows into training data with no hand-written idea behind them: opening no-vig price or line, how far each US book sat from Pinnacle, how much the books disagreed, whether the print book was best, timing, plus tennis surface-Elo and fatigue, and for CS2 the Kalshi first-seen price with the CS2 model's view. Target: Pinnacle's move from the open to the last pre-start snapshot (Kalshi mid for CS2). A sport/market becomes a learner target at 300 finished rows and goes live only through the same out-of-sample gate. Covers tennis, NFL, MLS, UCL, UEL, NCAAF, CS2 and anything else the desk collects. Retrained monthly.
 
 
+## scan-* (strategy scanner, scan.py, 2026-10-21)
+Strategies EDGE creates on its own. Every morning scan.py describes every stored game (about 45,000 game-markets:
+NBA, NHL, NCAAF, five soccer leagues; NFL from nflverse on GitHub's runners) by pre-pick features (opening number
+band, favourite/dog, price band, days rest and rest edge, day, month), tests every single feature and every pair on
+every side for three things (open-to-close move beyond the league average = CLV, result at the open, result at the
+close), and keeps only what survives a Benjamini-Hochberg false-discovery cut (q 0.10), holds in both halves of the
+sample and clears a minimum effect. The strongest 40 become scan-<sport>-<market>-<side>-<conditions> patterns and
+stamp shadow reads on matching games (fair = current line + 0.8 x the measured move not yet made; result-only
+strategies stamp leans). Stake 0, Kalshi mirrors track-only. Promotion only through grade.py's rule, like every
+pattern. A strategy that stops passing is lapsed (no new reads). Report: stats/scan/report.md.
+
 ## Minimum expected move (set by Zack 2026-10-14)
 A measured-move read can be a pick only if the move still to come is at least: rest-spot 0.75 point, ncaaf-total-move 1 point, ncaaf-spot 1 point, nhl-ml-move and nhl-total-move 2% probability, soccer-drift 1.5% over probability. A smaller expected move is still stamped, but capped at a lean (pull.LEAN_CAP): graded against the close and available to edge-stack, never a pick. On reads so far: ncaaf-total-move 4 of 18 clear, ncaaf-spot 0 of 30 (largest 0.67), NHL 1 of 3 each. rest-spot home back-to-back (0.5) can never clear on its own; away back-to-back (0.9) clears only before the line has moved.
 

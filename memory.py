@@ -1002,7 +1002,29 @@ def summary(research, now, patterns, graded):
     if ic:
         lines.append(f"Interaction coverage: {ic['atLeastTwo']} graded reads have at least two of "
                      f"({', '.join(ic['fields'])}) populated.")
+    sc = scanner_line()
+    if sc:
+        lines.insert(3, sc)
     return "\n".join(lines[:30]) + "\n"
+
+
+def scanner_line():
+    """One line on the strategy scanner (scan.py): what it is tracking and how its live reads are doing on CLV."""
+    store = load_json(ROOT / "stats" / "scan" / "strategies.json", {})
+    S = store.get("strategies") or {}
+    if not S:
+        return None
+    tracking = [s for s in S.values() if s.get("status") == "tracking"]
+    log = []
+    for path in sorted(LOG.glob("*.jsonl")):
+        log += [json.loads(l) for l in path.read_text().splitlines() if l.strip()]
+    mine = [e for e in log if str(e.get("pattern") or "").startswith("scan-") and e.get("counted")
+            and isinstance(e.get("clvProb"), (int, float))]
+    clv = f", mean CLV {sum(e['clvProb'] for e in mine) / len(mine) * 100:+.1f}%" if mine else ""
+    new = sum(1 for s in tracking if (s.get("firstFound") or "")[:10] == (store.get("asOf") or "")[:10])
+    return (f"Scanner (scan.py, {(store.get('asOf') or '')[5:16].replace('T', ' ')}Z): {len(tracking)} strategies tracking "
+            f"from {store.get('tests', 0)} hypotheses ({new} new this run); {len(mine)} graded scan reads{clv}. "
+            "Shadow only; grade.py decides promotion.")
 
 
 def query(a):

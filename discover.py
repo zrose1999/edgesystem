@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """EDGE discovery engine. Searches every sport's history for situations where the price moves the same way from
 the open to the close, which is exactly what beats the close. Writes stats/discovery.md and .json for the weekly
-review. It proposes; it never adopts. A candidate becomes a pattern only through a reviewed change Zack approves.
+review. It proposes; it never adopts. scan.py (2026-10-21) is the part that adopts: it runs a wider search (number
+bands, rest, pairs, results as well as moves) and turns survivors into shadow scan-* strategies automatically.
 
   python3 discover.py
 
