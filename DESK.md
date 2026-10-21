@@ -28,6 +28,7 @@ How to write here:
 - 2026-10-21: Every chat and scheduled task reads STATE.md and DESK.md first and records Zack's decisions here before it ends.
 
 ## Decisions log
+- 2026-10-21: Zack had the stale copies of patterns.md, pull.py and grade.py removed from the claude.ai project (the repo is the only copy; START-HERE.md points to it) and the old Rose "Weekly ledger audit" scheduled task turned off (paused, not deleted; it read the Rose Google Sheet). (chat: ideas tested this week)
 - 2026-10-21: Zack merged PR #4 (shared desk) and asked Claude to merge PR #2 (weekly review proposals: one lessons.md entry) and PR #3 (results autopsy). Merged together after resolving changelog and memory.py overlaps; grade.py tested end to end. (chat: ideas tested this week)
 - 2026-10-21: Zack wants every chat, scheduled task and automated run working from one shared, current picture. Added DESK.md, STATE.md (state.py) and CLAUDE.md. (chat: ideas tested this week)
 - 2026-10-21: Strategy scanner approved and built: scan.py tests history every morning and tracks up to 40 survivors as shadow scan-* patterns, stake 0. NFL and MLB added the same day. (chat: strategy scanner)
