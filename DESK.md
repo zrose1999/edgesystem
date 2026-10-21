@@ -28,9 +28,11 @@ How to write here:
 - 2026-10-14: stats-model is off. Minimum expected moves for measured-move patterns are in patterns.md (Zack's call).
 - 2026-10-21: Parked patterns (pull.PARKED) take no new reads; one comes back only as a new, measured pattern at a weekly review.
 - 2026-10-21: Full-size live money only for confirmed signals: mirrors of official EDGE patterns, or Kalshi sources that cleared the bar and a 15-trade confirmation on paper CLV net of fees. Zack (same day): every other signal may trade as a small live test, 1 contract, maker order, $5 a day max (trading/config.json liveTest). The switch panel can narrow either, and only Zack's switch turns real money on.
+- 2026-10-21: Collaborators bring ideas as GitHub issues labeled idea (form on main, guide in CONTRIBUTING.md). They get Triage access, never Write: pushes run in workflows that hold the Kalshi and Odds API keys. Ideas are reviewed with Zack at the weekly review; nothing from an idea runs until he accepts it.
 - 2026-10-21: Every chat and scheduled task reads STATE.md and DESK.md first and records Zack's decisions here before it ends.
 
 ## Decisions log
+- 2026-10-21: Zack wants to bring in a remote collaborator who talks to Claude about ideas, then Zack and Claude review them. Set up: idea issue form and label, CONTRIBUTING.md, weekly review step for open ideas. Zack to invite him on GitHub with the Triage role. (chat: ideas tested this week)
 - 2026-10-21: Zack asked Claude to research the Kalshi API connection itself. Found the shard cause in Kalshi's changelog; first live test order accepted (NFL, 1 contract NO at 47c, resting). (chat: ideas tested this week)
 - 2026-10-21: Zack switched live trading On (bankroll $35, sources official, stop loss $35, take profit 0). The first session stopped itself at once because take profit 0 was read as a limit; fixed (0 = no limit). Zack to switch off and on to start a fresh session. (chat: ideas tested this week)
 - 2026-10-21: Zack approved small real-money tests on Kalshi (balance about $35) instead of paper only. Built as liveTest: 1 contract, maker orders, $5 a day. Waiting on Zack to switch trading On and set the panel's live sources to "official" (currently kalshi-sharp only). (chat: ideas tested this week)
