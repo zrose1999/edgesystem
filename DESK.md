@@ -41,6 +41,7 @@ How to write here:
 - 2026-10-15: Learning engine replaces hand-written strategies; staged promotion rule approved. (chat: Betting app migration from Grok)
 
 ## Open threads
+- Phase 4 readiness (2026-10-21): the site's switch panel lists live source kalshi-sharp (paper CLV -3.3% on 5), while config.json's default is "official" (only confirmed patterns). Switching on today would stake an unconfirmed source. Zack's call on the panel; recommended: "official". Not built yet for phase 4: live Kalshi maker orders (waits on the maker-vs-taker comparison) and any ProphetX or other exchange connection.
 - 2026-10-21: the Netlify clock skipped the 19:39Z fast run (nothing ran 19:24Z to 19:51Z; Claude dispatched one by hand, green). Owner: health check: count gaps over 20 minutes in yesterday's runs and fix the clock if it repeats.
 - Kalshi maker vs taker: compare in STATE.md (north-star checks) once 30+ maker fills have closes. Owner: weekly review. A live maker order is Zack's call from that comparison.
 - First fixed-roster review day: Tuesday 2026-10-27. The scanner's queuedForReview and wouldLapseAtReview lists get applied that morning; the weekly review reports them.
