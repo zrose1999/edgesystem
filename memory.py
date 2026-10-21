@@ -67,7 +67,7 @@ FEATURE_TIMING = {
     "sharpGapOpen": "pre-pick (open snapshot)", "sharpGapPick": "pre-pick (pinAtPick)", "bookAtPick": "pre-pick (stamped)",
 }
 POST_PICK_FIELDS = ["closeLine", "closePrice", "closeNoVig", "clvProb", "clvPoints", "result", "units", "score",
-                    "injuryLatest", "weatherLatest"]
+                    "injuryLatest", "weatherLatest", "autopsy"]
 MIN_READS_FOR_ALARM = 10
 CYCLE_HOURS = 26   # one daily health-check cycle, with slack: still at 0 after this is breakage
 
@@ -528,7 +528,7 @@ def features(pick, row):
 
 def entry(pick, row, counted):
     snap_o, snap_c = row.get("openSnap") or {}, row.get("closeSnap") or {}
-    return {
+    e = {
         "pickId": pick["pickId"], "sport": pick.get("sport"), "date": (pick.get("commence") or "")[:10],
         "event": pick.get("event"), "home": row.get("home"), "away": row.get("away"),
         "market": pick.get("market"), "kind": pick.get("kind", "pick"), "counted": counted,
@@ -556,6 +556,14 @@ def entry(pick, row, counted):
         "reason": pick.get("reason"), "falsifier": pick.get("falsifier"), "by": pick.get("by"),
         "notes": pick.get("note"),
     }
+    # Post-pick explanation (autopsy.py): why the market moved and what decided the result. Never a feature.
+    try:
+        import autopsy
+        e["autopsy"] = autopsy.autopsy(pick, row, e)
+    except Exception as exc:  # noqa: BLE001
+        e["autopsy"] = None
+        print(f"::warning::autopsy failed for {pick.get('pickId')}: {exc}")
+    return e
 
 
 def tokens(f):
@@ -685,6 +693,7 @@ def build():
         if why:
             f["why_not_promoted"] = why
     research["gradeReliability"] = grade_reliability(graded)
+    research["autopsy"] = autopsy_report(graded, feats)
     # Conditional pockets for every early-negative slice with 15+ reads, and for grade A.
     research["pockets"] = []
     for f in feats:
@@ -978,6 +987,7 @@ def summary(research, now, patterns, graded):
                 + f" ({len(holds)} of {tested} features tested)")
         else:
             lines.append(f"  > grade order holds inside no feature yet ({tested} tested with 5+ reads per grade)")
+    lines += autopsy_lines(research.get("autopsy") or {})
     free_gaps = [f"- {k}: {GAP_SHORT[k]}" for k in ("nfl-rest",) if k in research["notCollected"]]
     if free_gaps:
         lines += ["Data gaps, free (building next):"] + free_gaps
@@ -1027,6 +1037,78 @@ def scanner_line():
             "Shadow only; grade.py decides promotion.")
 
 
+CAUSE_ORDER = ["news-after-pick", "sharps-against-at-pick", "sharps-against-at-open", "bet-into-steam", "late-move",
+               "number-off", "unknown"]
+VERDICTS = ["right-and-rewarded", "right-but-unlucky", "lucky-win", "market-was-right", "push"]
+
+
+def autopsy_report(graded, feats):
+    """Post-pick explanations across counted, graded reads (autopsy.py). Explains; never promotes or retires.
+    Each loss-to-the-close cause points at the pre-pick feature that could have warned us, with that feature's CLV:
+    the feature, not the cause, is what gets tested."""
+    have = [e for e in graded if (e.get("autopsy") or {}).get("market")]
+    by_feat = {f["key"]: f for f in feats}
+    lost = [e for e in have if e["autopsy"]["market"]["clv"] == "lost"]
+    causes = {}
+    for c in CAUSE_ORDER:
+        es = [e for e in lost if e["autopsy"]["market"]["cause"] == c]
+        if not es:
+            continue
+        sports = defaultdict(int)
+        pats = defaultdict(int)
+        for e in es:
+            sports[e["sport"]] += 1
+            pats[e.get("pattern") or "none"] += 1
+        pre = es[0]["autopsy"]["market"].get("prePickFeature")
+        pf = by_feat.get(f"ALL|{pre}") if pre else None
+        causes[c] = {**stats([e["clvProb"] for e in es]), "share": round(len(es) / len(lost), 3),
+                     "bySport": dict(sorted(sports.items(), key=lambda kv: -kv[1])),
+                     "topPatterns": dict(sorted(pats.items(), key=lambda kv: -kv[1])[:5]),
+                     "prePickFeature": pre,
+                     "prePickFeatureClv": {k: pf[k] for k in ("n", "meanClvProb", "tStat", "status")} if pf else None}
+    for_us = [e for e in have if e["autopsy"]["market"]["cause"] == "news-for-us"]
+    games = [e for e in have if (e["autopsy"].get("game") or {}).get("verdict")]
+    verdicts = {}
+    for v in VERDICTS:
+        es = [e for e in games if e["autopsy"]["game"]["verdict"] == v]
+        if es:
+            verdicts[v] = {**stats([e["clvProb"] for e in es])}
+    tags = defaultdict(lambda: {"n": 0, "inVerdict": defaultdict(int)})
+    for e in games:
+        for t in e["autopsy"]["game"].get("tags") or []:
+            tags[t]["n"] += 1
+            tags[t]["inVerdict"][e["autopsy"]["game"]["verdict"]] += 1
+    return {
+        "note": ("Post-pick. Causes explain why reads lost to the close; verdicts and tags explain results. Nothing here "
+                 "is a feature or a rule: a cause becomes testable only through its pre-pick feature."),
+        "graded": len(graded), "withAutopsy": len(have),
+        "causeKnown": sum(1 for e in lost if e["autopsy"]["market"]["cause"] != "unknown"),
+        "lostToClose": len(lost), "beatClose": len(have) - len(lost), "newsForUs": len(for_us),
+        "lossCauses": causes,
+        "verdicts": verdicts,
+        "withBox": sum(1 for e in games if e["autopsy"]["game"].get("boxSourced")),
+        "varianceTags": {k: {"n": v["n"], "inVerdict": dict(v["inVerdict"])}
+                         for k, v in sorted(tags.items(), key=lambda kv: -kv[1]["n"])},
+    }
+
+
+def autopsy_lines(rep):
+    """Two summary lines: why reads lost to the close, and process vs result."""
+    if not rep or not rep.get("withAutopsy"):
+        return []
+    lc = rep.get("lossCauses") or {}
+    parts = [f"{c} {v['n']} ({v['meanClvProb'] * 100:+.1f}%)" for c, v in lc.items()]
+    out = [f"Why reads lost to the close (autopsy, post-pick; {rep['lostToClose']} of {rep['withAutopsy']}, cause known on "
+           f"{rep['causeKnown']}): " + ", ".join(parts)]
+    vd = rep.get("verdicts") or {}
+    unlucky = [k.split(":")[0] for k, v in (rep.get("varianceTags") or {}).items()
+               if k.endswith(":hurt") and v["inVerdict"].get("right-but-unlucky")][:3]
+    out.append("Process vs result: " + ", ".join(f"{k} {v['n']}" for k, v in vd.items())
+               + (f"; right-but-unlucky losses hurt most by {', '.join(unlucky)}" if unlucky else "")
+               + " (results are noise at this sample; CLV decides)")
+    return out
+
+
 def query(a):
     log = []
     for path in sorted(LOG.glob("*.jsonl")):
@@ -1042,6 +1124,13 @@ def query(a):
         if a.pattern and e.get("pattern") != a.pattern:
             continue
         if a.since and (e.get("date") or "") < a.since:
+            continue
+        au = e.get("autopsy") or {}
+        if a.cause and (au.get("market") or {}).get("cause") != a.cause:
+            continue
+        if a.verdict and (au.get("game") or {}).get("verdict") != a.verdict:
+            continue
+        if a.tag and not any(t == a.tag or t.startswith(a.tag + ":") for t in (au.get("game") or {}).get("tags") or []):
             continue
         toks = set(tokens(e.get("features") or {}))
         if all(f in toks for f in a.feature or []):
@@ -1064,6 +1153,9 @@ def main():
     q.add_argument("--pattern")
     q.add_argument("--feature", action="append", help="key=value, repeatable: timing=early, injury=qb, wind=15+")
     q.add_argument("--since", help="YYYY-MM-DD")
+    q.add_argument("--cause", help="autopsy cause (post-pick explanation): news-after-pick, sharps-against-at-pick, ...")
+    q.add_argument("--verdict", help="autopsy verdict: right-but-unlucky, lucky-win, market-was-right, ...")
+    q.add_argument("--tag", help="autopsy variance tag, e.g. overtime or overtime:hurt")
     a = ap.parse_args()
     if a.cmd == "query":
         query(a)

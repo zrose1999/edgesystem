@@ -295,6 +295,12 @@ def main():
 
     # Living memory: settled reads, feature research ledger and the rolling summary. It only reads what grade wrote;
     # a failure here never blocks grading.
+    # Autopsy box scores first (free ESPN, cached in stats/autopsy_box.json), so memory can explain results.
+    try:
+        import autopsy
+        print(json.dumps({"autopsy": autopsy.fetch()}))
+    except Exception as exc:  # noqa: BLE001
+        print(f"::warning::autopsy fetch failed: {exc}")
     try:
         import memory
         print(json.dumps({"memory": memory.build()}))

@@ -28,6 +28,7 @@ How to write here:
 - 2026-10-21: Every chat and scheduled task reads STATE.md and DESK.md first and records Zack's decisions here before it ends.
 
 ## Decisions log
+- 2026-10-21: Zack merged PR #4 (shared desk) and asked Claude to merge PR #2 (weekly review proposals: one lessons.md entry) and PR #3 (results autopsy). Merged together after resolving changelog and memory.py overlaps; grade.py tested end to end. (chat: ideas tested this week)
 - 2026-10-21: Zack wants every chat, scheduled task and automated run working from one shared, current picture. Added DESK.md, STATE.md (state.py) and CLAUDE.md. (chat: ideas tested this week)
 - 2026-10-21: Strategy scanner approved and built: scan.py tests history every morning and tracks up to 40 survivors as shadow scan-* patterns, stake 0. NFL and MLB added the same day. (chat: strategy scanner)
 - 2026-10-20: Results autopsy approved (market autopsy, box-score tags, memory labels). Built as PR #3. (chat: NBA data tracking systems)
@@ -36,7 +37,7 @@ How to write here:
 - 2026-10-15: Learning engine replaces hand-written strategies; staged promotion rule approved. (chat: Betting app migration from Grok)
 
 ## Open threads
-- PR #2 (weekly review 2026-10-20 proposals) and PR #3 (results autopsy): waiting on Zack to merge or decline.
+- Autopsy (PR #3) is live from the next grade run: check its two summary lines appear and stats/autopsy_box.json fills. Owner: health check.
 - Scanner's first live stamping: morning job 2026-10-22 11:07Z. Owner: health check. If no scan-* reads appear after that run, treat it as breakage.
 - news-lag logged 119 rereads 2026-10-19 to 10-21 (injury feed flicker). Dedup keeps them out of the sample; owner: health check, watch whether it grows.
 - learned-nfl-*: 2024 season backfill planned after the Odds API credit reset, then the gate decides again.
