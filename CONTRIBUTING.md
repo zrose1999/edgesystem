@@ -9,7 +9,7 @@ EDGE is Zack's sports betting research desk. It has one goal: find prices better
 4. Every Tuesday the weekly review lists open ideas for Zack with what EDGE's own data already says about each one. Zack decides; accepted ideas start at a review date as shadow patterns with no money on them, and earn their way like everything else.
 
 ## Code
-You have triage access: issues, labels, comments and pull request reviews. To propose code, fork the repo, work from the `data` branch, and open a pull request into `data`. Pull requests from forks never see the repository's secrets. Zack merges.
+You need no access to this repo: it is public, so any GitHub account can read it, open ideas and comment. To propose code, fork the repo, work from the `data` branch, and open a pull request into `data`. Pull requests from forks never see the repository's secrets. Zack merges.
 
 ## Never
 - Ask for or handle Zack's API keys, Kalshi credentials or the site's trading PIN.
