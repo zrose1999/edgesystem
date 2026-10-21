@@ -38,6 +38,7 @@ How to write here:
 - 2026-10-15: Learning engine replaces hand-written strategies; staged promotion rule approved. (chat: Betting app migration from Grok)
 
 ## Open threads
+- North star research doc (https://claude.ai/artifact/EhPwFnkQddHhoiMAAiATJJ, 2026-10-21): proposes seven fixed rules and a four-phase plan (log best price, Pinnacle-close CLV and model log-loss gain; then confirmation runs, move grading into edge-stack, fixed roster; then Kalshi maker orders on paper). Waiting on Zack to adopt, edit or decline; nothing changes until he does.
 - Autopsy (PR #3) is live from the next grade run: check its two summary lines appear and stats/autopsy_box.json fills. Owner: health check.
 - Scanner's first live stamping: morning job 2026-10-22 11:07Z. Owner: health check. If no scan-* reads appear after that run, treat it as breakage.
 - news-lag logged 119 rereads 2026-10-19 to 10-21 (injury feed flicker). Dedup keeps them out of the sample; owner: health check, watch whether it grows.
