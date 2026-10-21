@@ -66,7 +66,7 @@ FEATURE_TIMING = {
     "restDays": "pre-pick (schedule)", "restEdge": "pre-pick (schedule)", "shortWeek": "pre-pick (schedule)",
     "sharpGapOpen": "pre-pick (open snapshot)", "sharpGapPick": "pre-pick (pinAtPick)", "bookAtPick": "pre-pick (stamped)",
 }
-POST_PICK_FIELDS = ["closeLine", "closePrice", "closeNoVig", "clvProb", "clvPoints", "result", "units", "score",
+POST_PICK_FIELDS = ["closeLine", "closePrice", "closeNoVig", "clvProb", "clvProbPrint", "clvProbPin", "clvProbBest", "clvBench", "clvPoints", "result", "units", "score",
                     "injuryLatest", "weatherLatest", "autopsy"]
 MIN_READS_FOR_ALARM = 10
 CYCLE_HOURS = 26   # one daily health-check cycle, with slack: still at 0 after this is breakage
@@ -547,6 +547,8 @@ def entry(pick, row, counted):
         "fair": pick.get("fair"), "edge": pick.get("edge"), "edgeUnit": pick.get("edgeUnit"), "bar": pick.get("bar"),
         "closeLine": snap_c.get("line"), "closePrice": pick.get("closePrice"), "closeNoVig": pick.get("closeNoVig"),
         "clvProb": pick.get("clvProb"), "clvPoints": pick.get("clvPoints"), "clvEstimated": pick.get("estimated"),
+        "clvBench": pick.get("clvBench"), "clvProbPrint": pick.get("clvProbPrint"), "clvProbPin": pick.get("clvProbPin"),
+        "clvProbBest": pick.get("clvProbBest"), "bestAtPick": pick.get("bestAtPick"),
         "result": pick.get("result"), "units": pick.get("units"), "score": row.get("score"),
         "features": features(pick, row),
         "contextAtPick": pick.get("contextAtPick"),

@@ -111,6 +111,9 @@ def f(x):
         return None
 
 
+MAKER_FEE_RATE = 0.0175   # about a quarter of the taker rate; confirm against Kalshi's published schedule before live
+
+
 def fee(price, count=1):
     """Kalshi taker fee for one order, rounded up to the cent."""
     return math.ceil(FEE_RATE * count * price * (1 - price) * 100 - 1e-9) / 100
@@ -661,6 +664,92 @@ def track_close(book, now):
             t["clv"] = round(t["lastMid"] - t["ask"], 4)
 
 
+# ---------- maker paper book (north-star plan, 2026-10-21) ----------
+# Research only, one contract per signal, no bankroll and never a real order. For every candidate the taker paper
+# book sees, a resting limit order is posted one cent above the best bid (never at or through the ask), capped so the
+# edge after the maker fee still clears minEdge. A later scan counts it filled when the same side's ask has come
+# down to the order's price: someone sold there, so a resting bid would have traded. Unfilled at the start = expired.
+# Fills that arrive mostly when the market moves against us (adverse selection) show up as a worse CLV, which is
+# the point of measuring it before any live maker order. clv = last pre-start mid - price paid (as the taker book);
+# clvNet also subtracts the per-contract fee, unrounded, so maker and taker compare like for like.
+
+def maker_fee_raw(price):
+    return MAKER_FEE_RATE * price * (1 - price)
+
+
+def maker_post(mk, cands, cfg, now):
+    seen = {(o["event"], o["kind"], o["source"]) for o in mk["orders"]}
+    posted = 0
+    for c in cands:
+        key = (c["event"], c["kind"], c["source"])
+        if key in seen or c.get("source", "").startswith("cs2"):
+            continue
+        m = QUOTES.get(c["ticker"]) or {}
+        bid, ask = f(m.get(f"{c['side']}_bid_dollars")), c["ask"]
+        if bid is None or bid <= 0:
+            continue
+        price = round(bid + 0.01, 2) if bid + 0.01 < ask - 1e-9 else round(bid, 2)
+        cap = math.floor((c["fair"] - cfg["minEdge"]) * 100 + 1e-9) / 100
+        price = min(price, cap)
+        while price > 0 and c["fair"] - price - maker_fee_raw(price) < cfg["minEdge"]:
+            price = round(price - 0.01, 2)
+        if price < 0.01 or price >= ask:
+            continue
+        mk["orders"].append({k: c[k] for k in ("ticker", "title", "sport", "kind", "event", "commence", "side",
+                                                "source", "fair", "estimated") if k in c}
+                            | {"price": price, "bidAtPost": bid, "askAtPost": ask, "takerEdge": c["edge"],
+                               "makerEdge": round(c["fair"] - price - maker_fee_raw(price), 4),
+                               "postedAt": iso(now), "status": "resting"})
+        seen.add(key)
+        posted += 1
+    return posted
+
+
+def maker_fill(mk, now):
+    filled = expired = 0
+    for o in mk["orders"]:
+        if o["status"] != "resting":
+            continue
+        if pull.parse(o["commence"]) <= now:
+            o.update(status="expired", expiredAt=iso(now))
+            expired += 1
+            continue
+        m = QUOTES.get(o["ticker"]) or {}
+        ask = f(m.get(f"{o['side']}_ask_dollars"))
+        if ask is not None and ask <= o["price"] + 1e-9:
+            o.update(status="filled", filledAt=iso(now), askAtFill=ask)
+            mk["trades"].append({k: o[k] for k in ("ticker", "title", "sport", "kind", "event", "commence", "side",
+                                                   "source", "fair", "estimated") if k in o}
+                                | {"ask": o["price"], "count": 1, "cost": o["price"],
+                                   "fee": round(maker_fee_raw(o["price"]), 4), "time": iso(now), "status": "open",
+                                   "book": "maker", "mode": "paper", "postedAt": o["postedAt"]})
+            filled += 1
+    return filled, expired
+
+
+def maker_summary(mk, paper):
+    orders = mk["orders"]
+    done = [o for o in orders if o["status"] in ("filled", "expired")]
+    tr = [t for t in mk["trades"] if t.get("clv") is not None]
+    taker = {(t["event"], t["kind"], t["source"]): t for t in paper["trades"] if t.get("clv") is not None}
+    pairs = [(t, taker[(t["event"], t["kind"], t["source"])]) for t in tr if (t["event"], t["kind"], t["source"]) in taker]
+
+    def mean(v):
+        return round(sum(v) / len(v), 4) if v else None
+    return {"orders": len(orders), "resting": sum(1 for o in orders if o["status"] == "resting"),
+            "filled": sum(1 for o in orders if o["status"] == "filled"),
+            "expired": sum(1 for o in orders if o["status"] == "expired"),
+            "fillRate": round(sum(1 for o in done if o["status"] == "filled") / len(done), 3) if done else None,
+            "clvN": len(tr), "meanClv": mean([t["clv"] for t in tr]),
+            "meanClvNet": mean([t["clv"] - t["fee"] for t in tr]),
+            "settledPnl": round(sum(t.get("pnl", 0) for t in mk["trades"] if t["status"] == "settled"), 2),
+            "pairedWithTaker": len(pairs),
+            "pairedMakerClvNet": mean([m["clv"] - m["fee"] for m, _ in pairs]),
+            "pairedTakerClvNet": mean([tk["clv"] - FEE_RATE * tk["ask"] * (1 - tk["ask"]) for _, tk in pairs]),
+            "note": ("Research only: one simulated contract per signal, never a real order. Net = CLV minus the "
+                     "per-contract fee, unrounded.")}
+
+
 # ---------- main ----------
 
 def main(dry=False):
@@ -693,6 +782,10 @@ def main(dry=False):
         state["live"]["start"] = state["live"]["cash"] = cfg_live["startingBankroll"]
     settled = {name: settle(state[name], DEMO if (name == "live" and mode == "demo") else PROD, now)
                for name in ("paper", "live")}
+    maker = state.setdefault("maker", {"start": 0.0, "cash": 0.0, "orders": [], "trades": [], "equity": [],
+                                       "stopped": None})
+    if not dry:
+        settled["maker"] = settle(maker, PROD, now)
     for old in state.get("sessions") or []:          # earlier sessions' open positions still settle
         settled["live"] += settle(old, DEMO if old.get("mode") == "demo" else PROD, now)
         old["summary"] = book_state(old)
@@ -785,6 +878,9 @@ def main(dry=False):
     for name in ("paper", "live"):
         track_close(state[name], now)
     if not dry:
+        mfill, mexp = maker_fill(maker, now)
+        track_close(maker, now)
+    if not dry:
         try:
             record_marks(now, SPORT_OF)
         except Exception as exc:  # noqa: BLE001
@@ -859,6 +955,7 @@ def main(dry=False):
                 break
         snapshot(book, now)
 
+    maker_posted = maker_post(maker, cands, cfg, now)
     state["account"] = account_check(mode)
     state["asOf"] = iso(now)
     if state["live"].get("stopped") is None and check_stop(state["live"], cfg_live, now):
@@ -866,6 +963,7 @@ def main(dry=False):
     state["status"] = {"mode": mode, "switch": control_view(control), "liveActive": live_ok,
                        "liveWhy": live_why, "paper": book_state(state["paper"]), "live": book_state(state["live"]),
                        "paperStopped": state["paper"].get("stopped"), "liveStopped": state["live"].get("stopped"),
+                       "maker": maker_summary(maker, state["paper"]),
                        "config": {k: cfg_live.get(k) for k in ("startingBankroll", "stopLoss", "takeProfit", "kellyFraction",
                                                                "maxPerTradePct", "maxPerDay", "minEdge", "liveSources")},
                        "unit": round(cfg_live["startingBankroll"] / 100, 2),
@@ -875,6 +973,7 @@ def main(dry=False):
     save(BOOK, state)
     print(json.dumps({"mode": mode, "live": live_why, "kalshiMarkets": fetched, "eventsMatched": matched,
                       "candidates": len(cands), "placed": placed, "settled": settled,
+                      "maker": {"posted": maker_posted, "filled": mfill, "expired": mexp},
                       "paper": book_state(state["paper"]), "liveBook": book_state(state["live"])}))
 
 

@@ -156,6 +156,31 @@ def build():
             L.append(f"  - {s['id']} (score {s.get('score')}, found {str(s.get('firstFound', ''))[:10]})")
     L.append("")
 
+    L.append("## North-star checks (2026-10-21)")
+    bm = score.get("benchmark") or {}
+    if bm:
+        L.append(f"- Score benchmark: Pinnacle close on {bm.get('onPinnacle', 0)} counted reads, print close on "
+                 f"{bm.get('onPrint', 0)}. Mean CLV print {pct((bm.get('print') or {}).get('mean'))}, Pinnacle "
+                 f"{pct((bm.get('pinnacle') or {}).get('mean'))}, at the best US price "
+                 f"{pct((bm.get('bestPrice') or {}).get('mean'))} (n {(bm.get('bestPrice') or {}).get('n', 0)}).")
+    conf = [p for p in score.get("patterns") or [] if p.get("status") == "confirming"]
+    L.append("- Confirming (cleared the bar, need fresh picks): " + (", ".join(
+        f"{p['id']} {((p.get('confirmation') or {}).get('freshNow') or 0)}/{(p.get('confirmation') or {}).get('needed')}"
+        for p in conf) if conf else "none") + ".")
+    mc = load(ROOT / "stats" / "modelcheck.json", {})
+    pats = sorted((mc.get("patterns") or {}).values(), key=lambda v: -v.get("tRealized", 0))
+    if pats:
+        top = ", ".join(f"{v['pattern']} realized {v['meanRealized']:+g} {v['unit']} vs predicted "
+                        f"{v['meanPredicted']:+g} (n {v['n']}, t {v['tRealized']})" for v in pats[:3])
+        L.append(f"- Move check, strongest: {top}. Proven (feeding edge-stack): "
+                 + (", ".join(mc.get("proven") or []) or "none yet") + ".")
+    mk = (load(ROOT / "trading" / "ledger.json", {}).get("status") or {}).get("maker")
+    if mk:
+        L.append(f"- Kalshi maker paper book: {mk.get('orders')} orders, fill rate {mk.get('fillRate')}, net CLV "
+                 f"{pct(mk.get('meanClvNet'))} on {mk.get('clvN')}; paired with taker on {mk.get('pairedWithTaker')}: "
+                 f"maker {pct(mk.get('pairedMakerClvNet'))} vs taker {pct(mk.get('pairedTakerClvNet'))} (net of fees).")
+    L.append("")
+
     L.append("## Pipeline")
     sp = loop.get("sports") or {}
     bad = {k: v.get("status") for k, v in sp.items() if v.get("status") not in ("ok", "quiet")}

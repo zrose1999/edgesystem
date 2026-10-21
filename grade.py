@@ -27,6 +27,7 @@ import json
 import math
 import os
 from collections import defaultdict
+from datetime import datetime, timezone
 from pathlib import Path
 
 import fair
@@ -57,6 +58,72 @@ def gate_passed(pattern):
             except ValueError:
                 pass
     return False
+
+
+CONFIRM_N = int(os.environ.get("EDGE_CONFIRM_N", "15"))   # fresh full-bar picks a pattern must add after clearing
+PIN_STALE_MIN = 120          # a Pinnacle close older than this before the close snapshot is not used
+PIN_MAX_GAP = {"spread": 1.0, "total": 1.0}   # max line gap (points) for scoring against Pinnacle's own line
+
+
+def pin_close(close, pick):
+    """Pinnacle's prices in the stored close snapshot, as a snap clv() can score against (2026-10-21, north-star plan:
+    the sharp close is the benchmark). None when Pinnacle has no fresh price on this market or sits too far away."""
+    pin = (close.get("books") or {}).get("pinnacle")
+    side, market = pick.get("side"), pick.get("market")
+    if not pin or pin.get(side) is None:
+        return None
+    try:
+        upd, at = pin.get("updated"), close.get("time")
+        if upd and at:
+            age = (datetime.fromisoformat(at.replace("Z", "+00:00"))
+                   - datetime.fromisoformat(upd.replace("Z", "+00:00"))).total_seconds() / 60
+            if age > PIN_STALE_MIN:
+                return None
+    except ValueError:
+        return None
+    if market in ("spread", "total"):
+        if pin.get("line") is None or close.get("line") is None:
+            return None
+        gap = abs(pin["line"] - close["line"])
+        if gap > PIN_MAX_GAP[market] or (market == "total" and pick.get("sport") in PROB_LINE_SPORTS and gap):
+            return None
+    keys = [k for k in ("home", "away", "draw", "over", "under") if k in pin]
+    return {**{k: pin[k] for k in keys}, "line": pin.get("line"), "time": close.get("time"), "book": "Pinnacle"}
+
+
+PROB_LINE_SPORTS = {"NHL", "MLB", "EPL", "UCL", "MLS", "LaLiga", "SerieA", "Bundesliga", "Ligue1", "UEL"}
+
+
+def score_pick(pick, close):
+    """CLV three ways (2026-10-21): against the print book's close (clvProbPrint, the old score), against Pinnacle's
+    close (clvProbPin), and at the best US price stamped at the pick (clvProbBest, same benchmark as clvProb).
+    clvProb, the number every pattern, grade and memory test uses, is Pinnacle's where it is stored, else the print's.
+    clvBench says which."""
+    if "clvProb" not in pick:
+        pick.update(clv(pick, close))
+    pick["clvProbPrint"] = pick["clvProb"]
+    bench, pin = close, pin_close(close, pick)
+    if pin:
+        out = clv(pick, pin)
+        pick["clvProbPin"], pick["closeNoVigPin"] = out["clvProb"], out["closeNoVig"]
+        pick["clvProb"], bench, pick["clvBench"] = out["clvProb"], pin, "pinnacle"
+    else:
+        pick["clvBench"] = "print"
+    best = pick.get("bestAtPick") or {}
+    if best.get("price") is not None:
+        pick["clvProbBest"] = clv(dict(pick, priceAtPick=best["price"]), bench)["clvProb"]
+
+
+def benchmark_summary(tests):
+    """The same counted reads scored three ways: print close, Pinnacle close, and at the best US price."""
+    def mean(key, ents):
+        v = [p[key] for p in ents if isinstance(p.get(key), (int, float))]
+        return {"n": len(v), "mean": round(sum(v) / len(v), 4) if v else None}
+    both = [p for p in tests if "clvProbPin" in p]
+    return {"note": "clvProb uses Pinnacle's close where stored (clvBench pinnacle), else the print book's.",
+            "onPinnacle": len(both), "onPrint": sum(1 for p in tests if p.get("clvBench") == "print"),
+            "print": mean("clvProbPrint", tests), "pinnacle": mean("clvProbPin", tests),
+            "printWherePinnacleExists": mean("clvProbPrint", both), "bestPrice": mean("clvProbBest", tests)}
 
 
 def stage_t(n, fast):
@@ -179,8 +246,8 @@ def main():
             continue  # a pass has no side to grade
         row = rows.get(pick["rowId"]) or {}
         close = row.get("closeSnap")
-        if close and pick["side"] in close and "clvProb" not in pick:
-            pick.update(clv(pick, close))
+        if close and pick["side"] in close and "clvBench" not in pick:
+            score_pick(pick, close)
         if row.get("final") and "result" not in pick:
             pick["result"], pick["units"] = result(pick, row["score"])
             if pick.get("tier") == "official":
@@ -192,6 +259,8 @@ def main():
     for pick in real:
         groups[pick["pattern"]].append(pick)
 
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    conf = ledger.setdefault("confirmations", {})
     patterns = []
     for name, group in sorted(groups.items()):
         # Only full-bar picks can make a pattern official. Half-bar picks are tracked separately.
@@ -203,12 +272,34 @@ def main():
         t = tstat(graded)
         fast = gate_passed(name)
         need = stage_t(n, fast)
-        if need is not None and mean > 0 and t >= need:
-            status = "official"
-        elif n >= OFFICIAL_N and mean <= 0:
-            status = "retire"
+        # Confirmation run (2026-10-21, north-star plan): clearing the bar makes a pattern "confirming"; it goes
+        # official only after CONFIRM_N fresh full-bar picks stamped after it cleared also average CLV above 0.
+        # Luck rarely repeats on fresh picks; with 60+ patterns tested at t 2.0-2.5 some clear by chance.
+        clears = need is not None and mean > 0 and t >= need
+        rec = conf.get(name)
+        fresh = []
+        if clears:
+            if rec is None or rec.get("result") == "failed":
+                if rec:
+                    conf.setdefault("_history", []).append(dict(rec, pattern=name))
+                rec = conf[name] = {"clearedAt": now, "clearedN": n, "clearedMean": round(mean, 4), "clearedT": round(t, 2)}
+            fresh = [p["clvProb"] for p in group if "clvProb" in p and p.get("fullBar", True)
+                     and (p.get("pickedAt") or "") > rec["clearedAt"]]
+            if rec.get("result") == "passed":
+                status = "official"
+            elif len(fresh) >= CONFIRM_N:
+                ok = sum(fresh) / len(fresh) > 0
+                rec.update(result="passed" if ok else "failed", decidedAt=now, freshN=len(fresh),
+                           freshMean=round(sum(fresh) / len(fresh), 4))
+                status = "official" if ok else "shadow"
+            else:
+                status = "confirming"
         else:
-            status = "shadow"
+            if rec and rec.get("result") != "failed":
+                conf.setdefault("_history", []).append(dict(rec, pattern=name, droppedAt=now))
+                conf.pop(name, None)            # fell back under the bar: the proof starts over next time
+                rec = None
+            status = "retire" if n >= OFFICIAL_N and mean <= 0 else "shadow"
         patterns.append({
             "id": name, "status": status, "picks": len(group), "clvN": n,
             "meanClvProb": round(mean, 4), "tStat": round(t, 2),
@@ -218,11 +309,17 @@ def main():
             "losses": sum(1 for p in settled if p["result"] == "loss"),
             "flatUnits": round(sum(p.get("units", 0) for p in group), 2),
             "track": "fast" if fast else "standard",
+            "confirmation": ({**rec, "freshNow": len(fresh), "freshMeanNow": round(sum(fresh) / len(fresh), 4) if fresh else None,
+                              "needed": CONFIRM_N} if rec else None),
+            "meanClvPrint": round(sum(p["clvProbPrint"] for p in group if "clvProbPrint" in p and p.get("fullBar", True))
+                                  / max(1, sum(1 for p in group if "clvProbPrint" in p and p.get("fullBar", True))), 4),
             "tNeeded": need if need is not None else (FAST_TRACK if fast else STAGES)[0][1],
             "nNeeded": max(0, (FAST_TRACK if fast else STAGES)[0][0] - n),
             "note": ("Fast track (model passed the out-of-sample gate): 15+ graded full-bar picks, mean CLV above 0, t at least 2.0."
                      if fast else "Promotion: graded full-bar picks with mean CLV above 0; t at least 2.5 at 15-19 picks, "
-                     "2.0 at 20+. Win rate never promotes."),
+                     "2.0 at 20+. Win rate never promotes.")
+                    + f" Then a confirmation run: {CONFIRM_N} fresh full-bar picks after clearing, mean CLV above 0. "
+                      "CLV is against Pinnacle's close where stored, else the print book's.",
         })
 
     clv_all = [p["clvProb"] for p in real if "clvProb" in p]
@@ -278,6 +375,7 @@ def main():
         "flatUnits": round(sum(p.get("units", 0) for p in settled), 2),
         "officialRecord": "{}-{}-{}".format(*(sum(1 for p in official if p["result"] == r) for r in ("win", "loss", "push"))),
         "officialUnits": round(sum(p.get("unitsStaked", 0) for p in official), 2),
+        "benchmark": benchmark_summary(tests),
         "byGrade": by_grade,
         "byPattern": by_pattern,
         "duplicateReadsNotCounted": dupes,
@@ -306,6 +404,13 @@ def main():
         print(json.dumps({"memory": memory.build()}))
     except Exception as exc:  # noqa: BLE001
         print(f"::warning::memory.py failed: {exc}")
+
+    # Move and model checks (modelcheck.py, 2026-10-21): predicted vs realized move and log-loss gain per pattern.
+    try:
+        import modelcheck
+        print(json.dumps(modelcheck.build()))
+    except Exception as exc:  # noqa: BLE001
+        print(f"::warning::modelcheck.py failed: {exc}")
 
     # Desk state: STATE.md, the one-page picture every chat and scheduled task reads first (2026-10-21).
     try:

@@ -16,11 +16,12 @@ How to write here:
 - Pull before editing (`git pull --rebase`); a data job pushes about every 15 minutes.
 
 ## Standing rules
+- 2026-10-21: North star (adopted by Zack): EDGE finds prices better than the sharp close and buys them as cheaply as possible. Seven fixed rules: (1) the sharp close is the truth: CLV against Pinnacle's close, print beside it, win rate never decides; (2) start from the market: a model earns weight only by what it adds to the no-vig price, out of sample; (3) cost is half the game: cheapest venue first (maker orders on exchanges), best book price otherwise; (4) one bar plus proof: promotion needs the bar and then a 15-pick confirmation run; (5) small signals stack: a signal proven to move the line feeds edge-stack; (6) nothing changes mid-period: new patterns and rule changes only at the weekly review, one at a time, with evidence; (7) size small and survive. Details in patterns.md ("North star").
 - 2026-10-15: Patterns are judged on CLV only, never win rate. Promotion is grade.py's staged rule (15-19 graded full-bar picks t >= 2.5, 20+ t >= 2.0; learned models past the gate: 15+ at t >= 2.0). Retirement: 30+ picks, mean CLV <= 0.
 - 2026-10-19: Learning phase. Early negative CLV means "still collecting", never a reason to retire, kill or prune a rule. Leads are not accelerated either.
 - 2026-10-19: Claude fixes breakage, logging gaps and data paths directly (tested, own commit, changelog line). Strategy rules, bars, promotion, sizing and trading changes go in a pull request with CLV evidence; Zack merges. Larger new features also go in a PR (2026-10-20).
 - 2026-10-14: Real-money Kalshi trading is controlled only by Zack from the site's switch panel (on/off, pause, balance, stop loss, take profit). No chat or task changes it.
-- 2026-10-19: Single writer. Only the data job commits generated files: memory/log, memory/research.json, memory/summary.md, memory/hypotheses.md, stats/autopsy_box.json, stats/scan/, STATE.md. Sessions restore them with `git checkout --` before committing.
+- 2026-10-19: Single writer. Only the data job commits generated files: memory/log, memory/research.json, memory/summary.md, memory/hypotheses.md, stats/autopsy_box.json, stats/scan/, stats/modelcheck.json, STATE.md. Sessions restore them with `git checkout --` before committing.
 - 2026-10-15: No hand-picked strategies. Patterns come from data (learner.py, scan.py, measured moves); a hand idea must be measured before it takes reads.
 - 2026-10-15: The old Rose desk is a failure to learn from, not a template. Its history stays separate (ledger/history-rose-2026.json).
 - Budget: stay on The Odds API 20,000-credit plan ($30/mo); no paid college QB/injury source; keep Claude usage lean.
@@ -28,6 +29,7 @@ How to write here:
 - 2026-10-21: Every chat and scheduled task reads STATE.md and DESK.md first and records Zack's decisions here before it ends.
 
 ## Decisions log
+- 2026-10-21: Zack adopted the north-star plan and had Claude build it: best price at pick, Pinnacle-close scoring, confirmation runs, move and model checks feeding edge-stack, fixed scanner roster, Kalshi maker paper book. (chat: ideas tested this week)
 - 2026-10-21: Zack had the stale copies of patterns.md, pull.py and grade.py removed from the claude.ai project (the repo is the only copy; START-HERE.md points to it) and the old Rose "Weekly ledger audit" scheduled task turned off (paused, not deleted; it read the Rose Google Sheet). (chat: ideas tested this week)
 - 2026-10-21: Zack merged PR #4 (shared desk) and asked Claude to merge PR #2 (weekly review proposals: one lessons.md entry) and PR #3 (results autopsy). Merged together after resolving changelog and memory.py overlaps; grade.py tested end to end. (chat: ideas tested this week)
 - 2026-10-21: Zack wants every chat, scheduled task and automated run working from one shared, current picture. Added DESK.md, STATE.md (state.py) and CLAUDE.md. (chat: ideas tested this week)
@@ -38,7 +40,9 @@ How to write here:
 - 2026-10-15: Learning engine replaces hand-written strategies; staged promotion rule approved. (chat: Betting app migration from Grok)
 
 ## Open threads
-- North star research doc (https://claude.ai/artifact/EhPwFnkQddHhoiMAAiATJJ, 2026-10-21): proposes seven fixed rules and a four-phase plan (log best price, Pinnacle-close CLV and model log-loss gain; then confirmation runs, move grading into edge-stack, fixed roster; then Kalshi maker orders on paper). Waiting on Zack to adopt, edit or decline; nothing changes until he does.
+- Kalshi maker vs taker: compare in STATE.md (north-star checks) once 30+ maker fills have closes. Owner: weekly review. A live maker order is Zack's call from that comparison.
+- First fixed-roster review day: Tuesday 2026-10-27. The scanner's queuedForReview and wouldLapseAtReview lists get applied that morning; the weekly review reports them.
+- Best-price CLV (clvProbBest) starts on reads stamped after 2026-10-21 ~20Z. Owner: health check; BREAKAGE if bestAtPick is missing on new reads after one cycle.
 - Autopsy (PR #3) is live from the next grade run: check its two summary lines appear and stats/autopsy_box.json fills. Owner: health check.
 - Scanner's first live stamping: morning job 2026-10-22 11:07Z. Owner: health check. If no scan-* reads appear after that run, treat it as breakage.
 - news-lag logged 119 rereads 2026-10-19 to 10-21 (injury feed flicker). Dedup keeps them out of the sample; owner: health check, watch whether it grows.

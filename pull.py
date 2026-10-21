@@ -150,6 +150,28 @@ def pin_at_pick(snap, side):
     return out
 
 
+US_BOOKS = ("draftkings", "fanduel", "betmgm", "williamhill_us")
+
+
+def best_at_pick(snap, side):
+    """The best US retail price for `side` on the print's own line in the snapshot a read is priced from: book,
+    price, line and implied probability, print book included (2026-10-21, north-star plan). Stored on every read so
+    the value of shopping is measured (grade.py clvProbBest) before any money depends on it. None when the side is
+    not priced. Never used to price or grade the read itself."""
+    if not snap or not side or snap.get(side) is None:
+        return None
+    line = snap.get("line")
+    best = {"book": snap.get("book"), "price": snap[side], "line": line}
+    for key, b in (snap.get("books") or {}).items():
+        if key not in US_BOOKS or b.get(side) is None or b.get("line") != line:
+            continue
+        if implied(b[side]) < implied(best["price"]):
+            best = {"book": BOOK_NAMES.get(key, key), "price": b[side], "line": line}
+    best["implied"] = round(implied(best["price"]), 4)
+    best["printImplied"] = round(implied(snap[side]), 4)
+    return best
+
+
 def context_at_pick(row):
     """The row's news context as it stood when a read was stamped: weather forecast, injury text, goalie signal.
     These row fields keep being refreshed until kickoff, so only this copy is safe to use as a pre-pick feature
@@ -690,7 +712,7 @@ def make_pick(a):
         "confidence": a.confidence, "pattern": a.pattern, "reason": a.reason.strip(),
         "falsifier": a.falsifier.strip(), "modelVersion": VERSION, "tier": tier,
         "stakeUnits": stake, "kind": "pick", "grade": grade_for(edge, bar, a.confidence),
-        "commence": row.get("commence"), "pinAtPick": pin_at_pick(snap, a.side),
+        "commence": row.get("commence"), "pinAtPick": pin_at_pick(snap, a.side), "bestAtPick": best_at_pick(snap, a.side),
         "contextAtPick": context_at_pick(row),
     })
     save(PICKS, picks)
@@ -824,6 +846,7 @@ def make_read(a):
         "reason": a.reason.strip(), "falsifier": (a.falsifier or "").strip() or None,
         "modelVersion": VERSION, "tier": tier, "stakeUnits": stake, "by": getattr(a, "by", "claude") or "claude",
         "pinAtPick": pin_at_pick(snap, side if grade != "P" else None), "contextAtPick": context_at_pick(row),
+        "bestAtPick": best_at_pick(snap, side) if grade != "P" else None,
     }
     if note:
         entry["note"] = note

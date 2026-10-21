@@ -54,6 +54,16 @@ MIN_N = {1: 150, 2: 120}                 # games for a single feature / a pair
 MIN_EFFECT = {"move_points": 0.25, "move_prob": 0.004, "res": 0.03}
 Q = 0.10                                 # Benjamini-Hochberg false discovery rate
 MAX_TRACK = 40                           # tracked strategies at once (strongest first)
+# Fixed roster (north-star plan, Zack 2026-10-21): the tracked set changes only on the weekly review day, so every
+# strategy collects a full week of reads before the list moves. Other mornings re-measure the evidence and queue
+# would-be additions and lapses for the next review. An empty registry (first run) always fills.
+ROSTER_DAY = int(os.environ.get("EDGE_ROSTER_DAY", "1"))      # Monday 0 ... Sunday 6, US calendar; 1 = Tuesday
+
+
+def roster_open(now_iso, store):
+    if os.environ.get("EDGE_SCAN_ROSTER") == "open" or not (store.get("strategies") or {}):
+        return True
+    return us_day(parse(now_iso)).weekday() == ROSTER_DAY
 SHRINK = 0.8
 WINDOW_H = 72
 # Pick minimums set by Zack 2026-10-14 (rest-spot 0.75 pt, college 1 pt, NHL 2%, soccer 1.5%); smaller is a lean
@@ -638,10 +648,14 @@ def adopt(tests, now, dry=False):
     path = OUT / "strategies.json"
     store = pull.load(path, {"strategies": {}})
     S = store["strategies"]
-    live = set()
+    open_day = roster_open(now, store)
+    live, queued = set(), []
     for f in found[:MAX_TRACK]:
         sport, market, side, conds = f["key"]
         sid = slug(sport, market, side, conds)
+        if not open_day and (S.get(sid) or {}).get("status") != "tracking":
+            queued.append(sid)                         # waits for the next review day
+            continue
         live.add(sid)
         cur = S.get(sid) or {"id": sid, "firstFound": now, "sport": sport, "market": market, "side": side,
                              "conds": [list(c) for c in conds]}
@@ -651,11 +665,18 @@ def adopt(tests, now, dry=False):
                                  for x in ("move", "resOpen", "resClose")},
                     "unit": unit_of(sport, market)})
         S[sid] = cur
+    would_lapse = []
     for sid, s in S.items():
         if sid not in live and s.get("status") == "tracking":
-            s["status"] = "lapsed"
-            s["lapsedAt"] = now
-    store.update({"asOf": now, "tests": len(tests), "survivors": len(found), "tracking": len(live)})
+            if open_day:
+                s["status"] = "lapsed"
+                s["lapsedAt"] = now
+            else:
+                would_lapse.append(sid)                # stays tracking until the review day
+    tracking = sum(1 for s in S.values() if s.get("status") == "tracking")
+    store.update({"asOf": now, "tests": len(tests), "survivors": len(found), "tracking": tracking,
+                  "rosterOpen": open_day, "queuedForReview": queued, "wouldLapseAtReview": would_lapse,
+                  "roster": f"Changes only on review day (weekday {ROSTER_DAY}, US calendar); first run always fills."})
     if not dry:
         OUT.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(store, indent=1) + "\n")

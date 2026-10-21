@@ -34,6 +34,22 @@ import pull
 ROOT = Path(__file__).resolve().parent
 STACKABLE = {"news-lag", "rest-spot", "goalie-news", "wind-total", "ncaaf-total-move", "ncaaf-spot", "nhl-ml-move",
              "nhl-total-move", "tennis-fatigue"}
+NEVER_STACK_PREFIX = ("edge-stack", "sharp-")   # stacks themselves and pure price gaps
+
+
+def stackable():
+    """The fixed sources plus any pattern whose predicted moves have come true (modelcheck.py verdict "proven":
+    30+ counted reads, mean realized move toward the side above 0, t >= 2). North-star plan 2026-10-21: small
+    signals proven to move the line feed combinations instead of being logged forever. Nothing is ever removed
+    from the fixed list here (learning phase)."""
+    try:
+        import modelcheck
+        extra = {p for p in modelcheck.proven() if not p.startswith(NEVER_STACK_PREFIX)}
+    except Exception:  # noqa: BLE001
+        extra = set()
+    return STACKABLE | extra
+
+
 INCLUDES_DRIFT = {"ncaaf-spot", "rest-spot"}   # measured as raw moves: the average drift is already inside
 SHRINK = 0.85                 # overlap between sources (e.g. a back-to-back and the backup goalie it brings)
 SOCCER_1X2 = {               # home, draw, away probability drift, Pinnacle early to close
@@ -145,10 +161,19 @@ def contribution(p):
     """A measured read's expected move, home/over direction: points for point markets, probability otherwise."""
     market, sport = p["market"], p["sport"]
     if market in ("spread",) or (market == "total" and sport not in pull.PROB_TOTALS):
-        if p.get("marketNumber") is None:
+        if p.get("marketNumber") is None or p.get("edgeUnit") == "prob":
             return None, None
         return p["fair"] - p["marketNumber"], "points"
     keys = ["home", "away"] if market == "h2h" else ["over", "under"]
+    if p.get("bookAtPick"):
+        # learn_live.py-style read: fair is the picked side's own probability. Two-way markets only.
+        if "draw" in (p.get("marketPrices") or {}) or p.get("side") not in keys:
+            return None, None
+        mp = novig(p.get("marketPrices"), keys)
+        if not mp:
+            return None, None
+        side_move = p["fair"] - mp[p["side"]]
+        return (side_move if p["side"] == keys[0] else -side_move), "prob"
     mp = novig(p.get("marketPrices"), keys)
     if not mp:
         return None, None
@@ -158,8 +183,9 @@ def contribution(p):
 def stack(rows, picks, now, nhl_games, done):
     out = []
     by_row = {}
+    sources = stackable()
     for p in picks:
-        if p.get("pattern") in STACKABLE and p.get("kind") in ("pick", "lean") and p.get("commence", "") > pull.iso(now):
+        if p.get("pattern") in sources and p.get("kind") in ("pick", "lean") and p.get("commence", "") > pull.iso(now):
             by_row.setdefault(p["rowId"], {})[p["pattern"]] = p        # latest read per pattern wins
     for rid, reads in by_row.items():
         row = rows.get(rid)
@@ -256,7 +282,8 @@ def sharp_drift(rows, now, nhl_games, have):
                        f"Edge {best['edge']:+.1%}."),
             "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
             "modelVersion": pull.VERSION, "tier": "shadow", "stakeUnits": 0.0, "by": "edge_stack.py",
-            "pinAtPick": pull.pin_at_pick(snap, best["side"]), "contextAtPick": pull.context_at_pick(row)})
+            "pinAtPick": pull.pin_at_pick(snap, best["side"]), "contextAtPick": pull.context_at_pick(row),
+            "bestAtPick": pull.best_at_pick(snap, best["side"])})
     return entries
 
 
