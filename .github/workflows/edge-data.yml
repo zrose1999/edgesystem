@@ -84,6 +84,7 @@ jobs:
           python features_nhl.py refresh || echo "::warning::features_nhl.py refresh failed; continuing"
           python features_ncaaf.py refresh || echo "::warning::features_ncaaf.py refresh failed; continuing"
           python discover.py || echo "::warning::discover.py failed; continuing"
+          python scan.py || echo "::warning::scan.py failed; continuing"
 
       - name: Sharp vs soft scan
         run: python sharp.py || echo "::warning::sharp.py failed; continuing"
@@ -104,6 +105,7 @@ jobs:
         run: |
           python move_nhl.py || echo "::warning::move_nhl.py failed; continuing"
           python ncaaf_spots.py || echo "::warning::ncaaf_spots.py failed; continuing"
+          python scan.py stamp || echo "::warning::scan.py stamp failed; continuing"
 
       - name: Tennis, learned models, then the edge stack
         run: |
