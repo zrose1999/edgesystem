@@ -8,12 +8,16 @@ on:
       study:
         description: "Which study"
         type: choice
-        options: [tennis, ncaaf, nfl-test, nfl-backfill, models-nfl-ncaaf]
+        options: [tennis, ncaaf, nfl-test, nfl-backfill, models-nfl-ncaaf, mlb-test, mlb-backfill]
         default: tennis
       seasons:
-        description: "NFL backfill seasons (space separated)"
+        description: "NFL or MLB backfill seasons (space separated)"
         type: string
         default: "2025"
+      mlb_mode:
+        description: "MLB backfill snapshots: full (4 a day, ~15,800 credits a season) or --late=22:45 (~7,900)"
+        type: string
+        default: "--late=22:45"
 
 permissions:
   contents: write
@@ -52,6 +56,19 @@ jobs:
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
         run: python backfill_nfl.py ${{ inputs.seasons }}
+      - name: MLB odds backfill, one test snapshot (~20 credits)
+        if: inputs.study == 'mlb-test'
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: |
+          python backfill_mlb.py --plan 2025
+          python backfill_mlb.py --plan 2025 --late=22:45
+          python backfill_mlb.py --test
+      - name: MLB odds backfill (see backfill_mlb.py --plan for the cost)
+        if: inputs.study == 'mlb-backfill'
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python backfill_mlb.py ${{ inputs.seasons }} ${{ inputs.mlb_mode == 'full' && '' || inputs.mlb_mode }}
       - name: Learned models for NFL and college football
         if: inputs.study == 'models-nfl-ncaaf'
         env:
@@ -67,7 +84,7 @@ jobs:
         run: |
           git config user.name "EDGE"
           git config user.email "edge@edgesystem.local"
-          for p in stats/backtest_tennis.md stats/backtest_tennis.json stats/backtest_ncaaf_spots.md stats/backtest_ncaaf_spots.json stats/history/nfl_open stats/history/ncaaf stats/models; do
+          for p in stats/backtest_tennis.md stats/backtest_tennis.json stats/backtest_ncaaf_spots.md stats/backtest_ncaaf_spots.json stats/history/nfl_open stats/history/mlb_odds stats/history/ncaaf stats/models; do
             if [ -e "$p" ]; then git add "$p"; fi       # one path at a time: a missing path must not drop the others
           done
           if git diff --cached --quiet; then echo "No changes."; exit 0; fi
