@@ -41780,6 +41780,284 @@
         "printImplied": 0.5238
       },
       "note": "Same side already picked. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NBA|2026-10-22|Cleveland Cavaliers at Philadelphia 76ers|total|over|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NBA|2026-10-22|Cleveland Cavaliers at Philadelphia 76ers|total",
+      "sport": "NBA",
+      "event": "Cleveland Cavaliers at Philadelphia 76ers",
+      "commence": "2026-10-22T23:10:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 235.5,
+      "priceAtPick": 100,
+      "bookAtPick": "FanDuel",
+      "marketNumber": 235.5,
+      "marketPrices": {
+        "over": -112,
+        "under": -108
+      },
+      "priceTime": "2026-10-21T21:24:31Z",
+      "pickedAt": "2026-10-21T21:24:32Z",
+      "fair": 0.5187,
+      "projection": 0.5187,
+      "edge": 0.0187,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "FanDuel over 235.5 +100 implies 50.0%. Pinnacle -115 no-vig is 51.9%. Edge +1.9%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": 235.5,
+        "prices": {
+          "over": -115,
+          "under": 101
+        },
+        "updated": "2026-10-21T21:24:22Z",
+        "snapTime": "2026-10-21T21:24:31Z",
+        "noVig": 0.5187
+      },
+      "contextAtPick": {
+        "injury": "Dominick Barlow (76Ers, worth 0.4): weight 0.4 at the open, 1 now, +0.24 spread, -0.14 total | Anfernee Simons (76Ers, worth 0.95): weight 0.4 at the open, 0 now, -0.38 spread, +0.23 total | LeBron James (76Ers, worth 3.02): weight 0.4 at the open, 0 now, -1.21 spread, +0.72 total | Kentavious Caldwell-Pope (76Ers, worth 0.41): weight 1 at the open, 0 now, -0.41 spread, +0.25 total | Jaylen Brown (76Ers, worth 3.4): weight 0.4 at the open, 0 now, -1.36 spread, +0.82 total | Joel Embiid (76Ers, worth 3.82): weight 1 at the open, 0 now, -3.82 spread, +2.29 total | VJ Edgecombe (76Ers, worth 1.16): weight 1 at the open, 0 now, -1.16 spread, +0.70 total | Sam Merrill (Cavaliers, worth 0.87): weight 1 at the open, 0.4 now, -0.52 spread, +0.31 total"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 100,
+        "line": 235.5,
+        "implied": 0.5,
+        "printImplied": 0.5283
+      }
+    },
+    {
+      "pickId": "NFL|2026-10-25|Miami Dolphins at New York Jets|spread|away|v1|lean|news-lag|2026-10-21T21:24:32Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NFL|2026-10-25|Miami Dolphins at New York Jets|spread",
+      "sport": "NFL",
+      "event": "Miami Dolphins at New York Jets",
+      "commence": "2026-10-25T17:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 4.5,
+      "priceAtPick": -104,
+      "marketNumber": -4.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -115,
+        "away": -105
+      },
+      "priceTime": "2026-10-21T19:11:31Z",
+      "pickedAt": "2026-10-21T21:24:32Z",
+      "fair": -4.38,
+      "projection": -4.38,
+      "edge": 0.12,
+      "edgeUnit": "points",
+      "bar": 1.5,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "NYJ RB1 Breece Hall: Doubtful at the open, Questionable now, -0.12 spread, +0.25 total | NYJ OL starter Dylan Parham: Doubtful at the open, Questionable now, -0.12 spread | NYJ defensive starter Kiko Mauigoa: Questionable at the open, Doubtful now, +0.12 spread | MIA OL starter Jonah Savaiinaea: Questionable at the open, Active now, -0.12 spread | MIA defensive starter JuJu Brents: Questionable at the open, Active now, -0.12 spread. Open home line -4.5, fair -4.38.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before kickoff.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury.py",
+      "pinAtPick": {
+        "line": -4.5,
+        "prices": {
+          "home": -105,
+          "away": -107
+        },
+        "updated": "2026-10-21T19:11:14Z",
+        "snapTime": "2026-10-21T19:11:31Z",
+        "noVig": 0.5024
+      },
+      "contextAtPick": {
+        "injury": "NYJ RB1 Breece Hall: Doubtful at the open, Questionable now, -0.12 spread, +0.25 total | NYJ OL starter Dylan Parham: Doubtful at the open, Questionable now, -0.12 spread | NYJ defensive starter Kiko Mauigoa: Questionable at the open, Doubtful now, +0.12 spread | MIA OL starter Jonah Savaiinaea: Questionable at the open, Active now, -0.12 spread | MIA defensive starter JuJu Brents: Questionable at the open, Active now, -0.12 spread"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -104,
+        "line": -4.5,
+        "implied": 0.5098,
+        "printImplied": 0.5122
+      }
+    },
+    {
+      "pickId": "NFL|2026-10-25|Miami Dolphins at New York Jets|total|under|v1|reread|news-lag|2026-10-21T21:24:32Z",
+      "kind": "reread",
+      "grade": "C",
+      "rowId": "NFL|2026-10-25|Miami Dolphins at New York Jets|total",
+      "sport": "NFL",
+      "event": "Miami Dolphins at New York Jets",
+      "commence": "2026-10-25T17:00:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 39.5,
+      "priceAtPick": -110,
+      "marketNumber": 39.5,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "over": -108,
+        "under": -112
+      },
+      "priceTime": "2026-10-21T19:11:31Z",
+      "pickedAt": "2026-10-21T21:24:32Z",
+      "fair": 38.75,
+      "projection": 38.75,
+      "edge": 0.75,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "NYJ RB1 Breece Hall: Doubtful at the open, Questionable now, -0.12 spread, +0.25 total | NYJ OL starter Dylan Parham: Doubtful at the open, Questionable now, -0.12 spread | NYJ defensive starter Kiko Mauigoa: Questionable at the open, Doubtful now, +0.12 spread | MIA OL starter Jonah Savaiinaea: Questionable at the open, Active now, -0.12 spread | MIA defensive starter JuJu Brents: Questionable at the open, Active now, -0.12 spread. Open total 38.5, fair 38.75.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before kickoff.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury.py",
+      "pinAtPick": {
+        "line": 39.5,
+        "prices": {
+          "over": -101,
+          "under": -115
+        },
+        "updated": "2026-10-21T19:11:14Z",
+        "snapTime": "2026-10-21T19:11:31Z",
+        "noVig": 0.5162
+      },
+      "contextAtPick": {
+        "injury": "NYJ RB1 Breece Hall: Doubtful at the open, Questionable now, -0.12 spread, +0.25 total | NYJ OL starter Dylan Parham: Doubtful at the open, Questionable now, -0.12 spread | NYJ defensive starter Kiko Mauigoa: Questionable at the open, Doubtful now, +0.12 spread | MIA OL starter Jonah Savaiinaea: Questionable at the open, Active now, -0.12 spread | MIA defensive starter JuJu Brents: Questionable at the open, Active now, -0.12 spread"
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -110,
+        "line": 39.5,
+        "implied": 0.5238,
+        "printImplied": 0.5283
+      },
+      "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NBA|2026-10-22|Cleveland Cavaliers at Philadelphia 76ers|spread|home|v1|reread|news-lag|2026-10-21T21:24:33Z",
+      "kind": "reread",
+      "grade": "A",
+      "rowId": "NBA|2026-10-22|Cleveland Cavaliers at Philadelphia 76ers|spread",
+      "sport": "NBA",
+      "event": "Cleveland Cavaliers at Philadelphia 76ers",
+      "commence": "2026-10-22T23:10:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -3.5,
+      "priceAtPick": 100,
+      "marketNumber": -3.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-10-21T21:24:31Z",
+      "pickedAt": "2026-10-21T21:24:33Z",
+      "fair": -11.73,
+      "projection": -11.73,
+      "edge": 8.23,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "Dominick Barlow (76Ers, worth 0.4): weight 0.4 at the open, 1 now, +0.24 spread, -0.14 total | Anfernee Simons (76Ers, worth 0.95): weight 0.4 at the open, 0 now, -0.38 spread, +0.23 total | LeBron James (76Ers, worth 3.02): weight 0.4 at the open, 0 now, -1.21 spread, +0.72 total | Kentavious Caldwell-Pope (76Ers, worth 0.41): weight 1 at the open, 0 now, -0.41 spread, +0.25 total | Jaylen Brown (76Ers, worth 3.4): weight 0.4 at the open, 0 now, -1.36 spread, +0.82 total | Joel Embiid (76Ers, worth 3.82): weight 1 at the open, 0 now, -3.82 spread, +2.29 total | VJ Edgecombe (76Ers, worth 1.16): weight 1 at the open, 0 now, -1.16 spread, +0.70 total | Sam Merrill (Cavaliers, worth 0.87): weight 1 at the open, 0 now, -0.87 spread, +0.52 total. Open home line -4.5, fair -11.73.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before tip-off.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury_nba.py",
+      "pinAtPick": {
+        "line": -3.0,
+        "prices": {
+          "home": -104,
+          "away": -108
+        },
+        "updated": "2026-10-21T21:24:22Z",
+        "snapTime": "2026-10-21T21:24:31Z",
+        "noVig": 0.4953
+      },
+      "contextAtPick": {
+        "injury": "Dominick Barlow (76Ers, worth 0.4): weight 0.4 at the open, 1 now, +0.24 spread, -0.14 total | Anfernee Simons (76Ers, worth 0.95): weight 0.4 at the open, 0 now, -0.38 spread, +0.23 total | LeBron James (76Ers, worth 3.02): weight 0.4 at the open, 0 now, -1.21 spread, +0.72 total | Kentavious Caldwell-Pope (76Ers, worth 0.41): weight 1 at the open, 0 now, -0.41 spread, +0.25 total | Jaylen Brown (76Ers, worth 3.4): weight 0.4 at the open, 0 now, -1.36 spread, +0.82 total | Joel Embiid (76Ers, worth 3.82): weight 1 at the open, 0 now, -3.82 spread, +2.29 total | VJ Edgecombe (76Ers, worth 1.16): weight 1 at the open, 0 now, -1.16 spread, +0.70 total | Sam Merrill (Cavaliers, worth 0.87): weight 1 at the open, 0 now, -0.87 spread, +0.52 total"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 100,
+        "line": -3.5,
+        "implied": 0.5,
+        "printImplied": 0.5122
+      },
+      "note": "Same side already picked. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NBA|2026-10-22|Cleveland Cavaliers at Philadelphia 76ers|total|over|v1|reread|news-lag|2026-10-21T21:24:33Z",
+      "kind": "reread",
+      "grade": "A",
+      "rowId": "NBA|2026-10-22|Cleveland Cavaliers at Philadelphia 76ers|total",
+      "sport": "NBA",
+      "event": "Cleveland Cavaliers at Philadelphia 76ers",
+      "commence": "2026-10-22T23:10:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 235.5,
+      "priceAtPick": 100,
+      "marketNumber": 235.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "over": -112,
+        "under": -108
+      },
+      "priceTime": "2026-10-21T21:24:31Z",
+      "pickedAt": "2026-10-21T21:24:33Z",
+      "fair": 238.88,
+      "projection": 238.88,
+      "edge": 3.38,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "Dominick Barlow (76Ers, worth 0.4): weight 0.4 at the open, 1 now, +0.24 spread, -0.14 total | Anfernee Simons (76Ers, worth 0.95): weight 0.4 at the open, 0 now, -0.38 spread, +0.23 total | LeBron James (76Ers, worth 3.02): weight 0.4 at the open, 0 now, -1.21 spread, +0.72 total | Kentavious Caldwell-Pope (76Ers, worth 0.41): weight 1 at the open, 0 now, -0.41 spread, +0.25 total | Jaylen Brown (76Ers, worth 3.4): weight 0.4 at the open, 0 now, -1.36 spread, +0.82 total | Joel Embiid (76Ers, worth 3.82): weight 1 at the open, 0 now, -3.82 spread, +2.29 total | VJ Edgecombe (76Ers, worth 1.16): weight 1 at the open, 0 now, -1.16 spread, +0.70 total | Sam Merrill (Cavaliers, worth 0.87): weight 1 at the open, 0 now, -0.87 spread, +0.52 total. Open total 233.5, fair 238.88.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before tip-off.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury_nba.py",
+      "pinAtPick": {
+        "line": 235.5,
+        "prices": {
+          "over": -115,
+          "under": 101
+        },
+        "updated": "2026-10-21T21:24:22Z",
+        "snapTime": "2026-10-21T21:24:31Z",
+        "noVig": 0.5187
+      },
+      "contextAtPick": {
+        "injury": "Dominick Barlow (76Ers, worth 0.4): weight 0.4 at the open, 1 now, +0.24 spread, -0.14 total | Anfernee Simons (76Ers, worth 0.95): weight 0.4 at the open, 0 now, -0.38 spread, +0.23 total | LeBron James (76Ers, worth 3.02): weight 0.4 at the open, 0 now, -1.21 spread, +0.72 total | Kentavious Caldwell-Pope (76Ers, worth 0.41): weight 1 at the open, 0 now, -0.41 spread, +0.25 total | Jaylen Brown (76Ers, worth 3.4): weight 0.4 at the open, 0 now, -1.36 spread, +0.82 total | Joel Embiid (76Ers, worth 3.82): weight 1 at the open, 0 now, -3.82 spread, +2.29 total | VJ Edgecombe (76Ers, worth 1.16): weight 1 at the open, 0 now, -1.16 spread, +0.70 total | Sam Merrill (Cavaliers, worth 0.87): weight 1 at the open, 0 now, -0.87 spread, +0.52 total"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 100,
+        "line": 235.5,
+        "implied": 0.5,
+        "printImplied": 0.5283
+      },
+      "note": "Same side already picked. Logged as a reread, graded, not counted."
     }
   ]
 }
