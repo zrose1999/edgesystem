@@ -11,3 +11,5 @@ Work on the `data` branch (scripts, ledgers, data). `main` holds only the site s
 4. Never commit generated files (STATE.md, memory/log, memory/research.json, memory/summary.md, memory/hypotheses.md,
    stats/scan/, stats/autopsy_box.json, stats/modelcheck.json). Restore them with `git checkout --` first. Pull with `--rebase` right before
    every push; the data job pushes about every 15 minutes.
+5. In Zack's EDGE project on claude.ai: if the project's custom instructions differ from the block in CLAUDE_PROJECT.md,
+   update CLAUDE_PROJECT.md to match (collaborators copy it into their own projects).

@@ -2,6 +2,9 @@
 
 EDGE is Zack's sports betting research desk. It has one goal: find prices better than Pinnacle's closing line and buy them as cheaply as possible. Win rate never decides anything; CLV after costs does.
 
+## Give your Claude the same brain
+Follow the setup in CLAUDE_PROJECT.md: a Claude project named EDGE with Zack's exact project instructions plus a short collaborator addendum. Your Claude then follows the same rules and reads the same live state (STATE.md, DESK.md) as Zack's.
+
 ## How to bring an idea
 1. Point your own Claude at this repo and have it read, on the `data` branch: `STATE.md` (what is running now), `DESK.md` (Zack's rules and decisions), `patterns.md` (every strategy, including parked ones) and `memory/summary.md` (what the data says so far).
 2. Talk the idea through with your Claude.
