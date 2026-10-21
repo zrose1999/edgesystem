@@ -7,7 +7,8 @@
   python3 scan.py learn     weekly: export the scanner's data as numbers and train learner.py on it (--force: now)
 
 1. Hypotheses. Every game in EDGE's history (ESPN DraftKings open/close for NBA, NHL, NCAAF; CFBD closes for NCAAF
-   2021+; Pinnacle open/close for five soccer leagues since 2016; nflverse closes for the NFL when reachable) is
+   2021+; ESPN DraftKings open/close for MLB 2026 on; Pinnacle open/close for five soccer leagues since 2016;
+   nflverse closes for the NFL since 2015, with EDGE's stored early-week opens from 2025) is
    described by pre-pick features only: the opening number band (spread, total, price), favourite/dog and venue,
    days rest and the rest edge, day of week, month. Every single feature and every pair is a hypothesis, for every
    side of every market. Nothing is hand-picked.
@@ -46,7 +47,7 @@ import pull
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "stats" / "scan"
 CACHE = Path(os.environ.get("EDGE_CACHE", "/tmp/edge-cache"))
-NFL_GAMES = "https://github.com/nflverse/nfldata/raw/master/data/games.csv"
+NFL_GAMES = "https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv"
 FD = {"E0": "EPL", "SP1": "LaLiga", "I1": "SerieA", "D1": "Bundesliga", "F1": "Ligue1"}
 
 MIN_N = {1: 150, 2: 120}                 # games for a single feature / a pair
@@ -123,6 +124,8 @@ def total_band(sport, t):
         return None
     if sport == "NHL":
         return f"{t:g}"
+    if sport == "MLB":
+        return band(t, [7, 7.5, 8, 8.5, 9, 9.5, 10, 11])
     return band(t, TOTAL_EDGES.get(sport, [0]))
 
 
@@ -137,6 +140,8 @@ def rest_bucket(sport, d):
         return "short" if d < 6 else "normal" if d <= 8 else "long"
     if pull_soccer(sport):
         return "short" if d <= 3 else "normal" if d <= 6 else "long"
+    if sport == "MLB":
+        return "no day off" if d <= 1 else "day off" if d == 2 else "2+ days off"
     return "b2b" if d <= 1 else "1day" if d == 2 else "2+days"
 
 
@@ -162,6 +167,50 @@ def base_feats(sport, when, rh, ra):
     return f
 
 
+# ---------- totals priced as probabilities (NHL, MLB): one unit across line changes ----------
+# Measuring the over's price move only on games whose total line did not change is a look-ahead filter (that the line
+# held is known only at the close) and it manufactures reversion: when the open is juiced, books usually move the line,
+# so the games that keep their line are mostly ones where the juice came back (2026-10-21). Every game is kept instead:
+# the closing price is converted to the OPENING line through a scoring distribution fitted to the close (Poisson for
+# hockey goals; negative binomial with variance 2x the mean for baseball runs), and the move is measured at one line.
+
+def _pmf(sport, lam, kmax=40):
+    if sport == "MLB":
+        r = lam                      # variance = mean + mean^2 / r = 2 x mean
+        p = r / (r + lam)
+        out = [p ** r]
+        for k in range(1, kmax):
+            out.append(out[-1] * (k + r - 1) / k * (1 - p))
+        return out
+    out = [math.exp(-lam)]
+    for k in range(1, kmax):
+        out.append(out[-1] * lam / k)
+    return out
+
+
+def _p_over(sport, lam, line):
+    pm = _pmf(sport, lam)
+    over = sum(p for k, p in enumerate(pm) if k > line)
+    push = pm[int(line)] if float(line).is_integer() and int(line) < len(pm) else 0.0
+    return over / max(1e-9, 1 - push)
+
+
+def over_at_line(sport, p_close, close_line, open_line):
+    """No-vig P(over) at open_line implied by the closing no-vig P(over) at close_line."""
+    if p_close is None or close_line is None or open_line is None:
+        return None
+    if close_line == open_line:
+        return p_close
+    lo, hi = 0.2, 30.0
+    for _ in range(60):
+        mid = (lo + hi) / 2
+        if _p_over(sport, mid, close_line) < p_close:
+            lo = mid
+        else:
+            hi = mid
+    return _p_over(sport, (lo + hi) / 2, open_line)
+
+
 # ---------- schedules (rest) ----------
 
 class Schedule:
@@ -183,7 +232,8 @@ class Schedule:
         return round((when - prev[-1]).total_seconds() / 86400)
 
 
-SCHED_FILES = {"NBA": "nba_games", "NHL": "nhl_games", "NCAAF": "ncaaf_games", "NFL": "nfl_schedule"}
+SCHED_FILES = {"NBA": "nba_games", "NHL": "nhl_games", "NCAAF": "ncaaf_games", "NFL": "nfl_schedule",
+               "MLB": "mlb_games"}
 
 
 def load_schedule(sport):
@@ -225,7 +275,7 @@ def side_results(market, hs, as_, line_home=None, total=None, prices=None):
 
 def espn_samples():
     out = []
-    for sport in ("NBA", "NHL", "NCAAF"):
+    for sport in ("NBA", "NHL", "NCAAF", "MLB"):
         sched = load_schedule(sport)
         g = pull.load(ROOT / "stats" / f"{sport.lower()}_games.json", {}).get("games") or {}
         for x in (g.values() if isinstance(g, dict) else g):
@@ -237,7 +287,7 @@ def espn_samples():
             f0 = base_feats(sport, when, sched.rest(x["home"], when), sched.rest(x["away"], when))
             f0["id"] = str(x.get("id"))
             so, sc = L.get("spreadOpen"), L.get("spreadClose")
-            if sport != "NHL" and sc is not None:
+            if sport not in ("NHL", "MLB") and sc is not None:     # puck and run lines are priced like moneylines
                 f = dict(f0, line=spread_band(sport, so)) if so is not None else dict(f0)
                 ro = side_results("spread", hs, as_, line_home=so) if so is not None else {}
                 rc = side_results("spread", hs, as_, line_home=sc)
@@ -249,12 +299,12 @@ def espn_samples():
                 f = dict(f0, total=total_band(sport, to)) if to is not None else dict(f0)
                 po = {"over": dec(L.get("overOpenOdds")), "under": dec(L.get("underOpenOdds"))}
                 pc = {"over": dec(L.get("overCloseOdds")), "under": dec(L.get("underCloseOdds"))}
-                if sport == "NHL":
+                if sport in ("NHL", "MLB"):
                     pov = novig(po["over"], po["under"])
                     if pov is not None:
                         f["overPrice"] = prob_band(pov)
-                    pcv = novig(pc["over"], pc["under"])
-                    mv = (pcv - pov) if (pov is not None and pcv is not None and to == tc) else None
+                    pcv = over_at_line(sport, novig(pc["over"], pc["under"]), tc, to)
+                    mv = (pcv - pov) if (pov is not None and pcv is not None) else None
                     unit_move = {"over": mv, "under": -mv if mv is not None else None}
                 else:
                     unit_move = {"over": (tc - to) if to is not None else None,
@@ -357,8 +407,38 @@ def soccer_samples():
     return out
 
 
+NFL_OLD = {"OAK": "Las Vegas Raiders", "SD": "Los Angeles Chargers", "STL": "Los Angeles Rams"}
+OPEN_BOOKS = ("draftkings", "fanduel", "betmgm", "williamhill_us")
+
+
+def nfl_opens():
+    """Earliest stored early-week number per NFL game (backfill_nfl.py: Odds API historical snapshots, Tuesday
+    14:00 UTC) taken within 8 days of kickoff (earlier snapshots carry season-long lookahead lines), keyed by
+    (home, away, US game day). Print book DraftKings, else FanDuel, BetMGM, Caesars."""
+    out = {}
+    for path in sorted(glob.glob(str(ROOT / "stats" / "history" / "nfl_open" / "*.json"))):
+        d = pull.load(Path(path), {})
+        for wk in (d.get("weeks") or {}).values():
+            snap = wk.get("snapshot") or wk.get("asked") or ""
+            for e in wk.get("events") or []:
+                b = next((e["books"][k] for k in OPEN_BOOKS if (e.get("books") or {}).get(k)), None)
+                if not b or not e.get("commence"):
+                    continue
+                kick = parse(e["commence"])
+                if not snap or not (timedelta(0) < kick - parse(snap) <= timedelta(days=8)):
+                    continue                  # the game's own early-week number, not a season-long lookahead line
+                k = (e["home"], e["away"], us_day(kick).strftime("%Y-%m-%d"))
+                if k not in out or snap < out[k]["snap"]:
+                    out[k] = dict(b, snap=snap)
+    return out
+
+
 def nfl_samples():
-    """nflverse games.csv (closes, rest, results), 2015 on. Reachable from GitHub's runners; skipped when not."""
+    """nflverse games.csv (closes, rest, results), 2015 on, joined to EDGE's stored opening numbers where they exist
+    (2025 on), which gives NFL the move (CLV) test as well as results. Skipped when the file is not reachable."""
+    import stats as nfl_stats
+    names = {v: k for k, v in nfl_stats.TEAMS.items()}
+    names.update(NFL_OLD)
     CACHE.mkdir(parents=True, exist_ok=True)
     path = CACHE / "nfl_games.csv"
     try:
@@ -373,12 +453,12 @@ def nfl_samples():
     except Exception as exc:  # noqa: BLE001
         print(f"nfl history skipped: {exc}")
         return []
+    opens = nfl_opens()
     out = []
     for g in rows:
-        if num(g.get("season")) is None or num(g["season"]) < 2015 or g.get("home_score") in ("", "NA", None):
+        if num(g.get("season")) is None or num(g["season"]) < 2015 or g.get("location") == "Neutral":
             continue
-        sp, tl = num(g.get("spread_line")), num(g.get("total_line"))
-        hs, as_ = num(g["home_score"]), num(g["away_score"])
+        hs, as_ = num(g.get("home_score")), num(g.get("away_score"))
         if hs is None or as_ is None:
             continue
         try:
@@ -386,20 +466,43 @@ def nfl_samples():
                 tzinfo=timezone.utc) + timedelta(hours=4)
         except ValueError:
             continue
-        rh, ra = num(g.get("home_rest")), num(g.get("away_rest"))
-        f0 = base_feats("NFL", when, rh, ra)
-        if g.get("location") == "Neutral":
-            continue
+        home, away = names.get(g["home_team"], g["home_team"]), names.get(g["away_team"], g["away_team"])
+        o = opens.get((home, away, g["gameday"])) or {}
+        f0 = base_feats("NFL", when, num(g.get("home_rest")), num(g.get("away_rest")))
+        sp, tl = num(g.get("spread_line")), num(g.get("total_line"))
         if sp is not None:
-            hl = -sp                                   # nflverse spread_line: home minus away, positive = home favoured
-            rc = side_results("spread", hs, as_, line_home=hl)
-            out.append(("NFL", "spread", when, dict(f0, closeLine=spread_band("NFL", hl)),
-                        {s: {"move": None, "resOpen": None, "resClose": rc.get(s)} for s in ("home", "away")}))
+            sc = -sp                                   # nflverse spread_line: positive = home favoured
+            so = num(o.get("spread"))
+            f = dict(f0, closeLine=spread_band("NFL", sc))
+            if so is not None:
+                f["line"] = spread_band("NFL", so)
+            rc = side_results("spread", hs, as_, line_home=sc)
+            ro = side_results("spread", hs, as_, line_home=so, prices={"home": dec(o.get("spread_price")),
+                                                                       "away": dec(o.get("spread_away_price"))}) if so is not None else {}
+            out.append(("NFL", "spread", when, f, {s: {"move": ((so - sc) if s == "home" else (sc - so)) if so is not None else None,
+                                                       "resOpen": ro.get(s), "resClose": rc.get(s)} for s in ("home", "away")}))
         if tl is not None:
+            to = num(o.get("total"))
+            f = dict(f0, closeTotal=total_band("NFL", tl))
+            if to is not None:
+                f["total"] = total_band("NFL", to)
             rc = side_results("total", hs, as_, total=tl, prices={"over": dec(num(g.get("over_odds"))),
                                                                    "under": dec(num(g.get("under_odds")))})
-            out.append(("NFL", "total", when, dict(f0, closeTotal=total_band("NFL", tl)),
-                        {s: {"move": None, "resOpen": None, "resClose": rc.get(s)} for s in ("over", "under")}))
+            ro = side_results("total", hs, as_, total=to, prices={"over": dec(o.get("over_price")),
+                                                                  "under": dec(o.get("under_price"))}) if to is not None else {}
+            out.append(("NFL", "total", when, f, {s: {"move": ((tl - to) if s == "over" else (to - tl)) if to is not None else None,
+                                                      "resOpen": ro.get(s), "resClose": rc.get(s)} for s in ("over", "under")}))
+        mh, ma = dec(num(g.get("home_moneyline"))), dec(num(g.get("away_moneyline")))
+        if mh and ma and hs != as_:
+            pc = novig(mh, ma)
+            po = novig(dec(o.get("ml_home")), dec(o.get("ml_away")))
+            f = dict(f0)
+            if po is not None:
+                f["homePrice"] = prob_band(po)
+            rc = side_results("h2h", hs, as_, prices={"home": mh, "away": ma})
+            ro = side_results("h2h", hs, as_, prices={"home": dec(o.get("ml_home")), "away": dec(o.get("ml_away"))}) if po is not None else {}
+            out.append(("NFL", "h2h", when, f, {s: {"move": ((pc - po) if s == "home" else (po - pc)) if po is not None else None,
+                                                    "resOpen": ro.get(s), "resClose": rc.get(s)} for s in ("home", "away")}))
     return out
 
 
@@ -629,7 +732,9 @@ def moved_for_side(row, side, unit):
         return {"home": -d, "away": d, "over": d, "under": -d}[side]
     keys = ("home", "away") if row["market"] == "h2h" else ("over", "under")
     po, pc = novig(dec(o.get(keys[0])), dec(o.get(keys[1]))), novig(dec(c.get(keys[0])), dec(c.get(keys[1])))
-    if po is None or pc is None or (row["market"] == "total" and o.get("line") != c.get("line")):
+    if row["market"] == "total" and o.get("line") != c.get("line"):
+        pc = over_at_line(row["sport"], pc, c.get("line"), o.get("line")) if row["sport"] in ("NHL", "MLB") else None
+    if po is None or pc is None:
         return 0.0
     d = pc - po
     return d if side == keys[0] else -d
@@ -750,7 +855,7 @@ def numeric(sport, market, when, open_line, open_prob, rh, ra):
 def learn_rows():
     """learner.py rows per scan target, from the same histories as the condition search."""
     out = defaultdict(list)
-    for sport in ("NBA", "NHL", "NCAAF"):
+    for sport in ("NBA", "NHL", "NCAAF", "MLB"):
         sched = load_schedule(sport)
         g = pull.load(ROOT / "stats" / f"{sport.lower()}_games.json", {}).get("games") or {}
         for x in (g.values() if isinstance(g, dict) else g):
@@ -760,16 +865,16 @@ def learn_rows():
             when = parse(x["date"])
             rh, ra = sched.rest(x["home"], when), sched.rest(x["away"], when)
             so, sc = L.get("spreadOpen"), L.get("spreadClose")
-            if sport != "NHL" and so is not None and sc is not None:
+            if sport not in ("NHL", "MLB") and so is not None and sc is not None:
                 out[f"scan_{sport.lower()}_spread"].append({"date": x["date"], "y": so - sc,
                                                            "f": numeric(sport, "spread", when, so, None, rh, ra)})
             to, tc = L.get("totalOpen"), L.get("totalClose")
             if to is not None and tc is not None:
-                if sport == "NHL":
+                if sport in ("NHL", "MLB"):
                     po = novig(dec(L.get("overOpenOdds")), dec(L.get("underOpenOdds")))
-                    pc = novig(dec(L.get("overCloseOdds")), dec(L.get("underCloseOdds")))
-                    if po is not None and pc is not None and to == tc:
-                        out["scan_nhl_total"].append({"date": x["date"], "y": pc - po,
+                    pc = over_at_line(sport, novig(dec(L.get("overCloseOdds")), dec(L.get("underCloseOdds"))), tc, to)
+                    if po is not None and pc is not None:
+                        out[f"scan_{sport.lower()}_total"].append({"date": x["date"], "y": pc - po,
                                                       "f": numeric(sport, "total", when, to, po, rh, ra)})
                 else:
                     out[f"scan_{sport.lower()}_total"].append({"date": x["date"], "y": tc - to,
@@ -821,7 +926,7 @@ def learn_rows():
 
 
 def target_unit(name):
-    return "prob" if name.endswith("_h2h") or name in ("scan_nhl_total", "scan_soccer_total") else "points"
+    return "prob" if name.endswith("_h2h") or name in ("scan_nhl_total", "scan_mlb_total", "scan_soccer_total") else "points"
 
 
 def learn(force=False):

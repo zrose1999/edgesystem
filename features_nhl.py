@@ -289,8 +289,13 @@ def build_history():
         po = novig2(L["mlHomeOpen"], L["mlAwayOpen"])
         pc = novig2(L["mlHomeClose"], L["mlAwayClose"])
         oo = oc = None
-        if L.get("totalOpen") == L.get("totalClose") and all(L.get(k) for k in ("overOpenOdds", "underOpenOdds", "overCloseOdds", "underCloseOdds")):
-            oo, oc = novig2(L["overOpenOdds"], L["underOpenOdds"]), novig2(L["overCloseOdds"], L["underCloseOdds"])
+        if all(L.get(k) for k in ("overOpenOdds", "underOpenOdds", "overCloseOdds", "underCloseOdds")) \
+                and L.get("totalOpen") is not None and L.get("totalClose") is not None:
+            # Every game, with the close converted to the opening line (scan.over_at_line, Poisson). Keeping only games
+            # whose line held is a look-ahead filter that manufactures reversion (2026-10-21).
+            import scan
+            oo = novig2(L["overOpenOdds"], L["underOpenOdds"])
+            oc = scan.over_at_line("NHL", novig2(L["overCloseOdds"], L["underCloseOdds"]), L["totalClose"], L["totalOpen"])
         s = st_by_day.get((game_day(g["date"]).isoformat(), h)) or {}
         mp = model_p.get(g["id"], (None, None))
         f = features_for(h, a, g["date"], th, st_index, goalies, sched, po, L.get("totalOpen"), oo, mp[0], mp[1],

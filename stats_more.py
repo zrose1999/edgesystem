@@ -21,7 +21,7 @@ Two tests run for each sport with market history:
 
 The analyst reads a sport's files only when that sport is in READ in pull.py.
 
-  python3 stats_more.py            all sports
+  python3 stats_more.py            all sports (plus history-only sports in DATA_ONLY: MLB)
   python3 stats_more.py NBA NHL    some sports
 """
 
@@ -61,6 +61,11 @@ CONFIG = {
     "EPL": {"kind": "soccer", "fd": "E0", "halflife": 200, "ridge": 5.0,
             "bar": {"h2h": 0.03}},
 }
+
+# History only (no ratings, no model, no reads): ESPN results with DraftKings open and close, kept so the strategy
+# scanner and learner have the sport's history before EDGE prices it live. ESPN keeps about ten months, so a season
+# is only saved if it is collected before it ages out. MLB added 2026-10-21 (the 2026 season is still in ESPN).
+DATA_ONLY = {"MLB": {"espn": "baseball/mlb", "summaries": True}}
 
 # football-data names -> the Odds API names the ledger uses
 EPL_NAMES = {
@@ -678,6 +683,10 @@ def promoted_priors(games):
 
 
 def run(sport):
+    if sport in DATA_ONLY:
+        games, info = update_espn(sport, DATA_ONLY[sport])
+        return {"sport": sport, "dataOnly": True, "games": len(games),
+                "withLines": sum(1 for g in games if g.get("lines")), **info}
     cfg = CONFIG[sport]
     games, info = (update_epl if cfg["kind"] == "soccer" else update_espn)(sport, cfg)
     model = fit(games, iso(now_utc()), cfg, promoted_priors(games) if cfg["kind"] == "soccer" else None)
@@ -705,7 +714,7 @@ def run(sport):
 
 
 def main():
-    sports = [s.upper() for s in sys.argv[1:]] or list(CONFIG)
+    sports = [s.upper() for s in sys.argv[1:]] or list(CONFIG) + list(DATA_ONLY)
     for s in sports:
         try:
             print(json.dumps(run(s)))
