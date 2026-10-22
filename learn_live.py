@@ -247,7 +247,7 @@ def direct_entry(row, side, fair, pattern, why, now):
             "reason": why, "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
             "modelVersion": pull.VERSION, "tier": "shadow" if kind == "pick" else None, "stakeUnits": 0.0,
             "by": "learn_live.py", "pinAtPick": pull.pin_at_pick(snap, side), "bestAtPick": pull.best_at_pick(snap, side),
-            "contextAtPick": pull.context_at_pick(row)}
+            "priceBook": (pull.best_at_pick(snap, side) or {}).get("book"), "contextAtPick": pull.context_at_pick(row)}
 
 
 def soccer_reads(rows, now, done):

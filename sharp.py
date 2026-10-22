@@ -207,6 +207,7 @@ def stamp_one(row, snap, books, pattern, alt, status, have, reasons, now):
         "modelVersion": pull.VERSION, "tier": tier, "stakeUnits": stake, "by": "sharp.py",
         "pinAtPick": pull.pin_at_pick(snap, side), "contextAtPick": pull.context_at_pick(row),
         "bestAtPick": pull.best_at_pick(snap, side),
+        "priceBook": (pull.best_at_pick(snap, side) or {}).get("book"),   # same field as pull.py reads (north star)
     }
     if alt:
         entry["estimated"] = True

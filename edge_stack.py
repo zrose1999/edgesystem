@@ -283,7 +283,8 @@ def sharp_drift(rows, now, nhl_games, have):
             "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
             "modelVersion": pull.VERSION, "tier": "shadow", "stakeUnits": 0.0, "by": "edge_stack.py",
             "pinAtPick": pull.pin_at_pick(snap, best["side"]), "contextAtPick": pull.context_at_pick(row),
-            "bestAtPick": pull.best_at_pick(snap, best["side"])})
+            "bestAtPick": pull.best_at_pick(snap, best["side"]),
+            "priceBook": (pull.best_at_pick(snap, best["side"]) or {}).get("book")})
     return entries
 
 
