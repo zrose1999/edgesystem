@@ -118,3 +118,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-22 | NBA: restEdge=less + travelEdge=more | 9 | +0.4% | found inside NBA restEdge=less (best of 10 features tested); small sample, may share reads with other rows |
 | 2026-10-22 | NBA: grade=A + role=dog | 8 | +0.9% | found inside NBA role=dog (best of 11 features tested); small sample, may share reads with other rows |
 | 2026-10-22 | NBA: travel=500-1500 + venue=away | 8 | +0.5% | found inside NBA venue=away (best of 13 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: restDays=2+days + sharpDivPick=aligned | 8 | +1.3% | found inside NBA restDays=2+days (best of 35 features tested); small sample, may share reads with other rows |
