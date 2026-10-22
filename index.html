@@ -1023,7 +1023,9 @@ async function loadMatchups() {
     fr.srcdoc = "<!doctype html><html data-theme=\"" + theme + "\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>body{margin:0}</style></head><body>"
       + tpl.replace("/*__DATA__*/null", () => data) + "</body></html>";
     fr.onload = () => {
-      const fit = () => { try { fr.style.height = fr.contentDocument.documentElement.scrollHeight + "px"; } catch (_) {} };
+      // The inner body, not documentElement: documentElement.scrollHeight never drops below the frame's own height, so a
+      // shorter game (or the phone list after a long game) left a blank block under it (2026-10-22).
+      const fit = () => { try { fr.style.height = Math.ceil(fr.contentDocument.body.getBoundingClientRect().height) + "px"; } catch (_) {} };
       fit();
       try { new ResizeObserver(fit).observe(fr.contentDocument.body); } catch (_) { setInterval(fit, 1500); }
     };
