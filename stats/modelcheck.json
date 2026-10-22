@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-22T22:54:36Z",
+ "asOf": "2026-10-22T23:10:13Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -73,13 +73,13 @@
   "learned-ncaaf-spread": {
    "pattern": "learned-ncaaf-spread",
    "unit": "points",
-   "n": 16,
-   "meanPredicted": 1.0836,
-   "meanRealized": 0.0938,
+   "n": 17,
+   "meanPredicted": 1.1283,
+   "meanRealized": 0.0882,
    "tRealized": 0.31,
-   "capture": 0.09,
+   "capture": 0.08,
    "rightWay": 0.444,
-   "noMove": 7,
+   "noMove": 8,
    "logLossGain": {
     "n": 16,
     "mean": 0.00099,
@@ -138,6 +138,40 @@
    },
    "verdict": "collecting"
   },
+  "learned-scan-ncaaf-h2h": {
+   "pattern": "learned-scan-ncaaf-h2h",
+   "unit": "prob",
+   "n": 1,
+   "meanPredicted": 0.027,
+   "meanRealized": -0.0197,
+   "tRealized": 0.0,
+   "capture": -0.73,
+   "rightWay": 0.0,
+   "noMove": 0,
+   "logLossGain": {
+    "n": 0,
+    "mean": null,
+    "t": 0.0
+   },
+   "verdict": "collecting"
+  },
+  "learned-scan-ncaaf-spread": {
+   "pattern": "learned-scan-ncaaf-spread",
+   "unit": "points",
+   "n": 1,
+   "meanPredicted": 0.859,
+   "meanRealized": 0.0,
+   "tRealized": 0.0,
+   "capture": 0.0,
+   "rightWay": 0.0,
+   "noMove": 1,
+   "logLossGain": {
+    "n": 0,
+    "mean": null,
+    "t": 0.0
+   },
+   "verdict": "collecting"
+  },
   "learned-soccer-1x2": {
    "pattern": "learned-soccer-1x2",
    "unit": "prob",
@@ -192,13 +226,13 @@
   "ncaaf-spot": {
    "pattern": "ncaaf-spot",
    "unit": "points",
-   "n": 32,
-   "meanPredicted": 0.36,
-   "meanRealized": 0.0,
-   "tRealized": 0.0,
-   "capture": 0.0,
-   "rightWay": 0.478,
-   "noMove": 9,
+   "n": 34,
+   "meanPredicted": 0.3603,
+   "meanRealized": -0.0882,
+   "tRealized": -0.34,
+   "capture": -0.24,
+   "rightWay": 0.458,
+   "noMove": 10,
    "logLossGain": {
     "n": 32,
     "mean": -0.00019,

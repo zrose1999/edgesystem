@@ -121,3 +121,8 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-22 | NBA: restDays=2+days + sharpDivPick=aligned | 8 | +1.3% | found inside NBA restDays=2+days (best of 35 features tested); small sample, may share reads with other rows |
 | 2026-10-22 | bookAtPick=BetMGM + edgeBar=0.5-1x | 8 | +2.0% | found inside ALL edgeBar=0.5-1x (best of 41 features tested); small sample, may share reads with other rows |
 | 2026-10-22 | bookAtPick=BetMGM + grade=B | 8 | +2.0% | found inside ALL grade=B (best of 40 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | restDays=long + role=dog | 15 | +0.7% | found inside ALL restDays=long (best of 15 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | role=dog + travelEdge=even | 13 | +0.7% | found inside ALL travelEdge=even (best of 18 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NCAAF: pattern=ncaaf-spot + travelEdge=even | 8 | +0.0% | found inside NCAAF pattern=ncaaf-spot (best of 16 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NCAAF: role=dog + travel=<500 | 8 | +1.3% | found inside NCAAF travel=<500 (best of 19 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NCAAF: role=dog + tzShift=none | 11 | +0.6% | found inside NCAAF tzShift=none (best of 15 features tested); small sample, may share reads with other rows |
