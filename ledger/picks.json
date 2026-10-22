@@ -50446,6 +50446,62 @@
       "pinAtPick": null,
       "contextAtPick": {},
       "bestAtPick": null
+    },
+    {
+      "pickId": "EPL|2026-10-24|Tottenham Hotspur at Chelsea|h2h|away|v1|learned-soccer-1x2|lean|2026-10-22T16:39:52Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "EPL|2026-10-24|Tottenham Hotspur at Chelsea|h2h",
+      "sport": "EPL",
+      "event": "Tottenham Hotspur at Chelsea",
+      "commence": "2026-10-24T16:30:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 350,
+      "bookAtPick": "FanDuel",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -165,
+        "away": 350,
+        "draw": 310
+      },
+      "priceTime": "2026-10-22T15:51:37Z",
+      "pickedAt": "2026-10-22T16:39:52Z",
+      "fair": 0.2224,
+      "projection": 0.2224,
+      "edge": 0.0001,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-soccer-1x2",
+      "reason": "Learned soccer model (ridge, 151 data points) predicts Pinnacle's away probability gains +0.005 from the open; Pinnacle open 0.246, now 0.218, 0.005 still to come. Fair 0.222. Report: stats/models/soccer_away.json.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -135,
+          "away": 337,
+          "draw": 328
+        },
+        "updated": "2026-10-22T15:51:17Z",
+        "snapTime": "2026-10-22T15:51:37Z",
+        "noVig": 0.2176
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 350,
+        "line": null,
+        "implied": 0.2222,
+        "printImplied": 0.2222
+      },
+      "priceBook": "FanDuel",
+      "contextAtPick": {}
     }
   ]
 }
