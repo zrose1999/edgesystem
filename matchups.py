@@ -34,6 +34,7 @@ ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "matchups"
 CACHE = Path("/tmp/edge_matchups_cache")
 PBP_URL = "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_{season}.csv.gz"
+ROSTER_URL = "https://github.com/nflverse/nflverse-data/releases/download/rosters/roster_{season}.csv"
 GAMES_URL = "https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv"
 SNAPS = ROOT / "ledger" / "snaps"
 MEMLOG = ROOT / "memory" / "log"
@@ -123,7 +124,8 @@ KEEP = ["game_id", "week", "posteam", "defteam", "play_type", "qb_dropback", "ru
         "half_seconds_remaining", "third_down_converted", "third_down_failed", "fixed_drive", "fixed_drive_result",
         "yardline_100", "interception", "fumble_lost", "receiver_player_name", "rusher_player_name",
         "passer_player_name", "cpoe", "pass_oe", "complete_pass", "receiving_yards", "rushing_yards", "touchdown",
-        "td_team", "posteam_type"]
+        "td_team", "posteam_type", "receiver_player_id", "rusher_player_id", "passer_player_id", "passing_yards",
+        "pass_touchdown", "rush_touchdown"]
 
 
 def load_pbp(season):
@@ -570,7 +572,7 @@ def suggestions(g, S, R, M, P, proj, lines, T, status=None):
         mem = memory_check("NFL", {"spread": "spread", "total": "total", "team total": "total"}.get(market, market),
                            {"home": "home", "away": "away", "over": "over", "under": "under"}.get(kind, ""))
         out.append({"market": market, "side": side, "label": label, "why": why, "confidence": conf,
-                    "lineAtNote": {"spread": spread, "total": total}.get(market if market != "team total" else "total"),
+                    "lineAtNote": {"spread": spread, "total": total}.get(market),
                     "memory": mem})
 
     edges = {t: [m for m in M[t] if m["kind"] == "offense edge"] for t in (home, away)}
@@ -629,48 +631,238 @@ def suggestions(g, S, R, M, P, proj, lines, T, status=None):
             why.append(f"Drive-scoring view puts {t} at {pts} points.")
             add("team total", t, f"{t} team total over (check the book; about {pts})", why, "low", "over")
 
-    # Player angles: no prop prices pulled (credits), so these name the stat to look at.
-    for t in (home, away):
-        opp = away if t == home else home
-        keys = {m["key"]: m for m in edges[t]}
-        p = dict(P[t])
-        playing = lambda r: status_of(r["name"], status or {}) not in OUT_STATUSES
-        p["receivers"] = [r for r in p["receivers"] if playing(r)]
-        p["rushers"] = [r for r in p["rushers"] if playing(r)]
-        if "pass_epa" in keys or "explosive" in keys:
-            for r in p["receivers"][:2]:
-                if (r["tgtShare"] or 0) >= 0.20:
-                    m = keys.get("pass_epa") or keys.get("explosive")
-                    add("player", r["name"], f"{r['name']} receiving yards over",
-                        [f"{r['name']}: {fmt('tgtShare', r['tgtShare'])} target share, {r['tgtPg']:.1f} targets "
-                         f"and {r['ydsPg']:.0f} yards a game.",
-                         f"{m['unit']}: {t} offense #{m['offRank']} vs {opp} defense #{m['defRank']}."], "low", "")
-        if "deep_epa" in keys:
-            deep = [r for r in p["receivers"] if (r["aDOT"] or 0) >= 12 and (r["tgtShare"] or 0) >= 0.08]
-            for r in deep[:1]:
-                m = keys["deep_epa"]
-                add("player", r["name"], f"{r['name']} longest reception over",
-                    [f"{r['name']} aDOT {r['aDOT']:.1f} yards, {fmt('airShare', r['airShare'])} of {t}'s air yards.",
-                     f"{opp} defense #{m['defRank']} on deep throws; {t} #{m['offRank']}."], "low", "")
-        if "rush_epa" in keys and p["rushers"]:
-            r = p["rushers"][0]
-            m = keys["rush_epa"]
-            if (r["carryShare"] or 0) >= 0.45:
-                add("player", r["name"], f"{r['name']} rushing yards over",
-                    [f"{r['name']}: {fmt('carryShare', r['carryShare'])} of carries, {r['ydsPg']:.0f} yards a game, "
-                     f"{r['ypc']:.1f} a carry.",
-                     f"Run game: {t} offense #{m['offRank']} vs {opp} defense #{m['defRank']}."], "low", "")
-        sk = [m for m in walls[t] if m["key"] == "sack"]
-        if sk and p["qb"]:
-            m = sk[0]
-            add("player", p["qb"]["name"], f"{opp} sacks over / {p['qb']['name']} under passing yards",
-                [f"Protection vs pass rush: {t} #{m['offRank']} in sack rate allowed "
-                 f"({fmt('sack', m['offVal'])}) vs {opp} #{m['defRank']} getting home ({fmt('sack', m['defVal'])})."],
-                "low", "")
     return out
 
 
-def game_note(g, S, S3, R, R3, plays, games, season):
+# ---------------- props: player vs the defense he faces ----------------
+
+POS_GROUP = {"WR": "WR", "TE": "TE", "RB": "RB", "FB": "RB", "QB": "QB"}
+PROP_STATS = {
+    # key: (label, player field, defense field, positions, usage field, usage minimum per game)
+    "rec_yds": ("Receiving yards", "ryd", "ryd", ("WR", "TE", "RB"), "tg", 4.0),
+    "receptions": ("Receptions", "rec", "rec", ("WR", "TE", "RB"), "tg", 4.0),
+    "rush_yds": ("Rushing yards", "rush_yd", "rush_yd", ("RB",), "car", 8.0),
+    "pass_yds": ("Passing yards", "pass_yd", "pass_yd", ("QB",), "att", 18.0),
+    "td": ("Anytime TD", "td", "td", ("WR", "TE", "RB"), "rz", 1.0),
+}
+OVER_RANK, UNDER_RANK = 8, 25      # rank 1 = the defense that allows the most of this stat to this position
+
+
+def load_positions(season):
+    try:
+        rows = csv.DictReader(io.open(fetch(ROSTER_URL.format(season=season), f"roster_{season}.csv", 24),
+                                      encoding="utf-8"))
+        return {r["gsis_id"]: POS_GROUP.get(r.get("position") or "", r.get("position")) for r in rows if r.get("gsis_id")}
+    except Exception as e:          # props degrade to nothing; the rest of the notes still build
+        print(json.dumps({"warning": f"roster load failed: {e}"}))
+        return {}
+
+
+def player_games(plays, pos):
+    """Per player, per game: targets, catches, yards, carries, rush yards, pass yards, attempts, red-zone chances, TDs."""
+    P = {}
+
+    def slot(pid, name, team, gid, week, opp):
+        p = P.setdefault(pid, {"name": name, "team": team, "pos": pos.get(pid), "games": {}})
+        p["name"] = p["name"] or name
+        return p["games"].setdefault(gid, {"week": week, "opp": opp, "tg": 0, "rec": 0, "ryd": 0.0, "car": 0,
+                                           "rush_yd": 0.0, "pass_yd": 0.0, "att": 0, "rz": 0, "td": 0, "long": 0.0})
+    for r in plays:
+        if not is_play(r):
+            continue
+        gid, wk, t, d = r["game_id"], r["week"], r["posteam"], r["defteam"]
+        rz = (fnum(r["yardline_100"]) or 100) <= 20
+        if fnum(r["pass_attempt"]) == 1 and r["receiver_player_id"]:
+            x = slot(r["receiver_player_id"], r["receiver_player_name"], t, gid, wk, d)
+            x["tg"] += 1
+            x["rz"] += 1 if rz else 0
+            if fnum(r["complete_pass"]) == 1:
+                x["rec"] += 1
+                y = fnum(r["receiving_yards"]) or 0
+                x["ryd"] += y
+                x["long"] = max(x["long"], y)
+            if fnum(r["pass_touchdown"]) == 1:
+                x["td"] += 1
+        if r["play_type"] == "run" and r["rusher_player_id"] and fnum(r["qb_scramble"]) != 1:
+            x = slot(r["rusher_player_id"], r["rusher_player_name"], t, gid, wk, d)
+            x["car"] += 1
+            x["rush_yd"] += fnum(r["rushing_yards"]) or 0
+            x["rz"] += 1 if rz else 0
+            if fnum(r["rush_touchdown"]) == 1:
+                x["td"] += 1
+        if fnum(r["qb_dropback"]) == 1 and r["passer_player_id"] and fnum(r["pass_attempt"]) == 1:
+            x = slot(r["passer_player_id"], r["passer_player_name"], t, gid, wk, d)
+            x["att"] += 1
+            x["pass_yd"] += fnum(r["passing_yards"]) or 0
+    return P
+
+
+def defense_vs_position(PG, weeks=None):
+    """What each defense allows per game to WRs, TEs, RBs and QBs; rank 1 = allows the most."""
+    tot = defaultdict(lambda: defaultdict(lambda: defaultdict(float)))
+    games = defaultdict(set)
+    for p in PG.values():
+        grp = p["pos"]
+        if grp not in ("WR", "TE", "RB", "QB"):
+            continue
+        for gid, x in p["games"].items():
+            if weeks is not None and x["week"] not in weeks:
+                continue
+            games[x["opp"]].add(gid)
+            for k in ("tg", "rec", "ryd", "car", "rush_yd", "pass_yd", "att", "td"):
+                tot[x["opp"]][grp][k] += x[k]
+    out = {}
+    for d, by in tot.items():
+        n = len(games[d]) or 1
+        out[d] = {grp: {k: v / n for k, v in st.items()} for grp, st in by.items()}
+        out[d]["games"] = n
+    ranks_ = {}
+    league = {}
+    for grp in ("WR", "TE", "RB", "QB"):
+        for k in ("tg", "rec", "ryd", "rush_yd", "pass_yd", "td"):
+            vals = sorted(((d, v.get(grp, {}).get(k, 0.0)) for d, v in out.items()), key=lambda x: -x[1])
+            league[(grp, k)] = sum(v for _, v in vals) / len(vals) if vals else 0
+            for i, (d, _) in enumerate(vals):
+                ranks_[(d, grp, k)] = i + 1
+    return out, ranks_, league
+
+
+def prop_angles(g, PG, DV, DR, LG, M, status, qbs, last3):
+    home, away = g["home_team"], g["away_team"]
+    out = []
+    for t in (home, away):
+        opp = away if t == home else home
+        mine = [dict(p, pid=pid) for pid, p in PG.items() if p["team"] == t and p["pos"] in ("WR", "TE", "RB", "QB")]
+        for p in mine:
+            st = status_of(p["name"], status)
+            if st in OUT_STATUSES:
+                continue
+            gs = list(p["games"].values())
+            if not gs:
+                continue
+            if p["pos"] == "QB":
+                q = qbs.get(t) or ""
+                last = q.replace(" Jr.", "").replace(" III", "").replace(" II", "").split()[-1] if q else ""
+                if not (p["name"] and p["name"].split(".")[-1] == last and p["name"][0] == q[:1]):
+                    continue                     # only tonight's listed starter
+            n = len(gs)
+            if n < 3:
+                continue                         # too few games to say anything about the player
+            l3 = [x for x in gs if x["week"] in last3]
+            for key, (label, pf, df, poss, uf, umin) in PROP_STATS.items():
+                if p["pos"] not in poss:
+                    continue
+                if sum(x[uf] for x in gs) / n < umin:
+                    continue
+                if key == "td":
+                    season = sum(x["td"] for x in gs) / n                   # TDs a game (rate)
+                    l3v = (sum(x["td"] for x in l3) / len(l3)) if l3 else None
+                else:
+                    season = sum(x[pf] for x in gs) / n
+                    l3v = (sum(x[pf] for x in l3) / len(l3)) if l3 else None
+                if season <= 0:
+                    continue
+                grp = p["pos"]
+                raw = DV.get(opp, {}).get(grp, {}).get(df)
+                lg = LG.get((grp, df)) or 0
+                dg = DV.get(opp, {}).get("games", 0)
+                allowed = shrink(raw, lg, dg) if raw is not None else None   # six games is a small sample
+                rank = DR.get((opp, grp, df))
+                if allowed is None or not lg or rank is None:
+                    continue
+                base = season if (l3v is None or len(l3) < 2) else 0.6 * season + 0.4 * l3v
+                factor = 1 + 0.6 * (allowed / lg - 1)                   # 60% of the defense's gap from average
+                if key == "td":
+                    # TD counts are small: cap the adjustment and turn the rate into a chance to score at least once
+                    factor = min(max(factor, 0.7), 1.4)
+                    expected = 1 - math.exp(-base * factor)
+                    p_base = 1 - math.exp(-base)
+                    adj = expected / p_base - 1 if p_base > 0 else 0
+                else:
+                    expected = base * factor
+                    adj = factor - 1
+                side = None
+                if rank <= OVER_RANK and adj >= 0.10:
+                    side = "over"
+                elif rank >= UNDER_RANK and adj <= -0.10 and key != "td":
+                    side = "under"
+                if key == "td" and (allowed < 1.3 * lg or expected < 0.30):
+                    side = None                          # only clear red-zone spots with a real chance to score
+                if not side:
+                    continue
+                strong = rank <= 4 or rank >= 29
+                show = (lambda v: f"{v:.2f}") if key == "td" else (lambda v: f"{v:.1f}" if key == "receptions" else f"{v:.0f}")
+                num = (lambda v: f"{v:.2f}") if key in ("td", "receptions") else (lambda v: f"{v:.0f}")
+                what = "TDs" if key == "td" else label.lower()
+                head = (f"{p['name']} ({grp}): {show(season)} "
+                        f"{'TDs a game' if key == 'td' else label.lower() + ' a game'} over {n} games")
+                if l3v is not None and len(l3) >= 2:
+                    head += f", {show(l3v)} the last {len(l3)}"
+                why = [head + ".",
+                       f"{opp} allows {num(raw)} {what} a game to {grp}s, #{rank} most in the league "
+                       f"(average {num(lg)}; {num(allowed)} after weighting for {dg} games)."]
+                against = False
+                if l3v is not None and len(l3) >= 2 and key != "td":
+                    trend = l3v / season - 1
+                    if abs(trend) >= 0.25:
+                        against = (trend > 0) != (side == "over")
+                        why.append(f"Recent form: last {len(l3)} games {'up' if trend > 0 else 'down'} "
+                                   f"{abs(trend) * 100:.0f}% on his season average"
+                                   + (" (works against it)." if against else " (supports it)."))
+                if key == "td":
+                    why.append(f"Chance to score: about {expected * 100:.0f}% vs {p_base * 100:.0f}% on his season rate.")
+                if st == "Questionable":
+                    why.append(f"{p['name']} is Questionable now; check the inactive list.")
+                if against and not strong:
+                    continue                             # a lean that his own recent games argue against
+                out.append({"player": p["name"], "pid": p["pid"], "team": t, "opp": opp, "pos": grp, "stat": key, "label": label,
+                            "side": side, "projection": round(expected, 2 if key == "td" else 1),
+                            "seasonAvg": round(season, 2), "last3Avg": round(l3v, 2) if l3v is not None else None,
+                            "oppAllowed": round(raw, 2), "oppAllowedWeighted": round(allowed, 2), "oppRank": rank, "leagueAvg": round(lg, 2),
+                            "adj": round(adj, 3), "strength": "strong" if strong and not against else "lean", "status": st,
+                            "why": why, "games": n})
+        # Unit-level angles from the tape that have no per-position stat
+        keys = {m["key"]: m for m in M[t] if m["kind"] == "offense edge"}
+        walls = {m["key"]: m for m in M[t] if m["kind"] == "defense edge"}
+        if "deep_epa" in keys:
+            rec = sorted([p for p in PG.values() if p["team"] == t and p["pos"] in ("WR", "TE")
+                          and status_of(p["name"], status) not in OUT_STATUSES], key=lambda p: -sum(
+                              x["tg"] for x in p["games"].values()))
+            for p in rec:
+                gs = list(p["games"].values())
+                tg = sum(x["tg"] for x in gs)
+                longs = [x["long"] for x in gs]
+                if tg / max(len(gs), 1) >= 3 and max(longs or [0]) >= 25:
+                    m = keys["deep_epa"]
+                    out.append({"player": p["name"], "team": t, "opp": opp, "pos": p["pos"], "stat": "long",
+                                "label": "Longest reception", "side": "over",
+                                "projection": None, "seasonAvg": round(sum(longs) / len(longs), 1), "last3Avg": None,
+                                "oppAllowed": None, "oppRank": m["defRank"], "leagueAvg": None, "adj": None,
+                                "strength": "strong" if m["strong"] else "lean", "status": status_of(p["name"], status),
+                                "why": [f"{p['name']}: longest catch averages {sum(longs) / len(longs):.0f} yards a game, "
+                                        f"best {max(longs):.0f}.",
+                                        f"Deep passing: {t} offense #{m['offRank']} vs {opp} defense #{m['defRank']} "
+                                        f"on throws of 20+ air yards (small sample)."], "games": len(gs)})
+                    break
+        if "sack" in walls:
+            m = walls["sack"]
+            out.append({"player": qbs.get(t), "team": t, "opp": opp, "pos": "QB", "stat": "sacks",
+                        "label": "Sacks taken", "side": "over", "projection": None, "seasonAvg": None,
+                        "last3Avg": None, "oppAllowed": m["defVal"], "oppRank": m["defRank"], "leagueAvg": None,
+                        "adj": None, "strength": "strong" if m["strong"] else "lean", "status": None,
+                        "why": [f"{t} line ranks #{m['offRank']} in sack rate allowed ({fmt('sack', m['offVal'])}); "
+                                f"{opp} ranks #{m['defRank']} getting home ({fmt('sack', m['defVal'])})."],
+                        "games": None})
+    out.sort(key=prop_score, reverse=True)
+    return out[:8]
+
+
+def prop_score(x):
+    """Order props: strong first, then the size of the matchup adjustment (capped so TDs cannot crowd the list)."""
+    return (x["strength"] == "strong", min(abs(x["adj"] if x["adj"] is not None else 0.12), 0.35 if x["stat"] == "td" else 0.6))
+
+
+def game_note(g, S, S3, R, R3, plays, games, season, PG=None, DV=None, DR=None, LG=None):
     home, away = g["home_team"], g["away_team"]
     kick = f"{g['gameday']}T{g.get('gametime') or '13:00'}"
     kick_utc = (datetime.fromisoformat(kick) + timedelta(hours=4)).strftime("%Y-%m-%d")   # ET -> UTC date
@@ -712,6 +904,12 @@ def game_note(g, S, S3, R, R3, plays, games, season):
                 x["confidence"] = "low"
         kept.append(x)
     sugg = kept
+    props = prop_angles(g, PG, DV, DR, LG, M, status, qbs, set(last3)) if PG else []
+    for x in props:
+        if x["team"] in qbflag and x["stat"] not in ("sacks",):
+            x["why"].append("Caution: " + qbflag[x["team"]])
+            if x["strength"] == "strong":
+                x["strength"] = "lean"
     for x in sugg:
         hit = [t for t in qbflag if t in (x["side"], home, away)]
         if qbflag and (x["market"] in ("spread", "total") or x["side"] in qbflag or
@@ -737,7 +935,7 @@ def game_note(g, S, S3, R, R3, plays, games, season):
         "roof": g.get("roof"), "surface": g.get("surface"), "injuries": ctx["injuries"], "weather": ctx["weather"],
         "lines": ln, "nflverseLine": {"homeSpread": -hs if hs is not None else None, "total": g["total_line"]},
         "projection": proj, "qbFlags": qbflag, "units": units, "mismatches": M, "trends": T, "players": P, "playersLast3": P3,
-        "last3Weeks": last3, "suggestions": sugg,
+        "last3Weeks": last3, "suggestions": sugg, "props": props,
     }
 
 
@@ -755,12 +953,26 @@ def run_nfl(days=7, today=None):
     weeks = sorted({r["week"] for r in plays})
     S3 = unit_stats(plays, set(weeks[-3:]))
     R, R3 = ranks(S), ranks(S3)
+    PG = player_games(plays, load_positions(season))
+    DV, DR, LG = defense_vs_position(PG)
     notes = []
     for g in sorted(upcoming, key=lambda g: (g["gameday"], g.get("gametime") or "")):
         if g["home_team"] not in S or g["away_team"] not in S:
             continue
-        notes.append(game_note(g, S, S3, R, R3, plays, games, season))
-    slate = {"sport": "NFL", "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        notes.append(game_note(g, S, S3, R, R3, plays, games, season, PG, DV, DR, LG))
+    top = [dict(p, gameId=n["id"]) for n in notes for p in n["props"] if p["adj"] is not None]
+    top.sort(key=prop_score, reverse=True)
+    picked, per_pos = [], defaultdict(int)
+    for p in top:                                   # at most 3 a position and 2 TD props, so one group cannot fill it
+        cap = 2 if p["stat"] == "td" else 3
+        key = "TD" if p["stat"] == "td" else p["pos"]
+        if per_pos[key] < cap:
+            picked.append(p)
+            per_pos[key] += 1
+        if len(picked) == 10:
+            break
+    top = picked
+    slate = {"sport": "NFL", "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "topProps": top[:10],
              "season": season, "throughWeek": max(weeks), "games": notes,
              "label": "Matchup notes: information and suggestions, not official EDGE plays. No stake, no reads, "
                       "never traded. Graded separately (matchups/notes.jsonl)."}
@@ -768,8 +980,14 @@ def run_nfl(days=7, today=None):
     (OUT / "nfl").mkdir(exist_ok=True)
     (OUT / "nfl" / f"{today.isoformat()}.json").write_text(json.dumps(slate, indent=1, default=str))
     (OUT / "latest_nfl.json").write_text(json.dumps(slate, default=str))
+    try:
+        slate["record"] = json.loads((OUT / "record.json").read_text())
+        (OUT / "latest_nfl.json").write_text(json.dumps(slate, default=str))
+    except (OSError, ValueError):
+        pass
     log_notes(slate)
     print(json.dumps({"nfl": len(notes), "suggestions": sum(len(n["suggestions"]) for n in notes),
+                      "props": sum(len(n["props"]) for n in notes),
                       "throughWeek": max(weeks)}))
     return slate
 
@@ -787,6 +1005,18 @@ def log_notes(slate):
                 pass
     with p.open("a") as f:
         for g in slate["games"]:
+            for x in g.get("props", []):
+                nid = f"NFL|{g['id']}|prop|{x.get('pid') or x['player']}|{x['stat']}|{x['side']}"
+                if nid in seen:
+                    continue
+                seen.add(nid)
+                f.write(json.dumps({"noteId": nid, "sport": "NFL", "gameId": g["id"], "kickoffET": g["kickoffET"],
+                                    "home": g["home"], "away": g["away"], "market": "prop", "stat": x["stat"],
+                                    "player": x["player"], "pid": x.get("pid"), "team": x["team"], "side": x["side"],
+                                    "label": f"{x['player']} {x['label']} {x['side']}", "strength": x["strength"],
+                                    "lineAtNote": x["projection"], "gradeBasis": "matchup projection (no book line)",
+                                    "seasonAvg": x["seasonAvg"], "oppRank": x["oppRank"], "notedAt": slate["generated"],
+                                    "why": x["why"], "result": None, "actual": None}) + "\n")
             for s in g["suggestions"]:
                 what = s["label"].split(" (")[0] if s["market"] == "player" or s["market"] == "team total" else ""
                 nid = f"NFL|{g['id']}|{s['market']}|{s['side']}|{what}"
@@ -809,7 +1039,28 @@ def grade():
     games = {g["game_id"]: g for g in load_games()}
     rows = [json.loads(l) for l in p.open() if l.strip()]
     n = 0
+    PGcache = {}
     for r in rows:
+        if r.get("result") is None and r["market"] == "prop" and r.get("stat") in PROP_STATS and r.get("pid"):
+            g = games.get(r["gameId"])
+            if not g or g["result"] is None or r.get("lineAtNote") is None:
+                continue
+            if g["season"] not in PGcache:
+                PGcache[g["season"]] = player_games(load_pbp(g["season"]), {})
+            pg = PGcache[g["season"]].get(r["pid"], {}).get("games", {}).get(r["gameId"])
+            if pg is None:
+                continue                                  # not in the play-by-play yet, or he did not play
+            field = PROP_STATS[r["stat"]][1]
+            actual = pg["td"] if r["stat"] == "td" else pg[field]
+            r["actual"] = actual
+            if r["stat"] == "td":
+                hit = actual > 0
+                r["result"] = "W" if hit == (r["side"] == "over") else "L"
+            else:
+                d = actual - r["lineAtNote"]
+                r["result"] = "P" if d == 0 else ("W" if (d > 0) == (r["side"] == "over") else "L")
+            n += 1
+            continue
         if r.get("result") is not None or r["market"] not in ("spread", "total"):
             continue
         g = games.get(r["gameId"])
@@ -834,10 +1085,17 @@ def grade():
                 r["lineMove"] = (close - L) if r["side"] == "over" else (L - close)
         n += 1
     p.write_text("".join(json.dumps(r) + "\n" for r in rows))
+    def rec(rs):
+        return f"{sum(r['result'] == 'W' for r in rs)}-{sum(r['result'] == 'L' for r in rs)}"
     done = [r for r in rows if r.get("result") in ("W", "L", "P")]
-    w, l = sum(r["result"] == "W" for r in done), sum(r["result"] == "L" for r in done)
-    mv = [r["lineMove"] for r in done if r.get("lineMove") is not None]
-    print(json.dumps({"graded": n, "record": f"{w}-{l}", "meanLineMove": round(sum(mv) / len(mv), 2) if mv else None}))
+    props = [r for r in done if r["market"] == "prop"]
+    game = [r for r in done if r["market"] != "prop"]
+    mv = [r["lineMove"] for r in game if r.get("lineMove") is not None]
+    summary = {"graded": n, "suggestions": rec(game), "props": rec(props),
+               "propsStrong": rec([r for r in props if r.get("strength") == "strong"]),
+               "meanLineMove": round(sum(mv) / len(mv), 2) if mv else None}
+    (OUT / "record.json").write_text(json.dumps(summary))
+    print(json.dumps(summary))
 
 
 # ---------------- page ----------------

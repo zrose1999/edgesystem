@@ -77,6 +77,22 @@ h2 { font: 600 24px/1.1 var(--display); letter-spacing: .02em; margin: 0; text-t
 .conf { font: 600 11px/1 var(--body); text-transform: uppercase; letter-spacing: .06em; }
 .conf.medium { color: var(--off); } .conf.low { color: var(--muted); }
 .mem { font: 12px/1.4 var(--mono); color: var(--muted); border-top: 1px dashed var(--line); padding-top: 8px; }
+.props { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.prop { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 12px 14px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.prop .who { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.prop .nm { font: 600 19px/1.1 var(--display); letter-spacing: .02em; }
+.prop .pos { font: 500 12px/1 var(--mono); color: var(--muted); white-space: nowrap; }
+.prop .stat { font-weight: 600; }
+.pill { display: inline-block; font: 600 11px/1 var(--body); letter-spacing: .06em; text-transform: uppercase; padding: 4px 7px; border-radius: 3px; }
+.pill.over { background: var(--off-soft); color: var(--off); } .pill.under { background: var(--def-soft); color: var(--def); }
+.nums { display: flex; flex-wrap: wrap; gap: 4px 14px; font: 12.5px/1.4 var(--mono); color: var(--muted); }
+.nums b { color: var(--ink); font-weight: 500; }
+.prop ul { margin: 0; padding-left: 16px; font-size: 12.5px; color: var(--muted); display: grid; gap: 2px; }
+.top { display: grid; gap: 10px; }
+.toplist { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 4px; }
+.toplist button { flex: none; width: 230px; text-align: left; font: inherit; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 10px 12px; cursor: pointer; display: grid; gap: 4px; }
+.toplist button:hover { border-color: var(--turf); }
+.record { font: 13px/1.4 var(--mono); color: var(--muted); }
 .empty { color: var(--muted); background: var(--panel); border: 1px dashed var(--line); border-radius: 4px; padding: 14px; margin: 0; }
 .tbl { overflow-x: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 4px; }
 table { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
@@ -108,6 +124,10 @@ footer { color: var(--muted); font-size: 12.5px; max-width: 80ch; }
     <div class="badge">Information only. Not official EDGE plays: no stake, no reads, never traded.</div>
     <p class="sub" id="hdr-sub"></p>
   </header>
+  <section class="top" id="top" hidden>
+    <div class="sechead"><h2>Best prop matchups this week</h2><p>Player usage against what the defense allows to his position. Tap one to open the game.</p></div>
+    <div class="toplist" id="toplist"></div>
+  </section>
   <nav class="strip" id="strip" aria-label="Games"></nav>
   <main class="game" id="game"></main>
   <footer id="foot"></footer>
@@ -129,7 +149,7 @@ function chip(g) {
   const b = document.createElement("button");
   b.className = "chip"; b.type = "button"; b.id = "chip-" + g.id;
   const sp = g.lines.spread?.line ?? g.nflverseLine.homeSpread;
-  const n = g.suggestions.length;
+  const n = g.suggestions.length + (g.props || []).length;
   b.innerHTML = `<b>${g.away} @ ${g.home} ${n ? `<span class="n">${n}</span>` : ""}</b><span>${kick(g.kickoffET)}</span><span>${g.home} ${sl(sp)} · ${g.lines.total?.line ?? g.nflverseLine.total}</span>`;
   b.onclick = () => show(g.id, true);
   return b;
@@ -156,7 +176,7 @@ function tapeSide(g, off, def) {
 }
 
 function noteCard(s) {
-  const mk = s.market === "player" ? "Player angle" : s.market === "team total" ? "Team total" : s.market;
+  const mk = s.market === "team total" ? "Team total" : s.market;
   const m = s.memory || {};
   let mem = "No close past situations in EDGE's living memory.";
   if (s.market !== "player" && m.sameSide && m.sameSide.n) {
@@ -167,6 +187,26 @@ function noteCard(s) {
   return `<article class="note"><div class="top"><span class="lbl">${esc(s.label)}</span><span class="mk">${esc(mk)}</span></div>
     <span class="conf ${s.confidence}">${s.confidence} confidence${s.lineAtNote != null ? " · line when noted " + s.lineAtNote : ""}</span>
     <ul>${s.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul><div class="mem">${esc(mem)}</div></article>`;
+}
+
+const STAT_UNIT = { rec_yds: "yds", receptions: "rec", rush_yds: "yds", pass_yds: "yds", td: "" };
+function propNums(x) {
+  if (x.stat === "td") return `<span>Chance to score <b>${Math.round(x.projection*100)}%</b></span><span>Season ${x.seasonAvg.toFixed(2)} TD/g</span>`;
+  if (x.projection == null) return x.seasonAvg != null ? `<span>Season <b>${x.seasonAvg}</b></span>` : "";
+  const d = x.stat === "receptions" ? 1 : 0;
+  return `<span>Matchup <b>${x.projection.toFixed(d)}</b> ${STAT_UNIT[x.stat]||""}</span><span>Season ${x.seasonAvg.toFixed(d)}</span>${x.last3Avg != null ? `<span>Last 3 ${x.last3Avg.toFixed(d)}</span>` : ""}`;
+}
+function propCard(x) {
+  return `<article class="prop"><div class="who"><span class="nm">${esc(x.player)}</span><span class="pos">${esc(x.pos)} · ${esc(x.team)} vs ${esc(x.opp)}</span></div>
+    <div><span class="stat">${esc(x.label)}</span> <span class="pill ${x.side}">${x.side}${x.strength === "strong" ? " · strong" : ""}</span>${x.status && x.status !== "Active" ? ` <span class="pill under">${esc(x.status)}</span>` : ""}</div>
+    <div class="nums">${propNums(x)}</div>
+    <ul>${x.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul></article>`;
+}
+function propSection(g) {
+  const ov = g.props.filter(x => x.side === "over"), un = g.props.filter(x => x.side === "under");
+  if (!g.props.length) return `<p class="empty">No player clears the prop bar here: usage of 4+ targets, 8+ carries or a starting QB, against a defense in the top or bottom 8 at what it allows to his position.</p>`;
+  return (ov.length ? `<div class="sechead"><p><b>Over angles</b> · the defense gives his position more than most</p></div><div class="props">${ov.map(propCard).join("")}</div>` : "")
+    + (un.length ? `<div class="sechead"><p><b>Under angles</b> · the defense takes his position away</p></div><div class="props">${un.map(propCard).join("")}</div>` : "");
 }
 
 function unitTable(g) {
@@ -224,6 +264,7 @@ function show(id, push) {
       <div class="tape">${tapeSide(g, g.away, g.home)}${tapeSide(g, g.home, g.away)}</div></section>
     <section class="sec"><div class="sechead"><h2>Suggestions</h2><p>Leans from the mismatches. Graded on their own record, never mixed with EDGE's CLV desk.</p></div>
       ${g.suggestions.length ? `<div class="notes">${g.suggestions.map(noteCard).join("")}</div>` : `<p class="empty">No suggestion clears the bar for this game. The tape above is the read: no unit mismatch is big enough and the matchup view sits near the market.</p>`}</section>
+    <section class="sec"><div class="sechead"><h2>Props</h2><p>Matchup number = his recent production adjusted toward what this defense allows his position (60% of its gap from average, weighted for sample). No book lines are pulled; compare with your book.</p></div>${propSection(g)}</section>
     <section class="sec"><div class="sechead"><h2>Unit stats</h2><p>Season value and league rank, then the last ${g.last3Weeks.length} weeks (${g.last3Weeks.map(w=>"wk "+w).join(", ")}).</p></div>${unitTable(g)}</section>
     <section class="sec"><div class="sechead"><h2>Trends</h2><p>Small samples. Context, not a reason on their own.</p></div>${trendTable(g)}</section>
     <section class="sec"><div class="sechead"><h2>Personnel</h2><p>Season usage. Status from EDGE's injury feed.</p></div><div class="two">${people(g, g.away)}${people(g, g.home)}</div></section>
@@ -233,7 +274,18 @@ function show(id, push) {
 (function init() {
   if (!DATA || !DATA.games.length) { document.getElementById("game").innerHTML = `<p class="empty">No NFL games in the window yet.</p>`; return; }
   document.getElementById("hdr-eyebrow").textContent = `EDGE secondary desk · NFL ${DATA.season} · stats through week ${DATA.throughWeek}`;
-  document.getElementById("hdr-sub").textContent = `Key stats and unit-vs-unit matchups for ${DATA.games.length} upcoming games, with suggestions where a mismatch is big enough. Built ${new Date(DATA.generated).toLocaleString()}.`;
+  document.getElementById("hdr-sub").textContent = `Key stats and unit-vs-unit matchups for ${DATA.games.length} upcoming games, with game suggestions and player prop matchups. Built ${new Date(DATA.generated).toLocaleString()}.`;
+  if ((DATA.topProps || []).length) {
+    document.getElementById("top").hidden = false;
+    document.getElementById("toplist").innerHTML = DATA.topProps.map((x, i) => `<button type="button" data-g="${esc(x.gameId)}" id="tp-${i}">
+      <span class="nm" style="font:600 18px/1.1 var(--display)">${esc(x.player)} <span class="pos" style="font:500 12px var(--mono);color:var(--muted)">${esc(x.pos)} · ${esc(x.team)} vs ${esc(x.opp)}</span></span>
+      <span>${esc(x.label)} <span class="pill ${x.side}">${x.side}</span></span><span class="nums">${propNums(x)}</span><span class="nums">${esc(x.opp)} #${x.oppRank} vs ${esc(x.pos)}s</span></button>`).join("");
+    document.getElementById("toplist").addEventListener("click", e => { const b = e.target.closest("button[data-g]"); if (b) { show(b.dataset.g, true); document.getElementById("game").scrollIntoView({ behavior: "smooth" }); } });
+  }
+  const R = DATA.record;
+  if (R && (R.suggestions !== "0-0" || R.props !== "0-0")) {
+    document.getElementById("hdr-sub").insertAdjacentHTML("afterend", `<p class="record">Notes record so far: suggestions ${esc(R.suggestions)}, props ${esc(R.props)} (strong ${esc(R.propsStrong)}). Props are graded against the matchup number, not a book line.</p>`);
+  }
   const strip = document.getElementById("strip");
   DATA.games.forEach(g => strip.appendChild(chip(g)));
   document.getElementById("foot").textContent = "Data: nflverse play-by-play and schedule; lines, injuries and weather from EDGE's own collectors. Matchup view = each offense's points per drive against the other defense's, shrunk toward league average, times expected drives, plus 1.5 for home field. It is a context number, not a model read. Deep-throw EPA rests on small samples (about 20 throws a team).";
