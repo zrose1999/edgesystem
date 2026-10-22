@@ -119,3 +119,5 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-22 | NBA: grade=A + role=dog | 8 | +0.9% | found inside NBA role=dog (best of 11 features tested); small sample, may share reads with other rows |
 | 2026-10-22 | NBA: travel=500-1500 + venue=away | 8 | +0.5% | found inside NBA venue=away (best of 13 features tested); small sample, may share reads with other rows |
 | 2026-10-22 | NBA: restDays=2+days + sharpDivPick=aligned | 8 | +1.3% | found inside NBA restDays=2+days (best of 35 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | bookAtPick=BetMGM + edgeBar=0.5-1x | 8 | +2.0% | found inside ALL edgeBar=0.5-1x (best of 41 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | bookAtPick=BetMGM + grade=B | 8 | +2.0% | found inside ALL grade=B (best of 40 features tested); small sample, may share reads with other rows |
