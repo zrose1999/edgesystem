@@ -74,3 +74,35 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-21 | NHL: role=dog + venue=away | 8 | +0.1% | found inside NHL restDays=1day (best of 3 pairs tested); small sample, may share reads with other rows |
 | 2026-10-21 | NHL: travel=<500 + venue=away | 8 | +1.1% | found inside NHL venue=away (best of 8 features tested); small sample, may share reads with other rows |
 | 2026-10-21 | grade=B + tzShift=east | 8 | +0.3% | found inside ALL tzShift=east (best of 15 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | edgeBar=1-2x + venue=away | 8 | +0.9% | found inside ALL edgeBar=1-2x (best of 18 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | grade=A + tzShift=none | 9 | +1.8% | found inside ALL grade=A (best of 21 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | market=h2h + travel=<500 | 9 | +1.1% | found inside ALL market=h2h (best of 27 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | role=fav + venue=away | 8 | +1.0% | found inside ALL market=h2h (best of 3 pairs tested); small sample, may share reads with other rows |
+| 2026-10-22 | market=spread + travelEdge=even | 16 | +0.2% | found inside ALL market=spread (best of 41 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | moveBeforePick=against + venue=away | 8 | +0.6% | found inside ALL moveBeforePick=against (best of 25 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | edgeBar=0.5-1x + timing=day | 11 | +1.0% | found inside ALL moveBeforePick=for (best of 12 pairs tested); small sample, may share reads with other rows |
+| 2026-10-22 | pattern=news-lag + restEdge=more | 8 | +0.4% | found inside ALL pattern=news-lag (best of 30 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | restDays=2+days + sharpGapPick=<1% | 8 | +1.4% | found inside ALL restDays=2+days (best of 37 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | sharpDivPick=aligned + timing=day | 8 | +1.4% | found inside ALL restDays=2+days (best of 14 pairs tested); small sample, may share reads with other rows |
+| 2026-10-22 | restEdge=less + travel=500-1500 | 8 | +1.6% | found inside ALL restEdge=less (best of 25 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | restEdge=more + travelEdge=even | 9 | +1.2% | found inside ALL restEdge=more (best of 25 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | bookAtPick=DraftKings + role=fav | 9 | +0.5% | found inside ALL role=fav (best of 40 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | role=under + sport=NBA | 14 | +0.2% | found inside ALL role=under (best of 28 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | sharpGapPick=<1% + timing=day | 8 | +1.4% | found inside ALL timing=day (best of 49 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | travelEdge=more + tzShift=none | 15 | +0.8% | found inside ALL travelEdge=more (best of 25 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: edgeBar=0.5-1x + role=under | 9 | +1.9% | found inside NBA edgeBar=0.5-1x (best of 9 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: edgeBar=1-2x + injury=any | 12 | +0.1% | found inside NBA injury=any (best of 26 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: moveBeforePick=for + role=under | 8 | +1.2% | found inside NBA moveBeforePick=for (best of 15 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: edgeBar=0.5-1x + timing=day | 8 | +0.4% | found inside NBA moveBeforePick=for (best of 2 pairs tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: moveBeforePick=none + travel=<500 | 9 | +0.6% | found inside NBA moveBeforePick=none (best of 9 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: pattern=nba-stats-model + travel=500-1500 | 9 | +0.1% | found inside NBA pattern=nba-stats-model (best of 11 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: restDays=2+days + role=under | 14 | +0.2% | found inside NBA restDays=2+days (best of 32 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: role=dog + tzShift=none | 12 | +0.1% | found inside NBA role=dog (best of 8 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: timing=day + travel=500-1500 | 15 | +0.2% | found inside NBA timing=day (best of 23 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: edgeBar=0.5-1x + timing=early | 8 | +0.2% | found inside NBA timing=early (best of 14 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: travel=500-1500 + tzShift=none | 10 | +1.7% | found inside NBA travel=500-1500 (best of 18 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: travel=500-1500 + travelEdge=more | 8 | +1.1% | found inside NBA travelEdge=more (best of 9 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: grade=A + tzShift=none | 8 | +2.3% | found inside NBA tzShift=none (best of 20 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: role=dog + venue=away | 10 | +0.7% | found inside NBA tzShift=none (best of 5 pairs tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: grade=A + venue=away | 9 | +0.6% | found inside NBA venue=away (best of 11 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NHL: bookAtPick=DraftKings + venue=away | 8 | +1.3% | found inside NHL bookAtPick=DraftKings (best of 14 features tested); small sample, may share reads with other rows |
