@@ -1,12 +1,9 @@
 {
- "asOf": "2026-10-22T23:10:12Z",
+ "asOf": "2026-10-22T23:24:32Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 317,
  "loggedReads": 660,
- "newPatternsThisRun": [
-  "learned-scan-ncaaf-h2h",
-  "learned-scan-ncaaf-spread"
- ],
+ "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md)."
@@ -14,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 415,
-   "with": 360,
+   "reads": 417,
+   "with": 362,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 415,
-   "with": 415,
+   "reads": 417,
+   "with": 417,
    "alarm": false
   }
  },
@@ -101,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1877,
-  "latest": "2026-10-22T23:09:29Z",
+  "linesLastCycle": 1844,
+  "latest": "2026-10-22T23:24:24Z",
   "rowsWithHistory": 507,
   "alarm": false
  },
@@ -7892,7 +7889,7 @@
    "n": 71,
    "meanClvProb": -0.0114,
    "pocket": {
-    "feature": "sharpDivPick=aligned",
+    "feature": "sharpGapPick=<1%",
     "n": 8,
     "meanClvProb": 0.0133,
     "tStat": 0.64
@@ -7971,7 +7968,7 @@
    "n": 29,
    "meanClvProb": -0.0155,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 10,
     "meanClvProb": 0.0064,
     "tStat": 0.39
@@ -8693,5 +8690,5 @@
    "pairsTested": 1
   }
  ],
- "hypothesesAdded": 5
+ "hypothesesAdded": 0
 }
