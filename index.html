@@ -204,9 +204,16 @@ nav button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--gold
 footer{max-width:760px;margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px}
 footer a{color:var(--muted)}
 .hidden{display:none !important}
-/* matchups: the notes page (matchups_page.html + matchups/latest_nfl.json on branch data) in a frame, full width */
-#matchups iframe{display:block;width:100vw;max-width:1100px;position:relative;left:50%;transform:translateX(-50%);height:80vh;min-height:640px;border:0;border-radius:6px;background:var(--paper)}
-.mx-msg{color:var(--muted);font-size:14px}
+/* Two desks. CLV: the picks desk (sports, Picks/Results/Strategies/Trading/How it works). Matchups: the separate
+   notes desk, matchups_page.html + matchups/latest_nfl.json from branch data, shown in a frame sized to its page. */
+.desknav{padding:10px 16px 0;gap:8px}
+.desknav button{flex:0 1 180px;border:1px solid var(--rule);border-bottom:1px solid var(--rule);border-radius:6px;padding:9px 14px;margin-bottom:10px;background:var(--paper);color:var(--muted);font:700 19px/1 var(--cond);letter-spacing:.06em}
+.desknav button[aria-selected="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+body.desk-matchups #sportnav,body.desk-matchups #secnav,body.desk-matchups #sportHead,body.desk-matchups main > section:not(#matchups){display:none !important}
+body:not(.desk-matchups) #matchups{display:none !important}
+body.desk-matchups main.wrap{max-width:1140px}
+#mxFrame{display:block;width:100%;min-height:420px;border:0;background:transparent}
+.mx-msg{color:var(--muted);font-size:14px;margin:14px 0 0}
 #nl-badge-frame{display:none !important}
 @media (max-width:420px){
   .bet{font-size:23px}.bet .px{font-size:19px}
@@ -225,13 +232,16 @@ footer a{color:var(--muted)}
     <h1 class="logo">EDGE<span>.</span></h1>
     <div class="asof" id="asof">Loading the desk</div>
   </div>
+  <nav class="desknav" id="desknav" role="tablist" aria-label="Desks">
+    <button role="tab" aria-selected="true" data-desk="clv">CLV</button>
+    <button role="tab" aria-selected="false" data-desk="matchups">Matchups</button>
+  </nav>
   <nav class="sportnav" id="sportnav" role="tablist" aria-label="Sports"></nav>
   <nav role="tablist" aria-label="Sections" id="secnav">
     <button role="tab" aria-selected="true" data-tab="board">Picks</button>
     <button role="tab" aria-selected="false" data-tab="results">Results</button>
     <button role="tab" aria-selected="false" data-tab="strategies">Strategies</button>
     <button role="tab" aria-selected="false" data-tab="trading">Trading</button>
-    <button role="tab" aria-selected="false" data-tab="matchups">Matchups</button>
     <button role="tab" aria-selected="false" data-tab="about">How it works</button>
   </nav>
 </header>
@@ -283,10 +293,9 @@ footer a{color:var(--muted)}
     <div id="tradeRules"></div>
   </section>
 
-  <section id="matchups" role="tabpanel" class="hidden">
-    <p class="lede">Key stats and unit-vs-unit matchups for the week's games, with suggestions. A separate desk: these are not EDGE picks, take no reads, carry no stake and never trade.</p>
-    <iframe id="mxFrame" title="Matchup notes" loading="lazy"></iframe>
+  <section id="matchups" role="tabpanel">
     <p class="mx-msg" id="mxMsg">Loading matchup notes</p>
+    <iframe id="mxFrame" title="Matchup notes"></iframe>
   </section>
   <section id="about" role="tabpanel" class="hidden about">
     <h2>What a pick is</h2>
@@ -345,7 +354,7 @@ const STRAT = {
 };
 const archName = p => { const m = /^learned-archive-(.+)-([a-z0-9]+)$/.exec(p || ""); return m ? [`${m[1].toUpperCase()} learned model, ${m[2]}`, "Learned from EDGE's own collected history for this sport and market, once it had 300+ games and passed the out-of-sample gate."] : null; };
 const stratName = p => (STRAT[p] || archName(p) || [p || "Analyst read"])[0];
-const state = { sport: "All", grade: "AB", betsOnly: false, data: null, group: "All", tab: "board" };
+const state = { desk: "clv", sport: "All", grade: "AB", betsOnly: false, data: null, group: "All", tab: "board" };
 // Each sport gets its own tab; every section below (picks, results, strategies, trading) follows it.
 const GROUPS = [
   ["All", "All sports", null],
@@ -747,7 +756,14 @@ function renderSportHead() {
 function renderSportNav() {
   $("#sportnav").innerHTML = GROUPS.map(([k, label]) => `<button role="tab" data-group="${k}" aria-selected="${state.group === k}">${esc(label)}</button>`).join("");
 }
-function setHash() { try { history.replaceState(null, "", "#" + (state.group === "All" ? "" : state.group.toLowerCase() + "/") + state.tab); } catch (_) {} }
+function setHash() { try { history.replaceState(null, "", "#" + (state.desk === "matchups" ? "matchups" : (state.group === "All" ? "" : state.group.toLowerCase() + "/") + state.tab)); } catch (_) {} }
+function setDesk(d) {
+  state.desk = d === "matchups" ? "matchups" : "clv";
+  document.body.classList.toggle("desk-matchups", state.desk === "matchups");
+  document.querySelectorAll("#desknav button").forEach(b => b.setAttribute("aria-selected", b.dataset.desk === state.desk));
+  if (state.desk === "matchups") loadMatchups();
+  setHash();
+}
 
 const money = (x, sign) => (sign && x > 0 ? "+" : x < 0 ? "−" : "") + "$" + Math.abs(x).toFixed(2);
 const SRC = s => s.startsWith("mirror:") ? `EDGE pick: ${stratName(s.slice(7))}` : s === "kalshi-sharp" ? "Kalshi vs Pinnacle" : s === "kalshi-sharp-alt" ? "Kalshi vs Pinnacle, nearby line" : s === "cs2-elo" ? "CS2 map ratings" : s === "kalshi-drift" ? "Kalshi vs Pinnacle plus drift" : s;
@@ -933,12 +949,13 @@ document.addEventListener("click", e => {
     if (state.data) render(); else renderSportNav();
     return;
   }
+  const desk = e.target.closest("#desknav button");
+  if (desk) { setDesk(desk.dataset.desk); window.scrollTo(0, 0); return; }
   const tab = e.target.closest("#secnav button");
   if (tab) {
     document.querySelectorAll("#secnav button").forEach(b => b.setAttribute("aria-selected", b === tab));
     document.querySelectorAll("main > section").forEach(s => s.classList.toggle("hidden", s.id !== tab.dataset.tab));
     state.tab = tab.dataset.tab; setHash();
-    if (state.tab === "matchups") loadMatchups();
     window.scrollTo(0, 0);
     return;
   }
@@ -985,6 +1002,7 @@ async function load() {
 state.models = {}; state.archive = {};
 renderSportNav();
 {
+  if ((location.hash || "").slice(1) === "matchups") setDesk("matchups");
   const h = (location.hash || "").slice(1).split("/");
   const tabName = h.length > 1 ? h[1] : h[0];
   if (h.length > 1) { const gq = GROUPS.find(g => g[0].toLowerCase() === h[0]); if (gq) state.group = gq[0]; }
@@ -992,7 +1010,7 @@ renderSportNav();
   const b = tabName && document.querySelector(`#secnav button[data-tab="${tabName}"]`); if (b) b.click();
 }
 // Matchup notes: built in the browser from the page template and the latest slate, both on branch data.
-let mxLoaded = 0;
+var mxLoaded = 0;   // var: setDesk can run from the initial #matchups link before this line
 async function loadMatchups() {
   if (Date.now() - mxLoaded < 10 * 60 * 1000) return;
   const msg = document.getElementById("mxMsg"), fr = document.getElementById("mxFrame");
@@ -1004,7 +1022,13 @@ async function loadMatchups() {
     const theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     fr.srcdoc = "<!doctype html><html data-theme=\"" + theme + "\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>body{margin:0}</style></head><body>"
       + tpl.replace("/*__DATA__*/null", () => data) + "</body></html>";
-    msg.textContent = "Notes refresh with each morning and afternoon data run.";
+    fr.onload = () => {
+      const fit = () => { try { fr.style.height = fr.contentDocument.documentElement.scrollHeight + "px"; } catch (_) {} };
+      fit();
+      try { new ResizeObserver(fit).observe(fr.contentDocument.body); } catch (_) { setInterval(fit, 1500); }
+    };
+    msg.textContent = "";
+    msg.hidden = true;
     mxLoaded = Date.now();
   } catch (e) {
     msg.textContent = "Matchup notes are not available yet (" + e.message + "). They appear after the first data run with matchups.py.";
