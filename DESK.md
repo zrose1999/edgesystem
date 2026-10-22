@@ -32,6 +32,7 @@ How to write here:
 - 2026-10-21: Every chat and scheduled task reads STATE.md and DESK.md first and records Zack's decisions here before it ends.
 
 ## Decisions log
+- 2026-10-22: Scanner's first GitHub run (11:09Z morning job) verified: 58,951 game-markets incl. NFL 9,154 and MLB 4,930; 7,678 tests, 72 survivors, 40 tracked; 5 scan_* models past the gate (NBA spread, NHL total, NCAAF spread and moneyline, soccer over); 24 shadow reads stamped (21 leans, 3 B picks, stake 0); MLB history 3,113 games collected. Thread closed. (scheduled check-in, chat: strategy scanner)
 - 2026-10-21: Zack wants his collaborator's Claude to have the same brain as his. CLAUDE_PROJECT.md now holds the EDGE project's exact instructions plus a collaborator addendum; Zack's chats keep it in sync. Memory and chats stay private; decisions live in DESK.md. (chat: ideas tested this week)
 - 2026-10-21: Zack wants to bring in a remote collaborator who talks to Claude about ideas, then Zack and Claude review them. Set up: idea issue form and label, CONTRIBUTING.md, weekly review step for open ideas. He needs only a free GitHub account; Zack does not add him as a collaborator. (chat: ideas tested this week)
 - 2026-10-21: Zack asked Claude to research the Kalshi API connection itself. Found the shard cause in Kalshi's changelog; first live test order accepted (NFL, 1 contract NO at 47c, resting). (chat: ideas tested this week)
@@ -59,7 +60,7 @@ How to write here:
 - First fixed-roster review day: Tuesday 2026-10-27. The scanner's queuedForReview and wouldLapseAtReview lists get applied that morning; the weekly review reports them.
 - Best-price CLV (clvProbBest) starts on reads stamped after 2026-10-21 ~20Z. Owner: health check; BREAKAGE if bestAtPick is missing on new reads after one cycle.
 - Autopsy (PR #3) is live from the next grade run: check its two summary lines appear and stats/autopsy_box.json fills. Owner: health check.
-- Scanner's first live stamping: morning job 2026-10-22 11:07Z. Owner: health check. If no scan-* reads appear after that run, treat it as breakage.
+- MLB odds backfill (backfill_mlb.py, research workflow mlb-backfill): waiting on Zack after the November credit reset: full (~15,840 credits for 2025, a close near every first pitch) or --late=22:45 (~7,920, night games' close, about two thirds). Test call 2026-10-21 confirmed 20 credits a snapshot, five books incl. Pinnacle. MLB live prices (pull.py ACTIVE) to switch on before spring training. Owner: Zack decides; weekly review reminds.
 - news-lag logged 119 rereads 2026-10-19 to 10-21 (injury feed flicker). Dedup keeps them out of the sample; owner: health check, watch whether it grows.
 - learned-nfl-*: 2024 season backfill planned after the Odds API credit reset, then the gate decides again.
 - Data gaps waiting on a source: public betting % and guru tracking (memory/summary.md lists what each needs).
