@@ -108,6 +108,10 @@ details { background: var(--panel); border: 1px solid var(--line); border-radius
 summary { cursor: pointer; font-weight: 600; }
 details ul { margin: 8px 0 0; padding-left: 18px; font-size: 13px; display: grid; gap: 3px; }
 footer { color: var(--muted); font-size: 12.5px; max-width: 80ch; }
+.guide { border-top: 1px solid var(--line); padding-top: 16px; display: grid; gap: 8px; }
+.guide h2 { font-size: 18px; }
+.guide ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 13px; color: var(--muted); max-width: 80ch; }
+.guide b { color: var(--ink); font-weight: 600; }
 @media (max-width: 760px) {
   .tape, .two { grid-template-columns: 1fr; }
   .team .ab { font-size: 42px; }
@@ -143,6 +147,16 @@ footer { color: var(--muted); font-size: 12.5px; max-width: 80ch; }
   <button type="button" class="back" id="backTop">&larr; All games</button>
   <main class="game" id="game"></main>
   <button type="button" class="back" id="backBottom">&larr; All games</button>
+  <section class="guide" id="guide" aria-label="How to read the ranks">
+    <h2>How to read the ranks</h2>
+    <ul>
+      <li><b>Tale of the tape and Unit stats:</b> 1 is the best unit in the league, 32 the worst, for offense and defense alike. A green bar means the offense out-ranks the defense it faces; a red one means the defense wins that matchup.</li>
+      <li><b>Props:</b> the rank is how much a defense <i>allows</i> to a position, so 1 gives up the most and 32 the fewest. The cards say it in words: &ldquo;allows the most&rdquo;, &ldquo;#4 most&rdquo;, &ldquo;#2 fewest&rdquo;, &ldquo;the fewest&rdquo;.</li>
+      <li><b>Over and under:</b> an over needs a defense in the 8 that allow the most; an under needs one in the 8 that allow the fewest. Either way the defense has to shift his number by at least 10%. <b>Strong</b> means a top-4 or bottom-4 defense.</li>
+      <li><b>Matchup number:</b> his recent production (60% season average, 40% last 3 games), then moved by 60% of the gap between what this defense allows his position and the league average. Defenses with fewer games played are pulled toward average first.</li>
+      <li>Ranks rest on about six games, so one blowout can move a team several places. Treat them as context, not a play.</li>
+    </ul>
+  </section>
   <footer id="foot"></footer>
 </div>
 
