@@ -697,6 +697,16 @@ def player_games(plays, pos):
     return P
 
 
+def rank_words(rank, n=32):
+    """Allowed-stat rank (1 = allows the most) in plain words. "#32 most" read as the most when it is the fewest
+    (Zack, 2026-10-22: R.Harvey under looked like a mistake against a defense ranked 32nd vs RBs)."""
+    if rank == 1:
+        return "the most"
+    if rank >= n:
+        return "the fewest"
+    return f"#{rank} most" if rank <= n // 2 else f"#{n + 1 - rank} fewest"
+
+
 def defense_vs_position(PG, weeks=None):
     """What each defense allows per game to WRs, TEs, RBs and QBs; rank 1 = allows the most."""
     tot = defaultdict(lambda: defaultdict(lambda: defaultdict(float)))
@@ -799,7 +809,8 @@ def prop_angles(g, PG, DV, DR, LG, M, status, qbs, last3):
                 if l3v is not None and len(l3) >= 2:
                     head += f", {show(l3v)} the last {len(l3)}"
                 why = [head + ".",
-                       f"{opp} allows {num(raw)} {what} a game to {grp}s, #{rank} most in the league "
+                       f"{opp} allows {num(raw)} {what} a game to {grp}s, "
+                       f"{rank_words(rank)} in the league "
                        f"(average {num(lg)}; {num(allowed)} after weighting for {dg} games)."]
                 against = False
                 if l3v is not None and len(l3) >= 2 and key != "td":

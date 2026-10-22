@@ -202,6 +202,8 @@ function noteCard(s) {
     <ul>${s.why.map(w => `<li>${esc(w)}</li>`).join("")}</ul><div class="mem">${esc(mem)}</div></article>`;
 }
 
+// Allowed-stat rank (1 = allows the most) in words: "#32" read as "most" when it means the fewest (2026-10-22).
+const rankWords = (r, n = 32) => r == null ? "–" : r === 1 ? "the most" : r >= n ? "the fewest" : r <= n / 2 ? `#${r} most` : `#${n + 1 - r} fewest`;
 const STAT_UNIT = { rec_yds: "yds", receptions: "rec", rush_yds: "yds", pass_yds: "yds", td: "" };
 function propNums(x) {
   if (x.stat === "td") return `<span>Chance to score <b>${Math.round(x.projection*100)}%</b></span><span>Season ${x.seasonAvg.toFixed(2)} TD/g</span>`;
@@ -314,7 +316,7 @@ window.addEventListener("popstate", () => { if (document.body.classList.contains
     document.getElementById("top").hidden = false;
     document.getElementById("toplist").innerHTML = DATA.topProps.map((x, i) => `<button type="button" data-g="${esc(x.gameId)}" id="tp-${i}">
       <span class="nm" style="font:600 18px/1.1 var(--display)">${esc(x.player)} <span class="pos" style="font:500 12px var(--mono);color:var(--muted)">${esc(x.pos)} · ${esc(x.team)} vs ${esc(x.opp)}</span></span>
-      <span>${esc(x.label)} <span class="pill ${x.side}">${x.side}</span></span><span class="nums">${propNums(x)}</span><span class="nums">${esc(x.opp)} #${x.oppRank} vs ${esc(x.pos)}s</span></button>`).join("");
+      <span>${esc(x.label)} <span class="pill ${x.side}">${x.side}</span></span><span class="nums">${propNums(x)}</span><span class="nums">${esc(x.opp)} ${["long","sacks"].includes(x.stat) ? "#" + x.oppRank : "allows " + rankWords(x.oppRank)} to ${esc(x.pos)}s</span></button>`).join("");
     document.getElementById("toplist").addEventListener("click", e => { const b = e.target.closest("button[data-g]"); if (b) open_(b.dataset.g); });
   }
   const R = DATA.record;
