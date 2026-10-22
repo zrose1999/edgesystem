@@ -114,6 +114,17 @@ footer { color: var(--muted); font-size: 12.5px; max-width: 80ch; }
   .row { grid-template-columns: 7.6em 1fr 4.2em; }
   h1 { font-size: 32px; }
 }
+.back { display: none; justify-self: start; align-items: center; gap: 6px; font: 600 16px/1 var(--display); letter-spacing: .05em;
+  text-transform: uppercase; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: 4px;
+  padding: 10px 14px; min-height: 44px; cursor: pointer; }
+/* Phones: the games are a list; tapping one opens it full width with "All games" above and below it (2026-10-22). */
+@media (max-width: 760px) {
+  .strip { display: grid; grid-template-columns: 1fr; overflow: visible; }
+  .chip { min-width: 0; padding: 12px 14px; }
+  body.picked .strip, body.picked .top, body.picked header { display: none; }
+  body:not(.picked) .game { display: none; }
+  body.picked .back { display: inline-flex; }
+}
 @media (prefers-reduced-motion: no-preference) { .dot { transition: left .25s ease; } }
 </style>
 
@@ -129,7 +140,9 @@ footer { color: var(--muted); font-size: 12.5px; max-width: 80ch; }
     <div class="toplist" id="toplist"></div>
   </section>
   <nav class="strip" id="strip" aria-label="Games"></nav>
+  <button type="button" class="back" id="backTop">&larr; All games</button>
   <main class="game" id="game"></main>
+  <button type="button" class="back" id="backBottom">&larr; All games</button>
   <footer id="foot"></footer>
 </div>
 
@@ -151,7 +164,7 @@ function chip(g) {
   const sp = g.lines.spread?.line ?? g.nflverseLine.homeSpread;
   const n = g.suggestions.length + (g.props || []).length;
   b.innerHTML = `<b>${g.away} @ ${g.home} ${n ? `<span class="n">${n}</span>` : ""}</b><span>${kick(g.kickoffET)}</span><span>${g.home} ${sl(sp)} · ${g.lines.total?.line ?? g.nflverseLine.total}</span>`;
-  b.onclick = () => show(g.id, true);
+  b.onclick = () => open_(g.id);
   return b;
 }
 
@@ -271,7 +284,29 @@ function show(id, push) {
     ${g.injuries.length ? `<details><summary>Injury report (${g.injuries.length})</summary><ul>${g.injuries.map(i=>`<li>${esc(i)}</li>`).join("")}</ul></details>` : ""}`;
 }
 
+const phone = () => matchMedia("(max-width: 760px)").matches;
+const toTop = el => { try { el.scrollIntoView({ block: "start" }); } catch (e) {} };
+function open_(id) {
+  show(id, true);
+  if (phone()) {
+    document.body.classList.add("picked");
+    try { history.pushState({ mx: id }, ""); } catch (e) {}   // the phone's back button returns to the list
+  }
+  toTop(phone() ? document.querySelector(".wrap") : document.getElementById("game"));
+}
+function list_() {
+  document.body.classList.remove("picked");
+  toTop(document.getElementById("strip"));
+}
+function back_() {
+  if (history.state && history.state.mx) { try { history.back(); return; } catch (e) {} }
+  list_();
+}
+window.addEventListener("popstate", () => { if (document.body.classList.contains("picked")) list_(); });
+
 (function init() {
+  document.getElementById("backTop").onclick = back_;
+  document.getElementById("backBottom").onclick = back_;
   if (!DATA || !DATA.games.length) { document.getElementById("game").innerHTML = `<p class="empty">No NFL games in the window yet.</p>`; return; }
   document.getElementById("hdr-eyebrow").textContent = `EDGE secondary desk · NFL ${DATA.season} · stats through week ${DATA.throughWeek}`;
   document.getElementById("hdr-sub").textContent = `Key stats and unit-vs-unit matchups for ${DATA.games.length} upcoming games, with game suggestions and player prop matchups. Built ${new Date(DATA.generated).toLocaleString()}.`;
@@ -280,7 +315,7 @@ function show(id, push) {
     document.getElementById("toplist").innerHTML = DATA.topProps.map((x, i) => `<button type="button" data-g="${esc(x.gameId)}" id="tp-${i}">
       <span class="nm" style="font:600 18px/1.1 var(--display)">${esc(x.player)} <span class="pos" style="font:500 12px var(--mono);color:var(--muted)">${esc(x.pos)} · ${esc(x.team)} vs ${esc(x.opp)}</span></span>
       <span>${esc(x.label)} <span class="pill ${x.side}">${x.side}</span></span><span class="nums">${propNums(x)}</span><span class="nums">${esc(x.opp)} #${x.oppRank} vs ${esc(x.pos)}s</span></button>`).join("");
-    document.getElementById("toplist").addEventListener("click", e => { const b = e.target.closest("button[data-g]"); if (b) { show(b.dataset.g, true); document.getElementById("game").scrollIntoView({ behavior: "smooth" }); } });
+    document.getElementById("toplist").addEventListener("click", e => { const b = e.target.closest("button[data-g]"); if (b) open_(b.dataset.g); });
   }
   const R = DATA.record;
   if (R && (R.suggestions !== "0-0" || R.props !== "0-0")) {
