@@ -106,3 +106,5 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-22 | NBA: role=dog + venue=away | 10 | +0.7% | found inside NBA tzShift=none (best of 5 pairs tested); small sample, may share reads with other rows |
 | 2026-10-22 | NBA: grade=A + venue=away | 9 | +0.6% | found inside NBA venue=away (best of 11 features tested); small sample, may share reads with other rows |
 | 2026-10-22 | NHL: bookAtPick=DraftKings + venue=away | 8 | +1.3% | found inside NHL bookAtPick=DraftKings (best of 14 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | restDays=2+days + sharpDivPick=aligned | 8 | +1.4% | found inside ALL restDays=2+days (best of 37 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: grade=B + timing=early | 8 | +0.2% | found inside NBA timing=early (best of 14 features tested); small sample, may share reads with other rows |
