@@ -1,0 +1,178 @@
+{
+ "target": "scan_nba_h2h",
+ "trained": "2026-10-22T11:15:16Z",
+ "rows": 1079,
+ "features": 14,
+ "unit": "prob",
+ "from": "2025-11-25T00:00Z",
+ "to": "2026-10-22T02:30Z",
+ "results": {
+  "baseline": {
+   "blocks": [
+    {
+     "from": 431,
+     "to": 560,
+     "trades": 129,
+     "meanMove": -0.0023610781573626402,
+     "t": -0.3663858748268747
+    },
+    {
+     "from": 560,
+     "to": 690,
+     "trades": 130,
+     "meanMove": -0.0019387142400338606,
+     "t": -0.39501095500176747
+    },
+    {
+     "from": 690,
+     "to": 819,
+     "trades": 129,
+     "meanMove": -0.003585956991394189,
+     "t": -1.0100205335675996
+    },
+    {
+     "from": 819,
+     "to": 949,
+     "trades": 130,
+     "meanMove": 0.0014863534332759415,
+     "t": 0.35767048720266986
+    },
+    {
+     "from": 949,
+     "to": 1079,
+     "trades": 130,
+     "meanMove": 0.002872577802520903,
+     "t": 0.41843885107976364
+    }
+   ],
+   "oosCorr": null,
+   "trades": 648,
+   "meanMove": -0.000698363155463647,
+   "t": -0.29,
+   "positiveBlocks": 2
+  },
+  "ridge": {
+   "blocks": [
+    {
+     "from": 431,
+     "to": 560,
+     "trades": 36,
+     "meanMove": 0.004638545826872793,
+     "t": 0.4577969259411211
+    },
+    {
+     "from": 560,
+     "to": 690,
+     "trades": 52,
+     "meanMove": 0.0134826214796768,
+     "t": 2.456102553314663
+    },
+    {
+     "from": 690,
+     "to": 819,
+     "trades": 40,
+     "meanMove": 0.007298798116578772,
+     "t": 1.526780603274458
+    },
+    {
+     "from": 819,
+     "to": 949,
+     "trades": 40,
+     "meanMove": 0.0011332536505989517,
+     "t": 0.16323440824403673
+    },
+    {
+     "from": 949,
+     "to": 1079,
+     "trades": 30,
+     "meanMove": 0.008362852692483652,
+     "t": 1.1080962198647937
+    }
+   ],
+   "oosCorr": 0.064,
+   "trades": 195,
+   "meanMove": 0.004727310485497062,
+   "t": 1.45,
+   "positiveBlocks": 5
+  },
+  "gbm": {
+   "blocks": [
+    {
+     "from": 431,
+     "to": 560,
+     "trades": 42,
+     "meanMove": 0.001970340207516082,
+     "t": 0.2691727299934837
+    },
+    {
+     "from": 560,
+     "to": 690,
+     "trades": 56,
+     "meanMove": 0.013157265899878154,
+     "t": 1.4114798756876343
+    },
+    {
+     "from": 690,
+     "to": 819,
+     "trades": 51,
+     "meanMove": 0.0037432775028233257,
+     "t": 0.6841297114168771
+    },
+    {
+     "from": 819,
+     "to": 949,
+     "trades": 29,
+     "meanMove": 0.004015750908085453,
+     "t": 0.4919590560901692
+    },
+    {
+     "from": 949,
+     "to": 1079,
+     "trades": 27,
+     "meanMove": 0.02547718222007688,
+     "t": 1.9547054771582189
+    }
+   ],
+   "oosCorr": 0.0646,
+   "trades": 195,
+   "meanMove": 0.004586057125173511,
+   "t": 1.13,
+   "positiveBlocks": 5
+  }
+ },
+ "chosen": "ridge",
+ "live": false,
+ "gate": "pooled OOS t >= 2.5, 4/5 blocks positive, beats drift baseline",
+ "signals": [
+  {
+   "feature": "rest_diff",
+   "mseGain": 3.261770805289494e-05,
+   "corrWithMove": 0.099
+  },
+  {
+   "feature": "dow_Tue",
+   "mseGain": 1.8040249202384406e-05,
+   "corrWithMove": -0.08
+  },
+  {
+   "feature": "dow_Mon",
+   "mseGain": 3.4850718092392305e-06,
+   "corrWithMove": 0.016
+  },
+  {
+   "feature": "rest_home",
+   "mseGain": 1.2835269025718472e-06,
+   "corrWithMove": 0.028
+  },
+  {
+   "feature": "month",
+   "mseGain": 2.40671460757097e-07,
+   "corrWithMove": -0.013
+  },
+  {
+   "feature": "dow_Fri",
+   "mseGain": 1.5247920721883634e-07,
+   "corrWithMove": 0.026
+  }
+ ]
+}

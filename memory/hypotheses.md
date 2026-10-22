@@ -108,3 +108,13 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-22 | NHL: bookAtPick=DraftKings + venue=away | 8 | +1.3% | found inside NHL bookAtPick=DraftKings (best of 14 features tested); small sample, may share reads with other rows |
 | 2026-10-22 | restDays=2+days + sharpDivPick=aligned | 8 | +1.4% | found inside ALL restDays=2+days (best of 37 features tested); small sample, may share reads with other rows |
 | 2026-10-22 | NBA: grade=B + timing=early | 8 | +0.2% | found inside NBA timing=early (best of 14 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | edgeBar=0.5-1x + pattern=sharp-soft | 13 | +0.7% | found inside ALL edgeBar=0.5-1x (best of 40 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | grade=B + pattern=sharp-soft | 13 | +0.7% | found inside ALL grade=B (best of 39 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | moveBeforePick=none + travelEdge=even | 11 | +0.8% | found inside ALL moveBeforePick=none (best of 47 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | bookAtPick=DraftKings + restDays=2+days | 9 | +1.1% | found inside ALL restDays=2+days (best of 38 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | grade=A + travelEdge=more | 8 | +1.3% | found inside ALL travelEdge=more (best of 28 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: restDays=2+days + sharpGapPick=<1% | 8 | +1.3% | found inside NBA restDays=2+days (best of 35 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: sharpDivPick=aligned + timing=day | 8 | +1.3% | found inside NBA restDays=2+days (best of 14 pairs tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: restEdge=less + travelEdge=more | 9 | +0.4% | found inside NBA restEdge=less (best of 10 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: grade=A + role=dog | 8 | +0.9% | found inside NBA role=dog (best of 11 features tested); small sample, may share reads with other rows |
+| 2026-10-22 | NBA: travel=500-1500 + venue=away | 8 | +0.5% | found inside NBA venue=away (best of 13 features tested); small sample, may share reads with other rows |

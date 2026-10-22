@@ -1,0 +1,198 @@
+{
+ "target": "scan_soccer_total",
+ "trained": "2026-10-22T11:15:24Z",
+ "rows": 11515,
+ "features": 16,
+ "unit": "prob",
+ "from": "2019-08-09T15:00Z",
+ "to": "2026-01-14T15:00Z",
+ "results": {
+  "baseline": {
+   "blocks": [
+    {
+     "from": 4606,
+     "to": 5987,
+     "trades": 1381,
+     "meanMove": 0.0022724640137431217,
+     "t": 2.982112532565025
+    },
+    {
+     "from": 5987,
+     "to": 7369,
+     "trades": 1382,
+     "meanMove": 0.006650578626578972,
+     "t": 8.238959538948501
+    },
+    {
+     "from": 7369,
+     "to": 8751,
+     "trades": 1382,
+     "meanMove": 0.005090929612950331,
+     "t": 6.860699623932189
+    },
+    {
+     "from": 8751,
+     "to": 10133,
+     "trades": 1382,
+     "meanMove": 0.005091765787704577,
+     "t": 6.571444608933548
+    },
+    {
+     "from": 10133,
+     "to": 11515,
+     "trades": 1382,
+     "meanMove": 0.0010592897164133652,
+     "t": 1.3712436621514799
+    }
+   ],
+   "oosCorr": null,
+   "trades": 6909,
+   "meanMove": 0.004033260370053516,
+   "t": 11.66,
+   "positiveBlocks": 5
+  },
+  "ridge": {
+   "blocks": [
+    {
+     "from": 4606,
+     "to": 5987,
+     "trades": 356,
+     "meanMove": 0.0011714778077879582,
+     "t": 0.7814300309302804
+    },
+    {
+     "from": 5987,
+     "to": 7369,
+     "trades": 478,
+     "meanMove": 0.007169018548961352,
+     "t": 5.5177185827361
+    },
+    {
+     "from": 7369,
+     "to": 8751,
+     "trades": 468,
+     "meanMove": 0.0018631857196923962,
+     "t": 1.4873894001253156
+    },
+    {
+     "from": 8751,
+     "to": 10133,
+     "trades": 495,
+     "meanMove": 0.0031091168345887903,
+     "t": 2.5914734058385807
+    },
+    {
+     "from": 10133,
+     "to": 11515,
+     "trades": 461,
+     "meanMove": 0.0019402278347930273,
+     "t": 1.4850912526587678
+    }
+   ],
+   "oosCorr": 0.0342,
+   "trades": 2076,
+   "meanMove": 0.002824280206800107,
+   "t": 4.61,
+   "positiveBlocks": 5
+  },
+  "gbm": {
+   "blocks": [
+    {
+     "from": 4606,
+     "to": 5987,
+     "trades": 407,
+     "meanMove": 0.004438588178089567,
+     "t": 2.949902932654747
+    },
+    {
+     "from": 5987,
+     "to": 7369,
+     "trades": 541,
+     "meanMove": 0.0069629042216093244,
+     "t": 5.6076137436386855
+    },
+    {
+     "from": 7369,
+     "to": 8751,
+     "trades": 457,
+     "meanMove": 0.004573934954044575,
+     "t": 3.5869196540866173
+    },
+    {
+     "from": 8751,
+     "to": 10133,
+     "trades": 412,
+     "meanMove": 0.005836426330857594,
+     "t": 4.404712386863845
+    },
+    {
+     "from": 10133,
+     "to": 11515,
+     "trades": 328,
+     "meanMove": 0.005225492636027941,
+     "t": 3.3609523527224474
+    }
+   ],
+   "oosCorr": 0.0981,
+   "trades": 2075,
+   "meanMove": 0.00515635099291521,
+   "t": 8.32,
+   "positiveBlocks": 5
+  }
+ },
+ "chosen": "gbm",
+ "live": true,
+ "gate": "pooled OOS t >= 2.5, 4/5 blocks positive, beats drift baseline",
+ "signals": [
+  {
+   "feature": "open_prob",
+   "mseGain": 1.8603899322143947e-05,
+   "corrWithMove": 0.051
+  },
+  {
+   "feature": "month",
+   "mseGain": 1.1065100536541321e-05,
+   "corrWithMove": 0.023
+  },
+  {
+   "feature": "league_EPL",
+   "mseGain": 1.3619805125439496e-06,
+   "corrWithMove": -0.005
+  },
+  {
+   "feature": "league_LaLiga",
+   "mseGain": 6.678010986901906e-07,
+   "corrWithMove": 0.001
+  },
+  {
+   "feature": "league_SerieA",
+   "mseGain": 6.092869553473356e-07,
+   "corrWithMove": -0.01
+  },
+  {
+   "feature": "dow_Sun",
+   "mseGain": 4.851546045237833e-07,
+   "corrWithMove": 0.018
+  },
+  {
+   "feature": "dow_Fri",
+   "mseGain": 4.761732854398305e-07,
+   "corrWithMove": 0.015
+  },
+  {
+   "feature": "dow_Sat",
+   "mseGain": 1.8506423353134831e-07,
+   "corrWithMove": -0.011
+  },
+  {
+   "feature": "weekend",
+   "mseGain": 6.004527090374811e-08,
+   "corrWithMove": 0.008
+  },
+  {
+   "feature": "dow_Thu",
+   "mseGain": 2.0279764968559634e-08,
+   "corrWithMove": -0.01
+  }
+ ]
+}
