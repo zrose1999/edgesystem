@@ -204,6 +204,9 @@ nav button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--gold
 footer{max-width:760px;margin:0 auto;padding:24px 16px 40px;color:var(--muted);font-size:13px}
 footer a{color:var(--muted)}
 .hidden{display:none !important}
+/* matchups: the notes page (matchups_page.html + matchups/latest_nfl.json on branch data) in a frame, full width */
+#matchups iframe{display:block;width:100vw;max-width:1100px;position:relative;left:50%;transform:translateX(-50%);height:80vh;min-height:640px;border:0;border-radius:6px;background:var(--paper)}
+.mx-msg{color:var(--muted);font-size:14px}
 #nl-badge-frame{display:none !important}
 @media (max-width:420px){
   .bet{font-size:23px}.bet .px{font-size:19px}
@@ -228,6 +231,7 @@ footer a{color:var(--muted)}
     <button role="tab" aria-selected="false" data-tab="results">Results</button>
     <button role="tab" aria-selected="false" data-tab="strategies">Strategies</button>
     <button role="tab" aria-selected="false" data-tab="trading">Trading</button>
+    <button role="tab" aria-selected="false" data-tab="matchups">Matchups</button>
     <button role="tab" aria-selected="false" data-tab="about">How it works</button>
   </nav>
 </header>
@@ -279,6 +283,11 @@ footer a{color:var(--muted)}
     <div id="tradeRules"></div>
   </section>
 
+  <section id="matchups" role="tabpanel" class="hidden">
+    <p class="lede">Key stats and unit-vs-unit matchups for the week's games, with suggestions. A separate desk: these are not EDGE picks, take no reads, carry no stake and never trade.</p>
+    <iframe id="mxFrame" title="Matchup notes" loading="lazy"></iframe>
+    <p class="mx-msg" id="mxMsg">Loading matchup notes</p>
+  </section>
   <section id="about" role="tabpanel" class="hidden about">
     <h2>What a pick is</h2>
     <p>A pick is a side at a price, taken from the market at the moment the desk saw it. The price is locked and never edited. Grade A means the edge cleared the full bar for that sport and market; B cleared half of it.</p>
@@ -929,6 +938,7 @@ document.addEventListener("click", e => {
     document.querySelectorAll("#secnav button").forEach(b => b.setAttribute("aria-selected", b === tab));
     document.querySelectorAll("main > section").forEach(s => s.classList.toggle("hidden", s.id !== tab.dataset.tab));
     state.tab = tab.dataset.tab; setHash();
+    if (state.tab === "matchups") loadMatchups();
     window.scrollTo(0, 0);
     return;
   }
@@ -980,6 +990,25 @@ renderSportNav();
   if (h.length > 1) { const gq = GROUPS.find(g => g[0].toLowerCase() === h[0]); if (gq) state.group = gq[0]; }
   renderSportNav();
   const b = tabName && document.querySelector(`#secnav button[data-tab="${tabName}"]`); if (b) b.click();
+}
+// Matchup notes: built in the browser from the page template and the latest slate, both on branch data.
+let mxLoaded = 0;
+async function loadMatchups() {
+  if (Date.now() - mxLoaded < 10 * 60 * 1000) return;
+  const msg = document.getElementById("mxMsg"), fr = document.getElementById("mxFrame");
+  try {
+    const [tpl, data] = await Promise.all([
+      fetch(BASE + "matchups_page.html?t=" + Date.now()).then(r => { if (!r.ok) throw new Error("page " + r.status); return r.text(); }),
+      fetch(BASE + "matchups/latest_nfl.json?t=" + Date.now()).then(r => { if (!r.ok) throw new Error("notes " + r.status); return r.text(); }),
+    ]);
+    const theme = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    fr.srcdoc = "<!doctype html><html data-theme=\"" + theme + "\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><style>body{margin:0}</style></head><body>"
+      + tpl.replace("/*__DATA__*/null", () => data) + "</body></html>";
+    msg.textContent = "Notes refresh with each morning and afternoon data run.";
+    mxLoaded = Date.now();
+  } catch (e) {
+    msg.textContent = "Matchup notes are not available yet (" + e.message + "). They appear after the first data run with matchups.py.";
+  }
 }
 load();
 setInterval(load, 5 * 60 * 1000);

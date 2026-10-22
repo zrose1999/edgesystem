@@ -119,6 +119,12 @@ jobs:
           PANDASCORE_TOKEN: ${{ secrets.PANDASCORE_TOKEN }}
         run: python cs2.py || echo "::warning::cs2.py failed; continuing"
 
+      - name: Matchup notes (secondary desk; never feeds reads, grading or trading)
+        if: ${{ !inputs.fast }}
+        run: |
+          python matchups.py nfl || echo "::warning::matchups.py failed; continuing"
+          python matchups.py grade || echo "::warning::matchups.py grade failed; continuing"
+
       - name: Grade
         run: python grade.py
 
