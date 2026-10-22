@@ -50805,6 +50805,117 @@
         "implied": 0.5238,
         "printImplied": 0.5238
       }
+    },
+    {
+      "pickId": "UEL|2026-10-22|Real Sociedad at Lillestrom|h2h|away|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "UEL|2026-10-22|Real Sociedad at Lillestrom|h2h",
+      "sport": "UEL",
+      "event": "Real Sociedad at Lillestrom",
+      "commence": "2026-10-22T19:00:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": -225,
+      "bookAtPick": "BetMGM",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 600,
+        "away": -300,
+        "draw": 440
+      },
+      "priceTime": "2026-10-22T17:54:34Z",
+      "pickedAt": "2026-10-22T17:54:34Z",
+      "fair": 0.7075,
+      "projection": 0.7075,
+      "edge": 0.0152,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "BetMGM away -225 implies 69.2%. Pinnacle -262 no-vig is 70.8%. Edge +1.5%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 623,
+          "away": -262,
+          "draw": 468
+        },
+        "updated": "2026-10-22T17:54:31Z",
+        "snapTime": "2026-10-22T17:54:34Z",
+        "noVig": 0.7075
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": -225,
+        "line": null,
+        "implied": 0.6923,
+        "printImplied": 0.75
+      },
+      "priceBook": "BetMGM"
+    },
+    {
+      "pickId": "NHL|2026-10-23|Minnesota Wild at Calgary Flames|h2h|home|v1|goalie-news",
+      "kind": "pick",
+      "grade": "A",
+      "rowId": "NHL|2026-10-23|Minnesota Wild at Calgary Flames|h2h",
+      "sport": "NHL",
+      "event": "Minnesota Wild at Calgary Flames",
+      "commence": "2026-10-23T01:10:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 176,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": 170,
+        "away": -205
+      },
+      "priceTime": "2026-10-22T17:39:29Z",
+      "pickedAt": "2026-10-22T17:54:36Z",
+      "fair": 0.407,
+      "projection": 0.407,
+      "edge": 0.045,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Flames: Dustin Wolf (expected) at the open, now Devin Cooley (confirmed), GSAx/60 -0.18 to +0.29. Open home win 0.379, goalie change +0.028, fair 0.407.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 180,
+          "away": -202
+        },
+        "updated": "2026-10-22T17:39:20Z",
+        "snapTime": "2026-10-22T17:39:29Z",
+        "noVig": 0.3441
+      },
+      "contextAtPick": {
+        "goalie": "Flames: Dustin Wolf (expected) at the open, now Devin Cooley (confirmed), GSAx/60 -0.18 to +0.29"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 176,
+        "line": null,
+        "implied": 0.3623,
+        "printImplied": 0.3704
+      }
     }
   ]
 }
