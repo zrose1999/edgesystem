@@ -56161,6 +56161,116 @@
         "printImplied": 0.5238
       },
       "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NHL|2026-10-23|Utah Mammoth at Seattle Kraken|total|under|v1|goalie-news",
+      "kind": "pick",
+      "grade": "A",
+      "rowId": "NHL|2026-10-23|Utah Mammoth at Seattle Kraken|total",
+      "sport": "NHL",
+      "event": "Utah Mammoth at Seattle Kraken",
+      "commence": "2026-10-23T02:10:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 6.5,
+      "priceAtPick": 102,
+      "marketNumber": 6.5,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "over": -112,
+        "under": -108
+      },
+      "priceTime": "2026-10-23T01:54:30Z",
+      "pickedAt": "2026-10-23T01:54:32Z",
+      "fair": 0.453,
+      "projection": 0.453,
+      "edge": 0.052,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Kraken: Joey Daccord (expected) at the open, now Philipp Grubauer (confirmed), GSAx/60 -0.15 to +0.21. Open over 6.5 0.473, expected goals -0.13, fair over 0.453.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": 6.5,
+        "prices": {
+          "over": -112,
+          "under": -101
+        },
+        "updated": "2026-10-23T01:54:15Z",
+        "snapTime": "2026-10-23T01:54:30Z",
+        "noVig": 0.4871
+      },
+      "contextAtPick": {
+        "goalie": "Kraken: Joey Daccord (expected) at the open, now Philipp Grubauer (confirmed), GSAx/60 -0.15 to +0.21"
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": 102,
+        "line": 6.5,
+        "implied": 0.495,
+        "printImplied": 0.5192
+      }
+    },
+    {
+      "pickId": "NHL|2026-10-23|Utah Mammoth at Seattle Kraken|h2h|home|v1|goalie-news",
+      "kind": "pick",
+      "grade": "A",
+      "rowId": "NHL|2026-10-23|Utah Mammoth at Seattle Kraken|h2h",
+      "sport": "NHL",
+      "event": "Utah Mammoth at Seattle Kraken",
+      "commence": "2026-10-23T02:10:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 155,
+      "marketNumber": null,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": 150,
+        "away": -180
+      },
+      "priceTime": "2026-10-23T01:54:30Z",
+      "pickedAt": "2026-10-23T01:54:32Z",
+      "fair": 0.435,
+      "projection": 0.435,
+      "edge": 0.043,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Kraken: Joey Daccord (expected) at the open, now Philipp Grubauer (confirmed), GSAx/60 -0.15 to +0.21. Open home win 0.413, goalie change +0.022, fair 0.435.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 164,
+          "away": -183
+        },
+        "updated": "2026-10-23T01:54:15Z",
+        "snapTime": "2026-10-23T01:54:30Z",
+        "noVig": 0.3661
+      },
+      "contextAtPick": {
+        "goalie": "Kraken: Joey Daccord (expected) at the open, now Philipp Grubauer (confirmed), GSAx/60 -0.15 to +0.21"
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": 155,
+        "line": null,
+        "implied": 0.3922,
+        "printImplied": 0.4
+      }
     }
   ]
 }
