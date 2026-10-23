@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-23T22:54:37Z",
+ "asOf": "2026-10-23T23:09:55Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -73,13 +73,13 @@
   "learned-ncaaf-spread": {
    "pattern": "learned-ncaaf-spread",
    "unit": "points",
-   "n": 17,
-   "meanPredicted": 1.1283,
-   "meanRealized": 0.0882,
+   "n": 18,
+   "meanPredicted": 1.1149,
+   "meanRealized": 0.0833,
    "tRealized": 0.31,
-   "capture": 0.08,
+   "capture": 0.07,
    "rightWay": 0.444,
-   "noMove": 8,
+   "noMove": 9,
    "logLossGain": {
     "n": 17,
     "mean": 0.00593,
@@ -149,8 +149,8 @@
    "rightWay": 0.0,
    "noMove": 1,
    "logLossGain": {
-    "n": 0,
-    "mean": null,
+    "n": 1,
+    "mean": 0.03504,
     "t": 0.0
    },
    "verdict": "collecting"
@@ -302,9 +302,9 @@
    "rightWay": 0.553,
    "noMove": 30,
    "logLossGain": {
-    "n": 74,
-    "mean": -0.01498,
-    "t": -0.71
+    "n": 77,
+    "mean": -0.0131,
+    "t": -0.64
    },
    "verdict": "collecting"
   },
