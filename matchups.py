@@ -24,6 +24,7 @@ import gzip
 import io
 import json
 import math
+import re
 import sys
 import urllib.request
 from collections import defaultdict
@@ -568,11 +569,11 @@ def suggestions(g, S, R, M, P, proj, lines, T, status=None):
     if total is None:
         total = g["total_line"]
 
-    def add(market, side, label, why, conf, kind):
+    def add(market, side, label, why, conf, kind, line=None):
         mem = memory_check("NFL", {"spread": "spread", "total": "total", "team total": "total"}.get(market, market),
                            {"home": "home", "away": "away", "over": "over", "under": "under"}.get(kind, ""))
         out.append({"market": market, "side": side, "label": label, "why": why, "confidence": conf,
-                    "lineAtNote": {"spread": spread, "total": total}.get(market),
+                    "lineAtNote": line if line is not None else {"spread": spread, "total": total}.get(market),
                     "memory": mem})
 
     edges = {t: [m for m in M[t] if m["kind"] == "offense edge"] for t in (home, away)}
@@ -629,7 +630,7 @@ def suggestions(g, S, R, M, P, proj, lines, T, status=None):
             pts = proj["home"] if t == home else proj["away"]
             why = [f"{m['unit']}: {t} offense #{m['offRank']} vs {opp} defense #{m['defRank']}." for m in strong[:3]]
             why.append(f"Drive-scoring view puts {t} at {pts} points.")
-            add("team total", t, f"{t} team total over (check the book; about {pts})", why, "low", "over")
+            add("team total", t, f"{t} team total over (check the book; about {pts})", why, "low", "over", pts)
 
     return out
 
@@ -836,7 +837,7 @@ def prop_angles(g, PG, DV, DR, LG, M, status, qbs, last3):
         keys = {m["key"]: m for m in M[t] if m["kind"] == "offense edge"}
         walls = {m["key"]: m for m in M[t] if m["kind"] == "defense edge"}
         if "deep_epa" in keys:
-            rec = sorted([p for p in PG.values() if p["team"] == t and p["pos"] in ("WR", "TE")
+            rec = sorted([dict(p, pid=pid) for pid, p in PG.items() if p["team"] == t and p["pos"] in ("WR", "TE")
                           and status_of(p["name"], status) not in OUT_STATUSES], key=lambda p: -sum(
                               x["tg"] for x in p["games"].values()))
             for p in rec:
@@ -845,7 +846,7 @@ def prop_angles(g, PG, DV, DR, LG, M, status, qbs, last3):
                 longs = [x["long"] for x in gs]
                 if tg / max(len(gs), 1) >= 3 and max(longs or [0]) >= 25:
                     m = keys["deep_epa"]
-                    out.append({"player": p["name"], "team": t, "opp": opp, "pos": p["pos"], "stat": "long",
+                    out.append({"player": p["name"], "pid": p["pid"], "team": t, "opp": opp, "pos": p["pos"], "stat": "long",
                                 "label": "Longest reception", "side": "over",
                                 "projection": None, "seasonAvg": round(sum(longs) / len(longs), 1), "last3Avg": None,
                                 "oppAllowed": None, "oppRank": m["defRank"], "leagueAvg": None, "adj": None,
@@ -1025,7 +1026,7 @@ def log_notes(slate):
                                     "home": g["home"], "away": g["away"], "market": "prop", "stat": x["stat"],
                                     "player": x["player"], "pid": x.get("pid"), "team": x["team"], "side": x["side"],
                                     "label": f"{x['player']} {x['label']} {x['side']}", "strength": x["strength"],
-                                    "lineAtNote": x["projection"], "gradeBasis": "matchup projection (no book line)",
+                                    "lineAtNote": note_line(x), "gradeBasis": "matchup projection (no book line)",
                                     "seasonAvg": x["seasonAvg"], "oppRank": x["oppRank"], "notedAt": slate["generated"],
                                     "why": x["why"], "result": None, "actual": None}) + "\n")
             for s in g["suggestions"]:
@@ -1042,6 +1043,27 @@ def log_notes(slate):
                                     "lineMove": None}) + "\n")
 
 
+def note_line(x):
+    """The number a prop note is graded against: the matchup projection, or for longest reception (no projection)
+    the season average the note quotes (health check 2026-10-23: these notes were written with no number and could
+    never settle)."""
+    if x.get("projection") is not None:
+        return x["projection"]
+    return x.get("seasonAvg") if x.get("stat") == "long" else None
+
+
+GRADE_FIELD = {k: v[1] for k, v in PROP_STATS.items()}
+GRADE_FIELD["long"] = "long"
+
+
+def team_total_line(r):
+    """A team-total note's number: lineAtNote, or for notes written before 2026-10-23 the 'about N' in its label."""
+    if r.get("lineAtNote") is not None:
+        return r["lineAtNote"]
+    m = re.search(r"about (-?[0-9.]+)", r.get("label") or "")
+    return float(m.group(1)) if m else None
+
+
 def grade():
     p = OUT / "notes.jsonl"
     if not p.exists():
@@ -1052,17 +1074,22 @@ def grade():
     n = 0
     PGcache = {}
     for r in rows:
-        if r.get("result") is None and r["market"] == "prop" and r.get("stat") in PROP_STATS and r.get("pid"):
+        if r.get("result") is None and r["market"] == "prop" and r.get("stat") in GRADE_FIELD:
             g = games.get(r["gameId"])
+            if r.get("lineAtNote") is None and r["stat"] == "long":
+                r["lineAtNote"] = r.get("seasonAvg")      # notes written before 2026-10-23 had no number
             if not g or g["result"] is None or r.get("lineAtNote") is None:
                 continue
             if g["season"] not in PGcache:
                 PGcache[g["season"]] = player_games(load_pbp(g["season"]), {})
-            pg = PGcache[g["season"]].get(r["pid"], {}).get("games", {}).get(r["gameId"])
+            PGs = PGcache[g["season"]]
+            pid = r.get("pid") or next((k for k, v in PGs.items() if v["name"] == r.get("player")
+                                        and v["team"] == r.get("team") and r["gameId"] in v["games"]), None)
+            pg = PGs.get(pid, {}).get("games", {}).get(r["gameId"]) if pid else None
             if pg is None:
                 continue                                  # not in the play-by-play yet, or he did not play
-            field = PROP_STATS[r["stat"]][1]
-            actual = pg["td"] if r["stat"] == "td" else pg[field]
+            r["pid"] = pid
+            actual = pg[GRADE_FIELD[r["stat"]]]
             r["actual"] = actual
             if r["stat"] == "td":
                 hit = actual > 0
@@ -1070,6 +1097,17 @@ def grade():
             else:
                 d = actual - r["lineAtNote"]
                 r["result"] = "P" if d == 0 else ("W" if (d > 0) == (r["side"] == "over") else "L")
+            n += 1
+            continue
+        if r.get("result") is None and r["market"] == "team total":
+            g = games.get(r["gameId"])
+            L = team_total_line(r)
+            if not g or g["result"] is None or L is None or g.get("home_score") is None:
+                continue
+            pts = g["home_score"] if r["side"] == r["home"] else g["away_score"]
+            r["lineAtNote"], r["actual"] = L, pts
+            d = pts - L                                   # team-total notes are overs
+            r["result"] = "P" if d == 0 else ("W" if d > 0 else "L")
             n += 1
             continue
         if r.get("result") is not None or r["market"] not in ("spread", "total"):
