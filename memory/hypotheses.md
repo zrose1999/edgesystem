@@ -142,3 +142,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-23 | NHL: pattern=learned-nhl-ml + role=dog | 8 | +0.1% | found inside NHL role=dog (best of 9 features tested); small sample, may share reads with other rows |
 | 2026-10-23 | NHL: travel=<500 + tzShift=none | 8 | +1.1% | found inside NHL travel=<500 (best of 14 features tested); small sample, may share reads with other rows |
 | 2026-10-23 | NBA: grade=B + role=under | 12 | +0.7% | found inside NBA role=under (best of 7 features tested); small sample, may share reads with other rows |
+| 2026-10-23 | grade=A + moveBeforePick=against | 8 | +0.8% | found inside ALL moveBeforePick=against (best of 29 features tested); small sample, may share reads with other rows |
