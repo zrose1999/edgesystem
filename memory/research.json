@@ -1,11 +1,9 @@
 {
- "asOf": "2026-10-23T21:57:46Z",
+ "asOf": "2026-10-23T22:24:36Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 365,
  "loggedReads": 783,
- "newPatternsThisRun": [
-  "learned-scan-nba-spread"
- ],
+ "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md)."
@@ -13,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 535,
-   "with": 459,
+   "reads": 536,
+   "with": 460,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 535,
-   "with": 535,
+   "reads": 536,
+   "with": 536,
    "alarm": false
   }
  },
@@ -100,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1759,
-  "latest": "2026-10-23T21:57:13Z",
+  "linesLastCycle": 1719,
+  "latest": "2026-10-23T22:24:28Z",
   "rowsWithHistory": 598,
   "alarm": false
  },
@@ -8489,7 +8487,7 @@
    "n": 19,
    "meanClvProb": -0.0045,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 12,
     "meanClvProb": 0.0068,
     "tStat": 0.55
@@ -8517,7 +8515,7 @@
    "n": 33,
    "meanClvProb": -0.014,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 12,
     "meanClvProb": 0.0047,
     "tStat": 0.33
@@ -9311,5 +9309,5 @@
    "pairsTested": 1
   }
  ],
- "hypothesesAdded": 6
+ "hypothesesAdded": 0
 }
