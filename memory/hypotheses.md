@@ -126,3 +126,18 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-22 | NCAAF: pattern=ncaaf-spot + travelEdge=even | 8 | +0.0% | found inside NCAAF pattern=ncaaf-spot (best of 16 features tested); small sample, may share reads with other rows |
 | 2026-10-22 | NCAAF: role=dog + travel=<500 | 8 | +1.3% | found inside NCAAF travel=<500 (best of 19 features tested); small sample, may share reads with other rows |
 | 2026-10-22 | NCAAF: role=dog + tzShift=none | 11 | +0.6% | found inside NCAAF tzShift=none (best of 15 features tested); small sample, may share reads with other rows |
+| 2026-10-23 | edgeBar=1-2x + tzShift=none | 8 | +1.6% | found inside ALL edgeBar=1-2x (best of 20 features tested); small sample, may share reads with other rows |
+| 2026-10-23 | edgeBar=1-2x + moveBeforePick=against | 8 | +0.8% | found inside ALL moveBeforePick=against (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-10-23 | edgeBar=1-2x + timing=early | 8 | +0.8% | found inside ALL moveBeforePick=against (best of 7 pairs tested); small sample, may share reads with other rows |
+| 2026-10-23 | restEdge=more + sport=NHL | 8 | +0.5% | found inside ALL restEdge=more (best of 32 features tested); small sample, may share reads with other rows |
+| 2026-10-23 | sharpDivPick=aligned + travel=500-1500 | 8 | +0.7% | found inside ALL sharpDivPick=aligned (best of 19 features tested); small sample, may share reads with other rows |
+| 2026-10-23 | sharpGapPick=<1% + travel=500-1500 | 8 | +0.7% | found inside ALL sharpGapPick=<1% (best of 19 features tested); small sample, may share reads with other rows |
+| 2026-10-23 | pattern=learned-nhl-ml + travel=<500 | 9 | +0.8% | found inside ALL travel=<500 (best of 37 features tested); small sample, may share reads with other rows |
+| 2026-10-23 | market=h2h + tzShift=east | 10 | +0.6% | found inside ALL tzShift=east (best of 19 features tested); small sample, may share reads with other rows |
+| 2026-10-23 | NBA: role=over + travel=<500 | 8 | +0.8% | found inside NBA role=over (best of 13 features tested); small sample, may share reads with other rows |
+| 2026-10-23 | NCAAF: restDays=normal + role=dog | 8 | +0.8% | found inside NCAAF restDays=normal (best of 28 features tested); small sample, may share reads with other rows |
+| 2026-10-23 | NCAAF: role=dog + travelEdge=even | 9 | +1.6% | found inside NCAAF travelEdge=even (best of 13 features tested); small sample, may share reads with other rows |
+| 2026-10-23 | NFL: injury=qb + pattern=news-lag | 8 | +0.1% | found inside NFL pattern=news-lag (best of 20 features tested); small sample, may share reads with other rows |
+| 2026-10-23 | NHL: role=fav + venue=away | 8 | +0.9% | found inside NHL bookAtPick=DraftKings (best of 5 pairs tested); small sample, may share reads with other rows |
+| 2026-10-23 | NHL: pattern=learned-nhl-ml + role=dog | 8 | +0.1% | found inside NHL role=dog (best of 9 features tested); small sample, may share reads with other rows |
+| 2026-10-23 | NHL: travel=<500 + tzShift=none | 8 | +1.1% | found inside NHL travel=<500 (best of 14 features tested); small sample, may share reads with other rows |

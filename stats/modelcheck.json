@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-23T00:54:39Z",
+ "asOf": "2026-10-23T01:22:32Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -22,13 +22,13 @@
   "edge-stack|prob": {
    "pattern": "edge-stack",
    "unit": "prob",
-   "n": 2,
-   "meanPredicted": 0.0313,
-   "meanRealized": -0.0045,
-   "tRealized": -0.29,
-   "capture": -0.14,
+   "n": 4,
+   "meanPredicted": 0.027,
+   "meanRealized": -0.0023,
+   "tRealized": -0.34,
+   "capture": -0.08,
    "rightWay": 0.5,
-   "noMove": 0,
+   "noMove": 2,
    "logLossGain": {
     "n": 2,
     "mean": -0.00893,
@@ -39,13 +39,13 @@
   "goalie-news": {
    "pattern": "goalie-news",
    "unit": "prob",
-   "n": 8,
-   "meanPredicted": 0.0504,
-   "meanRealized": 0.0025,
-   "tRealized": 0.9,
+   "n": 14,
+   "meanPredicted": 0.042,
+   "meanRealized": 0.0022,
+   "tRealized": 0.6,
    "capture": 0.05,
-   "rightWay": 0.75,
-   "noMove": 4,
+   "rightWay": 0.625,
+   "noMove": 6,
    "logLossGain": {
     "n": 8,
     "mean": 0.03054,
@@ -90,12 +90,12 @@
   "learned-ncaaf-total": {
    "pattern": "learned-ncaaf-total",
    "unit": "points",
-   "n": 8,
-   "meanPredicted": 0.8779,
-   "meanRealized": -0.125,
-   "tRealized": -0.23,
-   "capture": -0.14,
-   "rightWay": 0.375,
+   "n": 9,
+   "meanPredicted": 0.8907,
+   "meanRealized": -0.3333,
+   "tRealized": -0.63,
+   "capture": -0.37,
+   "rightWay": 0.333,
    "noMove": 0,
    "logLossGain": {
     "n": 8,
@@ -107,11 +107,11 @@
   "learned-nhl-ml": {
    "pattern": "learned-nhl-ml",
    "unit": "prob",
-   "n": 15,
-   "meanPredicted": 0.0266,
-   "meanRealized": 0.0225,
-   "tRealized": 3.63,
-   "capture": 0.85,
+   "n": 19,
+   "meanPredicted": 0.027,
+   "meanRealized": 0.0235,
+   "tRealized": 4.54,
+   "capture": 0.87,
    "rightWay": 1.0,
    "noMove": 2,
    "logLossGain": {
@@ -124,12 +124,12 @@
   "learned-nhl-over": {
    "pattern": "learned-nhl-over",
    "unit": "prob",
-   "n": 12,
+   "n": 14,
    "meanPredicted": 0.0355,
-   "meanRealized": 0.0119,
-   "tRealized": 1.74,
-   "capture": 0.33,
-   "rightWay": 0.75,
+   "meanRealized": 0.0164,
+   "tRealized": 2.19,
+   "capture": 0.46,
+   "rightWay": 0.786,
    "noMove": 0,
    "logLossGain": {
     "n": 12,
@@ -158,8 +158,25 @@
   "learned-scan-ncaaf-spread": {
    "pattern": "learned-scan-ncaaf-spread",
    "unit": "points",
+   "n": 2,
+   "meanPredicted": 0.6015,
+   "meanRealized": 0.0,
+   "tRealized": 0.0,
+   "capture": 0.0,
+   "rightWay": 0.0,
+   "noMove": 2,
+   "logLossGain": {
+    "n": 0,
+    "mean": null,
+    "t": 0.0
+   },
+   "verdict": "collecting"
+  },
+  "learned-scan-nhl-total": {
+   "pattern": "learned-scan-nhl-total",
+   "unit": "prob",
    "n": 1,
-   "meanPredicted": 0.859,
+   "meanPredicted": 0.0299,
    "meanRealized": 0.0,
    "tRealized": 0.0,
    "capture": 0.0,
@@ -209,13 +226,13 @@
   "nba-stats-model": {
    "pattern": "nba-stats-model",
    "unit": "points",
-   "n": 27,
-   "meanPredicted": 1.0785,
-   "meanRealized": 0.3704,
-   "tRealized": 1.36,
-   "capture": 0.34,
-   "rightWay": 0.588,
-   "noMove": 10,
+   "n": 29,
+   "meanPredicted": 1.0928,
+   "meanRealized": 0.2759,
+   "tRealized": 1.03,
+   "capture": 0.25,
+   "rightWay": 0.556,
+   "noMove": 11,
    "logLossGain": {
     "n": 27,
     "mean": 0.00938,
@@ -260,13 +277,13 @@
   "news-lag": {
    "pattern": "news-lag",
    "unit": "points",
-   "n": 66,
-   "meanPredicted": 2.2639,
-   "meanRealized": 0.0833,
-   "tRealized": 0.47,
-   "capture": 0.04,
-   "rightWay": 0.525,
-   "noMove": 26,
+   "n": 72,
+   "meanPredicted": 2.3199,
+   "meanRealized": 0.1458,
+   "tRealized": 0.85,
+   "capture": 0.06,
+   "rightWay": 0.545,
+   "noMove": 28,
    "logLossGain": {
     "n": 66,
     "mean": -0.02036,
@@ -308,6 +325,40 @@
    },
    "verdict": "collecting"
   },
+  "scan-ncaaf-h2h-away-homeprice75resthomenormal-4e85b7": {
+   "pattern": "scan-ncaaf-h2h-away-homeprice75resthomenormal-4e85b7",
+   "unit": "prob",
+   "n": 1,
+   "meanPredicted": 0.0302,
+   "meanRealized": 0.0,
+   "tRealized": 0.0,
+   "capture": 0.0,
+   "rightWay": 0.0,
+   "noMove": 1,
+   "logLossGain": {
+    "n": 0,
+    "mean": null,
+    "t": 0.0
+   },
+   "verdict": "collecting"
+  },
+  "scan-nhl-total-over-total55-c4eaa6": {
+   "pattern": "scan-nhl-total-over-total55-c4eaa6",
+   "unit": "prob",
+   "n": 3,
+   "meanPredicted": 0.0293,
+   "meanRealized": -0.0053,
+   "tRealized": -1.0,
+   "capture": -0.18,
+   "rightWay": 0.0,
+   "noMove": 2,
+   "logLossGain": {
+    "n": 0,
+    "mean": null,
+    "t": 0.0
+   },
+   "verdict": "collecting"
+  },
   "sharp-drift": {
    "pattern": "sharp-drift",
    "unit": "prob",
@@ -326,6 +377,23 @@
    "verdict": "collecting"
   },
   "sharp-soft": {
+   "pattern": "sharp-soft",
+   "unit": "points",
+   "n": 1,
+   "meanPredicted": 0.748,
+   "meanRealized": 2.0,
+   "tRealized": 0.0,
+   "capture": 2.67,
+   "rightWay": 1.0,
+   "noMove": 0,
+   "logLossGain": {
+    "n": 0,
+    "mean": null,
+    "t": 0.0
+   },
+   "verdict": "collecting"
+  },
+  "sharp-soft|prob": {
    "pattern": "sharp-soft",
    "unit": "prob",
    "n": 15,
@@ -362,12 +430,12 @@
   "stats-model": {
    "pattern": "stats-model",
    "unit": "points",
-   "n": 27,
-   "meanPredicted": 1.4685,
-   "meanRealized": 0.0556,
-   "tRealized": 0.23,
-   "capture": 0.04,
-   "rightWay": 0.467,
+   "n": 29,
+   "meanPredicted": 1.401,
+   "meanRealized": 0.069,
+   "tRealized": 0.28,
+   "capture": 0.05,
+   "rightWay": 0.471,
    "noMove": 12,
    "logLossGain": {
     "n": 27,
@@ -396,12 +464,12 @@
   "trend-fade": {
    "pattern": "trend-fade",
    "unit": "points",
-   "n": 5,
-   "meanPredicted": 1.4,
-   "meanRealized": -0.8,
-   "tRealized": -2.14,
-   "capture": -0.57,
-   "rightWay": 0.0,
+   "n": 6,
+   "meanPredicted": 1.4167,
+   "meanRealized": -0.3333,
+   "tRealized": -0.6,
+   "capture": -0.24,
+   "rightWay": 0.25,
    "noMove": 2,
    "logLossGain": {
     "n": 5,
