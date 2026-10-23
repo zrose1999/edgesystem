@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-23T11:12:04Z",
+ "asOf": "2026-10-23T11:24:38Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 361,
  "loggedReads": 776,
@@ -7185,8 +7185,8 @@
     },
     "topPatterns": {
      "nba-stats-model": 1,
-     "scan-nhl-total-over-total55-c4eaa6": 1,
-     "goalie-news": 1
+     "goalie-news": 1,
+     "scan-nhl-total-over-total55-c4eaa6": 1
     },
     "prePickFeature": "sharpDivPick=pin-against",
     "prePickFeatureClv": {
@@ -7666,7 +7666,7 @@
    "n": 49,
    "meanClvProb": -0.0112,
    "pocket": {
-    "feature": "grade=A",
+    "feature": "edgeBar=1-2x",
     "n": 8,
     "meanClvProb": 0.0084,
     "tStat": 0.7
@@ -8407,7 +8407,7 @@
    "n": 19,
    "meanClvProb": -0.0045,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 12,
     "meanClvProb": 0.0068,
     "tStat": 0.55
@@ -8430,7 +8430,7 @@
    "n": 33,
    "meanClvProb": -0.014,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 12,
     "meanClvProb": 0.0047,
     "tStat": 0.33
@@ -9224,5 +9224,5 @@
    "pairsTested": 1
   }
  ],
- "hypothesesAdded": 8
+ "hypothesesAdded": 0
 }
