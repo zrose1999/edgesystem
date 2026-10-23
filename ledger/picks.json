@@ -60116,6 +60116,70 @@
         "printImplied": 0.5238
       },
       "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-10-24|Texas Tech Red Raiders at Cincinnati Bearcats|h2h|home|v1|lean|learned-scan-ncaaf-h2h|2026-10-23T19:00:55Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NCAAF|2026-10-24|Texas Tech Red Raiders at Cincinnati Bearcats|h2h",
+      "sport": "NCAAF",
+      "event": "Texas Tech Red Raiders at Cincinnati Bearcats",
+      "commence": "2026-10-24T16:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 360,
+      "marketNumber": null,
+      "priceBook": "BetMGM",
+      "marketPrices": {
+        "home": 350,
+        "away": -465
+      },
+      "priceTime": "2026-10-23T19:00:33Z",
+      "pickedAt": "2026-10-23T19:00:55Z",
+      "fair": 0.2276,
+      "projection": 0.2276,
+      "edge": 0.01,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-h2h",
+      "reason": "Model learned on the scanner's data (ridge, 14 data points, passed the out-of-sample gate) predicts a move of +0.00539 from the open for home; 0.00539 still to come. Report: stats/models/scan_ncaaf_h2h.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 362,
+          "away": -459
+        },
+        "updated": "2026-10-23T19:00:31Z",
+        "snapTime": "2026-10-23T19:00:33Z",
+        "noVig": 0.1977
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 2.2,
+          "pop": 0,
+          "text": "Sunny",
+          "heavy": false,
+          "temp": 63,
+          "value": 0.0,
+          "asOf": "2026-10-23T19:00:40Z",
+          "venue": "Nippert Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": 360,
+        "line": null,
+        "implied": 0.2174,
+        "printImplied": 0.2222
+      }
     }
   ]
 }
