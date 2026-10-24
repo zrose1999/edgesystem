@@ -218,3 +218,11 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-24 | NCAAF: edgeBar=0.5-1x + travelEdge=less | 9 | +0.3% | found inside NCAAF travelEdge=less (best of 19 features tested); small sample, may share reads with other rows |
 | 2026-10-24 | NCAAF: edgeBar=0.5-1x + tzShift=none | 9 | +0.7% | found inside NCAAF tzShift=none (best of 24 features tested); small sample, may share reads with other rows |
 | 2026-10-24 | NHL: grade=B + role=over | 8 | +0.2% | found inside NHL role=over (best of 9 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NCAAF: grade=B + keyNumber=yes | 9 | +1.3% | found inside NCAAF keyNumber=yes (best of 17 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NCAAF: grade=B + restEdge=even | 13 | +1.5% | found inside NCAAF restEdge=even (best of 17 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NCAAF: grade=B + role=fav | 9 | +0.5% | found inside NCAAF role=fav (best of 22 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NCAAF: grade=B + timing=early | 13 | +0.9% | found inside NCAAF timing=early (best of 33 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NCAAF: grade=B + travel=<500 | 12 | +0.9% | found inside NCAAF travel=<500 (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NCAAF: grade=B + travelEdge=less | 9 | +0.3% | found inside NCAAF travelEdge=less (best of 19 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NCAAF: grade=B + tzShift=none | 9 | +0.7% | found inside NCAAF tzShift=none (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NCAAF: grade=B + venue=away | 11 | +1.2% | found inside NCAAF venue=away (best of 23 features tested); small sample, may share reads with other rows |

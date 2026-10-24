@@ -1,12 +1,9 @@
 {
- "asOf": "2026-10-24T18:01:10Z",
+ "asOf": "2026-10-24T18:24:37Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 439,
  "loggedReads": 895,
- "newPatternsThisRun": [
-  "learned-soccer-1x2",
-  "scan-ncaaf-spread-home-linehomefav21-de1083"
- ],
+ "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md)."
@@ -14,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 624,
-   "with": 493,
+   "reads": 625,
+   "with": 494,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 624,
-   "with": 624,
+   "reads": 625,
+   "with": 625,
    "alarm": false
   }
  },
@@ -101,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 2464,
-  "latest": "2026-10-24T18:00:20Z",
+  "linesLastCycle": 2458,
+  "latest": "2026-10-24T18:24:29Z",
   "rowsWithHistory": 634,
   "alarm": false
  },
@@ -8873,7 +8870,7 @@
    "n": 36,
    "meanClvProb": -0.0249,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 10,
     "meanClvProb": 0.0066,
     "tStat": 0.5
@@ -8906,7 +8903,7 @@
    "n": 58,
    "meanClvProb": -0.0182,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 18,
     "meanClvProb": 0.006,
     "tStat": 0.71
@@ -9179,7 +9176,7 @@
    "n": 81,
    "meanClvProb": -0.0103,
    "pocket": {
-    "feature": "sharpDivPick=aligned",
+    "feature": "sharpGapPick=<1%",
     "n": 9,
     "meanClvProb": 0.0056,
     "tStat": 0.28
@@ -9198,7 +9195,7 @@
    "n": 17,
    "meanClvProb": -0.0073,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 9,
     "meanClvProb": 0.0069,
     "tStat": 0.36
@@ -9287,7 +9284,7 @@
    "n": 26,
    "meanClvProb": -0.0049,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 16,
     "meanClvProb": 0.0029,
     "tStat": 0.21
@@ -9469,7 +9466,7 @@
    "n": 21,
    "meanClvProb": -0.0051,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 9,
     "meanClvProb": 0.0133,
     "tStat": 0.91
@@ -9619,7 +9616,7 @@
    "n": 24,
    "meanClvProb": -0.0041,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 13,
     "meanClvProb": 0.0147,
     "tStat": 1.37
@@ -9652,7 +9649,7 @@
    "n": 32,
    "meanClvProb": -0.0238,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 9,
     "meanClvProb": 0.0053,
     "tStat": 0.32
@@ -9693,7 +9690,7 @@
    "n": 100,
    "meanClvProb": -0.0192,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 13,
     "meanClvProb": 0.0087,
     "tStat": 0.71
@@ -9735,7 +9732,7 @@
    "n": 49,
    "meanClvProb": -0.0055,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 12,
     "meanClvProb": 0.0087,
     "tStat": 0.69
@@ -9773,7 +9770,7 @@
    "n": 24,
    "meanClvProb": -0.0271,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 9,
     "meanClvProb": 0.0026,
     "tStat": 0.2
@@ -9787,7 +9784,7 @@
    "n": 37,
    "meanClvProb": -0.0121,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 9,
     "meanClvProb": 0.0071,
     "tStat": 0.41
@@ -9806,7 +9803,7 @@
    "n": 35,
    "meanClvProb": -0.0038,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 11,
     "meanClvProb": 0.0118,
     "tStat": 0.93
@@ -10220,5 +10217,5 @@
    "pairsTested": 1
   }
  ],
- "hypothesesAdded": 17
+ "hypothesesAdded": 8
 }
