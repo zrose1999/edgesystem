@@ -20763,7 +20763,18 @@
       "tier": null,
       "stakeUnits": 0.0,
       "by": "ncaaf_spots.py",
-      "commenceAtPick": "2026-10-24T19:30:00Z"
+      "commenceAtPick": "2026-10-24T19:30:00Z",
+      "closeLine": 49.5,
+      "closePrice": -115,
+      "closeNoVig": 0.5113,
+      "estimated": true,
+      "clvPoints": 4.0,
+      "clvProb": 0.0553,
+      "clvProbPrint": 0.055,
+      "clvProbPin": 0.0553,
+      "closeNoVigPin": 0.5116,
+      "clvBench": "pinnacle",
+      "clvProbAtPrintPrice": 0.0553
     },
     {
       "pickId": "NCAAF|2026-10-24|Boise State Broncos at Washington State Cougars|spread|away|v1|lean|ncaaf-spot|2026-10-18T11:11:22Z",
@@ -52656,7 +52667,9 @@
       "closeNoVigPin": 0.2473,
       "clvBench": "pinnacle",
       "clvProbBest": 0.0251,
-      "clvProbAtPrintPrice": 0.0251
+      "clvProbAtPrintPrice": 0.0251,
+      "result": "win",
+      "units": 3.5
     },
     {
       "pickId": "NHL|2026-10-22|Anaheim Ducks at New Jersey Devils|total|under|v1|goalie-news",
@@ -69695,6 +69708,116 @@
         "line": 13.5,
         "implied": 0.5238,
         "printImplied": 0.5349
+      }
+    },
+    {
+      "pickId": "NBA|2026-10-25|New Orleans Pelicans at Denver Nuggets|spread|home|v1|lean|news-lag|2026-10-24T19:09:39Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NBA|2026-10-25|New Orleans Pelicans at Denver Nuggets|spread",
+      "sport": "NBA",
+      "event": "New Orleans Pelicans at Denver Nuggets",
+      "commence": "2026-10-25T01:10:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -11.5,
+      "priceAtPick": -105,
+      "marketNumber": -11.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-10-24T19:09:22Z",
+      "pickedAt": "2026-10-24T19:09:39Z",
+      "fair": -11.76,
+      "projection": -11.76,
+      "edge": 0.26,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "Yves Missi (Pelicans, worth 0.44): weight 0.4 at the open, 1 now, +0.26 spread, -0.16 total. Open home line -11.5, fair -11.76.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before tip-off.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury_nba.py",
+      "pinAtPick": {
+        "line": -11.0,
+        "prices": {
+          "home": -111,
+          "away": 100
+        },
+        "updated": "2026-10-24T19:09:04Z",
+        "snapTime": "2026-10-24T19:09:22Z",
+        "noVig": 0.513
+      },
+      "contextAtPick": {
+        "injury": "Yves Missi (Pelicans, worth 0.44): weight 0.4 at the open, 1 now, +0.26 spread, -0.16 total"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -105,
+        "line": -11.5,
+        "implied": 0.5122,
+        "printImplied": 0.5122
+      }
+    },
+    {
+      "pickId": "NBA|2026-10-25|New Orleans Pelicans at Denver Nuggets|spread|home|v1|lean|edge-stack|2026-10-24T19:09:44Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NBA|2026-10-25|New Orleans Pelicans at Denver Nuggets|spread",
+      "sport": "NBA",
+      "event": "New Orleans Pelicans at Denver Nuggets",
+      "commence": "2026-10-25T01:10:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -11.5,
+      "priceAtPick": -105,
+      "marketNumber": -11.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-10-24T19:09:22Z",
+      "pickedAt": "2026-10-24T19:09:44Z",
+      "fair": -12.486,
+      "projection": -12.486,
+      "edge": 0.986,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "edge-stack",
+      "reason": "Edge stack (2 sources, x0.85 for overlap): rest-spot -0.900; news-lag -0.260. Fair -12.486.",
+      "falsifier": "The line closes at or past the current number on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "edge_stack.py",
+      "pinAtPick": {
+        "line": -11.0,
+        "prices": {
+          "home": -111,
+          "away": 100
+        },
+        "updated": "2026-10-24T19:09:04Z",
+        "snapTime": "2026-10-24T19:09:22Z",
+        "noVig": 0.513
+      },
+      "contextAtPick": {
+        "injury": "Yves Missi (Pelicans, worth 0.44): weight 0.4 at the open, 1 now, +0.26 spread, -0.16 total"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -105,
+        "line": -11.5,
+        "implied": 0.5122,
+        "printImplied": 0.5122
       }
     }
   ]
