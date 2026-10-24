@@ -24967,7 +24967,7 @@
       "rowId": "NCAAF|2026-10-24|Georgia State Panthers at Arkansas State Red Wolves|spread",
       "sport": "NCAAF",
       "event": "Georgia State Panthers at Arkansas State Red Wolves",
-      "commence": "2026-10-24T23:00:00Z",
+      "commence": "2026-10-24T23:05:00Z",
       "market": "spread",
       "side": "away",
       "lineAtPick": -1.5,
@@ -24992,7 +24992,8 @@
       "modelVersion": "v1",
       "tier": "shadow",
       "stakeUnits": 0.0,
-      "by": "learn_live.py"
+      "by": "learn_live.py",
+      "commenceAtPick": "2026-10-24T23:00:00Z"
     },
     {
       "pickId": "NCAAF|2026-10-25|North Dakota State Bison at New Mexico Lobos|spread|home|v1|lean|learned-ncaaf-spread|2026-10-18T17:57:08Z",
@@ -71556,6 +71557,62 @@
       },
       "priceBook": "DraftKings",
       "contextAtPick": {}
+    },
+    {
+      "pickId": "NBA|2026-10-25|San Antonio Spurs at Dallas Mavericks|total|under|v1|reread|news-lag|2026-10-24T22:24:40Z",
+      "kind": "reread",
+      "grade": "C",
+      "rowId": "NBA|2026-10-25|San Antonio Spurs at Dallas Mavericks|total",
+      "sport": "NBA",
+      "event": "San Antonio Spurs at Dallas Mavericks",
+      "commence": "2026-10-25T00:10:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 229.5,
+      "priceAtPick": -105,
+      "marketNumber": 229.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "over": -115,
+        "under": -105
+      },
+      "priceTime": "2026-10-24T22:24:39Z",
+      "pickedAt": "2026-10-24T22:24:40Z",
+      "fair": 228.45,
+      "projection": 228.45,
+      "edge": 1.05,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "Cooper Flagg (Mavericks, worth 2.44): weight 0.4 at the open, 1 now, +1.46 spread, -0.88 total | Kyrie Irving (Mavericks, worth 2.24): weight 0 at the open, 0.75 now, +1.68 spread, -1.01 total | Max Christie (Mavericks, worth 0.53): weight 0 at the open, 0.5 now, +0.27 spread, -0.16 total. Open total 230.5, fair 228.45.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before tip-off.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury_nba.py",
+      "pinAtPick": {
+        "line": 230.0,
+        "prices": {
+          "over": -103,
+          "under": -109
+        },
+        "updated": "2026-10-24T22:24:19Z",
+        "snapTime": "2026-10-24T22:24:39Z",
+        "noVig": 0.5071
+      },
+      "contextAtPick": {
+        "injury": "Cooper Flagg (Mavericks, worth 2.44): weight 0.4 at the open, 1 now, +1.46 spread, -0.88 total | Kyrie Irving (Mavericks, worth 2.24): weight 0 at the open, 0.75 now, +1.68 spread, -1.01 total | Max Christie (Mavericks, worth 0.53): weight 0 at the open, 0.5 now, +0.27 spread, -0.16 total"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -105,
+        "line": 229.5,
+        "implied": 0.5122,
+        "printImplied": 0.5122
+      },
+      "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
     }
   ]
 }
