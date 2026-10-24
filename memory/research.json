@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-24T16:54:30Z",
+ "asOf": "2026-10-24T17:24:43Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 411,
  "loggedReads": 867,
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 610,
-   "with": 489,
+   "reads": 613,
+   "with": 492,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 610,
-   "with": 610,
+   "reads": 613,
+   "with": 613,
    "alarm": false
   }
  },
@@ -98,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 2570,
-  "latest": "2026-10-24T16:54:24Z",
+  "linesLastCycle": 2431,
+  "latest": "2026-10-24T17:24:34Z",
   "rowsWithHistory": 634,
   "alarm": false
  },
@@ -8083,7 +8083,7 @@
    "n": 49,
    "meanClvProb": -0.0112,
    "pocket": {
-    "feature": "grade=A",
+    "feature": "edgeBar=1-2x",
     "n": 8,
     "meanClvProb": 0.0084,
     "tStat": 0.7
@@ -8857,7 +8857,7 @@
    "n": 81,
    "meanClvProb": -0.0103,
    "pocket": {
-    "feature": "sharpDivPick=aligned",
+    "feature": "sharpGapPick=<1%",
     "n": 9,
     "meanClvProb": 0.0056,
     "tStat": 0.28
@@ -8876,7 +8876,7 @@
    "n": 17,
    "meanClvProb": -0.0073,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 9,
     "meanClvProb": 0.0069,
     "tStat": 0.36
@@ -8965,7 +8965,7 @@
    "n": 26,
    "meanClvProb": -0.0049,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 16,
     "meanClvProb": 0.0029,
     "tStat": 0.21
@@ -9007,7 +9007,7 @@
    "n": 26,
    "meanClvProb": -0.0224,
    "pocket": {
-    "feature": "grade=C",
+    "feature": "edgeBar=<0.5x",
     "n": 8,
     "meanClvProb": 0.003,
     "tStat": 0.42
