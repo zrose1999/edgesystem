@@ -179,3 +179,5 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-24 | NHL: moveBeforePick=none + role=over | 12 | +0.2% | found inside NHL edgeBar=0.5-1x (best of 2 pairs tested); small sample, may share reads with other rows |
 | 2026-10-24 | NHL: restDays=2+days + restEdge=more | 8 | +1.0% | found inside NHL restDays=2+days (best of 10 features tested); small sample, may share reads with other rows |
 | 2026-10-24 | NHL: edgeBar=0.5-1x + timing=day | 12 | +0.2% | found inside NHL role=over (best of 2 pairs tested); small sample, may share reads with other rows |
+| 2026-10-24 | grade=B + travelEdge=less | 11 | +0.4% | found inside ALL travelEdge=less (best of 30 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NBA: grade=B + venue=home | 9 | +0.6% | found inside NBA venue=home (best of 17 features tested); small sample, may share reads with other rows |
