@@ -66677,7 +66677,7 @@
       "rowId": "NBA|2026-10-24|Brooklyn Nets at Cleveland Cavaliers|spread",
       "sport": "NBA",
       "event": "Brooklyn Nets at Cleveland Cavaliers",
-      "commence": "2026-10-24T23:40:00Z",
+      "commence": "2026-10-24T23:42:00Z",
       "market": "spread",
       "side": "away",
       "lineAtPick": 10.5,
@@ -66721,7 +66721,8 @@
         "line": -10.5,
         "implied": 0.5238,
         "printImplied": 0.5238
-      }
+      },
+      "commenceAtPick": "2026-10-24T23:40:00Z"
     },
     {
       "pickId": "NBA|2026-10-24|Milwaukee Bucks at Philadelphia 76ers|spread|home|v1|lean|scan-nba-spread-home-restawayb2brestedgehomemore-ee7657|2026-10-24T01:54:33Z",
@@ -68079,7 +68080,7 @@
       "rowId": "NBA|2026-10-24|Brooklyn Nets at Cleveland Cavaliers|total",
       "sport": "NBA",
       "event": "Brooklyn Nets at Cleveland Cavaliers",
-      "commence": "2026-10-24T23:40:00Z",
+      "commence": "2026-10-24T23:42:00Z",
       "market": "total",
       "side": "under",
       "lineAtPick": 231.5,
@@ -68123,7 +68124,8 @@
         "line": 231.5,
         "implied": 0.5238,
         "printImplied": 0.5238
-      }
+      },
+      "commenceAtPick": "2026-10-24T23:40:00Z"
     },
     {
       "pickId": "SerieA|2026-10-25|AC Milan at Udinese|total|over|v1|lean|scan-seriea-total-over-dowsunmonthoct-7f6f5f|2026-10-24T13:24:38Z",
@@ -72222,6 +72224,62 @@
         "implied": 0.4717,
         "printImplied": 0.4717
       }
+    },
+    {
+      "pickId": "NBA|2026-10-25|San Antonio Spurs at Dallas Mavericks|total|under|v1|reread|news-lag|2026-10-24T23:41:27Z",
+      "kind": "reread",
+      "grade": "C",
+      "rowId": "NBA|2026-10-25|San Antonio Spurs at Dallas Mavericks|total",
+      "sport": "NBA",
+      "event": "San Antonio Spurs at Dallas Mavericks",
+      "commence": "2026-10-25T00:10:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 229.5,
+      "priceAtPick": -105,
+      "marketNumber": 229.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "over": -115,
+        "under": -105
+      },
+      "priceTime": "2026-10-24T23:41:22Z",
+      "pickedAt": "2026-10-24T23:41:27Z",
+      "fair": 228.41,
+      "projection": 228.41,
+      "edge": 1.09,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "Cooper Flagg (Mavericks, worth 2.44): weight 0.4 at the open, 1 now, +1.46 spread, -0.88 total | Kyrie Irving (Mavericks, worth 2.24): weight 0 at the open, 1 now, +2.24 spread, -1.34 total | Zaccharie Risacher (Mavericks, worth 0.44): weight 0.5 at the open, 0 now, -0.22 spread, +0.13 total. Open total 230.5, fair 228.41.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before tip-off.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury_nba.py",
+      "pinAtPick": {
+        "line": 230.0,
+        "prices": {
+          "over": -103,
+          "under": -109
+        },
+        "updated": "2026-10-24T23:41:04Z",
+        "snapTime": "2026-10-24T23:41:22Z",
+        "noVig": 0.5071
+      },
+      "contextAtPick": {
+        "injury": "Cooper Flagg (Mavericks, worth 2.44): weight 0.4 at the open, 1 now, +1.46 spread, -0.88 total | Kyrie Irving (Mavericks, worth 2.24): weight 0 at the open, 1 now, +2.24 spread, -1.34 total | Zaccharie Risacher (Mavericks, worth 0.44): weight 0.5 at the open, 0 now, -0.22 spread, +0.13 total"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -105,
+        "line": 229.5,
+        "implied": 0.5122,
+        "printImplied": 0.5122
+      },
+      "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
     }
   ]
 }
