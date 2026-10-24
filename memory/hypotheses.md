@@ -157,3 +157,25 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-23 | NBA: edgeBar=0.5-1x + travel=500-1500 | 12 | +1.0% | found inside NBA edgeBar=0.5-1x (best of 18 features tested); small sample, may share reads with other rows |
 | 2026-10-23 | NBA: moveBeforePick=for + travel=500-1500 | 18 | +0.0% | found inside NBA moveBeforePick=for (best of 23 features tested); small sample, may share reads with other rows |
 | 2026-10-23 | NBA: pattern=news-lag + timing=day | 8 | +0.6% | found inside NBA pattern=news-lag (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | market=spread + travel=500-1500 | 30 | +0.4% | found inside ALL market=spread (best of 44 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | market=total + pattern=learned-nba-total | 12 | +0.3% | found inside ALL market=total (best of 41 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | moveBeforePick=none + travelEdge=more | 17 | +1.0% | found inside ALL moveBeforePick=none (best of 54 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | edgeBar=1-2x + timing=day | 8 | +0.7% | found inside ALL moveBeforePick=none (best of 10 pairs tested); small sample, may share reads with other rows |
+| 2026-10-24 | edgeBar=1-2x + restDays=1day | 8 | +0.6% | found inside ALL restDays=1day (best of 40 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | role=dog + venue=home | 9 | +1.0% | found inside ALL restEdge=even (best of 12 pairs tested); small sample, may share reads with other rows |
+| 2026-10-24 | restDays=1day + role=over | 19 | +0.6% | found inside ALL role=over (best of 27 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | sharpDivPick=pin-for + timing=day | 8 | +1.4% | found inside ALL timing=day (best of 54 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | edgeBar=0.5-1x + travelEdge=less | 11 | +0.4% | found inside ALL travelEdge=less (best of 30 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NBA: edgeBar=0.5-1x + moveBeforePick=none | 12 | +0.8% | found inside NBA edgeBar=0.5-1x (best of 20 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NBA: edgeBar=1-2x + travel=500-1500 | 10 | +1.5% | found inside NBA edgeBar=1-2x (best of 10 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NBA: edgeBar=<0.5x + travelEdge=more | 9 | +0.9% | found inside NBA edgeBar=<0.5x (best of 19 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NBA: moveBeforePick=none + role=dog | 9 | +0.3% | found inside NBA edgeBar=<0.5x (best of 5 pairs tested); small sample, may share reads with other rows |
+| 2026-10-24 | NBA: moveBeforePick=none + restDays=1day | 8 | +2.9% | found inside NBA moveBeforePick=none (best of 25 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NBA: pattern=news-lag + travelEdge=more | 10 | +0.5% | found inside NBA pattern=news-lag (best of 26 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NBA: role=dog + travel=500-1500 | 11 | +2.9% | found inside NBA role=dog (best of 17 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NBA: grade=A + timing=day | 8 | +3.2% | found inside NBA timing=day (best of 34 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NBA: edgeBar=0.5-1x + venue=home | 9 | +0.6% | found inside NBA venue=home (best of 17 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NHL: edgeBar=0.5-1x + role=over | 12 | +0.2% | found inside NHL edgeBar=0.5-1x (best of 11 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NHL: moveBeforePick=none + role=over | 12 | +0.2% | found inside NHL edgeBar=0.5-1x (best of 2 pairs tested); small sample, may share reads with other rows |
+| 2026-10-24 | NHL: restDays=2+days + restEdge=more | 8 | +1.0% | found inside NHL restDays=2+days (best of 10 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NHL: edgeBar=0.5-1x + timing=day | 12 | +0.2% | found inside NHL role=over (best of 2 pairs tested); small sample, may share reads with other rows |
