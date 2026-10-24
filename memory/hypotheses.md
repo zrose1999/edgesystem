@@ -241,3 +241,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-24 | NCAAF: keyNumber=yes + restEdge=more | 10 | +1.6% | found inside NCAAF restEdge=more (best of 20 features tested); small sample, may share reads with other rows |
 | 2026-10-24 | NCAAF: role=dog + travel=500-1500 | 9 | +2.1% | found inside NCAAF travel=500-1500 (best of 25 features tested); small sample, may share reads with other rows |
 | 2026-10-24 | NCAAF: travel=<500 + venue=home | 8 | +6.2% | found inside NCAAF travel=<500 (best of 26 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | edgeBar=0.5-1x + restEdge=more | 11 | +1.2% | found inside ALL restEdge=more (best of 35 features tested); small sample, may share reads with other rows |
