@@ -41237,7 +41237,9 @@
       "clvProbPin": 0.0133,
       "closeNoVigPin": 0.3209,
       "clvBench": "pinnacle",
-      "clvProbAtPrintPrice": -0.0239
+      "clvProbAtPrintPrice": -0.0239,
+      "result": "loss",
+      "units": -1.0
     },
     {
       "pickId": "NBA|2026-10-22|Utah Jazz at Memphis Grizzlies|spread|away|v1|reread|news-lag|2026-10-21T15:54:29Z",
@@ -67948,6 +67950,62 @@
         "implied": 0.5283,
         "printImplied": 0.5349
       }
+    },
+    {
+      "pickId": "NBA|2026-10-25|Washington Wizards at Chicago Bulls|total|under|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NBA|2026-10-25|Washington Wizards at Chicago Bulls|total",
+      "sport": "NBA",
+      "event": "Washington Wizards at Chicago Bulls",
+      "commence": "2026-10-25T00:10:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 245.5,
+      "priceAtPick": -110,
+      "bookAtPick": "DraftKings",
+      "marketNumber": 244.5,
+      "marketPrices": {
+        "over": -110,
+        "under": -110
+      },
+      "priceTime": "2026-10-24T15:09:29Z",
+      "pickedAt": "2026-10-24T15:09:31Z",
+      "fair": 0.5392,
+      "projection": 0.5392,
+      "edge": 0.0153,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "DraftKings under 245.5 -110 implies 52.4%. Pinnacle -112 no-vig is 51.4% at 244.5, worth 53.9% at this line. Edge +1.5%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": 244.5,
+        "prices": {
+          "over": 100,
+          "under": -112
+        },
+        "updated": "2026-10-24T15:09:16Z",
+        "snapTime": "2026-10-24T15:09:29Z",
+        "noVig": 0.5142
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -110,
+        "line": 244.5,
+        "implied": 0.5238,
+        "printImplied": 0.5238
+      },
+      "priceBook": "FanDuel",
+      "estimated": true,
+      "lineAdj": 0.025
     }
   ]
 }
