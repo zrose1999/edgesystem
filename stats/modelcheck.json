@@ -1,17 +1,17 @@
 {
- "asOf": "2026-10-24T21:24:34Z",
+ "asOf": "2026-10-24T21:28:48Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
    "pattern": "edge-stack",
    "unit": "points",
-   "n": 10,
-   "meanPredicted": 1.7151,
-   "meanRealized": -0.1,
+   "n": 11,
+   "meanPredicted": 1.6665,
+   "meanRealized": -0.0909,
    "tRealized": -0.32,
-   "capture": -0.06,
+   "capture": -0.05,
    "rightWay": 0.5,
-   "noMove": 4,
+   "noMove": 5,
    "logLossGain": {
     "n": 10,
     "mean": -0.01326,
@@ -22,13 +22,13 @@
   "edge-stack|prob": {
    "pattern": "edge-stack",
    "unit": "prob",
-   "n": 4,
-   "meanPredicted": 0.027,
-   "meanRealized": -0.0023,
-   "tRealized": -0.34,
-   "capture": -0.08,
+   "n": 5,
+   "meanPredicted": 0.0279,
+   "meanRealized": -0.0018,
+   "tRealized": -0.35,
+   "capture": -0.06,
    "rightWay": 0.5,
-   "noMove": 2,
+   "noMove": 3,
    "logLossGain": {
     "n": 4,
     "mean": -0.02259,
@@ -39,13 +39,13 @@
   "goalie-news": {
    "pattern": "goalie-news",
    "unit": "prob",
-   "n": 16,
-   "meanPredicted": 0.0435,
-   "meanRealized": 0.001,
+   "n": 17,
+   "meanPredicted": 0.0432,
+   "meanRealized": 0.0009,
    "tRealized": 0.29,
    "capture": 0.02,
    "rightWay": 0.556,
-   "noMove": 7,
+   "noMove": 8,
    "logLossGain": {
     "n": 16,
     "mean": 0.02561,
@@ -73,34 +73,34 @@
   "learned-ncaaf-spread": {
    "pattern": "learned-ncaaf-spread",
    "unit": "points",
-   "n": 24,
-   "meanPredicted": 1.1368,
-   "meanRealized": 0.5833,
-   "tRealized": 1.94,
-   "capture": 0.51,
-   "rightWay": 0.667,
+   "n": 32,
+   "meanPredicted": 1.1361,
+   "meanRealized": 1.2188,
+   "tRealized": 3.74,
+   "capture": 1.07,
+   "rightWay": 0.783,
    "noMove": 9,
    "logLossGain": {
-    "n": 20,
-    "mean": 0.00815,
-    "t": 0.6
+    "n": 24,
+    "mean": 0.00646,
+    "t": 0.52
    },
-   "verdict": "collecting"
+   "verdict": "proven"
   },
   "learned-ncaaf-total": {
    "pattern": "learned-ncaaf-total",
    "unit": "points",
-   "n": 16,
-   "meanPredicted": 0.8634,
-   "meanRealized": -0.1875,
-   "tRealized": -0.45,
-   "capture": -0.22,
-   "rightWay": 0.462,
-   "noMove": 3,
+   "n": 21,
+   "meanPredicted": 0.9046,
+   "meanRealized": 0.0476,
+   "tRealized": 0.12,
+   "capture": 0.05,
+   "rightWay": 0.471,
+   "noMove": 4,
    "logLossGain": {
-    "n": 9,
-    "mean": 0.01235,
-    "t": 1.15
+    "n": 16,
+    "mean": 0.00882,
+    "t": 1.11
    },
    "verdict": "collecting"
   },
@@ -124,17 +124,17 @@
   "learned-nhl-over": {
    "pattern": "learned-nhl-over",
    "unit": "prob",
-   "n": 16,
-   "meanPredicted": 0.035,
-   "meanRealized": 0.0171,
-   "tRealized": 2.58,
+   "n": 17,
+   "meanPredicted": 0.0339,
+   "meanRealized": 0.0165,
+   "tRealized": 2.63,
    "capture": 0.49,
-   "rightWay": 0.812,
+   "rightWay": 0.824,
    "noMove": 0,
    "logLossGain": {
-    "n": 15,
-    "mean": 0.02295,
-    "t": 1.23
+    "n": 16,
+    "mean": 0.01898,
+    "t": 1.06
    },
    "verdict": "collecting"
   },
@@ -158,30 +158,30 @@
   "learned-scan-ncaaf-h2h": {
    "pattern": "learned-scan-ncaaf-h2h",
    "unit": "prob",
-   "n": 2,
-   "meanPredicted": 0.0275,
-   "meanRealized": -0.002,
-   "tRealized": -0.12,
-   "capture": -0.07,
-   "rightWay": 0.5,
+   "n": 3,
+   "meanPredicted": 0.0271,
+   "meanRealized": -0.003,
+   "tRealized": -0.29,
+   "capture": -0.11,
+   "rightWay": 0.333,
    "noMove": 0,
    "logLossGain": {
-    "n": 1,
-    "mean": 0.12006,
-    "t": 0.0
+    "n": 2,
+    "mean": 0.12565,
+    "t": 22.48
    },
    "verdict": "collecting"
   },
   "learned-scan-ncaaf-spread": {
    "pattern": "learned-scan-ncaaf-spread",
    "unit": "points",
-   "n": 2,
-   "meanPredicted": 0.6015,
+   "n": 3,
+   "meanPredicted": 0.5343,
    "meanRealized": 0.0,
    "tRealized": 0.0,
    "capture": 0.0,
    "rightWay": 0.0,
-   "noMove": 2,
+   "noMove": 3,
    "logLossGain": {
     "n": 2,
     "mean": 0.02929,
@@ -260,30 +260,30 @@
   "ncaaf-spot": {
    "pattern": "ncaaf-spot",
    "unit": "points",
-   "n": 44,
-   "meanPredicted": 0.3684,
-   "meanRealized": -0.3182,
-   "tRealized": -1.1,
-   "capture": -0.86,
-   "rightWay": 0.455,
+   "n": 49,
+   "meanPredicted": 0.3661,
+   "meanRealized": -0.102,
+   "tRealized": -0.35,
+   "capture": -0.28,
+   "rightWay": 0.5,
    "noMove": 11,
    "logLossGain": {
-    "n": 37,
-    "mean": 0.00049,
-    "t": 0.17
+    "n": 43,
+    "mean": 0.00025,
+    "t": 0.1
    },
    "verdict": "collecting"
   },
   "ncaaf-total-move": {
    "pattern": "ncaaf-total-move",
    "unit": "points",
-   "n": 18,
-   "meanPredicted": 0.8844,
-   "meanRealized": 0.3889,
-   "tRealized": 0.96,
-   "capture": 0.44,
-   "rightWay": 0.643,
-   "noMove": 4,
+   "n": 21,
+   "meanPredicted": 0.8781,
+   "meanRealized": 0.3333,
+   "tRealized": 0.94,
+   "capture": 0.38,
+   "rightWay": 0.625,
+   "noMove": 5,
    "logLossGain": {
     "n": 18,
     "mean": -0.00303,
@@ -396,17 +396,17 @@
   "scan-ncaaf-h2h-away-homeprice75resthomenormal-4e85b7": {
    "pattern": "scan-ncaaf-h2h-away-homeprice75resthomenormal-4e85b7",
    "unit": "prob",
-   "n": 2,
-   "meanPredicted": 0.031,
-   "meanRealized": 0.0047,
-   "tRealized": 1.0,
-   "capture": 0.15,
-   "rightWay": 1.0,
-   "noMove": 1,
+   "n": 5,
+   "meanPredicted": 0.0305,
+   "meanRealized": -0.0017,
+   "tRealized": -0.46,
+   "capture": -0.06,
+   "rightWay": 0.333,
+   "noMove": 2,
    "logLossGain": {
-    "n": 1,
-    "mean": -0.03903,
-    "t": 0.0
+    "n": 2,
+    "mean": -0.03724,
+    "t": -20.83
    },
    "verdict": "collecting"
   },
@@ -421,8 +421,8 @@
    "rightWay": 1.0,
    "noMove": 0,
    "logLossGain": {
-    "n": 0,
-    "mean": null,
+    "n": 1,
+    "mean": 0.01403,
     "t": 0.0
    },
    "verdict": "collecting"
@@ -430,17 +430,17 @@
   "scan-nhl-total-over-total55-c4eaa6": {
    "pattern": "scan-nhl-total-over-total55-c4eaa6",
    "unit": "prob",
-   "n": 4,
-   "meanPredicted": 0.031,
+   "n": 5,
+   "meanPredicted": 0.0322,
    "meanRealized": -0.0066,
-   "tRealized": -1.67,
+   "tRealized": -2.15,
    "capture": -0.21,
    "rightWay": 0.0,
    "noMove": 2,
    "logLossGain": {
-    "n": 3,
-    "mean": -0.0254,
-    "t": -0.68
+    "n": 4,
+    "mean": -0.00301,
+    "t": -0.09
    },
    "verdict": "collecting"
   },
@@ -481,34 +481,34 @@
   "sharp-soft|prob": {
    "pattern": "sharp-soft",
    "unit": "prob",
-   "n": 19,
-   "meanPredicted": 0.023,
-   "meanRealized": 0.0054,
-   "tRealized": 0.65,
-   "capture": 0.23,
-   "rightWay": 0.5,
+   "n": 20,
+   "meanPredicted": 0.0227,
+   "meanRealized": 0.0046,
+   "tRealized": 0.58,
+   "capture": 0.2,
+   "rightWay": 0.471,
    "noMove": 3,
    "logLossGain": {
-    "n": 18,
-    "mean": -0.02355,
-    "t": -2.43
+    "n": 19,
+    "mean": -0.02002,
+    "t": -2.04
    },
    "verdict": "collecting"
   },
   "sharp-soft-alt": {
    "pattern": "sharp-soft-alt",
    "unit": "points",
-   "n": 10,
-   "meanPredicted": 0.7308,
-   "meanRealized": 1.15,
-   "tRealized": 2.25,
-   "capture": 1.57,
-   "rightWay": 0.75,
+   "n": 11,
+   "meanPredicted": 0.724,
+   "meanRealized": 0.9545,
+   "tRealized": 1.9,
+   "capture": 1.32,
+   "rightWay": 0.667,
    "noMove": 2,
    "logLossGain": {
-    "n": 8,
-    "mean": 0.02301,
-    "t": 0.79
+    "n": 10,
+    "mean": 0.01818,
+    "t": 0.69
    },
    "verdict": "collecting"
   },
@@ -566,20 +566,22 @@
   "wind-total": {
    "pattern": "wind-total",
    "unit": "points",
-   "n": 14,
-   "meanPredicted": 2.4643,
-   "meanRealized": 0.3571,
+   "n": 15,
+   "meanPredicted": 2.3667,
+   "meanRealized": 0.3333,
    "tRealized": 1.0,
    "capture": 0.14,
    "rightWay": 0.636,
-   "noMove": 3,
+   "noMove": 4,
    "logLossGain": {
-    "n": 12,
-    "mean": -0.00686,
-    "t": -0.24
+    "n": 14,
+    "mean": 0.00639,
+    "t": 0.25
    },
    "verdict": "collecting"
   }
  },
- "proven": []
+ "proven": [
+  "learned-ncaaf-spread"
+ ]
 }
