@@ -199,3 +199,5 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-24 | NBA: moveBeforePick=none + venue=home | 10 | +0.3% | found inside NBA venue=home (best of 21 features tested); small sample, may share reads with other rows |
 | 2026-10-24 | NCAAF: keyNumber=yes + role=dog | 8 | +0.8% | found inside NCAAF keyNumber=yes (best of 10 features tested); small sample, may share reads with other rows |
 | 2026-10-24 | NCAAF: tzShift=west + venue=away | 8 | +0.7% | found inside NCAAF venue=away (best of 22 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | edgeBar=0.5-1x + travel=none | 8 | +1.1% | found inside ALL travel=none (best of 23 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NBA: edgeBar=<0.5x + steamBeforePick=flat | 8 | +0.3% | found inside NBA steamBeforePick=flat (best of 20 features tested); small sample, may share reads with other rows |
