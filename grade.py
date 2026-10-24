@@ -249,6 +249,12 @@ def main():
         if not pick.get("side"):
             continue  # a pass has no side to grade
         row = rows.get(pick["rowId"]) or {}
+        # Kickoff follows the row (pull.py refreshes it from the feed). Picks stamped while the feed still carried a
+        # placeholder time (04:00Z / 16:00Z for TBD college games and tennis) kept it, which skewed timing, rest and
+        # travel features and the missing-close check. The stamped value is kept once as commenceAtPick.
+        if row.get("commence") and pick.get("commence") and row["commence"] != pick["commence"]:
+            pick.setdefault("commenceAtPick", pick["commence"])
+            pick["commence"] = row["commence"]
         close = row.get("closeSnap")
         if close and pick["side"] in close and "clvBench" not in pick:
             score_pick(pick, close)
