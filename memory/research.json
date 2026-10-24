@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-24T12:24:32Z",
+ "asOf": "2026-10-24T12:54:43Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 410,
  "loggedReads": 866,
@@ -98,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1929,
-  "latest": "2026-10-24T12:24:26Z",
+  "linesLastCycle": 1954,
+  "latest": "2026-10-24T12:54:27Z",
   "rowsWithHistory": 632,
   "alarm": false
  },
@@ -7455,31 +7455,33 @@
     }
    },
    "late-move": {
-    "n": 3,
-    "meanClvProb": -0.0231,
-    "tStat": -15.09,
+    "n": 4,
+    "meanClvProb": -0.0446,
+    "tStat": -2.07,
     "beatClose": 0,
-    "share": 0.01,
+    "share": 0.014,
     "bySport": {
-     "NBA": 3
+     "NBA": 3,
+     "NHL": 1
     },
     "topPatterns": {
      "news-lag": 2,
+     "learned-nhl-over": 1,
      "learned-nba-total": 1
     },
     "prePickFeature": null,
     "prePickFeatureClv": null
    },
    "number-off": {
-    "n": 233,
-    "meanClvProb": -0.034,
-    "tStat": -21.49,
+    "n": 232,
+    "meanClvProb": -0.0337,
+    "tStat": -21.65,
     "beatClose": 0,
-    "share": 0.812,
+    "share": 0.808,
     "bySport": {
      "NCAAF": 88,
      "NBA": 59,
-     "NHL": 48,
+     "NHL": 47,
      "NFL": 29,
      "WTA": 2,
      "MLS": 2,
@@ -7491,7 +7493,7 @@
      "news-lag": 52,
      "ncaaf-spot": 29,
      "nba-stats-model": 17,
-     "learned-nhl-over": 16,
+     "learned-nhl-over": 15,
      "learned-ncaaf-spread": 14
     },
     "prePickFeature": null,
@@ -7901,7 +7903,7 @@
    "n": 49,
    "meanClvProb": -0.0112,
    "pocket": {
-    "feature": "grade=A",
+    "feature": "edgeBar=1-2x",
     "n": 8,
     "meanClvProb": 0.0084,
     "tStat": 0.7
@@ -8379,7 +8381,7 @@
    "n": 32,
    "meanClvProb": -0.024,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 8,
     "meanClvProb": 0.0111,
     "tStat": 0.69
@@ -8412,7 +8414,7 @@
    "n": 51,
    "meanClvProb": -0.0201,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 14,
     "meanClvProb": 0.0021,
     "tStat": 0.23
@@ -8694,7 +8696,7 @@
    "n": 17,
    "meanClvProb": -0.0073,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 9,
     "meanClvProb": 0.0069,
     "tStat": 0.36
@@ -8783,7 +8785,7 @@
    "n": 26,
    "meanClvProb": -0.0049,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 16,
     "meanClvProb": 0.0029,
     "tStat": 0.21
@@ -8825,7 +8827,7 @@
    "n": 26,
    "meanClvProb": -0.0224,
    "pocket": {
-    "feature": "grade=C",
+    "feature": "edgeBar=<0.5x",
     "n": 8,
     "meanClvProb": 0.003,
     "tStat": 0.42
