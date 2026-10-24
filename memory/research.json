@@ -1,12 +1,9 @@
 {
- "asOf": "2026-10-24T23:09:54Z",
+ "asOf": "2026-10-24T23:24:42Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 493,
  "loggedReads": 952,
- "newPatternsThisRun": [
-  "scan-nba-h2h-home-restawayb2b-60ea66",
-  "scan-nba-spread-home-restawayb2b-7f68d5"
- ],
+ "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md)."
@@ -101,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 2521,
-  "latest": "2026-10-24T23:09:25Z",
+  "linesLastCycle": 2513,
+  "latest": "2026-10-24T23:24:33Z",
   "rowsWithHistory": 642,
   "alarm": false
  },
@@ -8047,8 +8044,8 @@
      "news-lag": 3,
      "learned-nhl-over": 1,
      "learned-nba-total": 1,
-     "edge-stack": 1,
-     "wind-total": 1
+     "scan-nba-h2h-home-restawayb2b-60ea66": 1,
+     "scan-nba-spread-home-restawayb2b-7f68d5": 1
     },
     "prePickFeature": null,
     "prePickFeatureClv": null
@@ -9301,7 +9298,7 @@
    "n": 81,
    "meanClvProb": -0.0103,
    "pocket": {
-    "feature": "sharpGapPick=<1%",
+    "feature": "sharpDivPick=aligned",
     "n": 9,
     "meanClvProb": 0.0056,
     "tStat": 0.28
@@ -10327,5 +10324,5 @@
    "pairsTested": 2
   }
  ],
- "hypothesesAdded": 10
+ "hypothesesAdded": 0
 }
