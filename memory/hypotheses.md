@@ -242,3 +242,13 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-24 | NCAAF: role=dog + travel=500-1500 | 9 | +2.1% | found inside NCAAF travel=500-1500 (best of 25 features tested); small sample, may share reads with other rows |
 | 2026-10-24 | NCAAF: travel=<500 + venue=home | 8 | +6.2% | found inside NCAAF travel=<500 (best of 26 features tested); small sample, may share reads with other rows |
 | 2026-10-24 | edgeBar=0.5-1x + restEdge=more | 11 | +1.2% | found inside ALL restEdge=more (best of 35 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | edgeBar=1-2x + travelEdge=more | 8 | +2.1% | found inside ALL edgeBar=1-2x (best of 27 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | moveBeforePick=against + role=fav | 8 | +0.2% | found inside ALL edgeBar=<0.5x (best of 18 pairs tested); small sample, may share reads with other rows |
+| 2026-10-24 | keyNumber=yes + travelEdge=even | 8 | +2.9% | found inside ALL keyNumber=yes (best of 28 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | sport=NHL + tzShift=east | 8 | +0.3% | found inside ALL tzShift=east (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | keyNumber=yes + tzShift=none | 15 | +1.6% | found inside ALL tzShift=none (best of 45 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | grade=B + tzShift=west | 8 | +2.2% | found inside ALL tzShift=west (best of 20 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | moveBeforePick=for + role=dog | 11 | +0.4% | found inside ALL venue=home (best of 11 pairs tested); small sample, may share reads with other rows |
+| 2026-10-24 | NCAAF: restEdge=even + travel=500-1500 | 9 | +1.0% | found inside NCAAF restEdge=even (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NCAAF: keyNumber=yes + tzShift=west | 8 | +1.1% | found inside NCAAF tzShift=west (best of 13 features tested); small sample, may share reads with other rows |
+| 2026-10-24 | NHL: timing=day + travelEdge=more | 8 | +0.5% | found inside NHL timing=day (best of 29 features tested); small sample, may share reads with other rows |
