@@ -68156,6 +68156,252 @@
         "goalie": "Jackets: Jet Greaves (expected) at the open, now Cam Talbot (confirmed), GSAx/60 +0.21 to -0.30"
       },
       "bestAtPick": null
+    },
+    {
+      "pickId": "NHL|2026-10-24|San Jose Sharks at Boston Bruins|total|none|v1|pass|goalie-news|2026-10-24T16:24:33Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "NHL|2026-10-24|San Jose Sharks at Boston Bruins|total",
+      "sport": "NHL",
+      "event": "San Jose Sharks at Boston Bruins",
+      "commence": "2026-10-24T23:10:00Z",
+      "market": "total",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": 6.5,
+      "priceBook": null,
+      "marketPrices": {
+        "over": -108,
+        "under": -112
+      },
+      "priceTime": "2026-10-24T16:24:29Z",
+      "pickedAt": "2026-10-24T16:24:33Z",
+      "fair": 0.487,
+      "projection": 0.487,
+      "edge": -0.011,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Sharks: Yaroslav Askarov (expected) at the open, now Alex Nedeljkovic (confirmed), GSAx/60 -0.22 to +0.09. Open over 6.5 0.505, expected goals -0.11, fair over 0.487.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": 6.5,
+        "prices": {
+          "over": -104,
+          "under": -108
+        },
+        "updated": "2026-10-24T16:24:27Z",
+        "snapTime": "2026-10-24T16:24:29Z"
+      },
+      "contextAtPick": {
+        "goalie": "Sharks: Yaroslav Askarov (expected) at the open, now Alex Nedeljkovic (confirmed), GSAx/60 -0.22 to +0.09"
+      },
+      "bestAtPick": null
+    },
+    {
+      "pickId": "NHL|2026-10-24|San Jose Sharks at Boston Bruins|h2h|away|v1|lean|goalie-news|2026-10-24T16:24:33Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NHL|2026-10-24|San Jose Sharks at Boston Bruins|h2h",
+      "sport": "NHL",
+      "event": "San Jose Sharks at Boston Bruins",
+      "commence": "2026-10-24T23:10:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 160,
+      "marketNumber": null,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "home": -192,
+        "away": 160
+      },
+      "priceTime": "2026-10-24T16:24:29Z",
+      "pickedAt": "2026-10-24T16:24:33Z",
+      "fair": 0.609,
+      "projection": 0.609,
+      "edge": 0.006,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Sharks: Yaroslav Askarov (expected) at the open, now Alex Nedeljkovic (confirmed), GSAx/60 -0.22 to +0.09. Open home win 0.628, goalie change -0.019, fair 0.609.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -182,
+          "away": 163
+        },
+        "updated": "2026-10-24T16:24:27Z",
+        "snapTime": "2026-10-24T16:24:29Z",
+        "noVig": 0.3674
+      },
+      "contextAtPick": {
+        "goalie": "Sharks: Yaroslav Askarov (expected) at the open, now Alex Nedeljkovic (confirmed), GSAx/60 -0.22 to +0.09"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": 160,
+        "line": null,
+        "implied": 0.3846,
+        "printImplied": 0.3846
+      }
+    },
+    {
+      "pickId": "NCAAF|2026-10-31|Northwestern Wildcats at Oregon Ducks|spread|away|v1|learned-ncaaf-spread",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-10-31|Northwestern Wildcats at Oregon Ducks|spread",
+      "sport": "NCAAF",
+      "event": "Northwestern Wildcats at Oregon Ducks",
+      "commence": "2026-10-31T16:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 7.5,
+      "priceAtPick": -110,
+      "marketNumber": -7.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "home": -110,
+        "away": -110
+      },
+      "priceTime": "2026-10-24T15:54:25Z",
+      "pickedAt": "2026-10-24T16:24:36Z",
+      "fair": -5.954,
+      "projection": -5.954,
+      "edge": 1.546,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-ncaaf-spread",
+      "reason": "Learned college model (ridge, 330 data points, trained on CFBD history) predicts the spread moves +1.55 from the open; open -7.5, now -7.5, 1.55 still to come. Fair -5.95. Report: stats/models/ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": null,
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -110,
+        "line": -7.5,
+        "implied": 0.5238,
+        "printImplied": 0.5238
+      }
+    },
+    {
+      "pickId": "NCAAF|2026-10-31|Notre Dame Fighting Irish at Navy Midshipmen|total|under|v1|lean|learned-ncaaf-total|2026-10-24T16:24:36Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NCAAF|2026-10-31|Notre Dame Fighting Irish at Navy Midshipmen|total",
+      "sport": "NCAAF",
+      "event": "Notre Dame Fighting Irish at Navy Midshipmen",
+      "commence": "2026-10-31T16:00:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 53.5,
+      "priceAtPick": -110,
+      "marketNumber": 53.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -110,
+        "under": -110
+      },
+      "priceTime": "2026-10-24T15:54:25Z",
+      "pickedAt": "2026-10-24T16:24:36Z",
+      "fair": 52.621,
+      "projection": 52.621,
+      "edge": 0.879,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-ncaaf-total",
+      "reason": "Learned college model (ridge, 330 data points, trained on CFBD history) predicts the total moves -0.88 from the open; open 53.5, now 53.5, 0.88 still to come. Fair 52.62. Report: stats/models/ncaaf_total.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": null,
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -110,
+        "line": 53.5,
+        "implied": 0.5238,
+        "printImplied": 0.5238
+      }
+    },
+    {
+      "pickId": "NHL|2026-10-24|San Jose Sharks at Boston Bruins|h2h|away|v1|lean|edge-stack|2026-10-24T16:24:38Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NHL|2026-10-24|San Jose Sharks at Boston Bruins|h2h",
+      "sport": "NHL",
+      "event": "San Jose Sharks at Boston Bruins",
+      "commence": "2026-10-24T23:10:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 160,
+      "marketNumber": null,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "home": -192,
+        "away": 160
+      },
+      "priceTime": "2026-10-24T16:24:29Z",
+      "pickedAt": "2026-10-24T16:24:38Z",
+      "fair": 0.612,
+      "projection": 0.612,
+      "edge": 0.003,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "edge-stack",
+      "reason": "Edge stack (2 sources, x0.85 for overlap): goalie-news -0.027; opening drift -0.001. Fair 0.612.",
+      "falsifier": "The line closes at or past the current number on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "edge_stack.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -182,
+          "away": 163
+        },
+        "updated": "2026-10-24T16:24:27Z",
+        "snapTime": "2026-10-24T16:24:29Z",
+        "noVig": 0.3674
+      },
+      "contextAtPick": {
+        "goalie": "Sharks: Yaroslav Askarov (expected) at the open, now Alex Nedeljkovic (confirmed), GSAx/60 -0.22 to +0.09"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": 160,
+        "line": null,
+        "implied": 0.3846,
+        "printImplied": 0.3846
+      }
     }
   ]
 }
