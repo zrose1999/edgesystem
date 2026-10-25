@@ -335,3 +335,19 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-25 | NFL: role=dog + venue=home | 8 | +0.2% | found inside NFL restEdge=even (best of 9 pairs tested); small sample, may share reads with other rows |
 | 2026-10-25 | NFL: restDays=long + timing=early | 9 | +4.5% | found inside NFL timing=early (best of 28 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | NFL: edgeBar=0.5-1x + restDays=long | 8 | +2.3% | found inside NFL edgeBar=0.5-1x (best of 21 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | edgeBar=0.5-1x + sharpGapPick=2%+ | 8 | +3.2% | found inside ALL edgeBar=0.5-1x (best of 67 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | grade=A + restEdge=more | 9 | +1.5% | found inside ALL grade=A (best of 35 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | grade=B + sharpGapPick=2%+ | 8 | +3.2% | found inside ALL grade=B (best of 63 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | market=h2h + sharpGapOpen=2%+ | 8 | +2.0% | found inside ALL market=h2h (best of 50 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | pattern=sharp-soft + sharpDiv=aligned | 8 | +0.6% | found inside ALL sharpDiv=aligned (best of 7 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | pattern=sharp-soft + sharpGapOpen=<1% | 8 | +0.6% | found inside ALL sharpGapOpen=<1% (best of 7 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NBA: pattern=learned-scan-nba-spread + venue=home | 8 | +3.0% | found inside NBA venue=home (best of 32 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: edgeBar=0.5-1x + role=dog | 12 | +2.1% | found inside NFL edgeBar=0.5-1x (best of 21 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: injury=any + restEdge=more | 8 | +3.1% | found inside NFL injury=any (best of 25 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: moveBeforePick=none + restDays=long | 8 | +4.9% | found inside NFL moveBeforePick=none (best of 27 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: restEdge=more + role=dog | 8 | +6.4% | found inside NFL role=dog (best of 17 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: edgeBar=0.5-1x + timing=early | 9 | +2.1% | found inside NFL role=dog (best of 2 pairs tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: restEdge=more + timing=early | 13 | +3.1% | found inside NFL timing=early (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: restDays=long + venue=away | 9 | +5.3% | found inside NFL venue=away (best of 19 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NHL: restDays=2+days + venue=away | 8 | +0.9% | found inside NHL restDays=2+days (best of 12 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NHL: restEdge=more + venue=away | 8 | +1.1% | found inside NHL venue=away (best of 24 features tested); small sample, may share reads with other rows |
