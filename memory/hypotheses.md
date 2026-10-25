@@ -311,3 +311,5 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-25 | NBA: travelEdge=more + venue=home | 20 | +2.5% | found inside NBA venue=home (best of 31 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | NHL: edgeBar=<0.5x + travelEdge=less | 8 | +0.2% | found inside NHL edgeBar=<0.5x (best of 27 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | NHL: pattern=learned-nhl-ml + travel=<500 | 12 | +0.1% | found inside NHL travel=<500 (best of 20 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | bookAtPick=FanDuel + timing=day | 12 | +0.5% | found inside ALL bookAtPick=FanDuel (best of 8 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | bookAtPick=Caesars + venue=away | 10 | +1.5% | found inside ALL venue=away (best of 53 features tested); small sample, may share reads with other rows |
