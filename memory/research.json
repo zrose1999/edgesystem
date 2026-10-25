@@ -1,12 +1,9 @@
 {
- "asOf": "2026-10-25T18:18:55Z",
+ "asOf": "2026-10-25T18:54:33Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 625,
  "loggedReads": 1281,
- "newPatternsThisRun": [
-  "learned-soccer-1x2",
-  "sharp-soft"
- ],
+ "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md)."
@@ -14,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 757,
-   "with": 539,
+   "reads": 761,
+   "with": 540,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 757,
-   "with": 757,
+   "reads": 761,
+   "with": 761,
    "alarm": false
   }
  },
@@ -101,9 +98,9 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1910,
-  "latest": "2026-10-25T18:18:36Z",
-  "rowsWithHistory": 688,
+  "linesLastCycle": 1815,
+  "latest": "2026-10-25T18:54:26Z",
+  "rowsWithHistory": 690,
   "alarm": false
  },
  "interactionCoverage": {
@@ -8797,8 +8794,8 @@
      "MLS": 2,
      "UCL": 2,
      "ATP": 1,
-     "LaLiga": 1,
-     "Bundesliga": 1
+     "Bundesliga": 1,
+     "LaLiga": 1
     },
     "topPatterns": {
      "news-lag": 70,
@@ -9232,7 +9229,7 @@
    "n": 62,
    "meanClvProb": -0.0067,
    "pocket": {
-    "feature": "edgeBar=1-2x",
+    "feature": "grade=A",
     "n": 8,
     "meanClvProb": 0.0084,
     "tStat": 0.7
@@ -10116,7 +10113,7 @@
    "n": 22,
    "meanClvProb": -0.017,
    "pocket": {
-    "feature": "tzShift=none",
+    "feature": "travelEdge=less",
     "n": 10,
     "meanClvProb": 0.0185,
     "tStat": 1.02
@@ -10130,7 +10127,7 @@
    "n": 31,
    "meanClvProb": -0.0069,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 11,
     "meanClvProb": 0.0173,
     "tStat": 0.99
@@ -10163,7 +10160,7 @@
    "n": 45,
    "meanClvProb": -0.0047,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 11,
     "meanClvProb": 0.0118,
     "tStat": 0.64
@@ -10772,7 +10769,7 @@
    "n": 55,
    "meanClvProb": -0.0129,
    "pocket": {
-    "feature": "restEdge=more",
+    "feature": "restDays=long",
     "n": 8,
     "meanClvProb": 0.0229,
     "tStat": 0.8
@@ -11320,5 +11317,5 @@
    "pairsTested": 2
   }
  ],
- "hypothesesAdded": 21
+ "hypothesesAdded": 1
 }

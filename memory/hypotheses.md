@@ -334,3 +334,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-25 | NFL: pattern=stats-model + venue=away | 8 | +0.3% | found inside NFL pattern=stats-model (best of 19 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | NFL: role=dog + venue=home | 8 | +0.2% | found inside NFL restEdge=even (best of 9 pairs tested); small sample, may share reads with other rows |
 | 2026-10-25 | NFL: restDays=long + timing=early | 9 | +4.5% | found inside NFL timing=early (best of 28 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: edgeBar=0.5-1x + restDays=long | 8 | +2.3% | found inside NFL edgeBar=0.5-1x (best of 21 features tested); small sample, may share reads with other rows |
