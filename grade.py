@@ -94,6 +94,10 @@ def pin_close(close, pick):
 PROB_LINE_SPORTS = {"NHL", "MLB", "EPL", "UCL", "MLS", "LaLiga", "SerieA", "Bundesliga", "Ligue1", "UEL"}
 
 
+RESCORE_FIELDS = ("clvProb", "closeLine", "closePrice", "closeNoVig", "estimated", "clvPoints", "clvProbPrint",
+                  "clvProbPin", "closeNoVigPin", "clvBench", "clvProbBest", "clvProbAtPrintPrice")
+
+
 def score_pick(pick, close):
     """CLV three ways (2026-10-21): against the print book's close (clvProbPrint, the old score), against Pinnacle's
     close (clvProbPin), and at the best US price stamped at the pick (clvProbBest, same benchmark as clvProb).
@@ -256,8 +260,16 @@ def main():
             pick.setdefault("commenceAtPick", pick["commence"])
             pick["commence"] = row["commence"]
         close = row.get("closeSnap")
+        # Rows whose game moved to another date follow the live row (pull.reconcile_moved, 2026-10-25). A pick
+        # scored on the old row's own close (taken at the wrong kickoff, e.g. in play) is scored again on the
+        # live row's close, once per close; closeScoredAt records which close it was scored on.
+        if row.get("movedTo") and "clvBench" in pick and pick.get("closeScoredAt") != (close or {}).get("time"):
+            for k in RESCORE_FIELDS:
+                pick.pop(k, None)
         if close and pick["side"] in close and "clvBench" not in pick:
             score_pick(pick, close)
+            if row.get("movedTo"):
+                pick["closeScoredAt"] = close.get("time")
         if row.get("final") and "result" not in pick:
             pick["result"], pick["units"] = result(pick, row["score"])
             if pick.get("tier") == "official":

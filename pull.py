@@ -402,6 +402,51 @@ def row_for(rows, index, sport, game, market):
     return row
 
 
+CLOSE_FIELDS = ("closeSnap", "closeGapMin", "closeSource", "close", "closeLine", "closePrice", "closeTime", "closeBook")
+
+
+def reconcile_moved(rows, now):
+    """A game whose kickoff moves across a UTC date (TBD college placeholders 00:00Z/01:00Z/16:00Z, postponed
+    soccer) gets a new row under the new date; the old row kept the old kickoff and drifted (2026-10-25: the old
+    Colorado-Oklahoma State total row took a history close 55 minutes into the game, 62.5 against 55.5 at the
+    real kickoff, scoring two leans at -16.5% CLV; the old Kansas State-Arizona State row never closed). Rows that
+    share an Odds API event id and market now follow the most recently priced one: same kickoff, same close,
+    same score. The old row keeps its id, so picks stamped on it still find it; movedTo names the live row.
+    Returns how many old rows changed."""
+    groups = defaultdict(list)
+    for r in rows:
+        if r.get("eventId") and r.get("market"):
+            groups[(r["sport"], r["eventId"], r["market"])].append(r)
+    changed = 0
+    for group in groups.values():
+        if len(group) < 2:
+            continue
+        canon = max(group, key=lambda r: ((r.get("lastSnap") or {}).get("time") or "", r.get("openTime") or ""))
+        for r in group:
+            if r is canon:
+                r.pop("movedTo", None)
+                continue
+            before = (r.get("movedTo"), r.get("commence"), (r.get("closeSnap") or {}).get("time"), r.get("final"))
+            r["movedTo"] = canon["id"]
+            r["commence"] = canon.get("commence") or r.get("commence")
+            if "closeSnap" in canon:
+                for k in CLOSE_FIELDS:
+                    if k in canon:
+                        r[k] = canon[k] if not isinstance(canon[k], dict) else dict(canon[k])
+            elif "closeSnap" in r:
+                # The old row's own close was taken at the wrong kickoff. Drop it; the live row's close replaces it.
+                for k in CLOSE_FIELDS:
+                    r.pop(k, None)
+                r.update(close="missing", closeLine="missing", closePrice="missing", closeTime="missing",
+                         closeBook="missing")
+            if canon.get("final"):
+                r.update(score=dict(canon["score"]), final=True, result=canon.get("result"))
+            if before != (r.get("movedTo"), r.get("commence"), (r.get("closeSnap") or {}).get("time"), r.get("final")):
+                r["movedAt"] = now
+                changed += 1
+    return changed
+
+
 def find_game(data, row):
     for g in data:
         if row.get("eventId") and g.get("id") == row["eventId"]:
@@ -533,10 +578,11 @@ def pull(near=None):
     # 2a. Free closes (2026-10-19). Fast runs price every game in its last 3 hours, so a started game's last stored
     # snap is usually minutes before kickoff. Checked on 98 rows that had both: same line on 92, median price
     # difference 0, 94% within 5 cents. A snap that close to the start is the close; no history call is paid.
+    moved = reconcile_moved(rows, now)
     free = 0
     for row in rows:
         c, last = row.get("commence"), row.get("lastSnap")
-        if not c or c > now or "closeSnap" in row or not last or not last.get("time"):
+        if row.get("movedTo") or not c or c > now or "closeSnap" in row or not last or not last.get("time"):
             continue
         gap = (parse(c) - parse(last["time"])).total_seconds() / 60
         if 0 <= gap <= CLOSE_SNAP_MIN:
@@ -552,7 +598,7 @@ def pull(near=None):
     groups = defaultdict(list)
     for row in rows:
         c = row.get("commence")
-        if c and "closeSnap" not in row and floor <= c <= now and key_of(row):
+        if c and "closeSnap" not in row and not row.get("movedTo") and floor <= c <= now and key_of(row):
             # A row whose market is no longer pulled (old NHL puck lines) can never close. Skip it.
             pulled = {{"spreads": "spread", "totals": "total"}.get(m, m) for m in markets_for(key_of(row)).split(",")}
             if row.get("market") not in pulled:
@@ -631,13 +677,14 @@ def pull(near=None):
             row["result"] = f"{row['away']} {a:g}, {row['home']} {h:g}"
             scored += 1
 
+    moved += reconcile_moved(rows, now)   # again, so closes and scores taken this run reach the old rows now
     ledger["rows"] = rows
     ledger["asOfCt"] = now
     ledger["feed"] = "Odds API. DraftKings is the print. BetMGM line noted when it differs. FanDuel, Caesars and Pinnacle stored under books for the sharp-soft scan. Key is not in this file."
     ledger["credits"] = dict(CREDITS)
     save(LEDGER, ledger)
     print(json.dumps({"opened": opened, "closed": closed, "scored": scored, "rows": len(rows),
-                      "historyCalls": calls, "freeCloses": free, "snaps": snaps, "closesSkippedForCredits": skipped,
+                      "historyCalls": calls, "freeCloses": free, "movedRows": moved, "snaps": snaps, "closesSkippedForCredits": skipped,
                       "creditsRemaining": CREDITS["remaining"]}))
 
 
