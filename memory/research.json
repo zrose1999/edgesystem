@@ -1,13 +1,9 @@
 {
- "asOf": "2026-10-25T00:58:02Z",
+ "asOf": "2026-10-25T01:24:36Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 540,
  "loggedReads": 1004,
- "newPatternsThisRun": [
-  "rest-spot",
-  "scan-nba-h2h-home-restawayb2brestedgehomemore-a2651e",
-  "scan-nba-spread-home-restawayb2brestedgehomemore-ee7657"
- ],
+ "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md)."
@@ -15,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 659,
+   "reads": 663,
    "with": 516,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 659,
-   "with": 659,
+   "reads": 663,
+   "with": 663,
    "alarm": false
   }
  },
@@ -102,9 +98,9 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 2417,
-  "latest": "2026-10-25T00:57:30Z",
-  "rowsWithHistory": 643,
+  "linesLastCycle": 2347,
+  "latest": "2026-10-25T01:24:27Z",
+  "rowsWithHistory": 644,
   "alarm": false
  },
  "interactionCoverage": {
@@ -8070,8 +8066,8 @@
     "topPatterns": {
      "news-lag": 9,
      "nba-stats-model": 3,
-     "scan-nba-spread-home-restawayb2b-7f68d5": 2,
      "scan-nba-h2h-home-restawayb2b-60ea66": 2,
+     "scan-nba-spread-home-restawayb2b-7f68d5": 2,
      "ncaaf-total-move": 1
     },
     "prePickFeature": "timing=early",
@@ -9512,7 +9508,7 @@
    "n": 20,
    "meanClvProb": -0.0119,
    "pocket": {
-    "feature": "tzShift=none",
+    "feature": "travelEdge=less",
     "n": 10,
     "meanClvProb": 0.0185,
     "tStat": 1.02
@@ -10681,5 +10677,5 @@
    "pairsTested": 2
   }
  ],
- "hypothesesAdded": 44
+ "hypothesesAdded": 1
 }

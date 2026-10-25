@@ -296,3 +296,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-25 | NHL: restEdge=more + timing=day | 8 | +0.9% | found inside NHL timing=day (best of 32 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | NHL: pattern=learned-nhl-ml + travelEdge=more | 9 | +0.3% | found inside NHL travelEdge=more (best of 9 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | NHL: bookAtPick=DraftKings + tzShift=none | 11 | +0.4% | found inside NHL tzShift=none (best of 15 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NBA: restDays=b2b + travelEdge=less | 10 | +1.8% | found inside NBA restDays=b2b (best of 12 features tested); small sample, may share reads with other rows |
