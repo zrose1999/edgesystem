@@ -352,3 +352,9 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-25 | NHL: restDays=2+days + venue=away | 8 | +0.9% | found inside NHL restDays=2+days (best of 12 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | NHL: restEdge=more + venue=away | 8 | +1.1% | found inside NHL venue=away (best of 24 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | NFL: restEdge=more + venue=away | 9 | +5.3% | found inside NFL venue=away (best of 19 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | bookAtPick=DraftKings + role=dog | 11 | +2.1% | found inside ALL bookAtPick=DraftKings (best of 25 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | restDays=2+days + role=fav | 36 | +1.5% | found inside ALL role=fav (best of 52 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | sharpGapPick=2%+ + venue=away | 8 | +1.7% | found inside ALL venue=away (best of 57 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NBA: moveBeforePick=none + pattern=learned-scan-nba-spread | 10 | +2.8% | found inside NBA moveBeforePick=none (best of 37 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NBA: role=fav + venue=home | 26 | +0.6% | found inside NBA rest=yes (best of 3 pairs tested); small sample, may share reads with other rows |
+| 2026-10-25 | NBA: restEdge=more + travelEdge=more | 26 | +2.8% | found inside NBA restEdge=more (best of 24 features tested); small sample, may share reads with other rows |
