@@ -82436,6 +82436,157 @@
         "printImplied": 0.5238
       },
       "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NBA|2026-10-25|Detroit Pistons at Philadelphia 76ers|total|under|v1|lean|news-lag|2026-10-25T21:24:32Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NBA|2026-10-25|Detroit Pistons at Philadelphia 76ers|total",
+      "sport": "NBA",
+      "event": "Detroit Pistons at Philadelphia 76ers",
+      "commence": "2026-10-25T23:40:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 228.5,
+      "priceAtPick": -110,
+      "marketNumber": 228.5,
+      "priceBook": "BetMGM",
+      "marketPrices": {
+        "over": -105,
+        "under": -115
+      },
+      "priceTime": "2026-10-25T21:24:29Z",
+      "pickedAt": "2026-10-25T21:24:32Z",
+      "fair": 227.65,
+      "projection": 227.65,
+      "edge": 0.85,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "LeBron James (76Ers, worth 3.02): weight 1 at the open, 0 now, -3.02 spread, +1.81 total | Joel Embiid (76Ers, worth 3.82): weight 0.4 at the open, 1 now, +2.29 spread, -1.38 total | VJ Edgecombe (76Ers, worth 1.16): weight 0 at the open, 0.5 now, +0.58 spread, -0.35 total | Ausar Thompson (Pistons, worth 1.08): weight 0.5 at the open, 0.4 now, -0.11 spread, +0.06 total. Open total 227.5, fair 227.65.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before tip-off.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury_nba.py",
+      "pinAtPick": {
+        "line": 228.5,
+        "prices": {
+          "over": -103,
+          "under": -109
+        },
+        "updated": "2026-10-25T21:24:11Z",
+        "snapTime": "2026-10-25T21:24:29Z",
+        "noVig": 0.5071
+      },
+      "contextAtPick": {
+        "injury": "LeBron James (76Ers, worth 3.02): weight 1 at the open, 0 now, -3.02 spread, +1.81 total | Joel Embiid (76Ers, worth 3.82): weight 0.4 at the open, 1 now, +2.29 spread, -1.38 total | VJ Edgecombe (76Ers, worth 1.16): weight 0 at the open, 0.5 now, +0.58 spread, -0.35 total | Ausar Thompson (Pistons, worth 1.08): weight 0.5 at the open, 0.4 now, -0.11 spread, +0.06 total"
+      },
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": -110,
+        "line": 228.5,
+        "implied": 0.5238,
+        "printImplied": 0.5349
+      }
+    },
+    {
+      "pickId": "NHL|2026-10-25|Montr\u00e9al Canadiens at Winnipeg Jets|total|none|v1|pass|goalie-news|2026-10-25T21:24:32Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "NHL|2026-10-25|Montr\u00e9al Canadiens at Winnipeg Jets|total",
+      "sport": "NHL",
+      "event": "Montr\u00e9al Canadiens at Winnipeg Jets",
+      "commence": "2026-10-25T23:10:00Z",
+      "market": "total",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": 5.5,
+      "priceBook": null,
+      "marketPrices": {
+        "over": -130,
+        "under": 106
+      },
+      "priceTime": "2026-10-25T21:24:29Z",
+      "pickedAt": "2026-10-25T21:24:32Z",
+      "fair": 0.534,
+      "projection": 0.534,
+      "edge": -0.01,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Canadiens: Jakub Dobes (expected) at the open, now Jacob Fowler (confirmed), GSAx/60 +0.13 to +0.31. Open over 5.5 0.544, expected goals -0.06, fair over 0.534.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": 6.0,
+        "prices": {
+          "over": 102,
+          "under": -115
+        },
+        "updated": "2026-10-25T21:24:15Z",
+        "snapTime": "2026-10-25T21:24:29Z"
+      },
+      "contextAtPick": {
+        "goalie": "Canadiens: Jakub Dobes (expected) at the open, now Jacob Fowler (confirmed), GSAx/60 +0.13 to +0.31"
+      },
+      "bestAtPick": null
+    },
+    {
+      "pickId": "NHL|2026-10-25|Montr\u00e9al Canadiens at Winnipeg Jets|h2h|none|v1|pass|goalie-news|2026-10-25T21:24:32Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "NHL|2026-10-25|Montr\u00e9al Canadiens at Winnipeg Jets|h2h",
+      "sport": "NHL",
+      "event": "Montr\u00e9al Canadiens at Winnipeg Jets",
+      "commence": "2026-10-25T23:10:00Z",
+      "market": "h2h",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": null,
+      "priceBook": null,
+      "marketPrices": {
+        "home": -102,
+        "away": -118
+      },
+      "priceTime": "2026-10-25T21:24:29Z",
+      "pickedAt": "2026-10-25T21:24:32Z",
+      "fair": 0.471,
+      "projection": 0.471,
+      "edge": -0.012,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Canadiens: Jakub Dobes (expected) at the open, now Jacob Fowler (confirmed), GSAx/60 +0.13 to +0.31. Open home win 0.482, goalie change -0.010, fair 0.471.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 103,
+          "away": -114
+        },
+        "updated": "2026-10-25T21:24:15Z",
+        "snapTime": "2026-10-25T21:24:29Z"
+      },
+      "contextAtPick": {
+        "goalie": "Canadiens: Jakub Dobes (expected) at the open, now Jacob Fowler (confirmed), GSAx/60 +0.13 to +0.31"
+      },
+      "bestAtPick": null
     }
   ]
 }
