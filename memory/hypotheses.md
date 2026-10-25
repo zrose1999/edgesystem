@@ -299,3 +299,15 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-25 | NBA: restDays=b2b + travelEdge=less | 10 | +1.8% | found inside NBA restDays=b2b (best of 12 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | NBA: grade=B + role=dog | 11 | +1.2% | found inside NBA role=dog (best of 28 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | NCAAF: grade=B + moveBeforePick=for | 8 | +3.2% | found inside NCAAF moveBeforePick=for (best of 23 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | grade=C + restDays=2+days | 46 | +0.8% | found inside ALL grade=C (best of 62 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | rest=yes + role=fav | 25 | +0.7% | found inside ALL grade=C (best of 24 pairs tested); small sample, may share reads with other rows |
+| 2026-10-25 | market=spread + pattern=learned-scan-nba-spread | 9 | +3.3% | found inside ALL market=spread (best of 51 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | moveBeforePick=none + pattern=learned-scan-nba-spread | 9 | +3.3% | found inside ALL moveBeforePick=none (best of 60 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | moveBeforePick=none + role=fav | 13 | +1.1% | found inside ALL rest=yes (best of 4 pairs tested); small sample, may share reads with other rows |
+| 2026-10-25 | NBA: edgeBar=0.5-1x + market=h2h | 8 | +2.4% | found inside NBA edgeBar=0.5-1x (best of 30 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NBA: rest=yes + role=fav | 22 | +0.5% | found inside NBA edgeBar=<0.5x (best of 10 pairs tested); small sample, may share reads with other rows |
+| 2026-10-25 | NBA: rest=yes + restDays=2+days | 12 | +5.3% | found inside NBA restDays=2+days (best of 37 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NBA: role=fav + travelEdge=more | 19 | +4.0% | found inside NBA role=fav (best of 28 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NBA: travelEdge=more + venue=home | 20 | +2.5% | found inside NBA venue=home (best of 31 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NHL: edgeBar=<0.5x + travelEdge=less | 8 | +0.2% | found inside NHL edgeBar=<0.5x (best of 27 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NHL: pattern=learned-nhl-ml + travel=<500 | 12 | +0.1% | found inside NHL travel=<500 (best of 20 features tested); small sample, may share reads with other rows |
