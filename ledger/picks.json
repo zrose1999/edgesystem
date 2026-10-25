@@ -77840,6 +77840,373 @@
         "printImplied": 0.5238
       },
       "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NFL|2026-10-25|Miami Dolphins at New York Jets|spread|away|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NFL|2026-10-25|Miami Dolphins at New York Jets|spread",
+      "sport": "NFL",
+      "event": "Miami Dolphins at New York Jets",
+      "commence": "2026-10-25T17:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 3.5,
+      "priceAtPick": 100,
+      "bookAtPick": "DraftKings",
+      "marketNumber": -3.5,
+      "marketPrices": {
+        "home": -120,
+        "away": 100
+      },
+      "priceTime": "2026-10-25T16:24:27Z",
+      "pickedAt": "2026-10-25T16:24:28Z",
+      "fair": 0.5166,
+      "projection": 0.5166,
+      "edge": 0.0166,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "DraftKings away +3.5 +100 implies 50.0%. Pinnacle -112 no-vig is 51.7%. Edge +1.7%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": -3.5,
+        "prices": {
+          "home": 102,
+          "away": -112
+        },
+        "updated": "2026-10-25T16:24:17Z",
+        "snapTime": "2026-10-25T16:24:27Z",
+        "noVig": 0.5166
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 2.0,
+          "pop": 0,
+          "text": "Sunny",
+          "heavy": false,
+          "temp": 64,
+          "value": 0.0,
+          "asOf": "2026-10-25T14:57:32Z",
+          "venue": "MetLife Stadium"
+        },
+        "injury": "NYJ defensive starter Jarvis Brownlee Jr.: Active at the open, Out now, +0.25 spread | NYJ defensive starter T'Vondre Sweat: Questionable at the open, Active now, -0.12 spread | NYJ defensive starter Kiko Mauigoa: Questionable at the open, Injured Reserve now, +0.12 spread | MIA OL starter Jonah Savaiinaea: Questionable at the open, Active now, -0.12 spread | MIA defensive starter Willie Gay Jr.: Questionable at the open, Out now, +0.12 spread | MIA defensive starter JuJu Brents: Questionable at the open, Active now, -0.12 spread"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": 100,
+        "line": -3.5,
+        "implied": 0.5,
+        "printImplied": 0.5
+      },
+      "priceBook": "DraftKings"
+    },
+    {
+      "pickId": "NFL|2026-10-25|San Francisco 49ers at Atlanta Falcons|spread|away|v1|reread|news-lag|2026-10-25T16:24:28Z",
+      "kind": "reread",
+      "grade": "C",
+      "rowId": "NFL|2026-10-25|San Francisco 49ers at Atlanta Falcons|spread",
+      "sport": "NFL",
+      "event": "San Francisco 49ers at Atlanta Falcons",
+      "commence": "2026-10-25T17:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": -2.5,
+      "priceAtPick": -115,
+      "marketNumber": 2.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-10-25T16:24:27Z",
+      "pickedAt": "2026-10-25T16:24:28Z",
+      "fair": 3.5,
+      "projection": 3.5,
+      "edge": 1.0,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "ATL QB Michael Penix Jr., weak (-0.14 EPA/dropback): Questionable at the open, Active now, -0.50 spread, +1.12 total | ATL defensive starter Za'Darius Smith: Questionable at the open, Active now, -0.12 spread | ATL defensive starter Divine Deablo: Active at the open, Out now, +0.25 spread | ATL defensive starter A.J. Terrell Jr.: Injured Reserve at the open, Active now, -0.25 spread | ATL defensive starter C.J. Henderson: Questionable at the open, Active now, -0.12 spread | ATL defensive starter Gervon Dexter Sr.: Questionable at the open, Active now, -0.12 spread | ATL defensive starter Billy Bowman Jr.: Questionable at the open, Out now, +0.12 spread | ATL defensive starter Kendal Daniels: Questionable at the open, Active now, -0.12 spread | SF WR1 Mike Evans: Active at the open, Out now, +0.50 spread, -0.50 total | SF OL starter Colton McKivitz: Questionable at the open, Active now, -0.12 spread | SF defensive starter Dre Greenlaw: Suspension at the open, Active now, -0.25 spread | SF defensive starter Nick Bosa: Questionable at the open, Out now, +0.12 spread | SF defensive starter Gracen Halton: Questionable at the open, Active now, -0.12 spread. Open home line +4.5, fair +3.50.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before kickoff.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury.py",
+      "pinAtPick": {
+        "line": 2.5,
+        "prices": {
+          "home": 104,
+          "away": -115
+        },
+        "updated": "2026-10-25T16:24:17Z",
+        "snapTime": "2026-10-25T16:24:27Z",
+        "noVig": 0.5223
+      },
+      "contextAtPick": {
+        "injury": "ATL QB Michael Penix Jr., weak (-0.14 EPA/dropback): Questionable at the open, Active now, -0.50 spread, +1.12 total | ATL defensive starter Za'Darius Smith: Questionable at the open, Active now, -0.12 spread | ATL defensive starter Divine Deablo: Active at the open, Out now, +0.25 spread | ATL defensive starter A.J. Terrell Jr.: Injured Reserve at the open, Active now, -0.25 spread | ATL defensive starter C.J. Henderson: Questionable at the open, Active now, -0.12 spread | ATL defensive starter Gervon Dexter Sr.: Questionable at the open, Active now, -0.12 spread | ATL defensive starter Billy Bowman Jr.: Questionable at the open, Out now, +0.12 spread | ATL defensive starter Kendal Daniels: Questionable at the open, Active now, -0.12 spread | SF WR1 Mike Evans: Active at the open, Out now, +0.50 spread, -0.50 total | SF OL starter Colton McKivitz: Questionable at the open, Active now, -0.12 spread | SF defensive starter Dre Greenlaw: Suspension at the open, Active now, -0.25 spread | SF defensive starter Nick Bosa: Questionable at the open, Out now, +0.12 spread | SF defensive starter Gracen Halton: Questionable at the open, Active now, -0.12 spread"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -115,
+        "line": 2.5,
+        "implied": 0.5349,
+        "printImplied": 0.5349
+      },
+      "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NFL|2026-10-25|San Francisco 49ers at Atlanta Falcons|total|over|v1|reread|news-lag|2026-10-25T16:24:28Z",
+      "kind": "reread",
+      "grade": "C",
+      "rowId": "NFL|2026-10-25|San Francisco 49ers at Atlanta Falcons|total",
+      "sport": "NFL",
+      "event": "San Francisco 49ers at Atlanta Falcons",
+      "commence": "2026-10-25T17:00:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 49.5,
+      "priceAtPick": -115,
+      "marketNumber": 49.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -115,
+        "under": -105
+      },
+      "priceTime": "2026-10-25T16:24:27Z",
+      "pickedAt": "2026-10-25T16:24:28Z",
+      "fair": 50.12,
+      "projection": 50.12,
+      "edge": 0.62,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "ATL QB Michael Penix Jr., weak (-0.14 EPA/dropback): Questionable at the open, Active now, -0.50 spread, +1.12 total | ATL defensive starter Za'Darius Smith: Questionable at the open, Active now, -0.12 spread | ATL defensive starter Divine Deablo: Active at the open, Out now, +0.25 spread | ATL defensive starter A.J. Terrell Jr.: Injured Reserve at the open, Active now, -0.25 spread | ATL defensive starter C.J. Henderson: Questionable at the open, Active now, -0.12 spread | ATL defensive starter Gervon Dexter Sr.: Questionable at the open, Active now, -0.12 spread | ATL defensive starter Billy Bowman Jr.: Questionable at the open, Out now, +0.12 spread | ATL defensive starter Kendal Daniels: Questionable at the open, Active now, -0.12 spread | SF WR1 Mike Evans: Active at the open, Out now, +0.50 spread, -0.50 total | SF OL starter Colton McKivitz: Questionable at the open, Active now, -0.12 spread | SF defensive starter Dre Greenlaw: Suspension at the open, Active now, -0.25 spread | SF defensive starter Nick Bosa: Questionable at the open, Out now, +0.12 spread | SF defensive starter Gracen Halton: Questionable at the open, Active now, -0.12 spread. Open total 49.5, fair 50.12.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before kickoff.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury.py",
+      "pinAtPick": {
+        "line": 50.0,
+        "prices": {
+          "over": 101,
+          "under": -113
+        },
+        "updated": "2026-10-25T16:24:17Z",
+        "snapTime": "2026-10-25T16:24:27Z",
+        "noVig": 0.4835
+      },
+      "contextAtPick": {
+        "injury": "ATL QB Michael Penix Jr., weak (-0.14 EPA/dropback): Questionable at the open, Active now, -0.50 spread, +1.12 total | ATL defensive starter Za'Darius Smith: Questionable at the open, Active now, -0.12 spread | ATL defensive starter Divine Deablo: Active at the open, Out now, +0.25 spread | ATL defensive starter A.J. Terrell Jr.: Injured Reserve at the open, Active now, -0.25 spread | ATL defensive starter C.J. Henderson: Questionable at the open, Active now, -0.12 spread | ATL defensive starter Gervon Dexter Sr.: Questionable at the open, Active now, -0.12 spread | ATL defensive starter Billy Bowman Jr.: Questionable at the open, Out now, +0.12 spread | ATL defensive starter Kendal Daniels: Questionable at the open, Active now, -0.12 spread | SF WR1 Mike Evans: Active at the open, Out now, +0.50 spread, -0.50 total | SF OL starter Colton McKivitz: Questionable at the open, Active now, -0.12 spread | SF defensive starter Dre Greenlaw: Suspension at the open, Active now, -0.25 spread | SF defensive starter Nick Bosa: Questionable at the open, Out now, +0.12 spread | SF defensive starter Gracen Halton: Questionable at the open, Active now, -0.12 spread"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -115,
+        "line": 49.5,
+        "implied": 0.5349,
+        "printImplied": 0.5349
+      },
+      "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NBA|2026-10-25|Detroit Pistons at Philadelphia 76ers|total|over|v1|lean|news-lag|2026-10-25T16:24:29Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NBA|2026-10-25|Detroit Pistons at Philadelphia 76ers|total",
+      "sport": "NBA",
+      "event": "Detroit Pistons at Philadelphia 76ers",
+      "commence": "2026-10-25T23:40:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 227.5,
+      "priceAtPick": -110,
+      "marketNumber": 227.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -110,
+        "under": -110
+      },
+      "priceTime": "2026-10-25T14:55:35Z",
+      "pickedAt": "2026-10-25T16:24:29Z",
+      "fair": 227.56,
+      "projection": 227.56,
+      "edge": 0.06,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "Ausar Thompson (Pistons, worth 1.08): weight 0.5 at the open, 0.4 now, -0.11 spread, +0.06 total. Open total 227.5, fair 227.56.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before tip-off.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury_nba.py",
+      "pinAtPick": {
+        "line": 227.5,
+        "prices": {
+          "over": -111,
+          "under": -102
+        },
+        "updated": "2026-10-25T14:55:33Z",
+        "snapTime": "2026-10-25T14:55:35Z",
+        "noVig": 0.5106
+      },
+      "contextAtPick": {
+        "injury": "Ausar Thompson (Pistons, worth 1.08): weight 0.5 at the open, 0.4 now, -0.11 spread, +0.06 total"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -110,
+        "line": 227.5,
+        "implied": 0.5238,
+        "printImplied": 0.5238
+      }
+    },
+    {
+      "pickId": "NHL|2026-10-26|Los Angeles Kings at New York Rangers|total|under|v1|learned-nhl-over|lean|2026-10-25T16:24:30Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NHL|2026-10-26|Los Angeles Kings at New York Rangers|total",
+      "sport": "NHL",
+      "event": "Los Angeles Kings at New York Rangers",
+      "commence": "2026-10-26T23:10:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 5.5,
+      "priceAtPick": 106,
+      "bookAtPick": "FanDuel",
+      "marketNumber": 5.5,
+      "marketPrices": {
+        "over": -125,
+        "under": 105
+      },
+      "priceTime": "2026-10-25T16:24:27Z",
+      "pickedAt": "2026-10-25T16:24:30Z",
+      "fair": 0.4927,
+      "projection": 0.4927,
+      "edge": 0.0073,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-nhl-over",
+      "reason": "Learned model (ridge, 191 data points, trained 2026-10-15) predicts the over 5.5 price moves -0.027 from the open; open 0.534, now 0.534, 0.027 still to come. Fair 0.507. Report: stats/models/nhl_over.json.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": null,
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 106,
+        "line": 5.5,
+        "implied": 0.4854,
+        "printImplied": 0.4878
+      },
+      "priceBook": "FanDuel",
+      "contextAtPick": {}
+    },
+    {
+      "pickId": "NHL|2026-10-27|Detroit Red Wings at Edmonton Oilers|h2h|away|v1|learned-nhl-ml",
+      "kind": "pick",
+      "grade": "A",
+      "rowId": "NHL|2026-10-27|Detroit Red Wings at Edmonton Oilers|h2h",
+      "sport": "NHL",
+      "event": "Detroit Red Wings at Edmonton Oilers",
+      "commence": "2026-10-27T01:40:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 168,
+      "bookAtPick": "FanDuel",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -185,
+        "away": 154
+      },
+      "priceTime": "2026-10-25T16:24:27Z",
+      "pickedAt": "2026-10-25T16:24:30Z",
+      "fair": 0.4044,
+      "projection": 0.4044,
+      "edge": 0.0312,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "learned-nhl-ml",
+      "reason": "Learned model (ridge, 191 data points, trained 2026-10-15) predicts the home win price moves -0.032 from the open; open 0.628, now 0.628, 0.032 still to come. Fair 0.596. Report: stats/models/nhl_ml.json.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": null,
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 168,
+        "line": null,
+        "implied": 0.3731,
+        "printImplied": 0.3937
+      },
+      "priceBook": "FanDuel",
+      "contextAtPick": {}
+    },
+    {
+      "pickId": "NHL|2026-10-26|Los Angeles Kings at New York Rangers|total|over|v1|lean|scan-nhl-total-over-total55-c4eaa6|2026-10-25T16:24:33Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NHL|2026-10-26|Los Angeles Kings at New York Rangers|total",
+      "sport": "NHL",
+      "event": "Los Angeles Kings at New York Rangers",
+      "commence": "2026-10-26T23:10:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 5.5,
+      "priceAtPick": -125,
+      "marketNumber": 5.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -125,
+        "under": 105
+      },
+      "priceTime": "2026-10-25T16:24:27Z",
+      "pickedAt": "2026-10-25T16:24:33Z",
+      "fair": 0.571,
+      "projection": 0.571,
+      "edge": 0.015,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "scan-nhl-total-over-total55-c4eaa6",
+      "reason": "Scanner strategy scan-nhl-total-over-total55-c4eaa6: NHL total over when total 5.5; measured open-to-close move +0.0193 for this side (+0.0111 beyond the league average; n 544, t +5.2) x0.8, 0.0154 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": null,
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -125,
+        "line": 5.5,
+        "implied": 0.5556,
+        "printImplied": 0.5556
+      }
     }
   ]
 }
