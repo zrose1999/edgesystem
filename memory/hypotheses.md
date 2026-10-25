@@ -351,3 +351,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-25 | NFL: restDays=long + venue=away | 9 | +5.3% | found inside NFL venue=away (best of 19 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | NHL: restDays=2+days + venue=away | 8 | +0.9% | found inside NHL restDays=2+days (best of 12 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | NHL: restEdge=more + venue=away | 8 | +1.1% | found inside NHL venue=away (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: restEdge=more + venue=away | 9 | +5.3% | found inside NFL venue=away (best of 19 features tested); small sample, may share reads with other rows |
