@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-25T02:24:35Z",
+ "asOf": "2026-10-25T02:54:35Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 540,
  "loggedReads": 1004,
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 666,
+   "reads": 668,
    "with": 519,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 666,
-   "with": 666,
+   "reads": 668,
+   "with": 668,
    "alarm": false
   }
  },
@@ -8602,7 +8602,7 @@
    "n": 56,
    "meanClvProb": -0.0084,
    "pocket": {
-    "feature": "edgeBar=1-2x",
+    "feature": "grade=A",
     "n": 8,
     "meanClvProb": 0.0084,
     "tStat": 0.7
@@ -9489,7 +9489,7 @@
    "n": 82,
    "meanClvProb": -0.0107,
    "pocket": {
-    "feature": "sharpGapPick=<1%",
+    "feature": "sharpDivPick=aligned",
     "n": 9,
     "meanClvProb": 0.0056,
     "tStat": 0.28
@@ -9522,7 +9522,7 @@
    "n": 31,
    "meanClvProb": -0.0069,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 11,
     "meanClvProb": 0.0173,
     "tStat": 0.99
@@ -9574,7 +9574,7 @@
    "n": 45,
    "meanClvProb": -0.0047,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 11,
     "meanClvProb": 0.0118,
     "tStat": 0.64
@@ -9889,7 +9889,7 @@
    "n": 42,
    "meanClvProb": -0.0116,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 8,
     "meanClvProb": 0.032,
     "tStat": 1.79
@@ -10016,7 +10016,7 @@
    "n": 47,
    "meanClvProb": -0.0083,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 17,
     "meanClvProb": 0.0193,
     "tStat": 1.43
@@ -10677,5 +10677,5 @@
    "pairsTested": 2
   }
  ],
- "hypothesesAdded": 0
+ "hypothesesAdded": 2
 }

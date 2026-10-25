@@ -297,3 +297,5 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-25 | NHL: pattern=learned-nhl-ml + travelEdge=more | 9 | +0.3% | found inside NHL travelEdge=more (best of 9 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | NHL: bookAtPick=DraftKings + tzShift=none | 11 | +0.4% | found inside NHL tzShift=none (best of 15 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | NBA: restDays=b2b + travelEdge=less | 10 | +1.8% | found inside NBA restDays=b2b (best of 12 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NBA: grade=B + role=dog | 11 | +1.2% | found inside NBA role=dog (best of 28 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NCAAF: grade=B + moveBeforePick=for | 8 | +3.2% | found inside NCAAF moveBeforePick=for (best of 23 features tested); small sample, may share reads with other rows |
