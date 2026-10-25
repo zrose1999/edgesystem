@@ -72280,6 +72280,50 @@
         "printImplied": 0.5122
       },
       "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-10-28|Sam Houston State Bearkats at Missouri State Bears|h2h|home|v1|lean|learned-scan-ncaaf-h2h|2026-10-25T00:24:36Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NCAAF|2026-10-28|Sam Houston State Bearkats at Missouri State Bears|h2h",
+      "sport": "NCAAF",
+      "event": "Sam Houston State Bearkats at Missouri State Bears",
+      "commence": "2026-10-28T00:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": -220,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -220,
+        "away": 180
+      },
+      "priceTime": "2026-10-25T00:24:28Z",
+      "pickedAt": "2026-10-25T00:24:36Z",
+      "fair": 0.7015,
+      "projection": 0.7015,
+      "edge": 0.014,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-h2h",
+      "reason": "Model learned on the scanner's data (ridge, 14 data points, passed the out-of-sample gate) predicts a move of +0.014 from the open for home; 0.014 still to come. Report: stats/models/scan_ncaaf_h2h.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": null,
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -220,
+        "line": null,
+        "implied": 0.6875,
+        "printImplied": 0.6875
+      }
     }
   ]
 }
