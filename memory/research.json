@@ -1,11 +1,9 @@
 {
- "asOf": "2026-10-25T11:12:49Z",
+ "asOf": "2026-10-25T11:24:35Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 570,
  "loggedReads": 1055,
- "newPatternsThisRun": [
-  "edge-stack"
- ],
+ "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md)."
@@ -100,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 2287,
-  "latest": "2026-10-25T11:09:29Z",
+  "linesLastCycle": 2302,
+  "latest": "2026-10-25T11:24:27Z",
   "rowsWithHistory": 674,
   "alarm": false
  },
@@ -9497,7 +9495,7 @@
    "n": 22,
    "meanClvProb": -0.017,
    "pocket": {
-    "feature": "tzShift=none",
+    "feature": "travelEdge=less",
     "n": 10,
     "meanClvProb": 0.0185,
     "tStat": 1.02
@@ -9511,7 +9509,7 @@
    "n": 31,
    "meanClvProb": -0.0069,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 11,
     "meanClvProb": 0.0173,
     "tStat": 0.99
@@ -9544,7 +9542,7 @@
    "n": 45,
    "meanClvProb": -0.0047,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 11,
     "meanClvProb": 0.0118,
     "tStat": 0.64
@@ -10626,5 +10624,5 @@
    "pairsTested": 2
   }
  ],
- "hypothesesAdded": 12
+ "hypothesesAdded": 0
 }
