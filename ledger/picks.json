@@ -73536,6 +73536,50 @@
         "printImplied": 0.5238
       },
       "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-01|Oregon State Beavers at Fresno State Bulldogs|spread|away|v1|lean|learned-ncaaf-spread|2026-10-25T03:24:32Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-01|Oregon State Beavers at Fresno State Bulldogs|spread",
+      "sport": "NCAAF",
+      "event": "Oregon State Beavers at Fresno State Bulldogs",
+      "commence": "2026-11-01T03:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": -6.5,
+      "priceAtPick": -122,
+      "marketNumber": 6.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": 100,
+        "away": -122
+      },
+      "priceTime": "2026-10-25T01:54:35Z",
+      "pickedAt": "2026-10-25T03:24:32Z",
+      "fair": 7.628,
+      "projection": 7.628,
+      "edge": 1.128,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-ncaaf-spread",
+      "reason": "Learned college model (ridge, 330 data points, trained on CFBD history) predicts the spread moves +1.13 from the open; open 6.5, now 6.5, 1.13 still to come. Fair 7.63. Report: stats/models/ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": null,
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -122,
+        "line": 6.5,
+        "implied": 0.5495,
+        "printImplied": 0.5495
+      }
     }
   ]
 }
