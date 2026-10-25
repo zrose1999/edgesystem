@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-10-25 18:54Z)
+# What EDGE is learning (2026-10-25 19:10Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 625 graded reads counted, 1281 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Scanner (scan.py, 10-25 14:57Z): 40 strategies tracking from 7736 hypotheses (0 new this run); 52 graded scan reads, mean CLV -0.3%. Shadow only; grade.py decides promotion.
@@ -18,12 +18,12 @@ Observation: edge size is not yet predicting CLV (A -1.6% on 70, B -0.7% on 195,
   > pocket: travelEdge=more inside grade A: n 10, CLV +1.3%, t +0.6 (best of 35 tested; a lead to watch)
   > order holds inside restDays=1day: A +0.3% on 12, B -0.9% on 36, C -1.5% on 74 (4 of 41 features tested)
 Why reads lost to the close (autopsy, post-pick; 424 of 625, cause known on 400): news-after-pick 34 (-4.8%), sharps-against-at-pick 7 (-3.5%), sharps-against-at-open 1 (-3.1%), bet-into-steam 8 (-2.3%), late-move 10 (-4.3%), number-off 340 (-3.3%), unknown 24 (-4.1%)
-Process vs result: right-and-rewarded 101, right-but-unlucky 85, lucky-win 176, market-was-right 219; right-but-unlucky losses hurt most by close-margin, flipped-late, goalie-outlier (results are noise at this sample; CLV decides)
+Process vs result: right-and-rewarded 102, right-but-unlucky 85, lucky-win 176, market-was-right 220; right-but-unlucky losses hurt most by close-margin, flipped-late, goalie-outlier (results are noise at this sample; CLV decides)
 Data gaps, waiting on a source: public-pct (needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack); guru (needs an account list + reader (Reddit API free, X API paid); log account, number, time, result)
 Coverage of added features (BREAKAGE if still 0 one health-check cycle after shipping):
-- snaps: 1815 price snapshots stored in the last 26h, latest 10-25 18:54Z, 690 games with 2+ (late steam, since 10-19 18:15Z)
-- pinAtPick on 173 of 249 graded reads since 10-19 18:00Z; 540 of 761 new reads stamped (Pinnacle at the pick)
-- contextAtPick on 249 of 249 graded reads since 10-19 18:00Z; 761 of 761 new reads stamped (weather/injury/goalie as stamped)
+- snaps: 1830 price snapshots stored in the last 26h, latest 10-25 19:09Z, 690 games with 2+ (late steam, since 10-19 18:15Z)
+- pinAtPick on 173 of 249 graded reads since 10-19 18:00Z; 541 of 767 new reads stamped (Pinnacle at the pick)
+- contextAtPick on 249 of 249 graded reads since 10-19 18:00Z; 767 of 767 new reads stamped (weather/injury/goalie as stamped)
 - sharpDivergenceAtPick on 92 of 249 graded reads since 10-19 18:00Z (needs Pinnacle on the same line)
 - daysRestHome on 592 of 600 graded NBA/NHL/NCAAF/NFL reads (schedules in stats/ (NFL from 2026-10-21))
 - sharpDivergence on 34 of 625 graded reads since 10-14 00:00Z (Pinnacle at the open)
