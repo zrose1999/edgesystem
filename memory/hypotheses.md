@@ -313,3 +313,24 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-25 | NHL: pattern=learned-nhl-ml + travel=<500 | 12 | +0.1% | found inside NHL travel=<500 (best of 20 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | bookAtPick=FanDuel + timing=day | 12 | +0.5% | found inside ALL bookAtPick=FanDuel (best of 8 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | bookAtPick=Caesars + venue=away | 10 | +1.5% | found inside ALL venue=away (best of 53 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | bookAtPick=DraftKings + pattern=sharp-soft | 10 | +2.3% | found inside ALL bookAtPick=DraftKings (best of 25 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | edgeBar=0.5-1x + restDays=long | 13 | +3.5% | found inside ALL edgeBar=0.5-1x (best of 64 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | grade=B + restDays=long | 13 | +3.5% | found inside ALL grade=B (best of 61 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | grade=C + keyNumber=yes | 31 | +1.0% | found inside ALL grade=C (best of 64 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | injury=any + sharpDivPick=pin-for | 11 | +0.2% | found inside ALL injury=any (best of 45 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | injury=qb + market=total | 10 | +0.1% | found inside ALL market=total (best of 44 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | pattern=sharp-soft + restDays=normal | 9 | +1.9% | found inside ALL restDays=normal (best of 53 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | restEdge=even + sharpGapPick=2%+ | 8 | +5.0% | found inside ALL restEdge=even (best of 53 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | role=dog + sharpGapPick=2%+ | 10 | +4.2% | found inside ALL role=dog (best of 64 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | grade=B + sharpGapPick=1-2% | 11 | +1.2% | found inside ALL sharpGapPick=1-2% (best of 15 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | pattern=sharp-soft + timing=late | 8 | +1.0% | found inside ALL timing=late (best of 34 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | sharpDivPick=pin-for + venue=away | 11 | +1.6% | found inside ALL venue=away (best of 55 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: edgeBar=0.5-1x + restEdge=more | 8 | +2.3% | found inside NFL edgeBar=0.5-1x (best of 21 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: role=dog + venue=away | 9 | +3.1% | found inside NFL edgeBar=0.5-1x (best of 6 pairs tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: edgeBar=<0.5x + keyNumber=yes | 14 | +1.4% | found inside NFL edgeBar=<0.5x (best of 16 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: moveBeforePick=none + role=dog | 11 | +1.9% | found inside NFL injury=any (best of 9 pairs tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: keyNumber=yes + role=dog | 15 | +1.7% | found inside NFL keyNumber=yes (best of 16 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: injury=qb + moveBeforePick=none | 8 | +4.0% | found inside NFL moveBeforePick=none (best of 22 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: pattern=stats-model + venue=away | 8 | +0.3% | found inside NFL pattern=stats-model (best of 19 features tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: role=dog + venue=home | 8 | +0.2% | found inside NFL restEdge=even (best of 9 pairs tested); small sample, may share reads with other rows |
+| 2026-10-25 | NFL: restDays=long + timing=early | 9 | +4.5% | found inside NFL timing=early (best of 28 features tested); small sample, may share reads with other rows |
