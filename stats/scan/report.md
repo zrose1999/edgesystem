@@ -1,14 +1,14 @@
 # Strategy scanner (scan.py)
 
-2026-10-25T14:57:20Z. 59342 game-markets; 7736 hypotheses tested (move 2392, resClose 2960, resOpen 2384). Survivors pass a Benjamini-Hochberg cut at q 0.1 per test kind, the same sign in both time-ordered halves, and a minimum effect. 71 survivors; the strongest 40 are tracked as shadow strategies (stake 0) and stamp live reads, so their CLV builds on its own. grade.py alone decides promotion.
+2026-10-26T11:12:51Z. 59406 game-markets; 7736 hypotheses tested (move 2392, resClose 2960, resOpen 2384). Survivors pass a Benjamini-Hochberg cut at q 0.1 per test kind, the same sign in both time-ordered halves, and a minimum effect. 72 survivors; the strongest 40 are tracked as shadow strategies (stake 0) and stamp live reads, so their CLV builds on its own. grade.py alone decides promotion.
 
 | Strategy | Side | Conditions | Move (CLV) | Result at open | Result at close | Status |
 |---|---|---|---|---|---|---|
-| NHL total | over | overPrice 55%-65% | +2.35% (n 182, t +6.5) | ROI +5.4% (n 182, t +0.9) | ROI +8.2% (n 182, t +1.2) | tracking |
 | MLB total | over | month Jun | +1.27% (n 394, t +6.5) | ROI -0.1% (n 370, t -0.0) | ROI -3.0% (n 378, t -0.6) | tracking |
+| NHL total | over | overPrice 55%-65% | +2.34% (n 183, t +6.5) | ROI +4.8% (n 183, t +0.8) | ROI +7.6% (n 183, t +1.1) | tracking |
 | LaLiga total | under | overPrice 25%-35% | +0.95% (n 190, t +5.8) | ROI +0.4% (n 190, t +0.1) | ROI -1.3% (n 190, t -0.3) | tracking |
 | MLB total | under | month Aug | +1.13% (n 417, t +5.7) | ROI +1.1% (n 406, t +0.2) | ROI -3.8% (n 396, t -0.8) | tracking |
-| NHL total | over | total 5.5 | +1.11% (n 544, t +5.2) | ROI -1.2% (n 545, t -0.3) | ROI -0.5% (n 545, t -0.1) | tracking |
+| NHL total | over | total 5.5 | +1.10% (n 546, t +5.2) | ROI -1.2% (n 547, t -0.3) | ROI -0.5% (n 547, t -0.1) | tracking |
 | Ligue1 total | over | month Apr | +1.06% (n 212, t +5.0) | ROI +13.9% (n 212, t +2.1) | ROI +12.1% (n 212, t +1.9) | tracking |
 | NCAAF spread | home | line home fav 21+; month Sep | +0.43 pts (n 587, t +5.0) | ROI +0.5% (n 581, t +0.1) | ROI +0.7% (n 578, t +0.2) | tracking |
 | NBA spread | home | restAway b2b; restEdge home more | +0.90 pts (n 126, t +4.7) | ROI -7.6% (n 126, t -0.9) | ROI -9.1% (n 126, t -1.1) | tracking |
@@ -17,27 +17,27 @@
 | NCAAF spread | home | line home fav 21+ | +0.32 pts (n 894, t +4.3) | ROI -2.5% (n 887, t -0.8) | ROI -2.1% (n 883, t -0.6) | tracking |
 | NBA spread | home | restAway b2b | +0.66 pts (n 192, t +4.1) | ROI -6.5% (n 192, t -0.9) | ROI -8.5% (n 192, t -1.2) | tracking |
 | Ligue1 total | over | month May | +1.05% (n 172, t +4.1) | ROI +8.6% (n 172, t +1.3) | ROI +6.8% (n 172, t +1.1) | tracking |
-| NBA spread | home | restEdge home more | +0.52 pts (n 251, t +4.0) | ROI -5.7% (n 251, t -0.9) | ROI -4.2% (n 251, t -0.7) | tracking |
+| NBA spread | home | restEdge home more | +0.53 pts (n 252, t +4.1) | ROI -6.1% (n 252, t -1.0) | ROI -4.5% (n 252, t -0.8) | tracking |
 | SerieA total | over | dow Sun; month Oct | +0.91% (n 129, t +4.0) | ROI +8.7% (n 129, t +1.0) | ROI +9.4% (n 130, t +1.1) | tracking |
 | Ligue1 total | under | dow Sun; month Feb | +1.02% (n 140, t +3.9) | ROI -1.3% (n 140, t -0.2) | ROI -3.5% (n 140, t -0.4) | tracking |
-| NHL total | under | month Dec; overPrice 45%-55% | +1.48% (n 168, t +3.9) | ROI +1.7% (n 168, t +0.2) | ROI -0.7% (n 168, t -0.1) | tracking |
-| NBA h2h | home | restAway b2b; restEdge home more | +1.85% (n 126, t +3.8) | ROI -7.8% (n 126, t -0.8) | ROI -10.8% (n 126, t -1.2) | tracking |
+| NBA h2h | home | restAway b2b; restEdge home more | +1.85% (n 126, t +3.9) | ROI -7.8% (n 126, t -0.8) | ROI -10.8% (n 126, t -1.2) | tracking |
+| NHL total | under | month Dec; overPrice 45%-55% | +1.47% (n 168, t +3.9) | ROI +1.7% (n 168, t +0.2) | ROI -0.7% (n 168, t -0.1) | tracking |
+| NHL h2h | away | restEdge away more | +0.97% (n 201, t +3.8) | ROI -3.6% (n 201, t -0.5) | ROI -6.7% (n 201, t -1.0) | tracking |
 | NCAAF spread | home | month Aug | +0.50 pts (n 206, t +3.8) | ROI -6.9% (n 205, t -1.0) | ROI -10.5% (n 207, t -1.6) | tracking |
-| NHL h2h | away | restEdge away more | +0.97% (n 199, t +3.8) | ROI -3.4% (n 199, t -0.5) | ROI -6.5% (n 199, t -0.9) | tracking |
+| NBA spread | away | restEdge away more | +0.48 pts (n 210, t +3.8) | ROI -4.5% (n 210, t -0.7) | ROI -6.4% (n 210, t -1.0) | tracking |
 | Ligue1 total | under | month Jan | +0.70% (n 205, t +3.8) | ROI +2.1% (n 205, t +0.3) | ROI +2.4% (n 206, t +0.3) | tracking |
 | EPL h2h | draw | month Jan | +0.28% (n 362, t +3.7) | ROI +11.2% (n 362, t +1.1) | ROI +10.4% (n 362, t +1.0) | tracking |
 | MLB h2h | home | homePrice 55%-65%; month Aug | +0.80% (n 150, t +3.7) | ROI +3.5% (n 150, t +0.5) | ROI +4.2% (n 150, t +0.6) | tracking |
-| NBA spread | away | restEdge away more | +0.47 pts (n 208, t +3.7) | ROI -5.5% (n 208, t -0.8) | ROI -7.3% (n 208, t -1.1) | tracking |
 | SerieA total | under | month Feb | +0.67% (n 244, t +3.6) | ROI -0.1% (n 244, t -0.0) | ROI -2.2% (n 244, t -0.3) | tracking |
 | LaLiga h2h | draw | dow Sat; homePrice 35%-45% | +0.24% (n 259, t +3.6) | ROI +4.3% (n 259, t +0.4) | ROI +2.9% (n 259, t +0.3) | tracking |
 | MLB h2h | home | restHome day off | +0.46% (n 319, t +3.6) | ROI -0.0% (n 319, t -0.0) | ROI -1.4% (n 319, t -0.3) | tracking |
+| NBA h2h | home | restEdge home more | +1.10% (n 251, t +3.5) | ROI -7.2% (n 251, t -1.1) | ROI -8.5% (n 251, t -1.3) | tracking |
 | Ligue1 h2h | draw | dow Sun; homePrice 35%-45% | +0.20% (n 377, t +3.5) | ROI +0.1% (n 377, t +0.0) | ROI -1.3% (n 377, t -0.2) | tracking |
-| NBA h2h | home | restEdge home more | +1.09% (n 250, t +3.5) | ROI -7.3% (n 250, t -1.1) | ROI -8.6% (n 250, t -1.3) | tracking |
-| NBA total | under | month Jan | +0.72 pts (n 233, t +3.4) | ROI +16.3% (n 233, t +2.7) | ROI +14.6% (n 233, t +2.4) | tracking |
+| NBA total | under | month Jan | +0.71 pts (n 233, t +3.4) | ROI +16.3% (n 233, t +2.7) | ROI +14.6% (n 233, t +2.4) | tracking |
 | SerieA h2h | draw | dow Sun; month Jan | +0.29% (n 191, t +3.4) | ROI +3.0% (n 191, t +0.2) | ROI +2.3% (n 191, t +0.2) | tracking |
 | SerieA total | under | month Jan | +0.56% (n 295, t +3.4) | ROI -3.5% (n 295, t -0.6) | ROI -5.6% (n 296, t -0.9) | tracking |
-| NHL total | under | month Mar; total 6.5 | +1.29% (n 142, t +3.4) | ROI +6.5% (n 142, t +0.9) | ROI +12.0% (n 142, t +1.5) | tracking |
 | SerieA total | under | dow Sun; month Jan | +0.85% (n 133, t +3.4) | ROI -0.3% (n 133, t -0.0) | ROI -2.0% (n 133, t -0.2) | tracking |
+| NHL total | under | month Mar; total 6.5 | +1.27% (n 142, t +3.3) | ROI +6.5% (n 142, t +0.9) | ROI +12.0% (n 142, t +1.5) | tracking |
 | NCAAF h2h | away | homePrice 75%+; restHome normal | +1.11% (n 140, t +3.3) | ROI -35.7% (n 140, t -2.1) | ROI -44.0% (n 140, t -3.0) | tracking |
 | LaLiga total | over | line 2.5; overPrice 65%-75% | +0.80% (n 123, t +3.3) | ROI -10.2% (n 123, t -1.7) | ROI -10.5% (n 123, t -1.7) | tracking |
 | LaLiga h2h | away | dow Sat; homePrice <25% | +0.79% (n 206, t +3.3) | ROI -0.2% (n 206, t -0.0) | ROI -0.9% (n 206, t -0.2) | tracking |

@@ -1,8 +1,8 @@
 {
- "asOf": "2026-10-26T06:56:18Z",
+ "asOf": "2026-10-26T11:13:33Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
- "gradedReads": 670,
- "loggedReads": 1402,
+ "gradedReads": 673,
+ "loggedReads": 1420,
  "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 802,
-   "with": 562,
+   "reads": 837,
+   "with": 595,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 802,
-   "with": 802,
+   "reads": 837,
+   "with": 837,
    "alarm": false
   }
  },
@@ -28,8 +28,8 @@
    "since": "2026-10-19T18:00:00Z",
    "sports": null,
    "note": "Pinnacle at the pick",
-   "graded": 283,
-   "with": 197,
+   "graded": 286,
+   "with": 199,
    "alarm": false
   },
   {
@@ -37,8 +37,8 @@
    "since": "2026-10-19T18:00:00Z",
    "sports": null,
    "note": "weather/injury/goalie as stamped",
-   "graded": 283,
-   "with": 283,
+   "graded": 286,
+   "with": 286,
    "alarm": false
   },
   {
@@ -46,7 +46,7 @@
    "since": "2026-10-19T18:00:00Z",
    "sports": null,
    "note": "needs Pinnacle on the same line",
-   "graded": 283,
+   "graded": 286,
    "with": 106,
    "alarm": false
   },
@@ -60,8 +60,8 @@
     "NFL"
    ],
    "note": "schedules in stats/ (NFL from 2026-10-21)",
-   "graded": 642,
-   "with": 634,
+   "graded": 645,
+   "with": 637,
    "alarm": false
   },
   {
@@ -69,8 +69,8 @@
    "since": "2026-10-14T00:00:00Z",
    "sports": null,
    "note": "Pinnacle at the open",
-   "graded": 670,
-   "with": 39,
+   "graded": 673,
+   "with": 40,
    "alarm": false
   },
   {
@@ -78,8 +78,8 @@
    "since": "2026-10-19T18:15:00Z",
    "sports": null,
    "note": "needs a stored snap 30m-6h before the pick",
-   "graded": 283,
-   "with": 85,
+   "graded": 286,
+   "with": 86,
    "alarm": false
   },
   {
@@ -91,16 +91,16 @@
     "NCAAF"
    ],
    "note": "schedules + team_venues.json; neutral sites skipped",
-   "graded": 497,
-   "with": 487,
+   "graded": 500,
+   "with": 490,
    "alarm": false
   }
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1073,
-  "latest": "2026-10-26T01:54:30Z",
-  "rowsWithHistory": 708,
+  "linesLastCycle": 1113,
+  "latest": "2026-10-26T11:09:28Z",
+  "rowsWithHistory": 728,
   "alarm": false
  },
  "interactionCoverage": {
@@ -110,13 +110,13 @@
    "daysRest",
    "contextAtPick"
   ],
-  "atLeastTwo": 183,
-  "graded": 670,
+  "atLeastTwo": 184,
+  "graded": 673,
   "byField": {
    "sharpDivergenceAtPick": 106,
-   "steamBeforePick": 85,
-   "daysRest": 632,
-   "contextAtPick": 160
+   "steamBeforePick": 86,
+   "daysRest": 635,
+   "contextAtPick": 161
   }
  },
  "featureTiming": {
@@ -166,8 +166,8 @@
   "autopsy"
  ],
  "sharpDivergenceCoverage": {
-  "graded": 670,
-  "withData": 39
+  "graded": 673,
+  "withData": 40
  },
  "features": [
   {
@@ -221,7 +221,7 @@
    "recentMeanClvProb": -0.002,
    "nShortOfFirstStage": 0,
    "tShort": 2.4,
-   "record": "29-24-0",
+   "record": "29-25-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -229,36 +229,36 @@
    "key": "ALL|bookAtPick=FanDuel",
    "sport": "ALL",
    "feature": "bookAtPick=FanDuel",
-   "n": 24,
-   "meanClvProb": 0.0011,
-   "tStat": 0.22,
-   "beatClose": 9,
+   "n": 25,
+   "meanClvProb": 0.0013,
+   "tStat": 0.26,
+   "beatClose": 10,
    "status": "early-positive",
    "picksN": 18,
    "picksMeanClvProb": 0.0015,
-   "recentN": 24,
-   "recentMeanClvProb": 0.0011,
+   "recentN": 25,
+   "recentMeanClvProb": 0.0013,
    "nShortOfFirstStage": 0,
-   "tShort": 1.78,
-   "record": "11-12-0",
+   "tShort": 1.74,
+   "record": "13-12-0",
    "firstSeen": "2026-10-19"
   },
   {
    "key": "ALL|confidence=medium",
    "sport": "ALL",
    "feature": "confidence=medium",
-   "n": 670,
+   "n": 673,
    "meanClvProb": -0.0117,
-   "tStat": -6.61,
-   "beatClose": 214,
+   "tStat": -6.64,
+   "beatClose": 216,
    "status": "early-negative",
-   "picksN": 279,
-   "picksMeanClvProb": -0.0091,
-   "recentN": 670,
+   "picksN": 280,
+   "picksMeanClvProb": -0.0093,
+   "recentN": 673,
    "recentMeanClvProb": -0.0117,
    "nShortOfFirstStage": 0,
-   "tShort": 8.61,
-   "record": "321-329-3",
+   "tShort": 8.64,
+   "record": "332-338-3",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -266,18 +266,18 @@
    "key": "ALL|edgeBar=0.5-1x",
    "sport": "ALL",
    "feature": "edgeBar=0.5-1x",
-   "n": 225,
-   "meanClvProb": -0.0075,
-   "tStat": -2.47,
+   "n": 226,
+   "meanClvProb": -0.0076,
+   "tStat": -2.53,
    "beatClose": 83,
    "status": "early-negative",
-   "picksN": 206,
-   "picksMeanClvProb": -0.0071,
-   "recentN": 225,
-   "recentMeanClvProb": -0.0075,
+   "picksN": 207,
+   "picksMeanClvProb": -0.0073,
+   "recentN": 226,
+   "recentMeanClvProb": -0.0076,
    "nShortOfFirstStage": 0,
-   "tShort": 4.47,
-   "record": "112-111-0",
+   "tShort": 4.53,
+   "record": "113-113-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -296,7 +296,7 @@
    "recentMeanClvProb": -0.0118,
    "nShortOfFirstStage": 0,
    "tShort": 4.0,
-   "record": "27-32-1",
+   "record": "27-33-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -322,18 +322,18 @@
    "key": "ALL|edgeBar=<0.5x",
    "sport": "ALL",
    "feature": "edgeBar=<0.5x",
-   "n": 372,
-   "meanClvProb": -0.0136,
-   "tStat": -5.75,
-   "beatClose": 112,
+   "n": 374,
+   "meanClvProb": -0.0135,
+   "tStat": -5.74,
+   "beatClose": 114,
    "status": "early-negative",
    "picksN": 0,
    "picksMeanClvProb": null,
-   "recentN": 372,
-   "recentMeanClvProb": -0.0136,
+   "recentN": 374,
+   "recentMeanClvProb": -0.0135,
    "nShortOfFirstStage": 0,
-   "tShort": 7.75,
-   "record": "176-180-2",
+   "tShort": 7.74,
+   "record": "186-186-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -352,7 +352,7 @@
    "recentMeanClvProb": -0.0149,
    "nShortOfFirstStage": 0,
    "tShort": 4.7,
-   "record": "33-38-1",
+   "record": "33-39-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.5% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -360,18 +360,18 @@
    "key": "ALL|grade=B",
    "sport": "ALL",
    "feature": "grade=B",
-   "n": 206,
-   "meanClvProb": -0.0071,
-   "tStat": -2.2,
+   "n": 207,
+   "meanClvProb": -0.0073,
+   "tStat": -2.26,
    "beatClose": 78,
    "status": "early-negative",
-   "picksN": 206,
-   "picksMeanClvProb": -0.0071,
-   "recentN": 206,
-   "recentMeanClvProb": -0.0071,
+   "picksN": 207,
+   "picksMeanClvProb": -0.0073,
+   "recentN": 207,
+   "recentMeanClvProb": -0.0073,
    "nShortOfFirstStage": 0,
-   "tShort": 4.2,
-   "record": "104-101-0",
+   "tShort": 4.26,
+   "record": "105-102-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.7% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -379,37 +379,37 @@
    "key": "ALL|grade=C",
    "sport": "ALL",
    "feature": "grade=C",
-   "n": 391,
-   "meanClvProb": -0.0135,
-   "tStat": -5.91,
-   "beatClose": 117,
+   "n": 393,
+   "meanClvProb": -0.0134,
+   "tStat": -5.9,
+   "beatClose": 119,
    "status": "early-negative",
    "picksN": 0,
    "picksMeanClvProb": null,
-   "recentN": 391,
-   "recentMeanClvProb": -0.0135,
+   "recentN": 393,
+   "recentMeanClvProb": -0.0134,
    "nShortOfFirstStage": 0,
-   "tShort": 7.91,
-   "record": "184-190-2",
+   "tShort": 7.9,
+   "record": "194-197-2",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -1.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -1.3% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|injury=any",
    "sport": "ALL",
    "feature": "injury=any",
-   "n": 189,
-   "meanClvProb": -0.0174,
-   "tStat": -5.41,
-   "beatClose": 60,
+   "n": 190,
+   "meanClvProb": -0.0173,
+   "tStat": -5.4,
+   "beatClose": 61,
    "status": "early-negative",
    "picksN": 110,
    "picksMeanClvProb": -0.015,
-   "recentN": 189,
-   "recentMeanClvProb": -0.0174,
+   "recentN": 190,
+   "recentMeanClvProb": -0.0173,
    "nShortOfFirstStage": 0,
-   "tShort": 7.41,
-   "record": "88-92-2",
+   "tShort": 7.4,
+   "record": "91-97-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.7% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -464,7 +464,7 @@
    "recentMeanClvProb": -0.0027,
    "nShortOfFirstStage": 0,
    "tShort": 2.36,
-   "record": "37-31-3",
+   "record": "39-31-3",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.3% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -472,18 +472,18 @@
    "key": "ALL|market=h2h",
    "sport": "ALL",
    "feature": "market=h2h",
-   "n": 112,
-   "meanClvProb": -0.0031,
-   "tStat": -0.99,
-   "beatClose": 36,
+   "n": 113,
+   "meanClvProb": -0.003,
+   "tStat": -0.98,
+   "beatClose": 37,
    "status": "early-negative",
    "picksN": 48,
    "picksMeanClvProb": 0.0004,
-   "recentN": 112,
-   "recentMeanClvProb": -0.0031,
+   "recentN": 113,
+   "recentMeanClvProb": -0.003,
    "nShortOfFirstStage": 0,
-   "tShort": 2.99,
-   "record": "47-63-0",
+   "tShort": 2.98,
+   "record": "49-64-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.3% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -491,18 +491,18 @@
    "key": "ALL|market=spread",
    "sport": "ALL",
    "feature": "market=spread",
-   "n": 242,
-   "meanClvProb": -0.0074,
+   "n": 243,
+   "meanClvProb": -0.0073,
    "tStat": -2.02,
-   "beatClose": 90,
+   "beatClose": 91,
    "status": "early-negative",
    "picksN": 95,
    "picksMeanClvProb": -0.0045,
-   "recentN": 242,
-   "recentMeanClvProb": -0.0074,
+   "recentN": 243,
+   "recentMeanClvProb": -0.0073,
    "nShortOfFirstStage": 0,
    "tShort": 4.02,
-   "record": "116-118-3",
+   "record": "121-119-3",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.7% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -510,18 +510,18 @@
    "key": "ALL|market=total",
    "sport": "ALL",
    "feature": "market=total",
-   "n": 316,
+   "n": 317,
    "meanClvProb": -0.0181,
-   "tStat": -8.19,
+   "tStat": -8.25,
    "beatClose": 88,
    "status": "early-negative",
-   "picksN": 136,
-   "picksMeanClvProb": -0.0157,
-   "recentN": 316,
+   "picksN": 137,
+   "picksMeanClvProb": -0.0159,
+   "recentN": 317,
    "recentMeanClvProb": -0.0181,
    "nShortOfFirstStage": 0,
-   "tShort": 10.19,
-   "record": "158-148-0",
+   "tShort": 10.25,
+   "record": "162-155-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -540,7 +540,7 @@
    "recentMeanClvProb": -0.007,
    "nShortOfFirstStage": 0,
    "tShort": 3.78,
-   "record": "30-32-0",
+   "record": "31-32-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.7% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -559,7 +559,7 @@
    "recentMeanClvProb": -0.0192,
    "nShortOfFirstStage": 0,
    "tShort": 7.2,
-   "record": "74-73-0",
+   "record": "75-77-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -567,18 +567,18 @@
    "key": "ALL|moveBeforePick=none",
    "sport": "ALL",
    "feature": "moveBeforePick=none",
-   "n": 343,
-   "meanClvProb": -0.012,
-   "tStat": -4.36,
-   "beatClose": 111,
+   "n": 345,
+   "meanClvProb": -0.0121,
+   "tStat": -4.4,
+   "beatClose": 112,
    "status": "early-negative",
-   "picksN": 112,
-   "picksMeanClvProb": -0.0082,
-   "recentN": 343,
-   "recentMeanClvProb": -0.012,
+   "picksN": 113,
+   "picksMeanClvProb": -0.0085,
+   "recentN": 345,
+   "recentMeanClvProb": -0.0121,
    "nShortOfFirstStage": 0,
-   "tShort": 6.36,
-   "record": "170-161-3",
+   "tShort": 6.4,
+   "record": "177-165-3",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -622,18 +622,18 @@
    "key": "ALL|pattern=learned-nba-total",
    "sport": "ALL",
    "feature": "pattern=learned-nba-total",
-   "n": 24,
-   "meanClvProb": -0.0073,
-   "tStat": -0.55,
+   "n": 25,
+   "meanClvProb": -0.0086,
+   "tStat": -0.67,
    "beatClose": 11,
    "status": "early-negative",
-   "picksN": 16,
-   "picksMeanClvProb": -0.017,
-   "recentN": 24,
-   "recentMeanClvProb": -0.0073,
+   "picksN": 17,
+   "picksMeanClvProb": -0.0184,
+   "recentN": 25,
+   "recentMeanClvProb": -0.0086,
    "nShortOfFirstStage": 0,
-   "tShort": 2.55,
-   "record": "9-13-0",
+   "tShort": 2.67,
+   "record": "11-14-0",
    "firstSeen": "2026-10-21"
   },
   {
@@ -677,18 +677,18 @@
    "key": "ALL|pattern=learned-nhl-ml",
    "sport": "ALL",
    "feature": "pattern=learned-nhl-ml",
-   "n": 25,
-   "meanClvProb": -0.0005,
-   "tStat": -0.13,
-   "beatClose": 8,
+   "n": 26,
+   "meanClvProb": -0.0003,
+   "tStat": -0.08,
+   "beatClose": 9,
    "status": "early-negative",
    "picksN": 4,
    "picksMeanClvProb": -0.0063,
-   "recentN": 25,
-   "recentMeanClvProb": -0.0005,
+   "recentN": 26,
+   "recentMeanClvProb": -0.0003,
    "nShortOfFirstStage": 0,
-   "tShort": 2.13,
-   "record": "9-15-0",
+   "tShort": 2.08,
+   "record": "11-15-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -706,7 +706,7 @@
    "recentMeanClvProb": -0.0171,
    "nShortOfFirstStage": 0,
    "tShort": 4.39,
-   "record": "16-10-0",
+   "record": "16-11-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -877,18 +877,18 @@
    "key": "ALL|pattern=news-lag",
    "sport": "ALL",
    "feature": "pattern=news-lag",
-   "n": 145,
-   "meanClvProb": -0.018,
-   "tStat": -4.73,
-   "beatClose": 44,
+   "n": 146,
+   "meanClvProb": -0.0178,
+   "tStat": -4.72,
+   "beatClose": 45,
    "status": "early-negative",
    "picksN": 88,
    "picksMeanClvProb": -0.0186,
-   "recentN": 145,
-   "recentMeanClvProb": -0.018,
+   "recentN": 146,
+   "recentMeanClvProb": -0.0178,
    "nShortOfFirstStage": 0,
-   "tShort": 6.73,
-   "record": "70-66-2",
+   "tShort": 6.72,
+   "record": "73-71-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; grade.py promotes on graded full-bar picks only: 41 of the 41 needed (leans never promote). Still collecting."
   },
@@ -943,7 +943,7 @@
    "recentMeanClvProb": 0.0217,
    "nShortOfFirstStage": 10,
    "tShort": 1.84,
-   "record": "2-2-0",
+   "record": "3-2-0",
    "firstSeen": "2026-10-25"
   },
   {
@@ -1015,7 +1015,7 @@
    "recentMeanClvProb": 0.0304,
    "nShortOfFirstStage": 11,
    "tShort": 1.75,
-   "record": "3-0-0",
+   "record": "4-0-0",
    "firstSeen": "2026-10-24"
   },
   {
@@ -1123,7 +1123,7 @@
    "recentMeanClvProb": -0.0146,
    "nShortOfFirstStage": 13,
    "tShort": 4.78,
-   "record": "1-0-0",
+   "record": "1-1-0",
    "firstSeen": "2026-10-25"
   },
   {
@@ -1159,7 +1159,7 @@
    "recentMeanClvProb": -0.0184,
    "nShortOfFirstStage": 4,
    "tShort": 5.03,
-   "record": "4-6-0",
+   "record": "4-7-0",
    "firstSeen": "2026-10-23"
   },
   {
@@ -1250,7 +1250,7 @@
    "recentMeanClvProb": -0.021,
    "nShortOfFirstStage": 0,
    "tShort": 4.72,
-   "record": "24-26-1",
+   "record": "26-26-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -2.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; grade.py promotes on graded full-bar picks only: 10 of the 15 needed (leans never promote). Still collecting."
   },
@@ -1323,7 +1323,7 @@
    "recentMeanClvProb": 0.0007,
    "nShortOfFirstStage": 0,
    "tShort": 1.92,
-   "record": "21-25-0",
+   "record": "23-26-0",
    "firstSeen": "2026-10-23",
    "why_not_promoted": "mean CLV +0.1% is positive but t +0.1 is under the t >= 2.0 bar at n 49; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1331,18 +1331,18 @@
    "key": "ALL|restDays=1day",
    "sport": "ALL",
    "feature": "restDays=1day",
-   "n": 139,
-   "meanClvProb": -0.0106,
-   "tStat": -3.21,
-   "beatClose": 34,
+   "n": 141,
+   "meanClvProb": -0.0107,
+   "tStat": -3.28,
+   "beatClose": 35,
    "status": "early-negative",
-   "picksN": 50,
-   "picksMeanClvProb": -0.0062,
-   "recentN": 139,
-   "recentMeanClvProb": -0.0106,
+   "picksN": 51,
+   "picksMeanClvProb": -0.0069,
+   "recentN": 141,
+   "recentMeanClvProb": -0.0107,
    "nShortOfFirstStage": 0,
-   "tShort": 5.21,
-   "record": "56-73-0",
+   "tShort": 5.28,
+   "record": "62-79-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1369,20 +1369,20 @@
    "key": "ALL|restDays=b2b",
    "sport": "ALL",
    "feature": "restDays=b2b",
-   "n": 37,
-   "meanClvProb": -0.0178,
-   "tStat": -2.06,
-   "beatClose": 11,
+   "n": 38,
+   "meanClvProb": -0.0172,
+   "tStat": -2.04,
+   "beatClose": 12,
    "status": "early-negative",
    "picksN": 9,
    "picksMeanClvProb": -0.0243,
-   "recentN": 37,
-   "recentMeanClvProb": -0.0178,
+   "recentN": 38,
+   "recentMeanClvProb": -0.0172,
    "nShortOfFirstStage": 0,
-   "tShort": 4.06,
-   "record": "19-15-0",
+   "tShort": 4.04,
+   "record": "21-17-0",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -1.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -1.7% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|restDays=long",
@@ -1399,7 +1399,7 @@
    "recentMeanClvProb": 0.0075,
    "nShortOfFirstStage": 0,
    "tShort": 1.1,
-   "record": "31-25-1",
+   "record": "33-25-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +0.8% is positive but t +0.9 is under the t >= 2.0 bar at n 59; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1418,7 +1418,7 @@
    "recentMeanClvProb": -0.0198,
    "nShortOfFirstStage": 0,
    "tShort": 10.0,
-   "record": "136-131-2",
+   "record": "137-132-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -2.0% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1444,18 +1444,18 @@
    "key": "ALL|restEdge=even",
    "sport": "ALL",
    "feature": "restEdge=even",
-   "n": 137,
-   "meanClvProb": -0.0087,
+   "n": 138,
+   "meanClvProb": -0.0086,
    "tStat": -2.22,
-   "beatClose": 48,
+   "beatClose": 49,
    "status": "early-negative",
    "picksN": 60,
    "picksMeanClvProb": -0.0047,
-   "recentN": 137,
-   "recentMeanClvProb": -0.0087,
+   "recentN": 138,
+   "recentMeanClvProb": -0.0086,
    "nShortOfFirstStage": 0,
    "tShort": 4.22,
-   "record": "60-76-0",
+   "record": "61-77-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1463,18 +1463,18 @@
    "key": "ALL|restEdge=less",
    "sport": "ALL",
    "feature": "restEdge=less",
-   "n": 59,
-   "meanClvProb": -0.0223,
-   "tStat": -3.46,
-   "beatClose": 13,
+   "n": 60,
+   "meanClvProb": -0.0219,
+   "tStat": -3.44,
+   "beatClose": 14,
    "status": "early-negative",
    "picksN": 35,
    "picksMeanClvProb": -0.0106,
-   "recentN": 59,
-   "recentMeanClvProb": -0.0223,
+   "recentN": 60,
+   "recentMeanClvProb": -0.0219,
    "nShortOfFirstStage": 0,
-   "tShort": 5.46,
-   "record": "25-31-2",
+   "tShort": 5.44,
+   "record": "27-31-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -2.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1493,7 +1493,7 @@
    "recentMeanClvProb": 0.0038,
    "nShortOfFirstStage": 0,
    "tShort": 1.26,
-   "record": "67-54-1",
+   "record": "71-55-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +0.4% is positive but t +0.7 is under the t >= 2.0 bar at n 127; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1512,7 +1512,7 @@
    "recentMeanClvProb": -0.0012,
    "nShortOfFirstStage": 0,
    "tShort": 2.29,
-   "record": "77-95-2",
+   "record": "79-95-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1520,18 +1520,18 @@
    "key": "ALL|role=fav",
    "sport": "ALL",
    "feature": "role=fav",
-   "n": 178,
-   "meanClvProb": -0.0108,
-   "tStat": -3.02,
-   "beatClose": 61,
+   "n": 180,
+   "meanClvProb": -0.0107,
+   "tStat": -3.01,
+   "beatClose": 63,
    "status": "early-negative",
    "picksN": 67,
    "picksMeanClvProb": -0.0095,
-   "recentN": 178,
-   "recentMeanClvProb": -0.0108,
+   "recentN": 180,
+   "recentMeanClvProb": -0.0107,
    "nShortOfFirstStage": 0,
-   "tShort": 5.02,
-   "record": "86-86-1",
+   "tShort": 5.01,
+   "record": "91-88-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1539,18 +1539,18 @@
    "key": "ALL|role=over",
    "sport": "ALL",
    "feature": "role=over",
-   "n": 147,
-   "meanClvProb": -0.0176,
-   "tStat": -5.11,
+   "n": 148,
+   "meanClvProb": -0.0178,
+   "tStat": -5.18,
    "beatClose": 42,
    "status": "early-negative",
-   "picksN": 69,
-   "picksMeanClvProb": -0.0174,
-   "recentN": 147,
-   "recentMeanClvProb": -0.0176,
+   "picksN": 70,
+   "picksMeanClvProb": -0.0177,
+   "recentN": 148,
+   "recentMeanClvProb": -0.0178,
    "nShortOfFirstStage": 0,
-   "tShort": 7.11,
-   "record": "70-72-0",
+   "tShort": 7.18,
+   "record": "70-78-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1569,7 +1569,7 @@
    "recentMeanClvProb": -0.0184,
    "nShortOfFirstStage": 0,
    "tShort": 8.51,
-   "record": "88-76-0",
+   "record": "92-77-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1577,18 +1577,18 @@
    "key": "ALL|sharpDiv=aligned",
    "sport": "ALL",
    "feature": "sharpDiv=aligned",
-   "n": 19,
-   "meanClvProb": -0.0014,
-   "tStat": -0.2,
-   "beatClose": 11,
+   "n": 20,
+   "meanClvProb": -0.0012,
+   "tStat": -0.18,
+   "beatClose": 12,
    "status": "early-negative",
    "picksN": 9,
    "picksMeanClvProb": -0.0037,
-   "recentN": 19,
-   "recentMeanClvProb": -0.0014,
+   "recentN": 20,
+   "recentMeanClvProb": -0.0012,
    "nShortOfFirstStage": 0,
-   "tShort": 2.7,
-   "record": "7-10-0",
+   "tShort": 2.18,
+   "record": "9-11-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -1642,7 +1642,7 @@
    "recentMeanClvProb": -0.0191,
    "nShortOfFirstStage": 0,
    "tShort": 6.23,
-   "record": "23-38-0",
+   "record": "25-40-0",
    "firstSeen": "2026-10-21",
    "why_not_promoted": "mean CLV -1.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1661,7 +1661,7 @@
    "recentMeanClvProb": -0.0292,
    "nShortOfFirstStage": 6,
    "tShort": 7.13,
-   "record": "2-6-0",
+   "record": "3-6-0",
    "firstSeen": "2026-10-22"
   },
   {
@@ -1679,7 +1679,7 @@
    "recentMeanClvProb": 0.0139,
    "nShortOfFirstStage": 0,
    "tShort": 0.11,
-   "record": "14-16-1",
+   "record": "14-17-1",
    "firstSeen": "2026-10-21",
    "why_not_promoted": "mean CLV +1.4% is positive but t +1.9 is under the t >= 2.0 bar at n 32; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1723,18 +1723,18 @@
    "key": "ALL|sharpGapOpen=<1%",
    "sport": "ALL",
    "feature": "sharpGapOpen=<1%",
-   "n": 19,
-   "meanClvProb": -0.0014,
-   "tStat": -0.2,
-   "beatClose": 11,
+   "n": 20,
+   "meanClvProb": -0.0012,
+   "tStat": -0.18,
+   "beatClose": 12,
    "status": "early-negative",
    "picksN": 9,
    "picksMeanClvProb": -0.0037,
-   "recentN": 19,
-   "recentMeanClvProb": -0.0014,
+   "recentN": 20,
+   "recentMeanClvProb": -0.0012,
    "nShortOfFirstStage": 0,
-   "tShort": 2.7,
-   "record": "7-10-0",
+   "tShort": 2.18,
+   "record": "9-11-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -1752,7 +1752,7 @@
    "recentMeanClvProb": -0.0067,
    "nShortOfFirstStage": 0,
    "tShort": 3.09,
-   "record": "9-16-0",
+   "record": "10-17-0",
    "firstSeen": "2026-10-21"
   },
   {
@@ -1788,7 +1788,7 @@
    "recentMeanClvProb": -0.0191,
    "nShortOfFirstStage": 0,
    "tShort": 6.23,
-   "record": "23-38-0",
+   "record": "25-40-0",
    "firstSeen": "2026-10-21",
    "why_not_promoted": "mean CLV -1.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1832,18 +1832,18 @@
    "key": "ALL|steamBeforePick=flat",
    "sport": "ALL",
    "feature": "steamBeforePick=flat",
-   "n": 56,
-   "meanClvProb": -0.0203,
-   "tStat": -4.2,
-   "beatClose": 17,
+   "n": 57,
+   "meanClvProb": -0.0199,
+   "tStat": -4.17,
+   "beatClose": 18,
    "status": "early-negative",
    "picksN": 28,
    "picksMeanClvProb": -0.0305,
-   "recentN": 56,
-   "recentMeanClvProb": -0.0203,
+   "recentN": 57,
+   "recentMeanClvProb": -0.0199,
    "nShortOfFirstStage": 0,
-   "tShort": 6.2,
-   "record": "21-31-1",
+   "tShort": 6.17,
+   "record": "23-33-1",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -2.0% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1869,18 +1869,18 @@
    "key": "ALL|timing=day",
    "sport": "ALL",
    "feature": "timing=day",
-   "n": 286,
+   "n": 289,
    "meanClvProb": -0.0082,
-   "tStat": -3.1,
-   "beatClose": 95,
+   "tStat": -3.14,
+   "beatClose": 97,
    "status": "early-negative",
-   "picksN": 109,
-   "picksMeanClvProb": -0.0078,
-   "recentN": 286,
+   "picksN": 110,
+   "picksMeanClvProb": -0.0081,
+   "recentN": 289,
    "recentMeanClvProb": -0.0082,
    "nShortOfFirstStage": 0,
-   "tShort": 5.1,
-   "record": "135-141-1",
+   "tShort": 5.14,
+   "record": "142-146-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1899,7 +1899,7 @@
    "recentMeanClvProb": -0.014,
    "nShortOfFirstStage": 0,
    "tShort": 7.09,
-   "record": "157-163-2",
+   "record": "160-164-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1918,7 +1918,7 @@
    "recentMeanClvProb": -0.016,
    "nShortOfFirstStage": 0,
    "tShort": 7.9,
-   "record": "29-25-0",
+   "record": "30-28-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1956,7 +1956,7 @@
    "recentMeanClvProb": -0.0106,
    "nShortOfFirstStage": 0,
    "tShort": 4.97,
-   "record": "100-96-0",
+   "record": "106-102-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1964,18 +1964,18 @@
    "key": "ALL|travel=<500",
    "sport": "ALL",
    "feature": "travel=<500",
-   "n": 153,
-   "meanClvProb": -0.0039,
-   "tStat": -1.14,
-   "beatClose": 63,
+   "n": 156,
+   "meanClvProb": -0.004,
+   "tStat": -1.2,
+   "beatClose": 65,
    "status": "early-negative",
-   "picksN": 61,
-   "picksMeanClvProb": -0.0002,
-   "recentN": 153,
-   "recentMeanClvProb": -0.0039,
+   "picksN": 62,
+   "picksMeanClvProb": -0.0008,
+   "recentN": 156,
+   "recentMeanClvProb": -0.004,
    "nShortOfFirstStage": 0,
-   "tShort": 3.14,
-   "record": "75-77-0",
+   "tShort": 3.2,
+   "record": "77-79-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2002,20 +2002,20 @@
    "key": "ALL|travelEdge=even",
    "sport": "ALL",
    "feature": "travelEdge=even",
-   "n": 66,
-   "meanClvProb": -0.0078,
-   "tStat": -1.47,
-   "beatClose": 18,
+   "n": 68,
+   "meanClvProb": -0.0074,
+   "tStat": -1.44,
+   "beatClose": 20,
    "status": "early-negative",
    "picksN": 17,
    "picksMeanClvProb": 0.0062,
-   "recentN": 66,
-   "recentMeanClvProb": -0.0078,
+   "recentN": 68,
+   "recentMeanClvProb": -0.0074,
    "nShortOfFirstStage": 0,
-   "tShort": 3.47,
-   "record": "33-32-0",
+   "tShort": 3.44,
+   "record": "36-32-0",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -0.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -0.7% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|travelEdge=less",
@@ -2032,7 +2032,7 @@
    "recentMeanClvProb": -0.0087,
    "nShortOfFirstStage": 0,
    "tShort": 3.81,
-   "record": "42-48-0",
+   "record": "42-49-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2051,7 +2051,7 @@
    "recentMeanClvProb": 0.0055,
    "nShortOfFirstStage": 0,
    "tShort": 1.03,
-   "record": "42-47-0",
+   "record": "44-48-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +0.5% is positive but t +1.0 is under the t >= 2.0 bar at n 92; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2070,7 +2070,7 @@
    "recentMeanClvProb": -0.0095,
    "nShortOfFirstStage": 0,
    "tShort": 3.81,
-   "record": "17-23-0",
+   "record": "18-24-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2078,20 +2078,20 @@
    "key": "ALL|tzShift=none",
    "sport": "ALL",
    "feature": "tzShift=none",
-   "n": 165,
+   "n": 167,
    "meanClvProb": 0.0026,
-   "tStat": 0.64,
-   "beatClose": 61,
+   "tStat": 0.65,
+   "beatClose": 63,
    "status": "early-positive",
    "picksN": 55,
    "picksMeanClvProb": 0.009,
-   "recentN": 165,
+   "recentN": 167,
    "recentMeanClvProb": 0.0026,
    "nShortOfFirstStage": 0,
-   "tShort": 1.36,
-   "record": "87-75-0",
+   "tShort": 1.35,
+   "record": "91-76-0",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV +0.3% is positive but t +0.6 is under the t >= 2.0 bar at n 165; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV +0.3% is positive but t +0.7 is under the t >= 2.0 bar at n 167; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|tzShift=west",
@@ -2116,18 +2116,18 @@
    "key": "ALL|venue=away",
    "sport": "ALL",
    "feature": "venue=away",
-   "n": 177,
-   "meanClvProb": -0.0055,
-   "tStat": -1.45,
-   "beatClose": 66,
+   "n": 179,
+   "meanClvProb": -0.0054,
+   "tStat": -1.44,
+   "beatClose": 68,
    "status": "early-negative",
    "picksN": 71,
    "picksMeanClvProb": -0.0012,
-   "recentN": 177,
-   "recentMeanClvProb": -0.0055,
+   "recentN": 179,
+   "recentMeanClvProb": -0.0054,
    "nShortOfFirstStage": 0,
-   "tShort": 3.45,
-   "record": "89-82-2",
+   "tShort": 3.44,
+   "record": "94-83-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.5% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2164,7 +2164,7 @@
    "recentMeanClvProb": -0.0067,
    "nShortOfFirstStage": 0,
    "tShort": 3.68,
-   "record": "73-92-1",
+   "record": "75-93-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.7% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -3684,18 +3684,18 @@
    "key": "NBA|edgeBar=0.5-1x",
    "sport": "NBA",
    "feature": "edgeBar=0.5-1x",
-   "n": 62,
-   "meanClvProb": -0.0067,
-   "tStat": -0.98,
+   "n": 63,
+   "meanClvProb": -0.0073,
+   "tStat": -1.07,
    "beatClose": 26,
    "status": "early-negative",
-   "picksN": 59,
-   "picksMeanClvProb": -0.008,
-   "recentN": 62,
-   "recentMeanClvProb": -0.0067,
+   "picksN": 60,
+   "picksMeanClvProb": -0.0086,
+   "recentN": 63,
+   "recentMeanClvProb": -0.0073,
    "nShortOfFirstStage": 0,
-   "tShort": 2.98,
-   "record": "33-29-0",
+   "tShort": 3.07,
+   "record": "33-30-0",
    "firstSeen": "2026-10-21",
    "why_not_promoted": "mean CLV -0.7% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -3739,18 +3739,18 @@
    "key": "NBA|edgeBar=<0.5x",
    "sport": "NBA",
    "feature": "edgeBar=<0.5x",
-   "n": 95,
-   "meanClvProb": -0.0064,
-   "tStat": -1.17,
-   "beatClose": 32,
+   "n": 96,
+   "meanClvProb": -0.0063,
+   "tStat": -1.16,
+   "beatClose": 33,
    "status": "early-negative",
    "picksN": 0,
    "picksMeanClvProb": null,
-   "recentN": 95,
-   "recentMeanClvProb": -0.0064,
+   "recentN": 96,
+   "recentMeanClvProb": -0.0063,
    "nShortOfFirstStage": 0,
-   "tShort": 3.17,
-   "record": "41-45-0",
+   "tShort": 3.16,
+   "record": "47-49-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -0.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -3758,18 +3758,18 @@
    "key": "NBA|injury=any",
    "sport": "NBA",
    "feature": "injury=any",
-   "n": 112,
-   "meanClvProb": -0.0182,
-   "tStat": -4.51,
-   "beatClose": 36,
+   "n": 113,
+   "meanClvProb": -0.018,
+   "tStat": -4.5,
+   "beatClose": 37,
    "status": "early-negative",
    "picksN": 66,
    "picksMeanClvProb": -0.0161,
-   "recentN": 112,
-   "recentMeanClvProb": -0.0182,
+   "recentN": 113,
+   "recentMeanClvProb": -0.018,
    "nShortOfFirstStage": 0,
-   "tShort": 6.51,
-   "record": "50-57-0",
+   "tShort": 6.5,
+   "record": "52-61-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -1.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -3788,7 +3788,7 @@
    "recentMeanClvProb": -0.0014,
    "nShortOfFirstStage": 0,
    "tShort": 2.22,
-   "record": "10-14-0",
+   "record": "11-14-0",
    "firstSeen": "2026-10-20"
   },
   {
@@ -3806,7 +3806,7 @@
    "recentMeanClvProb": -0.0206,
    "nShortOfFirstStage": 0,
    "tShort": 5.42,
-   "record": "26-30-0",
+   "record": "27-33-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -2.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -3814,18 +3814,18 @@
    "key": "NBA|moveBeforePick=none",
    "sport": "NBA",
    "feature": "moveBeforePick=none",
-   "n": 86,
-   "meanClvProb": -0.002,
-   "tStat": -0.3,
-   "beatClose": 33,
+   "n": 88,
+   "meanClvProb": -0.0024,
+   "tStat": -0.37,
+   "beatClose": 34,
    "status": "early-negative",
-   "picksN": 35,
-   "picksMeanClvProb": -0.0062,
-   "recentN": 86,
-   "recentMeanClvProb": -0.002,
+   "picksN": 36,
+   "picksMeanClvProb": -0.0071,
+   "recentN": 88,
+   "recentMeanClvProb": -0.0024,
    "nShortOfFirstStage": 0,
-   "tShort": 2.3,
-   "record": "40-42-0",
+   "tShort": 2.37,
+   "record": "44-44-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -0.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -3851,18 +3851,18 @@
    "key": "NBA|pattern=learned-nba-total",
    "sport": "NBA",
    "feature": "pattern=learned-nba-total",
-   "n": 24,
-   "meanClvProb": -0.0073,
-   "tStat": -0.55,
+   "n": 25,
+   "meanClvProb": -0.0086,
+   "tStat": -0.67,
    "beatClose": 11,
    "status": "early-negative",
-   "picksN": 16,
-   "picksMeanClvProb": -0.017,
-   "recentN": 24,
-   "recentMeanClvProb": -0.0073,
+   "picksN": 17,
+   "picksMeanClvProb": -0.0184,
+   "recentN": 25,
+   "recentMeanClvProb": -0.0086,
    "nShortOfFirstStage": 0,
-   "tShort": 2.55,
-   "record": "9-13-0",
+   "tShort": 2.67,
+   "record": "11-14-0",
    "firstSeen": "2026-10-21"
   },
   {
@@ -3924,18 +3924,18 @@
    "key": "NBA|pattern=news-lag",
    "sport": "NBA",
    "feature": "pattern=news-lag",
-   "n": 70,
-   "meanClvProb": -0.019,
-   "tStat": -3.56,
-   "beatClose": 21,
+   "n": 71,
+   "meanClvProb": -0.0187,
+   "tStat": -3.55,
+   "beatClose": 22,
    "status": "early-negative",
    "picksN": 46,
    "picksMeanClvProb": -0.0222,
-   "recentN": 70,
-   "recentMeanClvProb": -0.019,
+   "recentN": 71,
+   "recentMeanClvProb": -0.0187,
    "nShortOfFirstStage": 0,
-   "tShort": 5.56,
-   "record": "34-31-0",
+   "tShort": 5.55,
+   "record": "36-35-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -1.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; grade.py promotes on graded full-bar picks only: 41 of the 41 needed (leans never promote). Still collecting."
   },
@@ -3954,7 +3954,7 @@
    "recentMeanClvProb": 0.0217,
    "nShortOfFirstStage": 10,
    "tShort": 1.84,
-   "record": "2-2-0",
+   "record": "3-2-0",
    "firstSeen": "2026-10-25"
   },
   {
@@ -4026,7 +4026,7 @@
    "recentMeanClvProb": 0.0304,
    "nShortOfFirstStage": 11,
    "tShort": 1.75,
-   "record": "3-0-0",
+   "record": "4-0-0",
    "firstSeen": "2026-10-24"
   },
   {
@@ -4134,7 +4134,7 @@
    "recentMeanClvProb": 0.0044,
    "nShortOfFirstStage": 0,
    "tShort": 1.59,
-   "record": "20-18-0",
+   "record": "22-18-0",
    "firstSeen": "2026-10-24",
    "why_not_promoted": "mean CLV +0.4% is positive but t +0.4 is under the t >= 2.0 bar at n 40; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4142,18 +4142,18 @@
    "key": "NBA|restDays=1day",
    "sport": "NBA",
    "feature": "restDays=1day",
-   "n": 66,
-   "meanClvProb": -0.0079,
-   "tStat": -1.28,
-   "beatClose": 20,
+   "n": 68,
+   "meanClvProb": -0.0082,
+   "tStat": -1.37,
+   "beatClose": 21,
    "status": "early-negative",
-   "picksN": 26,
-   "picksMeanClvProb": 0.0018,
-   "recentN": 66,
-   "recentMeanClvProb": -0.0079,
+   "picksN": 27,
+   "picksMeanClvProb": 0.0002,
+   "recentN": 68,
+   "recentMeanClvProb": -0.0082,
    "nShortOfFirstStage": 0,
-   "tShort": 3.28,
-   "record": "27-32-0",
+   "tShort": 3.37,
+   "record": "32-36-0",
    "firstSeen": "2026-10-23",
    "why_not_promoted": "mean CLV -0.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4191,25 +4191,25 @@
    "recentMeanClvProb": -0.016,
    "nShortOfFirstStage": 0,
    "tShort": 3.29,
-   "record": "11-12-0",
+   "record": "12-13-0",
    "firstSeen": "2026-10-24"
   },
   {
    "key": "NBA|restEdge=even",
    "sport": "NBA",
    "feature": "restEdge=even",
-   "n": 33,
-   "meanClvProb": -0.0078,
-   "tStat": -0.82,
-   "beatClose": 12,
+   "n": 34,
+   "meanClvProb": -0.0075,
+   "tStat": -0.81,
+   "beatClose": 13,
    "status": "early-negative",
    "picksN": 15,
    "picksMeanClvProb": 0.0059,
-   "recentN": 33,
-   "recentMeanClvProb": -0.0078,
+   "recentN": 34,
+   "recentMeanClvProb": -0.0075,
    "nShortOfFirstStage": 0,
-   "tShort": 2.82,
-   "record": "11-21-0",
+   "tShort": 2.81,
+   "record": "12-22-0",
    "firstSeen": "2026-10-22",
    "why_not_promoted": "mean CLV -0.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4246,7 +4246,7 @@
    "recentMeanClvProb": 0.0035,
    "nShortOfFirstStage": 0,
    "tShort": 1.56,
-   "record": "27-28-0",
+   "record": "29-28-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV +0.4% is positive but t +0.4 is under the t >= 2.0 bar at n 57; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4265,7 +4265,7 @@
    "recentMeanClvProb": -0.0004,
    "nShortOfFirstStage": 0,
    "tShort": 2.04,
-   "record": "20-26-0",
+   "record": "22-26-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -0.0% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4273,18 +4273,18 @@
    "key": "NBA|role=fav",
    "sport": "NBA",
    "feature": "role=fav",
-   "n": 65,
-   "meanClvProb": -0.0044,
+   "n": 66,
+   "meanClvProb": -0.0043,
    "tStat": -0.74,
-   "beatClose": 22,
+   "beatClose": 23,
    "status": "early-negative",
    "picksN": 20,
    "picksMeanClvProb": -0.0084,
-   "recentN": 65,
-   "recentMeanClvProb": -0.0044,
+   "recentN": 66,
+   "recentMeanClvProb": -0.0043,
    "nShortOfFirstStage": 0,
    "tShort": 2.74,
-   "record": "33-31-0",
+   "record": "34-32-0",
    "firstSeen": "2026-10-21",
    "why_not_promoted": "mean CLV -0.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4292,18 +4292,18 @@
    "key": "NBA|role=over",
    "sport": "NBA",
    "feature": "role=over",
-   "n": 45,
-   "meanClvProb": -0.0218,
-   "tStat": -2.66,
+   "n": 46,
+   "meanClvProb": -0.0222,
+   "tStat": -2.77,
    "beatClose": 13,
    "status": "early-negative",
-   "picksN": 35,
-   "picksMeanClvProb": -0.0245,
-   "recentN": 45,
-   "recentMeanClvProb": -0.0218,
+   "picksN": 36,
+   "picksMeanClvProb": -0.0249,
+   "recentN": 46,
+   "recentMeanClvProb": -0.0222,
    "nShortOfFirstStage": 0,
-   "tShort": 4.66,
-   "record": "17-25-0",
+   "tShort": 4.77,
+   "record": "17-29-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -2.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4322,7 +4322,7 @@
    "recentMeanClvProb": -0.0011,
    "nShortOfFirstStage": 0,
    "tShort": 2.14,
-   "record": "19-11-0",
+   "record": "22-11-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -0.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4330,18 +4330,18 @@
    "key": "NBA|sharpDiv=aligned",
    "sport": "NBA",
    "feature": "sharpDiv=aligned",
-   "n": 4,
-   "meanClvProb": -0.0237,
-   "tStat": -1.07,
-   "beatClose": 2,
+   "n": 5,
+   "meanClvProb": -0.0184,
+   "tStat": -1.03,
+   "beatClose": 3,
    "status": "research",
    "picksN": 2,
    "picksMeanClvProb": -0.036,
-   "recentN": 4,
-   "recentMeanClvProb": -0.0237,
-   "nShortOfFirstStage": 11,
-   "tShort": 3.57,
-   "record": "1-1-0",
+   "recentN": 5,
+   "recentMeanClvProb": -0.0184,
+   "nShortOfFirstStage": 10,
+   "tShort": 3.53,
+   "record": "3-2-0",
    "firstSeen": "2026-10-22"
   },
   {
@@ -4377,7 +4377,7 @@
    "recentMeanClvProb": -0.0201,
    "nShortOfFirstStage": 0,
    "tShort": 4.12,
-   "record": "11-12-0",
+   "record": "12-14-0",
    "firstSeen": "2026-10-21"
   },
   {
@@ -4395,7 +4395,7 @@
    "recentMeanClvProb": -0.0259,
    "nShortOfFirstStage": 10,
    "tShort": 4.74,
-   "record": "1-3-0",
+   "record": "2-3-0",
    "firstSeen": "2026-10-22"
   },
   {
@@ -4413,7 +4413,7 @@
    "recentMeanClvProb": 0.0277,
    "nShortOfFirstStage": 1,
    "tShort": 0.56,
-   "record": "4-9-0",
+   "record": "4-10-0",
    "firstSeen": "2026-10-21"
   },
   {
@@ -4456,18 +4456,18 @@
    "key": "NBA|sharpGapOpen=<1%",
    "sport": "NBA",
    "feature": "sharpGapOpen=<1%",
-   "n": 4,
-   "meanClvProb": -0.0237,
-   "tStat": -1.07,
-   "beatClose": 2,
+   "n": 5,
+   "meanClvProb": -0.0184,
+   "tStat": -1.03,
+   "beatClose": 3,
    "status": "research",
    "picksN": 2,
    "picksMeanClvProb": -0.036,
-   "recentN": 4,
-   "recentMeanClvProb": -0.0237,
-   "nShortOfFirstStage": 11,
-   "tShort": 3.57,
-   "record": "1-1-0",
+   "recentN": 5,
+   "recentMeanClvProb": -0.0184,
+   "nShortOfFirstStage": 10,
+   "tShort": 3.53,
+   "record": "3-2-0",
    "firstSeen": "2026-10-22"
   },
   {
@@ -4485,7 +4485,7 @@
    "recentMeanClvProb": 0.0022,
    "nShortOfFirstStage": 3,
    "tShort": 2.3,
-   "record": "4-6-0",
+   "record": "5-7-0",
    "firstSeen": "2026-10-22"
   },
   {
@@ -4521,7 +4521,7 @@
    "recentMeanClvProb": -0.0201,
    "nShortOfFirstStage": 0,
    "tShort": 4.12,
-   "record": "11-12-0",
+   "record": "12-14-0",
    "firstSeen": "2026-10-21"
   },
   {
@@ -4546,20 +4546,20 @@
    "key": "NBA|steamBeforePick=flat",
    "sport": "NBA",
    "feature": "steamBeforePick=flat",
-   "n": 35,
-   "meanClvProb": -0.0211,
-   "tStat": -3.01,
-   "beatClose": 11,
+   "n": 36,
+   "meanClvProb": -0.0204,
+   "tStat": -2.98,
+   "beatClose": 12,
    "status": "early-negative",
    "picksN": 18,
    "picksMeanClvProb": -0.0337,
-   "recentN": 35,
-   "recentMeanClvProb": -0.0211,
+   "recentN": 36,
+   "recentMeanClvProb": -0.0204,
    "nShortOfFirstStage": 0,
-   "tShort": 5.01,
-   "record": "11-21-0",
+   "tShort": 4.98,
+   "record": "13-23-0",
    "firstSeen": "2026-10-21",
-   "why_not_promoted": "mean CLV -2.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -2.0% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "NBA|steamBeforePick=toward",
@@ -4583,18 +4583,18 @@
    "key": "NBA|timing=day",
    "sport": "NBA",
    "feature": "timing=day",
-   "n": 134,
-   "meanClvProb": -0.0016,
-   "tStat": -0.32,
-   "beatClose": 57,
+   "n": 136,
+   "meanClvProb": -0.0019,
+   "tStat": -0.38,
+   "beatClose": 58,
    "status": "early-negative",
-   "picksN": 52,
-   "picksMeanClvProb": -0.0035,
-   "recentN": 134,
-   "recentMeanClvProb": -0.0016,
+   "picksN": 53,
+   "picksMeanClvProb": -0.0043,
+   "recentN": 136,
+   "recentMeanClvProb": -0.0019,
    "nShortOfFirstStage": 0,
-   "tShort": 2.32,
-   "record": "60-69-0",
+   "tShort": 2.38,
+   "record": "65-71-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -0.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4632,7 +4632,7 @@
    "recentMeanClvProb": -0.0258,
    "nShortOfFirstStage": 0,
    "tShort": 9.78,
-   "record": "9-7-0",
+   "record": "10-10-0",
    "firstSeen": "2026-10-23"
   },
   {
@@ -4668,7 +4668,7 @@
    "recentMeanClvProb": 0.0009,
    "nShortOfFirstStage": 0,
    "tShort": 1.87,
-   "record": "43-42-0",
+   "record": "48-45-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV +0.1% is positive but t +0.1 is under the t >= 2.0 bar at n 93; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4676,18 +4676,18 @@
    "key": "NBA|travel=<500",
    "sport": "NBA",
    "feature": "travel=<500",
-   "n": 50,
-   "meanClvProb": -0.0005,
-   "tStat": -0.08,
-   "beatClose": 23,
+   "n": 52,
+   "meanClvProb": -0.0013,
+   "tStat": -0.2,
+   "beatClose": 24,
    "status": "early-negative",
-   "picksN": 32,
-   "picksMeanClvProb": 0.0017,
-   "recentN": 50,
-   "recentMeanClvProb": -0.0005,
+   "picksN": 33,
+   "picksMeanClvProb": 0.0004,
+   "recentN": 52,
+   "recentMeanClvProb": -0.0013,
    "nShortOfFirstStage": 0,
-   "tShort": 2.08,
-   "record": "26-23-0",
+   "tShort": 2.2,
+   "record": "27-25-0",
    "firstSeen": "2026-10-21",
    "why_not_promoted": "mean CLV -0.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4713,18 +4713,18 @@
    "key": "NBA|travelEdge=even",
    "sport": "NBA",
    "feature": "travelEdge=even",
-   "n": 21,
-   "meanClvProb": -0.0234,
-   "tStat": -2.67,
-   "beatClose": 3,
+   "n": 22,
+   "meanClvProb": -0.0222,
+   "tStat": -2.64,
+   "beatClose": 4,
    "status": "early-negative",
    "picksN": 8,
    "picksMeanClvProb": 0.0008,
-   "recentN": 21,
-   "recentMeanClvProb": -0.0234,
+   "recentN": 22,
+   "recentMeanClvProb": -0.0222,
    "nShortOfFirstStage": 0,
-   "tShort": 4.67,
-   "record": "6-15-0",
+   "tShort": 4.64,
+   "record": "7-15-0",
    "firstSeen": "2026-10-22"
   },
   {
@@ -4742,7 +4742,7 @@
    "recentMeanClvProb": -0.0093,
    "nShortOfFirstStage": 0,
    "tShort": 3.41,
-   "record": "19-23-0",
+   "record": "19-24-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -0.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4761,7 +4761,7 @@
    "recentMeanClvProb": 0.0142,
    "nShortOfFirstStage": 0,
    "tShort": 0.63,
-   "record": "26-17-0",
+   "record": "28-17-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV +1.4% is positive but t +1.4 is under the t >= 2.0 bar at n 45; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4787,20 +4787,20 @@
    "key": "NBA|tzShift=none",
    "sport": "NBA",
    "feature": "tzShift=none",
-   "n": 83,
+   "n": 84,
    "meanClvProb": 0.0071,
-   "tStat": 1.12,
-   "beatClose": 34,
+   "tStat": 1.13,
+   "beatClose": 35,
    "status": "early-positive",
    "picksN": 31,
    "picksMeanClvProb": 0.0059,
-   "recentN": 83,
+   "recentN": 84,
    "recentMeanClvProb": 0.0071,
    "nShortOfFirstStage": 0,
-   "tShort": 0.88,
-   "record": "42-38-0",
+   "tShort": 0.87,
+   "record": "45-39-0",
    "firstSeen": "2026-10-20",
-   "why_not_promoted": "mean CLV +0.7% is positive but t +1.1 is under the t >= 2.0 bar at n 83; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV +0.7% is positive but t +1.1 is under the t >= 2.0 bar at n 84; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "NBA|tzShift=west",
@@ -4824,20 +4824,20 @@
    "key": "NBA|venue=away",
    "sport": "NBA",
    "feature": "venue=away",
-   "n": 40,
-   "meanClvProb": 0.0003,
-   "tStat": 0.03,
-   "beatClose": 13,
+   "n": 41,
+   "meanClvProb": 0.0004,
+   "tStat": 0.04,
+   "beatClose": 14,
    "status": "early-positive",
    "picksN": 19,
    "picksMeanClvProb": 0.0016,
-   "recentN": 40,
-   "recentMeanClvProb": 0.0003,
+   "recentN": 41,
+   "recentMeanClvProb": 0.0004,
    "nShortOfFirstStage": 0,
-   "tShort": 1.97,
-   "record": "24-14-0",
+   "tShort": 1.96,
+   "record": "27-14-0",
    "firstSeen": "2026-10-20",
-   "why_not_promoted": "mean CLV +0.0% is positive but t +0.0 is under the t >= 2.0 bar at n 40; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV +0.0% is positive but t +0.0 is under the t >= 2.0 bar at n 41; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "NBA|venue=home",
@@ -4854,7 +4854,7 @@
    "recentMeanClvProb": -0.0044,
    "nShortOfFirstStage": 0,
    "tShort": 2.68,
-   "record": "29-43-0",
+   "record": "29-44-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -0.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6048,7 +6048,7 @@
    "recentMeanClvProb": -0.0152,
    "nShortOfFirstStage": 0,
    "tShort": 4.59,
-   "record": "35-27-0",
+   "record": "36-27-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.5% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6067,7 +6067,7 @@
    "recentMeanClvProb": -0.0196,
    "nShortOfFirstStage": 0,
    "tShort": 4.3,
-   "record": "9-10-1",
+   "record": "9-11-1",
    "firstSeen": "2026-10-19"
   },
   {
@@ -6103,7 +6103,7 @@
    "recentMeanClvProb": -0.0162,
    "nShortOfFirstStage": 0,
    "tShort": 4.28,
-   "record": "29-27-2",
+   "record": "31-27-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6122,7 +6122,7 @@
    "recentMeanClvProb": -0.0163,
    "nShortOfFirstStage": 0,
    "tShort": 5.06,
-   "record": "38-35-2",
+   "record": "39-36-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6159,7 +6159,7 @@
    "recentMeanClvProb": -0.0127,
    "nShortOfFirstStage": 0,
    "tShort": 3.2,
-   "record": "20-17-3",
+   "record": "22-17-3",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.3% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6196,7 +6196,7 @@
    "recentMeanClvProb": -0.0241,
    "nShortOfFirstStage": 0,
    "tShort": 6.04,
-   "record": "23-26-0",
+   "record": "23-27-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -2.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6215,7 +6215,7 @@
    "recentMeanClvProb": -0.0147,
    "nShortOfFirstStage": 0,
    "tShort": 4.32,
-   "record": "40-33-3",
+   "record": "43-33-3",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.5% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6234,7 +6234,7 @@
    "recentMeanClvProb": -0.017,
    "nShortOfFirstStage": 0,
    "tShort": 5.13,
-   "record": "36-35-2",
+   "record": "37-36-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.7% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; grade.py promotes on graded full-bar picks only: 41 of the 41 needed (leans never promote). Still collecting."
   },
@@ -6289,7 +6289,7 @@
    "recentMeanClvProb": -0.021,
    "nShortOfFirstStage": 0,
    "tShort": 4.72,
-   "record": "24-26-1",
+   "record": "26-26-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -2.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; grade.py promotes on graded full-bar picks only: 10 of the 15 needed (leans never promote). Still collecting."
   },
@@ -6344,7 +6344,7 @@
    "recentMeanClvProb": 0.0283,
    "nShortOfFirstStage": 0,
    "tShort": 1.02,
-   "record": "10-3-1",
+   "record": "12-3-1",
    "firstSeen": "2026-10-21"
   },
   {
@@ -6362,7 +6362,7 @@
    "recentMeanClvProb": -0.0236,
    "nShortOfFirstStage": 0,
    "tShort": 8.16,
-   "record": "57-57-2",
+   "record": "58-58-2",
    "firstSeen": "2026-10-21",
    "why_not_promoted": "mean CLV -2.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6436,7 +6436,7 @@
    "recentMeanClvProb": 0.0289,
    "nShortOfFirstStage": 0,
    "tShort": 0.89,
-   "record": "11-3-1",
+   "record": "13-3-1",
    "firstSeen": "2026-10-21"
   },
   {
@@ -6473,7 +6473,7 @@
    "recentMeanClvProb": -0.0299,
    "nShortOfFirstStage": 0,
    "tShort": 5.56,
-   "record": "16-21-1",
+   "record": "18-21-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -3.0% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6492,7 +6492,7 @@
    "recentMeanClvProb": -0.0237,
    "nShortOfFirstStage": 0,
    "tShort": 6.4,
-   "record": "23-15-0",
+   "record": "23-16-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -2.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6511,7 +6511,7 @@
    "recentMeanClvProb": -0.0094,
    "nShortOfFirstStage": 0,
    "tShort": 3.61,
-   "record": "15-16-0",
+   "record": "16-16-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6530,7 +6530,7 @@
    "recentMeanClvProb": -0.0426,
    "nShortOfFirstStage": 9,
    "tShort": 4.84,
-   "record": "3-2-0",
+   "record": "4-2-0",
    "firstSeen": "2026-10-23"
   },
   {
@@ -6602,7 +6602,7 @@
    "recentMeanClvProb": -0.0426,
    "nShortOfFirstStage": 9,
    "tShort": 4.84,
-   "record": "3-2-0",
+   "record": "4-2-0",
    "firstSeen": "2026-10-23"
   },
   {
@@ -6692,7 +6692,7 @@
    "recentMeanClvProb": -0.0163,
    "nShortOfFirstStage": 0,
    "tShort": 5.52,
-   "record": "63-56-2",
+   "record": "66-57-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6748,7 +6748,7 @@
    "recentMeanClvProb": -0.021,
    "nShortOfFirstStage": 0,
    "tShort": 4.54,
-   "record": "10-23-1",
+   "record": "12-23-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -2.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6821,7 +6821,7 @@
    "recentMeanClvProb": -0.0095,
    "nShortOfFirstStage": 0,
    "tShort": 3.72,
-   "record": "20-19-0",
+   "record": "20-20-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6829,18 +6829,18 @@
    "key": "NHL|bookAtPick=FanDuel",
    "sport": "NHL",
    "feature": "bookAtPick=FanDuel",
-   "n": 5,
-   "meanClvProb": -0.0089,
-   "tStat": -2.88,
-   "beatClose": 0,
+   "n": 6,
+   "meanClvProb": -0.0066,
+   "tStat": -1.92,
+   "beatClose": 1,
    "status": "research",
    "picksN": 1,
    "picksMeanClvProb": -0.0021,
-   "recentN": 5,
-   "recentMeanClvProb": -0.0089,
-   "nShortOfFirstStage": 10,
-   "tShort": 5.38,
-   "record": "3-1-0",
+   "recentN": 6,
+   "recentMeanClvProb": -0.0066,
+   "nShortOfFirstStage": 9,
+   "tShort": 4.42,
+   "record": "5-1-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -6858,7 +6858,7 @@
    "recentMeanClvProb": -0.0141,
    "nShortOfFirstStage": 0,
    "tShort": 5.27,
-   "record": "14-24-0",
+   "record": "14-25-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6884,18 +6884,18 @@
    "key": "NHL|edgeBar=<0.5x",
    "sport": "NHL",
    "feature": "edgeBar=<0.5x",
-   "n": 58,
-   "meanClvProb": -0.0108,
-   "tStat": -3.02,
-   "beatClose": 15,
+   "n": 59,
+   "meanClvProb": -0.0105,
+   "tStat": -2.99,
+   "beatClose": 16,
    "status": "early-negative",
    "picksN": 0,
    "picksMeanClvProb": null,
-   "recentN": 58,
-   "recentMeanClvProb": -0.0108,
+   "recentN": 59,
+   "recentMeanClvProb": -0.0105,
    "nShortOfFirstStage": 0,
-   "tShort": 5.02,
-   "record": "29-26-0",
+   "tShort": 4.99,
+   "record": "31-28-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6932,7 +6932,7 @@
    "recentMeanClvProb": -0.0159,
    "nShortOfFirstStage": 0,
    "tShort": 6.1,
-   "record": "31-26-0",
+   "record": "31-28-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6976,18 +6976,18 @@
    "key": "NHL|pattern=learned-nhl-ml",
    "sport": "NHL",
    "feature": "pattern=learned-nhl-ml",
-   "n": 25,
-   "meanClvProb": -0.0005,
-   "tStat": -0.13,
-   "beatClose": 8,
+   "n": 26,
+   "meanClvProb": -0.0003,
+   "tStat": -0.08,
+   "beatClose": 9,
    "status": "early-negative",
    "picksN": 4,
    "picksMeanClvProb": -0.0063,
-   "recentN": 25,
-   "recentMeanClvProb": -0.0005,
+   "recentN": 26,
+   "recentMeanClvProb": -0.0003,
    "nShortOfFirstStage": 0,
-   "tShort": 2.13,
-   "record": "9-15-0",
+   "tShort": 2.08,
+   "record": "11-15-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -7005,7 +7005,7 @@
    "recentMeanClvProb": -0.0171,
    "nShortOfFirstStage": 0,
    "tShort": 4.39,
-   "record": "16-10-0",
+   "record": "16-11-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -7077,7 +7077,7 @@
    "recentMeanClvProb": -0.0146,
    "nShortOfFirstStage": 13,
    "tShort": 4.78,
-   "record": "1-0-0",
+   "record": "1-1-0",
    "firstSeen": "2026-10-25"
   },
   {
@@ -7113,7 +7113,7 @@
    "recentMeanClvProb": -0.0184,
    "nShortOfFirstStage": 4,
    "tShort": 5.03,
-   "record": "4-6-0",
+   "record": "4-7-0",
    "firstSeen": "2026-10-23"
   },
   {
@@ -7131,7 +7131,7 @@
    "recentMeanClvProb": -0.0146,
    "nShortOfFirstStage": 13,
    "tShort": 4.78,
-   "record": "1-0-0",
+   "record": "1-1-0",
    "firstSeen": "2026-10-25"
   },
   {
@@ -7149,7 +7149,7 @@
    "recentMeanClvProb": -0.013,
    "nShortOfFirstStage": 0,
    "tShort": 6.5,
-   "record": "29-41-0",
+   "record": "30-43-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.3% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -7175,18 +7175,18 @@
    "key": "NHL|restDays=b2b",
    "sport": "NHL",
    "feature": "restDays=b2b",
-   "n": 12,
-   "meanClvProb": -0.0215,
-   "tStat": -3.05,
-   "beatClose": 2,
+   "n": 13,
+   "meanClvProb": -0.0194,
+   "tStat": -2.86,
+   "beatClose": 3,
    "status": "early-negative",
    "picksN": 2,
    "picksMeanClvProb": -0.0229,
-   "recentN": 12,
-   "recentMeanClvProb": -0.0215,
-   "nShortOfFirstStage": 3,
-   "tShort": 5.55,
-   "record": "8-3-0",
+   "recentN": 13,
+   "recentMeanClvProb": -0.0194,
+   "nShortOfFirstStage": 2,
+   "tShort": 5.36,
+   "record": "9-4-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -7211,18 +7211,18 @@
    "key": "NHL|restEdge=less",
    "sport": "NHL",
    "feature": "restEdge=less",
-   "n": 12,
-   "meanClvProb": -0.0188,
-   "tStat": -2.83,
-   "beatClose": 1,
+   "n": 13,
+   "meanClvProb": -0.017,
+   "tStat": -2.66,
+   "beatClose": 2,
    "status": "early-negative",
    "picksN": 4,
    "picksMeanClvProb": -0.0229,
-   "recentN": 12,
-   "recentMeanClvProb": -0.0188,
-   "nShortOfFirstStage": 3,
-   "tShort": 5.33,
-   "record": "4-7-0",
+   "recentN": 13,
+   "recentMeanClvProb": -0.017,
+   "nShortOfFirstStage": 2,
+   "tShort": 5.16,
+   "record": "6-7-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -7240,7 +7240,7 @@
    "recentMeanClvProb": 0.0035,
    "nShortOfFirstStage": 3,
    "tShort": 1.92,
-   "record": "6-5-0",
+   "record": "6-6-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -7265,18 +7265,18 @@
    "key": "NHL|role=fav",
    "sport": "NHL",
    "feature": "role=fav",
-   "n": 19,
-   "meanClvProb": -0.0046,
-   "tStat": -0.85,
-   "beatClose": 5,
+   "n": 20,
+   "meanClvProb": -0.0041,
+   "tStat": -0.8,
+   "beatClose": 6,
    "status": "early-negative",
    "picksN": 4,
    "picksMeanClvProb": -0.0109,
-   "recentN": 19,
-   "recentMeanClvProb": -0.0046,
+   "recentN": 20,
+   "recentMeanClvProb": -0.0041,
    "nShortOfFirstStage": 0,
-   "tShort": 3.35,
-   "record": "8-9-0",
+   "tShort": 2.8,
+   "record": "10-10-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -7294,7 +7294,7 @@
    "recentMeanClvProb": -0.0091,
    "nShortOfFirstStage": 0,
    "tShort": 3.56,
-   "record": "14-17-0",
+   "record": "14-18-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -7313,7 +7313,7 @@
    "recentMeanClvProb": -0.0239,
    "nShortOfFirstStage": 0,
    "tShort": 7.26,
-   "record": "17-9-0",
+   "record": "17-10-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -7446,18 +7446,18 @@
    "key": "NHL|timing=day",
    "sport": "NHL",
    "feature": "timing=day",
-   "n": 91,
-   "meanClvProb": -0.012,
-   "tStat": -4.15,
-   "beatClose": 24,
+   "n": 92,
+   "meanClvProb": -0.0118,
+   "tStat": -4.13,
+   "beatClose": 25,
    "status": "early-negative",
    "picksN": 26,
    "picksMeanClvProb": -0.0132,
-   "recentN": 91,
-   "recentMeanClvProb": -0.012,
+   "recentN": 92,
+   "recentMeanClvProb": -0.0118,
    "nShortOfFirstStage": 0,
-   "tShort": 6.15,
-   "record": "43-44-0",
+   "tShort": 6.13,
+   "record": "45-47-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -7512,7 +7512,7 @@
    "recentMeanClvProb": -0.0146,
    "nShortOfFirstStage": 0,
    "tShort": 6.38,
-   "record": "12-15-0",
+   "record": "13-18-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.5% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -7520,18 +7520,18 @@
    "key": "NHL|travel=<500",
    "sport": "NHL",
    "feature": "travel=<500",
-   "n": 43,
-   "meanClvProb": -0.0091,
-   "tStat": -2.64,
-   "beatClose": 13,
+   "n": 44,
+   "meanClvProb": -0.0088,
+   "tStat": -2.6,
+   "beatClose": 14,
    "status": "early-negative",
    "picksN": 15,
    "picksMeanClvProb": -0.0204,
-   "recentN": 43,
-   "recentMeanClvProb": -0.0091,
+   "recentN": 44,
+   "recentMeanClvProb": -0.0088,
    "nShortOfFirstStage": 0,
-   "tShort": 4.64,
-   "record": "16-27-0",
+   "tShort": 4.6,
+   "record": "17-27-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -7557,18 +7557,18 @@
    "key": "NHL|travelEdge=even",
    "sport": "NHL",
    "feature": "travelEdge=even",
-   "n": 16,
-   "meanClvProb": -0.0125,
-   "tStat": -2.99,
-   "beatClose": 2,
+   "n": 17,
+   "meanClvProb": -0.0115,
+   "tStat": -2.83,
+   "beatClose": 3,
    "status": "early-negative",
    "picksN": 4,
    "picksMeanClvProb": -0.0113,
-   "recentN": 16,
-   "recentMeanClvProb": -0.0125,
+   "recentN": 17,
+   "recentMeanClvProb": -0.0115,
    "nShortOfFirstStage": 0,
-   "tShort": 5.49,
-   "record": "7-8-0",
+   "tShort": 5.33,
+   "record": "9-8-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -7604,7 +7604,7 @@
    "recentMeanClvProb": -0.0074,
    "nShortOfFirstStage": 0,
    "tShort": 3.84,
-   "record": "1-16-0",
+   "record": "1-17-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -7622,27 +7622,27 @@
    "recentMeanClvProb": -0.0067,
    "nShortOfFirstStage": 3,
    "tShort": 3.71,
-   "record": "1-9-0",
+   "record": "2-10-0",
    "firstSeen": "2026-10-19"
   },
   {
    "key": "NHL|tzShift=none",
    "sport": "NHL",
    "feature": "tzShift=none",
-   "n": 30,
-   "meanClvProb": -0.0097,
-   "tStat": -2.59,
-   "beatClose": 5,
+   "n": 31,
+   "meanClvProb": -0.0092,
+   "tStat": -2.52,
+   "beatClose": 6,
    "status": "early-negative",
    "picksN": 8,
    "picksMeanClvProb": -0.0158,
-   "recentN": 30,
-   "recentMeanClvProb": -0.0097,
+   "recentN": 31,
+   "recentMeanClvProb": -0.0092,
    "nShortOfFirstStage": 0,
-   "tShort": 4.59,
-   "record": "14-16-0",
+   "tShort": 4.52,
+   "record": "15-16-0",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -1.0% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -0.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "NHL|tzShift=west",
@@ -7666,20 +7666,20 @@
    "key": "NHL|venue=away",
    "sport": "NHL",
    "feature": "venue=away",
-   "n": 37,
-   "meanClvProb": -0.0067,
-   "tStat": -1.86,
-   "beatClose": 10,
+   "n": 38,
+   "meanClvProb": -0.0063,
+   "tStat": -1.82,
+   "beatClose": 11,
    "status": "early-negative",
    "picksN": 10,
    "picksMeanClvProb": -0.009,
-   "recentN": 37,
-   "recentMeanClvProb": -0.0067,
+   "recentN": 38,
+   "recentMeanClvProb": -0.0063,
    "nShortOfFirstStage": 0,
-   "tShort": 3.86,
-   "record": "8-27-0",
+   "tShort": 3.82,
+   "record": "10-28-0",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -0.7% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -0.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "NHL|venue=home",
@@ -8771,40 +8771,40 @@
     "meanClvProb": -0.0149
    },
    "B": {
-    "n": 206,
-    "meanClvProb": -0.0071
+    "n": 207,
+    "meanClvProb": -0.0073
    },
    "C": {
-    "n": 391,
-    "meanClvProb": -0.0135
+    "n": 393,
+    "meanClvProb": -0.0134
    },
    "note": "Observation, not a defect: in a working system A > B > C on CLV. Until it is, edge size is not yet predicting CLV."
   }
  ],
  "gradeReliability": {
   "window": 50,
-  "from": "2026-10-24T11:11:22Z",
+  "from": "2026-10-24T14:24:37Z",
   "A": {
    "n": 1,
    "meanClvProb": -0.0038
   },
   "B": {
-   "n": 9,
-   "meanClvProb": -0.0064
+   "n": 10,
+   "meanClvProb": -0.0099
   },
   "C": {
-   "n": 40,
-   "meanClvProb": -0.0089
+   "n": 39,
+   "meanClvProb": -0.0097
   },
-  "ordered": true
+  "ordered": false
  },
  "autopsy": {
   "note": "Post-pick. Causes explain why reads lost to the close; verdicts and tags explain results. Nothing here is a feature or a rule: a cause becomes testable only through its pre-pick feature.",
-  "graded": 670,
-  "withAutopsy": 670,
-  "causeKnown": 432,
-  "lostToClose": 456,
-  "beatClose": 214,
+  "graded": 673,
+  "withAutopsy": 673,
+  "causeKnown": 433,
+  "lostToClose": 457,
+  "beatClose": 216,
   "newsForUs": 38,
   "lossCauses": {
    "news-after-pick": {
@@ -8928,14 +8928,14 @@
     "prePickFeatureClv": null
    },
    "number-off": {
-    "n": 364,
-    "meanClvProb": -0.0332,
-    "tStat": -23.41,
+    "n": 365,
+    "meanClvProb": -0.0333,
+    "tStat": -23.49,
     "beatClose": 0,
-    "share": 0.798,
+    "share": 0.799,
     "bySport": {
      "NCAAF": 130,
-     "NBA": 85,
+     "NBA": 86,
      "NHL": 70,
      "NFL": 67,
      "Ligue1": 3,
@@ -8975,27 +8975,27 @@
   },
   "verdicts": {
    "right-and-rewarded": {
-    "n": 117,
-    "meanClvProb": 0.0414,
-    "tStat": 11.39,
-    "beatClose": 117
+    "n": 124,
+    "meanClvProb": 0.0415,
+    "tStat": 11.71,
+    "beatClose": 124
    },
    "right-but-unlucky": {
-    "n": 90,
-    "meanClvProb": 0.0317,
-    "tStat": 9.18,
-    "beatClose": 90
+    "n": 91,
+    "meanClvProb": 0.0314,
+    "tStat": 9.17,
+    "beatClose": 91
    },
    "lucky-win": {
-    "n": 204,
-    "meanClvProb": -0.0321,
-    "tStat": -17.58,
+    "n": 208,
+    "meanClvProb": -0.0318,
+    "tStat": -17.68,
     "beatClose": 0
    },
    "market-was-right": {
-    "n": 239,
-    "meanClvProb": -0.0377,
-    "tStat": -20.08,
+    "n": 247,
+    "meanClvProb": -0.0371,
+    "tStat": -20.24,
     "beatClose": 0
    },
    "push": {
@@ -9005,21 +9005,28 @@
     "beatClose": 1
    }
   },
-  "withBox": 615,
+  "withBox": 635,
   "varianceTags": {
    "close-margin:hurt": {
-    "n": 72,
+    "n": 73,
     "inVerdict": {
-     "market-was-right": 55,
+     "market-was-right": 56,
      "right-but-unlucky": 14,
      "push": 3
     }
    },
    "close-margin:helped": {
-    "n": 67,
+    "n": 68,
     "inVerdict": {
-     "lucky-win": 42,
+     "lucky-win": 43,
      "right-and-rewarded": 25
+    }
+   },
+   "flipped-late:hurt": {
+    "n": 60,
+    "inVerdict": {
+     "market-was-right": 45,
+     "right-but-unlucky": 15
     }
    },
    "flipped-late:helped": {
@@ -9029,11 +9036,21 @@
      "right-and-rewarded": 22
     }
    },
-   "flipped-late:hurt": {
-    "n": 59,
+   "goalie-outlier:hurt": {
+    "n": 34,
     "inVerdict": {
-     "market-was-right": 44,
-     "right-but-unlucky": 15
+     "right-but-unlucky": 13,
+     "market-was-right": 20,
+     "lucky-win": 1
+    }
+   },
+   "goalie-outlier:helped": {
+    "n": 33,
+    "inVerdict": {
+     "market-was-right": 4,
+     "right-and-rewarded": 4,
+     "lucky-win": 22,
+     "right-but-unlucky": 3
     }
    },
    "overtime:hurt": {
@@ -9045,15 +9062,6 @@
      "right-but-unlucky": 4
     }
    },
-   "goalie-outlier:helped": {
-    "n": 32,
-    "inVerdict": {
-     "market-was-right": 4,
-     "right-and-rewarded": 4,
-     "lucky-win": 21,
-     "right-but-unlucky": 3
-    }
-   },
    "overtime:helped": {
     "n": 31,
     "inVerdict": {
@@ -9061,14 +9069,6 @@
      "market-was-right": 12,
      "right-and-rewarded": 5,
      "right-but-unlucky": 2
-    }
-   },
-   "goalie-outlier:hurt": {
-    "n": 31,
-    "inVerdict": {
-     "right-but-unlucky": 13,
-     "market-was-right": 17,
-     "lucky-win": 1
     }
    },
    "turnover-swing": {
@@ -9080,11 +9080,11 @@
     }
    },
    "three-point-outlier:helped": {
-    "n": 20,
+    "n": 22,
     "inVerdict": {
      "right-and-rewarded": 7,
-     "lucky-win": 10,
-     "market-was-right": 2,
+     "lucky-win": 11,
+     "market-was-right": 3,
      "right-but-unlucky": 1
     }
    },
@@ -9103,12 +9103,12 @@
     }
    },
    "three-point-outlier:hurt": {
-    "n": 12,
+    "n": 15,
     "inVerdict": {
-     "market-was-right": 5,
+     "market-was-right": 7,
      "right-but-unlucky": 4,
      "lucky-win": 2,
-     "right-and-rewarded": 1
+     "right-and-rewarded": 2
     }
    },
    "turnover-swing:hurt": {
@@ -9171,8 +9171,8 @@
   },
   {
    "slice": "ALL|edgeBar=0.5-1x",
-   "n": 225,
-   "meanClvProb": -0.0075,
+   "n": 226,
+   "meanClvProb": -0.0076,
    "pocket": {
     "feature": "pattern=learned-ncaaf-spread",
     "n": 14,
@@ -9209,8 +9209,8 @@
   },
   {
    "slice": "ALL|edgeBar=<0.5x",
-   "n": 372,
-   "meanClvProb": -0.0136,
+   "n": 374,
+   "meanClvProb": -0.0135,
    "pocket": {
     "feature": "pattern=learned-nba-total",
     "n": 8,
@@ -9247,8 +9247,8 @@
   },
   {
    "slice": "ALL|grade=B",
-   "n": 206,
-   "meanClvProb": -0.0071,
+   "n": 207,
+   "meanClvProb": -0.0073,
    "pocket": {
     "feature": "pattern=learned-ncaaf-spread",
     "n": 14,
@@ -9266,8 +9266,8 @@
   },
   {
    "slice": "ALL|grade=C",
-   "n": 391,
-   "meanClvProb": -0.0135,
+   "n": 393,
+   "meanClvProb": -0.0134,
    "pocket": {
     "feature": "pattern=learned-nba-total",
     "n": 8,
@@ -9285,8 +9285,8 @@
   },
   {
    "slice": "ALL|injury=any",
-   "n": 189,
-   "meanClvProb": -0.0174,
+   "n": 190,
+   "meanClvProb": -0.0173,
    "pocket": {
     "feature": "restDays=long",
     "n": 8,
@@ -9332,15 +9332,15 @@
   },
   {
    "slice": "ALL|market=h2h",
-   "n": 112,
-   "meanClvProb": -0.0031,
+   "n": 113,
+   "meanClvProb": -0.003,
    "pocket": {
     "feature": "sharpGapOpen=2%+",
     "n": 8,
     "meanClvProb": 0.02,
     "tStat": 1.31
    },
-   "tested": 50,
+   "tested": 51,
    "pairPocket": {
     "feature": "role=fav + rest=yes",
     "n": 13,
@@ -9351,8 +9351,8 @@
   },
   {
    "slice": "ALL|market=spread",
-   "n": 242,
-   "meanClvProb": -0.0074,
+   "n": 243,
+   "meanClvProb": -0.0073,
    "pocket": {
     "feature": "pattern=learned-scan-nba-spread",
     "n": 10,
@@ -9370,7 +9370,7 @@
   },
   {
    "slice": "ALL|market=total",
-   "n": 316,
+   "n": 317,
    "meanClvProb": -0.0181,
    "pocket": null,
    "tested": 45,
@@ -9412,8 +9412,8 @@
   },
   {
    "slice": "ALL|moveBeforePick=none",
-   "n": 343,
-   "meanClvProb": -0.012,
+   "n": 345,
+   "meanClvProb": -0.0121,
    "pocket": {
     "feature": "injury=qb",
     "n": 9,
@@ -9449,15 +9449,15 @@
   },
   {
    "slice": "ALL|pattern=learned-nba-total",
-   "n": 24,
-   "meanClvProb": -0.0073,
+   "n": 25,
+   "meanClvProb": -0.0086,
    "pocket": {
     "feature": "restDays=1day",
-    "n": 9,
-    "meanClvProb": 0.0311,
-    "tStat": 1.37
+    "n": 10,
+    "meanClvProb": 0.0238,
+    "tStat": 1.1
    },
-   "tested": 11,
+   "tested": 12,
    "pairPocket": {
     "feature": "edgeBar=<0.5x + timing=day",
     "n": 8,
@@ -9477,8 +9477,8 @@
   },
   {
    "slice": "ALL|pattern=learned-nhl-ml",
-   "n": 25,
-   "meanClvProb": -0.0005,
+   "n": 26,
+   "meanClvProb": -0.0003,
    "pocket": {
     "feature": "bookAtPick=DraftKings",
     "n": 14,
@@ -9488,9 +9488,9 @@
    "tested": 13,
    "pairPocket": {
     "feature": "venue=away + role=fav",
-    "n": 11,
-    "meanClvProb": 0.0064,
-    "tStat": 0.87
+    "n": 12,
+    "meanClvProb": 0.0063,
+    "tStat": 0.93
    },
    "pairsTested": 3
   },
@@ -9542,8 +9542,8 @@
   },
   {
    "slice": "ALL|pattern=news-lag",
-   "n": 145,
-   "meanClvProb": -0.018,
+   "n": 146,
+   "meanClvProb": -0.0178,
    "pocket": {
     "feature": "restEdge=more",
     "n": 19,
@@ -9579,13 +9579,13 @@
   },
   {
    "slice": "ALL|restDays=1day",
-   "n": 139,
-   "meanClvProb": -0.0106,
+   "n": 141,
+   "meanClvProb": -0.0107,
    "pocket": {
     "feature": "pattern=learned-nba-total",
-    "n": 9,
-    "meanClvProb": 0.0311,
-    "tStat": 1.37
+    "n": 10,
+    "meanClvProb": 0.0238,
+    "tStat": 1.1
    },
    "tested": 49,
    "pairPocket": {
@@ -9617,15 +9617,15 @@
   },
   {
    "slice": "ALL|restDays=b2b",
-   "n": 37,
-   "meanClvProb": -0.0178,
+   "n": 38,
+   "meanClvProb": -0.0172,
    "pocket": {
     "feature": "travel=<500",
-    "n": 11,
-    "meanClvProb": 0.0288,
-    "tStat": 2.27
+    "n": 12,
+    "meanClvProb": 0.0268,
+    "tStat": 2.28
    },
-   "tested": 22,
+   "tested": 23,
    "pairPocket": null,
    "pairsTested": 3
   },
@@ -9650,8 +9650,8 @@
   },
   {
    "slice": "ALL|restEdge=even",
-   "n": 137,
-   "meanClvProb": -0.0087,
+   "n": 138,
+   "meanClvProb": -0.0086,
    "pocket": {
     "feature": "sharpGapPick=2%+",
     "n": 8,
@@ -9669,15 +9669,15 @@
   },
   {
    "slice": "ALL|restEdge=less",
-   "n": 59,
-   "meanClvProb": -0.0223,
+   "n": 60,
+   "meanClvProb": -0.0219,
    "pocket": {
     "feature": "travel=500-1500",
     "n": 9,
     "meanClvProb": 0.0125,
     "tStat": 0.8
    },
-   "tested": 34,
+   "tested": 35,
    "pairPocket": null,
    "pairsTested": 12
   },
@@ -9702,22 +9702,27 @@
   },
   {
    "slice": "ALL|role=fav",
-   "n": 178,
-   "meanClvProb": -0.0108,
+   "n": 180,
+   "meanClvProb": -0.0107,
    "pocket": {
     "feature": "restDays=2+days",
     "n": 36,
     "meanClvProb": 0.0148,
     "tStat": 1.54
    },
-   "tested": 52,
-   "pairPocket": null,
+   "tested": 53,
+   "pairPocket": {
+    "feature": "edgeBar=<0.5x + timing=day",
+    "n": 54,
+    "meanClvProb": 0.0001,
+    "tStat": 0.02
+   },
    "pairsTested": 6
   },
   {
    "slice": "ALL|role=over",
-   "n": 147,
-   "meanClvProb": -0.0176,
+   "n": 148,
+   "meanClvProb": -0.0178,
    "pocket": null,
    "tested": 34,
    "pairPocket": null,
@@ -9739,15 +9744,15 @@
   },
   {
    "slice": "ALL|sharpDiv=aligned",
-   "n": 19,
-   "meanClvProb": -0.0014,
+   "n": 20,
+   "meanClvProb": -0.0012,
    "pocket": {
-    "feature": "pattern=sharp-soft",
+    "feature": "venue=away",
     "n": 8,
-    "meanClvProb": 0.0064,
-    "tStat": 0.62
+    "meanClvProb": 0.0205,
+    "tStat": 3.24
    },
-   "tested": 7,
+   "tested": 8,
    "pairPocket": null,
    "pairsTested": 0
   },
@@ -9767,15 +9772,15 @@
   },
   {
    "slice": "ALL|sharpGapOpen=<1%",
-   "n": 19,
-   "meanClvProb": -0.0014,
+   "n": 20,
+   "meanClvProb": -0.0012,
    "pocket": {
-    "feature": "pattern=sharp-soft",
+    "feature": "venue=away",
     "n": 8,
-    "meanClvProb": 0.0064,
-    "tStat": 0.62
+    "meanClvProb": 0.0205,
+    "tStat": 3.24
    },
-   "tested": 7,
+   "tested": 8,
    "pairPocket": null,
    "pairsTested": 0
   },
@@ -9823,8 +9828,8 @@
   },
   {
    "slice": "ALL|steamBeforePick=flat",
-   "n": 56,
-   "meanClvProb": -0.0203,
+   "n": 57,
+   "meanClvProb": -0.0199,
    "pocket": null,
    "tested": 31,
    "pairPocket": null,
@@ -9832,7 +9837,7 @@
   },
   {
    "slice": "ALL|timing=day",
-   "n": 286,
+   "n": 289,
    "meanClvProb": -0.0082,
    "pocket": {
     "feature": "sharpDiv=pin-for",
@@ -9912,15 +9917,15 @@
   },
   {
    "slice": "ALL|travel=<500",
-   "n": 153,
-   "meanClvProb": -0.0039,
+   "n": 156,
+   "meanClvProb": -0.004,
    "pocket": {
     "feature": "venue=home",
     "n": 22,
     "meanClvProb": 0.0299,
     "tStat": 2.5
    },
-   "tested": 53,
+   "tested": 54,
    "pairPocket": {
     "feature": "venue=home + role=dog",
     "n": 11,
@@ -9950,15 +9955,15 @@
   },
   {
    "slice": "ALL|travelEdge=even",
-   "n": 66,
-   "meanClvProb": -0.0078,
+   "n": 68,
+   "meanClvProb": -0.0074,
    "pocket": {
     "feature": "keyNumber=yes",
     "n": 8,
     "meanClvProb": 0.0291,
     "tStat": 1.09
    },
-   "tested": 38,
+   "tested": 39,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 10,
@@ -10016,15 +10021,15 @@
   },
   {
    "slice": "ALL|venue=away",
-   "n": 177,
-   "meanClvProb": -0.0055,
+   "n": 179,
+   "meanClvProb": -0.0054,
    "pocket": {
-    "feature": "sharpGapPick=2%+",
+    "feature": "sharpGapOpen=<1%",
     "n": 8,
-    "meanClvProb": 0.0173,
-    "tStat": 1.17
+    "meanClvProb": 0.0205,
+    "tStat": 3.24
    },
-   "tested": 57,
+   "tested": 59,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 43,
@@ -10063,8 +10068,8 @@
   },
   {
    "slice": "NBA|edgeBar=0.5-1x",
-   "n": 62,
-   "meanClvProb": -0.0067,
+   "n": 63,
+   "meanClvProb": -0.0073,
    "pocket": {
     "feature": "travelEdge=less",
     "n": 10,
@@ -10096,8 +10101,8 @@
   },
   {
    "slice": "NBA|edgeBar=<0.5x",
-   "n": 95,
-   "meanClvProb": -0.0064,
+   "n": 96,
+   "meanClvProb": -0.0063,
    "pocket": {
     "feature": "travelEdge=more",
     "n": 27,
@@ -10115,8 +10120,8 @@
   },
   {
    "slice": "NBA|injury=any",
-   "n": 112,
-   "meanClvProb": -0.0182,
+   "n": 113,
+   "meanClvProb": -0.018,
    "pocket": null,
    "tested": 41,
    "pairPocket": {
@@ -10157,8 +10162,8 @@
   },
   {
    "slice": "NBA|moveBeforePick=none",
-   "n": 86,
-   "meanClvProb": -0.002,
+   "n": 88,
+   "meanClvProb": -0.0024,
    "pocket": {
     "feature": "travelEdge=more",
     "n": 21,
@@ -10176,15 +10181,15 @@
   },
   {
    "slice": "NBA|pattern=learned-nba-total",
-   "n": 24,
-   "meanClvProb": -0.0073,
+   "n": 25,
+   "meanClvProb": -0.0086,
    "pocket": {
     "feature": "restDays=1day",
-    "n": 9,
-    "meanClvProb": 0.0311,
-    "tStat": 1.37
+    "n": 10,
+    "meanClvProb": 0.0238,
+    "tStat": 1.1
    },
-   "tested": 11,
+   "tested": 12,
    "pairPocket": {
     "feature": "edgeBar=<0.5x + timing=day",
     "n": 8,
@@ -10204,8 +10209,8 @@
   },
   {
    "slice": "NBA|pattern=news-lag",
-   "n": 70,
-   "meanClvProb": -0.019,
+   "n": 71,
+   "meanClvProb": -0.0187,
    "pocket": {
     "feature": "restEdge=more",
     "n": 11,
@@ -10215,21 +10220,21 @@
    "tested": 35,
    "pairPocket": {
     "feature": "edgeBar=<0.5x + timing=day",
-    "n": 10,
-    "meanClvProb": 0.0153,
-    "tStat": 1.42
+    "n": 11,
+    "meanClvProb": 0.0142,
+    "tStat": 1.45
    },
    "pairsTested": 15
   },
   {
    "slice": "NBA|restDays=1day",
-   "n": 66,
-   "meanClvProb": -0.0079,
+   "n": 68,
+   "meanClvProb": -0.0082,
    "pocket": {
     "feature": "pattern=learned-nba-total",
-    "n": 9,
-    "meanClvProb": 0.0311,
-    "tStat": 1.37
+    "n": 10,
+    "meanClvProb": 0.0238,
+    "tStat": 1.1
    },
    "tested": 32,
    "pairPocket": {
@@ -10264,7 +10269,7 @@
    "n": 25,
    "meanClvProb": -0.016,
    "pocket": {
-    "feature": "tzShift=none",
+    "feature": "travelEdge=less",
     "n": 10,
     "meanClvProb": 0.0185,
     "tStat": 1.02
@@ -10275,8 +10280,8 @@
   },
   {
    "slice": "NBA|restEdge=even",
-   "n": 33,
-   "meanClvProb": -0.0078,
+   "n": 34,
+   "meanClvProb": -0.0075,
    "pocket": {
     "feature": "grade=B",
     "n": 11,
@@ -10327,8 +10332,8 @@
   },
   {
    "slice": "NBA|role=fav",
-   "n": 65,
-   "meanClvProb": -0.0044,
+   "n": 66,
+   "meanClvProb": -0.0043,
    "pocket": {
     "feature": "travelEdge=more",
     "n": 24,
@@ -10338,21 +10343,21 @@
    "tested": 30,
    "pairPocket": {
     "feature": "edgeBar=<0.5x + timing=day",
-    "n": 35,
+    "n": 36,
     "meanClvProb": 0.0028,
-    "tStat": 0.3
+    "tStat": 0.31
    },
    "pairsTested": 2
   },
   {
    "slice": "NBA|role=over",
-   "n": 45,
-   "meanClvProb": -0.0218,
+   "n": 46,
+   "meanClvProb": -0.0222,
    "pocket": {
     "feature": "restDays=1day",
-    "n": 13,
-    "meanClvProb": 0.0124,
-    "tStat": 0.75
+    "n": 14,
+    "meanClvProb": 0.0086,
+    "tStat": 0.54
    },
    "tested": 19,
    "pairPocket": null,
@@ -10402,22 +10407,22 @@
   },
   {
    "slice": "NBA|steamBeforePick=flat",
-   "n": 35,
-   "meanClvProb": -0.0211,
+   "n": 36,
+   "meanClvProb": -0.0204,
    "pocket": null,
-   "tested": 24,
+   "tested": 25,
    "pairPocket": {
     "feature": "edgeBar=<0.5x + timing=day",
-    "n": 10,
-    "meanClvProb": 0.0104,
-    "tStat": 2.31
+    "n": 11,
+    "meanClvProb": 0.0097,
+    "tStat": 2.35
    },
    "pairsTested": 7
   },
   {
    "slice": "NBA|timing=day",
-   "n": 134,
-   "meanClvProb": -0.0016,
+   "n": 136,
+   "meanClvProb": -0.0019,
    "pocket": {
     "feature": "edgeBar=1-2x",
     "n": 8,
@@ -10467,15 +10472,15 @@
   },
   {
    "slice": "NBA|travel=<500",
-   "n": 50,
-   "meanClvProb": -0.0005,
+   "n": 52,
+   "meanClvProb": -0.0013,
    "pocket": {
-    "feature": "venue=home",
-    "n": 14,
-    "meanClvProb": 0.0119,
-    "tStat": 0.89
+    "feature": "pattern=learned-nba-total",
+    "n": 8,
+    "meanClvProb": 0.0123,
+    "tStat": 0.97
    },
-   "tested": 28,
+   "tested": 29,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 13,
@@ -10495,12 +10500,12 @@
   },
   {
    "slice": "NBA|travelEdge=even",
-   "n": 21,
-   "meanClvProb": -0.0234,
+   "n": 22,
+   "meanClvProb": -0.0222,
    "pocket": null,
    "tested": 15,
    "pairPocket": null,
-   "pairsTested": 3
+   "pairsTested": 4
   },
   {
    "slice": "NBA|travelEdge=less",
@@ -11196,8 +11201,8 @@
   },
   {
    "slice": "NHL|edgeBar=<0.5x",
-   "n": 58,
-   "meanClvProb": -0.0108,
+   "n": 59,
+   "meanClvProb": -0.0105,
    "pocket": {
     "feature": "restEdge=more",
     "n": 8,
@@ -11207,9 +11212,9 @@
    "tested": 29,
    "pairPocket": {
     "feature": "venue=away + role=fav",
-    "n": 11,
-    "meanClvProb": 0.0004,
-    "tStat": 0.04
+    "n": 12,
+    "meanClvProb": 0.0007,
+    "tStat": 0.1
    },
    "pairsTested": 4
   },
@@ -11242,8 +11247,8 @@
   },
   {
    "slice": "NHL|pattern=learned-nhl-ml",
-   "n": 25,
-   "meanClvProb": -0.0005,
+   "n": 26,
+   "meanClvProb": -0.0003,
    "pocket": {
     "feature": "bookAtPick=DraftKings",
     "n": 14,
@@ -11253,9 +11258,9 @@
    "tested": 13,
    "pairPocket": {
     "feature": "venue=away + role=fav",
-    "n": 11,
-    "meanClvProb": 0.0064,
-    "tStat": 0.87
+    "n": 12,
+    "meanClvProb": 0.0063,
+    "tStat": 0.93
    },
    "pairsTested": 3
   },
@@ -11311,8 +11316,8 @@
   },
   {
    "slice": "NHL|role=fav",
-   "n": 19,
-   "meanClvProb": -0.0046,
+   "n": 20,
+   "meanClvProb": -0.0041,
    "pocket": {
     "feature": "bookAtPick=DraftKings",
     "n": 10,
@@ -11320,7 +11325,12 @@
     "tStat": 0.41
    },
    "tested": 11,
-   "pairPocket": null,
+   "pairPocket": {
+    "feature": "edgeBar=<0.5x + timing=day",
+    "n": 14,
+    "meanClvProb": 0.0003,
+    "tStat": 0.05
+   },
    "pairsTested": 1
   },
   {
@@ -11361,8 +11371,8 @@
   },
   {
    "slice": "NHL|timing=day",
-   "n": 91,
-   "meanClvProb": -0.012,
+   "n": 92,
+   "meanClvProb": -0.0118,
    "pocket": {
     "feature": "restEdge=more",
     "n": 10,
@@ -11372,9 +11382,9 @@
    "tested": 35,
    "pairPocket": {
     "feature": "venue=away + role=fav",
-    "n": 13,
-    "meanClvProb": 0.0031,
-    "tStat": 0.48
+    "n": 14,
+    "meanClvProb": 0.0033,
+    "tStat": 0.54
    },
    "pairsTested": 4
   },
@@ -11398,20 +11408,20 @@
   },
   {
    "slice": "NHL|travel=<500",
-   "n": 43,
-   "meanClvProb": -0.0091,
+   "n": 44,
+   "meanClvProb": -0.0088,
    "pocket": {
     "feature": "pattern=learned-nhl-ml",
-    "n": 12,
-    "meanClvProb": 0.0007,
-    "tStat": 0.1
+    "n": 13,
+    "meanClvProb": 0.0011,
+    "tStat": 0.16
    },
    "tested": 21,
    "pairPocket": {
     "feature": "edgeBar=<0.5x + timing=day",
-    "n": 20,
-    "meanClvProb": 0.0016,
-    "tStat": 0.33
+    "n": 21,
+    "meanClvProb": 0.0018,
+    "tStat": 0.38
    },
    "pairsTested": 6
   },
@@ -11426,8 +11436,8 @@
   },
   {
    "slice": "NHL|travelEdge=even",
-   "n": 16,
-   "meanClvProb": -0.0125,
+   "n": 17,
+   "meanClvProb": -0.0115,
    "pocket": null,
    "tested": 10,
    "pairPocket": null,
@@ -11449,8 +11459,8 @@
   },
   {
    "slice": "NHL|tzShift=none",
-   "n": 30,
-   "meanClvProb": -0.0097,
+   "n": 31,
+   "meanClvProb": -0.0092,
    "pocket": {
     "feature": "bookAtPick=DraftKings",
     "n": 11,
@@ -11463,8 +11473,8 @@
   },
   {
    "slice": "NHL|venue=away",
-   "n": 37,
-   "meanClvProb": -0.0067,
+   "n": 38,
+   "meanClvProb": -0.0063,
    "pocket": {
     "feature": "restDays=2+days",
     "n": 8,
@@ -11476,5 +11486,5 @@
    "pairsTested": 2
   }
  ],
- "hypothesesAdded": 0
+ "hypothesesAdded": 3
 }

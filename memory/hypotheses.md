@@ -369,3 +369,6 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-26 | NFL: restEdge=more + venue=home | 8 | +0.1% | found inside NFL venue=home (best of 18 features tested); small sample, may share reads with other rows |
 | 2026-10-26 | NHL: edgeBar=<0.5x + restEdge=more | 8 | +0.7% | found inside NHL edgeBar=<0.5x (best of 29 features tested); small sample, may share reads with other rows |
 | 2026-10-26 | NHL: bookAtPick=DraftKings + role=fav | 10 | +0.3% | found inside NHL role=fav (best of 11 features tested); small sample, may share reads with other rows |
+| 2026-10-26 | sharpDiv=aligned + venue=away | 8 | +2.1% | found inside ALL sharpDiv=aligned (best of 8 features tested); small sample, may share reads with other rows |
+| 2026-10-26 | sharpGapOpen=<1% + venue=away | 8 | +2.1% | found inside ALL sharpGapOpen=<1% (best of 8 features tested); small sample, may share reads with other rows |
+| 2026-10-26 | NBA: pattern=learned-nba-total + travel=<500 | 8 | +1.2% | found inside NBA travel=<500 (best of 29 features tested); small sample, may share reads with other rows |
