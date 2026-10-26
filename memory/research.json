@@ -1,8 +1,8 @@
 {
- "asOf": "2026-10-26T22:54:37Z",
+ "asOf": "2026-10-26T23:09:49Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 674,
- "loggedReads": 1425,
+ "loggedReads": 1426,
  "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 876,
-   "with": 619,
+   "reads": 880,
+   "with": 622,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 876,
-   "with": 876,
+   "reads": 880,
+   "with": 880,
    "alarm": false
   }
  },
@@ -98,9 +98,9 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 866,
-  "latest": "2026-10-26T22:54:30Z",
-  "rowsWithHistory": 809,
+  "linesLastCycle": 911,
+  "latest": "2026-10-26T23:09:27Z",
+  "rowsWithHistory": 811,
   "alarm": false
  },
  "interactionCoverage": {
@@ -8844,18 +8844,18 @@
   "newsForUs": 38,
   "lossCauses": {
    "news-after-pick": {
-    "n": 35,
-    "meanClvProb": -0.0475,
-    "tStat": -7.24,
+    "n": 36,
+    "meanClvProb": -0.0467,
+    "tStat": -7.27,
     "beatClose": 0,
-    "share": 0.076,
+    "share": 0.079,
     "bySport": {
      "NBA": 20,
-     "NFL": 8,
+     "NFL": 9,
      "NCAAF": 7
     },
     "topPatterns": {
-     "news-lag": 13,
+     "news-lag": 14,
      "nba-stats-model": 3,
      "ncaaf-total-move": 2,
      "scan-nba-h2h-home-restawayb2b-60ea66": 2,
@@ -8964,16 +8964,16 @@
     "prePickFeatureClv": null
    },
    "number-off": {
-    "n": 366,
+    "n": 365,
     "meanClvProb": -0.0333,
-    "tStat": -23.55,
+    "tStat": -23.52,
     "beatClose": 0,
-    "share": 0.799,
+    "share": 0.797,
     "bySport": {
      "NCAAF": 130,
      "NBA": 86,
      "NHL": 70,
-     "NFL": 67,
+     "NFL": 66,
      "Ligue1": 3,
      "WTA": 2,
      "ATP": 2,
@@ -8983,7 +8983,7 @@
      "LaLiga": 1
     },
     "topPatterns": {
-     "news-lag": 80,
+     "news-lag": 79,
      "ncaaf-spot": 38,
      "learned-nhl-over": 19,
      "stats-model": 19,
@@ -9418,7 +9418,7 @@
    "n": 63,
    "meanClvProb": -0.007,
    "pocket": {
-    "feature": "edgeBar=1-2x",
+    "feature": "grade=A",
     "n": 8,
     "meanClvProb": 0.0084,
     "tStat": 0.7
@@ -10060,7 +10060,7 @@
    "n": 179,
    "meanClvProb": -0.0054,
    "pocket": {
-    "feature": "sharpDiv=aligned",
+    "feature": "sharpGapOpen=<1%",
     "n": 8,
     "meanClvProb": 0.0205,
     "tStat": 3.24
@@ -10305,7 +10305,7 @@
    "n": 25,
    "meanClvProb": -0.016,
    "pocket": {
-    "feature": "tzShift=none",
+    "feature": "travelEdge=less",
     "n": 10,
     "meanClvProb": 0.0185,
     "tStat": 1.02
@@ -10319,7 +10319,7 @@
    "n": 34,
    "meanClvProb": -0.0075,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 11,
     "meanClvProb": 0.0173,
     "tStat": 0.99
@@ -10623,7 +10623,7 @@
    "n": 42,
    "meanClvProb": -0.0116,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 8,
     "meanClvProb": 0.032,
     "tStat": 1.79
@@ -10750,7 +10750,7 @@
    "n": 48,
    "meanClvProb": -0.0082,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 17,
     "meanClvProb": 0.0193,
     "tStat": 1.43
@@ -11179,7 +11179,7 @@
    "n": 38,
    "meanClvProb": -0.0126,
    "pocket": {
-    "feature": "restDays=long",
+    "feature": "restEdge=more",
     "n": 9,
     "meanClvProb": 0.0533,
     "tStat": 1.81
