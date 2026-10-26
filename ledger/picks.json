@@ -86798,7 +86798,9 @@
       "closeNoVigPin": 0.4571,
       "clvBench": "pinnacle",
       "clvProbBest": -0.0307,
-      "clvProbAtPrintPrice": -0.0307
+      "clvProbAtPrintPrice": -0.0307,
+      "result": "win",
+      "units": 1.05
     },
     {
       "pickId": "ATP|2026-10-26|Learner Tien at Luca Van Assche|h2h|none|v1|pass|tennis-elo|2026-10-26T11:13:14Z",
@@ -90485,6 +90487,44 @@
         "printImplied": 0.5238
       },
       "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NHL|2026-10-28|Boston Bruins at Carolina Hurricanes|h2h|none|v1|pass|nhl-ml-move|2026-10-26T20:23:39Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "NHL|2026-10-28|Boston Bruins at Carolina Hurricanes|h2h",
+      "sport": "NHL",
+      "event": "Boston Bruins at Carolina Hurricanes",
+      "commence": "2026-10-28T00:00:00Z",
+      "market": "h2h",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": null,
+      "priceBook": null,
+      "marketPrices": {
+        "home": -192,
+        "away": 160
+      },
+      "priceTime": "2026-10-26T20:23:28Z",
+      "pickedAt": "2026-10-26T20:23:39Z",
+      "fair": 0.628,
+      "projection": 0.628,
+      "edge": -0.013,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "nhl-ml-move",
+      "reason": "NHL ratings home win 0.555, open 0.636 (gap -0.081). Prices moved 0.1 x the gap from open to close in the backtest. Expected move -0.008, 0.008 still to come; now 0.636, fair 0.628. (Under the pattern's minimum move: lean only.)",
+      "falsifier": "The price closes at or past the open on the other side of the model.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "move_nhl.py",
+      "pinAtPick": null,
+      "contextAtPick": {},
+      "bestAtPick": null
     }
   ]
 }
