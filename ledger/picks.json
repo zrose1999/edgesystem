@@ -90581,6 +90581,118 @@
         "printImplied": 0.5122
       },
       "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NBA|2026-10-26|Minnesota Timberwolves at Cleveland Cavaliers|spread|home|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NBA|2026-10-26|Minnesota Timberwolves at Cleveland Cavaliers|spread",
+      "sport": "NBA",
+      "event": "Minnesota Timberwolves at Cleveland Cavaliers",
+      "commence": "2026-10-26T23:10:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -3.5,
+      "priceAtPick": -105,
+      "bookAtPick": "FanDuel",
+      "marketNumber": -2.5,
+      "marketPrices": {
+        "home": -118,
+        "away": -102
+      },
+      "priceTime": "2026-10-26T21:51:04Z",
+      "pickedAt": "2026-10-26T21:51:05Z",
+      "fair": 0.5371,
+      "projection": 0.5371,
+      "edge": 0.0249,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "FanDuel home -3.5 -105 implies 51.2%. Pinnacle -108 no-vig is 50.7% at -4.5, worth 53.7% at this line. Edge +2.5%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": -4.5,
+        "prices": {
+          "home": -108,
+          "away": -102
+        },
+        "updated": "2026-10-26T21:50:55Z",
+        "snapTime": "2026-10-26T21:51:04Z",
+        "noVig": 0.5071
+      },
+      "contextAtPick": {
+        "injury": "Anthony Edwards (Timberwolves, worth 3.65): weight 0 at the open, 0.5 now, +1.82 spread, -1.09 total"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -118,
+        "line": -2.5,
+        "implied": 0.5413,
+        "printImplied": 0.5413
+      },
+      "priceBook": "DraftKings",
+      "estimated": true,
+      "lineAdj": 0.03
+    },
+    {
+      "pickId": "NBA|2026-10-26|Minnesota Timberwolves at Cleveland Cavaliers|h2h|home|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "A",
+      "rowId": "NBA|2026-10-26|Minnesota Timberwolves at Cleveland Cavaliers|h2h",
+      "sport": "NBA",
+      "event": "Minnesota Timberwolves at Cleveland Cavaliers",
+      "commence": "2026-10-26T23:10:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": -135,
+      "bookAtPick": "Caesars",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -142,
+        "away": 120
+      },
+      "priceTime": "2026-10-26T21:51:04Z",
+      "pickedAt": "2026-10-26T21:51:05Z",
+      "fair": 0.6097,
+      "projection": 0.6097,
+      "edge": 0.0352,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "Caesars home -135 implies 57.4%. Pinnacle -165 no-vig is 61.0%. Edge +3.5%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -165,
+          "away": 148
+        },
+        "updated": "2026-10-26T21:50:55Z",
+        "snapTime": "2026-10-26T21:51:04Z",
+        "noVig": 0.6097
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -135,
+        "line": null,
+        "implied": 0.5745,
+        "printImplied": 0.5868
+      },
+      "priceBook": "Caesars"
     }
   ]
 }
