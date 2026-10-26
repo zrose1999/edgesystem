@@ -1087,7 +1087,12 @@ def grade():
                                         and v["team"] == r.get("team") and r["gameId"] in v["games"]), None)
             pg = PGs.get(pid, {}).get("games", {}).get(r["gameId"]) if pid else None
             if pg is None:
-                continue                                  # not in the play-by-play yet, or he did not play
+                # Final game, play-by-play loaded for it, and no play for him: inactive or no touch. Void it, as a
+                # book voids an inactive player's prop, so it stops sitting ungraded (2026-10-26: 5 week-7 notes).
+                if any(r["gameId"] in v["games"] for v in PGs.values()):
+                    r["result"], r["voidReason"] = "void", "no play-by-play record (inactive or no touch)"
+                    n += 1
+                continue                                  # not in the play-by-play yet
             r["pid"] = pid
             actual = pg[GRADE_FIELD[r["stat"]]]
             r["actual"] = actual
@@ -1140,7 +1145,8 @@ def grade():
     props = [r for r in done if r["market"] == "prop"]
     game = [r for r in done if r["market"] != "prop"]
     mv = [r["lineMove"] for r in game if r.get("lineMove") is not None]
-    summary = {"graded": n, "suggestions": rec(game), "props": rec(props),
+    summary = {"graded": n, "settled": len(done), "void": sum(r.get("result") == "void" for r in rows),
+               "suggestions": rec(game), "props": rec(props),
                "propsStrong": rec([r for r in props if r.get("strength") == "strong"]),
                "meanLineMove": round(sum(mv) / len(mv), 2) if mv else None}
     (OUT / "record.json").write_text(json.dumps(summary))
