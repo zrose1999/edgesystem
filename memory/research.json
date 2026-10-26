@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-26T11:13:33Z",
+ "asOf": "2026-10-26T11:24:36Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 673,
  "loggedReads": 1420,
@@ -98,9 +98,9 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1113,
-  "latest": "2026-10-26T11:09:28Z",
-  "rowsWithHistory": 728,
+  "linesLastCycle": 1115,
+  "latest": "2026-10-26T11:24:29Z",
+  "rowsWithHistory": 730,
   "alarm": false
  },
  "interactionCoverage": {
@@ -9382,7 +9382,7 @@
    "n": 63,
    "meanClvProb": -0.007,
    "pocket": {
-    "feature": "edgeBar=1-2x",
+    "feature": "grade=A",
     "n": 8,
     "meanClvProb": 0.0084,
     "tStat": 0.7
@@ -10269,7 +10269,7 @@
    "n": 25,
    "meanClvProb": -0.016,
    "pocket": {
-    "feature": "travelEdge=less",
+    "feature": "tzShift=none",
     "n": 10,
     "meanClvProb": 0.0185,
     "tStat": 1.02
@@ -10283,7 +10283,7 @@
    "n": 34,
    "meanClvProb": -0.0075,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 11,
     "meanClvProb": 0.0173,
     "tStat": 0.99
@@ -10587,7 +10587,7 @@
    "n": 42,
    "meanClvProb": -0.0116,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 8,
     "meanClvProb": 0.032,
     "tStat": 1.79
@@ -10714,7 +10714,7 @@
    "n": 48,
    "meanClvProb": -0.0082,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 17,
     "meanClvProb": 0.0193,
     "tStat": 1.43
@@ -11143,7 +11143,7 @@
    "n": 38,
    "meanClvProb": -0.0126,
    "pocket": {
-    "feature": "restDays=long",
+    "feature": "restEdge=more",
     "n": 9,
     "meanClvProb": 0.0533,
     "tStat": 1.81
@@ -11486,5 +11486,5 @@
    "pairsTested": 2
   }
  ],
- "hypothesesAdded": 3
+ "hypothesesAdded": 0
 }
