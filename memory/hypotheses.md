@@ -358,3 +358,14 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-25 | NBA: moveBeforePick=none + pattern=learned-scan-nba-spread | 10 | +2.8% | found inside NBA moveBeforePick=none (best of 37 features tested); small sample, may share reads with other rows |
 | 2026-10-25 | NBA: role=fav + venue=home | 26 | +0.6% | found inside NBA rest=yes (best of 3 pairs tested); small sample, may share reads with other rows |
 | 2026-10-25 | NBA: restEdge=more + travelEdge=more | 26 | +2.8% | found inside NBA restEdge=more (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-10-26 | edgeBar=<0.5x + pattern=learned-nba-total | 8 | +1.2% | found inside ALL edgeBar=<0.5x (best of 64 features tested); small sample, may share reads with other rows |
+| 2026-10-26 | grade=C + pattern=learned-nba-total | 8 | +1.2% | found inside ALL grade=C (best of 68 features tested); small sample, may share reads with other rows |
+| 2026-10-26 | injury=any + restDays=long | 8 | +2.8% | found inside ALL injury=any (best of 47 features tested); small sample, may share reads with other rows |
+| 2026-10-26 | NBA: rest=yes + role=dog | 11 | +1.2% | found inside NBA edgeBar=<0.5x (best of 13 pairs tested); small sample, may share reads with other rows |
+| 2026-10-26 | NBA: moveBeforePick=against + tzShift=none | 11 | +0.2% | found inside NBA moveBeforePick=against (best of 16 features tested); small sample, may share reads with other rows |
+| 2026-10-26 | NBA: pattern=learned-nba-total + restDays=1day | 9 | +3.1% | found inside NBA pattern=learned-nba-total (best of 11 features tested); small sample, may share reads with other rows |
+| 2026-10-26 | NFL: keyNumber=yes + restDays=long | 8 | +4.8% | found inside NFL keyNumber=yes (best of 18 features tested); small sample, may share reads with other rows |
+| 2026-10-26 | NFL: pattern=news-lag + restEdge=more | 8 | +3.4% | found inside NFL pattern=news-lag (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-10-26 | NFL: restEdge=more + venue=home | 8 | +0.1% | found inside NFL venue=home (best of 18 features tested); small sample, may share reads with other rows |
+| 2026-10-26 | NHL: edgeBar=<0.5x + restEdge=more | 8 | +0.7% | found inside NHL edgeBar=<0.5x (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-10-26 | NHL: bookAtPick=DraftKings + role=fav | 10 | +0.3% | found inside NHL role=fav (best of 11 features tested); small sample, may share reads with other rows |
