@@ -86786,7 +86786,19 @@
         "line": null,
         "implied": 0.4878,
         "printImplied": 0.4878
-      }
+      },
+      "closeLine": null,
+      "closePrice": 110,
+      "closeNoVig": 0.4464,
+      "estimated": false,
+      "clvPoints": 0.0,
+      "clvProb": -0.0307,
+      "clvProbPrint": -0.0414,
+      "clvProbPin": -0.0307,
+      "closeNoVigPin": 0.4571,
+      "clvBench": "pinnacle",
+      "clvProbBest": -0.0307,
+      "clvProbAtPrintPrice": -0.0307
     },
     {
       "pickId": "ATP|2026-10-26|Learner Tien at Luca Van Assche|h2h|none|v1|pass|tennis-elo|2026-10-26T11:13:14Z",
@@ -90260,6 +90272,52 @@
         "printImplied": 0.5122
       },
       "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "WTA|2026-10-28|Kimberly Birrell at Alycia Parks|h2h|none|v1|pass|tennis-elo|2026-10-26T19:09:34Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "WTA|2026-10-28|Kimberly Birrell at Alycia Parks|h2h",
+      "sport": "WTA",
+      "event": "Kimberly Birrell at Alycia Parks",
+      "commence": "2026-10-28T01:30:00Z",
+      "market": "h2h",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": null,
+      "priceBook": null,
+      "marketPrices": {
+        "home": 134,
+        "away": -164
+      },
+      "priceTime": "2026-10-26T19:09:26Z",
+      "pickedAt": "2026-10-26T19:09:34Z",
+      "fair": 0.392,
+      "projection": 0.392,
+      "edge": -0.013,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "tennis-elo",
+      "reason": "Surface Elo home win 0.350, market no-vig 0.403; fair = market + 0.2 x gap = 0.392. Hard. Games in the last 2 days: Alycia Parks 35, Kimberly Birrell 19.",
+      "falsifier": "The price closes at or past the market's open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "tennis.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 148,
+          "away": -168
+        },
+        "updated": "2026-10-26T19:09:16Z",
+        "snapTime": "2026-10-26T19:09:26Z"
+      },
+      "contextAtPick": {},
+      "bestAtPick": null
     }
   ]
 }
