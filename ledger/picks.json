@@ -91744,6 +91744,50 @@
         "printImplied": 0.5349
       },
       "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NBA|2026-10-28|Detroit Pistons at New York Knicks|spread|away|v1|lean|learned-scan-nba-spread|2026-10-27T01:39:43Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NBA|2026-10-28|Detroit Pistons at New York Knicks|spread",
+      "sport": "NBA",
+      "event": "Detroit Pistons at New York Knicks",
+      "commence": "2026-10-28T00:10:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 4.5,
+      "priceAtPick": -110,
+      "marketNumber": -4.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -110,
+        "away": -110
+      },
+      "priceTime": "2026-10-27T01:39:31Z",
+      "pickedAt": "2026-10-27T01:39:43Z",
+      "fair": -3.7792,
+      "projection": -3.7792,
+      "edge": 0.721,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-scan-nba-spread",
+      "reason": "Model learned on the scanner's data (gbm, 14 data points, passed the out-of-sample gate) predicts a move of -0.721 from the open for away; 0.721 still to come. Report: stats/models/scan_nba_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": null,
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -110,
+        "line": -4.5,
+        "implied": 0.5238,
+        "printImplied": 0.5238
+      }
     }
   ]
 }
