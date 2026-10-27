@@ -91411,6 +91411,117 @@
         "implied": 0.0926,
         "printImplied": 0.1
       }
+    },
+    {
+      "pickId": "NBA|2026-10-27|Memphis Grizzlies at Utah Jazz|spread|home|v1|lean|news-lag|2026-10-27T00:24:36Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NBA|2026-10-27|Memphis Grizzlies at Utah Jazz|spread",
+      "sport": "NBA",
+      "event": "Memphis Grizzlies at Utah Jazz",
+      "commence": "2026-10-27T01:10:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": 1.5,
+      "priceAtPick": -115,
+      "marketNumber": 1.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -120,
+        "away": 100
+      },
+      "priceTime": "2026-10-27T00:24:32Z",
+      "pickedAt": "2026-10-27T00:24:36Z",
+      "fair": 0.98,
+      "projection": 0.98,
+      "edge": 0.52,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "Jaxson Hayes (Jazz, worth 0.93): weight 0.4 at the open, 1 now, +0.56 spread, -0.33 total | Zach Edey (Grizzlies, worth 1.92): weight 1 at the open, 0 now, -1.92 spread, +1.15 total. Open home line -1.5, fair +0.98.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before tip-off.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury_nba.py",
+      "pinAtPick": {
+        "line": 1.0,
+        "prices": {
+          "home": -106,
+          "away": -104
+        },
+        "updated": "2026-10-27T00:24:18Z",
+        "snapTime": "2026-10-27T00:24:32Z",
+        "noVig": 0.5024
+      },
+      "contextAtPick": {
+        "injury": "Jaxson Hayes (Jazz, worth 0.93): weight 0.4 at the open, 1 now, +0.56 spread, -0.33 total | Zach Edey (Grizzlies, worth 1.92): weight 1 at the open, 0 now, -1.92 spread, +1.15 total"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -115,
+        "line": 1.5,
+        "implied": 0.5349,
+        "printImplied": 0.5455
+      }
+    },
+    {
+      "pickId": "NBA|2026-10-27|Memphis Grizzlies at Utah Jazz|total|over|v1|reread|news-lag|2026-10-27T00:24:36Z",
+      "kind": "reread",
+      "grade": "C",
+      "rowId": "NBA|2026-10-27|Memphis Grizzlies at Utah Jazz|total",
+      "sport": "NBA",
+      "event": "Memphis Grizzlies at Utah Jazz",
+      "commence": "2026-10-27T01:10:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 237.5,
+      "priceAtPick": -105,
+      "marketNumber": 237.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "over": -110,
+        "under": -110
+      },
+      "priceTime": "2026-10-27T00:24:32Z",
+      "pickedAt": "2026-10-27T00:24:36Z",
+      "fair": 238.32,
+      "projection": 238.32,
+      "edge": 0.82,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "Jaxson Hayes (Jazz, worth 0.93): weight 0.4 at the open, 1 now, +0.56 spread, -0.33 total | Zach Edey (Grizzlies, worth 1.92): weight 1 at the open, 0 now, -1.92 spread, +1.15 total. Open total 237.5, fair 238.32.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before tip-off.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury_nba.py",
+      "pinAtPick": {
+        "line": 237.5,
+        "prices": {
+          "over": -103,
+          "under": -110
+        },
+        "updated": "2026-10-27T00:24:18Z",
+        "snapTime": "2026-10-27T00:24:32Z",
+        "noVig": 0.4918
+      },
+      "contextAtPick": {
+        "injury": "Jaxson Hayes (Jazz, worth 0.93): weight 0.4 at the open, 1 now, +0.56 spread, -0.33 total | Zach Edey (Grizzlies, worth 1.92): weight 1 at the open, 0 now, -1.92 spread, +1.15 total"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -105,
+        "line": 237.5,
+        "implied": 0.5122,
+        "printImplied": 0.5238
+      },
+      "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
     }
   ]
 }
