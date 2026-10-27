@@ -401,3 +401,5 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-27 | edgeBar=0.5-1x + timing=late | 12 | +0.6% | found inside ALL role=fav (best of 8 pairs tested); small sample, may share reads with other rows |
 | 2026-10-27 | NBA: sharpGapOpen=<1% + travelEdge=even | 9 | +0.7% | found inside NBA travelEdge=even (best of 21 features tested); small sample, may share reads with other rows |
 | 2026-10-27 | NBA: sharpGapOpen=<1% + tzShift=west | 8 | +0.8% | found inside NBA tzShift=west (best of 19 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | NCAAF: keyNumber=yes + travel=500-1500 | 13 | +2.8% | found inside NCAAF travel=500-1500 (best of 32 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | NCAAF: travelEdge=even + wind=<10 | 8 | +1.1% | found inside NCAAF wind=<10 (best of 18 features tested); small sample, may share reads with other rows |
