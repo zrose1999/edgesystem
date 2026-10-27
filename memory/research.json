@@ -1,11 +1,9 @@
 {
- "asOf": "2026-10-27T19:09:51Z",
+ "asOf": "2026-10-27T19:24:33Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 730,
  "loggedReads": 1520,
- "newPatternsThisRun": [
-  "tennis-fatigue"
- ],
+ "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md)."
@@ -13,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 937,
-   "with": 656,
+   "reads": 938,
+   "with": 657,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 937,
-   "with": 937,
+   "reads": 938,
+   "with": 938,
    "alarm": false
   }
  },
@@ -100,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1010,
-  "latest": "2026-10-27T19:09:30Z",
+  "linesLastCycle": 937,
+  "latest": "2026-10-27T19:24:28Z",
   "rowsWithHistory": 866,
   "alarm": false
  },
@@ -9706,7 +9704,7 @@
    "n": 63,
    "meanClvProb": -0.007,
    "pocket": {
-    "feature": "grade=A",
+    "feature": "edgeBar=1-2x",
     "n": 8,
     "meanClvProb": 0.0084,
     "tStat": 0.7
