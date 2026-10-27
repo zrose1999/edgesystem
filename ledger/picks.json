@@ -95325,6 +95325,51 @@
       "pinAtPick": null,
       "contextAtPick": {},
       "bestAtPick": null
+    },
+    {
+      "pickId": "NHL|2026-10-28|Philadelphia Flyers at Washington Capitals|total|over|v1|learned-nhl-over|lean|2026-10-27T16:54:33Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NHL|2026-10-28|Philadelphia Flyers at Washington Capitals|total",
+      "sport": "NHL",
+      "event": "Philadelphia Flyers at Washington Capitals",
+      "commence": "2026-10-28T23:40:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 6.5,
+      "priceAtPick": 114,
+      "bookAtPick": "DraftKings",
+      "marketNumber": 6.5,
+      "marketPrices": {
+        "over": 114,
+        "under": -135
+      },
+      "priceTime": "2026-10-27T16:25:47Z",
+      "pickedAt": "2026-10-27T16:54:33Z",
+      "fair": 0.4756,
+      "projection": 0.4756,
+      "edge": 0.0083,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-nhl-over",
+      "reason": "Learned model (ridge, 191 data points, trained 2026-10-15) predicts the over 6.5 price moves +0.029 from the open; open 0.446, now 0.446, 0.029 still to come. Fair 0.476. Report: stats/models/nhl_over.json.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": null,
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": 114,
+        "line": 6.5,
+        "implied": 0.4673,
+        "printImplied": 0.4673
+      },
+      "priceBook": "DraftKings",
+      "contextAtPick": {}
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-27T16:28:06Z",
+ "asOf": "2026-10-27T16:54:37Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 727,
  "loggedReads": 1512,
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 927,
+   "reads": 928,
    "with": 652,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 927,
-   "with": 927,
+   "reads": 928,
+   "with": 928,
    "alarm": false
   }
  },
@@ -98,9 +98,9 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 983,
-  "latest": "2026-10-27T16:25:47Z",
-  "rowsWithHistory": 856,
+  "linesLastCycle": 995,
+  "latest": "2026-10-27T16:54:30Z",
+  "rowsWithHistory": 857,
   "alarm": false
  },
  "interactionCoverage": {
@@ -9530,7 +9530,7 @@
    "n": 80,
    "meanClvProb": -0.0124,
    "pocket": {
-    "feature": "sharpDivPick=aligned",
+    "feature": "sharpGapPick=<1%",
     "n": 9,
     "meanClvProb": 0.0151,
     "tStat": 0.87
@@ -10886,7 +10886,7 @@
    "n": 30,
    "meanClvProb": -0.0142,
    "pocket": {
-    "feature": "sharpDiv=aligned",
+    "feature": "sharpGapOpen=<1%",
     "n": 9,
     "meanClvProb": 0.0072,
     "tStat": 8.26
@@ -10990,7 +10990,7 @@
    "n": 42,
    "meanClvProb": -0.0116,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 8,
     "meanClvProb": 0.032,
     "tStat": 1.79
@@ -11117,7 +11117,7 @@
    "n": 48,
    "meanClvProb": -0.0082,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 17,
     "meanClvProb": 0.0193,
     "tStat": 1.43
@@ -11546,7 +11546,7 @@
    "n": 38,
    "meanClvProb": -0.0126,
    "pocket": {
-    "feature": "restDays=long",
+    "feature": "restEdge=more",
     "n": 9,
     "meanClvProb": 0.0533,
     "tStat": 1.81
