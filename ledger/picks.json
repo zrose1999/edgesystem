@@ -96277,6 +96277,50 @@
         "implied": 0.5122,
         "printImplied": 0.5122
       }
+    },
+    {
+      "pickId": "NBA|2026-10-28|Orlando Magic at Toronto Raptors|spread|home|v1|lean|learned-scan-nba-spread|2026-10-27T21:54:32Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NBA|2026-10-28|Orlando Magic at Toronto Raptors|spread",
+      "sport": "NBA",
+      "event": "Orlando Magic at Toronto Raptors",
+      "commence": "2026-10-28T23:40:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -5.5,
+      "priceAtPick": -106,
+      "marketNumber": -5.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -106,
+        "away": -114
+      },
+      "priceTime": "2026-10-27T21:54:26Z",
+      "pickedAt": "2026-10-27T21:54:32Z",
+      "fair": -6.2046,
+      "projection": -6.2046,
+      "edge": 0.705,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-scan-nba-spread",
+      "reason": "Model learned on the scanner's data (gbm, 14 data points, passed the out-of-sample gate) predicts a move of +0.705 from the open for home; 0.705 still to come. Report: stats/models/scan_nba_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": null,
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -106,
+        "line": -5.5,
+        "implied": 0.5146,
+        "printImplied": 0.5146
+      }
     }
   ]
 }
