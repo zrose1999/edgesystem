@@ -95370,6 +95370,116 @@
       },
       "priceBook": "DraftKings",
       "contextAtPick": {}
+    },
+    {
+      "pickId": "NBA|2026-10-27|Brooklyn Nets at Boston Celtics|spread|away|v1|lean|news-lag|2026-10-27T17:24:35Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NBA|2026-10-27|Brooklyn Nets at Boston Celtics|spread",
+      "sport": "NBA",
+      "event": "Brooklyn Nets at Boston Celtics",
+      "commence": "2026-10-27T23:40:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 11.5,
+      "priceAtPick": -105,
+      "marketNumber": -11.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -115,
+        "away": -105
+      },
+      "priceTime": "2026-10-27T16:25:47Z",
+      "pickedAt": "2026-10-27T17:24:35Z",
+      "fair": -11.34,
+      "projection": -11.34,
+      "edge": 0.16,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "news-lag",
+      "reason": "Derrick White (Celtics, worth 1.57): weight 0 at the open, 0.1 now, +0.16 spread, -0.09 total. Open home line -11.5, fair -11.34.",
+      "falsifier": "The line closes at or past the fair number on the other side, or a status changes back before tip-off.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "injury_nba.py",
+      "pinAtPick": {
+        "line": -11.5,
+        "prices": {
+          "home": -111,
+          "away": 101
+        },
+        "updated": "2026-10-27T16:25:47Z",
+        "snapTime": "2026-10-27T16:25:47Z",
+        "noVig": 0.4857
+      },
+      "contextAtPick": {
+        "injury": "Derrick White (Celtics, worth 1.57): weight 0 at the open, 0.1 now, +0.16 spread, -0.09 total"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -105,
+        "line": -11.5,
+        "implied": 0.5122,
+        "printImplied": 0.5122
+      }
+    },
+    {
+      "pickId": "NBA|2026-10-27|Brooklyn Nets at Boston Celtics|spread|away|v1|lean|edge-stack|2026-10-27T17:24:49Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NBA|2026-10-27|Brooklyn Nets at Boston Celtics|spread",
+      "sport": "NBA",
+      "event": "Brooklyn Nets at Boston Celtics",
+      "commence": "2026-10-27T23:40:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 11.5,
+      "priceAtPick": -105,
+      "marketNumber": -11.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -115,
+        "away": -105
+      },
+      "priceTime": "2026-10-27T16:25:47Z",
+      "pickedAt": "2026-10-27T17:24:49Z",
+      "fair": -10.939,
+      "projection": -10.939,
+      "edge": 0.561,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "edge-stack",
+      "reason": "Edge stack (2 sources, x0.85 for overlap): rest-spot +0.500; news-lag +0.160. Fair -10.939.",
+      "falsifier": "The line closes at or past the current number on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "edge_stack.py",
+      "pinAtPick": {
+        "line": -11.5,
+        "prices": {
+          "home": -111,
+          "away": 101
+        },
+        "updated": "2026-10-27T16:25:47Z",
+        "snapTime": "2026-10-27T16:25:47Z",
+        "noVig": 0.4857
+      },
+      "contextAtPick": {
+        "injury": "Derrick White (Celtics, worth 1.57): weight 0 at the open, 0.1 now, +0.16 spread, -0.09 total"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -105,
+        "line": -11.5,
+        "implied": 0.5122,
+        "printImplied": 0.5122
+      }
     }
   ]
 }
