@@ -59,5 +59,7 @@
     "maxPerDay": 5.0,
     "orderType": "maker"
   },
-  "_liveTest": "Small real-money tests (Zack, 2026-10-21): while the switch on the site is On, every signal that is not track-only and not a mirror of a parked pattern trades 1 contract (under $1), at most $5 a day, as a resting maker order (post-only, cancelled 5 minutes before the start). Confirmed signals trade full size instead. The site's stop loss, take profit and live-source list still apply. enabled false turns tests off."
+  "_liveTest": "Small real-money tests (Zack, 2026-10-21): while the switch on the site is On, every signal that is not track-only and not a mirror of a parked pattern trades 1 contract (under $1), at most $5 a day, as a resting maker order (post-only, cancelled 5 minutes before the start). Confirmed signals trade full size instead. The site's stop loss, take profit and live-source list still apply. enabled false turns tests off.",
+  "liveOrderType": "maker",
+  "_liveOrderType": "Order type for full-size live orders (confirmed signals only; none today). maker = post-only resting order one cent above the bid (never crossing the ask, skipped without edge after the maker fee), expiring 5 minutes before the start; absent or taker = take the ask. Set by the 2026-10-27 weekly review (Zack merges): paper maker beat taker net of fees on 47 paired signals, -0.5% vs -2.4% (paired gain +1.9 points, t 5.9, maker better on 41 of 47); 29 graded live 1-contract maker fills average -0.5% net, matching the paper maker book. Trade-off: about half of maker orders never fill (paper 47%, live 59%)."
 }
