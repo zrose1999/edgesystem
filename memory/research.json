@@ -1,11 +1,9 @@
 {
- "asOf": "2026-10-27T11:13:17Z",
+ "asOf": "2026-10-27T11:24:33Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 725,
  "loggedReads": 1508,
- "newPatternsThisRun": [
-  "tennis-fatigue"
- ],
+ "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md)."
@@ -9495,7 +9493,7 @@
    "n": 80,
    "meanClvProb": -0.0124,
    "pocket": {
-    "feature": "sharpGapPick=<1%",
+    "feature": "sharpDivPick=aligned",
     "n": 9,
     "meanClvProb": 0.0151,
     "tStat": 0.87
@@ -11549,7 +11547,7 @@
    "n": 38,
    "meanClvProb": -0.0126,
    "pocket": {
-    "feature": "restDays=long",
+    "feature": "restEdge=more",
     "n": 9,
     "meanClvProb": 0.0533,
     "tStat": 1.81
@@ -11873,5 +11871,5 @@
    "pairsTested": 2
   }
  ],
- "hypothesesAdded": 2
+ "hypothesesAdded": 0
 }
