@@ -372,3 +372,27 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-26 | sharpDiv=aligned + venue=away | 8 | +2.1% | found inside ALL sharpDiv=aligned (best of 8 features tested); small sample, may share reads with other rows |
 | 2026-10-26 | sharpGapOpen=<1% + venue=away | 8 | +2.1% | found inside ALL sharpGapOpen=<1% (best of 8 features tested); small sample, may share reads with other rows |
 | 2026-10-26 | NBA: pattern=learned-nba-total + travel=<500 | 8 | +1.2% | found inside NBA travel=<500 (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | edgeBar=<0.5x + pattern=rest-spot | 8 | +1.6% | found inside ALL edgeBar=<0.5x (best of 69 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | grade=C + pattern=rest-spot | 8 | +1.6% | found inside ALL grade=C (best of 72 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | injury=qb + market=spread | 8 | +2.9% | found inside ALL market=spread (best of 60 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | bookAtPick=Caesars + role=fav | 8 | +2.0% | found inside ALL role=fav (best of 56 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | sharpGapOpen=<1% + timing=late | 11 | +0.4% | found inside ALL sharpDiv=aligned (best of 7 pairs tested); small sample, may share reads with other rows |
+| 2026-10-27 | grade=A + sharpDivPick=aligned | 8 | +1.2% | found inside ALL sharpDivPick=aligned (best of 48 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | grade=A + sharpGapPick=<1% | 8 | +1.2% | found inside ALL sharpGapPick=<1% (best of 48 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | market=h2h + steamBeforePick=flat | 8 | +0.4% | found inside ALL steamBeforePick=flat (best of 40 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | steamBeforePick=toward + timing=late | 9 | +0.0% | found inside ALL steamBeforePick=toward (best of 6 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | sharpGapOpen=2%+ + venue=home | 8 | +3.5% | found inside ALL venue=home (best of 59 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | NBA: edgeBar=0.5-1x + sharpDivPick=pin-for | 8 | +4.1% | found inside NBA edgeBar=0.5-1x (best of 40 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | NBA: injury=any + sharpDivPick=pin-for | 9 | +0.3% | found inside NBA injury=any (best of 43 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | NBA: restDays=b2b + sharpDivPick=pin-for | 8 | +2.4% | found inside NBA restDays=b2b (best of 20 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | NBA: restEdge=even + sharpDivPick=pin-for | 8 | +4.5% | found inside NBA restEdge=even (best of 28 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | NBA: role=dog + sharpDiv=aligned | 9 | +1.1% | found inside NBA sharpDiv=aligned (best of 21 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | NBA: sharpDivPick=aligned + tzShift=west | 8 | +0.8% | found inside NBA sharpDivPick=aligned (best of 30 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | NBA: role=dog + sharpGapOpen=<1% | 9 | +1.1% | found inside NBA sharpGapOpen=<1% (best of 21 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | NBA: sharpDivPick=pin-for + sharpGapPick=1-2% | 10 | +1.3% | found inside NBA sharpGapPick=1-2% (best of 7 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | NBA: sharpGapPick=<1% + tzShift=west | 8 | +0.8% | found inside NBA sharpGapPick=<1% (best of 30 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | NBA: edgeBar=0.5-1x + travel=none | 10 | +0.6% | found inside NBA travel=none (best of 20 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | NBA: sharpDiv=aligned + travelEdge=even | 9 | +0.7% | found inside NBA travelEdge=even (best of 21 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | NBA: sharpGapOpen=<1% + timing=day | 9 | +0.7% | found inside NBA travelEdge=even (best of 10 pairs tested); small sample, may share reads with other rows |
+| 2026-10-27 | NBA: sharpDiv=pin-for + travelEdge=less | 8 | +2.9% | found inside NBA travelEdge=less (best of 33 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | NBA: sharpDiv=pin-for + venue=home | 9 | +2.5% | found inside NBA venue=home (best of 41 features tested); small sample, may share reads with other rows |
