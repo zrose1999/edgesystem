@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-27T06:49:22Z",
+ "asOf": "2026-10-27T11:13:19Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -47,9 +47,9 @@
    "rightWay": 0.6,
    "noMove": 13,
    "logLossGain": {
-    "n": 21,
-    "mean": 0.01608,
-    "t": 0.8
+    "n": 23,
+    "mean": 0.01636,
+    "t": 0.84
    },
    "verdict": "collecting"
   },
@@ -64,9 +64,9 @@
    "rightWay": 0.625,
    "noMove": 3,
    "logLossGain": {
-    "n": 25,
-    "mean": -0.02895,
-    "t": -1.3
+    "n": 27,
+    "mean": -0.03494,
+    "t": -1.65
    },
    "verdict": "collecting"
   },
@@ -115,9 +115,9 @@
    "rightWay": 0.955,
    "noMove": 5,
    "logLossGain": {
-    "n": 26,
-    "mean": -0.01643,
-    "t": -1.51
+    "n": 27,
+    "mean": -0.01276,
+    "t": -1.15
    },
    "verdict": "collecting"
   },
@@ -149,9 +149,9 @@
    "rightWay": 1.0,
    "noMove": 5,
    "logLossGain": {
-    "n": 10,
-    "mean": -0.03123,
-    "t": -1.9
+    "n": 12,
+    "mean": -0.0276,
+    "t": -1.77
    },
    "verdict": "collecting"
   },
@@ -294,17 +294,17 @@
   "news-lag": {
    "pattern": "news-lag",
    "unit": "points",
-   "n": 156,
-   "meanPredicted": 1.8136,
-   "meanRealized": 0.1699,
+   "n": 158,
+   "meanPredicted": 1.7985,
+   "meanRealized": 0.1677,
    "tRealized": 1.38,
    "capture": 0.09,
    "rightWay": 0.548,
-   "noMove": 63,
+   "noMove": 65,
    "logLossGain": {
-    "n": 146,
-    "mean": -0.01096,
-    "t": -0.85
+    "n": 156,
+    "mean": -0.01421,
+    "t": -1.14
    },
    "verdict": "collecting"
   },
@@ -353,9 +353,9 @@
    "rightWay": 0.833,
    "noMove": 2,
    "logLossGain": {
-    "n": 5,
-    "mean": -8e-05,
-    "t": -0.0
+    "n": 8,
+    "mean": -0.00438,
+    "t": -0.25
    },
    "verdict": "collecting"
   },
@@ -370,9 +370,9 @@
    "rightWay": 0.6,
    "noMove": 0,
    "logLossGain": {
-    "n": 7,
-    "mean": 0.00499,
-    "t": 0.24
+    "n": 10,
+    "mean": 0.00902,
+    "t": 0.48
    },
    "verdict": "collecting"
   },
@@ -387,9 +387,9 @@
    "rightWay": 0.8,
    "noMove": 0,
    "logLossGain": {
-    "n": 3,
-    "mean": 0.0444,
-    "t": 11.63
+    "n": 5,
+    "mean": 0.05549,
+    "t": 6.7
    },
    "verdict": "collecting"
   },
@@ -404,9 +404,9 @@
    "rightWay": 0.571,
    "noMove": 0,
    "logLossGain": {
-    "n": 4,
-    "mean": 0.00377,
-    "t": 0.11
+    "n": 7,
+    "mean": 0.02432,
+    "t": 1.17
    },
    "verdict": "collecting"
   },
@@ -421,9 +421,9 @@
    "rightWay": 0.75,
    "noMove": 1,
    "logLossGain": {
-    "n": 4,
-    "mean": 0.02058,
-    "t": 72.79
+    "n": 5,
+    "mean": 0.01203,
+    "t": 1.41
    },
    "verdict": "collecting"
   },
@@ -438,9 +438,9 @@
    "rightWay": 0.625,
    "noMove": 2,
    "logLossGain": {
-    "n": 7,
-    "mean": -0.01527,
-    "t": -1.19
+    "n": 10,
+    "mean": -0.01412,
+    "t": -1.35
    },
    "verdict": "collecting"
   },
@@ -455,9 +455,9 @@
    "rightWay": 1.0,
    "noMove": 2,
    "logLossGain": {
-    "n": 3,
-    "mean": -0.01616,
-    "t": -0.55
+    "n": 5,
+    "mean": -0.01025,
+    "t": -0.47
    },
    "verdict": "collecting"
   },
@@ -472,9 +472,9 @@
    "rightWay": 0.8,
    "noMove": 2,
    "logLossGain": {
-    "n": 4,
-    "mean": -0.01388,
-    "t": -1.06
+    "n": 7,
+    "mean": -0.00438,
+    "t": -0.41
    },
    "verdict": "collecting"
   },
@@ -617,17 +617,17 @@
   "sharp-soft|prob": {
    "pattern": "sharp-soft",
    "unit": "prob",
-   "n": 32,
-   "meanPredicted": 0.0235,
-   "meanRealized": 0.002,
-   "tRealized": 0.34,
-   "capture": 0.09,
-   "rightWay": 0.464,
-   "noMove": 4,
+   "n": 34,
+   "meanPredicted": 0.0216,
+   "meanRealized": 0.0065,
+   "tRealized": 0.9,
+   "capture": 0.3,
+   "rightWay": 0.483,
+   "noMove": 5,
    "logLossGain": {
-    "n": 31,
-    "mean": -0.00021,
-    "t": -0.02
+    "n": 34,
+    "mean": 0.00061,
+    "t": 0.06
    },
    "verdict": "collecting"
   },
@@ -642,9 +642,9 @@
    "rightWay": 0.727,
    "noMove": 4,
    "logLossGain": {
-    "n": 14,
-    "mean": 0.02752,
-    "t": 1.32
+    "n": 15,
+    "mean": 0.02301,
+    "t": 1.15
    },
    "verdict": "collecting"
   },
@@ -659,26 +659,43 @@
    "rightWay": 0.487,
    "noMove": 16,
    "logLossGain": {
-    "n": 52,
-    "mean": -0.00815,
-    "t": -0.76
+    "n": 54,
+    "mean": -0.00677,
+    "t": -0.64
    },
    "verdict": "collecting"
   },
   "tennis-elo": {
    "pattern": "tennis-elo",
    "unit": "prob",
-   "n": 6,
-   "meanPredicted": 0.0299,
-   "meanRealized": -0.006,
-   "tRealized": -0.84,
-   "capture": -0.2,
-   "rightWay": 0.2,
+   "n": 7,
+   "meanPredicted": 0.0276,
+   "meanRealized": -0.0041,
+   "tRealized": -0.65,
+   "capture": -0.15,
+   "rightWay": 0.333,
    "noMove": 1,
    "logLossGain": {
-    "n": 6,
-    "mean": 0.00304,
-    "t": 0.12
+    "n": 7,
+    "mean": 0.00832,
+    "t": 0.37
+   },
+   "verdict": "collecting"
+  },
+  "tennis-fatigue": {
+   "pattern": "tennis-fatigue",
+   "unit": "prob",
+   "n": 1,
+   "meanPredicted": 0.0196,
+   "meanRealized": 0.0071,
+   "tRealized": 0.0,
+   "capture": 0.36,
+   "rightWay": 1.0,
+   "noMove": 0,
+   "logLossGain": {
+    "n": 1,
+    "mean": 0.05724,
+    "t": 0.0
    },
    "verdict": "collecting"
   },
@@ -693,9 +710,9 @@
    "rightWay": 0.5,
    "noMove": 3,
    "logLossGain": {
-    "n": 10,
-    "mean": 0.03744,
-    "t": 2.36
+    "n": 11,
+    "mean": 0.02783,
+    "t": 1.61
    },
    "verdict": "collecting"
   },

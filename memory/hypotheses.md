@@ -397,3 +397,5 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-27 | NBA: sharpDiv=pin-for + travelEdge=less | 8 | +2.9% | found inside NBA travelEdge=less (best of 33 features tested); small sample, may share reads with other rows |
 | 2026-10-27 | NBA: sharpDiv=pin-for + venue=home | 9 | +2.5% | found inside NBA venue=home (best of 41 features tested); small sample, may share reads with other rows |
 | 2026-10-27 | NBA: sharpDiv=aligned + tzShift=west | 8 | +0.8% | found inside NBA tzShift=west (best of 19 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | market=h2h + sharpGapPick=2%+ | 8 | +4.8% | found inside ALL market=h2h (best of 58 features tested); small sample, may share reads with other rows |
+| 2026-10-27 | edgeBar=0.5-1x + timing=late | 12 | +0.6% | found inside ALL role=fav (best of 8 pairs tested); small sample, may share reads with other rows |
