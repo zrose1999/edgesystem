@@ -95680,6 +95680,144 @@
       },
       "priceBook": "Caesars",
       "contextAtPick": {}
+    },
+    {
+      "pickId": "NHL|2026-10-29|Calgary Flames at Edmonton Oilers|total|under|v1|goalie-news",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NHL|2026-10-29|Calgary Flames at Edmonton Oilers|total",
+      "sport": "NHL",
+      "event": "Calgary Flames at Edmonton Oilers",
+      "commence": "2026-10-29T00:40:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 6.5,
+      "priceAtPick": -102,
+      "marketNumber": 6.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "over": -112,
+        "under": -108
+      },
+      "priceTime": "2026-10-27T17:39:33Z",
+      "pickedAt": "2026-10-27T18:54:35Z",
+      "fair": 0.469,
+      "projection": 0.469,
+      "edge": 0.026,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Flames: Dustin Wolf (expected) at the open, now Devin Cooley (expected), GSAx/60 +0.05 to +0.40. Open over 6.5 0.489, expected goals -0.12, fair over 0.469.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": null,
+      "contextAtPick": {
+        "goalie": "Flames: Dustin Wolf (expected) at the open, now Devin Cooley (expected), GSAx/60 +0.05 to +0.40"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -102,
+        "line": 6.5,
+        "implied": 0.505,
+        "printImplied": 0.5192
+      }
+    },
+    {
+      "pickId": "NHL|2026-10-29|Calgary Flames at Edmonton Oilers|h2h|away|v1|lean|goalie-news|2026-10-27T18:54:35Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NHL|2026-10-29|Calgary Flames at Edmonton Oilers|h2h",
+      "sport": "NHL",
+      "event": "Calgary Flames at Edmonton Oilers",
+      "commence": "2026-10-29T00:40:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 181,
+      "marketNumber": null,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": -218,
+        "away": 180
+      },
+      "priceTime": "2026-10-27T17:39:33Z",
+      "pickedAt": "2026-10-27T18:54:35Z",
+      "fair": 0.643,
+      "projection": 0.643,
+      "edge": 0.001,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Flames: Dustin Wolf (expected) at the open, now Devin Cooley (expected), GSAx/60 +0.05 to +0.40. Open home win 0.664, goalie change -0.021, fair 0.643.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": null,
+      "contextAtPick": {
+        "goalie": "Flames: Dustin Wolf (expected) at the open, now Devin Cooley (expected), GSAx/60 +0.05 to +0.40"
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": 181,
+        "line": null,
+        "implied": 0.3559,
+        "printImplied": 0.3571
+      }
+    },
+    {
+      "pickId": "NHL|2026-10-29|Calgary Flames at Edmonton Oilers|h2h|away|v1|lean|edge-stack|2026-10-27T18:54:41Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NHL|2026-10-29|Calgary Flames at Edmonton Oilers|h2h",
+      "sport": "NHL",
+      "event": "Calgary Flames at Edmonton Oilers",
+      "commence": "2026-10-29T00:40:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 181,
+      "marketNumber": null,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": -218,
+        "away": 180
+      },
+      "priceTime": "2026-10-27T17:39:33Z",
+      "pickedAt": "2026-10-27T18:54:41Z",
+      "fair": 0.641,
+      "projection": 0.641,
+      "edge": 0.003,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "edge-stack",
+      "reason": "Edge stack (2 sources, x0.85 for overlap): goalie-news -0.021; opening drift -0.006. Fair 0.641.",
+      "falsifier": "The line closes at or past the current number on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "edge_stack.py",
+      "pinAtPick": null,
+      "contextAtPick": {
+        "goalie": "Flames: Dustin Wolf (expected) at the open, now Devin Cooley (expected), GSAx/60 +0.05 to +0.40"
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": 181,
+        "line": null,
+        "implied": 0.3559,
+        "printImplied": 0.3571
+      }
     }
   ]
 }
