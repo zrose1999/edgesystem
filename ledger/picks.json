@@ -86935,7 +86935,21 @@
         "implied": 0.4608,
         "printImplied": 0.4608
       },
-      "commenceAtPick": "2026-10-27T11:00:00Z"
+      "commenceAtPick": "2026-10-27T11:00:00Z",
+      "closeLine": null,
+      "closePrice": 108,
+      "closeNoVig": 0.4568,
+      "estimated": false,
+      "clvPoints": 0.0,
+      "clvProb": 0.017,
+      "clvProbPrint": -0.004,
+      "clvProbPin": 0.017,
+      "closeNoVigPin": 0.4778,
+      "clvBench": "pinnacle",
+      "clvProbBest": 0.017,
+      "clvProbAtPrintPrice": 0.017,
+      "result": "loss",
+      "units": -1.0
     },
     {
       "pickId": "ATP|2026-10-27|Zizou Bergs at Hubert Hurkacz|h2h|none|v1|pass|tennis-elo|2026-10-26T11:13:13Z",
@@ -86982,7 +86996,7 @@
       "rowId": "ATP|2026-10-27|Jan-Lennard Struff at Yannick Hanfmann|h2h",
       "sport": "ATP",
       "event": "Jan-Lennard Struff at Yannick Hanfmann",
-      "commence": "2026-10-28T11:00:00Z",
+      "commence": "2026-10-28T11:10:00Z",
       "market": "h2h",
       "side": "home",
       "lineAtPick": null,
@@ -87036,7 +87050,7 @@
       "rowId": "ATP|2026-10-27|Ugo Humbert at Novak Djokovic|h2h",
       "sport": "ATP",
       "event": "Ugo Humbert at Novak Djokovic",
-      "commence": "2026-10-28T11:00:00Z",
+      "commence": "2026-10-28T14:10:00Z",
       "market": "h2h",
       "side": "home",
       "lineAtPick": null,
@@ -87461,7 +87475,21 @@
         "line": null,
         "implied": 0.6078,
         "printImplied": 0.6198
-      }
+      },
+      "closeLine": null,
+      "closePrice": -131,
+      "closeNoVig": 0.5432,
+      "estimated": false,
+      "clvPoints": 0.0,
+      "clvProb": -0.0692,
+      "clvProbPrint": -0.0647,
+      "clvProbPin": -0.0692,
+      "closeNoVigPin": 0.5387,
+      "clvBench": "pinnacle",
+      "clvProbBest": -0.0692,
+      "clvProbAtPrintPrice": -0.0811,
+      "result": "win",
+      "units": 0.645
     },
     {
       "pickId": "ATP|2026-10-27|Brandon Nakashima at Tallon Griekspoor|h2h|away|v1|lean|tennis-fatigue|2026-10-26T11:13:14Z",
@@ -87470,7 +87498,7 @@
       "rowId": "ATP|2026-10-27|Brandon Nakashima at Tallon Griekspoor|h2h",
       "sport": "ATP",
       "event": "Brandon Nakashima at Tallon Griekspoor",
-      "commence": "2026-10-28T10:30:00Z",
+      "commence": "2026-10-28T12:30:00Z",
       "market": "h2h",
       "side": "away",
       "lineAtPick": null,
@@ -87808,7 +87836,7 @@
       "rowId": "ATP|2026-10-27|Nikoloz Basilashvili at Jurij Rodionov|h2h",
       "sport": "ATP",
       "event": "Nikoloz Basilashvili at Jurij Rodionov",
-      "commence": "2026-10-28T10:30:00Z",
+      "commence": "2026-10-28T16:30:00Z",
       "market": "h2h",
       "side": "away",
       "lineAtPick": null,
@@ -94496,6 +94524,52 @@
         "printImplied": 0.5413
       },
       "note": "Same side already read for this pattern. Logged as a reread, graded, not counted."
+    },
+    {
+      "pickId": "NHL|2026-10-28|Ottawa Senators at Vegas Golden Knights|h2h|none|v1|pass|nhl-ml-move|2026-10-27T15:09:46Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "NHL|2026-10-28|Ottawa Senators at Vegas Golden Knights|h2h",
+      "sport": "NHL",
+      "event": "Ottawa Senators at Vegas Golden Knights",
+      "commence": "2026-10-28T02:10:00Z",
+      "market": "h2h",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": null,
+      "priceBook": null,
+      "marketPrices": {
+        "home": -162,
+        "away": 136
+      },
+      "priceTime": "2026-10-27T15:09:37Z",
+      "pickedAt": "2026-10-27T15:09:46Z",
+      "fair": 0.592,
+      "projection": 0.592,
+      "edge": -0.014,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "nhl-ml-move",
+      "reason": "NHL ratings home win 0.547, open 0.597 (gap -0.050). Prices moved 0.1 x the gap from open to close in the backtest. Expected move -0.005, 0.005 still to come; now 0.597, fair 0.592. (Under the pattern's minimum move: lean only.)",
+      "falsifier": "The price closes at or past the open on the other side of the model.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "move_nhl.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -154,
+          "away": 138
+        },
+        "updated": "2026-10-27T15:09:37Z",
+        "snapTime": "2026-10-27T15:09:37Z"
+      },
+      "contextAtPick": {},
+      "bestAtPick": null
     }
   ]
 }
