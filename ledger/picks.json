@@ -98065,6 +98065,50 @@
         "implied": 0.5238,
         "printImplied": 0.5238
       }
+    },
+    {
+      "pickId": "NBA|2026-10-29|Oklahoma City Thunder at Dallas Mavericks|total|over|v1|learned-nba-total",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NBA|2026-10-29|Oklahoma City Thunder at Dallas Mavericks|total",
+      "sport": "NBA",
+      "event": "Oklahoma City Thunder at Dallas Mavericks",
+      "commence": "2026-10-29T01:40:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 230.5,
+      "priceAtPick": -115,
+      "marketNumber": 230.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "over": -115,
+        "under": -105
+      },
+      "priceTime": "2026-10-28T00:24:35Z",
+      "pickedAt": "2026-10-28T00:24:41Z",
+      "fair": 232.066,
+      "projection": 232.066,
+      "edge": 1.566,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-nba-total",
+      "reason": "Learned NBA model (ridge, 89 data points) predicts the total moves +1.57 from the open; open 230.5, now 230.5, 1.57 still to come. Fair 232.07. Report: stats/models/nba_total.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": null,
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -115,
+        "line": 230.5,
+        "implied": 0.5349,
+        "printImplied": 0.5349
+      }
     }
   ]
 }
