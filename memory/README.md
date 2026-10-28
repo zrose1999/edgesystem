@@ -129,3 +129,6 @@ Before proposing a lean or pattern, query similar past reads:
 
 ## memory/losses.md (2026-10-28)
 The loss review, rebuilt by memory.py after every grade run (single writer: the data job). Every read that lost to the close, explained by autopsy.py: its CLV split exactly into price paid (fair no-vig at the pick minus the price taken) and market move (fair at the pick to the close), its cause (overpaid, news-after-pick, sharps-against, bet-into-steam, late-move, sharp-move-against, soft-move-against, model-wrong, unknown), a one-line lesson, whether today's rules block it, and what already learns from that cause. Tables cover 30 days; the list covers 7. It explains; it never changes a rule. The weekly review works through it (step 14).
+
+## memory/findings.md and stats/findings.json (2026-10-28)
+EDGE's own pattern review, rebuilt by findings.py after every grade run (single writer: the data job). It compares every pre-pick condition with the rest of the sample, keeps only those that hold in both halves of time, checks whether one pattern drives them, prints how many would clear by chance, groups them into themes, and tracks each across days (new, holding, faded). Leads only; the health check interprets them daily and the weekly review proposes at most one as a measured shadow pattern.

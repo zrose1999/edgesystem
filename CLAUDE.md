@@ -8,7 +8,7 @@ Work on the `data` branch (scripts, ledgers, data). `main` holds only the site s
    fixes to breakage, logging and data paths can be pushed with a changelog.md line.
 3. Before you finish: record any decision Zack made in DESK.md (Decisions log, and Standing rules if it holds from now
    on), and update Open threads with anything left unfinished or to check later. Commit it with your other changes.
-4. Never commit generated files (STATE.md, memory/log, memory/research.json, memory/summary.md, memory/hypotheses.md, memory/losses.md,
+4. Never commit generated files (STATE.md, memory/log, memory/research.json, memory/summary.md, memory/hypotheses.md, memory/losses.md, memory/findings.md, stats/findings.json,
    stats/scan/, stats/autopsy_box.json, stats/modelcheck.json, matchups/). Restore them with `git checkout --` first. Pull with `--rebase` right before
    every push; the data job pushes about every 15 minutes.
 5. In Zack's EDGE project on claude.ai: if the project's custom instructions differ from the block in CLAUDE_PROJECT.md,
