@@ -190,6 +190,14 @@ def build():
             parts.append(f"{key} {len(v)} reads, CLV {pct(sum(done) / len(done)) if done else 'n/a'} on {len(done)} graded")
         L.append("- Pinnacle gate (since 2026-10-28): " + "; ".join(parts)
                  + ". Gated reads are scored, never counted; the gate is working if pass beats gated.")
+    # Why we lose (2026-10-28): the autopsy's exact split of every loss, from research.json. Full list: memory/losses.md.
+    ar = (load(ROOT / "memory" / "research.json", {}).get("autopsy") or {}).get("lossCauses") or {}
+    if ar:
+        top = sorted(ar.items(), key=lambda kv: kv[1].get("clvLost") or 0)[:3]
+        L.append("- Why reads lose (autopsy, all graded): " + "; ".join(
+            f"{c} {v['n']} ({(v.get('clvLost') or 0) * 100:.0f} pts: price {(v.get('lostToPrice') or 0) * 100:.0f}, "
+            f"move {(v.get('lostToMove') or 0) * 100:.0f}; {v.get('nowBlocked', 0)} now blocked)" for c, v in top)
+            + ". Every loss with its lesson: memory/losses.md.")
     mk = (load(ROOT / "trading" / "ledger.json", {}).get("status") or {}).get("maker")
     if mk:
         L.append(f"- Kalshi maker paper book: {mk.get('orders')} orders, fill rate {mk.get('fillRate')}, net CLV "

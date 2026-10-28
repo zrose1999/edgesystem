@@ -17,8 +17,20 @@ Two questions, answered separately because only one of them carries signal at to
          sharps-against-at-open  same, at the open (when no pick-time Pinnacle price exists)
          bet-into-steam          Pinnacle was moving away from our side in the 30 min - 6 h before the pick
          late-move               the move came in the final hour with no news found
-         number-off              the market moved against us with no news, sharp or steam signal: our number was off
+         sharp-move-against      (2026-10-28) Pinnacle itself moved against us after the pick, no news found:
+                                 sharp money disagreed with the read
+         soft-move-against       (2026-10-28) the print moved against us while Pinnacle held: a soft-book move
+         model-wrong             (2026-10-28) the market moved against us and nothing above explains it: the read's
+                                 number was off (was "number-off")
          unknown                 too little stored data to say (reads before the snapshots and timelines)
+       Before any of these: every read's CLV is split exactly (2026-10-28, Zack: "find out exactly what happened")
+         CLV = price paid (fair no-vig at the pick, Pinnacle where stored, else the print, minus the price taken)
+             + market move (fair at the pick to the close)
+       and a loss whose market move is under MOVE_EPS is
+         overpaid                we paid more than the fair price and the line never moved against us: the loss is
+                                 the price, not the read (pre-pick feature pinEdge; blocked now by the Pinnacle gate)
+       Every loss also gets a one-line lesson and nowBlocked: whether today's rules (Pinnacle gate, parked
+       patterns) would have stopped it. memory.py turns these into memory/losses.md, the weekly loss review.
        Reads that beat the close get market-agreed (or news-for-us when news broke our way).
        Each cause names the pre-pick feature that could have warned us, where one exists. That pre-pick feature,
        not the cause, is what gets tested on CLV (memory/research.json).
@@ -58,6 +70,8 @@ CFB_QB_POINTS = 4.0       # a college QB1 change, at full absence weight
 STEAM_AWAY = -0.005       # Pinnacle no-vig move before the pick, as memory.py's steamBeforePick
 SHARP_AGAINST = -0.01     # as memory.py's sharpDiv / sharpDivPick
 PRICE_MOVE = 0.015        # a same-line no-vig move this large counts as a move
+MOVE_EPS = 0.005          # a market move smaller than this (no-vig, toward the close) is no move: the price decided it
+PIN_HELD = 0.005          # Pinnacle moving less than this after the pick counts as holding
 
 # Where a pre-pick feature exists that could have flagged the cause before the bet.
 PRE_PICK_FEATURE = {
@@ -66,7 +80,77 @@ PRE_PICK_FEATURE = {
     "sharps-against-at-open": "sharpDiv=pin-against",
     "bet-into-steam": "steamBeforePick=away",
     "late-move": None, "number-off": None, "unknown": None,
+    "overpaid": "pinEdge",                             # price taken vs Pinnacle no-vig at the pick (memory.py)
+    "sharp-move-against": "steamBeforePick=away",      # the nearest pre-pick sharp signal we store
+    "soft-move-against": "sharpDivPick=pin-for",       # Pinnacle already on our side: the print came back to it
+    "model-wrong": "edgeBar",                          # the size of the read's own disagreement with the market
 }
+# What already learns from each cause without anyone acting (2026-10-28).
+FEEDBACK = {
+    "overpaid": "Pinnacle gate: a read whose price is not better than Pinnacle's fair price no longer counts.",
+    "model-wrong": "Model shrink: the move check lowers this pattern's weight when its predicted moves fail.",
+    "sharp-move-against": "Move check: counts against the pattern's capture; tested pre-pick as steamBeforePick.",
+    "news-after-pick": "Tested pre-pick as timing (early reads before reports settle).",
+}
+
+
+def price_split(pick):
+    """CLV = price paid + market move, exactly. price paid = fair no-vig for our side at the pick (Pinnacle moved to
+    our line where stored, as the gate computes it; else the print's own no-vig, which is our line) minus the implied
+    probability of the price taken. market move = CLV - price paid. None when no fair price at the pick is stored."""
+    clv, side, price = pick.get("clvProb"), pick.get("side"), pick.get("priceAtPick")
+    if not isinstance(clv, (int, float)) or not side or price is None:
+        return None
+    try:
+        import pull
+        paid = pull.implied(price)
+    except Exception:  # noqa: BLE001
+        return None
+    fair_p, src = None, None
+    pin = pick.get("pinAtPick") or {}
+    if pin.get("prices"):
+        snap = {"time": pin.get("snapTime") or pick.get("priceTime"),
+                "books": {"pinnacle": {**pin["prices"], "line": pin.get("line"), "updated": pin.get("updated")}}}
+        pe = pull.pin_edge_at_pick(snap, side, pick.get("market"), pick.get("sport"), pick.get("lineAtPick"), price)
+        if pe:
+            fair_p, src = pe["edge"] + paid, "pinnacle"
+    if fair_p is None:
+        nv = no_vig(pick.get("marketPrices"), side)
+        if nv is not None:
+            fair_p, src = nv, "print"
+    if fair_p is None:
+        return None
+    return {"pricePaid": round(fair_p - paid, 4), "marketMove": round(clv - (fair_p - paid), 4), "fairSource": src}
+
+
+def lesson(cause, split, m, pick):
+    """One plain sentence: what happened to this read, in numbers."""
+    pp = split["pricePaid"] if split else None
+    mv = split["marketMove"] if split else None
+    pr = f"{pp * 100:+.1f}%" if pp is not None else "n/a"
+    mm = f"{mv * 100:+.1f}%" if mv is not None else "n/a"
+    src = "Pinnacle's" if split and split["fairSource"] == "pinnacle" else "the print's no-vig"
+    if cause == "overpaid":
+        return (f"Paid {abs(pp) * 100:.1f}% over {src} fair price at the pick; the market moved {mm}. The loss was the "
+                "price, not the read.")
+    if cause == "news-after-pick":
+        items = "; ".join(str(x) for x in (m.get("news") or [])[:2])
+        return f"News landed after the pick ({items or 'see news'}); market moved {mm}, price paid {pr}."
+    if cause == "sharp-move-against":
+        return (f"Pinnacle moved {m.get('pinMoveAfterPick', 0) * 100:+.1f}% against us after the pick with no news: sharp "
+                f"money disagreed. Market move {mm}, price paid {pr}.")
+    if cause == "soft-move-against":
+        return f"The print moved against us ({mm}) while Pinnacle held; price paid {pr}."
+    if cause in ("sharps-against-at-pick", "sharps-against-at-open"):
+        return f"Pinnacle already rated our side below the print when we bet; price paid {pr}, market move {mm}."
+    if cause == "bet-into-steam":
+        return f"Bet into a Pinnacle move already running against us; price paid {pr}, market move {mm}."
+    if cause == "late-move":
+        return f"Market moved {mm} against us in the final hour, no news found; price paid {pr}."
+    if cause == "model-wrong":
+        return (f"Market moved {mm} against the read's side with no news, sharp or steam signal: the read's number "
+                f"was off. Price paid {pr}.")
+    return "Too little stored data to say what happened."
 
 
 def load_json(path, default):
@@ -293,8 +377,11 @@ def market_autopsy(pick, row, snaps, entry=None):
     pin_after = pin_after_pick(pick, snaps)
     have_snaps = any(s.get("t") and pick.get("pickedAt") and s["t"] > pick["pickedAt"] for s in snaps)
 
+    split = price_split(pick)
     if clv > 0:
         cause = "news-for-us" if big_news and news_pts > 0 else "market-agreed"
+    elif split and split["marketMove"] > -MOVE_EPS and split["pricePaid"] < 0:
+        cause = "overpaid"
     elif big_news and news_pts < 0:
         cause = "news-after-pick"
     elif isinstance(div_pick, (int, float)) and div_pick <= SHARP_AGAINST:
@@ -305,11 +392,15 @@ def market_autopsy(pick, row, snaps, entry=None):
         cause = "bet-into-steam"
     elif move_min is not None and move_min <= 60:
         cause = "late-move"
-    elif have_snaps or news is not None or div_pick is not None or div_open is not None:
-        cause = "number-off"
+    elif isinstance(pin_after, (int, float)) and pin_after <= -PIN_HELD:
+        cause = "sharp-move-against"
+    elif isinstance(pin_after, (int, float)) and split and split["fairSource"] == "print":
+        cause = "soft-move-against"
+    elif have_snaps or news is not None or div_pick is not None or div_open is not None or split:
+        cause = "model-wrong"
     else:
         cause = "unknown"
-    return {
+    out = {
         "clv": "beat" if clv > 0 else "lost",
         "cause": cause,
         "prePickFeature": PRE_PICK_FEATURE.get(cause),
@@ -319,7 +410,27 @@ def market_autopsy(pick, row, snaps, entry=None):
         "firstMoveAgainstMinBeforeStart": move_min,
         "pinMoveAfterPick": pin_after,
         "snapsAfterPick": have_snaps,
+        "split": split,
     }
+    if clv <= 0:
+        out["lesson"] = lesson(cause, split, out, pick)
+        out["feedback"] = FEEDBACK.get(cause)
+        out["nowBlocked"] = now_blocked(pick, split)
+    return out
+
+
+def now_blocked(pick, split):
+    """Would today's rules have stopped this read? "parked", "gated" (price not better than Pinnacle's fair price at the
+    pick), or None. Uses only what was stored at the pick."""
+    try:
+        import pull
+        if pick.get("pattern") in pull.PARKED:
+            return "parked"
+    except Exception:  # noqa: BLE001
+        pass
+    if split and split["fairSource"] == "pinnacle" and split["pricePaid"] <= 0:
+        return "gated"
+    return None
 
 
 # ---------------------------------------------------------------- game autopsy

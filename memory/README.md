@@ -125,3 +125,7 @@ Before proposing a lean or pattern, query similar past reads:
 
     python3 memory.py query --sport NFL --market total --feature wind=15+
     python3 memory.py query --pattern news-lag --feature timing=early --since 2026-10-01
+
+
+## memory/losses.md (2026-10-28)
+The loss review, rebuilt by memory.py after every grade run (single writer: the data job). Every read that lost to the close, explained by autopsy.py: its CLV split exactly into price paid (fair no-vig at the pick minus the price taken) and market move (fair at the pick to the close), its cause (overpaid, news-after-pick, sharps-against, bet-into-steam, late-move, sharp-move-against, soft-move-against, model-wrong, unknown), a one-line lesson, whether today's rules block it, and what already learns from that cause. Tables cover 30 days; the list covers 7. It explains; it never changes a rule. The weekly review works through it (step 14).
