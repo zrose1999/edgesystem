@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-28T17:24:43Z",
+ "asOf": "2026-10-28T17:39:44Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 781,
  "loggedReads": 1595,
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1001,
-   "with": 678,
+   "reads": 1006,
+   "with": 683,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1001,
-   "with": 1001,
+   "reads": 1006,
+   "with": 1006,
    "alarm": false
   }
  },
@@ -98,9 +98,9 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1230,
-  "latest": "2026-10-28T17:24:34Z",
-  "rowsWithHistory": 942,
+  "linesLastCycle": 1283,
+  "latest": "2026-10-28T17:39:27Z",
+  "rowsWithHistory": 947,
   "alarm": false
  },
  "interactionCoverage": {
@@ -9199,29 +9199,63 @@
   "note": "Post-pick. Causes explain why reads lost to the close; verdicts and tags explain results. Nothing here is a feature or a rule: a cause becomes testable only through its pre-pick feature.",
   "graded": 781,
   "withAutopsy": 781,
-  "causeKnown": 501,
+  "causeKnown": 525,
   "lostToClose": 525,
   "beatClose": 256,
   "newsForUs": 50,
   "lossCauses": {
-   "news-after-pick": {
-    "n": 37,
-    "meanClvProb": -0.0452,
-    "tStat": -7.66,
+   "overpaid": {
+    "n": 252,
+    "meanClvProb": -0.0154,
+    "tStat": -28.28,
     "beatClose": 0,
-    "share": 0.07,
+    "share": 0.48,
+    "clvLost": -3.8886,
+    "lostToPrice": -5.6172,
+    "lostToMove": 1.7286,
+    "nowBlocked": 126,
     "bySport": {
-     "NBA": 25,
-     "NFL": 7,
-     "NCAAF": 4,
-     "NHL": 1
+     "NCAAF": 73,
+     "NHL": 67,
+     "NBA": 66,
+     "NFL": 34,
+     "ATP": 7,
+     "WTA": 2,
+     "MLS": 1,
+     "UCL": 1,
+     "SerieA": 1
     },
     "topPatterns": {
-     "news-lag": 14,
-     "nba-stats-model": 3,
-     "scan-nba-h2h-home-restawayb2b-60ea66": 3,
-     "scan-nba-spread-home-restawayb2b-7f68d5": 3,
-     "sharp-soft-alt": 2
+     "news-lag": 45,
+     "goalie-news": 21,
+     "edge-stack": 18,
+     "ncaaf-spot": 16,
+     "learned-nhl-ml": 15
+    },
+    "prePickFeature": "pinEdge",
+    "prePickFeatureClv": null
+   },
+   "news-after-pick": {
+    "n": 21,
+    "meanClvProb": -0.0667,
+    "tStat": -8.9,
+    "beatClose": 0,
+    "share": 0.04,
+    "clvLost": -1.4002,
+    "lostToPrice": -0.3992,
+    "lostToMove": -1.001,
+    "nowBlocked": 15,
+    "bySport": {
+     "NBA": 12,
+     "NFL": 6,
+     "NCAAF": 3
+    },
+    "topPatterns": {
+     "news-lag": 11,
+     "learned-nba-total": 2,
+     "scan-nba-h2h-home-restawayb2b-60ea66": 2,
+     "scan-nba-spread-home-restawayb2b-7f68d5": 2,
+     "scan-ncaaf-h2h-away-homeprice75resthomenormal-4e85b7": 1
     },
     "prePickFeature": "timing=early",
     "prePickFeatureClv": {
@@ -9232,22 +9266,25 @@
     }
    },
    "sharps-against-at-pick": {
-    "n": 10,
-    "meanClvProb": -0.0399,
-    "tStat": -7.07,
+    "n": 5,
+    "meanClvProb": -0.0532,
+    "tStat": -9.37,
     "beatClose": 0,
-    "share": 0.019,
+    "share": 0.01,
+    "clvLost": -0.2661,
+    "lostToPrice": -0.141,
+    "lostToMove": -0.1251,
+    "nowBlocked": 5,
     "bySport": {
-     "NBA": 4,
-     "NHL": 4,
-     "ATP": 2
+     "NBA": 2,
+     "ATP": 2,
+     "NHL": 1
     },
     "topPatterns": {
-     "goalie-news": 2,
      "news-lag": 2,
-     "nba-stats-model": 1,
      "scan-nhl-total-over-total55-c4eaa6": 1,
-     "edge-stack": 1
+     "tennis-elo": 1,
+     "tennis-fatigue": 1
     },
     "prePickFeature": "sharpDivPick=pin-against",
     "prePickFeatureClv": {
@@ -9263,6 +9300,10 @@
     "tStat": 0.0,
     "beatClose": 0,
     "share": 0.002,
+    "clvLost": -0.0306,
+    "lostToPrice": -0.0242,
+    "lostToMove": -0.0064,
+    "nowBlocked": 0,
     "bySport": {
      "ATP": 1
     },
@@ -9278,23 +9319,23 @@
     }
    },
    "bet-into-steam": {
-    "n": 10,
-    "meanClvProb": -0.0221,
-    "tStat": -4.93,
+    "n": 3,
+    "meanClvProb": -0.0324,
+    "tStat": -2.41,
     "beatClose": 0,
-    "share": 0.019,
+    "share": 0.006,
+    "clvLost": -0.0972,
+    "lostToPrice": -0.025,
+    "lostToMove": -0.0722,
+    "nowBlocked": 2,
     "bySport": {
-     "NHL": 5,
-     "NBA": 3,
-     "NCAAF": 1,
-     "SerieA": 1
+     "NBA": 2,
+     "NCAAF": 1
     },
     "topPatterns": {
-     "goalie-news": 2,
-     "news-lag": 2,
-     "edge-stack": 1,
-     "learned-scan-nhl-total": 1,
-     "scan-nhl-total-over-total55-c4eaa6": 1
+     "scan-nba-h2h-home-restedgehomemore-57b863": 1,
+     "sharp-soft": 1,
+     "news-lag": 1
     },
     "prePickFeature": "steamBeforePick=away",
     "prePickFeatureClv": {
@@ -9305,71 +9346,118 @@
     }
    },
    "late-move": {
-    "n": 19,
-    "meanClvProb": -0.0425,
-    "tStat": -8.93,
+    "n": 15,
+    "meanClvProb": -0.0459,
+    "tStat": -8.15,
     "beatClose": 0,
-    "share": 0.036,
+    "share": 0.029,
+    "clvLost": -0.6883,
+    "lostToPrice": -0.2701,
+    "lostToMove": -0.4182,
+    "nowBlocked": 6,
     "bySport": {
-     "NBA": 12,
+     "NBA": 8,
      "NCAAF": 3,
      "NHL": 2,
      "NFL": 1,
      "WTA": 1
     },
     "topPatterns": {
-     "news-lag": 6,
-     "edge-stack": 2,
+     "news-lag": 4,
      "learned-nhl-over": 1,
-     "learned-nba-total": 1,
-     "scan-nba-h2h-home-restawayb2b-60ea66": 1
+     "scan-nba-h2h-home-restawayb2b-60ea66": 1,
+     "scan-nba-spread-home-restawayb2b-7f68d5": 1,
+     "edge-stack": 1
     },
     "prePickFeature": null,
     "prePickFeatureClv": null
    },
-   "number-off": {
-    "n": 424,
-    "meanClvProb": -0.0331,
-    "tStat": -24.18,
+   "sharp-move-against": {
+    "n": 22,
+    "meanClvProb": -0.0241,
+    "tStat": -6.67,
     "beatClose": 0,
-    "share": 0.808,
+    "share": 0.042,
+    "clvLost": -0.5292,
+    "lostToPrice": -0.1604,
+    "lostToMove": -0.3688,
+    "nowBlocked": 18,
     "bySport": {
-     "NCAAF": 134,
-     "NBA": 112,
-     "NHL": 86,
-     "NFL": 71,
-     "ATP": 8,
-     "WTA": 4,
+     "NBA": 10,
+     "NFL": 7,
+     "NHL": 3,
+     "NCAAF": 2
+    },
+    "topPatterns": {
+     "news-lag": 9,
+     "sharp-soft": 4,
+     "learned-scan-ncaaf-h2h": 2,
+     "goalie-news": 2,
+     "scan-nhl-total-over-total55-c4eaa6": 1
+    },
+    "prePickFeature": "steamBeforePick=away",
+    "prePickFeatureClv": {
+     "n": 17,
+     "meanClvProb": -0.0142,
+     "tStat": -2.09,
+     "status": "early-negative"
+    }
+   },
+   "soft-move-against": {
+    "n": 1,
+    "meanClvProb": -0.0337,
+    "tStat": 0.0,
+    "beatClose": 0,
+    "share": 0.002,
+    "clvLost": -0.0337,
+    "lostToPrice": -0.0209,
+    "lostToMove": -0.0128,
+    "nowBlocked": 0,
+    "bySport": {
+     "NHL": 1
+    },
+    "topPatterns": {
+     "nhl-total-move": 1
+    },
+    "prePickFeature": "sharpDivPick=pin-for",
+    "prePickFeatureClv": {
+     "n": 37,
+     "meanClvProb": 0.0115,
+     "tStat": 1.64,
+     "status": "early-positive"
+    }
+   },
+   "model-wrong": {
+    "n": 205,
+    "meanClvProb": -0.0547,
+    "tStat": -28.37,
+    "beatClose": 0,
+    "share": 0.39,
+    "clvLost": -11.2226,
+    "lostToPrice": -4.3154,
+    "lostToMove": -6.9072,
+    "nowBlocked": 102,
+    "bySport": {
+     "NCAAF": 60,
+     "NBA": 56,
+     "NFL": 55,
+     "NHL": 24,
      "Ligue1": 3,
-     "MLS": 2,
-     "UCL": 2,
+     "WTA": 2,
+     "MLS": 1,
+     "UCL": 1,
      "Bundesliga": 1,
-     "LaLiga": 1
+     "LaLiga": 1,
+     "ATP": 1
     },
     "topPatterns": {
-     "news-lag": 92,
-     "ncaaf-spot": 39,
-     "learned-nhl-over": 22,
-     "edge-stack": 21,
-     "stats-model": 21
+     "news-lag": 44,
+     "stats-model": 27,
+     "ncaaf-spot": 23,
+     "learned-nhl-over": 11,
+     "learned-ncaaf-total": 10
     },
-    "prePickFeature": null,
-    "prePickFeatureClv": null
-   },
-   "unknown": {
-    "n": 24,
-    "meanClvProb": -0.0409,
-    "tStat": -8.96,
-    "beatClose": 0,
-    "share": 0.046,
-    "bySport": {
-     "NFL": 24
-    },
-    "topPatterns": {
-     "stats-model": 20,
-     "trend-fade": 4
-    },
-    "prePickFeature": null,
+    "prePickFeature": "edgeBar",
     "prePickFeatureClv": null
    }
   },
@@ -9764,7 +9852,7 @@
    "n": 63,
    "meanClvProb": -0.007,
    "pocket": {
-    "feature": "grade=A",
+    "feature": "edgeBar=1-2x",
     "n": 8,
     "meanClvProb": 0.0084,
     "tStat": 0.7
@@ -10072,7 +10160,7 @@
    "n": 67,
    "meanClvProb": -0.019,
    "pocket": {
-    "feature": "sharpGapPick=<1%",
+    "feature": "sharpDivPick=aligned",
     "n": 8,
     "meanClvProb": 0.0113,
     "tStat": 0.59
@@ -11104,7 +11192,7 @@
    "n": 28,
    "meanClvProb": -0.021,
    "pocket": {
-    "feature": "sharpGapPick=<1%",
+    "feature": "sharpDivPick=aligned",
     "n": 8,
     "meanClvProb": 0.0078,
     "tStat": 10.12

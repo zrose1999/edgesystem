@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-10-28 17:24Z)
+# What EDGE is learning (2026-10-28 17:39Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 781 graded reads counted, 1595 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Scanner (scan.py, 10-28 17:07Z): 40 strategies tracking from 7828 hypotheses (0 new this run); 87 graded scan reads, mean CLV -0.6%. Shadow only; grade.py decides promotion.
@@ -17,13 +17,13 @@ Observation: edge size is not yet predicting CLV (A -1.2% on 82, B -0.7% on 227,
   > last 50 graded reads: A +0.7% on 5, B +0.6% on 10, C -1.6% on 35 (A > B > C holds; diagnostic only)
   > pocket: restEdge=more inside grade A: n 10, CLV +1.5%, t +1.0 (best of 42 tested; a lead to watch)
   > order holds inside restDays=1day: A +0.9% on 17, B -1.0% on 48, C -1.2% on 134 (6 of 43 features tested)
-Why reads lost to the close (autopsy, post-pick; 525 of 781, cause known on 501): news-after-pick 37 (-4.5%), sharps-against-at-pick 10 (-4.0%), sharps-against-at-open 1 (-3.1%), bet-into-steam 10 (-2.2%), late-move 19 (-4.2%), number-off 424 (-3.3%), unknown 24 (-4.1%)
+Why reads lost to the close (autopsy, post-pick; 525 of 781, cause known on 525): overpaid 252 (-1.5%), news-after-pick 21 (-6.7%), sharps-against-at-pick 5 (-5.3%), sharps-against-at-open 1 (-3.1%), bet-into-steam 3 (-3.2%), late-move 15 (-4.6%), sharp-move-against 22 (-2.4%), soft-move-against 1 (-3.4%), model-wrong 205 (-5.5%)
 Process vs result: right-and-rewarded 149, right-but-unlucky 104, lucky-win 242, market-was-right 278, push 3; right-but-unlucky losses hurt most by close-margin, flipped-late, goalie-outlier (results are noise at this sample; CLV decides)
 Data gaps, waiting on a source: public-pct (needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack); guru (needs an account list + reader (Reddit API free, X API paid); log account, number, time, result)
 Coverage of added features (BREAKAGE if still 0 one health-check cycle after shipping):
-- snaps: 1230 price snapshots stored in the last 26h, latest 10-28 17:24Z, 942 games with 2+ (late steam, since 10-19 18:15Z)
-- pinAtPick on 269 of 389 graded reads since 10-19 18:00Z; 678 of 1001 new reads stamped (Pinnacle at the pick)
-- contextAtPick on 389 of 389 graded reads since 10-19 18:00Z; 1001 of 1001 new reads stamped (weather/injury/goalie as stamped)
+- snaps: 1283 price snapshots stored in the last 26h, latest 10-28 17:39Z, 947 games with 2+ (late steam, since 10-19 18:15Z)
+- pinAtPick on 269 of 389 graded reads since 10-19 18:00Z; 683 of 1006 new reads stamped (Pinnacle at the pick)
+- contextAtPick on 389 of 389 graded reads since 10-19 18:00Z; 1006 of 1006 new reads stamped (weather/injury/goalie as stamped)
 - sharpDivergenceAtPick on 158 of 389 graded reads since 10-19 18:00Z (needs Pinnacle on the same line)
 - daysRestHome on 728 of 736 graded NBA/NHL/NCAAF/NFL reads (schedules in stats/ (NFL from 2026-10-21))
 - sharpDivergence on 81 of 781 graded reads since 10-14 00:00Z (Pinnacle at the open)
