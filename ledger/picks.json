@@ -98229,6 +98229,171 @@
       "pinAtPick": null,
       "contextAtPick": {},
       "bestAtPick": null
+    },
+    {
+      "pickId": "NHL|2026-10-28|Vancouver Canucks at Anaheim Ducks|total|under|v1|goalie-news",
+      "kind": "pick",
+      "grade": "A",
+      "rowId": "NHL|2026-10-28|Vancouver Canucks at Anaheim Ducks|total",
+      "sport": "NHL",
+      "event": "Vancouver Canucks at Anaheim Ducks",
+      "commence": "2026-10-28T02:10:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 6.5,
+      "priceAtPick": 114,
+      "marketNumber": 6.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -135,
+        "under": 114
+      },
+      "priceTime": "2026-10-28T01:54:30Z",
+      "pickedAt": "2026-10-28T01:54:33Z",
+      "fair": 0.466,
+      "projection": 0.466,
+      "edge": 0.067,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Canucks: Kevin Lankinen (expected) at the open, now Leevi Merilainen (confirmed), GSAx/60 -0.55 to -0.15. Open over 6.5 0.489, expected goals -0.14, fair over 0.466.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": 6.5,
+        "prices": {
+          "over": -129,
+          "under": 115
+        },
+        "updated": "2026-10-28T01:53:51Z",
+        "snapTime": "2026-10-28T01:54:30Z",
+        "noVig": 0.4509
+      },
+      "contextAtPick": {
+        "goalie": "Canucks: Kevin Lankinen (expected) at the open, now Leevi Merilainen (confirmed), GSAx/60 -0.55 to -0.15"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": 114,
+        "line": 6.5,
+        "implied": 0.4673,
+        "printImplied": 0.4673
+      }
+    },
+    {
+      "pickId": "NHL|2026-10-28|Vancouver Canucks at Anaheim Ducks|h2h|away|v1|goalie-news",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NHL|2026-10-28|Vancouver Canucks at Anaheim Ducks|h2h",
+      "sport": "NHL",
+      "event": "Vancouver Canucks at Anaheim Ducks",
+      "commence": "2026-10-28T02:10:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 182,
+      "marketNumber": null,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": -218,
+        "away": 180
+      },
+      "priceTime": "2026-10-28T01:54:30Z",
+      "pickedAt": "2026-10-28T01:54:33Z",
+      "fair": 0.619,
+      "projection": 0.619,
+      "edge": 0.026,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Canucks: Kevin Lankinen (expected) at the open, now Leevi Merilainen (confirmed), GSAx/60 -0.55 to -0.15. Open home win 0.643, goalie change -0.024, fair 0.619.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -211,
+          "away": 187
+        },
+        "updated": "2026-10-28T01:53:51Z",
+        "snapTime": "2026-10-28T01:54:30Z",
+        "noVig": 0.335
+      },
+      "contextAtPick": {
+        "goalie": "Canucks: Kevin Lankinen (expected) at the open, now Leevi Merilainen (confirmed), GSAx/60 -0.55 to -0.15"
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": 182,
+        "line": null,
+        "implied": 0.3546,
+        "printImplied": 0.3571
+      }
+    },
+    {
+      "pickId": "NHL|2026-10-28|Vancouver Canucks at Anaheim Ducks|h2h|away|v1|edge-stack",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NHL|2026-10-28|Vancouver Canucks at Anaheim Ducks|h2h",
+      "sport": "NHL",
+      "event": "Vancouver Canucks at Anaheim Ducks",
+      "commence": "2026-10-28T02:10:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 182,
+      "marketNumber": null,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": -218,
+        "away": 180
+      },
+      "priceTime": "2026-10-28T01:54:30Z",
+      "pickedAt": "2026-10-28T01:54:39Z",
+      "fair": 0.626,
+      "projection": 0.626,
+      "edge": 0.019,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "edge-stack",
+      "reason": "Edge stack (2 sources, x0.85 for overlap): goalie-news -0.045; opening drift -0.000. Fair 0.626.",
+      "falsifier": "The line closes at or past the current number on the other side.",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "edge_stack.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -211,
+          "away": 187
+        },
+        "updated": "2026-10-28T01:53:51Z",
+        "snapTime": "2026-10-28T01:54:30Z",
+        "noVig": 0.335
+      },
+      "contextAtPick": {
+        "goalie": "Canucks: Kevin Lankinen (expected) at the open, now Leevi Merilainen (confirmed), GSAx/60 -0.55 to -0.15"
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": 182,
+        "line": null,
+        "implied": 0.3546,
+        "printImplied": 0.3571
+      }
     }
   ]
 }
