@@ -425,3 +425,5 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-28 | NHL: injury=goalie + role=dog | 8 | +0.3% | found inside NHL steamBeforePick=flat (best of 4 pairs tested); small sample, may share reads with other rows |
 | 2026-10-28 | NHL: grade=C + travelEdge=less | 8 | +0.2% | found inside NHL travelEdge=less (best of 8 features tested); small sample, may share reads with other rows |
 | 2026-10-28 | edgeBar=0.5-1x + sharpGapOpen=1-2% | 9 | +1.0% | found inside ALL sharpGapOpen=1-2% (best of 6 features tested); small sample, may share reads with other rows |
+| 2026-10-28 | edgeBar=0.5-1x + steamBeforePick=toward | 9 | +0.8% | found inside ALL steamBeforePick=toward (best of 9 features tested); small sample, may share reads with other rows |
+| 2026-10-28 | bookAtPick=BetMGM + venue=away | 8 | +4.2% | found inside ALL venue=away (best of 63 features tested); small sample, may share reads with other rows |
