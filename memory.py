@@ -64,6 +64,7 @@ FEATURE_TIMING = {
     "travel": "pre-pick (schedule + stats/team_venues.json)", "travelEdge": "pre-pick (schedule + team venues)",
     "tzShift": "pre-pick (schedule + team venues)",
     "restDays": "pre-pick (schedule)", "restEdge": "pre-pick (schedule)", "shortWeek": "pre-pick (schedule)",
+    "pinEdge": "pre-pick (pinEdgeAtPick: price taken vs Pinnacle no-vig at the pick)",
     "sharpGapOpen": "pre-pick (open snapshot)", "sharpGapPick": "pre-pick (pinAtPick)", "bookAtPick": "pre-pick (stamped)",
 }
 POST_PICK_FIELDS = ["closeLine", "closePrice", "closeNoVig", "clvProb", "clvProbPrint", "clvProbPin", "clvProbBest", "clvBench", "clvProbAtPrintPrice", "clvPoints", "result", "units", "score",
@@ -472,6 +473,11 @@ def features(pick, row):
         if isinstance(edge, (int, float)) and bar:
             ratio = edge / bar
             f["edgeBar"] = "<0.5x" if ratio < 0.5 else "0.5-1x" if ratio < 1 else "1-2x" if ratio < 2 else "2x+"
+    # Price taken vs Pinnacle's no-vig at the pick (pull.pin_edge_at_pick, 2026-10-28): the Pinnacle gate's own input,
+    # so research can test the gate's line from both sides.
+    pe = pick.get("pinEdgeAtPick")
+    if isinstance(pe, (int, float)):
+        f["pinEdge"] = "<-2%" if pe < -0.02 else "-2-0%" if pe <= 0 else "0-2%" if pe <= 0.02 else "2%+"
     # Pre-pick only (2026-10-19 audit): the row's injury, goalie and weather fields keep refreshing until kickoff, so
     # they are read only from the copy stamped on the pick (contextAtPick) or from the pick's own reason text.
     ctx = pick.get("contextAtPick") or {}
@@ -706,6 +712,19 @@ def build():
             research["pockets"].append({"slice": f["key"], "n": f["n"], "meanClvProb": f["meanClvProb"],
                                         "pocket": best, "tested": tested, "pairPocket": pb, "pairsTested": pt})
 
+    # Gated reads (Pinnacle gate, 2026-10-28): scored and logged, never counted, so they sit outside every slice above.
+    # Kept as their own research slice: where gated reads still beat the close, Pinnacle was the one that was wrong,
+    # and those conditions are the gate's possible exceptions (leads for a weekly review, never applied here).
+    gated = [e for e in log if e.get("kind") == "gated" and isinstance(e.get("clvProb"), (int, float))]
+    if gated:
+        best, tested = pocket(gated, "pinEdge")
+        pb, pt = pair_pocket(gated, "pinEdge")
+        by_pat = defaultdict(list)
+        for e in gated:
+            by_pat[e.get("pattern")].append(e["clvProb"])
+        research["gated"] = {**stats([e["clvProb"] for e in gated]), "pocket": best, "tested": tested,
+                             "pairPocket": pb, "pairsTested": pt,
+                             "byPattern": {k: stats(v) for k, v in sorted(by_pat.items(), key=lambda kv: -len(kv[1]))}}
     MEM.mkdir(parents=True, exist_ok=True)
     research["hypothesesAdded"] = append_hypotheses(research.get("pockets") or [], now)
     RESEARCH.write_text(json.dumps(research, indent=1) + "\n")
@@ -991,6 +1010,13 @@ def summary(research, now, patterns, graded):
         else:
             lines.append(f"  > grade order holds inside no feature yet ({tested} tested with 5+ reads per grade)")
     lines += autopsy_lines(research.get("autopsy") or {})
+    g = research.get("gated")
+    if g and g.get("n"):
+        pk = g.get("pocket")
+        lines.append(f"Gated by the Pinnacle gate (scored, not counted): n {g['n']}, CLV {g['meanClvProb'] * 100:+.1f}%, "
+                     f"t {g['tStat']:+.1f} (positive = the gate blocks winners)"
+                     + (f"; best pocket {pk['feature']} n {pk['n']}, CLV {pk['meanClvProb'] * 100:+.1f}%, t {pk['tStat']:+.1f}"
+                        f" (of {g['tested']} tested)" if pk else ""))
     free_gaps = [f"- {k}: {GAP_SHORT[k]}" for k in ("nfl-rest",) if k in research["notCollected"]]
     if free_gaps:
         lines += ["Data gaps, free (building next):"] + free_gaps
