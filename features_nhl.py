@@ -41,9 +41,21 @@ MASCOT_TO_ABBR.update({"club": "UTA", "hockey club": "UTA"})
 SHRINK_H = 10.0
 
 
+REFRESH_BUDGET_S = 360     # 2026-10-28: a stalled MoneyPuck (33 teams x 90 s timeouts) ran the morning job into its
+                           # 30-minute limit and lost that day's scan, models and grade; stop and keep the old files
+_T0 = [None]
+
+
+def over_budget():
+    import time
+    if _T0[0] is None:
+        _T0[0] = time.time()
+    return time.time() - _T0[0] > REFRESH_BUDGET_S
+
+
 def get(url, as_json=True):
     req = urllib.request.Request(url, headers={"User-Agent": "EDGE desk"})
-    with urllib.request.urlopen(req, timeout=90) as r:
+    with urllib.request.urlopen(req, timeout=30) as r:
         b = r.read().decode("utf-8", "replace")
     return json.loads(b) if as_json else b
 
@@ -75,12 +87,18 @@ KEEP = ["xGoalsFor", "xGoalsAgainst", "goalsFor", "goalsAgainst", "shotsOnGoalFo
 def refresh_team_games(min_season=2023):
     out = {}
     import time
+    fails = 0
     for t in ABBR:
+        if over_budget() or fails >= 3:
+            print("moneypuck team refresh stopped (time budget or 3 failures in a row); keeping the stored file", flush=True)
+            return 0
         time.sleep(1)
         try:
             text = get(MP_TEAM.format(t=t), as_json=False)
+            fails = 0
         except Exception as exc:  # noqa: BLE001
-            print("moneypuck team", t, exc)
+            print("moneypuck team", t, exc, flush=True)
+            fails += 1
             continue
         games = {}
         for r in csv.DictReader(io.StringIO(text)):
@@ -107,6 +125,9 @@ def refresh_goalies(years):
     out = {}
     import time
     for y in years:
+        if over_budget():
+            print("moneypuck goalie refresh stopped (time budget)", flush=True)
+            break
         time.sleep(3)                     # MoneyPuck rate-limits bursts
         try:
             text = get(MP_GOALIE.format(y=y), as_json=False)
@@ -129,6 +150,8 @@ def refresh_starters(season_codes):
         for t in ABBR:
             if t == "ARI":
                 continue
+            if over_budget():
+                break
             try:
                 for g in get(f"{NHL_API}/club-schedule-season/{t}/{code}").get("games") or []:
                     if g.get("gameType") == 2 and g.get("gameState") in ("OFF", "FINAL") and str(g["id"]) not in old:
@@ -136,6 +159,9 @@ def refresh_starters(season_codes):
             except Exception as exc:  # noqa: BLE001
                 print("nhl schedule", t, exc)
         for gid in sorted(ids):
+            if over_budget():
+                print("nhl starters refresh stopped (time budget); the rest next run", flush=True)
+                break
             try:
                 d = get(f"{NHL_API}/gamecenter/{gid}/boxscore")
             except Exception:  # noqa: BLE001

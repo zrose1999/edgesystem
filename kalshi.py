@@ -1275,7 +1275,7 @@ def order_numbers(o, price):
     filled = fp(o.get("fill_count_fp"))
     if filled is None:
         filled = fp(o.get("fill_count"))
-    filled = int(round(filled or 0))
+    filled = round(filled or 0, 2)          # Kalshi fills can be fractional (MRSH3: 0.71 of 1, 2026-10-28)
     cost = sum(v for v in (fp(o.get("taker_fill_cost_dollars")), fp(o.get("maker_fill_cost_dollars"))) if v) or filled * price
     fees = [v for v in (fp(o.get("taker_fees_dollars")), fp(o.get("maker_fees_dollars"))) if v is not None]
     return filled, round(cost, 2), round(sum(fees), 2) if fees else None
@@ -1350,7 +1350,7 @@ def place(signer, base, c, n):
         return {"count": n, "cost": round(n * c["ask"], 2), "fee": fee(c["ask"], n), "orderId": oid,
                 "orderPath": how, "unconfirmed": True}
     filled, cost, fees = order_numbers(o, c["ask"])
-    if filled < 1:
+    if filled <= 0:
         print("order not filled", c["ticker"], o.get("status"))
         return None
     return {"count": filled, "cost": cost, "fee": fees if fees is not None else fee(c["ask"], filled), "orderId": oid,
@@ -1389,7 +1389,7 @@ def reconcile(book, signer, base, now):
         filled, cost, fees = order_numbers(o, t["ask"])
         t.update(count=filled, cost=cost, fee=fees if fees is not None else fee(t["ask"], max(filled, 1)) if filled else 0.0,
                  unconfirmed=False, orderStatus=o.get("status"))
-        if filled < 1:
+        if filled <= 0:
             t.update(status="void", note="order read back with no fill")
         changed += 1
     for o in book.get("orders") or []:
@@ -1402,7 +1402,7 @@ def reconcile(book, signer, base, now):
             continue
         filled, cost, fees = order_numbers(got, o["price"])
         if filled > o["filledSeen"]:
-            add = filled - o["filledSeen"]
+            add = round(filled - o["filledSeen"], 2)
             share = add / filled if filled else 1
             book["trades"].append({k: o[k] for k in ("ticker", "title", "sport", "kind", "event", "commence", "side",
                                                      "strike", "source", "fair", "edge", "estimated", "why") if k in o}
@@ -1415,6 +1415,34 @@ def reconcile(book, signer, base, now):
         st = got.get("status")
         if st in ("canceled", "executed") or pull.parse(o["commence"]) <= now:
             o["status"] = st or "expired"
+    changed += fix_fractional(book, signer, base)
+    return changed
+
+
+def fix_fractional(book, signer, base):
+    """One-time check of open maker trades logged before fills kept 2 decimals (2026-10-28): order_numbers used to
+    round a fractional fill (0.71) up to 1 contract, which would settle at a $1 payout. Reads each order back once
+    and sets the trade's count to the real fill when the order has a single trade."""
+    per_order = {}
+    for t in book["trades"]:
+        if t.get("mode") == "maker" and t.get("orderId"):
+            per_order.setdefault(t["orderId"], []).append(t)
+    changed = 0
+    for oid, ts in per_order.items():
+        t = ts[0]
+        if len(ts) != 1 or t.get("status") != "open" or t.get("fillChecked"):
+            continue
+        try:
+            got = get_order(signer, base, oid)
+        except Exception as exc:  # noqa: BLE001
+            print("fill check", t["ticker"], exc)
+            continue
+        filled, cost, fees = order_numbers(got, t["ask"])
+        if 0 < filled != t["count"]:
+            print("fractional fill", t["ticker"], t["count"], "->", filled, "cost", cost)
+            t.update(count=filled, cost=cost, fee=round(fees or 0, 2))
+        t["fillChecked"] = True
+        changed += 1
     return changed
 
 
