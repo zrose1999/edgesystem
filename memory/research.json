@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-28T17:54:42Z",
+ "asOf": "2026-10-28T18:24:40Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 781,
  "loggedReads": 1595,
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1006,
-   "with": 683,
+   "reads": 1008,
+   "with": 685,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1006,
-   "with": 1006,
+   "reads": 1008,
+   "with": 1008,
    "alarm": false
   }
  },
@@ -98,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1276,
-  "latest": "2026-10-28T17:54:33Z",
+  "linesLastCycle": 1269,
+  "latest": "2026-10-28T18:24:32Z",
   "rowsWithHistory": 947,
   "alarm": false
  },
@@ -9852,7 +9852,7 @@
    "n": 63,
    "meanClvProb": -0.007,
    "pocket": {
-    "feature": "grade=A",
+    "feature": "edgeBar=1-2x",
     "n": 8,
     "meanClvProb": 0.0084,
     "tStat": 0.7
@@ -11135,7 +11135,7 @@
    "n": 37,
    "meanClvProb": -0.0212,
    "pocket": {
-    "feature": "sharpGapOpen=<1%",
+    "feature": "sharpDiv=aligned",
     "n": 9,
     "meanClvProb": 0.0072,
     "tStat": 8.26
@@ -11277,7 +11277,7 @@
    "n": 42,
    "meanClvProb": -0.0116,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 8,
     "meanClvProb": 0.032,
     "tStat": 1.79
@@ -11366,7 +11366,7 @@
    "n": 49,
    "meanClvProb": -0.0085,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 17,
     "meanClvProb": 0.0193,
     "tStat": 1.43
@@ -12157,7 +12157,7 @@
    "n": 16,
    "meanClvProb": -0.0061,
    "pocket": {
-    "feature": "edgeBar=<0.5x",
+    "feature": "grade=C",
     "n": 8,
     "meanClvProb": 0.0021,
     "tStat": 0.3

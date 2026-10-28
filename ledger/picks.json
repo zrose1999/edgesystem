@@ -100385,6 +100385,128 @@
       },
       "contextAtPick": {},
       "bestAtPick": null
+    },
+    {
+      "pickId": "Ligue1|2026-10-30|Paris Saint Germain at Le Havre|h2h|home|v1|learned-soccer-1x2|lean|2026-10-28T18:24:35Z|gated|2026-10-28T18:24:35Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "Ligue1|2026-10-30|Paris Saint Germain at Le Havre|h2h",
+      "sport": "Ligue1",
+      "event": "Paris Saint Germain at Le Havre",
+      "commence": "2026-10-30T18:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 1000,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 850,
+        "away": -550,
+        "draw": 600
+      },
+      "priceTime": "2026-10-28T17:05:43Z",
+      "pickedAt": "2026-10-28T18:24:35Z",
+      "fair": 0.0918,
+      "projection": 0.0918,
+      "edge": 0.0009,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-soccer-1x2",
+      "reason": "Learned soccer model (ridge, 151 data points) predicts Pinnacle's home probability gains +0.007 from the open; Pinnacle open 0.092, now 0.084, 0.007 still to come. Fair 0.092. Report: stats/models/soccer_home.json.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 939,
+          "away": -420,
+          "draw": 616
+        },
+        "updated": "2026-10-28T17:05:42Z",
+        "snapTime": "2026-10-28T17:05:43Z",
+        "noVig": 0.0845
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": 950,
+        "line": null,
+        "implied": 0.0952,
+        "printImplied": 0.1053
+      },
+      "priceBook": "DraftKings",
+      "contextAtPick": {},
+      "pinEdgeAtPick": -0.0064,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -0.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-10-31|Coastal Carolina Chanticleers at Georgia State Panthers|spread|away|v1|lean|learned-scan-ncaaf-spread|2026-10-28T18:24:39Z|gated|2026-10-28T18:24:39Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-10-31|Coastal Carolina Chanticleers at Georgia State Panthers|spread",
+      "sport": "NCAAF",
+      "event": "Coastal Carolina Chanticleers at Georgia State Panthers",
+      "commence": "2026-10-31T18:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 6.5,
+      "priceAtPick": -105,
+      "marketNumber": -6.5,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": -112,
+        "away": -108
+      },
+      "priceTime": "2026-10-28T17:39:27Z",
+      "pickedAt": "2026-10-28T18:24:39Z",
+      "fair": -5.7077,
+      "projection": -5.7077,
+      "edge": 0.792,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.142,
+      "modelWeight": 0.145,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-spread",
+      "reason": "Model learned on the scanner's data (gbm, 14 data points, passed the out-of-sample gate) predicts a move of -0.792 from the open for away; 0.792 still to come. Report: stats/models/scan_ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": -6.5,
+        "prices": {
+          "home": -105,
+          "away": -109
+        },
+        "updated": "2026-10-28T17:39:05Z",
+        "snapTime": "2026-10-28T17:39:27Z",
+        "noVig": 0.5047
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -105,
+        "line": -6.5,
+        "implied": 0.5122,
+        "printImplied": 0.5192
+      },
+      "pinEdgeAtPick": -0.0075,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -0.8% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
