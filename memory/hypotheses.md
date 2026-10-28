@@ -414,3 +414,13 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-28 | NHL: timing=day + tzShift=west | 10 | +1.1% | found inside NHL timing=day (best of 38 features tested); small sample, may share reads with other rows |
 | 2026-10-28 | NHL: travel=500-1500 + travelEdge=more | 9 | +0.1% | found inside NHL travel=500-1500 (best of 18 features tested); small sample, may share reads with other rows |
 | 2026-10-28 | NHL: travelEdge=more + tzShift=west | 8 | +1.6% | found inside NHL travelEdge=more (best of 15 features tested); small sample, may share reads with other rows |
+| 2026-10-28 | edgeBar=<0.5x + pattern=learned-scan-nba-spread | 9 | +1.2% | found inside ALL edgeBar=<0.5x (best of 73 features tested); small sample, may share reads with other rows |
+| 2026-10-28 | grade=C + pattern=learned-scan-nba-spread | 9 | +1.2% | found inside ALL grade=C (best of 77 features tested); small sample, may share reads with other rows |
+| 2026-10-28 | restEdge=less + sharpGapPick=<1% | 8 | +1.1% | found inside ALL restEdge=less (best of 42 features tested); small sample, may share reads with other rows |
+| 2026-10-28 | restEdge=less + sharpDivPick=aligned | 8 | +1.1% | found inside ALL sharpDivPick=aligned (best of 50 features tested); small sample, may share reads with other rows |
+| 2026-10-28 | grade=B + sharpGapOpen=1-2% | 9 | +1.0% | found inside ALL sharpGapOpen=1-2% (best of 6 features tested); small sample, may share reads with other rows |
+| 2026-10-28 | NBA: pattern=learned-scan-nba-spread + role=dog | 11 | +1.9% | found inside NBA role=dog (best of 36 features tested); small sample, may share reads with other rows |
+| 2026-10-28 | NHL: role=dog + steamBeforePick=flat | 8 | +0.3% | found inside NHL role=dog (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-10-28 | NHL: market=h2h + steamBeforePick=flat | 9 | +0.5% | found inside NHL steamBeforePick=flat (best of 14 features tested); small sample, may share reads with other rows |
+| 2026-10-28 | NHL: injury=goalie + role=dog | 8 | +0.3% | found inside NHL steamBeforePick=flat (best of 4 pairs tested); small sample, may share reads with other rows |
+| 2026-10-28 | NHL: grade=C + travelEdge=less | 8 | +0.2% | found inside NHL travelEdge=less (best of 8 features tested); small sample, may share reads with other rows |

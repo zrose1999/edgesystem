@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-28T12:24:44Z",
+ "asOf": "2026-10-28T12:47:40Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -13,42 +13,42 @@
    "rightWay": 0.375,
    "noMove": 9,
    "logLossGain": {
-    "n": 16,
-    "mean": -0.02415,
-    "t": -1.59
+    "n": 17,
+    "mean": -0.02073,
+    "t": -1.41
    },
    "verdict": "collecting"
   },
   "edge-stack|prob": {
    "pattern": "edge-stack",
    "unit": "prob",
-   "n": 10,
-   "meanPredicted": 0.0281,
-   "meanRealized": 0.0062,
+   "n": 11,
+   "meanPredicted": 0.029,
+   "meanRealized": 0.0056,
    "tRealized": 1.09,
-   "capture": 0.22,
+   "capture": 0.19,
    "rightWay": 0.8,
-   "noMove": 5,
+   "noMove": 6,
    "logLossGain": {
-    "n": 8,
-    "mean": -0.02375,
-    "t": -1.28
+    "n": 11,
+    "mean": -0.00515,
+    "t": -0.27
    },
    "verdict": "collecting"
   },
   "goalie-news": {
    "pattern": "goalie-news",
    "unit": "prob",
-   "n": 27,
-   "meanPredicted": 0.0409,
+   "n": 30,
+   "meanPredicted": 0.042,
    "meanRealized": 0.005,
-   "tRealized": 1.75,
+   "tRealized": 1.93,
    "capture": 0.12,
-   "rightWay": 0.714,
-   "noMove": 13,
+   "rightWay": 0.733,
+   "noMove": 15,
    "logLossGain": {
-    "n": 25,
-    "mean": 0.01405,
+    "n": 30,
+    "mean": 0.01312,
     "t": 0.75
    },
    "verdict": "collecting"
@@ -115,43 +115,43 @@
    "rightWay": 0.958,
    "noMove": 5,
    "logLossGain": {
-    "n": 27,
-    "mean": -0.01276,
-    "t": -1.15
+    "n": 29,
+    "mean": -0.00813,
+    "t": -0.75
    },
    "verdict": "collecting"
   },
   "learned-nhl-over": {
    "pattern": "learned-nhl-over",
    "unit": "prob",
-   "n": 25,
-   "meanPredicted": 0.0324,
-   "meanRealized": 0.0173,
-   "tRealized": 3.44,
-   "capture": 0.53,
-   "rightWay": 0.875,
+   "n": 26,
+   "meanPredicted": 0.0325,
+   "meanRealized": 0.0191,
+   "tRealized": 3.7,
+   "capture": 0.59,
+   "rightWay": 0.88,
    "noMove": 1,
    "logLossGain": {
-    "n": 22,
-    "mean": 0.00826,
-    "t": 0.56
+    "n": 26,
+    "mean": 0.00322,
+    "t": 0.24
    },
    "verdict": "collecting"
   },
   "learned-scan-nba-spread": {
    "pattern": "learned-scan-nba-spread",
    "unit": "points",
-   "n": 14,
-   "meanPredicted": 0.9268,
-   "meanRealized": 1.2857,
-   "tRealized": 2.78,
-   "capture": 1.39,
-   "rightWay": 0.875,
+   "n": 15,
+   "meanPredicted": 0.9089,
+   "meanRealized": 1.3333,
+   "tRealized": 3.08,
+   "capture": 1.47,
+   "rightWay": 0.889,
    "noMove": 6,
    "logLossGain": {
-    "n": 12,
-    "mean": -0.0276,
-    "t": -1.77
+    "n": 15,
+    "mean": -0.01828,
+    "t": -1.27
    },
    "verdict": "collecting"
   },
@@ -166,9 +166,9 @@
    "rightWay": 0.4,
    "noMove": 0,
    "logLossGain": {
-    "n": 3,
-    "mean": 0.12472,
-    "t": 37.12
+    "n": 5,
+    "mean": 0.0705,
+    "t": 1.81
    },
    "verdict": "collecting"
   },
@@ -183,9 +183,9 @@
    "rightWay": 0.333,
    "noMove": 3,
    "logLossGain": {
-    "n": 5,
-    "mean": 0.00818,
-    "t": 0.56
+    "n": 6,
+    "mean": -0.01497,
+    "t": -0.57
    },
    "verdict": "collecting"
   },
@@ -268,9 +268,9 @@
    "rightWay": 0.476,
    "noMove": 11,
    "logLossGain": {
-    "n": 52,
-    "mean": 0.00134,
-    "t": 0.59
+    "n": 53,
+    "mean": 0.00089,
+    "t": 0.4
    },
    "verdict": "collecting"
   },
@@ -294,17 +294,17 @@
   "news-lag": {
    "pattern": "news-lag",
    "unit": "points",
-   "n": 162,
-   "meanPredicted": 1.762,
-   "meanRealized": 0.1636,
-   "tRealized": 1.38,
+   "n": 164,
+   "meanPredicted": 1.7519,
+   "meanRealized": 0.1555,
+   "tRealized": 1.32,
    "capture": 0.09,
-   "rightWay": 0.547,
-   "noMove": 67,
+   "rightWay": 0.542,
+   "noMove": 68,
    "logLossGain": {
-    "n": 156,
-    "mean": -0.01421,
-    "t": -1.14
+    "n": 162,
+    "mean": -0.01327,
+    "t": -1.1
    },
    "verdict": "collecting"
   },
@@ -353,9 +353,9 @@
    "rightWay": 0.714,
    "noMove": 2,
    "logLossGain": {
-    "n": 8,
-    "mean": -0.00438,
-    "t": -0.25
+    "n": 9,
+    "mean": -0.00054,
+    "t": -0.03
    },
    "verdict": "collecting"
   },
@@ -404,26 +404,26 @@
    "rightWay": 0.5,
    "noMove": 0,
    "logLossGain": {
-    "n": 7,
-    "mean": 0.02432,
-    "t": 1.17
+    "n": 8,
+    "mean": 0.02513,
+    "t": 1.4
    },
    "verdict": "collecting"
   },
   "scan-nba-spread-away-restedgeawaymore-1e501d": {
    "pattern": "scan-nba-spread-away-restedgeawaymore-1e501d",
    "unit": "points",
-   "n": 6,
-   "meanPredicted": 0.3503,
-   "meanRealized": 1.3333,
-   "tRealized": 1.4,
-   "capture": 3.81,
-   "rightWay": 0.6,
+   "n": 7,
+   "meanPredicted": 0.352,
+   "meanRealized": 1.4286,
+   "tRealized": 1.76,
+   "capture": 4.06,
+   "rightWay": 0.667,
    "noMove": 1,
    "logLossGain": {
-    "n": 5,
-    "mean": 0.01203,
-    "t": 1.41
+    "n": 7,
+    "mean": 0.01486,
+    "t": 2.41
    },
    "verdict": "collecting"
   },
@@ -472,9 +472,9 @@
    "rightWay": 0.8,
    "noMove": 3,
    "logLossGain": {
-    "n": 7,
-    "mean": -0.00438,
-    "t": -0.41
+    "n": 8,
+    "mean": -0.00055,
+    "t": -0.05
    },
    "verdict": "collecting"
   },
@@ -523,9 +523,9 @@
    "rightWay": 1.0,
    "noMove": 1,
    "logLossGain": {
-    "n": 2,
-    "mean": -0.03148,
-    "t": -0.37
+    "n": 3,
+    "mean": 0.00368,
+    "t": 0.06
    },
    "verdict": "collecting"
   },
@@ -557,9 +557,9 @@
    "rightWay": 0.111,
    "noMove": 4,
    "logLossGain": {
-    "n": 10,
-    "mean": -0.00577,
-    "t": -0.24
+    "n": 13,
+    "mean": -0.00015,
+    "t": -0.01
    },
    "verdict": "collecting"
   },
@@ -676,21 +676,21 @@
    "rightWay": 0.333,
    "noMove": 2,
    "logLossGain": {
-    "n": 10,
-    "mean": 0.0049,
-    "t": 0.28
+    "n": 11,
+    "mean": 0.01038,
+    "t": 0.62
    },
    "verdict": "collecting"
   },
   "tennis-fatigue": {
    "pattern": "tennis-fatigue",
    "unit": "prob",
-   "n": 3,
+   "n": 4,
    "meanPredicted": 0.02,
-   "meanRealized": 0.0081,
-   "tRealized": 1.63,
-   "capture": 0.4,
-   "rightWay": 1.0,
+   "meanRealized": -0.0026,
+   "tRealized": -0.23,
+   "capture": -0.13,
+   "rightWay": 0.667,
    "noMove": 1,
    "logLossGain": {
     "n": 3,
