@@ -570,8 +570,9 @@ def main(dry=False):
         for e in s_direct:
             print(f"WOULD STAMP {e['grade']} {e['pattern']} {e['rowId']} {e['side']} {e['priceAtPick']:+g} edge {e['edge']:+.3f}")
     else:
+        doc = pull.load(pull.PICKS, {"picks": []})
+        s_direct = pull.gate_direct(s_direct, doc["picks"], {r.get("id"): r.get("lastSnap") for r in rows})
         if s_direct:
-            doc = pull.load(pull.PICKS, {"picks": []})
             doc["picks"].extend(s_direct)
             pull.save(pull.PICKS, doc)
         for sport in {r["sport"] for r, _, _, _ in todo}:

@@ -334,6 +334,7 @@ def main(dry=False):
         for e in drifts:
             print("SHARP-DRIFT", e["grade"], e["rowId"], e["reason"])
     else:
+        drifts = pull.gate_direct(drifts, picks, {e["rowId"]: (rows.get(e["rowId"]) or {}).get("lastSnap") for e in drifts})
         if drifts:
             picks.extend(drifts)
             pull.save(pull.PICKS, picks_doc)

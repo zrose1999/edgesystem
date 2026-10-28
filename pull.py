@@ -101,9 +101,15 @@ def key_of(row):
     return row.get("sportKey") or KEY_OF.get(row.get("sport"))
 # Books requested on every price call. Up to 10 books bill as one region, so adding books here
 # costs no extra credits. DraftKings stays the print; the others feed the sharp-vs-soft scan.
-BOOKS = os.environ.get("EDGE_BOOKS", "draftkings,betmgm,fanduel,williamhill_us,pinnacle")
+# 2026-10-28 (Zack: more sharp-soft reads): five more regulated US books (betrivers, fanatics, espnbet, hardrockbet,
+# ballybet) fill the 10-book group, so sharp.py has more soft prices to set against Pinnacle at no credit cost
+# (each call's cost is logged in ledger credits.lastCost to confirm). Best-price shopping (US_BOOKS) is unchanged,
+# so every other pattern's price and CLV stay comparable with their history.
+BOOKS = os.environ.get("EDGE_BOOKS", "draftkings,betmgm,fanduel,williamhill_us,pinnacle,"
+                                     "betrivers,fanatics,espnbet,hardrockbet,ballybet")
 BOOK_NAMES = {"draftkings": "DraftKings", "betmgm": "BetMGM", "fanduel": "FanDuel",
-              "williamhill_us": "Caesars", "pinnacle": "Pinnacle"}
+              "williamhill_us": "Caesars", "pinnacle": "Pinnacle", "betrivers": "BetRivers", "fanatics": "Fanatics",
+              "espnbet": "theScore Bet", "hardrockbet": "Hard Rock Bet", "ballybet": "Bally Bet"}
 SPREAD = {"americanfootball_nfl", "americanfootball_ncaaf", "basketball_nba"}
 # Hockey's main market is the moneyline; the puck line is almost always 1.5.
 TOTAL = SPREAD | {"icehockey_nhl", "baseball_mlb", "soccer_epl", "soccer_uefa_champs_league", "soccer_usa_mls",
@@ -150,6 +156,165 @@ def pin_at_pick(snap, side):
     return out
 
 
+PIN_GATE_STALE_MIN = 120     # same freshness rule grade.py uses for Pinnacle's close
+PIN_GATE_MAX_GAP = 1.0       # points between Pinnacle's line and ours that grade.py's per-point slope may bridge
+PIN_GATE_MIN = float(os.environ.get("EDGE_PIN_GATE_MIN", "0"))   # a read needs Pinnacle edge above this
+GATED_KINDS = ("pick", "lean")
+
+
+def pin_edge_at_pick(snap, side, market, sport, line, price):
+    """Expected CLV of a read if Pinnacle's current price is the truth (2026-10-28, Zack: gate every read on it):
+    Pinnacle's no-vig probability for `side`, moved to our line with grade.py's per-point values, minus the
+    implied probability of the price taken. Scored with grade.clv, the same code that scores the close, so the
+    gate and the grade agree. None when Pinnacle has no fresh price close enough to score against."""
+    pin = (snap or {}).get("books", {}).get("pinnacle")
+    if not pin or side is None or pin.get(side) is None or price is None:
+        return None
+    try:
+        upd, at = pin.get("updated"), snap.get("time")
+        if upd and at and (parse(at) - parse(upd)).total_seconds() / 60 > PIN_GATE_STALE_MIN:
+            return None
+    except ValueError:
+        return None
+    import grade as gradelib
+    if market in ("spread", "total"):
+        if pin.get("line") is None or line is None:
+            return None
+        pin_side_line = gradelib.side_line(pin, side, market)
+        if abs(pin_side_line - line) > PIN_GATE_MAX_GAP:
+            return None
+        if market == "total" and sport in gradelib.PROB_LINE_SPORTS and pin_side_line != line:
+            return None          # goal and run totals price through the odds; a different line is a different bet
+    try:
+        out = gradelib.clv({"market": market, "side": side, "sport": sport, "lineAtPick": line,
+                            "priceAtPick": price}, pin)
+    except Exception:  # noqa: BLE001
+        return None
+    return {"edge": out["clvProb"], "pinLine": out["closeLine"], "pinNoVig": out["closeNoVig"],
+            "estimated": out["estimated"]}
+
+
+MODEL_W_PRIOR = float(os.environ.get("EDGE_MODEL_W_PRIOR", "0.1"))
+MODEL_W_K = 30      # reads at which a pattern's own measured capture and the prior weigh the same
+_MODELCHECK = {}
+
+
+def model_weight(pattern, unit):
+    """How much of a model's disagreement with the market a read may keep (2026-10-28, Zack, north-star rule 2).
+    Out of sample from the pattern's own live reads: the move check's capture (realized move / predicted move,
+    stats/modelcheck.json), clipped to 0-1 and blended with MODEL_W_PRIOR by sample (k = MODEL_W_K).
+    The prior is 0.1 because, pooled over 264 reads with Pinnacle at the pick, the models' gap from Pinnacle carried
+    no CLV information (best weight 0-0.1; correlation with CLV +0.30 at weight 0, -0.02 at 1)."""
+    if not _MODELCHECK:
+        _MODELCHECK.update(load(ROOT / "stats" / "modelcheck.json", {}).get("patterns") or {})
+    want = "points" if unit == "points" else "prob"
+    ent = next((v for v in _MODELCHECK.values() if v.get("pattern") == pattern and v.get("unit") == want), None)
+    if not ent or ent.get("capture") is None or not ent.get("n"):
+        return MODEL_W_PRIOR
+    n, cap = ent["n"], min(max(ent["capture"], 0.0), 1.0)
+    return round((cap * n + MODEL_W_PRIOR * MODEL_W_K) / (n + MODEL_W_K), 3)
+
+
+def shrunk_edge(row, snap, market, side, line, price, fair, edge, unit, pattern):
+    """The read's edge with its model pulled toward the market: market + w x (model - market), in the read's unit.
+    The market is Pinnacle's no-vig at the pick, moved to our line (pin_edge_at_pick); without Pinnacle it is the
+    print's own number, so the shrunk edge is w x the raw edge. The raw edge stays in "edge" (the move check
+    measures the model, not the shrink); grades and the full bar use the shrunk edge."""
+    w = model_weight(pattern, unit)
+    slope = 0.03
+    try:
+        import grade as gradelib
+        slope = gradelib.PER_POINT.get((row["sport"], market), 0.03)
+    except Exception:  # noqa: BLE001
+        pass
+    pe = pin_edge_at_pick(snap, side, market, row["sport"], line, price)
+    if pe is None:
+        return {"edge": w * edge, "w": w, "base": "print"}
+    if unit == "points":
+        model_prob_edge = edge * slope           # the model's edge over the price, in probability
+    else:
+        model_prob_edge = edge
+    pin_prob_edge = pe["edge"]
+    out = pin_prob_edge + w * (model_prob_edge - pin_prob_edge)   # = (pinF + w(modelF - pinF)) - paid
+    return {"edge": out / slope if unit == "points" else out, "w": w, "base": "pinnacle"}
+
+
+def gated_before(picks, entry):
+    """One gated entry per row, side and pattern: a read that keeps failing the gate is logged once, not every run.
+    A later read that passes the gate still stamps as a pick or lean."""
+    return any(p.get("kind") == "gated" and p.get("rowId") == entry["rowId"] and p.get("side") == entry["side"]
+               and p.get("pattern") == entry.get("pattern") for p in picks["picks"])
+
+
+def gate_direct(entries, picks_list, snaps):
+    """The wait and the gate for scripts that build read entries themselves (sharp.py, edge_stack.py sharp-drift,
+    learn_live.py soccer 3-way) instead of calling make_read. `snaps` maps rowId -> the snapshot each entry was priced
+    from. Returns the entries to append: waits dropped, repeat gated entries dropped."""
+    out, doc = [], {"picks": list(picks_list)}
+    for e in entries:
+        snap = snaps.get(e.get("rowId"))
+        if snap is None:
+            out.append(e)
+            continue
+        if e.get("kind") in GATED_KINDS and pin_wait(snap, e.get("commence")):
+            print(f"read waits for Pinnacle {e.get('rowId')} ({e.get('pattern')})")
+            continue
+        if e.get("kind") in GATED_KINDS:
+            pin_gate(e, snap)
+            if e["kind"] == "gated" and gated_before(doc, e):
+                continue
+        out.append(e)
+        doc["picks"].append(e)
+    return out
+
+
+PIN_WAIT_HOURS = float(os.environ.get("EDGE_PIN_WAIT_HOURS", "3"))
+
+
+def pin_wait(snap, commence, now_dt=None):
+    """True when a read should wait for Pinnacle (2026-10-28): the snapshot has no Pinnacle price on this market
+    and the game is more than PIN_WAIT_HOURS away. 808 of 938 graded reads were stamped before Pinnacle posted
+    (on DraftKings' opening number) and averaged -1.4% CLV; Pinnacle posted later on 428 of them. Rows Pinnacle
+    never prices still get their read inside PIN_WAIT_HOURS, marked pinGate "unchecked"."""
+    if ((snap or {}).get("books") or {}).get("pinnacle"):
+        return False
+    try:
+        hours = (parse(commence) - (now_dt or datetime.now(timezone.utc))).total_seconds() / 3600
+    except (TypeError, ValueError):
+        return False
+    return hours > PIN_WAIT_HOURS
+
+
+def pin_gate(entry, snap):
+    """Pinnacle gate (2026-10-28, Zack): a pick or lean stands only when the price taken beats Pinnacle's no-vig
+    price at the pick (pinEdgeAtPick > PIN_GATE_MIN). A read that fails becomes kind "gated": side kept, scored on
+    CLV like every read, never counted in a pattern, never mirrored to Kalshi. Without a usable Pinnacle price the
+    read stands and is marked "unchecked", so the gate can be measured on both groups.
+    Evidence (picks.json, 2026-10-28): best price at or better than Pinnacle no-vig +3.9% CLV on 18; 0-2% worse
+    -0.9% on 67; 2%+ worse -2.6% on 45."""
+    if not entry or not entry.get("side"):
+        return entry
+    pe = pin_edge_at_pick(snap, entry["side"], entry["market"], entry.get("sport"), entry.get("lineAtPick"),
+                          entry.get("priceAtPick"))
+    if pe is None:
+        entry["pinGate"] = "unchecked"
+        return entry
+    entry["pinEdgeAtPick"] = round(pe["edge"], 4)
+    entry["pinEdgeEstimated"] = pe["estimated"]
+    if pe["edge"] > PIN_GATE_MIN:
+        entry["pinGate"] = "pass"
+        return entry
+    entry["pinGate"] = "blocked"
+    if entry.get("kind") in GATED_KINDS:
+        entry["gatedFrom"] = entry["kind"]
+        entry["kind"], entry["tier"], entry["stakeUnits"] = "gated", None, 0.0
+        entry["note"] = (f"Pinnacle gate: price taken is {pe['edge']:+.1%} against Pinnacle's no-vig at the pick. "
+                         "Logged and scored on CLV, not counted.")
+        if "|" in entry.get("pickId", "") and not entry["pickId"].endswith("|gated"):
+            entry["pickId"] += f"|gated|{entry.get('pickedAt', '')}"
+    return entry
+
+
 US_BOOKS = ("draftkings", "fanduel", "betmgm", "williamhill_us")
 # Parked patterns take no new reads (north star, Zack 2026-10-21); their existing reads keep grading. Reasons in
 # patterns.md, "Parked". A parked idea comes back only as a new, measured pattern at a weekly review.
@@ -160,6 +325,8 @@ PARKED = {
     "nba-model-fav": "rule 2: a subset of nba-stats-model, same k of 0",
     "luck-reversion": "parked before launch; never measured",
     "early-number": "never stamped; timing is tested as a feature (minutesToKick) instead",
+    "news-lag": "rule 1: -1.9% CLV on 164 graded picks (t -5.4), -2.3% on 65 after the north-star overhaul; "
+                "grade.py status retire. Parked by Zack 2026-10-28. Injury tracking keeps running as a feature.",
 }
 
 
@@ -220,6 +387,10 @@ def get(path, params):
     url = API + path + "?" + urllib.parse.urlencode(params)
     with urllib.request.urlopen(url, timeout=60) as response:
         rem, used = response.headers.get("x-requests-remaining"), response.headers.get("x-requests-used")
+        last = response.headers.get("x-requests-last")
+        if last is not None:            # cost of this call (2026-10-28: confirms the 10-book group bills as one region)
+            CREDITS["lastCost"] = int(float(last))
+            CREDITS["maxCost"] = max(CREDITS.get("maxCost") or 0, CREDITS["lastCost"])
         if rem is not None:
             CREDITS["remaining"] = int(float(rem))
         if used is not None:
@@ -710,6 +881,9 @@ def make_pick(a):
     age = (now_dt - parse(snap["time"])).total_seconds() / 60
     if age > STALE_MIN:
         fail(f"stored price is {age:.0f} minutes old. Run pull.py first.")
+    if pin_wait(snap, row.get("commence"), now_dt):
+        fail("waiting for Pinnacle to price this market (pinGate, 2026-10-28). The read stamps once it posts, "
+             f"or inside {PIN_WAIT_HOURS:g}h of the start without it.")
     market = row["market"]
     if a.side not in VALID_SIDES[market]:
         fail(f"side must be one of {sorted(VALID_SIDES[market])} for {market}")
@@ -762,7 +936,7 @@ def make_pick(a):
     pick_id = f"{row['id']}|{a.side}|{VERSION}"
     if any(p.get("pickId") == pick_id for p in picks["picks"]):
         fail("this pick already exists. Picks are never edited.")
-    picks["picks"].append({
+    entry = {
         "pickId": pick_id, "rowId": row["id"], "sport": row["sport"], "event": row["event"],
         "market": market, "side": a.side, "lineAtPick": line, "priceAtPick": price,
         "priceBook": (best_at_pick(snap, a.side) or {}).get("book"),
@@ -774,7 +948,13 @@ def make_pick(a):
         "stakeUnits": stake, "kind": "pick", "grade": grade_for(edge, bar, a.confidence),
         "commence": row.get("commence"), "pinAtPick": pin_at_pick(snap, a.side), "bestAtPick": best_at_pick(snap, a.side),
         "contextAtPick": context_at_pick(row),
-    })
+    }
+    pin_gate(entry, snap)
+    if entry["kind"] == "gated":
+        tier, stake = None, 0.0
+        if gated_before(picks, entry):
+            fail("Pinnacle gate: this read is already logged as gated for this row, side and pattern.")
+    picks["picks"].append(entry)
     save(PICKS, picks)
     print(json.dumps({"stamped": pick_id, "line": line, "price": price, "edge": round(edge, 3),
                       "unit": unit, "bar": bar, "fullBar": full_bar, "tier": tier, "stakeUnits": stake}))
@@ -846,6 +1026,9 @@ def make_read(a):
         fail("--reason is required: the news items and what each is worth")
     if (a.pattern or "").strip() in PARKED:
         fail(f"pattern {a.pattern} is parked: {PARKED[a.pattern.strip()]}")
+    if pin_wait(snap, row.get("commence"), now_dt):
+        fail("waiting for Pinnacle to price this market (pinGate, 2026-10-28). The read stamps once it posts, "
+             f"or inside {PIN_WAIT_HOURS:g}h of the start without it.")
     try:
         fair = float(a.fair)
     except ValueError:
@@ -865,7 +1048,10 @@ def make_read(a):
         shown = f"{home} {snap['line']:+g}" if market == "spread" else f"{snap.get('line')}"
         fail(f"edge {edge:.2f} {unit} is over 4x the bar. The market is {shown}. For spreads, --fair is the HOME line "
              f"in the same sign as the market ({home} -3 means {home} favored by 3). If the number is right, add --big.")
+    shrink = shrunk_edge(row, snap, market, side, line, price, fair, edge, unit, (a.pattern or "").strip())
     grade = grade_for(edge, bar, a.confidence)
+    if grade != "P":
+        grade = grade_for(shrink["edge"], bar, a.confidence) if shrink["edge"] > 0 else "C"
     if (a.id, (a.pattern or "").strip()) in LEAN_CAP and grade in ("A", "B"):
         grade = "C"                          # expected move under the pattern's minimum: lean only
 
@@ -906,7 +1092,9 @@ def make_read(a):
         "priceBook": (best_at_pick(snap, side) or {}).get("book") if grade != "P" else None,
         "marketPrices": {k: snap[k] for k in ("home", "away", "over", "under", "draw") if k in snap},
         "priceTime": snap["time"], "pickedAt": now, "fair": fair, "projection": fair,
-        "edge": round(edge, 3), "edgeUnit": unit, "bar": bar, "fullBar": edge >= bar,
+        "edge": round(edge, 3), "edgeUnit": unit, "bar": bar, "fullBar": grade != "P" and shrink["edge"] >= bar,
+        "edgeShrunk": round(shrink["edge"], 3) if grade != "P" else None, "modelWeight": shrink["w"],
+        "shrinkBase": shrink["base"] if grade != "P" else None,
         "confidence": a.confidence, "pattern": (a.pattern or "").strip() or None,
         "reason": a.reason.strip(), "falsifier": (a.falsifier or "").strip() or None,
         "modelVersion": VERSION, "tier": tier, "stakeUnits": stake, "by": getattr(a, "by", "claude") or "claude",
@@ -915,6 +1103,13 @@ def make_read(a):
     }
     if note:
         entry["note"] = note
+    if kind in GATED_KINDS:
+        pin_gate(entry, snap)
+        kind, tier, stake = entry["kind"], entry["tier"], entry["stakeUnits"]
+        if kind == "gated" and gated_before(picks, entry):
+            print(json.dumps({"read": entry["pickId"], "kind": "gated", "skipped": "already gated for this row, side "
+                              "and pattern", "pinEdgeAtPick": entry.get("pinEdgeAtPick")}))
+            return
     picks["picks"].append(entry)
     save(PICKS, picks)
     home = row["event"].split(" at ")[-1]

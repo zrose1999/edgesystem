@@ -8,7 +8,15 @@ No new reads, enforced in pull.py (PARKED); existing reads keep grading and stay
 - trend-fade: rule 1, built on a win-rate backtest, never a CLV or move measurement.
 - nba-stats-model and nba-model-fav: rule 2, NBA calibration k is 0, so the model adds nothing to the market.
 - luck-reversion, early-number: never measured or never stamped.
+- news-lag (2026-10-28, Zack): rule 1, -1.9% CLV on 164 graded picks (t -5.4), -2.3% on 65 after the overhaul; grade.py had it at retire. injury.py and injury_nba.py keep tracking news as context; its picks are no longer mirrored to Kalshi.
 discover.py is retired too: scan.py does its job (history to live, CLV-graded strategies) with a false-discovery cut.
+
+## Pinnacle gate and model shrink (2026-10-28, Zack: "lets do everything now")
+Applies to every read from every script (pull.make_read, make_pick, and sharp.py, edge_stack.py sharp-drift, learn_live.py soccer through pull.gate_direct). Constants in pull.py.
+- Wait for Pinnacle: a read waits while Pinnacle has no price on the market and the start is more than 3 hours away (EDGE_PIN_WAIT_HOURS). 808 of 938 graded reads had been stamped on DraftKings' opening number before Pinnacle posted (-1.4% CLV); Pinnacle posted later on nearly every row. Inside 3 hours without Pinnacle the read stamps with pinGate "unchecked".
+- Gate: pinEdgeAtPick = Pinnacle's no-vig for the side at the pick, moved to our line with grade.py's per-point values (lines up to 1 point apart; goal and run totals same line only), minus the price taken; scored with grade.clv, the code that scores the close. A pick or lean stands only above 0 (EDGE_PIN_GATE_MIN). Otherwise it becomes kind "gated": side kept, CLV scored, never counted in a pattern, never mirrored to Kalshi, logged once per row, side and pattern. Backtest on 264 past reads with a usable Pinnacle price: would pass +1.86% CLV on 30 (t 2.15), would block -1.54% on 234 (t -5.78).
+- Shrink: a model keeps w of its disagreement with Pinnacle: shrunk edge = Pinnacle edge + w x (model edge - Pinnacle edge), in the read's unit; grades and the full bar use the shrunk edge, "edge" keeps the raw model number so the move check still measures the model. w per pattern = the move check's capture (stats/modelcheck.json, realized / predicted move) clipped to 0-1, blended with a prior of 0.1 at k = 30 reads; gated reads count in the move check. Pooled over the same 264 reads, the models' gap from Pinnacle carried no CLV information (correlation with CLV +0.30 at w 0, -0.02 at w 1). On 2026-10-28: learned-ncaaf-spread w 0.60, learned-nhl-ml 0.44 (prob), most others 0.06-0.12.
+- Measured in STATE.md (North-star checks, "Pinnacle gate"): CLV of passed, gated and unchecked reads since the change. The gate is right if passed beats gated.
 
 ## news-lag
 

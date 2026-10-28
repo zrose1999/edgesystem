@@ -778,8 +778,10 @@ def main(dry=False):
     picks = pull.load(pull.PICKS, {"picks": []})
     official = {p["id"] for p in ledger.get("patterns") or [] if p.get("status") == "official"}
     by_day = ledger_games(ledger.get("rows") or [], set(cfg.get("sports") or SERIES))
+    # Parked patterns' already-stamped picks are not mirrored either (2026-10-28, Zack parked news-lag, which fed the
+    # live 1-contract tests); resting orders on them run out as usual.
     open_picks = [p for p in picks["picks"] if p.get("kind") == "pick" and p.get("side")
-                  and p.get("commence", "") > iso(now)]
+                  and p.get("commence", "") > iso(now) and p.get("pattern") not in pull.PARKED]
 
     control = fetch_control()
     cfg_live = live_cfg(cfg, control)

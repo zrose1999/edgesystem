@@ -174,6 +174,22 @@ def build():
                         f"{v['meanPredicted']:+g} (n {v['n']}, t {v['tRealized']})" for v in pats[:3])
         L.append(f"- Move check, strongest: {top}. Proven (feeding edge-stack): "
                  + (", ".join(mc.get("proven") or []) or "none yet") + ".")
+    # Pinnacle gate and model shrink (2026-10-28): is the gate keeping the right reads? CLV of each group since then.
+    since = "2026-10-28T17"
+    gate = defaultdict(list)
+    for p in picks:
+        if (p.get("pickedAt") or "") < since or not p.get("side") or p.get("kind") not in ("pick", "lean", "gated"):
+            continue
+        key = "gated" if p.get("kind") == "gated" else f"{p.get('pinGate') or 'unchecked'}"
+        gate[key].append(p.get("clvProb"))
+    if gate:
+        parts = []
+        for key in ("pass", "gated", "unchecked"):
+            v = gate.get(key) or []
+            done = [x for x in v if x is not None]
+            parts.append(f"{key} {len(v)} reads, CLV {pct(sum(done) / len(done)) if done else 'n/a'} on {len(done)} graded")
+        L.append("- Pinnacle gate (since 2026-10-28): " + "; ".join(parts)
+                 + ". Gated reads are scored, never counted; the gate is working if pass beats gated.")
     mk = (load(ROOT / "trading" / "ledger.json", {}).get("status") or {}).get("maker")
     if mk:
         L.append(f"- Kalshi maker paper book: {mk.get('orders')} orders, fill rate {mk.get('fillRate')}, net CLV "

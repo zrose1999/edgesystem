@@ -121,7 +121,9 @@ def one(p, row):
 def counted(picks):
     first = {}
     for p in sorted(picks, key=lambda p: (p.get("kind", "pick") != "pick", p.get("pickedAt") or "")):
-        if p.get("kind", "pick") in ("pick", "lean") and p.get("side") and p.get("pattern"):
+        # Gated reads (Pinnacle gate, 2026-10-28) still carry the model's prediction, so the move check keeps
+        # measuring the model on them; the gate only decides what counts toward a pattern's CLV record.
+        if p.get("kind", "pick") in ("pick", "lean", "gated") and p.get("side") and p.get("pattern"):
             first.setdefault((p["pattern"], p.get("rowId"), p["side"]), p)
     return list(first.values())
 

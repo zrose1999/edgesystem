@@ -45,7 +45,9 @@ PER_POINT = {("NFL", "spread"): 0.030, ("NFL", "total"): 0.022, ("NCAAF", "sprea
              ("NCAAF", "total"): 0.018, ("NBA", "spread"): 0.030, ("NBA", "total"): 0.025}
 KEY_NUMBERS = (3, 7)
 SHARP = "pinnacle"
-SOFT = [b for b in os.environ.get("EDGE_SOFT_BOOKS", "draftkings,fanduel,betmgm,williamhill_us").split(",") if b]
+# 2026-10-28: the five books added to pull.BOOKS are soft books too (more sharp-soft reads at no credit cost).
+SOFT = [b for b in os.environ.get("EDGE_SOFT_BOOKS", "draftkings,fanduel,betmgm,williamhill_us,betrivers,fanatics,"
+                                                 "espnbet,hardrockbet,ballybet").split(",") if b]
 BAR = float(os.environ.get("SHARP_BAR", "0.03"))          # full bar, in probability
 SHARP_MAX = float(os.environ.get("SHARP_MAX", "0.10"))    # above this is a data error
 STALE_MIN = float(os.environ.get("SHARP_STALE_MIN", "60"))
@@ -152,6 +154,8 @@ def scan(dry=False):
                 stamped.append(entry)
                 have.add(entry["pickId"])
 
+    if not dry:
+        stamped = pull.gate_direct(stamped, picks["picks"], {r.get("id"): r.get("lastSnap") for r in ledger.get("rows") or []})
     if stamped and not dry:
         picks["picks"].extend(stamped)
         pull.save(pull.PICKS, picks)
