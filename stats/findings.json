@@ -1,7 +1,7 @@
 {
- "asOf": "2026-10-28T20:11:02Z",
+ "asOf": "2026-10-28T20:24:43Z",
  "report": {
-  "asOf": "2026-10-28T20:11:02Z",
+  "asOf": "2026-10-28T20:24:43Z",
   "reads": 518,
   "excluded": [
    "early-number",
@@ -876,10 +876,10 @@
     "daysSeen": 1
    },
    {
-    "key": "NHL|market=total",
+    "key": "NHL|moveBeforePick=none",
     "scope": "NHL",
-    "condition": "market=total",
-    "text": "NHL reads where totals",
+    "condition": "moveBeforePick=none",
+    "text": "NHL reads where the line had not moved before the pick",
     "n": 79,
     "mean": -0.0149,
     "t": -2.43,
@@ -1091,9 +1091,9 @@
   "themes": [
    {
     "theme": "Market and side (favourite, dog, over, under)",
-    "findings": 16,
+    "findings": 15,
     "wins": 11,
-    "loses": 5,
+    "loses": 4,
     "wins_on": [
      "we took the underdog",
      "the read's edge was half to one times its bar and we took the home side",
@@ -1167,6 +1167,20 @@
     "holding": 0
    },
    {
+    "theme": "Line movement before the pick",
+    "findings": 2,
+    "wins": 0,
+    "loses": 2,
+    "wins_on": [],
+    "loses_on": [
+     "the line had not moved before the pick and we took the under",
+     "the line had not moved before the pick (NHL)"
+    ],
+    "strongest": "reads where the line had not moved before the pick and we took the under",
+    "strongestT": -5.18,
+    "holding": 0
+   },
+   {
     "theme": "Timing and news",
     "findings": 2,
     "wins": 1,
@@ -1179,19 +1193,6 @@
     ],
     "strongest": "NHL reads where we took the favourite and the read was stamped game day",
     "strongestT": 2.35,
-    "holding": 0
-   },
-   {
-    "theme": "Line movement before the pick",
-    "findings": 1,
-    "wins": 0,
-    "loses": 1,
-    "wins_on": [],
-    "loses_on": [
-     "the line had not moved before the pick and we took the under"
-    ],
-    "strongest": "reads where the line had not moved before the pick and we took the under",
-    "strongestT": -5.18,
     "holding": 0
    }
   ]
@@ -1241,6 +1242,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 95,
+     "mean": -0.0249,
+     "t": -5.18
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 95,
      "mean": -0.0249,
      "t": -5.18
@@ -1326,6 +1333,12 @@
      "n": 42,
      "mean": -0.0279,
      "t": -4.75
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 42,
+     "mean": -0.0279,
+     "t": -4.75
     }
    ],
    "text": "reads where the read's edge was under half its bar and our side did not travel",
@@ -1405,6 +1418,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 109,
+     "mean": -0.0226,
+     "t": -4.51
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 109,
      "mean": -0.0226,
      "t": -4.51
@@ -1490,6 +1509,12 @@
      "n": 127,
      "mean": -0.0201,
      "t": -4.43
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 127,
+     "mean": -0.0201,
+     "t": -4.43
     }
    ],
    "text": "reads where we took the under",
@@ -1569,6 +1594,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 220,
+     "mean": -0.0164,
+     "t": -4.41
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 220,
      "mean": -0.0164,
      "t": -4.41
@@ -1654,6 +1685,12 @@
      "n": 34,
      "mean": 0.033,
      "t": 4.03
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 34,
+     "mean": 0.033,
+     "t": 4.03
     }
    ],
    "text": "reads where the opponent travelled further (travel edge ours) and no time-zone change",
@@ -1733,6 +1770,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 156,
+     "mean": 0.0048,
+     "t": 3.9
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 156,
      "mean": 0.0048,
      "t": 3.9
@@ -1818,6 +1861,12 @@
      "n": 41,
      "mean": 0.0201,
      "t": 3.73
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 41,
+     "mean": 0.0201,
+     "t": 3.73
     }
    ],
    "text": "reads where the read's edge was half to one times its bar and we took the home side",
@@ -1897,6 +1946,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 49,
+     "mean": 0.0102,
+     "t": 3.52
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 49,
      "mean": 0.0102,
      "t": 3.52
@@ -1982,6 +2037,12 @@
      "n": 75,
      "mean": 0.0124,
      "t": 3.48
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 75,
+     "mean": 0.0124,
+     "t": 3.48
     }
    ],
    "text": "reads where the opponent travelled further (travel edge ours)",
@@ -2061,6 +2122,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 63,
+     "mean": 0.0127,
+     "t": 3.32
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 63,
      "mean": 0.0127,
      "t": 3.32
@@ -2146,6 +2213,12 @@
      "n": 46,
      "mean": 0.0089,
      "t": 3.34
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 46,
+     "mean": 0.0089,
+     "t": 3.34
     }
    ],
    "text": "NCAAF reads where the read's edge was half to one times its bar",
@@ -2225,6 +2298,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 158,
+     "mean": 0.0039,
+     "t": 3.28
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 158,
      "mean": 0.0039,
      "t": 3.28
@@ -2310,6 +2389,12 @@
      "n": 151,
      "mean": -0.0185,
      "t": -3.29
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 151,
+     "mean": -0.0185,
+     "t": -3.29
     }
    ],
    "text": "NCAAF reads where the read's edge was under half its bar",
@@ -2389,6 +2474,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 34,
+     "mean": 0.0222,
+     "t": 3.26
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 34,
      "mean": 0.0222,
      "t": 3.26
@@ -2474,6 +2565,12 @@
      "n": 158,
      "mean": -0.0159,
      "t": -3.27
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 158,
+     "mean": -0.0159,
+     "t": -3.27
     }
    ],
    "text": "reads where our side had normal rest",
@@ -2553,6 +2650,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 80,
+     "mean": 0.0014,
+     "t": 3.15
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 80,
      "mean": 0.0014,
      "t": 3.15
@@ -2638,6 +2741,12 @@
      "n": 55,
      "mean": 0.0077,
      "t": 3.11
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 55,
+     "mean": 0.0077,
+     "t": 3.11
     }
    ],
    "text": "NCAAF reads where no time-zone change",
@@ -2720,6 +2829,12 @@
      "n": 32,
      "mean": 0.0147,
      "t": 3.06
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 32,
+     "mean": 0.0147,
+     "t": 3.06
     }
    ],
    "text": "NCAAF reads where both sides travelled about the same",
@@ -2799,6 +2914,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 34,
+     "mean": -0.0214,
+     "t": -3.06
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 34,
      "mean": -0.0214,
      "t": -3.06
@@ -2891,6 +3012,12 @@
      "n": 319,
      "mean": -0.0115,
      "t": -3.05
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 319,
+     "mean": -0.0115,
+     "t": -3.05
     }
    ],
    "text": "reads where the read's edge was under half its bar",
@@ -2970,6 +3097,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 44,
+     "mean": 0.0086,
+     "t": 2.72
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 44,
      "mean": 0.0086,
      "t": 2.72
@@ -3055,6 +3188,12 @@
      "n": 127,
      "mean": 0.0028,
      "t": 2.51
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 127,
+     "mean": 0.0028,
+     "t": 2.51
     }
    ],
    "text": "reads where our side was more rested than the opponent",
@@ -3134,6 +3273,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 22,
+     "mean": 0.0062,
+     "t": 2.52
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 22,
      "mean": 0.0062,
      "t": 2.52
@@ -3226,6 +3371,12 @@
      "n": 46,
      "mean": 0.0061,
      "t": 2.49
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 46,
+     "mean": 0.0061,
+     "t": 2.49
     }
    ],
    "text": "NCAAF reads where our side had a long rest",
@@ -3308,6 +3459,12 @@
      "n": 142,
      "mean": 0.0023,
      "t": 2.46
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 142,
+     "mean": 0.0023,
+     "t": 2.46
     }
    ],
    "text": "reads where spreads",
@@ -3366,6 +3523,12 @@
      "n": 79,
      "mean": -0.0149,
      "t": -2.43
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 79,
+     "mean": -0.0149,
+     "t": -2.43
     }
    ],
    "text": "NHL reads where the line had not moved before the pick",
@@ -3399,7 +3562,7 @@
     "daysSeen": 1
    },
    "lastSeen": "2026-10-28",
-   "status": "below bar"
+   "status": "new"
   },
   "NHL|role=fav&timing=day": {
    "firstSeen": "2026-10-28",
@@ -3445,6 +3608,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 19,
+     "mean": 0.0005,
+     "t": 2.35
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 19,
      "mean": 0.0005,
      "t": 2.35
@@ -3532,6 +3701,12 @@
      "n": 146,
      "mean": 0.0004,
      "t": 2.39
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 146,
+     "mean": 0.0004,
+     "t": 2.39
     }
    ],
    "text": "reads where we took the away side",
@@ -3611,6 +3786,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 20,
+     "mean": 0.0171,
+     "t": 2.2
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 20,
      "mean": 0.0171,
      "t": 2.2
@@ -3703,6 +3884,12 @@
      "n": 153,
      "mean": -0.0169,
      "t": -2.2
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 153,
+     "mean": -0.0169,
+     "t": -2.2
     }
    ],
    "text": "NCAAF reads where our side had normal rest",
@@ -3785,6 +3972,12 @@
      "n": 144,
      "mean": 0.0004,
      "t": 2.1
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
+     "n": 144,
+     "mean": 0.0004,
+     "t": 2.1
     }
    ],
    "text": "reads where we took the home side",
@@ -3864,6 +4057,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 40,
+     "mean": -0.0209,
+     "t": -2.04
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 40,
      "mean": -0.0209,
      "t": -2.04
@@ -4022,7 +4221,7 @@
     "daysSeen": 1
    },
    "lastSeen": "2026-10-28",
-   "status": "new"
+   "status": "below bar"
   },
   "NBA|restDays=2+days": {
    "firstSeen": "2026-10-28",
@@ -4050,6 +4249,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 34,
+     "mean": 0.0282,
+     "t": 3.07
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 34,
      "mean": 0.0282,
      "t": 3.07
@@ -4114,6 +4319,12 @@
     },
     {
      "date": "2026-10-28T20:11:02Z",
+     "n": 168,
+     "mean": 0.0009,
+     "t": 2.71
+    },
+    {
+     "date": "2026-10-28T20:24:43Z",
      "n": 168,
      "mean": 0.0009,
      "t": 2.71
