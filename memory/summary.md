@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-10-28 04:54Z)
+# What EDGE is learning (2026-10-28 07:23Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 766 graded reads counted, 1563 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Scanner (scan.py, 10-27 16:27Z): 40 strategies tracking from 7762 hypotheses (0 new this run); 86 graded scan reads, mean CLV -0.7%. Shadow only; grade.py decides promotion.
@@ -17,11 +17,11 @@ Observation: edge size is not yet predicting CLV (A -1.2% on 81, B -0.7% on 220,
   > last 50 graded reads: A +1.3% on 4, B +2.1% on 6, C -2.0% on 40 (order still wrong; diagnostic only)
   > pocket: restEdge=more inside grade A: n 10, CLV +1.5%, t +1.0 (best of 42 tested; a lead to watch)
   > order holds inside restDays=1day: A +1.1% on 16, B -1.0% on 46, C -1.3% on 131 (6 of 43 features tested)
-Why reads lost to the close (autopsy, post-pick; 516 of 766, cause known on 492): news-after-pick 38 (-4.7%), sharps-against-at-pick 9 (-3.8%), sharps-against-at-open 1 (-3.1%), bet-into-steam 10 (-2.2%), late-move 19 (-4.2%), number-off 415 (-3.3%), unknown 24 (-4.1%)
+Why reads lost to the close (autopsy, post-pick; 516 of 766, cause known on 492): news-after-pick 37 (-4.5%), sharps-against-at-pick 9 (-3.8%), sharps-against-at-open 1 (-3.1%), bet-into-steam 10 (-2.2%), late-move 19 (-4.2%), number-off 416 (-3.3%), unknown 24 (-4.1%)
 Process vs result: right-and-rewarded 139, right-but-unlucky 99, lucky-win 227, market-was-right 267, push 3; right-but-unlucky losses hurt most by close-margin, flipped-late, overtime (results are noise at this sample; CLV decides)
 Data gaps, waiting on a source: public-pct (needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack); guru (needs an account list + reader (Reddit API free, X API paid); log account, number, time, result)
 Coverage of added features (BREAKAGE if still 0 one health-check cycle after shipping):
-- snaps: 951 price snapshots stored in the last 26h, latest 10-28 04:54Z, 905 games with 2+ (late steam, since 10-19 18:15Z)
+- snaps: 972 price snapshots stored in the last 26h, latest 10-28 07:22Z, 908 games with 2+ (late steam, since 10-19 18:15Z)
 - pinAtPick on 258 of 374 graded reads since 10-19 18:00Z; 666 of 989 new reads stamped (Pinnacle at the pick)
 - contextAtPick on 374 of 374 graded reads since 10-19 18:00Z; 989 of 989 new reads stamped (weather/injury/goalie as stamped)
 - sharpDivergenceAtPick on 149 of 374 graded reads since 10-19 18:00Z (needs Pinnacle on the same line)

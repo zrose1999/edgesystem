@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-28T04:54:34Z",
+ "asOf": "2026-10-28T07:23:05Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 766,
  "loggedReads": 1563,
@@ -98,9 +98,9 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 951,
-  "latest": "2026-10-28T04:54:27Z",
-  "rowsWithHistory": 905,
+  "linesLastCycle": 972,
+  "latest": "2026-10-28T07:22:26Z",
+  "rowsWithHistory": 908,
   "alarm": false
  },
  "interactionCoverage": {
@@ -9127,22 +9127,22 @@
   "causeKnown": 492,
   "lostToClose": 516,
   "beatClose": 250,
-  "newsForUs": 51,
+  "newsForUs": 50,
   "lossCauses": {
    "news-after-pick": {
-    "n": 38,
-    "meanClvProb": -0.0468,
-    "tStat": -7.85,
+    "n": 37,
+    "meanClvProb": -0.0452,
+    "tStat": -7.66,
     "beatClose": 0,
-    "share": 0.074,
+    "share": 0.072,
     "bySport": {
      "NBA": 25,
-     "NFL": 8,
+     "NFL": 7,
      "NCAAF": 4,
      "NHL": 1
     },
     "topPatterns": {
-     "news-lag": 15,
+     "news-lag": 14,
      "nba-stats-model": 3,
      "scan-nba-h2h-home-restawayb2b-60ea66": 3,
      "scan-nba-spread-home-restawayb2b-7f68d5": 3,
@@ -9253,16 +9253,16 @@
     "prePickFeatureClv": null
    },
    "number-off": {
-    "n": 415,
-    "meanClvProb": -0.0332,
-    "tStat": -23.98,
+    "n": 416,
+    "meanClvProb": -0.0334,
+    "tStat": -23.97,
     "beatClose": 0,
-    "share": 0.804,
+    "share": 0.806,
     "bySport": {
      "NCAAF": 134,
      "NBA": 110,
      "NHL": 83,
-     "NFL": 70,
+     "NFL": 71,
      "ATP": 5,
      "WTA": 4,
      "Ligue1": 3,
@@ -9272,7 +9272,7 @@
      "LaLiga": 1
     },
     "topPatterns": {
-     "news-lag": 89,
+     "news-lag": 90,
      "ncaaf-spot": 39,
      "learned-nhl-over": 22,
      "stats-model": 21,
@@ -10967,7 +10967,7 @@
    "n": 37,
    "meanClvProb": -0.0212,
    "pocket": {
-    "feature": "sharpGapOpen=<1%",
+    "feature": "sharpDiv=aligned",
     "n": 9,
     "meanClvProb": 0.0072,
     "tStat": 8.26
@@ -11024,7 +11024,7 @@
    "n": 27,
    "meanClvProb": -0.0202,
    "pocket": {
-    "feature": "sharpGapPick=<1%",
+    "feature": "sharpDiv=aligned",
     "n": 8,
     "meanClvProb": 0.0078,
     "tStat": 10.12
