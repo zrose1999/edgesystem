@@ -102591,6 +102591,67 @@
       },
       "contextAtPick": {},
       "bestAtPick": null
+    },
+    {
+      "pickId": "NHL|2026-10-28|Philadelphia Flyers at Washington Capitals|h2h|home|v1|learned-nhl-ml|lean|2026-10-28T21:53:31Z|gated|2026-10-28T21:53:31Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NHL|2026-10-28|Philadelphia Flyers at Washington Capitals|h2h",
+      "sport": "NHL",
+      "event": "Philadelphia Flyers at Washington Capitals",
+      "commence": "2026-10-28T23:40:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": -230,
+      "bookAtPick": "theScore Bet",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -245,
+        "away": 200
+      },
+      "priceTime": "2026-10-28T21:53:20Z",
+      "pickedAt": "2026-10-28T21:53:31Z",
+      "fair": 0.6981,
+      "projection": 0.6981,
+      "edge": 0.0012,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-nhl-ml",
+      "reason": "Learned model (ridge, 191 data points, trained 2026-10-15) predicts the home win price moves +0.016 from the open; open 0.683, now 0.688, 0.010 still to come. Fair 0.698. Report: stats/models/nhl_ml.json.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -233,
+          "away": 206
+        },
+        "updated": "2026-10-28T21:52:58Z",
+        "snapTime": "2026-10-28T21:53:20Z",
+        "noVig": 0.6865
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -235,
+        "line": null,
+        "implied": 0.7015,
+        "printImplied": 0.7101
+      },
+      "priceBook": "Caesars",
+      "contextAtPick": {
+        "goalie": "Capitals: Charlie Lindgren (expected) at the open, now Logan Thompson (confirmed), GSAx/60 +0.08 to +0.43"
+      },
+      "pinEdgeAtPick": -0.0105,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.1% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
