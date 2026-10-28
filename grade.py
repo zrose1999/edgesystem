@@ -427,6 +427,14 @@ def main():
     except Exception as exc:  # noqa: BLE001
         print(f"::warning::memory.py failed: {exc}")
 
+    # Findings (findings.py, 2026-10-28): EDGE's own review of what separates reads that beat the close from reads
+    # that lost, after memory.py has written memory/log. Leads only; nothing here changes a rule.
+    try:
+        import findings
+        print(json.dumps({"findings": findings.build()}))
+    except Exception as exc:  # noqa: BLE001
+        print(f"::warning::findings.py failed: {exc}")
+
     # Move and model checks (modelcheck.py, 2026-10-21): predicted vs realized move and log-loss gain per pattern.
     try:
         import modelcheck

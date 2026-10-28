@@ -198,6 +198,16 @@ def build():
             f"{c} {v['n']} ({(v.get('clvLost') or 0) * 100:.0f} pts: price {(v.get('lostToPrice') or 0) * 100:.0f}, "
             f"move {(v.get('lostToMove') or 0) * 100:.0f}; {v.get('nowBlocked', 0)} now blocked)" for c, v in top)
             + ". Every loss with its lesson: memory/losses.md.")
+    fr = load(ROOT / "stats" / "findings.json", {}).get("report") or {}
+    if fr.get("findings") is not None:
+        fs = fr["findings"]
+        hold = [f for f in fs if f.get("status") == "holding"]
+        top = (hold or fs)[:3]
+        L.append(f"- Findings (findings.py, {str(fr.get('asOf', ''))[:16]}Z): {len(fs)} conditions separate wins from "
+                 f"losses in both halves ({len(hold)} holding 3+ days; about {fr.get('expectedByChance')} of "
+                 f"{fr.get('tested')} would by chance)" + (": " + "; ".join(
+                     f"{f['text']} {f['mean'] * 100:+.1f}% vs {f['outside'] * 100:+.1f}% (n {f['n']}, t {f['t']:+.1f})"
+                     for f in top) if top else "") + ". Full review: memory/findings.md.")
     mk = (load(ROOT / "trading" / "ledger.json", {}).get("status") or {}).get("maker")
     if mk:
         L.append(f"- Kalshi maker paper book: {mk.get('orders')} orders, fill rate {mk.get('fillRate')}, net CLV "
