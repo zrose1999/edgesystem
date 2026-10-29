@@ -1,178 +1,193 @@
 {
  "target": "scan_nba_h2h",
- "trained": "2026-10-22T11:15:16Z",
- "rows": 1079,
+ "trained": "2026-10-29T17:25:34Z",
+ "rows": 1133,
  "features": 14,
  "unit": "prob",
  "from": "2025-11-25T00:00Z",
- "to": "2026-10-22T02:30Z",
+ "to": "2026-10-29T02:30Z",
  "results": {
   "baseline": {
    "blocks": [
     {
-     "from": 431,
-     "to": 560,
-     "trades": 129,
-     "meanMove": -0.0023610781573626402,
-     "t": -0.3663858748268747
+     "from": 453,
+     "to": 589,
+     "trades": 136,
+     "meanMove": -0.005249218308175366,
+     "t": -0.7670043710095942
     },
     {
-     "from": 560,
-     "to": 690,
-     "trades": 130,
-     "meanMove": -0.0019387142400338606,
-     "t": -0.39501095500176747
+     "from": 589,
+     "to": 725,
+     "trades": 136,
+     "meanMove": 0.0024986406893596994,
+     "t": 0.6424213324428607
     },
     {
-     "from": 690,
-     "to": 819,
-     "trades": 129,
-     "meanMove": -0.003585956991394189,
-     "t": -1.0100205335675996
+     "from": 725,
+     "to": 861,
+     "trades": 136,
+     "meanMove": -0.005862483005213165,
+     "t": -1.9227307717535829
     },
     {
-     "from": 819,
-     "to": 949,
-     "trades": 130,
-     "meanMove": 0.0014863534332759415,
-     "t": 0.35767048720266986
+     "from": 861,
+     "to": 997,
+     "trades": 136,
+     "meanMove": 0.004247810302900473,
+     "t": 0.6309064384260699
     },
     {
-     "from": 949,
-     "to": 1079,
-     "trades": 130,
-     "meanMove": 0.002872577802520903,
-     "t": 0.41843885107976364
+     "from": 997,
+     "to": 1133,
+     "trades": 136,
+     "meanMove": -0.0051069179160980254,
+     "t": -1.1337492448408608
     }
    ],
    "oosCorr": null,
-   "trades": 648,
-   "meanMove": -0.000698363155463647,
-   "t": -0.29,
+   "trades": 680,
+   "meanMove": -0.0018944336474452767,
+   "t": -0.81,
    "positiveBlocks": 2
   },
   "ridge": {
    "blocks": [
     {
-     "from": 431,
-     "to": 560,
-     "trades": 36,
-     "meanMove": 0.004638545826872793,
-     "t": 0.4577969259411211
+     "from": 453,
+     "to": 589,
+     "trades": 47,
+     "meanMove": 0.009449873987530832,
+     "t": 1.0997314480071827
     },
     {
-     "from": 560,
-     "to": 690,
-     "trades": 52,
-     "meanMove": 0.0134826214796768,
-     "t": 2.456102553314663
+     "from": 589,
+     "to": 725,
+     "trades": 54,
+     "meanMove": 0.005757025353302818,
+     "t": 1.0969727721690747
     },
     {
-     "from": 690,
-     "to": 819,
-     "trades": 40,
-     "meanMove": 0.007298798116578772,
-     "t": 1.526780603274458
+     "from": 725,
+     "to": 861,
+     "trades": 33,
+     "meanMove": 0.011528209783035077,
+     "t": 1.8953310634031202
     },
     {
-     "from": 819,
-     "to": 949,
-     "trades": 40,
-     "meanMove": 0.0011332536505989517,
-     "t": 0.16323440824403673
+     "from": 861,
+     "to": 997,
+     "trades": 44,
+     "meanMove": 0.005795917951284434,
+     "t": 0.8503993001615723
     },
     {
-     "from": 949,
-     "to": 1079,
-     "trades": 30,
-     "meanMove": 0.008362852692483652,
-     "t": 1.1080962198647937
+     "from": 997,
+     "to": 1133,
+     "trades": 26,
+     "meanMove": 0.021624324173232352,
+     "t": 1.9541335478409056
     }
    ],
-   "oosCorr": 0.064,
-   "trades": 195,
-   "meanMove": 0.004727310485497062,
-   "t": 1.45,
+   "oosCorr": 0.0677,
+   "trades": 205,
+   "meanMove": 0.008675041994657032,
+   "t": 2.66,
    "positiveBlocks": 5
   },
   "gbm": {
    "blocks": [
     {
-     "from": 431,
-     "to": 560,
-     "trades": 42,
-     "meanMove": 0.001970340207516082,
-     "t": 0.2691727299934837
+     "from": 453,
+     "to": 589,
+     "trades": 39,
+     "meanMove": -0.00328724586390894,
+     "t": -0.2592339739901996
     },
     {
-     "from": 560,
-     "to": 690,
-     "trades": 56,
-     "meanMove": 0.013157265899878154,
-     "t": 1.4114798756876343
+     "from": 589,
+     "to": 725,
+     "trades": 55,
+     "meanMove": 0.007919354561270306,
+     "t": 1.228772112757382
     },
     {
-     "from": 690,
-     "to": 819,
-     "trades": 51,
-     "meanMove": 0.0037432775028233257,
-     "t": 0.6841297114168771
+     "from": 725,
+     "to": 861,
+     "trades": 41,
+     "meanMove": 0.006851973971661905,
+     "t": 1.2385543166318218
     },
     {
-     "from": 819,
-     "to": 949,
+     "from": 861,
+     "to": 997,
+     "trades": 28,
+     "meanMove": 0.005108152817210656,
+     "t": 0.4551363354154647
+    },
+    {
+     "from": 997,
+     "to": 1133,
      "trades": 29,
-     "meanMove": 0.004015750908085453,
-     "t": 0.4919590560901692
-    },
-    {
-     "from": 949,
-     "to": 1079,
-     "trades": 27,
-     "meanMove": 0.02547718222007688,
-     "t": 1.9547054771582189
+     "meanMove": 0.0071383477679481675,
+     "t": 0.6571688906787324
     }
    ],
-   "oosCorr": 0.0646,
-   "trades": 195,
-   "meanMove": 0.004586057125173511,
-   "t": 1.13,
-   "positiveBlocks": 5
+   "oosCorr": 0.0544,
+   "trades": 206,
+   "meanMove": 0.007170213160509108,
+   "t": 1.87,
+   "positiveBlocks": 4
   }
  },
  "chosen": "ridge",
- "live": false,
+ "live": true,
  "gate": "pooled OOS t >= 2.5, 4/5 blocks positive, beats drift baseline",
  "signals": [
   {
    "feature": "rest_diff",
-   "mseGain": 3.261770805289494e-05,
-   "corrWithMove": 0.099
-  },
-  {
-   "feature": "dow_Tue",
-   "mseGain": 1.8040249202384406e-05,
-   "corrWithMove": -0.08
+   "mseGain": 3.016627478124147e-05,
+   "corrWithMove": 0.111
   },
   {
    "feature": "dow_Mon",
-   "mseGain": 3.4850718092392305e-06,
-   "corrWithMove": 0.016
-  },
-  {
-   "feature": "rest_home",
-   "mseGain": 1.2835269025718472e-06,
-   "corrWithMove": 0.028
-  },
-  {
-   "feature": "month",
-   "mseGain": 2.40671460757097e-07,
-   "corrWithMove": -0.013
+   "mseGain": 3.4884552829158103e-06,
+   "corrWithMove": 0.015
   },
   {
    "feature": "dow_Fri",
-   "mseGain": 1.5247920721883634e-07,
-   "corrWithMove": 0.026
+   "mseGain": 3.0305631532473454e-06,
+   "corrWithMove": 0.013
+  },
+  {
+   "feature": "dow_Tue",
+   "mseGain": 2.7215607987939212e-06,
+   "corrWithMove": -0.073
+  },
+  {
+   "feature": "weekend",
+   "mseGain": 1.3276062652729792e-06,
+   "corrWithMove": 0.03
+  },
+  {
+   "feature": "dow_Sat",
+   "mseGain": 1.2099187785201242e-06,
+   "corrWithMove": 0.025
+  },
+  {
+   "feature": "rest_home",
+   "mseGain": 7.998545310176734e-07,
+   "corrWithMove": 0.037
+  },
+  {
+   "feature": "month",
+   "mseGain": 1.88873409248929e-07,
+   "corrWithMove": -0.026
+  },
+  {
+   "feature": "dow_Wed",
+   "mseGain": 1.9829920985640903e-08,
+   "corrWithMove": 0.021
   }
  ]
 }
