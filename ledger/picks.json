@@ -97693,7 +97693,19 @@
         "implied": 0.7849,
         "printImplied": 0.7849
       },
-      "commenceAtPick": "2026-10-29T10:00:00Z"
+      "commenceAtPick": "2026-10-29T10:00:00Z",
+      "closeLine": null,
+      "closePrice": -393,
+      "closeNoVig": 0.773,
+      "estimated": false,
+      "clvPoints": 0.0,
+      "clvProb": -0.0165,
+      "clvProbPrint": -0.012,
+      "clvProbPin": -0.0165,
+      "closeNoVigPin": 0.7684,
+      "clvBench": "pinnacle",
+      "clvProbBest": -0.0165,
+      "clvProbAtPrintPrice": -0.0165
     },
     {
       "pickId": "NBA|2026-10-29|Denver Nuggets at New Orleans Pelicans|total|over|v1|learned-nba-total",
@@ -106356,6 +106368,254 @@
         "goalie": "Capitals: Charlie Lindgren (expected) at the open, now Charlie Lindgren (confirmed), GSAx/60 +0.08 to -0.15"
       },
       "bestAtPick": null
+    },
+    {
+      "pickId": "NCAAF|2026-11-01|Washington Huskies at Nebraska Cornhuskers|h2h|away|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-01|Washington Huskies at Nebraska Cornhuskers|h2h",
+      "sport": "NCAAF",
+      "event": "Washington Huskies at Nebraska Cornhuskers",
+      "commence": "2026-11-01T00:00:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 300,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -310,
+        "away": 250
+      },
+      "priceTime": "2026-10-29T23:09:24Z",
+      "pickedAt": "2026-10-29T23:09:27Z",
+      "fair": 0.2732,
+      "projection": 0.2732,
+      "edge": 0.0232,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "Hard Rock Bet away +300 implies 25.0%. Pinnacle +244 no-vig is 27.3%. Edge +2.3%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -291,
+          "away": 244
+        },
+        "updated": "2026-10-29T23:09:08Z",
+        "snapTime": "2026-10-29T23:09:24Z",
+        "noVig": 0.2732
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 5.5,
+          "pop": 17,
+          "text": "Slight Chance Rain Showers",
+          "heavy": false,
+          "temp": 63,
+          "value": 0.0,
+          "asOf": "2026-10-29T21:59:39Z",
+          "venue": "Memorial Stadium (Lincoln, NE)"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 250,
+        "line": null,
+        "implied": 0.2857,
+        "printImplied": 0.2857
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.0232,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NHL|2026-10-29|Winnipeg Jets at Tampa Bay Lightning|total|under|v1|lean|nhl-total-move|2026-10-29T23:09:43Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NHL|2026-10-29|Winnipeg Jets at Tampa Bay Lightning|total",
+      "sport": "NHL",
+      "event": "Winnipeg Jets at Tampa Bay Lightning",
+      "commence": "2026-10-29T23:10:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 5.5,
+      "priceAtPick": 116,
+      "marketNumber": 5.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "over": -135,
+        "under": 114
+      },
+      "priceTime": "2026-10-29T23:09:24Z",
+      "pickedAt": "2026-10-29T23:09:43Z",
+      "fair": 0.518,
+      "projection": 0.518,
+      "edge": 0.019,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": 0.002,
+      "modelWeight": 0.125,
+      "shrinkBase": "print",
+      "confidence": "medium",
+      "pattern": "nhl-total-move",
+      "reason": "NHL ratings over 5.5 0.374, open 0.554 (gap -0.179). Prices moved 0.2 x the gap from open to close in the backtest. Expected move -0.036, 0.036 still to come; now 0.554, fair 0.518.",
+      "falsifier": "The price closes at or past the open on the other side of the model.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "move_nhl.py",
+      "pinAtPick": {
+        "line": 6.0,
+        "prices": {
+          "over": -103,
+          "under": -109
+        },
+        "updated": "2026-10-29T23:09:07Z",
+        "snapTime": "2026-10-29T23:09:24Z",
+        "noVig": 0.5071
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 116,
+        "line": 5.5,
+        "implied": 0.463,
+        "printImplied": 0.4673
+      },
+      "pinGate": "unchecked"
+    },
+    {
+      "pickId": "NHL|2026-10-29|Winnipeg Jets at Tampa Bay Lightning|total|under|v1|learned-nhl-over|lean|2026-10-29T23:09:45Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NHL|2026-10-29|Winnipeg Jets at Tampa Bay Lightning|total",
+      "sport": "NHL",
+      "event": "Winnipeg Jets at Tampa Bay Lightning",
+      "commence": "2026-10-29T23:10:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 5.5,
+      "priceAtPick": 120,
+      "bookAtPick": "theScore Bet",
+      "marketNumber": 5.5,
+      "marketPrices": {
+        "over": -135,
+        "under": 114
+      },
+      "priceTime": "2026-10-29T23:09:24Z",
+      "pickedAt": "2026-10-29T23:09:45Z",
+      "fair": 0.462,
+      "projection": 0.462,
+      "edge": 0.0074,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-nhl-over",
+      "reason": "Learned model (ridge, 191 data points, trained 2026-10-15) predicts the over 5.5 price moves -0.016 from the open; open 0.554, now 0.554, 0.016 still to come. Fair 0.538. Report: stats/models/nhl_over.json.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": 6.0,
+        "prices": {
+          "over": -103,
+          "under": -109
+        },
+        "updated": "2026-10-29T23:09:07Z",
+        "snapTime": "2026-10-29T23:09:24Z",
+        "noVig": 0.5071
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 116,
+        "line": 5.5,
+        "implied": 0.463,
+        "printImplied": 0.4673
+      },
+      "priceBook": "FanDuel",
+      "contextAtPick": {},
+      "pinGate": "unchecked"
+    },
+    {
+      "pickId": "NCAAF|2026-10-29|Troy Trojans at James Madison Dukes|spread|home|v1|lean|learned-ncaaf-spread|2026-10-29T23:09:47Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NCAAF|2026-10-29|Troy Trojans at James Madison Dukes|spread",
+      "sport": "NCAAF",
+      "event": "Troy Trojans at James Madison Dukes",
+      "commence": "2026-10-29T23:30:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -17.5,
+      "priceAtPick": -108,
+      "marketNumber": -17.5,
+      "priceBook": "BetMGM",
+      "marketPrices": {
+        "home": -110,
+        "away": -110
+      },
+      "priceTime": "2026-10-29T23:09:24Z",
+      "pickedAt": "2026-10-29T23:09:47Z",
+      "fair": -18.412,
+      "projection": -18.412,
+      "edge": 0.912,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": 0.55,
+      "modelWeight": 0.603,
+      "shrinkBase": "print",
+      "confidence": "medium",
+      "pattern": "learned-ncaaf-spread",
+      "reason": "Learned college model (ridge, 330 data points, trained on CFBD history) predicts the spread moves -0.91 from the open; open -17.5, now -17.5, 0.91 still to come. Fair -18.41. Report: stats/models/ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": -19.5,
+        "prices": {
+          "home": -102,
+          "away": -110
+        },
+        "updated": "2026-10-29T23:09:08Z",
+        "snapTime": "2026-10-29T23:09:24Z",
+        "noVig": 0.4906
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 1.0,
+          "pop": 0,
+          "text": "Clear",
+          "heavy": false,
+          "temp": 65,
+          "value": 0.0,
+          "asOf": "2026-10-29T23:09:27Z",
+          "venue": "Bridgeforth Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": -108,
+        "line": -17.5,
+        "implied": 0.5192,
+        "printImplied": 0.5238
+      },
+      "pinGate": "unchecked"
     }
   ]
 }
