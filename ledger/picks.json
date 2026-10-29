@@ -103260,6 +103260,67 @@
       "pinEdgeAtPick": 0.0208,
       "pinEdgeEstimated": false,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "ATP|2026-10-29|Lorenzo Musetti at Arthur Fery|h2h|away|v1|lean|tennis-elo|2026-10-29T01:54:42Z|gated|2026-10-29T01:54:42Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "ATP|2026-10-29|Lorenzo Musetti at Arthur Fery|h2h",
+      "sport": "ATP",
+      "event": "Lorenzo Musetti at Arthur Fery",
+      "commence": "2026-10-29T16:00:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": -280,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": 241,
+        "away": -309
+      },
+      "priceTime": "2026-10-29T01:39:29Z",
+      "pickedAt": "2026-10-29T01:54:42Z",
+      "fair": 0.256,
+      "projection": 0.256,
+      "edge": 0.007,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.005,
+      "modelWeight": 0.064,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "tennis-elo",
+      "reason": "Surface Elo home win 0.206, market no-vig 0.269; fair = market + 0.2 x gap = 0.256. Hard. Games in the last 2 days: Arthur Fery 0, Lorenzo Musetti 25.",
+      "falsifier": "The price closes at or past the market's open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "tennis.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 253,
+          "away": -294
+        },
+        "updated": "2026-10-29T01:39:15Z",
+        "snapTime": "2026-10-29T01:39:29Z",
+        "noVig": 0.7315
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -280,
+        "line": null,
+        "implied": 0.7368,
+        "printImplied": 0.7555
+      },
+      "pinEdgeAtPick": -0.0054,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -0.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
