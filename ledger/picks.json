@@ -103142,6 +103142,124 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.2% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "MLS|2026-10-31|Philadelphia Union at FC Cincinnati|h2h|home|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "A",
+      "rowId": "MLS|2026-10-31|Philadelphia Union at FC Cincinnati|h2h",
+      "sport": "MLS",
+      "event": "Philadelphia Union at FC Cincinnati",
+      "commence": "2026-10-31T18:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 220,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 170,
+        "away": 120,
+        "draw": 320
+      },
+      "priceTime": "2026-10-29T00:54:26Z",
+      "pickedAt": "2026-10-29T00:54:27Z",
+      "fair": 0.3535,
+      "projection": 0.3535,
+      "edge": 0.041,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "Hard Rock Bet home +220 implies 31.2%. Pinnacle +168 no-vig is 35.3%. Edge +4.1%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 168,
+          "away": 133,
+          "draw": 291
+        },
+        "updated": "2026-10-29T00:54:00Z",
+        "snapTime": "2026-10-29T00:54:26Z",
+        "noVig": 0.3535
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 170,
+        "line": null,
+        "implied": 0.3704,
+        "printImplied": 0.3704
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.041,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "MLS|2026-11-01|New York Red Bulls at Nashville SC|h2h|away|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "MLS|2026-11-01|New York Red Bulls at Nashville SC|h2h",
+      "sport": "MLS",
+      "event": "New York Red Bulls at Nashville SC",
+      "commence": "2026-11-01T21:30:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 700,
+      "bookAtPick": "FanDuel",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -320,
+        "away": 700,
+        "draw": 470
+      },
+      "priceTime": "2026-10-29T00:54:26Z",
+      "pickedAt": "2026-10-29T00:54:27Z",
+      "fair": 0.1458,
+      "projection": 0.1458,
+      "edge": 0.0208,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "FanDuel away +700 implies 12.5%. Pinnacle +507 no-vig is 14.6%. Edge +2.1%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -233,
+          "away": 507,
+          "draw": 396
+        },
+        "updated": "2026-10-29T00:54:00Z",
+        "snapTime": "2026-10-29T00:54:26Z",
+        "noVig": 0.1458
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 700,
+        "line": null,
+        "implied": 0.125,
+        "printImplied": 0.125
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.0208,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
