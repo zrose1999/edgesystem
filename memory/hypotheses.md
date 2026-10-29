@@ -443,3 +443,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-29 | NCAAF: grade=B + travelEdge=more | 9 | +1.8% | found inside NCAAF travelEdge=more (best of 22 features tested); small sample, may share reads with other rows |
 | 2026-10-29 | NCAAF: grade=B + tzShift=west | 8 | +1.0% | found inside NCAAF tzShift=west (best of 18 features tested); small sample, may share reads with other rows |
 | 2026-10-29 | NHL: travel=<500 + travelEdge=even | 10 | +0.5% | found inside NHL travel=<500 (best of 28 features tested); small sample, may share reads with other rows |
+| 2026-10-29 | NBA: grade=C + tzShift=east | 9 | +0.7% | found inside NBA tzShift=east (best of 9 features tested); small sample, may share reads with other rows |
