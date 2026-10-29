@@ -105708,6 +105708,104 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NHL|2026-10-30|New Jersey Devils at Vegas Golden Knights|h2h|none|v1|pass|nhl-ml-move|2026-10-29T21:39:50Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "NHL|2026-10-30|New Jersey Devils at Vegas Golden Knights|h2h",
+      "sport": "NHL",
+      "event": "New Jersey Devils at Vegas Golden Knights",
+      "commence": "2026-10-30T22:10:00Z",
+      "market": "h2h",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": null,
+      "priceBook": null,
+      "marketPrices": {
+        "home": -115,
+        "away": -105
+      },
+      "priceTime": "2026-10-29T21:24:28Z",
+      "pickedAt": "2026-10-29T21:39:50Z",
+      "fair": 0.516,
+      "projection": 0.516,
+      "edge": -0.008,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": null,
+      "modelWeight": 0.097,
+      "shrinkBase": null,
+      "confidence": "medium",
+      "pattern": "nhl-ml-move",
+      "reason": "NHL ratings home win 0.584, open 0.534 (gap +0.050). Prices moved 0.1 x the gap from open to close in the backtest. Expected move +0.005, 0.005 still to come; now 0.511, fair 0.516. (Under the pattern's minimum move: lean only.)",
+      "falsifier": "The price closes at or past the open on the other side of the model.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "move_nhl.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -117,
+          "away": 104
+        },
+        "updated": "2026-10-29T21:24:14Z",
+        "snapTime": "2026-10-29T21:24:28Z"
+      },
+      "contextAtPick": {},
+      "bestAtPick": null
+    },
+    {
+      "pickId": "NHL|2026-10-31|Seattle Kraken at Calgary Flames|h2h|none|v1|pass|nhl-ml-move|2026-10-29T21:39:50Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "NHL|2026-10-31|Seattle Kraken at Calgary Flames|h2h",
+      "sport": "NHL",
+      "event": "Seattle Kraken at Calgary Flames",
+      "commence": "2026-10-31T00:10:00Z",
+      "market": "h2h",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": null,
+      "priceBook": null,
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-10-29T21:24:28Z",
+      "pickedAt": "2026-10-29T21:39:50Z",
+      "fair": 0.483,
+      "projection": 0.483,
+      "edge": -0.017,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": null,
+      "modelWeight": 0.097,
+      "shrinkBase": null,
+      "confidence": "medium",
+      "pattern": "nhl-ml-move",
+      "reason": "NHL ratings home win 0.436, open 0.489 (gap -0.053). Prices moved 0.1 x the gap from open to close in the backtest. Expected move -0.005, 0.005 still to come; now 0.489, fair 0.483. (Under the pattern's minimum move: lean only.)",
+      "falsifier": "The price closes at or past the open on the other side of the model.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "move_nhl.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 100,
+          "away": -112
+        },
+        "updated": "2026-10-29T21:24:14Z",
+        "snapTime": "2026-10-29T21:24:28Z"
+      },
+      "contextAtPick": {},
+      "bestAtPick": null
     }
   ]
 }
