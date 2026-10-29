@@ -97657,7 +97657,7 @@
       "rowId": "ATP|2026-10-29|Jerome Kym at Ben Shelton|h2h",
       "sport": "ATP",
       "event": "Jerome Kym at Ben Shelton",
-      "commence": "2026-10-29T19:20:00Z",
+      "commence": "2026-10-29T20:20:00Z",
       "market": "h2h",
       "side": "home",
       "lineAtPick": null,
@@ -100352,7 +100352,9 @@
       "closeNoVigPin": 0.2129,
       "clvBench": "pinnacle",
       "clvProbBest": 0.0168,
-      "clvProbAtPrintPrice": 0.0075
+      "clvProbAtPrintPrice": 0.0075,
+      "result": "loss",
+      "units": -1.0
     },
     {
       "pickId": "NBA|2026-10-28|Miami Heat at Atlanta Hawks|total|under|v1|reread|news-lag|2026-10-28T16:24:33Z",
@@ -105645,6 +105647,67 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.2% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NBA|2026-10-30|Cleveland Cavaliers at Atlanta Hawks|h2h|home|v1|lean|scan-nba-h2h-home-restawayb2b-60ea66|2026-10-29T20:08:28Z|gated|2026-10-29T20:08:28Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NBA|2026-10-30|Cleveland Cavaliers at Atlanta Hawks|h2h",
+      "sport": "NBA",
+      "event": "Cleveland Cavaliers at Atlanta Hawks",
+      "commence": "2026-10-30T00:10:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": -112,
+      "marketNumber": null,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "home": -112,
+        "away": -108
+      },
+      "priceTime": "2026-10-29T20:08:10Z",
+      "pickedAt": "2026-10-29T20:08:28Z",
+      "fair": 0.5349,
+      "projection": 0.5349,
+      "edge": 0.007,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.01,
+      "modelWeight": 0.263,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-nba-h2h-home-restawayb2b-60ea66",
+      "reason": "Scanner strategy scan-nba-h2h-home-restawayb2b-60ea66: NBA h2h home when restAway b2b; measured open-to-close move +0.0136 for this side (+0.0135 beyond the league average; n 198, t +3.4) x0.8, 0.00656 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -111,
+          "away": 100
+        },
+        "updated": "2026-10-29T20:07:59Z",
+        "snapTime": "2026-10-29T20:08:10Z",
+        "noVig": 0.513
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -112,
+        "line": null,
+        "implied": 0.5283,
+        "printImplied": 0.5283
+      },
+      "pinEdgeAtPick": -0.0153,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
