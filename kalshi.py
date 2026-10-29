@@ -1230,7 +1230,9 @@ def market_shard(base, ticker):
 
 
 def fund_shard(signer, base, shard, needed):
-    """Move cash from shard 0 to `shard` inside the same account, enough for `needed` dollars and at least
+    """Move cash to `shard` inside the same account from the shard holding the most cash (shard 0 at first; after
+    shard-3 basketball tests settle and cash leaves shard 0 the cash sits on 3: 2026-10-29 football orders on shard 0
+    were refused for insufficient balance while the account held $16.68), enough for `needed` dollars and at least
     SHARD_FLOAT. The Kalshi app does this on its own for app orders (2026-10-08); API orders do not. Returns the
     transfer record or None."""
     try:
@@ -1239,14 +1241,17 @@ def fund_shard(signer, base, shard, needed):
     except Exception as exc:  # noqa: BLE001
         print("shard balance", exc)
         return None
-    have, home = per.get(shard, 0.0), per.get(0, 0.0)
+    have = per.get(shard, 0.0)
     if have >= needed:
         return {"shard": shard, "note": "already funded", "have": have}
+    others = {k: v for k, v in per.items() if k != shard}
+    src = max(others, key=lambda k: (others[k], k == 0)) if others else 0
+    home = others.get(src, 0.0)
     amount = round(min(home, max(needed - have, SHARD_FLOAT)), 2)
     if amount < 0.01:
         return None
     body = {"source": "event_contract", "destination": "event_contract", "amount": int(round(amount * 10000)),
-            "source_exchange_shard": 0, "destination_exchange_shard": shard,
+            "source_exchange_shard": src, "destination_exchange_shard": shard,
             "client_transfer_id": str(__import__("uuid").uuid4())}
     try:
         r = signer.call(base, "POST", "/portfolio/intra_exchange_instance_transfer", body) or {}
@@ -1256,7 +1261,7 @@ def fund_shard(signer, base, shard, needed):
     except Exception as exc:  # noqa: BLE001
         print("shard transfer failed", shard, exc)
         return None
-    rec = {"time": iso(now_utc()), "fromShard": 0, "toShard": shard, "amount": amount, "transferId": r.get("transfer_id"),
+    rec = {"time": iso(now_utc()), "fromShard": src, "toShard": shard, "amount": amount, "transferId": r.get("transfer_id"),
            "shardBalanceBefore": have, "homeBalanceBefore": home}
     TRANSFERS.append(rec)
     time.sleep(2.0)                            # transfers settle asynchronously
@@ -1313,12 +1318,13 @@ def create_order(signer, base, c, n, price, tif, post_only=False, expiration=Non
             if exc.code in (404, 405):
                 break                           # path refused: try the legacy endpoint below
             # insufficient_balance on a funded account = the market's shard holds no cash (2026-10-21, NBA on
-            # shard 3). Fund that shard from shard 0 once, then retry. Anything else is final for this order.
+            # shard 3; 2026-10-29 the reverse, football on shard 0 with the cash on 3). Fund that shard from the
+            # shard holding the cash once, then retry. Anything else is final for this order.
             if b"insufficient_balance" not in text or attempt == 2:
                 return None, v2_why
             shard = market_shard(base, c["ticker"])
             needed = n * (price if c["side"] == "yes" else price) + FEE_RATE * n * price * (1 - price) + 0.01
-            if not shard or not fund_shard(signer, base, shard, needed):
+            if shard is None or not fund_shard(signer, base, shard, needed):
                 return None, v2_why + f"; shard {shard} not funded"
         except Exception as exc:  # noqa: BLE001
             return None, f"v2 failed: {exc}"
