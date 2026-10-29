@@ -104227,6 +104227,128 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.3% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-01|Northern Illinois Huskies at UNLV Rebels|spread|home|v1|lean|scan-ncaaf-spread-home-linehomefav21-de1083|2026-10-29T02:54:33Z|gated|2026-10-29T02:54:33Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-01|Northern Illinois Huskies at UNLV Rebels|spread",
+      "sport": "NCAAF",
+      "event": "Northern Illinois Huskies at UNLV Rebels",
+      "commence": "2026-11-01T02:30:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -24.5,
+      "priceAtPick": -104,
+      "marketNumber": -24.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-10-29T02:15:55Z",
+      "pickedAt": "2026-10-29T02:54:33Z",
+      "fair": -24.7877,
+      "projection": -24.7877,
+      "edge": 0.288,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.416,
+      "modelWeight": 0.129,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-ncaaf-spread-home-linehomefav21-de1083",
+      "reason": "Scanner strategy scan-ncaaf-spread-home-linehomefav21-de1083: NCAAF spread home when line home fav 21+; measured open-to-close move +0.36 for this side (+0.32 beyond the league average; n 894, t +4.3) x0.8, 0.288 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": -24.0,
+        "prices": {
+          "home": -111,
+          "away": -103
+        },
+        "updated": "2026-10-29T02:15:50Z",
+        "snapTime": "2026-10-29T02:15:55Z",
+        "noVig": 0.5093
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -104,
+        "line": -24.5,
+        "implied": 0.5098,
+        "printImplied": 0.5122
+      },
+      "pinEdgeAtPick": -0.013,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.3% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-01|Northern Illinois Huskies at UNLV Rebels|spread|home|v1|lean|learned-scan-ncaaf-spread|2026-10-29T02:54:33Z|gated|2026-10-29T02:54:33Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-01|Northern Illinois Huskies at UNLV Rebels|spread",
+      "sport": "NCAAF",
+      "event": "Northern Illinois Huskies at UNLV Rebels",
+      "commence": "2026-11-01T02:30:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -24.5,
+      "priceAtPick": -104,
+      "marketNumber": -24.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-10-29T02:15:55Z",
+      "pickedAt": "2026-10-29T02:54:33Z",
+      "fair": -24.9552,
+      "projection": -24.9552,
+      "edge": 0.455,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.35,
+      "modelWeight": 0.174,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-spread",
+      "reason": "Model learned on the scanner's data (gbm, 14 data points, passed the out-of-sample gate) predicts a move of +0.455 from the open for home; 0.455 still to come. Report: stats/models/scan_ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": -24.0,
+        "prices": {
+          "home": -111,
+          "away": -103
+        },
+        "updated": "2026-10-29T02:15:50Z",
+        "snapTime": "2026-10-29T02:15:55Z",
+        "noVig": 0.5093
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -104,
+        "line": -24.5,
+        "implied": 0.5098,
+        "printImplied": 0.5122
+      },
+      "pinEdgeAtPick": -0.013,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.3% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
