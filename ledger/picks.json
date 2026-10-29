@@ -97657,7 +97657,7 @@
       "rowId": "ATP|2026-10-29|Jerome Kym at Ben Shelton|h2h",
       "sport": "ATP",
       "event": "Jerome Kym at Ben Shelton",
-      "commence": "2026-10-29T19:30:00Z",
+      "commence": "2026-10-29T19:20:00Z",
       "market": "h2h",
       "side": "home",
       "lineAtPick": null,
@@ -99577,7 +99577,9 @@
       "closeNoVigPin": 0.1526,
       "clvBench": "pinnacle",
       "clvProbBest": -0.0113,
-      "clvProbAtPrintPrice": -0.0309
+      "clvProbAtPrintPrice": -0.0309,
+      "result": "loss",
+      "units": -1.0
     },
     {
       "pickId": "ATP|2026-10-29|Jiri Lehecka at Daniel Altmaier|h2h|none|v1|pass|tennis-fatigue|2026-10-28T00:43:32Z",
@@ -100338,7 +100340,19 @@
         "printImplied": 0.2053
       },
       "priceBook": "FanDuel",
-      "contextAtPick": {}
+      "contextAtPick": {},
+      "closeLine": null,
+      "closePrice": 351,
+      "closeNoVig": 0.2129,
+      "estimated": false,
+      "clvPoints": 0.0,
+      "clvProb": 0.0168,
+      "clvProbPrint": 0.0168,
+      "clvProbPin": 0.0168,
+      "closeNoVigPin": 0.2129,
+      "clvBench": "pinnacle",
+      "clvProbBest": 0.0168,
+      "clvProbAtPrintPrice": 0.0075
     },
     {
       "pickId": "NBA|2026-10-28|Miami Heat at Atlanta Hawks|total|under|v1|reread|news-lag|2026-10-28T16:24:33Z",
@@ -104285,7 +104299,9 @@
       "closeNoVigPin": 0.7373,
       "clvBench": "pinnacle",
       "clvProbBest": 0.0005,
-      "clvProbAtPrintPrice": -0.0182
+      "clvProbAtPrintPrice": -0.0182,
+      "result": "loss",
+      "units": -1.0
     },
     {
       "pickId": "WTA|2026-10-29|Yulia Putintseva at Elena Rybakina|h2h|none|v1|pass|tennis-elo|2026-10-29T02:16:13Z",
@@ -105568,6 +105584,67 @@
       },
       "contextAtPick": {},
       "bestAtPick": null
+    },
+    {
+      "pickId": "NBA|2026-10-30|Memphis Grizzlies at Portland Trail Blazers|h2h|away|v1|lean|learned-scan-nba-h2h|2026-10-29T19:09:47Z|gated|2026-10-29T19:09:47Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NBA|2026-10-30|Memphis Grizzlies at Portland Trail Blazers|h2h",
+      "sport": "NBA",
+      "event": "Memphis Grizzlies at Portland Trail Blazers",
+      "commence": "2026-10-30T02:10:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 245,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -300,
+        "away": 245
+      },
+      "priceTime": "2026-10-29T19:09:30Z",
+      "pickedAt": "2026-10-29T19:09:47Z",
+      "fair": 0.7033,
+      "projection": 0.7033,
+      "edge": 0.007,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.011,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-nba-h2h",
+      "reason": "Model learned on the scanner's data (ridge, 14 data points, passed the out-of-sample gate) predicts a move of -0.00682 from the open for away; 0.00682 still to come. Report: stats/models/scan_nba_h2h.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -280,
+          "away": 243
+        },
+        "updated": "2026-10-29T19:09:30Z",
+        "snapTime": "2026-10-29T19:09:30Z",
+        "noVig": 0.2774
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 245,
+        "line": null,
+        "implied": 0.2899,
+        "printImplied": 0.2899
+      },
+      "pinEdgeAtPick": -0.0125,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.2% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
