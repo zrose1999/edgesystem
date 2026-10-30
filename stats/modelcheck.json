@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-30T18:54:44Z",
+ "asOf": "2026-10-30T19:10:11Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -209,11 +209,11 @@
   "learned-soccer-1x2": {
    "pattern": "learned-soccer-1x2",
    "unit": "prob",
-   "n": 5,
-   "meanPredicted": 0.0166,
-   "meanRealized": 0.03,
-   "tRealized": 6.15,
-   "capture": 1.8,
+   "n": 6,
+   "meanPredicted": 0.0158,
+   "meanRealized": 0.0263,
+   "tRealized": 4.81,
+   "capture": 1.66,
    "rightWay": 1.0,
    "noMove": 0,
    "logLossGain": {
@@ -583,13 +583,13 @@
   "sharp-drift": {
    "pattern": "sharp-drift",
    "unit": "prob",
-   "n": 3,
-   "meanPredicted": 0.0089,
-   "meanRealized": -0.0109,
-   "tRealized": -1.79,
-   "capture": -1.23,
+   "n": 4,
+   "meanPredicted": 0.0062,
+   "meanRealized": -0.0082,
+   "tRealized": -1.61,
+   "capture": -1.31,
    "rightWay": 0.0,
-   "noMove": 0,
+   "noMove": 1,
    "logLossGain": {
     "n": 3,
     "mean": -0.01258,
@@ -617,13 +617,13 @@
   "sharp-soft|prob": {
    "pattern": "sharp-soft",
    "unit": "prob",
-   "n": 38,
-   "meanPredicted": 0.0239,
-   "meanRealized": 0.0058,
+   "n": 39,
+   "meanPredicted": 0.0232,
+   "meanRealized": 0.0057,
    "tRealized": 0.9,
-   "capture": 0.24,
+   "capture": 0.25,
    "rightWay": 0.485,
-   "noMove": 5,
+   "noMove": 6,
    "logLossGain": {
     "n": 38,
     "mean": 0.00694,

@@ -455,3 +455,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-30 | NCAAF: travel=500-1500 + venue=home | 11 | +2.1% | found inside NCAAF travel=500-1500 (best of 32 features tested); small sample, may share reads with other rows |
 | 2026-10-30 | NCAAF: edgeBar=0.5-1x + tzShift=east | 8 | +1.1% | found inside NCAAF tzShift=east (best of 19 features tested); small sample, may share reads with other rows |
 | 2026-10-30 | market=total + restDays=short | 11 | +2.0% | found inside ALL market=total (best of 52 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | bookAtPick=BetMGM + role=fav | 8 | +3.9% | found inside ALL role=fav (best of 61 features tested); small sample, may share reads with other rows |
