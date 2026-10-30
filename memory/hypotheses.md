@@ -466,3 +466,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-30 | NFL: restEdge=more + travelEdge=less | 8 | +0.1% | found inside NFL travelEdge=less (best of 17 features tested); small sample, may share reads with other rows |
 | 2026-10-30 | NFL: restDays=long + travelEdge=more | 9 | +5.3% | found inside NFL travelEdge=more (best of 24 features tested); small sample, may share reads with other rows |
 | 2026-10-30 | NFL: restEdge=more + tzShift=none | 15 | +3.9% | found inside NFL tzShift=none (best of 26 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | NFL: restEdge=more + travelEdge=more | 9 | +5.3% | found inside NFL travelEdge=more (best of 24 features tested); small sample, may share reads with other rows |
