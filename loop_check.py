@@ -31,12 +31,12 @@ for _n in (json.loads(_AT.read_text()) if _AT.exists() else {}):
 SPORTS = ["NFL", "NCAAF", "NBA", "NHL", "EPL", "UCL", "UEL", "LaLiga", "SerieA", "Bundesliga", "Ligue1", "MLS",
           "ATP", "WTA"]
 STRATEGIES = {
-    "NFL": ["news-lag", "wind-total", "sharp-soft", "sharp-soft-alt", "edge-stack"],
-    "NCAAF": ["learned-ncaaf-spread", "learned-ncaaf-total", "ncaaf-total-move", "ncaaf-spot", "wind-total", "sharp-soft", "sharp-soft-alt", "sharp-drift", "edge-stack"],
-    "NBA": ["learned-nba-total", "news-lag", "rest-spot", "sharp-soft", "sharp-soft-alt", "edge-stack"],
-    "NHL": ["learned-nhl-ml", "learned-nhl-over", "goalie-news", "nhl-ml-move", "nhl-total-move", "sharp-soft", "sharp-drift", "edge-stack"],
-    "ATP": ["tennis-elo", "tennis-fatigue", "sharp-soft", "edge-stack"],
-    "WTA": ["tennis-elo", "tennis-fatigue", "sharp-soft", "edge-stack"],
+    "NFL": ["news-lag", "wind-total", "sharp-soft", "sharp-soft-alt", "edge-stack", "soft-dog"],
+    "NCAAF": ["learned-ncaaf-spread", "learned-ncaaf-total", "ncaaf-total-move", "ncaaf-spot", "wind-total", "sharp-soft", "sharp-soft-alt", "sharp-drift", "edge-stack", "soft-dog"],
+    "NBA": ["learned-nba-total", "news-lag", "rest-spot", "sharp-soft", "sharp-soft-alt", "edge-stack", "soft-dog"],
+    "NHL": ["learned-nhl-ml", "learned-nhl-over", "goalie-news", "nhl-ml-move", "nhl-total-move", "sharp-soft", "sharp-drift", "edge-stack", "soft-dog"],
+    "ATP": ["tennis-elo", "tennis-fatigue", "sharp-soft", "edge-stack", "soft-dog"],
+    "WTA": ["tennis-elo", "tennis-fatigue", "sharp-soft", "edge-stack", "soft-dog"],
     **{lg: ["learned-soccer-1x2", "learned-soccer-over", "soccer-drift", "sharp-drift", "sharp-soft", "kalshi-drift"]
        for lg in ("EPL", "LaLiga", "SerieA", "Bundesliga", "Ligue1")},
     **{lg: ["sharp-soft", "kalshi-sharp"] for lg in ("UCL", "UEL", "MLS")},

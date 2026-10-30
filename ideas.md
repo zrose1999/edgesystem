@@ -29,6 +29,15 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - Mechanism (cross-sport): findings.py's strongest theme is travel edge (+3.6% vs -1.0%, n 35); the market prices rest
   days but probably not distance and body clock.
 
+## Experiments (live shadow patterns, stake 0)
+
+### soft-dog (launched 2026-10-30, from lead 1)
+- sharp.py stamps the underdog side when a soft book's same-line price is at least 0.5% better than Pinnacle's no-vig
+  fair (grade A at 1.5%), two-way spreads and moneylines, every sport sharp.py scans. Shadow, stake 0, Pinnacle gate as usual.
+- Launch check: dry run on the live ledger 10-30 20:30Z would stamp 7 (NFL 1, NCAAF 6), edges +0.6% to +0.9%.
+- Judge on CLV at 30 graded: holds if mean CLV > 0 with t >= 1.5 in both halves; tweak the floor (SOFT_DOG_MIN) once
+  if the 0.5-1% bucket loses while 1%+ wins; kill if mean CLV <= 0 at 50 graded.
+
 ## Killed
 
 ### Steam chase at run cadence (2026-10-30, killed)
