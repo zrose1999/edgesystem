@@ -108914,6 +108914,124 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -0.2% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "Ligue1|2026-10-30|Paris Saint Germain at Le Havre|h2h|away|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "Ligue1|2026-10-30|Paris Saint Germain at Le Havre|h2h",
+      "sport": "Ligue1",
+      "event": "Paris Saint Germain at Le Havre",
+      "commence": "2026-10-30T18:00:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": -295,
+      "bookAtPick": "BetMGM",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 800,
+        "away": -425,
+        "draw": 500
+      },
+      "priceTime": "2026-10-30T17:54:33Z",
+      "pickedAt": "2026-10-30T17:54:34Z",
+      "fair": 0.7694,
+      "projection": 0.7694,
+      "edge": 0.0226,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "BetMGM away -295 implies 74.7%. Pinnacle -360 no-vig is 76.9%. Edge +2.3%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 920,
+          "away": -360,
+          "draw": 570
+        },
+        "updated": "2026-10-30T17:54:12Z",
+        "snapTime": "2026-10-30T17:54:33Z",
+        "noVig": 0.7694
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": -295,
+        "line": null,
+        "implied": 0.7468,
+        "printImplied": 0.8095
+      },
+      "priceBook": "BetMGM",
+      "pinEdgeAtPick": 0.0226,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "Ligue1|2026-10-30|Paris Saint Germain at Le Havre|h2h|away|v1|sharp-drift",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "Ligue1|2026-10-30|Paris Saint Germain at Le Havre|h2h",
+      "sport": "Ligue1",
+      "event": "Paris Saint Germain at Le Havre",
+      "commence": "2026-10-30T18:00:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": -295,
+      "bookAtPick": "BetMGM",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 800,
+        "away": -425,
+        "draw": 500
+      },
+      "priceTime": "2026-10-30T17:54:33Z",
+      "pickedAt": "2026-10-30T17:54:41Z",
+      "fair": 0.7694,
+      "projection": 0.7694,
+      "edge": 0.0226,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-drift",
+      "reason": "BetMGM away -295 implies 74.7%. Pinnacle no-vig 76.9% plus the measured drift still to come -0.00% = 76.9%. Edge +2.3%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "edge_stack.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 920,
+          "away": -360,
+          "draw": 570
+        },
+        "updated": "2026-10-30T17:54:12Z",
+        "snapTime": "2026-10-30T17:54:33Z",
+        "noVig": 0.7694
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": -295,
+        "line": null,
+        "implied": 0.7468,
+        "printImplied": 0.8095
+      },
+      "priceBook": "BetMGM",
+      "pinEdgeAtPick": 0.0226,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
