@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-10-30 01:24Z)
+# What EDGE is learning (2026-10-30 01:40Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 846 graded reads counted, 1687 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Scanner (scan.py, 10-29 17:25Z): 40 strategies tracking from 7840 hypotheses (0 new this run); 105 graded scan reads, mean CLV -0.5%. Shadow only; grade.py decides promotion.
