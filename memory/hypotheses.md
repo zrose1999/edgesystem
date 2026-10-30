@@ -445,3 +445,12 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-29 | NHL: travel=<500 + travelEdge=even | 10 | +0.5% | found inside NHL travel=<500 (best of 28 features tested); small sample, may share reads with other rows |
 | 2026-10-29 | NBA: grade=C + tzShift=east | 9 | +0.7% | found inside NBA tzShift=east (best of 9 features tested); small sample, may share reads with other rows |
 | 2026-10-29 | NBA: pattern=rest-spot + role=dog | 8 | +2.0% | found inside NBA role=dog (best of 41 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | bookAtPick=FanDuel + pattern=sharp-soft | 14 | +1.0% | found inside ALL bookAtPick=FanDuel (best of 21 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | market=total + shortWeek=yes | 11 | +2.0% | found inside ALL market=total (best of 52 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | moveBeforePick=none + pattern=scan-nba-spread-away-restedgeawaymore-1e501d | 9 | +3.0% | found inside ALL moveBeforePick=none (best of 76 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | edgeBar=0.5-1x + restDays=short | 8 | +2.8% | found inside ALL restDays=short (best of 11 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | pattern=scan-nba-spread-away-restedgeawaymore-1e501d + restEdge=more | 9 | +3.0% | found inside ALL restEdge=more (best of 52 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | edgeBar=0.5-1x + shortWeek=yes | 8 | +2.8% | found inside ALL shortWeek=yes (best of 11 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | rest=yes + tzShift=east | 10 | +0.8% | found inside ALL tzShift=east (best of 34 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | NCAAF: travel=500-1500 + venue=home | 11 | +2.1% | found inside NCAAF travel=500-1500 (best of 32 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | NCAAF: edgeBar=0.5-1x + tzShift=east | 8 | +1.1% | found inside NCAAF tzShift=east (best of 19 features tested); small sample, may share reads with other rows |
