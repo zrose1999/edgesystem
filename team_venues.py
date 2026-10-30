@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """EDGE team home locations for travel features. Run by hand (not by the jobs) when teams change venues.
 
-  python3 team_venues.py        write stats/team_venues.json for every team in the NBA, NHL and NCAAF schedules
+  python3 team_venues.py        write stats/team_venues.json for every team in the NBA, NHL, NCAAF and NFL schedules
 
 Each team's home venue city and state come from ESPN's team pages (free). Coordinates and IANA time zone come from
 the offline GeoNames city table (pip package geonamescache), so the jobs never geocode and need no new packages:
@@ -19,7 +19,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "stats" / "team_venues.json"
 LEAGUES = {"NBA": ("basketball", "nba", "nba_games"), "NHL": ("hockey", "nhl", "nhl_games"),
-           "NCAAF": ("football", "college-football", "ncaaf_games")}
+           "NCAAF": ("football", "college-football", "ncaaf_games"), "NFL": ("football", "nfl", "nfl_schedule")}
 CA_PROVINCES = {"AB": "01", "BC": "02", "MB": "03", "NB": "04", "NL": "05", "NS": "07", "ON": "08", "PE": "09",
                 "QC": "10", "SK": "11"}
 # ESPN city spellings that differ from the GeoNames table.

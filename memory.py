@@ -285,11 +285,16 @@ def travel(sport, team, commence, home_team):
     prev = [(t, w) for t, w in games if parse(t) < now - timedelta(hours=6)]
     if not prev or (this and this[0] is None):
         return None, None
-    a = team_home(sport, prev[-1][1]) if prev[-1][1] else None
+    if sport == "NFL":
+        # NFL teams fly home between games (a week apart), so the trip starts at home, not the last venue.
+        a = team_home(sport, team)
+    else:
+        a = team_home(sport, prev[-1][1]) if prev[-1][1] else None
     b = team_home(sport, home_team)
     if not a or not b:
         return None, None
-    return round(miles(a, b)), round(utc_hours(b["tz"], now) - utc_hours(a["tz"], parse(prev[-1][0])), 1)
+    # Both offsets at the same instant: a daylight-saving change between the games is not a time-zone trip.
+    return round(miles(a, b)), round(utc_hours(b["tz"], now) - utc_hours(a["tz"], now), 1)
 
 
 def travel_bucket(m):
