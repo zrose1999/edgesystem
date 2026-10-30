@@ -1,8 +1,8 @@
 {
- "asOf": "2026-10-30T19:24:39Z",
+ "asOf": "2026-10-30T19:54:32Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 873,
- "loggedReads": 1767,
+ "loggedReads": 1768,
  "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1110,
-   "with": 787,
+   "reads": 1113,
+   "with": 790,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1110,
-   "with": 1110,
+   "reads": 1113,
+   "with": 1113,
    "alarm": false
   }
  },
@@ -98,9 +98,9 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1700,
-  "latest": "2026-10-30T19:24:30Z",
-  "rowsWithHistory": 1302,
+  "linesLastCycle": 1784,
+  "latest": "2026-10-30T19:53:45Z",
+  "rowsWithHistory": 1303,
   "alarm": false
  },
  "interactionCoverage": {
@@ -9717,7 +9717,7 @@
   "causeKnown": 585,
   "lostToClose": 585,
   "beatClose": 288,
-  "newsForUs": 56,
+  "newsForUs": 55,
   "lossCauses": {
    "overpaid": {
     "n": 275,
@@ -10737,7 +10737,7 @@
    "n": 71,
    "meanClvProb": -0.0207,
    "pocket": {
-    "feature": "sharpDivPick=aligned",
+    "feature": "sharpGapPick=<1%",
     "n": 9,
     "meanClvProb": 0.0115,
     "tStat": 0.69
@@ -11816,7 +11816,7 @@
    "n": 16,
    "meanClvProb": -0.0205,
    "pocket": {
-    "feature": "edgeBar=<0.5x",
+    "feature": "grade=C",
     "n": 9,
     "meanClvProb": 0.0067,
     "tStat": 0.53
@@ -11849,7 +11849,7 @@
    "n": 38,
    "meanClvProb": -0.025,
    "pocket": {
-    "feature": "sharpDivPick=aligned",
+    "feature": "sharpGapPick=<1%",
     "n": 9,
     "meanClvProb": 0.0086,
     "tStat": 8.22
@@ -12856,7 +12856,7 @@
    "n": 16,
    "meanClvProb": -0.0061,
    "pocket": {
-    "feature": "edgeBar=<0.5x",
+    "feature": "grade=C",
     "n": 8,
     "meanClvProb": 0.0021,
     "tStat": 0.3

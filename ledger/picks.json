@@ -107988,7 +107988,9 @@
       "pinEdgeEstimated": false,
       "pinGate": "blocked",
       "gatedFrom": "lean",
-      "note": "Pinnacle gate: price taken is -1.9% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+      "note": "Pinnacle gate: price taken is -1.9% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted.",
+      "result": "loss",
+      "units": -1.0
     },
     {
       "pickId": "ATP|2026-10-30|Alex de Minaur at Matteo Berrettini|h2h|none|v1|pass|tennis-elo|2026-10-30T02:29:53Z",
@@ -109889,6 +109891,305 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-10-30|Baylor Bears at UCF Knights|spread|home|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-10-30|Baylor Bears at UCF Knights|spread",
+      "sport": "NCAAF",
+      "event": "Baylor Bears at UCF Knights",
+      "commence": "2026-10-30T23:30:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": 2.5,
+      "priceAtPick": -106,
+      "bookAtPick": "FanDuel",
+      "marketNumber": 1.5,
+      "marketPrices": {
+        "home": -108,
+        "away": -112
+      },
+      "priceTime": "2026-10-30T19:53:45Z",
+      "pickedAt": "2026-10-30T19:53:49Z",
+      "fair": 0.5297,
+      "projection": 0.5297,
+      "edge": 0.0152,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "FanDuel home +2.5 -106 implies 51.5%. Pinnacle -108 no-vig is 50.5% at 1.5, worth 53.0% at this line. Edge +1.5%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": 1.5,
+        "prices": {
+          "home": -108,
+          "away": -104
+        },
+        "updated": "2026-10-30T19:53:20Z",
+        "snapTime": "2026-10-30T19:53:45Z",
+        "noVig": 0.5047
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 11.2,
+          "pop": 7,
+          "text": "Mostly Cloudy",
+          "heavy": false,
+          "temp": 78,
+          "value": 0.0,
+          "asOf": "2026-10-30T19:09:34Z",
+          "venue": "Acrisure Bounce House"
+        }
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -108,
+        "line": 1.5,
+        "implied": 0.5192,
+        "printImplied": 0.5192
+      },
+      "priceBook": "DraftKings",
+      "estimated": true,
+      "lineAdj": 0.025,
+      "pinEdgeAtPick": 0.0152,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-10-31|Colorado State Rams at Utah State Aggies|spread|home|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-10-31|Colorado State Rams at Utah State Aggies|spread",
+      "sport": "NCAAF",
+      "event": "Colorado State Rams at Utah State Aggies",
+      "commence": "2026-10-31T19:30:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -6.5,
+      "priceAtPick": -120,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": -7.0,
+      "marketPrices": {
+        "home": -120,
+        "away": 100
+      },
+      "priceTime": "2026-10-30T19:53:45Z",
+      "pickedAt": "2026-10-30T19:53:49Z",
+      "fair": 0.5612,
+      "projection": 0.5612,
+      "edge": 0.0157,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "Hard Rock Bet home -6.5 -120 implies 54.5%. Pinnacle -115 no-vig is 51.9% at -7, worth 56.1% at this line. Edge +1.6%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": -7.0,
+        "prices": {
+          "home": -115,
+          "away": 101
+        },
+        "updated": "2026-10-30T19:53:20Z",
+        "snapTime": "2026-10-30T19:53:45Z",
+        "noVig": 0.5187
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 3.0,
+          "pop": 25,
+          "text": "Chance Showers And Thunderstorms; Mostly Sunny",
+          "heavy": false,
+          "temp": 52,
+          "value": 0.0,
+          "asOf": "2026-10-30T19:09:34Z",
+          "venue": "Maverik Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -120,
+        "line": -7.0,
+        "implied": 0.5455,
+        "printImplied": 0.5455
+      },
+      "priceBook": "DraftKings",
+      "estimated": true,
+      "lineAdj": 0.0425,
+      "pinEdgeAtPick": 0.0157,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-10-31|UTEP Miners at North Dakota State Bison|total|under|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-10-31|UTEP Miners at North Dakota State Bison|total",
+      "sport": "NCAAF",
+      "event": "UTEP Miners at North Dakota State Bison",
+      "commence": "2026-10-31T19:30:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 43.5,
+      "priceAtPick": -105,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": 42.5,
+      "marketPrices": {
+        "over": -115,
+        "under": -105
+      },
+      "priceTime": "2026-10-30T19:53:45Z",
+      "pickedAt": "2026-10-30T19:53:49Z",
+      "fair": 0.5309,
+      "projection": 0.5309,
+      "edge": 0.0187,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "Hard Rock Bet under 43.5 -105 implies 51.2%. Pinnacle -118 no-vig is 52.2% at 43, worth 53.1% at this line. Edge +1.9%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": 43.0,
+        "prices": {
+          "over": 101,
+          "under": -118
+        },
+        "updated": "2026-10-30T19:53:20Z",
+        "snapTime": "2026-10-30T19:53:45Z",
+        "noVig": 0.5219
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -105,
+        "line": 42.5,
+        "implied": 0.5122,
+        "printImplied": 0.5122
+      },
+      "priceBook": "DraftKings",
+      "estimated": true,
+      "lineAdj": 0.009,
+      "pinEdgeAtPick": 0.0187,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NHL|2026-10-31|Chicago Blackhawks at Boston Bruins|h2h|none|v1|pass|goalie-news|2026-10-30T19:54:14Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "NHL|2026-10-31|Chicago Blackhawks at Boston Bruins|h2h",
+      "sport": "NHL",
+      "event": "Chicago Blackhawks at Boston Bruins",
+      "commence": "2026-10-31T17:10:00Z",
+      "market": "h2h",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": null,
+      "priceBook": null,
+      "marketPrices": {
+        "home": -225,
+        "away": 185
+      },
+      "priceTime": "2026-10-30T19:53:45Z",
+      "pickedAt": "2026-10-30T19:54:14Z",
+      "fair": 0.678,
+      "projection": 0.678,
+      "edge": -0.008,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": null,
+      "modelWeight": 0.126,
+      "shrinkBase": null,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Blackhawks: Spencer Knight (expected) at the open, now Arvid Soderblom (expected), GSAx/60 +0.18 to -0.05. Open home win 0.664, goalie change +0.013, fair 0.678.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -222,
+          "away": 192
+        },
+        "updated": "2026-10-30T19:53:42Z",
+        "snapTime": "2026-10-30T19:53:45Z"
+      },
+      "contextAtPick": {
+        "goalie": "Blackhawks: Spencer Knight (expected) at the open, now Arvid Soderblom (expected), GSAx/60 +0.18 to -0.05"
+      },
+      "bestAtPick": null
+    },
+    {
+      "pickId": "ATP|2026-10-31|Taylor Fritz at Valentin Vacherot|h2h|none|v1|pass|tennis-elo|2026-10-30T19:54:17Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "ATP|2026-10-31|Taylor Fritz at Valentin Vacherot|h2h",
+      "sport": "ATP",
+      "event": "Taylor Fritz at Valentin Vacherot",
+      "commence": "2026-10-31T14:00:00Z",
+      "market": "h2h",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": null,
+      "priceBook": null,
+      "marketPrices": {
+        "home": 255,
+        "away": -329
+      },
+      "priceTime": "2026-10-30T19:53:45Z",
+      "pickedAt": "2026-10-30T19:54:17Z",
+      "fair": 0.275,
+      "projection": 0.275,
+      "edge": -0.003,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": null,
+      "modelWeight": 0.06,
+      "shrinkBase": null,
+      "confidence": "medium",
+      "pattern": "tennis-elo",
+      "reason": "Surface Elo home win 0.347, market no-vig 0.257; fair = market + 0.2 x gap = 0.275. Hard. Games in the last 2 days: Valentin Vacherot 34, Taylor Fritz 19.",
+      "falsifier": "The price closes at or past the market's open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "tennis.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 269,
+          "away": -313
+        },
+        "updated": "2026-10-30T19:53:37Z",
+        "snapTime": "2026-10-30T19:53:45Z"
+      },
+      "contextAtPick": {},
+      "bestAtPick": null
     }
   ]
 }
