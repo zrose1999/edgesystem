@@ -443,8 +443,25 @@ def nfl_opens():
     return out
 
 
+def nfl_travel(g, home, away, when):
+    """The away team's trip, home city to the home team's venue (NFL teams fly home between weekly games), from
+    stats/team_venues.json: awayTravel (<500, 500-1500, 1500+ miles) and awayTz (east, west, none at game time).
+    Pre-pick: venues and the schedule are known before any line. Seasons before a relocation (OAK, SD, STL in
+    nflverse) get none, since the stored venue is the current one."""
+    import memory
+    if g.get("home_team") in NFL_OLD or g.get("away_team") in NFL_OLD:
+        return {}
+    a, b = memory.team_home("NFL", away), memory.team_home("NFL", home)
+    if not a or not b:
+        return {}
+    m = memory.miles(a, b)
+    z = memory.utc_hours(b["tz"], when) - memory.utc_hours(a["tz"], when)
+    return {"awayTravel": "<500" if m < 500 else "500-1500" if m < 1500 else "1500+",
+            "awayTz": "east" if z >= 1 else "west" if z <= -1 else "none"}
+
+
 def nfl_samples():
-    """nflverse games.csv (closes, rest, results), 2015 on, joined to EDGE's stored opening numbers where they exist
+    """nflverse games.csv (closes, rest, travel, results), 2015 on, joined to EDGE's stored opening numbers where they exist
     (2025 on), which gives NFL the move (CLV) test as well as results. Skipped when the file is not reachable."""
     import stats as nfl_stats
     names = {v: k for k, v in nfl_stats.TEAMS.items()}
@@ -479,6 +496,7 @@ def nfl_samples():
         home, away = names.get(g["home_team"], g["home_team"]), names.get(g["away_team"], g["away_team"])
         o = opens.get((home, away, g["gameday"])) or {}
         f0 = base_feats("NFL", when, num(g.get("home_rest")), num(g.get("away_rest")))
+        f0.update(nfl_travel(g, home, away, when))
         sp, tl = num(g.get("spread_line")), num(g.get("total_line"))
         if sp is not None:
             sc = -sp                                   # nflverse spread_line: positive = home favoured
