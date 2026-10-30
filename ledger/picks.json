@@ -106980,6 +106980,65 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -0.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "ATP|2026-10-30|Daniil Medvedev at Adrian Mannarino|h2h|home|v1|lean|tennis-fatigue|2026-10-30T02:24:32Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "ATP|2026-10-30|Daniil Medvedev at Adrian Mannarino|h2h",
+      "sport": "ATP",
+      "event": "Daniil Medvedev at Adrian Mannarino",
+      "commence": "2026-10-30T12:30:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 410,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": 377,
+        "away": -518
+      },
+      "priceTime": "2026-10-29T23:09:24Z",
+      "pickedAt": "2026-10-30T02:24:32Z",
+      "fair": 0.206,
+      "projection": 0.206,
+      "edge": 0.01,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": 0.002,
+      "modelWeight": 0.088,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "tennis-fatigue",
+      "reason": "Away player played 30 more games in the last 2 days; fair 0.206 (starting value 0.02). Hard. Games in the last 2 days: Adrian Mannarino 22, Daniil Medvedev 52.",
+      "falsifier": "The price closes at or past the market's open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "tennis.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 373,
+          "away": -448
+        },
+        "updated": "2026-10-29T23:09:24Z",
+        "snapTime": "2026-10-29T23:09:24Z",
+        "noVig": 0.1969
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 410,
+        "line": null,
+        "implied": 0.1961,
+        "printImplied": 0.2096
+      },
+      "pinEdgeAtPick": 0.0009,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
