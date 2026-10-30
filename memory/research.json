@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-30T23:09:53Z",
+ "asOf": "2026-10-30T23:24:49Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 878,
  "loggedReads": 1774,
@@ -98,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1835,
-  "latest": "2026-10-30T23:09:28Z",
+  "linesLastCycle": 1794,
+  "latest": "2026-10-30T23:24:41Z",
   "rowsWithHistory": 1308,
   "alarm": false
  },
@@ -11138,7 +11138,7 @@
    "n": 22,
    "meanClvProb": -0.0001,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 12,
     "meanClvProb": 0.0114,
     "tStat": 2.39
@@ -11929,7 +11929,7 @@
    "n": 53,
    "meanClvProb": -0.0219,
    "pocket": {
-    "feature": "sharpDiv=aligned",
+    "feature": "sharpGapOpen=<1%",
     "n": 9,
     "meanClvProb": 0.0072,
     "tStat": 8.26
@@ -11967,7 +11967,7 @@
    "n": 16,
    "meanClvProb": -0.0205,
    "pocket": {
-    "feature": "edgeBar=<0.5x",
+    "feature": "grade=C",
     "n": 9,
     "meanClvProb": 0.0067,
     "tStat": 0.53
@@ -12000,7 +12000,7 @@
    "n": 38,
    "meanClvProb": -0.025,
    "pocket": {
-    "feature": "sharpGapPick=<1%",
+    "feature": "sharpDivPick=aligned",
     "n": 9,
     "meanClvProb": 0.0086,
     "tStat": 8.22
@@ -12085,7 +12085,7 @@
    "n": 44,
    "meanClvProb": -0.0107,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 9,
     "meanClvProb": 0.0307,
     "tStat": 1.94
@@ -12174,7 +12174,7 @@
    "n": 53,
    "meanClvProb": -0.0109,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 18,
     "meanClvProb": 0.0144,
     "tStat": 1.05
@@ -13095,7 +13095,7 @@
    "n": 16,
    "meanClvProb": -0.0061,
    "pocket": {
-    "feature": "edgeBar=<0.5x",
+    "feature": "grade=C",
     "n": 8,
     "meanClvProb": 0.0021,
     "tStat": 0.3
@@ -13193,5 +13193,5 @@
    }
   }
  },
- "hypothesesAdded": 6
+ "hypothesesAdded": 0
 }
