@@ -108620,6 +108620,67 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "LaLiga|2026-11-01|Real Madrid at Real Racing Club de Santander|h2h|home|v1|learned-soccer-1x2|lean|2026-10-30T15:24:32Z|gated|2026-10-30T15:24:32Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "LaLiga|2026-11-01|Real Madrid at Real Racing Club de Santander|h2h",
+      "sport": "LaLiga",
+      "event": "Real Madrid at Real Racing Club de Santander",
+      "commence": "2026-11-01T15:15:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 1000,
+      "bookAtPick": "Bally Bet",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 800,
+        "away": -550,
+        "draw": 650
+      },
+      "priceTime": "2026-10-30T15:09:29Z",
+      "pickedAt": "2026-10-30T15:24:32Z",
+      "fair": 0.095,
+      "projection": 0.095,
+      "edge": 0.0041,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-soccer-1x2",
+      "reason": "Learned soccer model (ridge, 151 data points) predicts Pinnacle's home probability gains +0.007 from the open; Pinnacle open 0.103, now 0.088, 0.007 still to come. Fair 0.095. Report: stats/models/soccer_home.json.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 902,
+          "away": -445,
+          "draw": 685
+        },
+        "updated": "2026-10-30T15:09:29Z",
+        "snapTime": "2026-10-30T15:09:29Z",
+        "noVig": 0.0879
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": 900,
+        "line": null,
+        "implied": 0.1,
+        "printImplied": 0.1111
+      },
+      "priceBook": "DraftKings",
+      "contextAtPick": {},
+      "pinEdgeAtPick": -0.003,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -0.3% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
