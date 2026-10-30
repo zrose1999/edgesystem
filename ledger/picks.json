@@ -108681,6 +108681,108 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -0.3% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NHL|2026-10-31|Seattle Kraken at Calgary Flames|total|none|v1|pass|goalie-news|2026-10-30T15:54:34Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "NHL|2026-10-31|Seattle Kraken at Calgary Flames|total",
+      "sport": "NHL",
+      "event": "Seattle Kraken at Calgary Flames",
+      "commence": "2026-10-31T00:10:00Z",
+      "market": "total",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": 6.5,
+      "priceBook": null,
+      "marketPrices": {
+        "over": -102,
+        "under": -118
+      },
+      "priceTime": "2026-10-30T15:09:29Z",
+      "pickedAt": "2026-10-30T15:54:34Z",
+      "fair": 0.468,
+      "projection": 0.468,
+      "edge": -0.003,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": null,
+      "modelWeight": 0.126,
+      "shrinkBase": null,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Flames: Dustin Wolf (expected) at the open, now Dustin Wolf (confirmed), GSAx/60 +0.04 to -0.19. Open over 6.5 0.455, expected goals +0.08, fair over 0.468.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": 6.5,
+        "prices": {
+          "over": -102,
+          "under": -111
+        },
+        "updated": "2026-10-30T15:09:24Z",
+        "snapTime": "2026-10-30T15:09:29Z"
+      },
+      "contextAtPick": {
+        "goalie": "Flames: Dustin Wolf (expected) at the open, now Dustin Wolf (confirmed), GSAx/60 +0.04 to -0.19"
+      },
+      "bestAtPick": null
+    },
+    {
+      "pickId": "NHL|2026-10-31|Seattle Kraken at Calgary Flames|h2h|none|v1|pass|goalie-news|2026-10-30T15:54:34Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "NHL|2026-10-31|Seattle Kraken at Calgary Flames|h2h",
+      "sport": "NHL",
+      "event": "Seattle Kraken at Calgary Flames",
+      "commence": "2026-10-31T00:10:00Z",
+      "market": "h2h",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": null,
+      "priceBook": null,
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-10-30T15:09:29Z",
+      "pickedAt": "2026-10-30T15:54:34Z",
+      "fair": 0.475,
+      "projection": 0.475,
+      "edge": -0.01,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": null,
+      "modelWeight": 0.126,
+      "shrinkBase": null,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Flames: Dustin Wolf (expected) at the open, now Dustin Wolf (confirmed), GSAx/60 +0.04 to -0.19. Open home win 0.489, goalie change -0.014, fair 0.475.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -102,
+          "away": -109
+        },
+        "updated": "2026-10-30T15:09:24Z",
+        "snapTime": "2026-10-30T15:09:29Z"
+      },
+      "contextAtPick": {
+        "goalie": "Flames: Dustin Wolf (expected) at the open, now Dustin Wolf (confirmed), GSAx/60 +0.04 to -0.19"
+      },
+      "bestAtPick": null
     }
   ]
 }
