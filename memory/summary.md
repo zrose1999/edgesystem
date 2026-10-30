@@ -1,7 +1,7 @@
-# What EDGE is learning (2026-10-30 07:43Z)
+# What EDGE is learning (2026-10-30 11:13Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
-870 graded reads counted, 1740 logged. CLV is mean clvProb. Patterns move only by grade.py.
-Scanner (scan.py, 10-29 17:25Z): 40 strategies tracking from 7840 hypotheses (0 new this run); 112 graded scan reads, mean CLV -0.6%. Shadow only; grade.py decides promotion.
+870 graded reads counted, 1761 logged. CLV is mean clvProb. Patterns move only by grade.py.
+Scanner (scan.py, 10-30 11:12Z): 40 strategies tracking from 7858 hypotheses (0 new this run); 112 graded scan reads, mean CLV -0.6%. Shadow only; grade.py decides promotion.
 Early positive leads (one of many being tested; no acceleration):
 - ALL pattern=sharp-soft: n 41, CLV +1.2%, t +1.9, last 30d +1.2% on 41; grade.py needs 11 more graded full-bar picks (has 4), t >= 2.5
 - NCAAF pattern=learned-ncaaf-spread: n 39, CLV +1.1%, t +1.2, last 30d +1.1% on 39; grade.py needs 15 more graded full-bar picks (has 0), t >= 2.0
@@ -18,13 +18,13 @@ Observation: edge size is not yet predicting CLV (A -1.3% on 84, B -0.8% on 250,
   > pocket: restEdge=more inside grade A: n 10, CLV +1.5%, t +1.0 (best of 42 tested; a lead to watch)
   > order holds inside restDays=1day: A +0.9% on 17, B -1.5% on 59, C -1.7% on 176 (6 of 43 features tested)
 Why reads lost to the close (autopsy, post-pick; 585 of 870, cause known on 585): overpaid 275 (-1.6%), news-after-pick 36 (-6.9%), sharps-against-at-pick 5 (-5.3%), sharps-against-at-open 1 (-3.1%), bet-into-steam 4 (-3.1%), late-move 15 (-4.6%), sharp-move-against 25 (-2.4%), soft-move-against 1 (-3.4%), model-wrong 223 (-5.4%)
-Process vs result: right-and-rewarded 158, right-but-unlucky 121, lucky-win 266, market-was-right 304, push 3; right-but-unlucky losses hurt most by close-margin, flipped-late, overtime (results are noise at this sample; CLV decides)
+Process vs result: right-and-rewarded 162, right-but-unlucky 122, lucky-win 272, market-was-right 311, push 3; right-but-unlucky losses hurt most by close-margin, flipped-late, goalie-outlier (results are noise at this sample; CLV decides)
 Gated by the Pinnacle gate (scored, not counted): n 3, CLV -2.2%, t -1.3 (positive = the gate blocks winners)
 Data gaps, waiting on a source: public-pct (needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack); guru (needs an account list + reader (Reddit API free, X API paid); log account, number, time, result)
 Coverage of added features (BREAKAGE if still 0 one health-check cycle after shipping):
-- snaps: 1411 price snapshots stored in the last 26h, latest 10-30 04:54Z, 1232 games with 2+ (late steam, since 10-19 18:15Z)
-- pinAtPick on 301 of 478 graded reads since 10-19 18:00Z; 768 of 1091 new reads stamped (Pinnacle at the pick)
-- contextAtPick on 478 of 478 graded reads since 10-19 18:00Z; 1091 of 1091 new reads stamped (weather/injury/goalie as stamped)
+- snaps: 1611 price snapshots stored in the last 26h, latest 10-30 11:09Z, 1257 games with 2+ (late steam, since 10-19 18:15Z)
+- pinAtPick on 301 of 478 graded reads since 10-19 18:00Z; 769 of 1092 new reads stamped (Pinnacle at the pick)
+- contextAtPick on 478 of 478 graded reads since 10-19 18:00Z; 1092 of 1092 new reads stamped (weather/injury/goalie as stamped)
 - sharpDivergenceAtPick on 167 of 478 graded reads since 10-19 18:00Z (needs Pinnacle on the same line)
 - daysRestHome on 805 of 819 graded NBA/NHL/NCAAF/NFL reads (schedules in stats/ (NFL from 2026-10-21))
 - sharpDivergence on 84 of 870 graded reads since 10-14 00:00Z (Pinnacle at the open)
