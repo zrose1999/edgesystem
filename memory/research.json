@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-30T19:54:32Z",
+ "asOf": "2026-10-30T20:24:54Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 873,
  "loggedReads": 1768,
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1113,
-   "with": 790,
+   "reads": 1115,
+   "with": 792,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1113,
-   "with": 1113,
+   "reads": 1115,
+   "with": 1115,
    "alarm": false
   }
  },
@@ -98,9 +98,9 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1784,
-  "latest": "2026-10-30T19:53:45Z",
-  "rowsWithHistory": 1303,
+  "linesLastCycle": 1808,
+  "latest": "2026-10-30T20:24:33Z",
+  "rowsWithHistory": 1304,
   "alarm": false
  },
  "interactionCoverage": {
@@ -2045,94 +2045,94 @@
    "key": "ALL|travel=1500+",
    "sport": "ALL",
    "feature": "travel=1500+",
-   "n": 73,
-   "meanClvProb": -0.0166,
-   "tStat": -4.47,
-   "beatClose": 16,
+   "n": 89,
+   "meanClvProb": -0.0186,
+   "tStat": -5.57,
+   "beatClose": 18,
    "status": "early-negative",
-   "picksN": 28,
-   "picksMeanClvProb": -0.0205,
-   "recentN": 73,
-   "recentMeanClvProb": -0.0166,
+   "picksN": 39,
+   "picksMeanClvProb": -0.023,
+   "recentN": 89,
+   "recentMeanClvProb": -0.0186,
    "nShortOfFirstStage": 0,
-   "tShort": 6.47,
-   "record": "34-39-0",
+   "tShort": 7.57,
+   "record": "40-49-0",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -1.7% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -1.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|travel=500-1500",
    "sport": "ALL",
    "feature": "travel=500-1500",
-   "n": 289,
-   "meanClvProb": -0.0095,
-   "tStat": -3.18,
-   "beatClose": 95,
+   "n": 345,
+   "meanClvProb": -0.0103,
+   "tStat": -3.91,
+   "beatClose": 112,
    "status": "early-negative",
-   "picksN": 79,
-   "picksMeanClvProb": -0.0045,
-   "recentN": 289,
-   "recentMeanClvProb": -0.0095,
+   "picksN": 117,
+   "picksMeanClvProb": -0.0061,
+   "recentN": 345,
+   "recentMeanClvProb": -0.0103,
    "nShortOfFirstStage": 0,
-   "tShort": 5.18,
-   "record": "143-146-0",
+   "tShort": 5.91,
+   "record": "177-168-0",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -0.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -1.0% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|travel=<500",
    "sport": "ALL",
    "feature": "travel=<500",
-   "n": 196,
-   "meanClvProb": -0.0064,
-   "tStat": -2.08,
-   "beatClose": 81,
+   "n": 230,
+   "meanClvProb": -0.0078,
+   "tStat": -2.43,
+   "beatClose": 93,
    "status": "early-negative",
-   "picksN": 71,
-   "picksMeanClvProb": -0.0048,
-   "recentN": 196,
-   "recentMeanClvProb": -0.0064,
+   "picksN": 88,
+   "picksMeanClvProb": -0.0073,
+   "recentN": 230,
+   "recentMeanClvProb": -0.0078,
    "nShortOfFirstStage": 0,
-   "tShort": 4.08,
-   "record": "98-98-0",
+   "tShort": 4.43,
+   "record": "119-109-2",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -0.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -0.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|travel=none",
    "sport": "ALL",
    "feature": "travel=none",
-   "n": 88,
-   "meanClvProb": -0.0207,
-   "tStat": -5.1,
-   "beatClose": 15,
+   "n": 124,
+   "meanClvProb": -0.0216,
+   "tStat": -5.34,
+   "beatClose": 27,
    "status": "early-negative",
-   "picksN": 27,
-   "picksMeanClvProb": 0.0054,
-   "recentN": 88,
-   "recentMeanClvProb": -0.0207,
+   "picksN": 47,
+   "picksMeanClvProb": -0.0138,
+   "recentN": 124,
+   "recentMeanClvProb": -0.0216,
    "nShortOfFirstStage": 0,
-   "tShort": 7.1,
-   "record": "48-40-0",
+   "tShort": 7.34,
+   "record": "61-62-1",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -2.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -2.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|travelEdge=even",
    "sport": "ALL",
    "feature": "travelEdge=even",
-   "n": 108,
-   "meanClvProb": -0.0078,
-   "tStat": -1.92,
-   "beatClose": 39,
+   "n": 111,
+   "meanClvProb": -0.0084,
+   "tStat": -2.12,
+   "beatClose": 40,
    "status": "early-negative",
-   "picksN": 23,
-   "picksMeanClvProb": 0.0064,
-   "recentN": 108,
-   "recentMeanClvProb": -0.0078,
+   "picksN": 25,
+   "picksMeanClvProb": 0.0021,
+   "recentN": 111,
+   "recentMeanClvProb": -0.0084,
    "nShortOfFirstStage": 0,
-   "tShort": 3.92,
-   "record": "57-51-0",
+   "tShort": 4.12,
+   "record": "58-53-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2140,96 +2140,96 @@
    "key": "ALL|travelEdge=less",
    "sport": "ALL",
    "feature": "travelEdge=less",
-   "n": 128,
-   "meanClvProb": -0.0145,
-   "tStat": -3.61,
-   "beatClose": 37,
+   "n": 162,
+   "meanClvProb": -0.0161,
+   "tStat": -4.2,
+   "beatClose": 49,
    "status": "early-negative",
-   "picksN": 45,
-   "picksMeanClvProb": -0.0018,
-   "recentN": 128,
-   "recentMeanClvProb": -0.0145,
+   "picksN": 63,
+   "picksMeanClvProb": -0.0124,
+   "recentN": 162,
+   "recentMeanClvProb": -0.0161,
    "nShortOfFirstStage": 0,
-   "tShort": 5.61,
-   "record": "61-67-0",
+   "tShort": 6.2,
+   "record": "74-87-1",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -1.5% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -1.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|travelEdge=more",
    "sport": "ALL",
    "feature": "travelEdge=more",
-   "n": 107,
-   "meanClvProb": 0.0071,
-   "tStat": 1.36,
-   "beatClose": 45,
+   "n": 142,
+   "meanClvProb": 0.0014,
+   "tStat": 0.27,
+   "beatClose": 58,
    "status": "early-positive",
-   "picksN": 34,
-   "picksMeanClvProb": 0.0036,
-   "recentN": 107,
-   "recentMeanClvProb": 0.0071,
+   "picksN": 54,
+   "picksMeanClvProb": -0.0027,
+   "recentN": 142,
+   "recentMeanClvProb": 0.0014,
    "nShortOfFirstStage": 0,
-   "tShort": 0.64,
-   "record": "56-51-0",
+   "tShort": 1.73,
+   "record": "77-63-2",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV +0.7% is positive but t +1.4 is under the t >= 2.0 bar at n 107; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV +0.1% is positive but t +0.3 is under the t >= 2.0 bar at n 142; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|tzShift=east",
    "sport": "ALL",
    "feature": "tzShift=east",
-   "n": 52,
-   "meanClvProb": -0.0091,
-   "tStat": -1.55,
-   "beatClose": 17,
+   "n": 60,
+   "meanClvProb": -0.0129,
+   "tStat": -2.29,
+   "beatClose": 19,
    "status": "early-negative",
-   "picksN": 19,
-   "picksMeanClvProb": -0.018,
-   "recentN": 52,
-   "recentMeanClvProb": -0.0091,
+   "picksN": 20,
+   "picksMeanClvProb": -0.0211,
+   "recentN": 60,
+   "recentMeanClvProb": -0.0129,
    "nShortOfFirstStage": 0,
-   "tShort": 3.55,
-   "record": "22-30-0",
+   "tShort": 4.29,
+   "record": "24-34-2",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -0.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -1.3% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|tzShift=none",
    "sport": "ALL",
    "feature": "tzShift=none",
-   "n": 222,
-   "meanClvProb": -0.0016,
-   "tStat": -0.47,
-   "beatClose": 77,
+   "n": 274,
+   "meanClvProb": -0.0035,
+   "tStat": -1.03,
+   "beatClose": 99,
    "status": "early-negative",
-   "picksN": 68,
-   "picksMeanClvProb": 0.0057,
-   "recentN": 222,
-   "recentMeanClvProb": -0.0016,
+   "picksN": 98,
+   "picksMeanClvProb": -0.0024,
+   "recentN": 274,
+   "recentMeanClvProb": -0.0035,
    "nShortOfFirstStage": 0,
-   "tShort": 2.47,
-   "record": "119-103-0",
+   "tShort": 3.03,
+   "record": "145-128-1",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -0.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -0.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|tzShift=west",
    "sport": "ALL",
    "feature": "tzShift=west",
-   "n": 69,
-   "meanClvProb": -0.016,
-   "tStat": -3.66,
-   "beatClose": 27,
+   "n": 81,
+   "meanClvProb": -0.02,
+   "tStat": -4.88,
+   "beatClose": 29,
    "status": "early-negative",
-   "picksN": 15,
-   "picksMeanClvProb": 0.0093,
-   "recentN": 69,
-   "recentMeanClvProb": -0.016,
+   "picksN": 24,
+   "picksMeanClvProb": -0.009,
+   "recentN": 81,
+   "recentMeanClvProb": -0.02,
    "nShortOfFirstStage": 0,
-   "tShort": 5.66,
-   "record": "33-36-0",
+   "tShort": 6.88,
+   "record": "40-41-0",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -1.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -2.0% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "ALL|venue=away",
@@ -7314,6 +7314,192 @@
    "firstSeen": "2026-10-19"
   },
   {
+   "key": "NFL|travel=1500+",
+   "sport": "NFL",
+   "feature": "travel=1500+",
+   "n": 16,
+   "meanClvProb": -0.0276,
+   "tStat": -3.76,
+   "beatClose": 2,
+   "status": "early-negative",
+   "picksN": 11,
+   "picksMeanClvProb": -0.0296,
+   "recentN": 16,
+   "recentMeanClvProb": -0.0276,
+   "nShortOfFirstStage": 0,
+   "tShort": 6.26,
+   "record": "6-10-0",
+   "firstSeen": "2026-10-30"
+  },
+  {
+   "key": "NFL|travel=500-1500",
+   "sport": "NFL",
+   "feature": "travel=500-1500",
+   "n": 56,
+   "meanClvProb": -0.0144,
+   "tStat": -2.84,
+   "beatClose": 17,
+   "status": "early-negative",
+   "picksN": 38,
+   "picksMeanClvProb": -0.0093,
+   "recentN": 56,
+   "recentMeanClvProb": -0.0144,
+   "nShortOfFirstStage": 0,
+   "tShort": 4.84,
+   "record": "34-22-0",
+   "firstSeen": "2026-10-30",
+   "why_not_promoted": "mean CLV -1.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+  },
+  {
+   "key": "NFL|travel=<500",
+   "sport": "NFL",
+   "feature": "travel=<500",
+   "n": 34,
+   "meanClvProb": -0.0163,
+   "tStat": -1.27,
+   "beatClose": 12,
+   "status": "early-negative",
+   "picksN": 17,
+   "picksMeanClvProb": -0.0177,
+   "recentN": 34,
+   "recentMeanClvProb": -0.0163,
+   "nShortOfFirstStage": 0,
+   "tShort": 3.27,
+   "record": "21-11-2",
+   "firstSeen": "2026-10-30",
+   "why_not_promoted": "mean CLV -1.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+  },
+  {
+   "key": "NFL|travel=none",
+   "sport": "NFL",
+   "feature": "travel=none",
+   "n": 36,
+   "meanClvProb": -0.0238,
+   "tStat": -2.41,
+   "beatClose": 12,
+   "status": "early-negative",
+   "picksN": 20,
+   "picksMeanClvProb": -0.0398,
+   "recentN": 36,
+   "recentMeanClvProb": -0.0238,
+   "nShortOfFirstStage": 0,
+   "tShort": 4.41,
+   "record": "13-22-1",
+   "firstSeen": "2026-10-30",
+   "why_not_promoted": "mean CLV -2.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+  },
+  {
+   "key": "NFL|travelEdge=even",
+   "sport": "NFL",
+   "feature": "travelEdge=even",
+   "n": 3,
+   "meanClvProb": -0.0317,
+   "tStat": -1.95,
+   "beatClose": 1,
+   "status": "research",
+   "picksN": 2,
+   "picksMeanClvProb": -0.0479,
+   "recentN": 3,
+   "recentMeanClvProb": -0.0317,
+   "nShortOfFirstStage": 12,
+   "tShort": 4.45,
+   "record": "1-2-0",
+   "firstSeen": "2026-10-30"
+  },
+  {
+   "key": "NFL|travelEdge=less",
+   "sport": "NFL",
+   "feature": "travelEdge=less",
+   "n": 34,
+   "meanClvProb": -0.0224,
+   "tStat": -2.15,
+   "beatClose": 12,
+   "status": "early-negative",
+   "picksN": 18,
+   "picksMeanClvProb": -0.0388,
+   "recentN": 34,
+   "recentMeanClvProb": -0.0224,
+   "nShortOfFirstStage": 0,
+   "tShort": 4.15,
+   "record": "13-20-1",
+   "firstSeen": "2026-10-30",
+   "why_not_promoted": "mean CLV -2.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+  },
+  {
+   "key": "NFL|travelEdge=more",
+   "sport": "NFL",
+   "feature": "travelEdge=more",
+   "n": 35,
+   "meanClvProb": -0.0161,
+   "tStat": -1.28,
+   "beatClose": 13,
+   "status": "early-negative",
+   "picksN": 20,
+   "picksMeanClvProb": -0.0133,
+   "recentN": 35,
+   "recentMeanClvProb": -0.0161,
+   "nShortOfFirstStage": 0,
+   "tShort": 3.28,
+   "record": "21-12-2",
+   "firstSeen": "2026-10-30",
+   "why_not_promoted": "mean CLV -1.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+  },
+  {
+   "key": "NFL|tzShift=east",
+   "sport": "NFL",
+   "feature": "tzShift=east",
+   "n": 8,
+   "meanClvProb": -0.0372,
+   "tStat": -2.29,
+   "beatClose": 2,
+   "status": "early-negative",
+   "picksN": 1,
+   "picksMeanClvProb": -0.0795,
+   "recentN": 8,
+   "recentMeanClvProb": -0.0372,
+   "nShortOfFirstStage": 7,
+   "tShort": 4.79,
+   "record": "2-4-2",
+   "firstSeen": "2026-10-30"
+  },
+  {
+   "key": "NFL|tzShift=none",
+   "sport": "NFL",
+   "feature": "tzShift=none",
+   "n": 52,
+   "meanClvProb": -0.0116,
+   "tStat": -1.15,
+   "beatClose": 22,
+   "status": "early-negative",
+   "picksN": 30,
+   "picksMeanClvProb": -0.0209,
+   "recentN": 52,
+   "recentMeanClvProb": -0.0116,
+   "nShortOfFirstStage": 0,
+   "tShort": 3.15,
+   "record": "26-25-1",
+   "firstSeen": "2026-10-30",
+   "why_not_promoted": "mean CLV -1.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+  },
+  {
+   "key": "NFL|tzShift=west",
+   "sport": "NFL",
+   "feature": "tzShift=west",
+   "n": 12,
+   "meanClvProb": -0.0431,
+   "tStat": -4.56,
+   "beatClose": 2,
+   "status": "early-negative",
+   "picksN": 9,
+   "picksMeanClvProb": -0.0395,
+   "recentN": 12,
+   "recentMeanClvProb": -0.0431,
+   "nShortOfFirstStage": 3,
+   "tShort": 7.06,
+   "record": "7-5-0",
+   "firstSeen": "2026-10-30"
+  },
+  {
    "key": "NFL|venue=away",
    "sport": "NFL",
    "feature": "venue=away",
@@ -10217,12 +10403,12 @@
    "n": 74,
    "meanClvProb": -0.0099,
    "pocket": {
-    "feature": "travelEdge=more",
-    "n": 8,
-    "meanClvProb": 0.0208,
-    "tStat": 0.89
+    "feature": "restEdge=more",
+    "n": 10,
+    "meanClvProb": 0.0145,
+    "tStat": 0.92
    },
-   "tested": 39,
+   "tested": 40,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 10,
@@ -10326,7 +10512,7 @@
     "meanClvProb": 0.0282,
     "tStat": 1.12
    },
-   "tested": 53,
+   "tested": 54,
    "pairPocket": null,
    "pairsTested": 24
   },
@@ -10344,12 +10530,12 @@
    "n": 82,
    "meanClvProb": -0.0014,
    "pocket": {
-    "feature": "travelEdge=even",
-    "n": 10,
-    "meanClvProb": 0.0444,
-    "tStat": 1.9
+    "feature": "restDays=long",
+    "n": 23,
+    "meanClvProb": 0.0337,
+    "tStat": 2.17
    },
-   "tested": 35,
+   "tested": 38,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 22,
@@ -10420,12 +10606,12 @@
    "n": 64,
    "meanClvProb": -0.008,
    "pocket": {
-    "feature": "grade=A",
+    "feature": "edgeBar=1-2x",
     "n": 8,
     "meanClvProb": 0.0084,
     "tStat": 0.7
    },
-   "tested": 37,
+   "tested": 38,
    "pairPocket": {
     "feature": "edgeBar=1-2x + timing=early",
     "n": 8,
@@ -10564,7 +10750,7 @@
     "meanClvProb": 0.011,
     "tStat": 0.82
    },
-   "tested": 46,
+   "tested": 49,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 25,
@@ -10587,7 +10773,7 @@
    "n": 55,
    "meanClvProb": -0.0259,
    "pocket": null,
-   "tested": 20,
+   "tested": 26,
    "pairPocket": null,
    "pairsTested": 7
   },
@@ -10605,7 +10791,7 @@
    "n": 15,
    "meanClvProb": -0.0158,
    "pocket": null,
-   "tested": 3,
+   "tested": 4,
    "pairPocket": null,
    "pairsTested": 1
   },
@@ -10709,7 +10895,7 @@
     "meanClvProb": 0.0284,
     "tStat": 1.95
    },
-   "tested": 11,
+   "tested": 12,
    "pairPocket": null,
    "pairsTested": 0
   },
@@ -10950,7 +11136,7 @@
     "meanClvProb": 0.0284,
     "tStat": 1.95
    },
-   "tested": 11,
+   "tested": 12,
    "pairPocket": null,
    "pairsTested": 0
   },
@@ -10973,7 +11159,7 @@
     "meanClvProb": 0.0144,
     "tStat": 1.4
    },
-   "tested": 49,
+   "tested": 50,
    "pairPocket": {
     "feature": "venue=away + role=fav",
     "n": 8,
@@ -11026,9 +11212,9 @@
    "meanClvProb": -0.0129,
    "pocket": {
     "feature": "travelEdge=even",
-    "n": 25,
-    "meanClvProb": 0.0261,
-    "tStat": 2.27
+    "n": 27,
+    "meanClvProb": 0.0224,
+    "tStat": 2.04
    },
    "tested": 60,
    "pairPocket": {
@@ -11049,7 +11235,7 @@
     "meanClvProb": 0.0222,
     "tStat": 1.71
    },
-   "tested": 51,
+   "tested": 52,
    "pairPocket": {
     "feature": "venue=away + role=fav",
     "n": 15,
@@ -11060,164 +11246,159 @@
   },
   {
    "slice": "ALL|travel=1500+",
-   "n": 73,
-   "meanClvProb": -0.0166,
+   "n": 89,
+   "meanClvProb": -0.0186,
    "pocket": null,
-   "tested": 34,
+   "tested": 37,
    "pairPocket": null,
-   "pairsTested": 5
+   "pairsTested": 9
   },
   {
    "slice": "ALL|travel=500-1500",
-   "n": 289,
-   "meanClvProb": -0.0095,
+   "n": 345,
+   "meanClvProb": -0.0103,
    "pocket": {
     "feature": "tzShift=none",
-    "n": 54,
-    "meanClvProb": 0.0261,
-    "tStat": 3.14
+    "n": 63,
+    "meanClvProb": 0.0249,
+    "tStat": 3.45
    },
-   "tested": 66,
+   "tested": 74,
    "pairPocket": {
-    "feature": "edgeBar=0.5-1x + timing=early",
-    "n": 15,
-    "meanClvProb": 0.0322,
-    "tStat": 2.24
+    "feature": "role=fav + rest=yes",
+    "n": 21,
+    "meanClvProb": 0.0221,
+    "tStat": 1.44
    },
-   "pairsTested": 29
+   "pairsTested": 30
   },
   {
    "slice": "ALL|travel=<500",
-   "n": 196,
-   "meanClvProb": -0.0064,
+   "n": 230,
+   "meanClvProb": -0.0078,
    "pocket": {
     "feature": "restDays=long",
-    "n": 15,
-    "meanClvProb": 0.0202,
-    "tStat": 1.04
+    "n": 18,
+    "meanClvProb": 0.0418,
+    "tStat": 2.01
    },
-   "tested": 57,
+   "tested": 59,
    "pairPocket": {
     "feature": "venue=home + role=dog",
     "n": 13,
     "meanClvProb": 0.0239,
     "tStat": 0.94
    },
-   "pairsTested": 19
+   "pairsTested": 23
   },
   {
    "slice": "ALL|travel=none",
-   "n": 88,
-   "meanClvProb": -0.0207,
+   "n": 124,
+   "meanClvProb": -0.0216,
    "pocket": {
-    "feature": "grade=B",
-    "n": 19,
-    "meanClvProb": 0.0128,
-    "tStat": 1.12
+    "feature": "restDays=long",
+    "n": 12,
+    "meanClvProb": 0.0033,
+    "tStat": 0.23
    },
-   "tested": 38,
-   "pairPocket": {
-    "feature": "edgeBar=0.5-1x + timing=early",
-    "n": 9,
-    "meanClvProb": 0.0291,
-    "tStat": 1.7
-   },
-   "pairsTested": 13
+   "tested": 45,
+   "pairPocket": null,
+   "pairsTested": 16
   },
   {
    "slice": "ALL|travelEdge=even",
-   "n": 108,
-   "meanClvProb": -0.0078,
+   "n": 111,
+   "meanClvProb": -0.0084,
    "pocket": {
     "feature": "keyNumber=yes",
-    "n": 10,
-    "meanClvProb": 0.0444,
-    "tStat": 1.9
+    "n": 13,
+    "meanClvProb": 0.0269,
+    "tStat": 1.32
    },
    "tested": 45,
    "pairPocket": {
     "feature": "edgeBar=<0.5x + timing=early",
-    "n": 18,
-    "meanClvProb": 0.0183,
-    "tStat": 1.44
+    "n": 19,
+    "meanClvProb": 0.0174,
+    "tStat": 1.45
    },
    "pairsTested": 15
   },
   {
    "slice": "ALL|travelEdge=less",
-   "n": 128,
-   "meanClvProb": -0.0145,
+   "n": 162,
+   "meanClvProb": -0.0161,
    "pocket": {
     "feature": "sharpDiv=pin-for",
     "n": 8,
     "meanClvProb": 0.029,
     "tStat": 1.22
    },
-   "tested": 55,
+   "tested": 58,
    "pairPocket": {
     "feature": "timing=day + sharpDivPick=pin-for",
     "n": 9,
     "meanClvProb": 0.0133,
     "tStat": 0.53
    },
-   "pairsTested": 21
+   "pairsTested": 22
   },
   {
    "slice": "ALL|tzShift=east",
-   "n": 52,
-   "meanClvProb": -0.0091,
+   "n": 60,
+   "meanClvProb": -0.0129,
    "pocket": {
     "feature": "rest=yes",
     "n": 10,
     "meanClvProb": 0.0079,
     "tStat": 0.97
    },
-   "tested": 34,
+   "tested": 39,
    "pairPocket": {
     "feature": "role=dog + rest=yes",
     "n": 9,
     "meanClvProb": 0.0111,
     "tStat": 1.33
    },
-   "pairsTested": 10
+   "pairsTested": 12
   },
   {
    "slice": "ALL|tzShift=none",
-   "n": 222,
-   "meanClvProb": -0.0016,
+   "n": 274,
+   "meanClvProb": -0.0035,
    "pocket": {
     "feature": "pattern=scan-nba-spread-away-restedgeawaymore-1e501d",
     "n": 8,
     "meanClvProb": 0.0293,
     "tStat": 1.04
    },
-   "tested": 66,
+   "tested": 69,
    "pairPocket": {
-    "feature": "edgeBar=0.5-1x + timing=early",
-    "n": 22,
-    "meanClvProb": 0.0274,
-    "tStat": 2.23
+    "feature": "edgeBar=1-2x + timing=day",
+    "n": 10,
+    "meanClvProb": 0.0149,
+    "tStat": 0.97
    },
-   "pairsTested": 25
+   "pairsTested": 27
   },
   {
    "slice": "ALL|tzShift=west",
-   "n": 69,
-   "meanClvProb": -0.016,
+   "n": 81,
+   "meanClvProb": -0.02,
    "pocket": {
-    "feature": "grade=B",
-    "n": 13,
-    "meanClvProb": 0.0128,
-    "tStat": 1.25
+    "feature": "sport=NHL",
+    "n": 10,
+    "meanClvProb": 0.011,
+    "tStat": 1.76
    },
-   "tested": 38,
+   "tested": 41,
    "pairPocket": {
     "feature": "timing=day + sharpDivPick=aligned",
     "n": 11,
     "meanClvProb": 0.0134,
     "tStat": 4.38
    },
-   "pairsTested": 13
+   "pairsTested": 16
   },
   {
    "slice": "ALL|venue=away",
@@ -11267,7 +11448,7 @@
     "meanClvProb": 0.0109,
     "tStat": 0.59
    },
-   "tested": 25,
+   "tested": 26,
    "pairPocket": null,
    "pairsTested": 2
   },
@@ -12277,7 +12458,7 @@
     "meanClvProb": 0.0215,
     "tStat": 1.21
    },
-   "tested": 21,
+   "tested": 27,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 9,
@@ -12291,7 +12472,7 @@
    "n": 23,
    "meanClvProb": -0.0254,
    "pocket": null,
-   "tested": 9,
+   "tested": 10,
    "pairPocket": null,
    "pairsTested": 0
   },
@@ -12299,8 +12480,13 @@
    "slice": "NFL|edgeBar=<0.5x",
    "n": 61,
    "meanClvProb": -0.0154,
-   "pocket": null,
-   "tested": 18,
+   "pocket": {
+    "feature": "tzShift=none",
+    "n": 22,
+    "meanClvProb": 0.001,
+    "tStat": 0.06
+   },
+   "tested": 24,
    "pairPocket": null,
    "pairsTested": 8
   },
@@ -12314,7 +12500,7 @@
     "meanClvProb": 0.0294,
     "tStat": 1.33
    },
-   "tested": 28,
+   "tested": 35,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 13,
@@ -12333,7 +12519,7 @@
     "meanClvProb": 0.0478,
     "tStat": 1.46
    },
-   "tested": 20,
+   "tested": 26,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 10,
@@ -12347,7 +12533,7 @@
    "n": 52,
    "meanClvProb": -0.0235,
    "pocket": null,
-   "tested": 23,
+   "tested": 28,
    "pairPocket": null,
    "pairsTested": 8
   },
@@ -12361,7 +12547,7 @@
     "meanClvProb": 0.0422,
     "tStat": 1.51
    },
-   "tested": 28,
+   "tested": 34,
    "pairPocket": {
     "feature": "venue=away + role=dog",
     "n": 14,
@@ -12380,7 +12566,7 @@
     "meanClvProb": 0.0337,
     "tStat": 1.37
    },
-   "tested": 26,
+   "tested": 33,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 13,
@@ -12394,7 +12580,7 @@
    "n": 55,
    "meanClvProb": -0.0259,
    "pocket": null,
-   "tested": 20,
+   "tested": 26,
    "pairPocket": null,
    "pairsTested": 7
   },
@@ -12403,7 +12589,7 @@
    "n": 123,
    "meanClvProb": -0.0249,
    "pocket": null,
-   "tested": 28,
+   "tested": 35,
    "pairPocket": null,
    "pairsTested": 19
   },
@@ -12412,7 +12598,7 @@
    "n": 44,
    "meanClvProb": -0.0222,
    "pocket": null,
-   "tested": 17,
+   "tested": 22,
    "pairPocket": {
     "feature": "venue=home + role=dog",
     "n": 9,
@@ -12426,7 +12612,7 @@
    "n": 17,
    "meanClvProb": -0.0567,
    "pocket": null,
-   "tested": 10,
+   "tested": 14,
    "pairPocket": null,
    "pairsTested": 0
   },
@@ -12440,7 +12626,7 @@
     "meanClvProb": 0.064,
     "tStat": 2.17
    },
-   "tested": 18,
+   "tested": 23,
    "pairPocket": {
     "feature": "edgeBar=0.5-1x + timing=early",
     "n": 9,
@@ -12454,7 +12640,7 @@
    "n": 42,
    "meanClvProb": -0.0326,
    "pocket": null,
-   "tested": 19,
+   "tested": 23,
    "pairPocket": null,
    "pairsTested": 2
   },
@@ -12463,7 +12649,7 @@
    "n": 41,
    "meanClvProb": -0.0261,
    "pocket": null,
-   "tested": 11,
+   "tested": 13,
    "pairPocket": null,
    "pairsTested": 2
   },
@@ -12472,7 +12658,7 @@
    "n": 34,
    "meanClvProb": -0.0076,
    "pocket": null,
-   "tested": 11,
+   "tested": 13,
    "pairPocket": null,
    "pairsTested": 2
   },
@@ -12486,7 +12672,7 @@
     "meanClvProb": 0.0287,
     "tStat": 1.42
    },
-   "tested": 31,
+   "tested": 39,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 17,
@@ -12494,6 +12680,109 @@
     "tStat": 0.46
    },
    "pairsTested": 16
+  },
+  {
+   "slice": "NFL|travel=1500+",
+   "n": 16,
+   "meanClvProb": -0.0276,
+   "pocket": null,
+   "tested": 5,
+   "pairPocket": null,
+   "pairsTested": 0
+  },
+  {
+   "slice": "NFL|travel=500-1500",
+   "n": 56,
+   "meanClvProb": -0.0144,
+   "pocket": {
+    "feature": "tzShift=none",
+    "n": 9,
+    "meanClvProb": 0.0176,
+    "tStat": 2.06
+   },
+   "tested": 27,
+   "pairPocket": null,
+   "pairsTested": 7
+  },
+  {
+   "slice": "NFL|travel=<500",
+   "n": 34,
+   "meanClvProb": -0.0163,
+   "pocket": {
+    "feature": "keyNumber=yes",
+    "n": 9,
+    "meanClvProb": 0.0001,
+    "tStat": 0.0
+   },
+   "tested": 18,
+   "pairPocket": null,
+   "pairsTested": 2
+  },
+  {
+   "slice": "NFL|travel=none",
+   "n": 36,
+   "meanClvProb": -0.0238,
+   "pocket": {
+    "feature": "restEdge=more",
+    "n": 8,
+    "meanClvProb": 0.0015,
+    "tStat": 0.1
+   },
+   "tested": 18,
+   "pairPocket": null,
+   "pairsTested": 7
+  },
+  {
+   "slice": "NFL|travelEdge=less",
+   "n": 34,
+   "meanClvProb": -0.0224,
+   "pocket": {
+    "feature": "restEdge=more",
+    "n": 8,
+    "meanClvProb": 0.0015,
+    "tStat": 0.1
+   },
+   "tested": 17,
+   "pairPocket": null,
+   "pairsTested": 7
+  },
+  {
+   "slice": "NFL|travelEdge=more",
+   "n": 35,
+   "meanClvProb": -0.0161,
+   "pocket": {
+    "feature": "restDays=long",
+    "n": 9,
+    "meanClvProb": 0.0533,
+    "tStat": 1.81
+   },
+   "tested": 24,
+   "pairPocket": {
+    "feature": "role=dog + moveBeforePick=none",
+    "n": 14,
+    "meanClvProb": 0.007,
+    "tStat": 0.29
+   },
+   "pairsTested": 8
+  },
+  {
+   "slice": "NFL|tzShift=none",
+   "n": 52,
+   "meanClvProb": -0.0116,
+   "pocket": {
+    "feature": "restEdge=more",
+    "n": 15,
+    "meanClvProb": 0.0386,
+    "tStat": 2.03
+   },
+   "tested": 26,
+   "pairPocket": {
+    "feature": "venue=away + role=dog",
+    "n": 11,
+    "meanClvProb": 0.049,
+    "tStat": 2.2
+   },
+   "pairsTested": 10
   },
   {
    "slice": "NFL|venue=away",
@@ -12505,7 +12794,7 @@
     "meanClvProb": 0.0533,
     "tStat": 1.81
    },
-   "tested": 19,
+   "tested": 25,
    "pairPocket": {
     "feature": "role=dog + moveBeforePick=none",
     "n": 14,
@@ -12524,7 +12813,7 @@
     "meanClvProb": 0.0015,
     "tStat": 0.1
    },
-   "tested": 18,
+   "tested": 21,
    "pairPocket": null,
    "pairsTested": 5
   },
@@ -12954,5 +13243,5 @@
    }
   }
  },
- "hypothesesAdded": 0
+ "hypothesesAdded": 10
 }

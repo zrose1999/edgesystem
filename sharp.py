@@ -12,6 +12,8 @@ The idea
 
 Two patterns, tested separately
   sharp-soft      same line at both books. The cleanest test.
+  soft-dog        (experiment, 2026-10-30) the underdog side only, same line, stamped from 0.5% over
+                  Pinnacle's fair (A at 1.5%). Two-way spreads and moneylines. Tests ideas.md lead 1.
   sharp-soft-alt  the soft book is on a different spread or total number, at most ALT_MAX points
                   away. Pinnacle's fair probability is moved to the soft line with the same per-point
                   and key-number values grade.py uses. Point sports only (NFL, NCAAF, NBA).
@@ -52,6 +54,13 @@ BAR = float(os.environ.get("SHARP_BAR", "0.03"))          # full bar, in probabi
 SHARP_MAX = float(os.environ.get("SHARP_MAX", "0.10"))    # above this is a data error
 STALE_MIN = float(os.environ.get("SHARP_STALE_MIN", "60"))
 SNAP_MAX_MIN = float(os.environ.get("SHARP_SNAP_MAX_MIN", "90"))   # only prices pulled this recently are scanned
+# 2026-10-30 experiment (Claude, ideas.md lead 1): soft-book UNDERDOG prices at or above Pinnacle's fair price.
+# Snapshots 10-19..10-30: soft dog prices beating Pinnacle by 0.5%+ closed +1.0% (n 42, t 2.3), favourites +0.1%;
+# EDGE's spread favourites -1.7% CLV (n 153) vs dogs +0.1%. Mechanism: books shade favourites (public money), so value
+# sits on the dog side. Same line only, two-way spreads and moneylines, shadow, stake 0.
+DOG_PATTERN = "soft-dog"
+DOG_MIN = float(os.environ.get("SOFT_DOG_MIN", "0.005"))   # stamp at 0.5% over Pinnacle fair
+DOG_BAR = float(os.environ.get("SOFT_DOG_BAR", "0.015"))   # grade A at 1.5%
 SPORTS = [s.strip().upper() for s in os.environ.get("SHARP_SPORTS", "").split(",") if s.strip()] or pull.ACTIVE
 
 
@@ -128,6 +137,50 @@ def best_edge(row, books, alt=False):
     return best, why
 
 
+def is_dog(market, side, line, fair_p):
+    """Underdog on a two-way market: the side getting points on a spread, or under 50% fair on a moneyline."""
+    if market == "spread":
+        if line is None or line == 0:
+            return False
+        return line > 0 if side == "home" else line < 0
+    return fair_p < 0.5
+
+
+def dog_edge(row, books):
+    """Best same-line soft price on the underdog side, against Pinnacle no-vig. Two-way spreads and moneylines only."""
+    market = row["market"]
+    if market not in ("spread", "h2h"):
+        return None, "not a spread or moneyline"
+    pin = books.get(SHARP)
+    sides = sides_for(market)
+    if not pin or "draw" in pin or any(s not in pin for s in sides):
+        return None, "no two-way Pinnacle price"
+    fair = no_vig(pin, list(sides))
+    best, why = None, "no soft dog price at Pinnacle's fair"
+    for bk in SOFT:
+        soft = books.get(bk)
+        if not soft or "draw" in soft or any(s not in soft for s in sides):
+            continue
+        if market == "spread" and soft.get("line") != pin.get("line"):
+            continue
+        if pin.get("updated") and soft.get("updated"):
+            gap = abs((pull.parse(soft["updated"]) - pull.parse(pin["updated"])).total_seconds()) / 60
+            if gap > STALE_MIN:
+                why = "Pinnacle price stale"
+                continue
+        for side in sides:
+            if not is_dog(market, side, soft.get("line"), fair[side]):
+                continue
+            edge = fair[side] - pull.implied(soft[side])
+            if edge > SHARP_MAX:
+                continue
+            if best is None or edge > best["edge"]:
+                best = {"book": bk, "side": side, "price": soft[side], "line": soft.get("line"),
+                        "fair": fair[side], "edge": edge, "pinPrice": pin[side], "pinLine": pin.get("line"),
+                        "pinFair": fair[side], "lineAdj": 0.0}
+    return best, why
+
+
 def scan(dry=False):
     ledger = pull.load(pull.LEDGER, {"rows": []})
     picks = pull.load(pull.PICKS, {"picks": []})
@@ -148,7 +201,7 @@ def scan(dry=False):
         if age > SNAP_MAX_MIN:
             continue
         seen += 1
-        for pattern, alt in ((PATTERN, False), (ALT_PATTERN, True)):
+        for pattern, alt in ((PATTERN, False), (ALT_PATTERN, True), (DOG_PATTERN, False)):
             entry = stamp_one(row, snap, books, pattern, alt, statuses.get(pattern, "shadow"), have, reasons, now)
             if entry:
                 stamped.append(entry)
@@ -162,7 +215,7 @@ def scan(dry=False):
     for e in stamped:
         print(f"{'WOULD STAMP' if dry else 'STAMPED'} {e['grade']} {e['pattern']} {e['sport']} {e['event']} | {e['reason']}")
     print(json.dumps({"rowsScanned": seen, "stamped": len(stamped), "skipped": reasons, "dry": dry,
-                      "status": {p: statuses.get(p, "shadow") for p in (PATTERN, ALT_PATTERN)}}))
+                      "status": {p: statuses.get(p, "shadow") for p in (PATTERN, ALT_PATTERN, DOG_PATTERN)}}))
 
 
 def stamp_one(row, snap, books, pattern, alt, status, have, reasons, now):
@@ -170,12 +223,14 @@ def stamp_one(row, snap, books, pattern, alt, status, have, reasons, now):
         key = f"{pattern}: {why}"
         reasons[key] = reasons.get(key, 0) + 1
 
-    best, why = best_edge(row, books, alt)
+    dog = pattern == DOG_PATTERN
+    bar, floor = (DOG_BAR, DOG_MIN) if dog else (BAR, BAR / 2)
+    best, why = dog_edge(row, books) if dog else best_edge(row, books, alt)
     if not best:
         skip(why)
         return None
-    if best["edge"] < BAR / 2:
-        skip("under half the bar")
+    if best["edge"] < floor:
+        skip("under the stamping floor")
         return None
     market, side = row["market"], best["side"]
     pick_id = f"{row['id']}|{side}|{pull.VERSION}|{pattern}"
@@ -183,8 +238,8 @@ def stamp_one(row, snap, books, pattern, alt, status, have, reasons, now):
         skip("already stamped")
         return None
 
-    grade = "A" if best["edge"] >= BAR else "B"
-    tier = "official" if status == "official" and grade == "A" else "shadow"
+    grade = "A" if best["edge"] >= bar else "B"
+    tier = "official" if status == "official" and grade == "A" and not dog else "shadow"
     stake = 0.5 if tier == "official" else 0.0
     if market == "spread":
         line = best["line"] if side == "home" else -best["line"]
@@ -202,7 +257,7 @@ def stamp_one(row, snap, books, pattern, alt, status, have, reasons, now):
         "marketPrices": {k: snap[k] for k in ("home", "away", "over", "under", "draw") if k in snap},
         "priceTime": snap["time"], "pickedAt": now, "fair": round(best["fair"], 4),
         "projection": round(best["fair"], 4), "edge": round(best["edge"], 4), "edgeUnit": "prob",
-        "bar": BAR, "fullBar": best["edge"] >= BAR, "confidence": "medium", "pattern": pattern,
+        "bar": bar, "fullBar": best["edge"] >= bar, "confidence": "medium", "pattern": pattern,
         "reason": (f"{name} {shown} {best['price']:+g} implies {pull.implied(best['price']):.1%}. "
                    f"Pinnacle {best['pinPrice']:+g} no-vig is {best['pinFair']:.1%}"
                    + (f" at {best['pinLine']:g}, worth {best['fair']:.1%} at this line" if alt else "")

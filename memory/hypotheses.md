@@ -456,3 +456,13 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-30 | NCAAF: edgeBar=0.5-1x + tzShift=east | 8 | +1.1% | found inside NCAAF tzShift=east (best of 19 features tested); small sample, may share reads with other rows |
 | 2026-10-30 | market=total + restDays=short | 11 | +2.0% | found inside ALL market=total (best of 52 features tested); small sample, may share reads with other rows |
 | 2026-10-30 | bookAtPick=BetMGM + role=fav | 8 | +3.9% | found inside ALL role=fav (best of 61 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | edgeBar=1-2x + restEdge=more | 10 | +1.5% | found inside ALL edgeBar=1-2x (best of 40 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | restDays=long + travel=none | 12 | +0.3% | found inside ALL travel=none (best of 45 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | sport=NHL + tzShift=west | 10 | +1.1% | found inside ALL tzShift=west (best of 41 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | NFL: edgeBar=<0.5x + tzShift=none | 22 | +0.1% | found inside NFL edgeBar=<0.5x (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | NFL: travel=500-1500 + tzShift=none | 9 | +1.8% | found inside NFL travel=500-1500 (best of 27 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | NFL: keyNumber=yes + travel=<500 | 9 | +0.0% | found inside NFL travel=<500 (best of 18 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | NFL: restEdge=more + travel=none | 8 | +0.1% | found inside NFL travel=none (best of 18 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | NFL: restEdge=more + travelEdge=less | 8 | +0.1% | found inside NFL travelEdge=less (best of 17 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | NFL: restDays=long + travelEdge=more | 9 | +5.3% | found inside NFL travelEdge=more (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-10-30 | NFL: restEdge=more + tzShift=none | 15 | +3.9% | found inside NFL tzShift=none (best of 26 features tested); small sample, may share reads with other rows |
