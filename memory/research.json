@@ -1,8 +1,8 @@
 {
- "asOf": "2026-10-30T16:54:42Z",
+ "asOf": "2026-10-30T17:01:44Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 871,
- "loggedReads": 1763,
+ "loggedReads": 1764,
  "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1095,
-   "with": 772,
+   "reads": 1097,
+   "with": 774,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1095,
-   "with": 1095,
+   "reads": 1097,
+   "with": 1097,
    "alarm": false
   }
  },
@@ -98,9 +98,9 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1674,
-  "latest": "2026-10-30T16:54:32Z",
-  "rowsWithHistory": 1268,
+  "linesLastCycle": 1798,
+  "latest": "2026-10-30T16:59:16Z",
+  "rowsWithHistory": 1288,
   "alarm": false
  },
  "interactionCoverage": {
@@ -10593,7 +10593,7 @@
    "n": 71,
    "meanClvProb": -0.0207,
    "pocket": {
-    "feature": "sharpDivPick=aligned",
+    "feature": "sharpGapPick=<1%",
     "n": 9,
     "meanClvProb": 0.0115,
     "tStat": 0.69
@@ -11672,7 +11672,7 @@
    "n": 16,
    "meanClvProb": -0.0205,
    "pocket": {
-    "feature": "edgeBar=<0.5x",
+    "feature": "grade=C",
     "n": 9,
     "meanClvProb": 0.0067,
     "tStat": 0.53
@@ -12356,7 +12356,7 @@
    "n": 39,
    "meanClvProb": -0.0139,
    "pocket": {
-    "feature": "restEdge=more",
+    "feature": "restDays=long",
     "n": 9,
     "meanClvProb": 0.0533,
     "tStat": 1.81
@@ -12712,7 +12712,7 @@
    "n": 16,
    "meanClvProb": -0.0061,
    "pocket": {
-    "feature": "edgeBar=<0.5x",
+    "feature": "grade=C",
     "n": 8,
     "meanClvProb": 0.0021,
     "tStat": 0.3

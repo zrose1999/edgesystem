@@ -108783,6 +108783,137 @@
         "goalie": "Flames: Dustin Wolf (expected) at the open, now Dustin Wolf (confirmed), GSAx/60 +0.04 to -0.19"
       },
       "bestAtPick": null
+    },
+    {
+      "pickId": "NCAAF|2026-10-31|Nevada Wolf Pack at UCLA Bruins|spread|away|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-10-31|Nevada Wolf Pack at UCLA Bruins|spread",
+      "sport": "NCAAF",
+      "event": "Nevada Wolf Pack at UCLA Bruins",
+      "commence": "2026-10-31T20:15:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 23.5,
+      "priceAtPick": -105,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": -22.5,
+      "marketPrices": {
+        "home": -108,
+        "away": -112
+      },
+      "priceTime": "2026-10-30T16:59:16Z",
+      "pickedAt": "2026-10-30T17:01:15Z",
+      "fair": 0.5299,
+      "projection": 0.5299,
+      "edge": 0.0177,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "Hard Rock Bet away +23.5 -105 implies 51.2%. Pinnacle -115 no-vig is 51.7% at -23, worth 53.0% at this line. Edge +1.8%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": -23.0,
+        "prices": {
+          "home": 100,
+          "away": -115
+        },
+        "updated": "2026-10-30T16:59:11Z",
+        "snapTime": "2026-10-30T16:59:16Z",
+        "noVig": 0.5174
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 5.0,
+          "pop": 39,
+          "text": "Chance Light Rain",
+          "heavy": false,
+          "temp": 70,
+          "value": 0.0,
+          "asOf": "2026-10-30T15:09:33Z",
+          "venue": "Rose Bowl"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -110,
+        "line": -22.5,
+        "implied": 0.5238,
+        "printImplied": 0.5283
+      },
+      "priceBook": "FanDuel",
+      "estimated": true,
+      "lineAdj": 0.0125,
+      "pinEdgeAtPick": 0.0177,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "SerieA|2026-10-31|AS Roma at Udinese|h2h|home|v1|learned-soccer-1x2|lean|2026-10-30T17:01:30Z|gated|2026-10-30T17:01:30Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "SerieA|2026-10-31|AS Roma at Udinese|h2h",
+      "sport": "SerieA",
+      "event": "AS Roma at Udinese",
+      "commence": "2026-10-31T17:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 480,
+      "bookAtPick": "FanDuel",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 400,
+        "away": -185,
+        "draw": 320
+      },
+      "priceTime": "2026-10-30T16:59:16Z",
+      "pickedAt": "2026-10-30T17:01:30Z",
+      "fair": 0.1754,
+      "projection": 0.1754,
+      "edge": 0.003,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-soccer-1x2",
+      "reason": "Learned soccer model (ridge, 151 data points) predicts Pinnacle's home probability gains +0.005 from the open; Pinnacle open 0.192, now 0.170, 0.005 still to come. Fair 0.175. Report: stats/models/soccer_home.json.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 454,
+          "away": -171,
+          "draw": 349
+        },
+        "updated": "2026-10-30T16:59:09Z",
+        "snapTime": "2026-10-30T16:59:16Z",
+        "noVig": 0.1705
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 480,
+        "line": null,
+        "implied": 0.1724,
+        "printImplied": 0.2
+      },
+      "priceBook": "FanDuel",
+      "contextAtPick": {},
+      "pinEdgeAtPick": -0.0019,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -0.2% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }

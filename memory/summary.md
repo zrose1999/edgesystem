@@ -1,7 +1,7 @@
-# What EDGE is learning (2026-10-30 16:54Z)
+# What EDGE is learning (2026-10-30 17:01Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
-871 graded reads counted, 1763 logged. CLV is mean clvProb. Patterns move only by grade.py.
-Scanner (scan.py, 10-30 11:12Z): 40 strategies tracking from 7858 hypotheses (0 new this run); 112 graded scan reads, mean CLV -0.6%. Shadow only; grade.py decides promotion.
+871 graded reads counted, 1764 logged. CLV is mean clvProb. Patterns move only by grade.py.
+Scanner (scan.py, 10-30 17:01Z): 40 strategies tracking from 7858 hypotheses (0 new this run); 112 graded scan reads, mean CLV -0.6%. Shadow only; grade.py decides promotion.
 Early positive leads (one of many being tested; no acceleration):
 - ALL pattern=sharp-soft: n 41, CLV +1.2%, t +1.9, last 30d +1.2% on 41; grade.py needs 11 more graded full-bar picks (has 4), t >= 2.5
 - NCAAF pattern=learned-ncaaf-spread: n 39, CLV +1.1%, t +1.2, last 30d +1.1% on 39; grade.py needs 15 more graded full-bar picks (has 0), t >= 2.0
@@ -22,9 +22,9 @@ Process vs result: right-and-rewarded 162, right-but-unlucky 123, lucky-win 272,
 Gated by the Pinnacle gate (scored, not counted): n 3, CLV -2.2%, t -1.3 (positive = the gate blocks winners)
 Data gaps, waiting on a source: public-pct (needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack); guru (needs an account list + reader (Reddit API free, X API paid); log account, number, time, result)
 Coverage of added features (BREAKAGE if still 0 one health-check cycle after shipping):
-- snaps: 1674 price snapshots stored in the last 26h, latest 10-30 16:54Z, 1268 games with 2+ (late steam, since 10-19 18:15Z)
-- pinAtPick on 302 of 479 graded reads since 10-19 18:00Z; 772 of 1095 new reads stamped (Pinnacle at the pick)
-- contextAtPick on 479 of 479 graded reads since 10-19 18:00Z; 1095 of 1095 new reads stamped (weather/injury/goalie as stamped)
+- snaps: 1798 price snapshots stored in the last 26h, latest 10-30 16:59Z, 1288 games with 2+ (late steam, since 10-19 18:15Z)
+- pinAtPick on 302 of 479 graded reads since 10-19 18:00Z; 774 of 1097 new reads stamped (Pinnacle at the pick)
+- contextAtPick on 479 of 479 graded reads since 10-19 18:00Z; 1097 of 1097 new reads stamped (weather/injury/goalie as stamped)
 - sharpDivergenceAtPick on 168 of 479 graded reads since 10-19 18:00Z (needs Pinnacle on the same line)
 - daysRestHome on 805 of 819 graded NBA/NHL/NCAAF/NFL reads (schedules in stats/ (NFL from 2026-10-21))
 - sharpDivergence on 84 of 871 graded reads since 10-14 00:00Z (Pinnacle at the open)
