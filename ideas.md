@@ -22,6 +22,12 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - Kill it if: fresh favourite-spread reads after 10-30 come in at or above the dog-spread mean over 30+ reads.
 - Possible change (Zack decides at a weekly review): spread favourites need the Pinnacle gate plus a margin, or a
   shadow pattern "soft-dog" that takes soft-book underdog prices at or better than Pinnacle's fair.
+- 2026-10-31 refresh (health check): no fresh favourite-spread reads since 10-30 12:24Z (3 dog spreads, +0.1%); memory
+  query unchanged (fav n 153, -1.7%, t -4.1; dog n 159, +0.3%). Mechanism revised: it is direction, not price. The
+  autopsy split shows both sides paid the same price (fav -2.1%, dog -2.1% vs fair) but the market moved our way +2.4%
+  on dog spreads (t 4.5) and only +0.4% on favourite spreads (t 1.0). DraftKings snapshots agree: at the same number
+  DK's margin is split evenly by spread side (fav +2.2 to +2.6%, dog +2.2 to +2.6%, NBA/NCAAF/NFL, ~1,900 snaps), so
+  there is no favourite price shade to avoid. A margin on the gate would not fix it; a side filter (or soft-dog) would.
 
 ### 2. Away teams travelling east (2026-10-30, lead, waits on the NFL backfill)
 - NFL history 2015-2026 (PR #8): home moneyline when the away team travels east ROI -11.1% at the close (n 847, t -3.2,
@@ -37,8 +43,32 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - Launch check: dry run on the live ledger 10-30 20:30Z would stamp 7 (NFL 1, NCAAF 6), edges +0.6% to +0.9%.
 - Judge on CLV at 30 graded: holds if mean CLV > 0 with t >= 1.5 in both halves; tweak the floor (SOFT_DOG_MIN) once
   if the 0.5-1% bucket loses while 1%+ wins; kill if mean CLV <= 0 at 50 graded.
+- 2026-10-31: 16 reads, 4 graded (all NBA), CLV +1.5% (t 3.5). Snapshot check of the mechanism: DK moneyline dogs whose
+  price beat Pinnacle's no-vig by 0.5%+ (30+ min before the start, close = Pinnacle's last snap within 45 min) scored
+  +0.6% (n 31, t 1.5, halves +0.6/+0.7); at 1%+ +1.5% (n 10). DK's moneyline margin sits on favourites (next idea),
+  which is why soft dogs exist on moneylines.
 
 ## Killed
+
+### Express spread reads on the moneyline (2026-10-31, killed)
+- Observation: spread and total reads pay ~2.1% vs fair at the pick (autopsy split, n 312 spreads, 391 totals), moneyline
+  reads only ~0.8% (n 188). Idea: when a spread read fires, take the same side's moneyline instead.
+- Test: 67 counted NBA/NFL/NCAAF spread reads with DK and Pinnacle moneyline snapshots within an hour of the pick and of
+  the start. Same side on DK's moneyline: dogs +0.3% (n 39) vs the spread read +1.1%; favourites -2.4% (n 28, t -6.4)
+  vs -1.5%. Worse on both sides. The direction is real on the moneyline too (Pinnacle ML moved +1.6% our way on the
+  dog reads, t 2.7), but DK's moneyline margin eats it. Re-test only if best-US-book moneyline prices are stored at
+  spread picks.
+- Side fact found (DK vs Pinnacle no-vig at the same line, all October snaps): DK loads its moneyline margin on
+  favourites (NBA +2.5% vs dogs +1.7%, NCAAF +2.7 vs +1.6, soccer/tennis +3.1 vs +1.7; NFL +2.2 vs +2.1); spreads and
+  totals are split evenly by side (within 0.4%), so there is no over or under shade at DK to exploit (DK's under price
+  beat Pinnacle's no-vig at the same total on almost no snapshots).
+
+### Pinnacle follows DraftKings (2026-10-31, killed)
+- Idea: when DK and Pinnacle disagree by 1.5%+ no-vig on a moneyline, Pinnacle moves toward DK by the start.
+- Test (first disagreement per game, two-way moneylines only; soccer three-way excluded): Pinnacle moved +0.3% toward DK
+  (n 177; NFL +1.4% n 17, NBA +0.7% n 47, tennis -0.4% n 53), while DK's side lost -1.5 to -2.3% to Pinnacle's close.
+  Pinnacle is the truth here; the gate is right. Four variants tried today (this, margin by side, ML expression, under shade).
+
 
 ### Steam chase at run cadence (2026-10-30, killed)
 - Idea: after Pinnacle moves 1.5+ points of no-vig, take the soft book before it follows.

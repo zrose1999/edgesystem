@@ -61,7 +61,9 @@ READ = ["NFL"]                                          # sports the analyst rea
 _env = [s.strip().upper() for s in os.environ.get("EDGE_SPORTS", "").split(",") if s.strip()]
 ACTIVE = _env or ACTIVE
 # Credit guard. The Odds API reports credits left on every response.
-# Under RESERVE, closes are looked up only for READ sports. Under FLOOR, no close lookups at all.
+# Under RESERVE, near-game (EDGE_NEAR) runs stop; under FAST_RESERVE, fast runs stop. Under FLOOR, no close lookups at all.
+# (History closes are no longer limited to READ sports under RESERVE: since 2026-10-14 they are fetched only for rows
+# carrying a pick or lean that has no free snap close, READ sports first, up to MAX_HIST calls a run.)
 RESERVE = int(os.environ.get("EDGE_CREDIT_RESERVE", "3000"))
 # Fast runs (every 15 minutes, games in the next 3 hours) stop earlier, so they never eat the credits that full
 # runs and closes need.
