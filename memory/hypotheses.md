@@ -490,3 +490,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-31 | NBA: market=h2h + steamBeforePick=flat | 10 | +1.6% | found inside NBA steamBeforePick=flat (best of 34 features tested); small sample, may share reads with other rows |
 | 2026-10-31 | NBA: market=h2h + timing=late | 10 | +1.7% | found inside NBA timing=late (best of 29 features tested); small sample, may share reads with other rows |
 | 2026-10-31 | NCAAF: edgeBar=0.5-1x + travel=none | 9 | +1.5% | found inside NCAAF travel=none (best of 11 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: grade=B + travel=none | 9 | +1.5% | found inside NCAAF travel=none (best of 11 features tested); small sample, may share reads with other rows |
