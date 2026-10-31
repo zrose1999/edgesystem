@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-31T07:29:35Z",
+ "asOf": "2026-10-31T11:12:00Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -13,9 +13,9 @@
    "rightWay": 0.444,
    "noMove": 10,
    "logLossGain": {
-    "n": 18,
-    "mean": -0.02113,
-    "t": -1.52
+    "n": 19,
+    "mean": -0.01697,
+    "t": -1.23
    },
    "verdict": "collecting"
   },
@@ -81,9 +81,9 @@
    "rightWay": 0.821,
    "noMove": 12,
    "logLossGain": {
-    "n": 39,
-    "mean": 0.00247,
-    "t": 0.25
+    "n": 40,
+    "mean": 0.00359,
+    "t": 0.37
    },
    "verdict": "proven"
   },
@@ -260,17 +260,17 @@
   "ncaaf-spot": {
    "pattern": "ncaaf-spot",
    "unit": "points",
-   "n": 56,
-   "meanPredicted": 0.3671,
-   "meanRealized": -0.0714,
-   "tRealized": -0.23,
-   "capture": -0.19,
-   "rightWay": 0.477,
+   "n": 57,
+   "meanPredicted": 0.3675,
+   "meanRealized": -0.0877,
+   "tRealized": -0.29,
+   "capture": -0.24,
+   "rightWay": 0.467,
    "noMove": 12,
    "logLossGain": {
-    "n": 54,
-    "mean": 0.00119,
-    "t": 0.53
+    "n": 57,
+    "mean": 0.0015,
+    "t": 0.69
    },
    "verdict": "collecting"
   },
@@ -625,9 +625,9 @@
    "rightWay": 0.486,
    "noMove": 9,
    "logLossGain": {
-    "n": 45,
-    "mean": 0.00918,
-    "t": 0.93
+    "n": 46,
+    "mean": 0.00885,
+    "t": 0.91
    },
    "verdict": "collecting"
   },
@@ -642,9 +642,9 @@
    "rightWay": 0.688,
    "noMove": 6,
    "logLossGain": {
-    "n": 20,
-    "mean": 0.00067,
-    "t": 0.04
+    "n": 22,
+    "mean": -0.00018,
+    "t": -0.01
    },
    "verdict": "collecting"
   },
@@ -676,9 +676,9 @@
    "rightWay": 1.0,
    "noMove": 1,
    "logLossGain": {
-    "n": 2,
-    "mean": 0.02245,
-    "t": 4.65
+    "n": 3,
+    "mean": 0.01044,
+    "t": 0.85
    },
    "verdict": "collecting"
   },

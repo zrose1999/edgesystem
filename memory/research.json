@@ -1,8 +1,8 @@
 {
- "asOf": "2026-10-31T07:29:31Z",
+ "asOf": "2026-10-31T11:11:55Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
- "gradedReads": 890,
- "loggedReads": 1792,
+ "gradedReads": 891,
+ "loggedReads": 1801,
  "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1135,
-   "with": 812,
+   "reads": 1162,
+   "with": 839,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1135,
-   "with": 1135,
+   "reads": 1162,
+   "with": 1162,
    "alarm": false
   }
  },
@@ -28,7 +28,7 @@
    "since": "2026-10-19T18:00:00Z",
    "sports": null,
    "note": "Pinnacle at the pick",
-   "graded": 498,
+   "graded": 499,
    "with": 317,
    "alarm": false
   },
@@ -37,8 +37,8 @@
    "since": "2026-10-19T18:00:00Z",
    "sports": null,
    "note": "weather/injury/goalie as stamped",
-   "graded": 498,
-   "with": 498,
+   "graded": 499,
+   "with": 499,
    "alarm": false
   },
   {
@@ -46,7 +46,7 @@
    "since": "2026-10-19T18:00:00Z",
    "sports": null,
    "note": "needs Pinnacle on the same line",
-   "graded": 498,
+   "graded": 499,
    "with": 182,
    "alarm": false
   },
@@ -60,8 +60,8 @@
     "NFL"
    ],
    "note": "schedules in stats/ (NFL from 2026-10-21)",
-   "graded": 836,
-   "with": 822,
+   "graded": 837,
+   "with": 823,
    "alarm": false
   },
   {
@@ -69,7 +69,7 @@
    "since": "2026-10-14T00:00:00Z",
    "sports": null,
    "note": "Pinnacle at the open",
-   "graded": 890,
+   "graded": 891,
    "with": 86,
    "alarm": false
   },
@@ -78,7 +78,7 @@
    "since": "2026-10-19T18:15:00Z",
    "sports": null,
    "note": "needs a stored snap 30m-6h before the pick",
-   "graded": 498,
+   "graded": 499,
    "with": 149,
    "alarm": false
   },
@@ -91,16 +91,16 @@
     "NCAAF"
    ],
    "note": "schedules + team_venues.json; neutral sites skipped",
-   "graded": 683,
-   "with": 666,
+   "graded": 684,
+   "with": 667,
    "alarm": false
   }
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1452,
-  "latest": "2026-10-31T04:24:32Z",
-  "rowsWithHistory": 1322,
+  "linesLastCycle": 1698,
+  "latest": "2026-10-31T11:09:28Z",
+  "rowsWithHistory": 1336,
   "alarm": false
  },
  "interactionCoverage": {
@@ -111,11 +111,11 @@
    "contextAtPick"
   ],
   "atLeastTwo": 293,
-  "graded": 890,
+  "graded": 891,
   "byField": {
    "sharpDivergenceAtPick": 182,
    "steamBeforePick": 149,
-   "daysRest": 819,
+   "daysRest": 820,
    "contextAtPick": 226
   }
  },
@@ -167,7 +167,7 @@
   "autopsy"
  ],
  "sharpDivergenceCoverage": {
-  "graded": 890,
+  "graded": 891,
   "withData": 86
  },
  "features": [
@@ -222,7 +222,7 @@
    "recentMeanClvProb": 0.0196,
    "nShortOfFirstStage": 7,
    "tShort": 0.0,
-   "record": "5-2-0",
+   "record": "5-3-0",
    "firstSeen": "2026-10-29"
   },
   {
@@ -277,7 +277,7 @@
    "recentMeanClvProb": -0.0025,
    "nShortOfFirstStage": 0,
    "tShort": 2.55,
-   "record": "15-21-0",
+   "record": "15-23-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -296,7 +296,7 @@
    "recentMeanClvProb": 0.0067,
    "nShortOfFirstStage": 11,
    "tShort": 2.01,
-   "record": "0-3-0",
+   "record": "1-3-0",
    "firstSeen": "2026-10-29"
   },
   {
@@ -321,18 +321,18 @@
    "key": "ALL|confidence=medium",
    "sport": "ALL",
    "feature": "confidence=medium",
-   "n": 890,
+   "n": 891,
    "meanClvProb": -0.0104,
-   "tStat": -6.44,
+   "tStat": -6.47,
    "beatClose": 301,
    "status": "early-negative",
    "picksN": 349,
    "picksMeanClvProb": -0.008,
-   "recentN": 890,
+   "recentN": 891,
    "recentMeanClvProb": -0.0104,
    "nShortOfFirstStage": 0,
-   "tShort": 8.44,
-   "record": "443-436-3",
+   "tShort": 8.47,
+   "record": "448-440-3",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.0% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -351,7 +351,7 @@
    "recentMeanClvProb": -0.0078,
    "nShortOfFirstStage": 0,
    "tShort": 4.76,
-   "record": "157-140-0",
+   "record": "158-143-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -396,18 +396,18 @@
    "key": "ALL|edgeBar=<0.5x",
    "sport": "ALL",
    "feature": "edgeBar=<0.5x",
-   "n": 496,
-   "meanClvProb": -0.0118,
-   "tStat": -5.53,
+   "n": 497,
+   "meanClvProb": -0.0119,
+   "tStat": -5.56,
    "beatClose": 158,
    "status": "early-negative",
    "picksN": 1,
    "picksMeanClvProb": 0.0024,
-   "recentN": 496,
-   "recentMeanClvProb": -0.0118,
+   "recentN": 497,
+   "recentMeanClvProb": -0.0119,
    "nShortOfFirstStage": 0,
-   "tShort": 7.53,
-   "record": "242-248-2",
+   "tShort": 7.56,
+   "record": "246-249-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -445,7 +445,7 @@
    "recentMeanClvProb": -0.0069,
    "nShortOfFirstStage": 0,
    "tShort": 4.18,
-   "record": "133-124-0",
+   "record": "134-127-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.7% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -453,18 +453,18 @@
    "key": "ALL|grade=C",
    "sport": "ALL",
    "feature": "grade=C",
-   "n": 541,
+   "n": 542,
    "meanClvProb": -0.0119,
-   "tStat": -5.95,
+   "tStat": -5.99,
    "beatClose": 168,
    "status": "early-negative",
    "picksN": 0,
    "picksMeanClvProb": null,
-   "recentN": 541,
+   "recentN": 542,
    "recentMeanClvProb": -0.0119,
    "nShortOfFirstStage": 0,
-   "tShort": 7.95,
-   "record": "269-266-2",
+   "tShort": 7.99,
+   "record": "273-267-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -539,7 +539,7 @@
    "recentMeanClvProb": -0.0014,
    "nShortOfFirstStage": 0,
    "tShort": 2.2,
-   "record": "42-37-3",
+   "record": "43-38-3",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -558,7 +558,7 @@
    "recentMeanClvProb": -0.0009,
    "nShortOfFirstStage": 0,
    "tShort": 2.35,
-   "record": "96-90-0",
+   "record": "96-92-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -577,7 +577,7 @@
    "recentMeanClvProb": -0.0068,
    "nShortOfFirstStage": 0,
    "tShort": 3.99,
-   "record": "154-150-3",
+   "record": "158-151-3",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.7% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -585,18 +585,18 @@
    "key": "ALL|market=total",
    "sport": "ALL",
    "feature": "market=total",
-   "n": 390,
+   "n": 391,
    "meanClvProb": -0.0178,
-   "tStat": -8.7,
+   "tStat": -8.74,
    "beatClose": 107,
    "status": "early-negative",
    "picksN": 156,
    "picksMeanClvProb": -0.0152,
-   "recentN": 390,
+   "recentN": 391,
    "recentMeanClvProb": -0.0178,
    "nShortOfFirstStage": 0,
-   "tShort": 10.7,
-   "record": "193-196-0",
+   "tShort": 10.74,
+   "record": "194-197-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -615,7 +615,7 @@
    "recentMeanClvProb": -0.0075,
    "nShortOfFirstStage": 0,
    "tShort": 3.89,
-   "record": "31-33-0",
+   "record": "32-33-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -634,7 +634,7 @@
    "recentMeanClvProb": -0.0193,
    "nShortOfFirstStage": 0,
    "tShort": 7.62,
-   "record": "81-88-0",
+   "record": "81-89-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -642,18 +642,18 @@
    "key": "ALL|moveBeforePick=none",
    "sport": "ALL",
    "feature": "moveBeforePick=none",
-   "n": 467,
-   "meanClvProb": -0.0113,
-   "tStat": -4.5,
+   "n": 468,
+   "meanClvProb": -0.0114,
+   "tStat": -4.53,
    "beatClose": 151,
    "status": "early-negative",
    "picksN": 139,
    "picksMeanClvProb": -0.0109,
-   "recentN": 467,
-   "recentMeanClvProb": -0.0113,
+   "recentN": 468,
+   "recentMeanClvProb": -0.0114,
    "nShortOfFirstStage": 0,
-   "tShort": 6.5,
-   "record": "235-225-3",
+   "tShort": 6.53,
+   "record": "239-226-3",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -672,7 +672,7 @@
    "recentMeanClvProb": -0.0158,
    "nShortOfFirstStage": 0,
    "tShort": 4.72,
-   "record": "10-20-0",
+   "record": "11-20-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; grade.py promotes on graded full-bar picks only: 0 of the 15 needed (leans never promote). Still collecting."
   },
@@ -729,7 +729,7 @@
    "recentMeanClvProb": 0.0135,
    "nShortOfFirstStage": 0,
    "tShort": 0.48,
-   "record": "21-18-0",
+   "record": "22-18-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +1.4% is positive but t +1.5 is under the t >= 2.0 bar at n 40; grade.py promotes on graded full-bar picks only: 0 of the 15 needed (leans never promote). Still collecting."
   },
@@ -920,20 +920,20 @@
    "key": "ALL|pattern=ncaaf-spot",
    "sport": "ALL",
    "feature": "pattern=ncaaf-spot",
-   "n": 56,
-   "meanClvProb": -0.0224,
-   "tStat": -3.03,
+   "n": 57,
+   "meanClvProb": -0.0226,
+   "tStat": -3.12,
    "beatClose": 15,
    "status": "early-negative",
    "picksN": 0,
    "picksMeanClvProb": null,
-   "recentN": 56,
-   "recentMeanClvProb": -0.0224,
+   "recentN": 57,
+   "recentMeanClvProb": -0.0226,
    "nShortOfFirstStage": 0,
-   "tShort": 5.03,
-   "record": "28-26-0",
+   "tShort": 5.12,
+   "record": "30-27-0",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -2.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; every read so far is a lean, so grade.py has no graded full-bar picks for it (15 needed; leans never promote). Still collecting."
+   "why_not_promoted": "mean CLV -2.3% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; every read so far is a lean, so grade.py has no graded full-bar picks for it (15 needed; leans never promote). Still collecting."
   },
   {
    "key": "ALL|pattern=ncaaf-total-move",
@@ -1293,7 +1293,7 @@
    "recentMeanClvProb": 0.0125,
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
-   "record": "25-23-0",
+   "record": "25-24-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -1311,7 +1311,7 @@
    "recentMeanClvProb": 0.0142,
    "nShortOfFirstStage": 0,
    "tShort": 0.33,
-   "record": "9-11-0",
+   "record": "10-12-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -1329,7 +1329,7 @@
    "recentMeanClvProb": 0.0148,
    "nShortOfFirstStage": 11,
    "tShort": 0.0,
-   "record": "3-0-0",
+   "record": "3-1-0",
    "firstSeen": "2026-10-31"
   },
   {
@@ -1438,7 +1438,7 @@
    "recentMeanClvProb": -0.0013,
    "nShortOfFirstStage": 1,
    "tShort": 2.69,
-   "record": "4-7-0",
+   "record": "5-9-0",
    "firstSeen": "2026-10-28"
   },
   {
@@ -1456,7 +1456,7 @@
    "recentMeanClvProb": 0.0102,
    "nShortOfFirstStage": 4,
    "tShort": 1.4,
-   "record": "8-2-0",
+   "record": "8-3-0",
    "firstSeen": "2026-10-29"
   },
   {
@@ -1493,7 +1493,7 @@
    "recentMeanClvProb": -0.0131,
    "nShortOfFirstStage": 0,
    "tShort": 7.52,
-   "record": "124-136-0",
+   "record": "124-137-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.3% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1550,7 +1550,7 @@
    "recentMeanClvProb": 0.0156,
    "nShortOfFirstStage": 0,
    "tShort": 0.08,
-   "record": "35-28-1",
+   "record": "39-28-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +1.6% is positive but t +1.9 is under the t >= 2.0 bar at n 68; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1558,18 +1558,18 @@
    "key": "ALL|restDays=normal",
    "sport": "ALL",
    "feature": "restDays=normal",
-   "n": 282,
+   "n": 283,
    "meanClvProb": -0.0208,
-   "tStat": -8.22,
+   "tStat": -8.27,
    "beatClose": 74,
    "status": "early-negative",
    "picksN": 119,
    "picksMeanClvProb": -0.0184,
-   "recentN": 282,
+   "recentN": 283,
    "recentMeanClvProb": -0.0208,
    "nShortOfFirstStage": 0,
-   "tShort": 10.22,
-   "record": "139-138-2",
+   "tShort": 10.27,
+   "record": "140-141-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -2.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1606,7 +1606,7 @@
    "recentMeanClvProb": -0.0093,
    "nShortOfFirstStage": 0,
    "tShort": 4.59,
-   "record": "73-92-0",
+   "record": "73-95-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1644,7 +1644,7 @@
    "recentMeanClvProb": 0.0007,
    "nShortOfFirstStage": 0,
    "tShort": 1.82,
-   "record": "111-81-1",
+   "record": "115-81-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +0.1% is positive but t +0.2 is under the t >= 2.0 bar at n 197; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1663,7 +1663,7 @@
    "recentMeanClvProb": 0.0009,
    "nShortOfFirstStage": 0,
    "tShort": 1.73,
-   "record": "126-136-2",
+   "record": "130-139-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +0.1% is positive but t +0.3 is under the t >= 2.0 bar at n 271; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1709,18 +1709,18 @@
    "key": "ALL|role=under",
    "sport": "ALL",
    "feature": "role=under",
-   "n": 199,
-   "meanClvProb": -0.018,
-   "tStat": -6.81,
+   "n": 200,
+   "meanClvProb": -0.0181,
+   "tStat": -6.88,
    "beatClose": 57,
    "status": "early-negative",
    "picksN": 74,
    "picksMeanClvProb": -0.0121,
-   "recentN": 199,
-   "recentMeanClvProb": -0.018,
+   "recentN": 200,
+   "recentMeanClvProb": -0.0181,
    "nShortOfFirstStage": 0,
-   "tShort": 8.81,
-   "record": "99-99-0",
+   "tShort": 8.88,
+   "record": "100-100-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1794,7 +1794,7 @@
    "recentMeanClvProb": -0.0117,
    "nShortOfFirstStage": 0,
    "tShort": 5.98,
-   "record": "63-56-0",
+   "record": "64-58-0",
    "firstSeen": "2026-10-21",
    "why_not_promoted": "mean CLV -1.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1831,7 +1831,7 @@
    "recentMeanClvProb": 0.0079,
    "nShortOfFirstStage": 0,
    "tShort": 0.68,
-   "record": "23-22-1",
+   "record": "23-23-1",
    "firstSeen": "2026-10-21",
    "why_not_promoted": "mean CLV +0.8% is positive but t +1.3 is under the t >= 2.0 bar at n 47; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1905,7 +1905,7 @@
    "recentMeanClvProb": -0.008,
    "nShortOfFirstStage": 0,
    "tShort": 3.37,
-   "record": "16-22-0",
+   "record": "16-23-0",
    "firstSeen": "2026-10-21",
    "why_not_promoted": "mean CLV -0.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1942,7 +1942,7 @@
    "recentMeanClvProb": -0.0117,
    "nShortOfFirstStage": 0,
    "tShort": 5.98,
-   "record": "63-56-0",
+   "record": "64-58-0",
    "firstSeen": "2026-10-21",
    "why_not_promoted": "mean CLV -1.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -1997,7 +1997,7 @@
    "recentMeanClvProb": -0.0129,
    "nShortOfFirstStage": 0,
    "tShort": 5.41,
-   "record": "47-57-1",
+   "record": "48-58-1",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -1.3% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2042,18 +2042,18 @@
    "key": "ALL|timing=early",
    "sport": "ALL",
    "feature": "timing=early",
-   "n": 354,
+   "n": 355,
    "meanClvProb": -0.012,
-   "tStat": -4.12,
+   "tStat": -4.15,
    "beatClose": 122,
    "status": "early-negative",
    "picksN": 153,
    "picksMeanClvProb": -0.0115,
-   "recentN": 354,
+   "recentN": 355,
    "recentMeanClvProb": -0.012,
    "nShortOfFirstStage": 0,
-   "tShort": 6.12,
-   "record": "174-173-2",
+   "tShort": 6.15,
+   "record": "178-175-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2072,7 +2072,7 @@
    "recentMeanClvProb": -0.0082,
    "nShortOfFirstStage": 0,
    "tShort": 4.53,
-   "record": "47-47-0",
+   "record": "48-49-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2080,18 +2080,18 @@
    "key": "ALL|travel=1500+",
    "sport": "ALL",
    "feature": "travel=1500+",
-   "n": 89,
-   "meanClvProb": -0.0186,
-   "tStat": -5.57,
+   "n": 90,
+   "meanClvProb": -0.0188,
+   "tStat": -5.68,
    "beatClose": 18,
    "status": "early-negative",
    "picksN": 39,
    "picksMeanClvProb": -0.023,
-   "recentN": 89,
-   "recentMeanClvProb": -0.0186,
+   "recentN": 90,
+   "recentMeanClvProb": -0.0188,
    "nShortOfFirstStage": 0,
-   "tShort": 7.57,
-   "record": "40-49-0",
+   "tShort": 7.68,
+   "record": "41-49-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2110,7 +2110,7 @@
    "recentMeanClvProb": -0.0102,
    "nShortOfFirstStage": 0,
    "tShort": 5.9,
-   "record": "180-168-0",
+   "record": "180-170-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.0% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2129,7 +2129,7 @@
    "recentMeanClvProb": -0.0054,
    "nShortOfFirstStage": 0,
    "tShort": 3.67,
-   "record": "122-110-2",
+   "record": "126-110-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.5% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2148,7 +2148,7 @@
    "recentMeanClvProb": -0.0214,
    "nShortOfFirstStage": 0,
    "tShort": 7.41,
-   "record": "62-63-1",
+   "record": "62-65-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -2.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2167,7 +2167,7 @@
    "recentMeanClvProb": -0.0031,
    "nShortOfFirstStage": 0,
    "tShort": 2.74,
-   "record": "63-55-0",
+   "record": "67-55-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.3% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2186,7 +2186,7 @@
    "recentMeanClvProb": -0.0164,
    "nShortOfFirstStage": 0,
    "tShort": 6.33,
-   "record": "75-87-1",
+   "record": "75-89-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2205,7 +2205,7 @@
    "recentMeanClvProb": 0.0016,
    "nShortOfFirstStage": 0,
    "tShort": 1.69,
-   "record": "78-63-2",
+   "record": "78-64-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +0.2% is positive but t +0.3 is under the t >= 2.0 bar at n 144; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2243,7 +2243,7 @@
    "recentMeanClvProb": -0.0016,
    "nShortOfFirstStage": 0,
    "tShort": 2.47,
-   "record": "152-130-1",
+   "record": "156-133-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2281,7 +2281,7 @@
    "recentMeanClvProb": -0.0033,
    "nShortOfFirstStage": 0,
    "tShort": 3.0,
-   "record": "127-100-2",
+   "record": "127-101-2",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.3% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2318,7 +2318,7 @@
    "recentMeanClvProb": -0.0058,
    "nShortOfFirstStage": 0,
    "tShort": 3.68,
-   "record": "122-133-1",
+   "record": "126-135-1",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -2337,7 +2337,7 @@
    "recentMeanClvProb": -0.0224,
    "nShortOfFirstStage": 10,
    "tShort": 4.02,
-   "record": "2-1-0",
+   "record": "2-3-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -2373,7 +2373,7 @@
    "recentMeanClvProb": -0.0109,
    "nShortOfFirstStage": 0,
    "tShort": 3.71,
-   "record": "15-16-0",
+   "record": "16-16-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4138,7 +4138,7 @@
    "recentMeanClvProb": 0.0196,
    "nShortOfFirstStage": 7,
    "tShort": 0.0,
-   "record": "5-2-0",
+   "record": "5-3-0",
    "firstSeen": "2026-10-29"
   },
   {
@@ -4246,7 +4246,7 @@
    "recentMeanClvProb": -0.0104,
    "nShortOfFirstStage": 0,
    "tShort": 3.76,
-   "record": "47-45-0",
+   "record": "47-46-0",
    "firstSeen": "2026-10-21",
    "why_not_promoted": "mean CLV -1.0% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4686,7 +4686,7 @@
    "recentMeanClvProb": 0.0148,
    "nShortOfFirstStage": 11,
    "tShort": 0.0,
-   "record": "3-0-0",
+   "record": "3-1-0",
    "firstSeen": "2026-10-31"
   },
   {
@@ -4704,7 +4704,7 @@
    "recentMeanClvProb": -0.0013,
    "nShortOfFirstStage": 9,
    "tShort": 2.64,
-   "record": "2-3-0",
+   "record": "2-4-0",
    "firstSeen": "2026-10-29"
   },
   {
@@ -4759,7 +4759,7 @@
    "recentMeanClvProb": -0.0146,
    "nShortOfFirstStage": 0,
    "tShort": 5.82,
-   "record": "72-75-0",
+   "record": "72-76-0",
    "firstSeen": "2026-10-23",
    "why_not_promoted": "mean CLV -1.5% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4816,7 +4816,7 @@
    "recentMeanClvProb": -0.0075,
    "nShortOfFirstStage": 0,
    "tShort": 3.1,
-   "record": "21-30-0",
+   "record": "21-31-0",
    "firstSeen": "2026-10-22",
    "why_not_promoted": "mean CLV -0.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -4872,7 +4872,7 @@
    "recentMeanClvProb": -0.0025,
    "nShortOfFirstStage": 0,
    "tShort": 2.39,
-   "record": "54-51-0",
+   "record": "54-52-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -0.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -5021,7 +5021,7 @@
    "recentMeanClvProb": 0.0138,
    "nShortOfFirstStage": 0,
    "tShort": 0.54,
-   "record": "13-12-0",
+   "record": "13-13-0",
    "firstSeen": "2026-10-21"
   },
   {
@@ -5093,7 +5093,7 @@
    "recentMeanClvProb": 0.0029,
    "nShortOfFirstStage": 0,
    "tShort": 2.19,
-   "record": "9-8-0",
+   "record": "9-9-0",
    "firstSeen": "2026-10-22"
   },
   {
@@ -5166,7 +5166,7 @@
    "recentMeanClvProb": -0.0182,
    "nShortOfFirstStage": 0,
    "tShort": 5.59,
-   "record": "23-37-0",
+   "record": "23-38-0",
    "firstSeen": "2026-10-21",
    "why_not_promoted": "mean CLV -1.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -5241,7 +5241,7 @@
    "recentMeanClvProb": -0.0141,
    "nShortOfFirstStage": 0,
    "tShort": 5.49,
-   "record": "20-22-0",
+   "record": "20-23-0",
    "firstSeen": "2026-10-23",
    "why_not_promoted": "mean CLV -1.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -5278,7 +5278,7 @@
    "recentMeanClvProb": -0.0045,
    "nShortOfFirstStage": 0,
    "tShort": 2.95,
-   "record": "73-76-0",
+   "record": "73-77-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -0.4% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -5373,7 +5373,7 @@
    "recentMeanClvProb": 0.0156,
    "nShortOfFirstStage": 0,
    "tShort": 0.28,
-   "record": "33-20-0",
+   "record": "33-21-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV +1.6% is positive but t +1.7 is under the t >= 2.0 bar at n 54; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -5410,7 +5410,7 @@
    "recentMeanClvProb": -0.0016,
    "nShortOfFirstStage": 0,
    "tShort": 2.36,
-   "record": "75-59-0",
+   "record": "75-60-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -0.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -5448,7 +5448,7 @@
    "recentMeanClvProb": -0.0005,
    "nShortOfFirstStage": 0,
    "tShort": 2.07,
-   "record": "39-23-0",
+   "record": "39-24-0",
    "firstSeen": "2026-10-20",
    "why_not_promoted": "mean CLV -0.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -5540,7 +5540,7 @@
    "recentMeanClvProb": -0.0262,
    "nShortOfFirstStage": 6,
    "tShort": 5.33,
-   "record": "4-3-0",
+   "record": "4-5-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -5558,7 +5558,7 @@
    "recentMeanClvProb": 0.0203,
    "nShortOfFirstStage": 12,
    "tShort": 0.0,
-   "record": "0-2-0",
+   "record": "1-2-0",
    "firstSeen": "2026-10-29"
   },
   {
@@ -5576,7 +5576,7 @@
    "recentMeanClvProb": 0.0082,
    "nShortOfFirstStage": 0,
    "tShort": 0.79,
-   "record": "27-24-0",
+   "record": "28-26-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +0.8% is positive but t +1.2 is under the t >= 2.0 bar at n 54; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -5602,18 +5602,18 @@
    "key": "NCAAF|edgeBar=<0.5x",
    "sport": "NCAAF",
    "feature": "edgeBar=<0.5x",
-   "n": 159,
-   "meanClvProb": -0.0155,
-   "tStat": -4.07,
+   "n": 160,
+   "meanClvProb": -0.0156,
+   "tStat": -4.12,
    "beatClose": 43,
    "status": "early-negative",
    "picksN": 0,
    "picksMeanClvProb": null,
-   "recentN": 159,
-   "recentMeanClvProb": -0.0155,
+   "recentN": 160,
+   "recentMeanClvProb": -0.0156,
    "nShortOfFirstStage": 0,
-   "tShort": 6.07,
-   "record": "78-77-0",
+   "tShort": 6.12,
+   "record": "82-78-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -5632,7 +5632,7 @@
    "recentMeanClvProb": 0.0109,
    "nShortOfFirstStage": 0,
    "tShort": 0.77,
-   "record": "19-18-0",
+   "record": "20-19-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +1.1% is positive but t +1.2 is under the t >= 2.0 bar at n 39; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -5651,7 +5651,7 @@
    "recentMeanClvProb": -0.0126,
    "nShortOfFirstStage": 0,
    "tShort": 3.93,
-   "record": "13-13-0",
+   "record": "14-13-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -5669,7 +5669,7 @@
    "recentMeanClvProb": -0.011,
    "nShortOfFirstStage": 0,
    "tShort": 3.57,
-   "record": "26-18-0",
+   "record": "26-19-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -5677,20 +5677,20 @@
    "key": "NCAAF|moveBeforePick=none",
    "sport": "NCAAF",
    "feature": "moveBeforePick=none",
-   "n": 128,
-   "meanClvProb": -0.0094,
-   "tStat": -1.95,
+   "n": 129,
+   "meanClvProb": -0.0096,
+   "tStat": -2.01,
    "beatClose": 43,
    "status": "early-negative",
    "picksN": 23,
    "picksMeanClvProb": 0.0096,
-   "recentN": 128,
-   "recentMeanClvProb": -0.0094,
+   "recentN": 129,
+   "recentMeanClvProb": -0.0096,
    "nShortOfFirstStage": 0,
-   "tShort": 3.95,
-   "record": "62-62-0",
+   "tShort": 4.01,
+   "record": "66-63-0",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -0.9% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -1.0% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "NCAAF|pattern=edge-stack",
@@ -5707,7 +5707,7 @@
    "recentMeanClvProb": -0.0153,
    "nShortOfFirstStage": 1,
    "tShort": 3.84,
-   "record": "4-9-0",
+   "record": "5-9-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -5725,7 +5725,7 @@
    "recentMeanClvProb": 0.0135,
    "nShortOfFirstStage": 0,
    "tShort": 0.48,
-   "record": "21-18-0",
+   "record": "22-18-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +1.4% is positive but t +1.5 is under the t >= 2.0 bar at n 40; grade.py promotes on graded full-bar picks only: 0 of the 15 needed (leans never promote). Still collecting."
   },
@@ -5787,20 +5787,20 @@
    "key": "NCAAF|pattern=ncaaf-spot",
    "sport": "NCAAF",
    "feature": "pattern=ncaaf-spot",
-   "n": 56,
-   "meanClvProb": -0.0224,
-   "tStat": -3.03,
+   "n": 57,
+   "meanClvProb": -0.0226,
+   "tStat": -3.12,
    "beatClose": 15,
    "status": "early-negative",
    "picksN": 0,
    "picksMeanClvProb": null,
-   "recentN": 56,
-   "recentMeanClvProb": -0.0224,
+   "recentN": 57,
+   "recentMeanClvProb": -0.0226,
    "nShortOfFirstStage": 0,
-   "tShort": 5.03,
-   "record": "28-26-0",
+   "tShort": 5.12,
+   "record": "30-27-0",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -2.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; every read so far is a lean, so grade.py has no graded full-bar picks for it (15 needed; leans never promote). Still collecting."
+   "why_not_promoted": "mean CLV -2.3% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; every read so far is a lean, so grade.py has no graded full-bar picks for it (15 needed; leans never promote). Still collecting."
   },
   {
    "key": "NCAAF|pattern=ncaaf-total-move",
@@ -5871,7 +5871,7 @@
    "recentMeanClvProb": 0.0053,
    "nShortOfFirstStage": 8,
    "tShort": 2.17,
-   "record": "3-3-0",
+   "record": "3-4-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -5889,7 +5889,7 @@
    "recentMeanClvProb": 0.0037,
    "nShortOfFirstStage": 1,
    "tShort": 2.11,
-   "record": "6-6-0",
+   "record": "7-7-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -5925,7 +5925,7 @@
    "recentMeanClvProb": -0.0065,
    "nShortOfFirstStage": 10,
    "tShort": 2.86,
-   "record": "0-3-0",
+   "record": "1-4-0",
    "firstSeen": "2026-10-29"
   },
   {
@@ -5943,7 +5943,7 @@
    "recentMeanClvProb": -0.0523,
    "nShortOfFirstStage": 14,
    "tShort": 2.5,
-   "record": "0-0-0",
+   "record": "0-1-0",
    "firstSeen": "2026-10-31"
   },
   {
@@ -5979,7 +5979,7 @@
    "recentMeanClvProb": 0.0117,
    "nShortOfFirstStage": 0,
    "tShort": 0.68,
-   "record": "23-25-0",
+   "record": "27-25-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +1.2% is positive but t +1.3 is under the t >= 2.0 bar at n 52; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -5987,18 +5987,18 @@
    "key": "NCAAF|restDays=normal",
    "sport": "NCAAF",
    "feature": "restDays=normal",
-   "n": 159,
-   "meanClvProb": -0.0176,
-   "tStat": -5.58,
+   "n": 160,
+   "meanClvProb": -0.0178,
+   "tStat": -5.64,
    "beatClose": 41,
    "status": "early-negative",
    "picksN": 45,
    "picksMeanClvProb": -0.0046,
-   "recentN": 159,
-   "recentMeanClvProb": -0.0176,
+   "recentN": 160,
+   "recentMeanClvProb": -0.0178,
    "nShortOfFirstStage": 0,
-   "tShort": 7.58,
-   "record": "79-77-0",
+   "tShort": 7.64,
+   "record": "80-80-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6035,7 +6035,7 @@
    "recentMeanClvProb": -0.0011,
    "nShortOfFirstStage": 0,
    "tShort": 2.16,
-   "record": "22-19-0",
+   "record": "22-21-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.1% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6072,7 +6072,7 @@
    "recentMeanClvProb": 0.0053,
    "nShortOfFirstStage": 0,
    "tShort": 1.39,
-   "record": "25-23-0",
+   "record": "29-23-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +0.5% is positive but t +0.6 is under the t >= 2.0 bar at n 52; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6091,7 +6091,7 @@
    "recentMeanClvProb": 0.0148,
    "nShortOfFirstStage": 0,
    "tShort": 0.02,
-   "record": "25-26-0",
+   "record": "29-28-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +1.5% is positive but t +2.0 is under the t >= 2.0 bar at n 57; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6137,18 +6137,18 @@
    "key": "NCAAF|role=under",
    "sport": "NCAAF",
    "feature": "role=under",
-   "n": 79,
-   "meanClvProb": -0.0275,
-   "tStat": -6.9,
+   "n": 80,
+   "meanClvProb": -0.0276,
+   "tStat": -7.01,
    "beatClose": 15,
    "status": "early-negative",
    "picksN": 17,
    "picksMeanClvProb": -0.0223,
-   "recentN": 79,
-   "recentMeanClvProb": -0.0275,
+   "recentN": 80,
+   "recentMeanClvProb": -0.0276,
    "nShortOfFirstStage": 0,
-   "tShort": 8.9,
-   "record": "37-41-0",
+   "tShort": 9.01,
+   "record": "38-42-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -2.8% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6185,7 +6185,7 @@
    "recentMeanClvProb": -0.0214,
    "nShortOfFirstStage": 0,
    "tShort": 6.58,
-   "record": "4-10-0",
+   "record": "5-12-0",
    "firstSeen": "2026-10-22"
   },
   {
@@ -6257,7 +6257,7 @@
    "recentMeanClvProb": -0.0214,
    "nShortOfFirstStage": 0,
    "tShort": 6.58,
-   "record": "4-10-0",
+   "record": "5-12-0",
    "firstSeen": "2026-10-22"
   },
   {
@@ -6311,7 +6311,7 @@
    "recentMeanClvProb": -0.0183,
    "nShortOfFirstStage": 5,
    "tShort": 4.57,
-   "record": "4-5-0",
+   "record": "5-5-0",
    "firstSeen": "2026-10-20"
   },
   {
@@ -6355,18 +6355,18 @@
    "key": "NCAAF|timing=early",
    "sport": "NCAAF",
    "feature": "timing=early",
-   "n": 167,
-   "meanClvProb": -0.0071,
-   "tStat": -1.68,
+   "n": 168,
+   "meanClvProb": -0.0072,
+   "tStat": -1.73,
    "beatClose": 60,
    "status": "early-negative",
    "picksN": 25,
    "picksMeanClvProb": 0.0279,
-   "recentN": 167,
-   "recentMeanClvProb": -0.0071,
+   "recentN": 168,
+   "recentMeanClvProb": -0.0072,
    "nShortOfFirstStage": 0,
-   "tShort": 3.68,
-   "record": "78-84-0",
+   "tShort": 3.73,
+   "record": "82-86-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -0.7% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6385,27 +6385,27 @@
    "recentMeanClvProb": -0.0017,
    "nShortOfFirstStage": 3,
    "tShort": 2.79,
-   "record": "5-5-0",
+   "record": "6-6-0",
    "firstSeen": "2026-10-19"
   },
   {
    "key": "NCAAF|travel=1500+",
    "sport": "NCAAF",
    "feature": "travel=1500+",
-   "n": 33,
-   "meanClvProb": -0.0162,
-   "tStat": -3.2,
+   "n": 34,
+   "meanClvProb": -0.0167,
+   "tStat": -3.38,
    "beatClose": 5,
    "status": "early-negative",
    "picksN": 7,
    "picksMeanClvProb": -0.0199,
-   "recentN": 33,
-   "recentMeanClvProb": -0.0162,
+   "recentN": 34,
+   "recentMeanClvProb": -0.0167,
    "nShortOfFirstStage": 0,
-   "tShort": 5.2,
-   "record": "12-21-0",
+   "tShort": 5.38,
+   "record": "13-21-0",
    "firstSeen": "2026-10-19",
-   "why_not_promoted": "mean CLV -1.6% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
+   "why_not_promoted": "mean CLV -1.7% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
   {
    "key": "NCAAF|travel=500-1500",
@@ -6422,7 +6422,7 @@
    "recentMeanClvProb": -0.0149,
    "nShortOfFirstStage": 0,
    "tShort": 4.95,
-   "record": "50-44-0",
+   "record": "50-45-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.5% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6441,7 +6441,7 @@
    "recentMeanClvProb": 0.0019,
    "nShortOfFirstStage": 0,
    "tShort": 1.73,
-   "record": "33-29-0",
+   "record": "37-29-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +0.2% is positive but t +0.3 is under the t >= 2.0 bar at n 66; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6460,7 +6460,7 @@
    "recentMeanClvProb": -0.0081,
    "nShortOfFirstStage": 0,
    "tShort": 2.68,
-   "record": "11-7-0",
+   "record": "11-9-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -6478,7 +6478,7 @@
    "recentMeanClvProb": 0.024,
    "nShortOfFirstStage": 0,
    "tShort": 0.0,
-   "record": "20-12-0",
+   "record": "24-12-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -6496,7 +6496,7 @@
    "recentMeanClvProb": -0.0123,
    "nShortOfFirstStage": 0,
    "tShort": 3.44,
-   "record": "14-24-0",
+   "record": "14-26-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV -1.2% is at or below 0; promotion needs mean CLV > 0 and t >= 2.0; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6552,7 +6552,7 @@
    "recentMeanClvProb": 0.0103,
    "nShortOfFirstStage": 0,
    "tShort": 0.71,
-   "record": "31-26-0",
+   "record": "35-28-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +1.0% is positive but t +1.3 is under the t >= 2.0 bar at n 63; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6608,7 +6608,7 @@
    "recentMeanClvProb": 0.0117,
    "nShortOfFirstStage": 0,
    "tShort": 0.67,
-   "record": "24-23-0",
+   "record": "28-25-0",
    "firstSeen": "2026-10-19",
    "why_not_promoted": "mean CLV +1.2% is positive but t +1.3 is under the t >= 2.0 bar at n 53; a feature slice is research only and is never promoted on its own. Still collecting."
   },
@@ -6627,7 +6627,7 @@
    "recentMeanClvProb": -0.0273,
    "nShortOfFirstStage": 11,
    "tShort": 4.02,
-   "record": "1-1-0",
+   "record": "1-3-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -6663,7 +6663,7 @@
    "recentMeanClvProb": -0.0089,
    "nShortOfFirstStage": 0,
    "tShort": 3.24,
-   "record": "12-15-0",
+   "record": "13-15-0",
    "firstSeen": "2026-10-19"
   },
   {
@@ -9961,7 +9961,7 @@
     "meanClvProb": -0.0069
    },
    "C": {
-    "n": 541,
+    "n": 542,
     "meanClvProb": -0.0119
    },
    "note": "Observation, not a defect: in a working system A > B > C on CLV. Until it is, edge size is not yet predicting CLV."
@@ -9986,10 +9986,10 @@
  },
  "autopsy": {
   "note": "Post-pick. Causes explain why reads lost to the close; verdicts and tags explain results. Nothing here is a feature or a rule: a cause becomes testable only through its pre-pick feature.",
-  "graded": 890,
-  "withAutopsy": 890,
-  "causeKnown": 589,
-  "lostToClose": 589,
+  "graded": 891,
+  "withAutopsy": 891,
+  "causeKnown": 590,
+  "lostToClose": 590,
   "beatClose": 301,
   "newsForUs": 55,
   "lossCauses": {
@@ -9998,7 +9998,7 @@
     "meanClvProb": -0.0157,
     "tStat": -30.77,
     "beatClose": 0,
-    "share": 0.467,
+    "share": 0.466,
     "clvLost": -4.3104,
     "lostToPrice": -6.0901,
     "lostToMove": 1.7797,
@@ -10048,9 +10048,9 @@
     },
     "prePickFeature": "timing=early",
     "prePickFeatureClv": {
-     "n": 354,
+     "n": 355,
      "meanClvProb": -0.012,
-     "tStat": -4.12,
+     "tStat": -4.15,
      "status": "early-negative"
     }
    },
@@ -10136,18 +10136,18 @@
     }
    },
    "late-move": {
-    "n": 15,
-    "meanClvProb": -0.0459,
-    "tStat": -8.15,
+    "n": 16,
+    "meanClvProb": -0.0452,
+    "tStat": -8.52,
     "beatClose": 0,
-    "share": 0.025,
-    "clvLost": -0.6883,
-    "lostToPrice": -0.2701,
-    "lostToMove": -0.4182,
+    "share": 0.027,
+    "clvLost": -0.7232,
+    "lostToPrice": -0.2939,
+    "lostToMove": -0.4293,
     "nowBlocked": 6,
     "bySport": {
      "NBA": 8,
-     "NCAAF": 3,
+     "NCAAF": 4,
      "NHL": 2,
      "NFL": 1,
      "WTA": 1
@@ -10222,7 +10222,7 @@
     "meanClvProb": -0.0543,
     "tStat": -29.74,
     "beatClose": 0,
-    "share": 0.382,
+    "share": 0.381,
     "clvLost": -12.2066,
     "lostToPrice": -4.6621,
     "lostToMove": -7.5445,
@@ -10253,27 +10253,27 @@
   },
   "verdicts": {
    "right-and-rewarded": {
-    "n": 170,
-    "meanClvProb": 0.0384,
-    "tStat": 12.71,
-    "beatClose": 170
+    "n": 174,
+    "meanClvProb": 0.0398,
+    "tStat": 12.95,
+    "beatClose": 174
    },
    "right-but-unlucky": {
-    "n": 125,
-    "meanClvProb": 0.0366,
-    "tStat": 10.17,
-    "beatClose": 125
+    "n": 126,
+    "meanClvProb": 0.0364,
+    "tStat": 10.2,
+    "beatClose": 126
    },
    "lucky-win": {
-    "n": 273,
+    "n": 274,
     "meanClvProb": -0.0316,
-    "tStat": -21.05,
+    "tStat": -21.14,
     "beatClose": 0
    },
    "market-was-right": {
-    "n": 311,
+    "n": 314,
     "meanClvProb": -0.0382,
-    "tStat": -21.51,
+    "tStat": -21.73,
     "beatClose": 0
    },
    "push": {
@@ -10283,7 +10283,7 @@
     "beatClose": 1
    }
   },
-  "withBox": 811,
+  "withBox": 820,
   "varianceTags": {
    "close-margin:hurt": {
     "n": 94,
@@ -10294,10 +10294,10 @@
     }
    },
    "close-margin:helped": {
-    "n": 80,
+    "n": 81,
     "inVerdict": {
      "lucky-win": 53,
-     "right-and-rewarded": 27
+     "right-and-rewarded": 28
     }
    },
    "flipped-late:hurt": {
@@ -10312,6 +10312,15 @@
     "inVerdict": {
      "lucky-win": 42,
      "right-and-rewarded": 26
+    }
+   },
+   "overtime:hurt": {
+    "n": 58,
+    "inVerdict": {
+     "lucky-win": 15,
+     "market-was-right": 29,
+     "right-and-rewarded": 10,
+     "right-but-unlucky": 4
     }
    },
    "goalie-outlier:hurt": {
@@ -10332,15 +10341,6 @@
      "right-but-unlucky": 3
     }
    },
-   "overtime:hurt": {
-    "n": 53,
-    "inVerdict": {
-     "lucky-win": 15,
-     "market-was-right": 28,
-     "right-and-rewarded": 6,
-     "right-but-unlucky": 4
-    }
-   },
    "overtime:helped": {
     "n": 53,
     "inVerdict": {
@@ -10359,6 +10359,14 @@
      "right-but-unlucky": 1
     }
    },
+   "turnover-swing": {
+    "n": 26,
+    "inVerdict": {
+     "lucky-win": 11,
+     "market-was-right": 12,
+     "right-and-rewarded": 3
+    }
+   },
    "empty-net:hurt": {
     "n": 26,
     "inVerdict": {
@@ -10371,14 +10379,6 @@
     "inVerdict": {
      "right-and-rewarded": 7,
      "lucky-win": 19
-    }
-   },
-   "turnover-swing": {
-    "n": 25,
-    "inVerdict": {
-     "lucky-win": 10,
-     "market-was-right": 12,
-     "right-and-rewarded": 3
     }
    },
    "three-point-outlier:hurt": {
@@ -10522,8 +10522,8 @@
   },
   {
    "slice": "ALL|edgeBar=<0.5x",
-   "n": 496,
-   "meanClvProb": -0.0118,
+   "n": 497,
+   "meanClvProb": -0.0119,
    "pocket": {
     "feature": "pattern=scan-nba-spread-away-restedgeawaymore-1e501d",
     "n": 9,
@@ -10579,7 +10579,7 @@
   },
   {
    "slice": "ALL|grade=C",
-   "n": 541,
+   "n": 542,
    "meanClvProb": -0.0119,
    "pocket": {
     "feature": "pattern=scan-nba-spread-away-restedgeawaymore-1e501d",
@@ -10678,7 +10678,7 @@
   },
   {
    "slice": "ALL|market=total",
-   "n": 390,
+   "n": 391,
    "meanClvProb": -0.0178,
    "pocket": {
     "feature": "shortWeek=yes",
@@ -10700,7 +10700,7 @@
    "n": 65,
    "meanClvProb": -0.0075,
    "pocket": {
-    "feature": "edgeBar=1-2x",
+    "feature": "grade=A",
     "n": 8,
     "meanClvProb": 0.0084,
     "tStat": 0.7
@@ -10730,8 +10730,8 @@
   },
   {
    "slice": "ALL|moveBeforePick=none",
-   "n": 467,
-   "meanClvProb": -0.0113,
+   "n": 468,
+   "meanClvProb": -0.0114,
    "pocket": {
     "feature": "pattern=scan-nba-spread-away-restedgeawaymore-1e501d",
     "n": 9,
@@ -10813,8 +10813,8 @@
   },
   {
    "slice": "ALL|pattern=ncaaf-spot",
-   "n": 56,
-   "meanClvProb": -0.0224,
+   "n": 57,
+   "meanClvProb": -0.0226,
    "pocket": {
     "feature": "travelEdge=even",
     "n": 12,
@@ -10967,7 +10967,7 @@
   },
   {
    "slice": "ALL|restDays=normal",
-   "n": 282,
+   "n": 283,
    "meanClvProb": -0.0208,
    "pocket": {
     "feature": "pattern=sharp-soft",
@@ -11066,8 +11066,8 @@
   },
   {
    "slice": "ALL|role=under",
-   "n": 199,
-   "meanClvProb": -0.018,
+   "n": 200,
+   "meanClvProb": -0.0181,
    "pocket": {
     "feature": "pattern=learned-nba-total",
     "n": 13,
@@ -11269,7 +11269,7 @@
   },
   {
    "slice": "ALL|timing=early",
-   "n": 354,
+   "n": 355,
    "meanClvProb": -0.012,
    "pocket": {
     "feature": "travelEdge=even",
@@ -11307,8 +11307,8 @@
   },
   {
    "slice": "ALL|travel=1500+",
-   "n": 89,
-   "meanClvProb": -0.0186,
+   "n": 90,
+   "meanClvProb": -0.0188,
    "pocket": null,
    "tested": 37,
    "pairPocket": null,
@@ -12031,7 +12031,7 @@
    "n": 60,
    "meanClvProb": -0.0166,
    "pocket": {
-    "feature": "sharpDiv=aligned",
+    "feature": "sharpGapOpen=<1%",
     "n": 9,
     "meanClvProb": 0.0072,
     "tStat": 8.26
@@ -12069,7 +12069,7 @@
    "n": 16,
    "meanClvProb": -0.0205,
    "pocket": {
-    "feature": "edgeBar=<0.5x",
+    "feature": "grade=C",
     "n": 9,
     "meanClvProb": 0.0067,
     "tStat": 0.53
@@ -12102,7 +12102,7 @@
    "n": 38,
    "meanClvProb": -0.025,
    "pocket": {
-    "feature": "sharpDivPick=aligned",
+    "feature": "sharpGapPick=<1%",
     "n": 9,
     "meanClvProb": 0.0086,
     "tStat": 8.22
@@ -12156,8 +12156,8 @@
   },
   {
    "slice": "NCAAF|edgeBar=<0.5x",
-   "n": 159,
-   "meanClvProb": -0.0155,
+   "n": 160,
+   "meanClvProb": -0.0156,
    "pocket": {
     "feature": "travelEdge=even",
     "n": 28,
@@ -12198,8 +12198,8 @@
   },
   {
    "slice": "NCAAF|moveBeforePick=none",
-   "n": 128,
-   "meanClvProb": -0.0094,
+   "n": 129,
+   "meanClvProb": -0.0096,
    "pocket": {
     "feature": "role=dog",
     "n": 25,
@@ -12226,8 +12226,8 @@
   },
   {
    "slice": "NCAAF|pattern=ncaaf-spot",
-   "n": 56,
-   "meanClvProb": -0.0224,
+   "n": 57,
+   "meanClvProb": -0.0226,
    "pocket": {
     "feature": "travelEdge=even",
     "n": 12,
@@ -12254,8 +12254,8 @@
   },
   {
    "slice": "NCAAF|restDays=normal",
-   "n": 159,
-   "meanClvProb": -0.0176,
+   "n": 160,
+   "meanClvProb": -0.0178,
    "pocket": {
     "feature": "pattern=learned-ncaaf-spread",
     "n": 25,
@@ -12320,8 +12320,8 @@
   },
   {
    "slice": "NCAAF|role=under",
-   "n": 79,
-   "meanClvProb": -0.0275,
+   "n": 80,
+   "meanClvProb": -0.0276,
    "pocket": null,
    "tested": 17,
    "pairPocket": null,
@@ -12356,8 +12356,8 @@
   },
   {
    "slice": "NCAAF|timing=early",
-   "n": 167,
-   "meanClvProb": -0.0071,
+   "n": 168,
+   "meanClvProb": -0.0072,
    "pocket": {
     "feature": "travelEdge=even",
     "n": 26,
@@ -12375,8 +12375,8 @@
   },
   {
    "slice": "NCAAF|travel=1500+",
-   "n": 33,
-   "meanClvProb": -0.0162,
+   "n": 34,
+   "meanClvProb": -0.0167,
    "pocket": null,
    "tested": 16,
    "pairPocket": null,
@@ -12822,7 +12822,7 @@
    "n": 35,
    "meanClvProb": -0.0161,
    "pocket": {
-    "feature": "restDays=long",
+    "feature": "restEdge=more",
     "n": 9,
     "meanClvProb": 0.0533,
     "tStat": 1.81
@@ -12860,7 +12860,7 @@
    "n": 39,
    "meanClvProb": -0.0139,
    "pocket": {
-    "feature": "restDays=long",
+    "feature": "restEdge=more",
     "n": 9,
     "meanClvProb": 0.0533,
     "tStat": 1.81
@@ -13216,7 +13216,7 @@
    "n": 16,
    "meanClvProb": -0.0061,
    "pocket": {
-    "feature": "edgeBar=<0.5x",
+    "feature": "grade=C",
     "n": 8,
     "meanClvProb": 0.0021,
     "tStat": 0.3
