@@ -111867,6 +111867,67 @@
         "printImplied": 0.5556
       },
       "pinGate": "unchecked"
+    },
+    {
+      "pickId": "ATP|2026-10-31|Taylor Fritz at Valentin Vacherot|h2h|away|v1|lean|tennis-fatigue|2026-10-31T03:24:33Z|gated|2026-10-31T03:24:33Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "ATP|2026-10-31|Taylor Fritz at Valentin Vacherot|h2h",
+      "sport": "ATP",
+      "event": "Taylor Fritz at Valentin Vacherot",
+      "commence": "2026-10-31T14:00:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": -320,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": 255,
+        "away": -329
+      },
+      "priceTime": "2026-10-31T02:12:24Z",
+      "pickedAt": "2026-10-31T03:24:33Z",
+      "fair": 0.237,
+      "projection": 0.237,
+      "edge": 0.001,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.018,
+      "modelWeight": 0.116,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "tennis-fatigue",
+      "reason": "Home player played 32 more games in the last 2 days; fair 0.237 (starting value 0.02). Hard. Games in the last 2 days: Valentin Vacherot 61, Taylor Fritz 29.",
+      "falsifier": "The price closes at or past the market's open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "tennis.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 266,
+          "away": -310
+        },
+        "updated": "2026-10-31T02:12:18Z",
+        "snapTime": "2026-10-31T02:12:24Z",
+        "noVig": 0.7414
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -320,
+        "line": null,
+        "implied": 0.7619,
+        "printImplied": 0.7669
+      },
+      "pinEdgeAtPick": -0.0205,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.1% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
