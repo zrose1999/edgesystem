@@ -1,11 +1,9 @@
 {
- "asOf": "2026-10-31T02:13:05Z",
+ "asOf": "2026-10-31T02:24:32Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 890,
  "loggedReads": 1792,
- "newPatternsThisRun": [
-  "soft-dog"
- ],
+ "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md)."
@@ -100,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1650,
-  "latest": "2026-10-31T02:12:24Z",
+  "linesLastCycle": 1644,
+  "latest": "2026-10-31T02:24:25Z",
   "rowsWithHistory": 1322,
   "alarm": false
  },
@@ -10683,7 +10681,7 @@
    "n": 390,
    "meanClvProb": -0.0178,
    "pocket": {
-    "feature": "shortWeek=yes",
+    "feature": "restDays=short",
     "n": 11,
     "meanClvProb": 0.0204,
     "tStat": 1.27
@@ -10702,7 +10700,7 @@
    "n": 65,
    "meanClvProb": -0.0075,
    "pocket": {
-    "feature": "grade=A",
+    "feature": "edgeBar=1-2x",
     "n": 8,
     "meanClvProb": 0.0084,
     "tStat": 0.7
@@ -11024,7 +11022,7 @@
    "n": 72,
    "meanClvProb": -0.0203,
    "pocket": {
-    "feature": "sharpDivPick=aligned",
+    "feature": "sharpGapPick=<1%",
     "n": 9,
     "meanClvProb": 0.0115,
     "tStat": 0.69
@@ -12104,7 +12102,7 @@
    "n": 38,
    "meanClvProb": -0.025,
    "pocket": {
-    "feature": "sharpGapPick=<1%",
+    "feature": "sharpDivPick=aligned",
     "n": 9,
     "meanClvProb": 0.0086,
     "tStat": 8.22
@@ -13322,5 +13320,5 @@
    }
   }
  },
- "hypothesesAdded": 17
+ "hypothesesAdded": 0
 }
