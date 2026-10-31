@@ -111513,6 +111513,123 @@
       "pinEdgeAtPick": 0.0078,
       "pinEdgeEstimated": false,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-10-31|UAB Blazers at South Florida Bulls|h2h|away|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-10-31|UAB Blazers at South Florida Bulls|h2h",
+      "sport": "NCAAF",
+      "event": "UAB Blazers at South Florida Bulls",
+      "commence": "2026-10-31T16:00:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 310,
+      "bookAtPick": "BetRivers",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -305,
+        "away": 245
+      },
+      "priceTime": "2026-10-31T00:54:28Z",
+      "pickedAt": "2026-10-31T00:54:29Z",
+      "fair": 0.271,
+      "projection": 0.271,
+      "edge": 0.0271,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "BetRivers away +310 implies 24.4%. Pinnacle +247 no-vig is 27.1%. Edge +2.7%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -294,
+          "away": 247
+        },
+        "updated": "2026-10-31T00:54:11Z",
+        "snapTime": "2026-10-31T00:54:28Z",
+        "noVig": 0.271
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 13.2,
+          "pop": 21,
+          "text": "Partly Sunny; Isolated Showers And Thunderstorms",
+          "heavy": false,
+          "temp": 82,
+          "value": 0.0,
+          "asOf": "2026-10-30T23:09:31Z",
+          "venue": "Raymond James Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": 250,
+        "line": null,
+        "implied": 0.2857,
+        "printImplied": 0.2899
+      },
+      "priceBook": "BetMGM",
+      "pinEdgeAtPick": 0.0271,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "WTA|2026-10-31|Mia Poh\u00e1nkov\u00e1 at Diana Shnaider|h2h|none|v1|pass|tennis-elo|2026-10-31T00:54:32Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "WTA|2026-10-31|Mia Poh\u00e1nkov\u00e1 at Diana Shnaider|h2h",
+      "sport": "WTA",
+      "event": "Mia Poh\u00e1nkov\u00e1 at Diana Shnaider",
+      "commence": "2026-10-31T04:30:00Z",
+      "market": "h2h",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": null,
+      "priceBook": null,
+      "marketPrices": {
+        "home": -301,
+        "away": 236
+      },
+      "priceTime": "2026-10-31T00:54:28Z",
+      "pickedAt": "2026-10-31T00:54:32Z",
+      "fair": 0.714,
+      "projection": 0.714,
+      "edge": -0.012,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": null,
+      "modelWeight": 0.06,
+      "shrinkBase": null,
+      "confidence": "medium",
+      "pattern": "tennis-elo",
+      "reason": "Surface Elo home win 0.662, market no-vig 0.727; fair = market + 0.2 x gap = 0.714. Hard. Games in the last 2 days: Diana Shnaider 31, Mia Poh\u00e1nkov\u00e1 43.",
+      "falsifier": "The price closes at or past the market's open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "tennis.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -284,
+          "away": 245
+        },
+        "updated": "2026-10-31T00:54:27Z",
+        "snapTime": "2026-10-31T00:54:28Z"
+      },
+      "contextAtPick": {},
+      "bestAtPick": null
     }
   ]
 }
