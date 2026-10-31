@@ -114493,6 +114493,63 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "ATP|2026-11-01|Mariano Navone at Luca Van Assche|h2h|home|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "ATP|2026-11-01|Mariano Navone at Luca Van Assche|h2h",
+      "sport": "ATP",
+      "event": "Mariano Navone at Luca Van Assche",
+      "commence": "2026-11-01T10:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": -145,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -163,
+        "away": 133
+      },
+      "priceTime": "2026-10-31T14:54:29Z",
+      "pickedAt": "2026-10-31T14:54:30Z",
+      "fair": 0.6117,
+      "projection": 0.6117,
+      "edge": 0.0199,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "Hard Rock Bet home -145 implies 59.2%. Pinnacle -169 no-vig is 61.2%. Edge +2.0%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -169,
+          "away": 147
+        },
+        "updated": "2026-10-31T14:54:07Z",
+        "snapTime": "2026-10-31T14:54:29Z",
+        "noVig": 0.6117
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -163,
+        "line": null,
+        "implied": 0.6198,
+        "printImplied": 0.6198
+      },
+      "priceBook": "DraftKings",
+      "pinEdgeAtPick": 0.0199,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
