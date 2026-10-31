@@ -473,3 +473,20 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-30 | role=dog + wind=<10 | 8 | +1.6% | found inside ALL venue=home (best of 19 pairs tested); small sample, may share reads with other rows |
 | 2026-10-30 | restDays=long + wind=<10 | 8 | +1.4% | found inside ALL wind=<10 (best of 28 features tested); small sample, may share reads with other rows |
 | 2026-10-30 | NCAAF: edgeBar=<0.5x + travelEdge=even | 28 | +1.8% | found inside NCAAF edgeBar=<0.5x (best of 36 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | edgeBar=1-2x + travelEdge=even | 9 | +1.5% | found inside ALL edgeBar=1-2x (best of 41 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | grade=A + travelEdge=even | 10 | +1.6% | found inside ALL grade=A (best of 43 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | pattern=sharp-soft + sharpDivPick=aligned | 11 | +1.6% | found inside ALL sharpDivPick=aligned (best of 52 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | sharpDivPick=pin-for + timing=late | 8 | +0.9% | found inside ALL sharpGapPick=1-2% (best of 5 pairs tested); small sample, may share reads with other rows |
+| 2026-10-31 | pattern=sharp-soft + sharpGapPick=<1% | 11 | +1.6% | found inside ALL sharpGapPick=<1% (best of 52 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | pattern=sharp-soft + steamBeforePick=flat | 8 | +3.7% | found inside ALL steamBeforePick=flat (best of 51 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | pinEdge=2%+ + timing=late | 8 | +2.6% | found inside ALL timing=late (best of 54 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | pattern=sharp-soft-alt + travel=500-1500 | 10 | +2.5% | found inside ALL travel=500-1500 (best of 74 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NBA: edgeBar=1-2x + restDays=1day | 10 | +3.9% | found inside NBA restDays=1day (best of 45 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NBA: sharpDivPick=aligned + timing=late | 8 | +1.3% | found inside NBA restDays=1day (best of 21 pairs tested); small sample, may share reads with other rows |
+| 2026-10-31 | NBA: restEdge=less + venue=away | 8 | +1.9% | found inside NBA restEdge=less (best of 17 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NBA: role=dog + sharpDivPick=pin-for | 10 | +4.8% | found inside NBA role=dog (best of 44 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NBA: sharpDivPick=aligned + venue=away | 10 | +1.0% | found inside NBA sharpDivPick=aligned (best of 33 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NBA: sharpGapPick=<1% + venue=away | 10 | +1.0% | found inside NBA sharpGapPick=<1% (best of 33 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NBA: market=h2h + steamBeforePick=flat | 10 | +1.6% | found inside NBA steamBeforePick=flat (best of 34 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NBA: market=h2h + timing=late | 10 | +1.7% | found inside NBA timing=late (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: edgeBar=0.5-1x + travel=none | 9 | +1.5% | found inside NCAAF travel=none (best of 11 features tested); small sample, may share reads with other rows |

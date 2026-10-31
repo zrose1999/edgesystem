@@ -1,5 +1,5 @@
 {
- "asOf": "2026-10-31T01:54:42Z",
+ "asOf": "2026-10-31T02:13:09Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -396,17 +396,17 @@
   "scan-nba-h2h-home-restedgehomemore-57b863": {
    "pattern": "scan-nba-h2h-home-restedgehomemore-57b863",
    "unit": "prob",
-   "n": 11,
-   "meanPredicted": 0.0294,
-   "meanRealized": 0.0094,
-   "tRealized": 0.62,
-   "capture": 0.32,
-   "rightWay": 0.455,
+   "n": 12,
+   "meanPredicted": 0.0289,
+   "meanRealized": 0.008,
+   "tRealized": 0.57,
+   "capture": 0.28,
+   "rightWay": 0.417,
    "noMove": 0,
    "logLossGain": {
-    "n": 11,
-    "mean": 0.00682,
-    "t": 0.43
+    "n": 12,
+    "mean": 0.00361,
+    "t": 0.24
    },
    "verdict": "collecting"
   },
@@ -617,34 +617,68 @@
   "sharp-soft|prob": {
    "pattern": "sharp-soft",
    "unit": "prob",
-   "n": 39,
-   "meanPredicted": 0.0232,
-   "meanRealized": 0.0057,
-   "tRealized": 0.9,
-   "capture": 0.25,
-   "rightWay": 0.485,
-   "noMove": 6,
+   "n": 46,
+   "meanPredicted": 0.0213,
+   "meanRealized": 0.0038,
+   "tRealized": 0.66,
+   "capture": 0.18,
+   "rightWay": 0.486,
+   "noMove": 9,
    "logLossGain": {
-    "n": 39,
-    "mean": 0.0067,
-    "t": 0.59
+    "n": 45,
+    "mean": 0.00918,
+    "t": 0.93
    },
    "verdict": "collecting"
   },
   "sharp-soft-alt": {
    "pattern": "sharp-soft-alt",
    "unit": "points",
-   "n": 21,
-   "meanPredicted": 0.7519,
-   "meanRealized": 0.5714,
-   "tRealized": 1.76,
-   "capture": 0.76,
-   "rightWay": 0.733,
+   "n": 22,
+   "meanPredicted": 0.7453,
+   "meanRealized": 0.5,
+   "tRealized": 1.58,
+   "capture": 0.67,
+   "rightWay": 0.688,
    "noMove": 6,
    "logLossGain": {
     "n": 20,
     "mean": 0.00067,
     "t": 0.04
+   },
+   "verdict": "collecting"
+  },
+  "soft-dog": {
+   "pattern": "soft-dog",
+   "unit": "points",
+   "n": 1,
+   "meanPredicted": 0.2367,
+   "meanRealized": 0.0,
+   "tRealized": 0.0,
+   "capture": 0.0,
+   "rightWay": 0.0,
+   "noMove": 1,
+   "logLossGain": {
+    "n": 1,
+    "mean": -0.00833,
+    "t": 0.0
+   },
+   "verdict": "collecting"
+  },
+  "soft-dog|prob": {
+   "pattern": "soft-dog",
+   "unit": "prob",
+   "n": 3,
+   "meanPredicted": 0.01,
+   "meanRealized": 0.0049,
+   "tRealized": 1.99,
+   "capture": 0.48,
+   "rightWay": 1.0,
+   "noMove": 1,
+   "logLossGain": {
+    "n": 2,
+    "mean": 0.02245,
+    "t": 4.65
    },
    "verdict": "collecting"
   },
