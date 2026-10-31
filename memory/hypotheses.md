@@ -532,3 +532,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-31 | NCAAF: restEdge=even + tzShift=west | 11 | +2.2% | found inside NCAAF tzShift=west (best of 21 features tested); small sample, may share reads with other rows |
 | 2026-10-31 | NCAAF: pattern=sharp-soft + venue=away | 8 | +1.7% | found inside NCAAF venue=away (best of 37 features tested); small sample, may share reads with other rows |
 | 2026-10-31 | NCAAF: bookAtPick=Hard Rock Bet + wind=<10 | 8 | +1.8% | found inside NCAAF wind=<10 (best of 35 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | bookAtPick=FanDuel + sharpGapOpen=<1% | 8 | +1.4% | found inside ALL bookAtPick=FanDuel (best of 35 features tested); small sample, may share reads with other rows |
