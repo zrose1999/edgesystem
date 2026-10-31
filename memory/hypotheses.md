@@ -493,3 +493,7 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-31 | NCAAF: grade=B + travel=none | 9 | +1.5% | found inside NCAAF travel=none (best of 11 features tested); small sample, may share reads with other rows |
 | 2026-10-31 | pinEdge=2%+ + sharpDivPick=aligned | 8 | +2.5% | found inside ALL sharpDivPick=aligned (best of 53 features tested); small sample, may share reads with other rows |
 | 2026-10-31 | pinEdge=2%+ + sharpGapPick=<1% | 8 | +2.5% | found inside ALL sharpGapPick=<1% (best of 53 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | edgeBar=1-2x + sharpGapPick=<1% | 14 | +1.5% | found inside ALL edgeBar=1-2x (best of 42 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | grade=A + pinEdge=2%+ | 8 | +2.8% | found inside ALL grade=A (best of 46 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | market=h2h + pinEdge=0-2% | 8 | +0.6% | found inside ALL pinEdge=0-2% (best of 6 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: pattern=sharp-soft + restDays=normal | 8 | +1.1% | found inside NCAAF restDays=normal (best of 45 features tested); small sample, may share reads with other rows |
