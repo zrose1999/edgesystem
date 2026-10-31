@@ -505,3 +505,30 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-31 | NCAAF: edgeBar=0.5-1x + timing=late | 9 | +0.8% | found inside NCAAF timing=late (best of 5 features tested); small sample, may share reads with other rows |
 | 2026-10-31 | NCAAF: travel=500-1500 + tzShift=none | 10 | +1.9% | found inside NCAAF travel=500-1500 (best of 33 features tested); small sample, may share reads with other rows |
 | 2026-10-31 | NCAAF: grade=B + tzShift=east | 11 | +1.6% | found inside NCAAF tzShift=east (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | bookAtPick=DraftKings + timing=early | 8 | +2.9% | found inside ALL bookAtPick=DraftKings (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | bookAtPick=FanDuel + sharpDiv=aligned | 8 | +1.4% | found inside ALL bookAtPick=FanDuel (best of 35 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | edgeBar=1-2x + pinEdge=2%+ | 9 | +3.4% | found inside ALL edgeBar=1-2x (best of 45 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | market=total + pattern=sharp-soft-alt | 9 | +2.4% | found inside ALL market=total (best of 55 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | pattern=sharp-soft + restDays=1day | 14 | +2.1% | found inside ALL restDays=1day (best of 61 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | restEdge=even + sharpDiv=pin-for | 8 | +3.7% | found inside ALL restEdge=even (best of 66 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | bookAtPick=BetMGM + timing=late | 9 | +3.7% | found inside ALL timing=late (best of 59 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | restEdge=even + travel=1500+ | 11 | +0.7% | found inside ALL travel=1500+ (best of 43 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | pattern=sharp-soft + travel=none | 8 | +0.7% | found inside ALL travel=none (best of 49 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NBA: restDays=b2b + travel=<500 | 8 | +4.5% | found inside NBA restDays=b2b (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NBA: bookAtPick=BetRivers + timing=late | 8 | +2.2% | found inside NBA timing=late (best of 32 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NBA: timing=late + travelEdge=even | 13 | +0.8% | found inside NBA travelEdge=even (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: role=dog + wind=<10 | 8 | +0.2% | found inside NCAAF bookAtPick=FanDuel (best of 1 pairs tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: moveBeforePick=against + restEdge=even | 8 | +1.8% | found inside NCAAF moveBeforePick=against (best of 20 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: moveBeforePick=for + travelEdge=even | 8 | +3.6% | found inside NCAAF moveBeforePick=for (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: pattern=edge-stack + timing=early | 8 | +0.7% | found inside NCAAF pattern=edge-stack (best of 9 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: restDays=normal + tzShift=west | 16 | +1.2% | found inside NCAAF restDays=normal (best of 50 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: pattern=sharp-soft + role=fav | 9 | +2.4% | found inside NCAAF role=fav (best of 34 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: grade=B + sharpDivPick=aligned | 14 | +0.8% | found inside NCAAF sharpDivPick=aligned (best of 26 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: edgeBar=0.5-1x + timing=day | 8 | +1.2% | found inside NCAAF sharpDivPick=aligned (best of 6 pairs tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: grade=B + sharpGapPick=<1% | 14 | +0.8% | found inside NCAAF sharpGapPick=<1% (best of 26 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: pinEdge=0-2% + steamBeforePick=flat | 9 | +0.8% | found inside NCAAF steamBeforePick=flat (best of 15 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: timing=day + travelEdge=more | 10 | +1.4% | found inside NCAAF timing=day (best of 36 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: restEdge=even + travel=1500+ | 9 | +1.2% | found inside NCAAF travel=1500+ (best of 25 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: restEdge=even + tzShift=west | 11 | +2.2% | found inside NCAAF tzShift=west (best of 21 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: pattern=sharp-soft + venue=away | 8 | +1.7% | found inside NCAAF venue=away (best of 37 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | NCAAF: bookAtPick=Hard Rock Bet + wind=<10 | 8 | +1.8% | found inside NCAAF wind=<10 (best of 35 features tested); small sample, may share reads with other rows |
