@@ -1,11 +1,9 @@
 {
- "asOf": "2026-10-31T19:10:14Z",
+ "asOf": "2026-10-31T19:12:00Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 928,
  "loggedReads": 1856,
- "newPatternsThisRun": [
-  "soft-dog"
- ],
+ "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md)."
@@ -13,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1197,
-   "with": 874,
+   "reads": 1199,
+   "with": 876,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1197,
-   "with": 1197,
+   "reads": 1199,
+   "with": 1199,
    "alarm": false
   }
  },
@@ -100,9 +98,9 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 2399,
-  "latest": "2026-10-31T19:09:34Z",
-  "rowsWithHistory": 1367,
+  "linesLastCycle": 2408,
+  "latest": "2026-10-31T19:11:34Z",
+  "rowsWithHistory": 1368,
   "alarm": false
  },
  "interactionCoverage": {
@@ -10976,7 +10974,7 @@
    "n": 405,
    "meanClvProb": -0.0177,
    "pocket": {
-    "feature": "restDays=short",
+    "feature": "shortWeek=yes",
     "n": 11,
     "meanClvProb": 0.0204,
     "tStat": 1.27
@@ -10995,7 +10993,7 @@
    "n": 66,
    "meanClvProb": -0.0081,
    "pocket": {
-    "feature": "edgeBar=1-2x",
+    "feature": "grade=A",
     "n": 8,
     "meanClvProb": 0.0084,
     "tStat": 0.7
@@ -11336,7 +11334,7 @@
    "n": 75,
    "meanClvProb": -0.0217,
    "pocket": {
-    "feature": "sharpDivPick=aligned",
+    "feature": "sharpGapPick=<1%",
     "n": 9,
     "meanClvProb": 0.0115,
     "tStat": 0.69
@@ -13122,7 +13120,7 @@
    "n": 35,
    "meanClvProb": -0.0161,
    "pocket": {
-    "feature": "restEdge=more",
+    "feature": "restDays=long",
     "n": 9,
     "meanClvProb": 0.0533,
     "tStat": 1.81
@@ -13160,7 +13158,7 @@
    "n": 39,
    "meanClvProb": -0.0139,
    "pocket": {
-    "feature": "restEdge=more",
+    "feature": "restDays=long",
     "n": 9,
     "meanClvProb": 0.0533,
     "tStat": 1.81
@@ -13648,5 +13646,5 @@
    }
   }
  },
- "hypothesesAdded": 7
+ "hypothesesAdded": 0
 }
