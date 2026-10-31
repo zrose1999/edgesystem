@@ -84143,7 +84143,7 @@
       "rowId": "NCAAF|2026-10-31|New Mexico Lobos at San Jose State Spartans|total",
       "sport": "NCAAF",
       "event": "New Mexico Lobos at San Jose State Spartans",
-      "commence": "2026-10-31T20:00:00Z",
+      "commence": "2026-10-31T20:05:00Z",
       "market": "total",
       "side": "under",
       "lineAtPick": 41.5,
@@ -84178,7 +84178,8 @@
         "line": 41.5,
         "implied": 0.5238,
         "printImplied": 0.5238
-      }
+      },
+      "commenceAtPick": "2026-10-31T20:00:00Z"
     },
     {
       "pickId": "NCAAF|2026-10-31|Washington State Cougars at San Diego State Aztecs|spread|away|v1|lean|learned-ncaaf-spread|2026-10-25T18:18:46Z",
@@ -103574,7 +103575,7 @@
       "rowId": "NCAAF|2026-10-31|New Mexico Lobos at San Jose State Spartans|h2h",
       "sport": "NCAAF",
       "event": "New Mexico Lobos at San Jose State Spartans",
-      "commence": "2026-10-31T20:00:00Z",
+      "commence": "2026-10-31T20:05:00Z",
       "market": "h2h",
       "side": "home",
       "lineAtPick": null,
@@ -103637,7 +103638,8 @@
       "pinEdgeEstimated": false,
       "pinGate": "blocked",
       "gatedFrom": "lean",
-      "note": "Pinnacle gate: price taken is -1.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+      "note": "Pinnacle gate: price taken is -1.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted.",
+      "commenceAtPick": "2026-10-31T20:00:00Z"
     },
     {
       "pickId": "NCAAF|2026-10-31|Nevada Wolf Pack at UCLA Bruins|spread|home|v1|lean|scan-ncaaf-spread-home-linehomefav21-de1083|2026-10-28T20:24:39Z|gated|2026-10-28T20:24:39Z",
@@ -117330,6 +117332,120 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NHL|2026-10-31|Buffalo Sabres at Los Angeles Kings|total|none|v1|pass|goalie-news|2026-10-31T19:54:35Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "NHL|2026-10-31|Buffalo Sabres at Los Angeles Kings|total",
+      "sport": "NHL",
+      "event": "Buffalo Sabres at Los Angeles Kings",
+      "commence": "2026-10-31T20:10:00Z",
+      "market": "total",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": 5.5,
+      "priceBook": null,
+      "marketPrices": {
+        "over": -135,
+        "under": 114
+      },
+      "priceTime": "2026-10-31T19:54:32Z",
+      "pickedAt": "2026-10-31T19:54:35Z",
+      "fair": 0.534,
+      "projection": 0.534,
+      "edge": -0.001,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": null,
+      "modelWeight": 0.148,
+      "shrinkBase": null,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Kings: Darcy Kuemper (expected) at the open, now Anton Forsberg (confirmed), GSAx/60 -0.15 to +0.17 | Sabres: Colten Ellis (expected) at the open, now Ukko-Pekka Luukkonen (confirmed), GSAx/60 +0.09 to +0.09. Open over 5.5 0.554, expected goals -0.11, fair over 0.534.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": 6.0,
+        "prices": {
+          "over": -107,
+          "under": -105
+        },
+        "updated": "2026-10-31T19:54:20Z",
+        "snapTime": "2026-10-31T19:54:32Z"
+      },
+      "contextAtPick": {
+        "goalie": "Kings: Darcy Kuemper (expected) at the open, now Anton Forsberg (confirmed), GSAx/60 -0.15 to +0.17 | Sabres: Colten Ellis (expected) at the open, now Ukko-Pekka Luukkonen (confirmed), GSAx/60 +0.09 to +0.09"
+      },
+      "bestAtPick": null
+    },
+    {
+      "pickId": "NHL|2026-10-31|Buffalo Sabres at Los Angeles Kings|h2h|home|v1|lean|goalie-news|2026-10-31T19:54:35Z|gated|2026-10-31T19:54:35Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NHL|2026-10-31|Buffalo Sabres at Los Angeles Kings|h2h",
+      "sport": "NHL",
+      "event": "Buffalo Sabres at Los Angeles Kings",
+      "commence": "2026-10-31T20:10:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 118,
+      "marketNumber": null,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": 114,
+        "away": -135
+      },
+      "priceTime": "2026-10-31T19:54:32Z",
+      "pickedAt": "2026-10-31T19:54:35Z",
+      "fair": 0.538,
+      "projection": 0.538,
+      "edge": 0.079,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.004,
+      "modelWeight": 0.148,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Kings: Darcy Kuemper (expected) at the open, now Anton Forsberg (confirmed), GSAx/60 -0.15 to +0.17 | Sabres: Colten Ellis (expected) at the open, now Ukko-Pekka Luukkonen (confirmed), GSAx/60 +0.09 to +0.09. Open home win 0.518, goalie change +0.020, fair 0.538.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 121,
+          "away": -133
+        },
+        "updated": "2026-10-31T19:54:20Z",
+        "snapTime": "2026-10-31T19:54:32Z",
+        "noVig": 0.4408
+      },
+      "contextAtPick": {
+        "goalie": "Kings: Darcy Kuemper (expected) at the open, now Anton Forsberg (confirmed), GSAx/60 -0.15 to +0.17 | Sabres: Colten Ellis (expected) at the open, now Ukko-Pekka Luukkonen (confirmed), GSAx/60 +0.09 to +0.09"
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": 118,
+        "line": null,
+        "implied": 0.4587,
+        "printImplied": 0.4673
+      },
+      "pinEdgeAtPick": -0.0179,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.8% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
