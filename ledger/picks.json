@@ -101161,7 +101161,7 @@
       "rowId": "NCAAF|2026-10-31|Auburn Tigers at Ole Miss Rebels|h2h",
       "sport": "NCAAF",
       "event": "Auburn Tigers at Ole Miss Rebels",
-      "commence": "2026-10-31T16:45:00Z",
+      "commence": "2026-10-31T16:55:00Z",
       "market": "h2h",
       "side": "away",
       "lineAtPick": null,
@@ -101205,7 +101205,8 @@
         "line": null,
         "implied": 0.2,
         "printImplied": 0.2
-      }
+      },
+      "commenceAtPick": "2026-10-31T16:45:00Z"
     },
     {
       "pickId": "SerieA|2026-10-28|Inter Milan at Venezia|h2h|away|v1|sharp-soft",
@@ -115709,6 +115710,114 @@
       "pinEdgeAtPick": 0.0168,
       "pinEdgeEstimated": true,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NBA|2026-10-31|Philadelphia 76ers at Charlotte Hornets|h2h|home|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NBA|2026-10-31|Philadelphia 76ers at Charlotte Hornets|h2h",
+      "sport": "NBA",
+      "event": "Philadelphia 76ers at Charlotte Hornets",
+      "commence": "2026-10-31T22:10:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 114,
+      "bookAtPick": "BetRivers",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 106,
+        "away": -124
+      },
+      "priceTime": "2026-10-31T16:24:25Z",
+      "pickedAt": "2026-10-31T16:24:27Z",
+      "fair": 0.4733,
+      "projection": 0.4733,
+      "edge": 0.006,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "BetRivers home +114 implies 46.7%. Pinnacle +105 no-vig is 47.3%. Edge +0.6%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 105,
+          "away": -118
+        },
+        "updated": "2026-10-31T16:24:10Z",
+        "snapTime": "2026-10-31T16:24:25Z",
+        "noVig": 0.4733
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": 110,
+        "line": null,
+        "implied": 0.4762,
+        "printImplied": 0.4854
+      },
+      "priceBook": "Caesars",
+      "pinEdgeAtPick": 0.006,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NHL|2026-10-31|Chicago Blackhawks at Boston Bruins|total|none|v1|pass|goalie-news|2026-10-31T16:24:28Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "NHL|2026-10-31|Chicago Blackhawks at Boston Bruins|total",
+      "sport": "NHL",
+      "event": "Chicago Blackhawks at Boston Bruins",
+      "commence": "2026-10-31T17:10:00Z",
+      "market": "total",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": 6.5,
+      "priceBook": null,
+      "marketPrices": {
+        "over": 105,
+        "under": -125
+      },
+      "priceTime": "2026-10-31T16:24:25Z",
+      "pickedAt": "2026-10-31T16:24:28Z",
+      "fair": 0.484,
+      "projection": 0.484,
+      "edge": -0.004,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": null,
+      "modelWeight": 0.126,
+      "shrinkBase": null,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Bruins: Jeremy Swayman (expected) at the open, now Michael DiPietro (confirmed), GSAx/60 +0.46 to +0.36 | Blackhawks: Spencer Knight (expected) at the open, now Arvid Soderblom (expected), GSAx/60 +0.18 to -0.05. Open over 6.5 0.466, expected goals +0.11, fair over 0.484.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": 6.0,
+        "prices": {
+          "over": -118,
+          "under": 105
+        },
+        "updated": "2026-10-31T16:24:13Z",
+        "snapTime": "2026-10-31T16:24:25Z"
+      },
+      "contextAtPick": {
+        "goalie": "Bruins: Jeremy Swayman (expected) at the open, now Michael DiPietro (confirmed), GSAx/60 +0.46 to +0.36 | Blackhawks: Spencer Knight (expected) at the open, now Arvid Soderblom (expected), GSAx/60 +0.18 to -0.05"
+      },
+      "bestAtPick": null
     }
   ]
 }

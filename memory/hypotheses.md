@@ -497,3 +497,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-31 | grade=A + pinEdge=2%+ | 8 | +2.8% | found inside ALL grade=A (best of 46 features tested); small sample, may share reads with other rows |
 | 2026-10-31 | market=h2h + pinEdge=0-2% | 8 | +0.6% | found inside ALL pinEdge=0-2% (best of 6 features tested); small sample, may share reads with other rows |
 | 2026-10-31 | NCAAF: pattern=sharp-soft + restDays=normal | 8 | +1.1% | found inside NCAAF restDays=normal (best of 45 features tested); small sample, may share reads with other rows |
+| 2026-10-31 | edgeBar=1-2x + sharpDivPick=aligned | 14 | +1.5% | found inside ALL edgeBar=1-2x (best of 42 features tested); small sample, may share reads with other rows |
