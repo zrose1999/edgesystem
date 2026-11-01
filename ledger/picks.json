@@ -121152,6 +121152,65 @@
       "pinEdgeAtPick": 0.0187,
       "pinEdgeEstimated": true,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "LaLiga|2026-11-07|Real Madrid at Valencia|h2h|home|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "LaLiga|2026-11-07|Real Madrid at Valencia|h2h",
+      "sport": "LaLiga",
+      "event": "Real Madrid at Valencia",
+      "commence": "2026-11-07T20:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 800,
+      "bookAtPick": "BetRivers",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 700,
+        "away": -360,
+        "draw": 550
+      },
+      "priceTime": "2026-11-01T15:54:30Z",
+      "pickedAt": "2026-11-01T15:54:33Z",
+      "fair": 0.128,
+      "projection": 0.128,
+      "edge": 0.0169,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "BetRivers home +800 implies 11.1%. Pinnacle +593 no-vig is 12.8%. Edge +1.7%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 593,
+          "away": -288,
+          "draw": 484
+        },
+        "updated": "2026-11-01T15:53:55Z",
+        "snapTime": "2026-11-01T15:54:30Z",
+        "noVig": 0.128
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 700,
+        "line": null,
+        "implied": 0.125,
+        "printImplied": 0.125
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.0169,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
