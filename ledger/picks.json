@@ -128744,6 +128744,69 @@
       "pinEdgeAtPick": 0.0071,
       "pinEdgeEstimated": false,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NHL|2026-11-02|Ottawa Senators at Anaheim Ducks|total|under|v1|lean|goalie-news|2026-11-01T23:24:29Z|gated|2026-11-01T23:24:29Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NHL|2026-11-02|Ottawa Senators at Anaheim Ducks|total",
+      "sport": "NHL",
+      "event": "Ottawa Senators at Anaheim Ducks",
+      "commence": "2026-11-02T01:10:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 6.5,
+      "priceAtPick": 114,
+      "marketNumber": 6.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -135,
+        "under": 114
+      },
+      "priceTime": "2026-11-01T23:24:26Z",
+      "pickedAt": "2026-11-01T23:24:29Z",
+      "fair": 0.517,
+      "projection": 0.517,
+      "edge": 0.016,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.01,
+      "modelWeight": 0.134,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Ducks: Lukas Dostal (expected) at the open, now Laurent Brossoit (confirmed), GSAx/60 -0.03 to -0.15 | Senators: Jonas Johansson (expected) at the open, now Jonas Johansson (confirmed), GSAx/60 -0.17 to -0.28. Open over 6.5 0.505, expected goals +0.08, fair over 0.517.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": 6.5,
+        "prices": {
+          "over": -128,
+          "under": 114
+        },
+        "updated": "2026-11-01T23:24:17Z",
+        "snapTime": "2026-11-01T23:24:26Z",
+        "noVig": 0.4529
+      },
+      "contextAtPick": {
+        "goalie": "Ducks: Lukas Dostal (expected) at the open, now Laurent Brossoit (confirmed), GSAx/60 -0.03 to -0.15 | Senators: Jonas Johansson (expected) at the open, now Jonas Johansson (confirmed), GSAx/60 -0.17 to -0.28"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": 114,
+        "line": 6.5,
+        "implied": 0.4673,
+        "printImplied": 0.4673
+      },
+      "pinEdgeAtPick": -0.0143,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
