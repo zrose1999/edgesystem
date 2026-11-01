@@ -545,3 +545,7 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-01 | NCAAF: restDays=long + steamBeforePick=flat | 8 | +1.0% | found inside NCAAF steamBeforePick=flat (best of 25 features tested); small sample, may share reads with other rows |
 | 2026-11-01 | NCAAF: travel=<500 + travelEdge=more | 9 | +2.2% | found inside NCAAF travelEdge=more (best of 31 features tested); small sample, may share reads with other rows |
 | 2026-11-01 | NCAAF: sharpDivPick=aligned + timing=day | 8 | +1.8% | found inside NCAAF travelEdge=more (best of 9 pairs tested); small sample, may share reads with other rows |
+| 2026-11-01 | market=h2h + pinEdge=2%+ | 20 | +2.3% | found inside ALL market=h2h (best of 70 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | edgeBar=1-2x + timing=late | 9 | +1.5% | found inside ALL market=h2h (best of 24 pairs tested); small sample, may share reads with other rows |
+| 2026-11-01 | bookAtPick=BetRivers + pattern=soft-dog | 9 | +0.9% | found inside ALL pattern=soft-dog (best of 19 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | pinEdge=0-2% + travelEdge=more | 14 | +1.3% | found inside ALL pinEdge=0-2% (best of 36 features tested); small sample, may share reads with other rows |

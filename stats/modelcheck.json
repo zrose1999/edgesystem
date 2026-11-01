@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-01T14:54:46Z",
+ "asOf": "2026-11-01T15:10:07Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -702,12 +702,12 @@
   "soft-dog|prob": {
    "pattern": "soft-dog",
    "unit": "prob",
-   "n": 17,
-   "meanPredicted": 0.0064,
-   "meanRealized": 0.0004,
-   "tRealized": 0.16,
-   "capture": 0.07,
-   "rightWay": 0.545,
+   "n": 18,
+   "meanPredicted": 0.006,
+   "meanRealized": -0.0168,
+   "tRealized": -0.96,
+   "capture": -2.79,
+   "rightWay": 0.5,
    "noMove": 6,
    "logLossGain": {
     "n": 17,
@@ -736,12 +736,12 @@
   "tennis-elo": {
    "pattern": "tennis-elo",
    "unit": "prob",
-   "n": 26,
-   "meanPredicted": 0.026,
-   "meanRealized": 0.0043,
-   "tRealized": 0.6,
-   "capture": 0.17,
-   "rightWay": 0.5,
+   "n": 28,
+   "meanPredicted": 0.0262,
+   "meanRealized": 0.0062,
+   "tRealized": 0.91,
+   "capture": 0.24,
+   "rightWay": 0.542,
    "noMove": 4,
    "logLossGain": {
     "n": 20,
