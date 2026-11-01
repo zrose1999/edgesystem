@@ -1,223 +1,223 @@
 {
  "target": "nfl_spread",
- "trained": "2026-10-15T06:11:11Z",
- "rows": 285,
+ "trained": "2026-11-01T16:51:53Z",
+ "rows": 1630,
  "features": 82,
  "unit": "points",
- "from": "2025-09-04",
+ "from": "2020-09-10",
  "to": "2026-02-08",
  "results": {
   "baseline": {
    "blocks": [
     {
-     "from": 114,
-     "to": 148,
-     "trades": 34,
-     "meanMove": -0.04411764705882353,
-     "t": -0.2565343691622801
+     "from": 652,
+     "to": 847,
+     "trades": 195,
+     "meanMove": 0.08717948717948718,
+     "t": 0.7478996648103036
     },
     {
-     "from": 148,
-     "to": 182,
-     "trades": 34,
-     "meanMove": 0.38235294117647056,
-     "t": 2.7928480087537877
+     "from": 847,
+     "to": 1043,
+     "trades": 196,
+     "meanMove": 0.1377551020408163,
+     "t": 1.3640896616416305
     },
     {
-     "from": 182,
-     "to": 216,
-     "trades": 34,
-     "meanMove": 0.17647058823529413,
-     "t": 1.1836145471505557
+     "from": 1043,
+     "to": 1238,
+     "trades": 195,
+     "meanMove": 0.11538461538461539,
+     "t": 1.3954253458751493
     },
     {
-     "from": 216,
-     "to": 250,
-     "trades": 34,
-     "meanMove": 0.1323529411764706,
-     "t": 0.7084997042948681
+     "from": 1238,
+     "to": 1434,
+     "trades": 196,
+     "meanMove": 0.05102040816326531,
+     "t": 0.49442168419800314
     },
     {
-     "from": 250,
-     "to": 285,
-     "trades": 35,
-     "meanMove": 0.7714285714285715,
-     "t": 1.9072959762062938
+     "from": 1434,
+     "to": 1630,
+     "trades": 196,
+     "meanMove": 0.3137755102040816,
+     "t": 3.0905963447724063
     }
    ],
    "oosCorr": null,
-   "trades": 171,
-   "meanMove": 0.28654970760233917,
-   "t": 2.7,
-   "positiveBlocks": 4
+   "trades": 978,
+   "meanMove": 0.1411042944785276,
+   "t": 3.11,
+   "positiveBlocks": 5
   },
   "ridge": {
    "blocks": [
     {
-     "from": 114,
-     "to": 148,
-     "trades": 10,
-     "meanMove": 0.0,
-     "t": 0.0
+     "from": 652,
+     "to": 847,
+     "trades": 57,
+     "meanMove": 0.43859649122807015,
+     "t": 2.173032976087707
     },
     {
-     "from": 148,
-     "to": 182,
-     "trades": 10,
-     "meanMove": 0.1,
-     "t": 0.22742941307367104
+     "from": 847,
+     "to": 1043,
+     "trades": 49,
+     "meanMove": 0.22448979591836735,
+     "t": 0.9855550071557531
     },
     {
-     "from": 182,
-     "to": 216,
-     "trades": 8,
-     "meanMove": -0.1875,
-     "t": -0.6294651817966898
+     "from": 1043,
+     "to": 1238,
+     "trades": 51,
+     "meanMove": 0.0392156862745098,
+     "t": 0.21812702290320146
     },
     {
-     "from": 216,
-     "to": 250,
-     "trades": 15,
-     "meanMove": -0.23333333333333334,
-     "t": -0.9402237066553369
+     "from": 1238,
+     "to": 1434,
+     "trades": 56,
+     "meanMove": 0.42857142857142855,
+     "t": 2.0231221554354923
     },
     {
-     "from": 250,
-     "to": 285,
-     "trades": 12,
-     "meanMove": 1.5416666666666667,
-     "t": 1.6429331247966914
+     "from": 1434,
+     "to": 1630,
+     "trades": 60,
+     "meanMove": 0.13333333333333333,
+     "t": 0.541744136245068
     }
    ],
-   "oosCorr": 0.0209,
-   "trades": 51,
-   "meanMove": 0.4019607843137255,
-   "t": 1.86,
-   "positiveBlocks": 2
+   "oosCorr": 0.0871,
+   "trades": 295,
+   "meanMove": 0.24067796610169492,
+   "t": 2.62,
+   "positiveBlocks": 5
   },
   "gbm": {
    "blocks": [
     {
-     "from": 114,
-     "to": 148,
-     "trades": 13,
-     "meanMove": -0.11538461538461539,
-     "t": -0.3985266984930429
+     "from": 652,
+     "to": 847,
+     "trades": 42,
+     "meanMove": 0.15476190476190477,
+     "t": 0.4191633913248197
     },
     {
-     "from": 148,
-     "to": 182,
-     "trades": 8,
-     "meanMove": 0.125,
-     "t": 0.24671758189758453
+     "from": 847,
+     "to": 1043,
+     "trades": 40,
+     "meanMove": -0.1125,
+     "t": -0.39084993704968823
     },
     {
-     "from": 182,
-     "to": 216,
-     "trades": 12,
-     "meanMove": -0.4166666666666667,
-     "t": -1.6031511026549947
+     "from": 1043,
+     "to": 1238,
+     "trades": 51,
+     "meanMove": 0.6078431372549019,
+     "t": 3.4391412165964197
     },
     {
-     "from": 216,
-     "to": 250,
-     "trades": 12,
-     "meanMove": -0.625,
-     "t": -2.11174322763433
+     "from": 1238,
+     "to": 1434,
+     "trades": 45,
+     "meanMove": 0.8,
+     "t": 3.011787864663161
     },
     {
-     "from": 250,
-     "to": 285,
-     "trades": 12,
-     "meanMove": 0.75,
-     "t": 0.8521510248736159
+     "from": 1434,
+     "to": 1630,
+     "trades": 61,
+     "meanMove": 0.319672131147541,
+     "t": 1.622841403650203
     }
    ],
-   "oosCorr": -0.069,
-   "trades": 51,
-   "meanMove": -0.058823529411764705,
-   "t": -0.24,
-   "positiveBlocks": 2
+   "oosCorr": 0.1166,
+   "trades": 295,
+   "meanMove": 0.34067796610169493,
+   "t": 3.47,
+   "positiveBlocks": 4
   }
  },
- "chosen": "ridge",
- "live": false,
+ "chosen": "gbm",
+ "live": true,
  "gate": "pooled OOS t >= 2.5, 4/5 blocks positive, beats drift baseline",
  "signals": [
   {
-   "feature": "grass",
-   "mseGain": 0.010127656664249862,
-   "corrWithMove": 0.193
+   "feature": "open_spread",
+   "mseGain": 0.08654210064907586,
+   "corrWithMove": 0.052
   },
   {
-   "feature": "d_l1_ou",
-   "mseGain": 0.0032227691879382903,
+   "feature": "d_l3_pf",
+   "mseGain": 0.027104339830319235,
+   "corrWithMove": -0.076
+  },
+  {
+   "feature": "d_ssn_ou",
+   "mseGain": 0.024169167390426072,
+   "corrWithMove": 0.029
+  },
+  {
+   "feature": "d_ssn_pa",
+   "mseGain": 0.022232648308913028,
    "corrWithMove": 0.084
   },
   {
-   "feature": "d_l3_mg",
-   "mseGain": 0.0027252268562727444,
-   "corrWithMove": -0.117
+   "feature": "d_ssn_ats",
+   "mseGain": 0.02118938677140747,
+   "corrWithMove": -0.028
   },
   {
-   "feature": "d_l1_pa",
-   "mseGain": 0.0026073909034924903,
-   "corrWithMove": 0.141
+   "feature": "a_ssn_ou",
+   "mseGain": 0.01801689212438018,
+   "corrWithMove": -0.014
   },
   {
-   "feature": "roof",
-   "mseGain": 0.0023750378413658346,
-   "corrWithMove": -0.137
+   "feature": "a_l3_pa",
+   "mseGain": 0.018012677403431487,
+   "corrWithMove": -0.026
   },
   {
-   "feature": "h_l3_pf",
-   "mseGain": 0.002191233435833606,
-   "corrWithMove": -0.103
+   "feature": "h_l8_ats",
+   "mseGain": 0.01641819628648733,
+   "corrWithMove": -0.028
   },
   {
-   "feature": "week",
-   "mseGain": 0.0018745880338202348,
-   "corrWithMove": -0.111
+   "feature": "d_l8_pa",
+   "mseGain": 0.014156921064045314,
+   "corrWithMove": 0.062
   },
   {
-   "feature": "a_qb_changed_last",
-   "mseGain": 0.0018576011602395859,
-   "corrWithMove": -0.082
+   "feature": "h_l3_ats",
+   "mseGain": 0.013597594010350766,
+   "corrWithMove": -0.028
   },
   {
-   "feature": "d_qb_changed_last",
-   "mseGain": 0.0017004344813851269,
-   "corrWithMove": 0.054
+   "feature": "a_ssn_pf",
+   "mseGain": 0.010393198763145817,
+   "corrWithMove": 0.022
   },
   {
-   "feature": "a_l8_ou",
-   "mseGain": 0.001686381894108635,
-   "corrWithMove": -0.109
+   "feature": "h_l1_mg",
+   "mseGain": 0.010333446134697777,
+   "corrWithMove": -0.081
   },
   {
-   "feature": "a_l8_mg",
-   "mseGain": 0.001489200807354596,
-   "corrWithMove": 0.051
+   "feature": "open_home",
+   "mseGain": 0.01008162346646202,
+   "corrWithMove": -0.062
   },
   {
-   "feature": "h_l1_pa",
-   "mseGain": 0.0013680768408925736,
-   "corrWithMove": 0.075
+   "feature": "d_l8_ats",
+   "mseGain": 0.009952678199430798,
+   "corrWithMove": -0.027
   },
   {
-   "feature": "a_gp",
-   "mseGain": 0.0013308769423403533,
-   "corrWithMove": -0.117
-  },
-  {
-   "feature": "h_l3_mg",
-   "mseGain": 0.0012977288079207838,
-   "corrWithMove": -0.078
-  },
-  {
-   "feature": "d_l3_ats",
-   "mseGain": 0.0010591904827625953,
-   "corrWithMove": -0.113
+   "feature": "a_coach_games",
+   "mseGain": 0.00937327448836589,
+   "corrWithMove": 0.048
   }
  ]
 }

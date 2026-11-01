@@ -4,7 +4,7 @@ Home spread line, DraftKings open to close (ESPN). Move below 0: toward the home
 
 | Spot | Games | Mean move | se | Home ATS vs close | se |
 |---|---|---|---|---|---|
-| away-b2b | 123 | -0.93 | 0.19 | -1.82 | 1.37 |
-| home-b2b | 111 | +0.50 | 0.18 | -1.35 | 1.45 |
-| both-b2b | 62 | -0.32 | 0.3 | -0.55 | 1.74 |
-| other | 683 | +0.06 | 0.09 | +0.19 | 0.53 |
+| away-b2b | 132 | -0.94 | 0.19 | -1.76 | 1.28 |
+| home-b2b | 118 | +0.51 | 0.18 | -1.42 | 1.4 |
+| both-b2b | 69 | -0.19 | 0.28 | -0.62 | 1.58 |
+| other | 748 | +0.09 | 0.08 | +0.17 | 0.51 |
