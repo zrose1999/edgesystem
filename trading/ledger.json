@@ -10305,7 +10305,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.235,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXCS2GAME-26OCT230630ENCEPUNITY-UNITY",
@@ -11085,7 +11085,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.095,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXCS2GAME-26OCT240400RYVNOI-NOI",
@@ -13690,7 +13690,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.165,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXCS2GAME-26OCT261300DENG2-G2",
@@ -17412,7 +17412,7 @@
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.485,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV020430TYLOOMOUZ-TYLOO",
@@ -17437,8 +17437,8 @@
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
-        "lastMid": 0.135,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastMid": 0.115,
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXCS2GAME-26OCT311200PRIVOME-PRIV",
@@ -17563,7 +17563,7 @@
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.45,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXCS2GAME-26OCT310900NTRWRA-WRA",
@@ -17688,7 +17688,7 @@
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.315,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV021200MASQMSC-MSC",
@@ -17806,7 +17806,7 @@
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.615,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26OCT31INSTUNI-58",
@@ -18123,7 +18123,9 @@
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.66,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T16:54:43Z",
+        "closeMid": 0.66,
+        "clv": 0.05
       },
       {
         "ticker": "KXCS2GAME-26NOV011000LOWNAO-LOW",
@@ -18172,13 +18174,18 @@
         "count": 1,
         "cost": 0.37,
         "fee": 0.02,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.525,
         "lastSeen": "2026-11-01T13:24:46Z",
         "closeMid": 0.525,
-        "clv": 0.155
+        "clv": 0.155,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.39,
+        "settledAt": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXLALIGAGAME-26NOV07VCFRMA-VCF",
@@ -18203,7 +18210,31 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.105,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
+      },
+      {
+        "ticker": "KXCS2GAME-26NOV021200ECSXI-ECS",
+        "title": "ECSTATIC wins",
+        "sport": "CS2",
+        "kind": "game",
+        "event": "XI Esport vs ECSTATIC",
+        "commence": "2026-11-02T17:00:00Z",
+        "side": "yes",
+        "ask": 0.45,
+        "strike": null,
+        "source": "cs2-elo",
+        "fair": 0.5007,
+        "edge": 0.0334,
+        "estimated": true,
+        "why": "CS2 map Elo: ECSTATIC 50.1% (best of 1, 318 and 207 rated maps); Kalshi YES 0.45 + fee = 0.467.",
+        "time": "2026-11-01T17:07:23Z",
+        "count": 0,
+        "cost": 0.0,
+        "fee": 0.0,
+        "status": "open",
+        "book": "paper",
+        "mode": "paper",
+        "trackOnly": true
       }
     ],
     "equity": [
@@ -20368,6 +20399,14 @@
         "open": 4.59,
         "realized": -81.2,
         "equity": 18.8,
+        "clvN": 248,
+        "meanClv": -0.0052
+      },
+      {
+        "t": "2026-11-01T17:07:23Z",
+        "open": 4.2,
+        "realized": -81.59,
+        "equity": 18.41,
         "clvN": 248,
         "meanClv": -0.0052
       }
@@ -23129,6 +23168,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-01T16:54:43Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-01T17:07:23Z"
       }
     ]
   },
@@ -25349,7 +25392,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.395,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXNCAAFGAME-26OCT30BAYUCF-UCF",
@@ -25618,7 +25661,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.455,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV01BALBUF-BUF3",
@@ -25646,7 +25689,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.445,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV01MINDET-DET3",
@@ -25674,7 +25717,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.425,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       }
     ],
     "equity": [
@@ -29218,6 +29261,29 @@
         "status": "executed",
         "time": "2026-11-01T02:02:24Z",
         "test": true
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV01CLEPIT-PIT3",
+        "title": "Pittsburgh wins by over 2.5 points",
+        "sport": "NFL",
+        "kind": "spread",
+        "event": "Cleveland Browns at Pittsburgh Steelers",
+        "commence": "2026-11-01T18:00:00Z",
+        "side": "no",
+        "strike": 2.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4424,
+        "edge": 0.0256,
+        "estimated": true,
+        "why": "Pinnacle fair 44.2% vs Kalshi NO 0.40 + fee = 0.417.",
+        "orderId": "01a19815-01e0-7014-8910-b26e8c576680",
+        "orderPath": "v2",
+        "price": 0.39,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-01T17:07:23Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -29259,7 +29325,7 @@
       }
     ]
   },
-  "asOf": "2026-11-01T16:54:43Z",
+  "asOf": "2026-11-01T17:07:23Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -29280,9 +29346,9 @@
     "liveActive": true,
     "liveWhy": "on since 2026-10-21T20:30:14.905Z",
     "paper": {
-      "open": 4.59,
-      "realized": -81.2,
-      "equity": 18.8,
+      "open": 4.2,
+      "realized": -81.59,
+      "equity": 18.41,
       "clvN": 248,
       "meanClv": -0.0052
     },
@@ -29297,23 +29363,23 @@
     "liveStopped": null,
     "maker": {
       "orders": 251,
-      "resting": 9,
-      "filled": 128,
+      "resting": 8,
+      "filled": 129,
       "expired": 114,
-      "fillRate": 0.529,
+      "fillRate": 0.531,
       "clvN": 117,
       "meanClv": -0.0079,
       "meanClvNet": -0.0121,
-      "settledPnl": -0.23,
+      "settledPnl": -0.59,
       "pairedWithTaker": 70,
       "pairedMakerClvNet": -0.003,
       "pairedTakerClvNet": -0.0189,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {
-      "sport paper-only": 7
+      "sport paper-only": 10
     },
-    "liveCandidates": 7,
+    "liveCandidates": 11,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -29333,9 +29399,9 @@
       },
       "cs2-elo": {
         "status": "shadow",
-        "n": 322,
-        "meanClvNet": -0.0394,
-        "t": -7.95,
+        "n": 323,
+        "meanClvNet": -0.0391,
+        "t": -7.92,
         "tNeeded": 2.0,
         "freshN": 0
       },
@@ -29354,9 +29420,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 0.42,
+      "spentToday": 0.81,
       "trades": 75,
-      "resting": 1
+      "resting": 2
     },
     "config": {
       "startingBankroll": 35.0,
@@ -29378,10 +29444,10 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4542,
-      "eventsMatched": 420,
-      "eventsUnmatched": 386,
-      "candidates": 7
+      "kalshiMarkets": 4968,
+      "eventsMatched": 442,
+      "eventsUnmatched": 378,
+      "candidates": 11
     }
   },
   "account": {
@@ -29390,11 +29456,11 @@
     "detail": {
       "balance": 727,
       "balance_dollars": "7.2780",
-      "portfolio_value": 4991,
-      "updated_ts": 1793552115
+      "portfolio_value": 5041,
+      "updated_ts": 1793552876
     },
     "env": "production",
-    "checkedAt": "2026-11-01T16:55:15Z"
+    "checkedAt": "2026-11-01T17:07:56Z"
   },
   "maker": {
     "start": 0.0,
@@ -33076,7 +33142,9 @@
         "takerEdge": 0.0236,
         "makerEdge": 0.0464,
         "postedAt": "2026-10-27T16:28:11Z",
-        "status": "resting"
+        "status": "filled",
+        "filledAt": "2026-11-01T17:07:23Z",
+        "askAtFill": 0.4
       },
       {
         "ticker": "KXNFLTOTAL-26NOV01LACLAR-44",
@@ -35882,7 +35950,7 @@
         "mode": "paper",
         "postedAt": "2026-10-23T21:57:49Z",
         "lastMid": 0.095,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXNBATOTAL-26OCT24MIACHA-231",
@@ -36565,7 +36633,7 @@
         "mode": "paper",
         "postedAt": "2026-10-26T01:24:40Z",
         "lastMid": 0.165,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26OCT29FAUUNT-72",
@@ -36948,7 +37016,7 @@
         "mode": "paper",
         "postedAt": "2026-10-27T20:54:43Z",
         "lastMid": 0.425,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXNBATOTAL-26OCT28DENNOP-240",
@@ -37061,7 +37129,7 @@
         "mode": "paper",
         "postedAt": "2026-10-27T20:24:37Z",
         "lastMid": 0.415,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXNBATOTAL-26OCT28OKCDAL-229",
@@ -37564,7 +37632,7 @@
         "mode": "paper",
         "postedAt": "2026-10-28T20:24:44Z",
         "lastMid": 0.715,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXSERIEAGAME-26NOV01JUVNAP-NAP",
@@ -37587,7 +37655,7 @@
         "mode": "paper",
         "postedAt": "2026-10-28T20:24:44Z",
         "lastMid": 0.715,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXNBATOTAL-26OCT28SASUTA-235",
@@ -37640,7 +37708,7 @@
         "mode": "paper",
         "postedAt": "2026-10-27T23:09:55Z",
         "lastMid": 0.495,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXNCAAFGAME-26OCT30BAYUCF-UCF",
@@ -37993,7 +38061,7 @@
         "mode": "paper",
         "postedAt": "2026-10-28T15:09:53Z",
         "lastMid": 0.18,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26OCT31MRSHODU-48",
@@ -38106,7 +38174,7 @@
         "mode": "paper",
         "postedAt": "2026-10-31T19:24:35Z",
         "lastMid": 0.405,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXNBASPREAD-26OCT31SACMEM-MEM10",
@@ -38189,7 +38257,7 @@
         "mode": "paper",
         "postedAt": "2026-10-31T11:12:01Z",
         "lastMid": 0.455,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV01ATLTB-TB4",
@@ -38212,7 +38280,7 @@
         "mode": "paper",
         "postedAt": "2026-10-28T19:10:03Z",
         "lastMid": 0.395,
-        "lastSeen": "2026-11-01T16:54:43Z"
+        "lastSeen": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXATPMATCH-26NOV01CERKEC-KEC",
@@ -38230,14 +38298,19 @@
         "cost": 0.36,
         "fee": 0.004,
         "time": "2026-11-01T12:24:45Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-01T11:54:52Z",
         "lastMid": 0.525,
         "lastSeen": "2026-11-01T13:24:46Z",
         "closeMid": 0.525,
-        "clv": 0.165
+        "clv": 0.165,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.36,
+        "settledAt": "2026-11-01T17:07:23Z"
       },
       {
         "ticker": "KXATPMATCH-26NOV01BONHAN-HAN",
@@ -38298,6 +38371,29 @@
         "payout": 0.0,
         "pnl": -0.37,
         "settledAt": "2026-11-01T16:54:43Z"
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV01CLEPIT-PIT3",
+        "title": "Pittsburgh wins by over 2.5 points",
+        "sport": "NFL",
+        "kind": "spread",
+        "event": "Cleveland Browns at Pittsburgh Steelers",
+        "commence": "2026-11-01T18:00:00Z",
+        "side": "no",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4506,
+        "estimated": true,
+        "ask": 0.4,
+        "count": 1,
+        "cost": 0.4,
+        "fee": 0.0042,
+        "time": "2026-11-01T17:07:23Z",
+        "status": "open",
+        "book": "maker",
+        "mode": "paper",
+        "postedAt": "2026-10-27T16:28:11Z",
+        "lastMid": 0.395,
+        "lastSeen": "2026-11-01T17:07:23Z"
       }
     ],
     "equity": [],
@@ -38322,9 +38418,9 @@
     },
     "cs2-elo": {
       "status": "shadow",
-      "n": 322,
-      "meanClvNet": -0.0394,
-      "t": -7.95,
+      "n": 323,
+      "meanClvNet": -0.0391,
+      "t": -7.92,
       "tNeeded": 2.0,
       "freshN": 0
     },
