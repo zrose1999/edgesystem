@@ -28,12 +28,38 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   on dog spreads (t 4.5) and only +0.4% on favourite spreads (t 1.0). DraftKings snapshots agree: at the same number
   DK's margin is split evenly by spread side (fav +2.2 to +2.6%, dog +2.2 to +2.6%, NBA/NCAAF/NFL, ~1,900 snaps), so
   there is no favourite price shade to avoid. A margin on the gate would not fix it; a side filter (or soft-dog) would.
+- 2026-11-01 refresh (health check): holding on fresh reads. Since 10-30: favourite spreads -1.0% (n 30, t -1.1), dog
+  spreads +2.6% (n 18, t 1.9). All counted: favourites -1.6% (n 182, t -4.3), dogs +0.4% (n 170, t 0.8).
 
 ### 2. Away teams travelling east (2026-10-30, lead, waits on the NFL backfill)
 - NFL history 2015-2026 (PR #8): home moneyline when the away team travels east ROI -11.1% at the close (n 847, t -3.2,
   both halves). A result, not a move; the CLV test needs the 2020-2024 opening lines (after the credit reset).
 - Mechanism (cross-sport): findings.py's strongest theme is travel edge (+3.6% vs -1.0%, n 35); the market prices rest
   days but probably not distance and body clock.
+- 2026-11-01 correction (health check): findings.py's travel labels were inverted. memory.py's travelEdge "more" means
+  OUR side travelled 200+ miles further; findings.py printed it as "the opponent travelled further". So EDGE's read-level
+  schedule theme says reads on the side that travelled further beat the close (+1.1% vs -0.9%, n 110; with 2+ days rest
+  +5.7%, n 21), the opposite of this lead's mechanism. Market-wide check on Pinnacle snapshots (first snap to the last
+  within 3h of the start, h2h, NBA/NHL/NCAAF/NFL): Pinnacle moved toward the side that travelled further by only +0.26%
+  (n 186, t 1.1; NBA with 2+ days rest +1.2%, n 18). So the read-level travel findings are mostly which patterns took
+  those spots, not a market-wide mispricing. NFL east-travel ROI stays a result-only lead; the backfill (run 11-01)
+  gives the scanner its move test.
+
+### 3. Road moneylines firm into the close, NHL and NBA (2026-11-01, lead, testing)
+- Observation: on Pinnacle snapshots, the home side's no-vig moneyline fell from the first snapshot to the last one
+  within 3h of the start: NHL -0.66% (n 65, t -2.6, halves -0.95/-0.37, home favourites and home dogs alike), NBA -0.60%
+  (n 62, t -1.3); together -0.63% (n 127, t -2.4, both halves). Not in NCAAF (+0.09%, n 106) or NFL (n 16). Spreads
+  show the same sign but weaker (NBA -0.59%, n 62, t -0.9). findings.py agrees on EDGE's own reads: moneylines on the
+  away side +0.5% vs -0.8% (n 116, t 3.6, new 11-01).
+- Mechanism: early pro-league moneylines are bet by local and recreational money that leans home; sharper money that
+  arrives near the start, with confirmed goalies and lineups, has no home lean, so the close drifts toward the road side.
+- Living memory: away moneyline reads +0.5% (n 116, t 1.8); NHL away -0.2% (n 51), NHL home -1.2% (n 14, 1 beat the
+  close); NBA away +1.6% (n 9), NBA home -0.0% (n 45). Partial support: the home side loses, the road side is only flat.
+- Variants tried this run: ~50 (24 travel splits, ~30 home-drift splits by sport, market and favourite/dog). At that
+  count a t of -2.4 is borderline, so no shadow pattern yet.
+- Test next: re-run on the snapshots when they double (late November); if the NHL+NBA drift holds at t <= -2.5 in both
+  halves, launch a shadow pattern (road side of NHL/NBA moneylines when a soft price is at or better than Pinnacle's
+  fair, stamped early). Kill it if the combined drift is above -0.3% on 250+ games.
 
 ## Experiments (live shadow patterns, stake 0)
 
@@ -47,6 +73,7 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   price beat Pinnacle's no-vig by 0.5%+ (30+ min before the start, close = Pinnacle's last snap within 45 min) scored
   +0.6% (n 31, t 1.5, halves +0.6/+0.7); at 1%+ +1.5% (n 10). DK's moneyline margin sits on favourites (next idea),
   which is why soft dogs exist on moneylines.
+- 2026-11-01: 28 reads in 7 days, 20 graded, CLV +0.5% (t 2.1), 14 of 20 beat the close. On track; judged at 30.
 
 ## Killed
 

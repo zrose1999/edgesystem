@@ -52,8 +52,10 @@ PHRASES = {
     "restDays=1day": "our side had one day of rest",
     "restEdge=more": "our side was more rested than the opponent", "restEdge=less": "our side was less rested",
     "restEdge=even": "both sides equally rested",
-    "travelEdge=more": "the opponent travelled further (travel edge ours)",
-    "travelEdge=less": "our side travelled further", "travel=none": "our side did not travel",
+    # memory.py: travelEdge "more" = our side travelled 200+ miles MORE than the opponent (mine > theirs + 200).
+    # Labels were inverted until 2026-11-01 (health check); findings read before then had travel backwards.
+    "travelEdge=more": "our side travelled further than the opponent (200+ miles more)",
+    "travelEdge=less": "the opponent travelled further (200+ miles more)", "travel=none": "our side did not travel",
     "tzShift=none": "no time-zone change",
     "moveBeforePick=for": "the number had already moved our way before the pick",
     "moveBeforePick=against": "the line had moved toward our side before the pick",
