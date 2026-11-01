@@ -549,3 +549,14 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-01 | edgeBar=1-2x + timing=late | 9 | +1.5% | found inside ALL market=h2h (best of 24 pairs tested); small sample, may share reads with other rows |
 | 2026-11-01 | bookAtPick=BetRivers + pattern=soft-dog | 9 | +0.9% | found inside ALL pattern=soft-dog (best of 19 features tested); small sample, may share reads with other rows |
 | 2026-11-01 | pinEdge=0-2% + travelEdge=more | 14 | +1.3% | found inside ALL pinEdge=0-2% (best of 36 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | pattern=news-lag + restDays=long | 9 | +3.0% | found inside ALL pattern=news-lag (best of 50 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | pattern=soft-dog + travelEdge=even | 8 | +0.8% | found inside ALL pattern=soft-dog (best of 22 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | pinEdge=0-2% + steamBeforePick=toward | 16 | +0.9% | found inside ALL pinEdge=0-2% (best of 39 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | pinEdge=0-2% + restEdge=less | 9 | +0.8% | found inside ALL restEdge=less (best of 44 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | role=dog + sharpGapOpen=2%+ | 8 | +3.8% | found inside ALL role=dog (best of 82 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NFL: edgeBar=<0.5x + restEdge=more | 8 | +4.2% | found inside NFL edgeBar=<0.5x (best of 28 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NFL: injury=qb + tzShift=none | 9 | +3.2% | found inside NFL injury=qb (best of 12 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NFL: restEdge=even + sharpDivPick=pin-for | 8 | +0.6% | found inside NFL restEdge=even (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NFL: moveBeforePick=for + role=dog | 8 | +1.5% | found inside NFL restEdge=even (best of 11 pairs tested); small sample, may share reads with other rows |
+| 2026-11-01 | NFL: restDays=long + role=fav | 11 | +0.1% | found inside NFL role=fav (best of 23 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NFL: role=dog + travel=<500 | 12 | +0.1% | found inside NFL travel=<500 (best of 21 features tested); small sample, may share reads with other rows |

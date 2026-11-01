@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-01T18:54:53Z",
+ "asOf": "2026-11-01T19:09:58Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -104,6 +104,23 @@
    },
    "verdict": "collecting"
   },
+  "learned-nfl-spread": {
+   "pattern": "learned-nfl-spread",
+   "unit": "points",
+   "n": 2,
+   "meanPredicted": 0.4765,
+   "meanRealized": 0.0,
+   "tRealized": 0.0,
+   "capture": 0.0,
+   "rightWay": 0.0,
+   "noMove": 2,
+   "logLossGain": {
+    "n": 0,
+    "mean": null,
+    "t": 0.0
+   },
+   "verdict": "collecting"
+  },
   "learned-nhl-ml": {
    "pattern": "learned-nhl-ml",
    "unit": "prob",
@@ -124,13 +141,13 @@
   "learned-nhl-over": {
    "pattern": "learned-nhl-over",
    "unit": "prob",
-   "n": 28,
-   "meanPredicted": 0.0314,
-   "meanRealized": 0.0177,
-   "tRealized": 3.64,
-   "capture": 0.56,
+   "n": 29,
+   "meanPredicted": 0.0311,
+   "meanRealized": 0.0171,
+   "tRealized": 3.61,
+   "capture": 0.55,
    "rightWay": 0.88,
-   "noMove": 3,
+   "noMove": 4,
    "logLossGain": {
     "n": 28,
     "mean": 0.00069,
@@ -251,9 +268,9 @@
    "rightWay": 0.667,
    "noMove": 0,
    "logLossGain": {
-    "n": 8,
-    "mean": 0.00429,
-    "t": 0.22
+    "n": 9,
+    "mean": 0.00278,
+    "t": 0.16
    },
    "verdict": "collecting"
   },
@@ -268,8 +285,8 @@
    "rightWay": 1.0,
    "noMove": 0,
    "logLossGain": {
-    "n": 0,
-    "mean": null,
+    "n": 1,
+    "mean": 0.26947,
     "t": 0.0
    },
    "verdict": "collecting"
@@ -345,13 +362,13 @@
   "news-lag": {
    "pattern": "news-lag",
    "unit": "points",
-   "n": 174,
-   "meanPredicted": 1.7075,
-   "meanRealized": 0.1523,
-   "tRealized": 1.31,
-   "capture": 0.09,
-   "rightWay": 0.534,
-   "noMove": 71,
+   "n": 193,
+   "meanPredicted": 1.5768,
+   "meanRealized": 0.0855,
+   "tRealized": 0.76,
+   "capture": 0.05,
+   "rightWay": 0.522,
+   "noMove": 78,
    "logLossGain": {
     "n": 172,
     "mean": -0.01463,
@@ -676,22 +693,22 @@
    "rightWay": 0.5,
    "noMove": 15,
    "logLossGain": {
-    "n": 62,
-    "mean": 0.00715,
-    "t": 0.94
+    "n": 63,
+    "mean": 0.00716,
+    "t": 0.95
    },
    "verdict": "collecting"
   },
   "sharp-soft-alt": {
    "pattern": "sharp-soft-alt",
    "unit": "points",
-   "n": 33,
-   "meanPredicted": 0.8014,
-   "meanRealized": 0.3485,
+   "n": 34,
+   "meanPredicted": 0.7962,
+   "meanRealized": 0.3382,
    "tRealized": 1.48,
-   "capture": 0.43,
+   "capture": 0.42,
    "rightWay": 0.667,
-   "noMove": 15,
+   "noMove": 16,
    "logLossGain": {
     "n": 33,
     "mean": 0.00206,
@@ -702,13 +719,13 @@
   "soft-dog": {
    "pattern": "soft-dog",
    "unit": "points",
-   "n": 3,
-   "meanPredicted": 0.3202,
-   "meanRealized": 0.0,
-   "tRealized": 0.0,
-   "capture": 0.0,
-   "rightWay": 0.0,
-   "noMove": 3,
+   "n": 5,
+   "meanPredicted": 0.2628,
+   "meanRealized": 0.2,
+   "tRealized": 1.0,
+   "capture": 0.76,
+   "rightWay": 1.0,
+   "noMove": 4,
    "logLossGain": {
     "n": 3,
     "mean": 0.02473,
@@ -719,13 +736,13 @@
   "soft-dog|prob": {
    "pattern": "soft-dog",
    "unit": "prob",
-   "n": 18,
-   "meanPredicted": 0.006,
-   "meanRealized": -0.0168,
-   "tRealized": -0.96,
-   "capture": -2.79,
-   "rightWay": 0.5,
-   "noMove": 6,
+   "n": 20,
+   "meanPredicted": 0.0055,
+   "meanRealized": -0.016,
+   "tRealized": -1.02,
+   "capture": -2.89,
+   "rightWay": 0.462,
+   "noMove": 7,
    "logLossGain": {
     "n": 17,
     "mean": -0.00355,
@@ -787,12 +804,12 @@
   "trend-fade": {
    "pattern": "trend-fade",
    "unit": "points",
-   "n": 11,
-   "meanPredicted": 1.3945,
-   "meanRealized": 0.1818,
-   "tRealized": 0.3,
-   "capture": 0.13,
-   "rightWay": 0.5,
+   "n": 12,
+   "meanPredicted": 1.3758,
+   "meanRealized": 0.0,
+   "tRealized": 0.0,
+   "capture": 0.0,
+   "rightWay": 0.444,
    "noMove": 3,
    "logLossGain": {
     "n": 11,
@@ -804,12 +821,12 @@
   "wind-total": {
    "pattern": "wind-total",
    "unit": "points",
-   "n": 16,
-   "meanPredicted": 2.2812,
-   "meanRealized": 0.3125,
-   "tRealized": 1.0,
-   "capture": 0.14,
-   "rightWay": 0.636,
+   "n": 17,
+   "meanPredicted": 2.2647,
+   "meanRealized": 0.3529,
+   "tRealized": 1.19,
+   "capture": 0.16,
+   "rightWay": 0.667,
    "noMove": 5,
    "logLossGain": {
     "n": 16,
