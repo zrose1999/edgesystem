@@ -1,11 +1,9 @@
 {
- "asOf": "2026-11-01T17:07:16Z",
+ "asOf": "2026-11-01T17:24:45Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 1005,
  "loggedReads": 2002,
- "newPatternsThisRun": [
-  "learned-soccer-over"
- ],
+ "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
   "guru": "Needs a list of X/Reddit accounts and a reader (Reddit API is free with an app key; X API is paid). Log account, number, time, result; keep after 20 settled calls beat the close (MISSION.md)."
@@ -13,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1238,
-   "with": 915,
+   "reads": 1239,
+   "with": 916,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1238,
-   "with": 1238,
+   "reads": 1239,
+   "with": 1239,
    "alarm": false
   }
  },
@@ -100,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1806,
-  "latest": "2026-11-01T17:04:49Z",
+  "linesLastCycle": 1719,
+  "latest": "2026-11-01T17:24:35Z",
   "rowsWithHistory": 1443,
   "alarm": false
  },
@@ -11237,7 +11235,7 @@
    "n": 343,
    "meanClvProb": -0.0063,
    "pocket": {
-    "feature": "shortWeek=yes",
+    "feature": "restDays=short",
     "n": 8,
     "meanClvProb": 0.0284,
     "tStat": 1.95
@@ -12871,7 +12869,7 @@
    "n": 38,
    "meanClvProb": -0.025,
    "pocket": {
-    "feature": "sharpGapPick=<1%",
+    "feature": "sharpDivPick=aligned",
     "n": 9,
     "meanClvProb": 0.0086,
     "tStat": 8.22
@@ -13186,7 +13184,7 @@
    "n": 29,
    "meanClvProb": -0.0038,
    "pocket": {
-    "feature": "restDays=long",
+    "feature": "restEdge=more",
     "n": 8,
     "meanClvProb": 0.01,
     "tStat": 2.05
@@ -13740,7 +13738,7 @@
    "n": 35,
    "meanClvProb": -0.0161,
    "pocket": {
-    "feature": "restDays=long",
+    "feature": "restEdge=more",
     "n": 9,
     "meanClvProb": 0.0533,
     "tStat": 1.81
@@ -13778,7 +13776,7 @@
    "n": 39,
    "meanClvProb": -0.0139,
    "pocket": {
-    "feature": "restDays=long",
+    "feature": "restEdge=more",
     "n": 9,
     "meanClvProb": 0.0533,
     "tStat": 1.81
@@ -14214,17 +14212,17 @@
     "tStat": 0.44,
     "beatClose": 5
    },
-   "scan-ncaaf-spread-home-linehomefav21-de1083": {
-    "n": 4,
-    "meanClvProb": -0.0012,
-    "tStat": -0.07,
-    "beatClose": 1
-   },
    "learned-soccer-1x2": {
     "n": 4,
     "meanClvProb": -0.0094,
     "tStat": -2.1,
     "beatClose": 0
+   },
+   "scan-ncaaf-spread-home-linehomefav21-de1083": {
+    "n": 4,
+    "meanClvProb": -0.0012,
+    "tStat": -0.07,
+    "beatClose": 1
    },
    "learned-scan-ncaaf-h2h": {
     "n": 4,
