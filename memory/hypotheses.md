@@ -561,3 +561,21 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-01 | NFL: restDays=long + role=fav | 11 | +0.1% | found inside NFL role=fav (best of 23 features tested); small sample, may share reads with other rows |
 | 2026-11-01 | NFL: role=dog + travel=<500 | 12 | +0.1% | found inside NFL travel=<500 (best of 21 features tested); small sample, may share reads with other rows |
 | 2026-11-01 | NFL: restEdge=more + role=fav | 11 | +0.1% | found inside NFL role=fav (best of 23 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | grade=A + sharpDiv=aligned | 8 | +3.7% | found inside ALL grade=A (best of 49 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | pattern=soft-dog + venue=home | 9 | +1.2% | found inside ALL pattern=soft-dog (best of 23 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | pinEdge=2%+ + restDays=1day | 8 | +2.7% | found inside ALL restDays=1day (best of 64 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | restDays=normal + sharpGapPick=2%+ | 8 | +1.2% | found inside ALL restDays=normal (best of 66 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | bookAtPick=DraftKings + restEdge=less | 8 | +1.4% | found inside ALL restEdge=less (best of 46 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | grade=A + sharpGapOpen=<1% | 8 | +3.7% | found inside ALL sharpGapOpen=<1% (best of 37 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | pattern=sharp-soft + sharpGapPick=1-2% | 8 | +1.5% | found inside ALL sharpGapPick=1-2% (best of 33 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | bookAtPick=DraftKings + travel=none | 8 | +1.1% | found inside ALL travel=none (best of 53 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NBA: restEdge=even + sharpDiv=pin-for | 8 | +3.7% | found inside NBA restEdge=even (best of 39 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NBA: grade=A + sharpDivPick=aligned | 8 | +4.0% | found inside NBA sharpDivPick=aligned (best of 35 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NBA: grade=A + sharpGapPick=<1% | 8 | +4.0% | found inside NBA sharpGapPick=<1% (best of 35 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NBA: bookAtPick=BetRivers + steamBeforePick=flat | 9 | +2.3% | found inside NBA steamBeforePick=flat (best of 39 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NBA: pinEdge=2%+ + timing=late | 8 | +2.7% | found inside NBA timing=late (best of 38 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NBA: bookAtPick=BetRivers + travelEdge=even | 9 | +2.3% | found inside NBA travelEdge=even (best of 30 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NFL: keyNumber=yes + restEdge=more | 13 | +3.4% | found inside NFL keyNumber=yes (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NFL: restDays=long + role=dog | 9 | +5.1% | found inside NFL role=dog (best of 30 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NFL: grade=B + timing=day | 8 | +0.2% | found inside NFL timing=day (best of 8 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NFL: edgeBar=<0.5x + travelEdge=less | 24 | +0.5% | found inside NFL travelEdge=less (best of 19 features tested); small sample, may share reads with other rows |
