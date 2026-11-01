@@ -121280,6 +121280,504 @@
       "pinEdgeAtPick": 0.0055,
       "pinEdgeEstimated": false,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NFL|2026-11-01|Indianapolis Colts at Jacksonville Jaguars|spread|away|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NFL|2026-11-01|Indianapolis Colts at Jacksonville Jaguars|spread",
+      "sport": "NFL",
+      "event": "Indianapolis Colts at Jacksonville Jaguars",
+      "commence": "2026-11-01T18:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 10.5,
+      "priceAtPick": -108,
+      "bookAtPick": "BetMGM",
+      "marketNumber": -10.0,
+      "marketPrices": {
+        "home": -112,
+        "away": -108
+      },
+      "priceTime": "2026-11-01T16:54:28Z",
+      "pickedAt": "2026-11-01T16:54:29Z",
+      "fair": 0.5246,
+      "projection": 0.5246,
+      "edge": 0.0054,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "BetMGM away +10.5 -108 implies 51.9%. Pinnacle -116 no-vig is 52.5%. Edge +0.5%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": -10.5,
+        "prices": {
+          "home": 105,
+          "away": -116
+        },
+        "updated": "2026-11-01T16:54:12Z",
+        "snapTime": "2026-11-01T16:54:28Z",
+        "noVig": 0.5246
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 15.5,
+          "pop": 33,
+          "text": "Chance Showers And Thunderstorms; Chance Rain Showers",
+          "heavy": false,
+          "temp": 76,
+          "value": -3.0,
+          "asOf": "2026-11-01T15:09:36Z",
+          "venue": "EverBank Stadium"
+        },
+        "injury": "JAX defensive starter Montaric Brown: Questionable at the open, Active now, -0.12 spread | JAX defensive starter Antonio Johnson: Questionable at the open, Out now, +0.12 spread | IND defensive starter Sauce Gardner: Doubtful at the open, Active now, -0.25 spread | IND defensive starter Jaylon Carlies: Questionable at the open, Active now, -0.12 spread | IND defensive starter Justin Walley: Active at the open, Out now, +0.25 spread | IND defensive starter CJ Allen: Questionable at the open, Active now, -0.12 spread"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -108,
+        "line": -10.0,
+        "implied": 0.5192,
+        "printImplied": 0.5192
+      },
+      "priceBook": "DraftKings",
+      "pinEdgeAtPick": 0.0054,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NHL|2026-11-01|Winnipeg Jets at Carolina Hurricanes|total|under|v1|learned-nhl-over|lean|2026-11-01T16:54:33Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NHL|2026-11-01|Winnipeg Jets at Carolina Hurricanes|total",
+      "sport": "NHL",
+      "event": "Winnipeg Jets at Carolina Hurricanes",
+      "commence": "2026-11-01T18:10:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 6.5,
+      "priceAtPick": -130,
+      "bookAtPick": "DraftKings",
+      "marketNumber": 6.5,
+      "marketPrices": {
+        "over": 110,
+        "under": -130
+      },
+      "priceTime": "2026-11-01T16:54:28Z",
+      "pickedAt": "2026-11-01T16:54:33Z",
+      "fair": 0.5667,
+      "projection": 0.5667,
+      "edge": 0.0014,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-nhl-over",
+      "reason": "Learned model (ridge, 191 data points, trained 2026-11-01) predicts the over 6.5 price moves -0.039 from the open; open 0.473, now 0.455, 0.022 still to come. Fair 0.433. Report: stats/models/nhl_over.json.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": 6.0,
+        "prices": {
+          "over": -108,
+          "under": -104
+        },
+        "updated": "2026-11-01T16:54:07Z",
+        "snapTime": "2026-11-01T16:54:28Z",
+        "noVig": 0.4953
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -130,
+        "line": 6.5,
+        "implied": 0.5652,
+        "printImplied": 0.5652
+      },
+      "priceBook": "DraftKings",
+      "contextAtPick": {},
+      "pinGate": "unchecked"
+    },
+    {
+      "pickId": "NHL|2026-11-01|Utah Mammoth at Philadelphia Flyers|total|under|v1|learned-nhl-over",
+      "kind": "pick",
+      "grade": "A",
+      "rowId": "NHL|2026-11-01|Utah Mammoth at Philadelphia Flyers|total",
+      "sport": "NHL",
+      "event": "Utah Mammoth at Philadelphia Flyers",
+      "commence": "2026-11-01T21:10:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 6.5,
+      "priceAtPick": -135,
+      "bookAtPick": "DraftKings",
+      "marketNumber": 6.5,
+      "marketPrices": {
+        "over": 114,
+        "under": -135
+      },
+      "priceTime": "2026-11-01T16:54:28Z",
+      "pickedAt": "2026-11-01T16:54:33Z",
+      "fair": 0.6052,
+      "projection": 0.6052,
+      "edge": 0.0308,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "learned-nhl-over",
+      "reason": "Learned model (ridge, 191 data points, trained 2026-11-01) predicts the over 6.5 price moves -0.052 from the open; open 0.446, now 0.446, 0.052 still to come. Fair 0.395. Report: stats/models/nhl_over.json.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": 6.0,
+        "prices": {
+          "over": -104,
+          "under": -108
+        },
+        "updated": "2026-11-01T16:54:07Z",
+        "snapTime": "2026-11-01T16:54:28Z",
+        "noVig": 0.5047
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -135,
+        "line": 6.5,
+        "implied": 0.5745,
+        "printImplied": 0.5745
+      },
+      "priceBook": "DraftKings",
+      "contextAtPick": {},
+      "pinGate": "unchecked"
+    },
+    {
+      "pickId": "NFL|2026-11-01|Baltimore Ravens at Buffalo Bills|h2h|none|v1|pass|learned-nfl-ml|2026-11-01T16:54:36Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "NFL|2026-11-01|Baltimore Ravens at Buffalo Bills|h2h",
+      "sport": "NFL",
+      "event": "Baltimore Ravens at Buffalo Bills",
+      "commence": "2026-11-01T18:00:00Z",
+      "market": "h2h",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": null,
+      "priceBook": null,
+      "marketPrices": {
+        "home": -162,
+        "away": 136
+      },
+      "priceTime": "2026-11-01T16:54:28Z",
+      "pickedAt": "2026-11-01T16:54:36Z",
+      "fair": 0.603,
+      "projection": 0.603,
+      "edge": -0.006,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": null,
+      "modelWeight": 0.1,
+      "shrinkBase": null,
+      "confidence": "medium",
+      "pattern": "learned-nfl-ml",
+      "reason": "Learned NFL model (ridge, 82 data points; nflverse closes with backfilled opens) predicts the ml moves +0.016 from the open; open 0.5865302642796248, now 0.5972958985638505, 0.005 still to come. Fair 0.603. Report: stats/models/nfl_ml.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -167,
+          "away": 150
+        },
+        "updated": "2026-11-01T16:54:12Z",
+        "snapTime": "2026-11-01T16:54:28Z"
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 5.0,
+          "pop": 3,
+          "text": "Mostly Sunny",
+          "heavy": false,
+          "temp": 66,
+          "value": 0.0,
+          "asOf": "2026-11-01T15:09:36Z",
+          "venue": "Highmark Stadium"
+        }
+      },
+      "bestAtPick": null
+    },
+    {
+      "pickId": "NFL|2026-11-01|Minnesota Vikings at Detroit Lions|spread|away|v1|lean|learned-nfl-spread|2026-11-01T16:54:36Z|gated|2026-11-01T16:54:36Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NFL|2026-11-01|Minnesota Vikings at Detroit Lions|spread",
+      "sport": "NFL",
+      "event": "Minnesota Vikings at Detroit Lions",
+      "commence": "2026-11-01T18:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 3.0,
+      "priceAtPick": 100,
+      "marketNumber": -3.0,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "home": -120,
+        "away": 100
+      },
+      "priceTime": "2026-11-01T16:54:28Z",
+      "pickedAt": "2026-11-01T16:54:36Z",
+      "fair": -2.443,
+      "projection": -2.443,
+      "edge": 0.557,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.724,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-nfl-spread",
+      "reason": "Learned NFL model (gbm, 82 data points; nflverse closes with backfilled opens) predicts the spread moves +0.557 from the open; open -2.5, now -3.0, 0.557 still to come. Fair -2.443. Report: stats/models/nfl_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": -3.5,
+        "prices": {
+          "home": 103,
+          "away": -113
+        },
+        "updated": "2026-11-01T16:54:12Z",
+        "snapTime": "2026-11-01T16:54:28Z",
+        "noVig": 0.519
+      },
+      "contextAtPick": {
+        "injury": "DET C Cade Mays: Injured Reserve at the open, Active now, -0.50 spread | DET defensive starter Roger McCreary: Questionable at the open, Active now, -0.12 spread | DET defensive starter Ennis Rakestraw Jr.: Questionable at the open, Active now, -0.12 spread | DET defensive starter Brian Branch: Out at the open, Active now, -0.25 spread | MIN RB1 Jordan Mason: Injured Reserve at the open, Active now, -0.25 spread, +0.50 total | MIN LT Christian Darrisaw: Questionable at the open, Active now, -0.25 spread | MIN OL starter Joe Huber: Questionable at the open, Active now, -0.12 spread | MIN defensive starter James Pierre: Questionable at the open, Active now, -0.12 spread"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": 100,
+        "line": -3.0,
+        "implied": 0.5,
+        "printImplied": 0.5
+      },
+      "pinEdgeAtPick": -0.026,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NFL|2026-11-01|Las Vegas Raiders at New York Jets|spread|away|v1|lean|learned-nfl-spread|2026-11-01T16:54:36Z|gated|2026-11-01T16:54:36Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NFL|2026-11-01|Las Vegas Raiders at New York Jets|spread",
+      "sport": "NFL",
+      "event": "Las Vegas Raiders at New York Jets",
+      "commence": "2026-11-01T18:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 1.5,
+      "priceAtPick": -105,
+      "marketNumber": -1.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -112,
+        "away": -108
+      },
+      "priceTime": "2026-11-01T16:54:28Z",
+      "pickedAt": "2026-11-01T16:54:36Z",
+      "fair": -1.104,
+      "projection": -1.104,
+      "edge": 0.396,
+      "edgeUnit": "points",
+      "bar": 1.5,
+      "fullBar": false,
+      "edgeShrunk": -0.683,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-nfl-spread",
+      "reason": "Learned NFL model (gbm, 82 data points; nflverse closes with backfilled opens) predicts the spread moves +0.396 from the open; open -1.5, now -1.5, 0.396 still to come. Fair -1.104. Report: stats/models/nfl_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": -1.0,
+        "prices": {
+          "home": -117,
+          "away": 106
+        },
+        "updated": "2026-11-01T16:54:12Z",
+        "snapTime": "2026-11-01T16:54:28Z",
+        "noVig": 0.4731
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 6.5,
+          "pop": 0,
+          "text": "Mostly Sunny; Sunny",
+          "heavy": false,
+          "temp": 61,
+          "value": 0.0,
+          "asOf": "2026-11-01T15:09:36Z",
+          "venue": "MetLife Stadium"
+        },
+        "injury": "NYJ RB1 Breece Hall: Questionable at the open, Out now, +0.12 spread, -0.25 total | NYJ OL starter Dylan Parham: Questionable at the open, Active now, -0.12 spread | NYJ defensive starter T'Vondre Sweat: Questionable at the open, Injured Reserve now, +0.12 spread | NYJ defensive starter David Bailey: Active at the open, Out now, +0.25 spread | NYJ defensive starter Kiko Mauigoa: Questionable at the open, Active now, -0.12 spread | LV LT Kolton Miller: Questionable at the open, Active now, -0.25 spread | LV OL starter DJ Glaze: Questionable at the open, Active now, -0.12 spread | LV defensive starter Tonka Hemingway: Questionable at the open, Active now, -0.12 spread"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -105,
+        "line": -1.5,
+        "implied": 0.5122,
+        "printImplied": 0.5192
+      },
+      "pinEdgeAtPick": -0.0241,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NFL|2026-11-01|Cleveland Browns at Pittsburgh Steelers|h2h|none|v1|pass|learned-nfl-ml|2026-11-01T16:54:36Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "NFL|2026-11-01|Cleveland Browns at Pittsburgh Steelers|h2h",
+      "sport": "NFL",
+      "event": "Cleveland Browns at Pittsburgh Steelers",
+      "commence": "2026-11-01T18:00:00Z",
+      "market": "h2h",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": null,
+      "priceBook": null,
+      "marketPrices": {
+        "home": -192,
+        "away": 160
+      },
+      "priceTime": "2026-11-01T16:54:28Z",
+      "pickedAt": "2026-11-01T16:54:36Z",
+      "fair": 0.647,
+      "projection": 0.647,
+      "edge": -0.011,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": null,
+      "modelWeight": 0.1,
+      "shrinkBase": null,
+      "confidence": "medium",
+      "pattern": "learned-nfl-ml",
+      "reason": "Learned NFL model (ridge, 82 data points; nflverse closes with backfilled opens) predicts the ml moves +0.010 from the open; open 0.6508803885853066, now 0.6364594309799789, 0.010 still to come. Fair 0.647. Report: stats/models/nfl_ml.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -198,
+          "away": 176
+        },
+        "updated": "2026-11-01T16:54:12Z",
+        "snapTime": "2026-11-01T16:54:28Z"
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 3.8,
+          "pop": 6,
+          "text": "Partly Sunny; Mostly Cloudy",
+          "heavy": false,
+          "temp": 66,
+          "value": 0.0,
+          "asOf": "2026-11-01T15:09:36Z",
+          "venue": "Acrisure Stadium"
+        }
+      },
+      "bestAtPick": null
+    },
+    {
+      "pickId": "NFL|2026-11-01|Los Angeles Chargers at Los Angeles Rams|spread|home|v1|lean|learned-nfl-spread|2026-11-01T16:54:36Z|gated|2026-11-01T16:54:36Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NFL|2026-11-01|Los Angeles Chargers at Los Angeles Rams|spread",
+      "sport": "NFL",
+      "event": "Los Angeles Chargers at Los Angeles Rams",
+      "commence": "2026-11-01T21:05:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -6.5,
+      "priceAtPick": -109,
+      "marketNumber": -6.5,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": -118,
+        "away": -102
+      },
+      "priceTime": "2026-11-01T16:54:28Z",
+      "pickedAt": "2026-11-01T16:54:36Z",
+      "fair": -7.098,
+      "projection": -7.098,
+      "edge": 0.598,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.228,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-nfl-spread",
+      "reason": "Learned NFL model (gbm, 82 data points; nflverse closes with backfilled opens) predicts the spread moves -0.598 from the open; open -7.5, now -6.5, 0.598 still to come. Fair -7.098. Report: stats/models/nfl_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": -6.5,
+        "prices": {
+          "home": -110,
+          "away": 100
+        },
+        "updated": "2026-11-01T16:54:12Z",
+        "snapTime": "2026-11-01T16:54:28Z",
+        "noVig": 0.5119
+      },
+      "contextAtPick": {
+        "injury": "LAC WR1 Ladd McConkey: Questionable at the open, Active now, -0.25 spread, +0.25 total | LAC OL starter Kayode Awosika: Questionable at the open, Out now, +0.12 spread | LAC OL starter Joe Alt: Questionable at the open, Active now, -0.12 spread | LAC defensive starter Derwin James Jr.: Questionable at the open, Injured Reserve now, +0.12 spread"
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -109,
+        "line": -6.5,
+        "implied": 0.5215,
+        "printImplied": 0.5413
+      },
+      "pinEdgeAtPick": -0.0096,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.0% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
