@@ -560,3 +560,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-01 | NFL: moveBeforePick=for + role=dog | 8 | +1.5% | found inside NFL restEdge=even (best of 11 pairs tested); small sample, may share reads with other rows |
 | 2026-11-01 | NFL: restDays=long + role=fav | 11 | +0.1% | found inside NFL role=fav (best of 23 features tested); small sample, may share reads with other rows |
 | 2026-11-01 | NFL: role=dog + travel=<500 | 12 | +0.1% | found inside NFL travel=<500 (best of 21 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NFL: restEdge=more + role=fav | 11 | +0.1% | found inside NFL role=fav (best of 23 features tested); small sample, may share reads with other rows |

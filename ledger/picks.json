@@ -123655,6 +123655,128 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NHL|2026-11-01|Minnesota Wild at Washington Capitals|total|under|v1|lean|goalie-news|2026-11-01T19:24:32Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NHL|2026-11-01|Minnesota Wild at Washington Capitals|total",
+      "sport": "NHL",
+      "event": "Minnesota Wild at Washington Capitals",
+      "commence": "2026-11-01T20:40:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 6.5,
+      "priceAtPick": -125,
+      "marketNumber": 6.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": 105,
+        "under": -125
+      },
+      "priceTime": "2026-11-01T19:24:29Z",
+      "pickedAt": "2026-11-01T19:24:32Z",
+      "fair": 0.436,
+      "projection": 0.436,
+      "edge": 0.008,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": 0.001,
+      "modelWeight": 0.139,
+      "shrinkBase": "print",
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Capitals: Charlie Lindgren (expected) at the open, now Logan Thompson (confirmed), GSAx/60 +0.09 to +0.43. Open over 6.5 0.455, expected goals -0.12, fair over 0.436.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": 6.0,
+        "prices": {
+          "over": -113,
+          "under": 100
+        },
+        "updated": "2026-11-01T19:24:21Z",
+        "snapTime": "2026-11-01T19:24:29Z",
+        "noVig": 0.4847
+      },
+      "contextAtPick": {
+        "goalie": "Capitals: Charlie Lindgren (expected) at the open, now Logan Thompson (confirmed), GSAx/60 +0.09 to +0.43"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -125,
+        "line": 6.5,
+        "implied": 0.5556,
+        "printImplied": 0.5556
+      },
+      "pinGate": "unchecked"
+    },
+    {
+      "pickId": "NHL|2026-11-01|Minnesota Wild at Washington Capitals|h2h|home|v1|lean|goalie-news|2026-11-01T19:24:32Z|gated|2026-11-01T19:24:32Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NHL|2026-11-01|Minnesota Wild at Washington Capitals|h2h",
+      "sport": "NHL",
+      "event": "Minnesota Wild at Washington Capitals",
+      "commence": "2026-11-01T20:40:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": -104,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -108,
+        "away": -112
+      },
+      "priceTime": "2026-11-01T19:24:29Z",
+      "pickedAt": "2026-11-01T19:24:32Z",
+      "fair": 0.539,
+      "projection": 0.539,
+      "edge": 0.029,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.016,
+      "modelWeight": 0.139,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Capitals: Charlie Lindgren (expected) at the open, now Logan Thompson (confirmed), GSAx/60 +0.09 to +0.43. Open home win 0.518, goalie change +0.021, fair 0.539.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 100,
+          "away": -111
+        },
+        "updated": "2026-11-01T19:24:21Z",
+        "snapTime": "2026-11-01T19:24:29Z",
+        "noVig": 0.487
+      },
+      "contextAtPick": {
+        "goalie": "Capitals: Charlie Lindgren (expected) at the open, now Logan Thompson (confirmed), GSAx/60 +0.09 to +0.43"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -104,
+        "line": null,
+        "implied": 0.5098,
+        "printImplied": 0.5192
+      },
+      "pinEdgeAtPick": -0.0228,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.3% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
