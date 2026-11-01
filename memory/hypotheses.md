@@ -533,3 +533,12 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-10-31 | NCAAF: pattern=sharp-soft + venue=away | 8 | +1.7% | found inside NCAAF venue=away (best of 37 features tested); small sample, may share reads with other rows |
 | 2026-10-31 | NCAAF: bookAtPick=Hard Rock Bet + wind=<10 | 8 | +1.8% | found inside NCAAF wind=<10 (best of 35 features tested); small sample, may share reads with other rows |
 | 2026-10-31 | bookAtPick=FanDuel + sharpGapOpen=<1% | 8 | +1.4% | found inside ALL bookAtPick=FanDuel (best of 35 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | injury=qb + keyNumber=yes | 8 | +2.4% | found inside ALL keyNumber=yes (best of 46 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | bookAtPick=BetRivers + restDays=1day | 8 | +2.2% | found inside ALL restDays=1day (best of 62 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | pattern=sharp-soft + travelEdge=even | 10 | +3.0% | found inside ALL travelEdge=even (best of 54 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NCAAF: sharpDivPick=aligned + travelEdge=more | 14 | +0.7% | found inside NCAAF sharpDivPick=aligned (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NCAAF: sharpGapPick=<1% + travelEdge=more | 14 | +0.7% | found inside NCAAF sharpGapPick=<1% (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NCAAF: restEdge=more + steamBeforePick=flat | 8 | +1.0% | found inside NCAAF steamBeforePick=flat (best of 25 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NCAAF: pattern=sharp-soft-alt + venue=away | 8 | +1.8% | found inside NCAAF venue=away (best of 39 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NHL: role=dog + travel=<500 | 18 | +0.4% | found inside NHL role=dog (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-11-01 | NHL: sharpDivPick=aligned + timing=day | 8 | +0.3% | found inside NHL venue=away (best of 3 pairs tested); small sample, may share reads with other rows |
