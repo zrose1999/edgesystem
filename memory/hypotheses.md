@@ -542,3 +542,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-01 | NCAAF: pattern=sharp-soft-alt + venue=away | 8 | +1.8% | found inside NCAAF venue=away (best of 39 features tested); small sample, may share reads with other rows |
 | 2026-11-01 | NHL: role=dog + travel=<500 | 18 | +0.4% | found inside NHL role=dog (best of 29 features tested); small sample, may share reads with other rows |
 | 2026-11-01 | NHL: sharpDivPick=aligned + timing=day | 8 | +0.3% | found inside NHL venue=away (best of 3 pairs tested); small sample, may share reads with other rows |
+| 2026-11-01 | NCAAF: restDays=long + steamBeforePick=flat | 8 | +1.0% | found inside NCAAF steamBeforePick=flat (best of 25 features tested); small sample, may share reads with other rows |
