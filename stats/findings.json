@@ -1,7 +1,7 @@
 {
- "asOf": "2026-11-01T13:24:45Z",
+ "asOf": "2026-11-01T13:54:43Z",
  "report": {
-  "asOf": "2026-11-01T13:24:45Z",
+  "asOf": "2026-11-01T13:54:43Z",
   "reads": 726,
   "excluded": [
    "early-number",
@@ -227,7 +227,7 @@
     "key": "ALL|restDays=2+days&travelEdge=more",
     "scope": "ALL",
     "condition": "restDays=2+days&travelEdge=more",
-    "text": "reads where our side had 2+ days of rest and the opponent travelled further (travel edge ours)",
+    "text": "reads where our side had 2+ days of rest and our side travelled further than the opponent (200+ miles more)",
     "n": 21,
     "mean": 0.0569,
     "t": 5.3,
@@ -546,7 +546,7 @@
     "key": "ALL|travelEdge=more",
     "scope": "ALL",
     "condition": "travelEdge=more",
-    "text": "reads where the opponent travelled further (travel edge ours)",
+    "text": "reads where our side travelled further than the opponent (200+ miles more)",
     "n": 110,
     "mean": 0.0113,
     "t": 3.94,
@@ -1191,7 +1191,7 @@
     "key": "ALL|restEdge=more&travelEdge=less",
     "scope": "ALL",
     "condition": "restEdge=more&travelEdge=less",
-    "text": "reads where our side was more rested than the opponent and our side travelled further",
+    "text": "reads where our side was more rested than the opponent and the opponent travelled further (200+ miles more)",
     "n": 59,
     "mean": -0.0173,
     "t": -2.66,
@@ -1437,7 +1437,7 @@
     "key": "NHL|travelEdge=more",
     "scope": "NHL",
     "condition": "travelEdge=more",
-    "text": "NHL reads where the opponent travelled further (travel edge ours)",
+    "text": "NHL reads where our side travelled further than the opponent (200+ miles more)",
     "n": 24,
     "mean": 0.0001,
     "t": 2.24,
@@ -1528,9 +1528,9 @@
     "wins": 15,
     "loses": 10,
     "wins_on": [
-     "our side had 2+ days of rest and the opponent travelled further (travel edge ours)",
+     "our side had 2+ days of rest and our side travelled further than the opponent (200+ miles more)",
      "our side had 2+ days of rest and our side was more rested than the opponent",
-     "the opponent travelled further (travel edge ours)",
+     "our side travelled further than the opponent (200+ miles more)",
      "no time-zone change"
     ],
     "loses_on": [
@@ -1865,12 +1865,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 50,
-     "mean": -0.0295,
-     "t": -5.62
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 50,
      "mean": -0.0295,
@@ -2040,6 +2034,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 52,
+     "mean": -0.0296,
+     "t": -5.99
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 52,
      "mean": -0.0296,
      "t": -5.99
@@ -2089,12 +2089,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 129,
-     "mean": -0.0233,
-     "t": -5.33
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 129,
      "mean": -0.0233,
@@ -2264,6 +2258,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 149,
+     "mean": -0.022,
+     "t": -5.43
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 149,
      "mean": -0.022,
      "t": -5.43
@@ -2313,12 +2313,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 147,
-     "mean": -0.0196,
-     "t": -4.77
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 147,
      "mean": -0.0196,
@@ -2488,6 +2482,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 159,
+     "mean": -0.0191,
+     "t": -4.99
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 159,
      "mean": -0.0191,
      "t": -4.99
@@ -2537,12 +2537,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 267,
-     "mean": -0.0163,
-     "t": -4.87
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 267,
      "mean": -0.0163,
@@ -2712,6 +2706,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 287,
+     "mean": -0.0161,
+     "t": -5.25
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 287,
      "mean": -0.0161,
      "t": -5.25
@@ -2986,12 +2986,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 218,
-     "mean": 0.0061,
-     "t": 4.45
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 218,
      "mean": 0.0061,
@@ -3161,6 +3155,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 243,
+     "mean": 0.0059,
+     "t": 4.59
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 243,
      "mean": 0.0059,
      "t": 4.59
@@ -3433,12 +3433,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 67,
-     "mean": 0.0141,
-     "t": 4.55
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 67,
      "mean": 0.0141,
@@ -3608,6 +3602,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 85,
+     "mean": 0.0125,
+     "t": 4.8
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 85,
      "mean": 0.0125,
      "t": 4.8
@@ -3657,12 +3657,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 94,
-     "mean": 0.0124,
-     "t": 3.81
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 94,
      "mean": 0.0124,
@@ -3835,14 +3829,20 @@
      "n": 110,
      "mean": 0.0113,
      "t": 3.94
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
+     "n": 110,
+     "mean": 0.0113,
+     "t": 3.94
     }
    ],
-   "text": "reads where the opponent travelled further (travel edge ours)",
+   "text": "reads where our side travelled further than the opponent (200+ miles more)",
    "last": {
     "key": "ALL|travelEdge=more",
     "scope": "ALL",
     "condition": "travelEdge=more",
-    "text": "reads where the opponent travelled further (travel edge ours)",
+    "text": "reads where our side travelled further than the opponent (200+ miles more)",
     "n": 110,
     "mean": 0.0113,
     "t": 3.94,
@@ -3881,12 +3881,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 69,
-     "mean": 0.014,
-     "t": 3.46
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 69,
      "mean": 0.014,
@@ -4056,6 +4050,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 71,
+     "mean": 0.0131,
+     "t": 3.29
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 71,
      "mean": 0.0131,
      "t": 3.29
@@ -4105,12 +4105,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 63,
-     "mean": 0.0065,
-     "t": 3.19
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 63,
      "mean": 0.0065,
@@ -4280,6 +4274,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 86,
+     "mean": 0.0075,
+     "t": 3.93
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 86,
      "mean": 0.0075,
      "t": 3.93
@@ -4329,12 +4329,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 206,
-     "mean": 0.0039,
-     "t": 3.46
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 206,
      "mean": 0.0039,
@@ -4504,6 +4498,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 234,
+     "mean": 0.0035,
+     "t": 3.47
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 234,
      "mean": 0.0035,
      "t": 3.47
@@ -4553,12 +4553,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 180,
-     "mean": -0.0157,
-     "t": -3.14
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 180,
      "mean": -0.0157,
@@ -4728,6 +4722,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 215,
+     "mean": -0.0149,
+     "t": -4.07
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 215,
      "mean": -0.0149,
      "t": -4.07
@@ -4951,12 +4951,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 188,
-     "mean": -0.0169,
-     "t": -4.18
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 188,
      "mean": -0.0169,
@@ -5126,6 +5120,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 226,
+     "mean": -0.0141,
+     "t": -3.64
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 226,
      "mean": -0.0141,
      "t": -3.64
@@ -5175,12 +5175,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 101,
-     "mean": 0.0014,
-     "t": 2.93
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 101,
      "mean": 0.0014,
@@ -5350,6 +5344,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 130,
+     "mean": 0.0013,
+     "t": 2.95
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 130,
      "mean": 0.0013,
      "t": 2.95
@@ -5399,12 +5399,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 73,
-     "mean": 0.0086,
-     "t": 3.41
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 73,
      "mean": 0.0086,
@@ -5574,6 +5568,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 96,
+     "mean": 0.0065,
+     "t": 3.4
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 96,
      "mean": 0.0065,
      "t": 3.4
@@ -5623,12 +5623,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 42,
-     "mean": 0.0191,
-     "t": 3.56
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 42,
      "mean": 0.0191,
@@ -5798,6 +5792,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 53,
+     "mean": 0.0151,
+     "t": 3.35
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 53,
      "mean": 0.0151,
      "t": 3.35
@@ -6069,12 +6069,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-28T23:24:44Z",
-     "n": 319,
-     "mean": -0.0115,
-     "t": -3.05
-    },
-    {
      "date": "2026-10-28T23:54:36Z",
      "n": 319,
      "mean": -0.0115,
@@ -6247,6 +6241,12 @@
      "n": 429,
      "mean": -0.0097,
      "t": -2.94
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
+     "n": 429,
+     "mean": -0.0097,
+     "t": -2.94
     }
    ],
    "text": "reads where the read's edge was under half its bar",
@@ -6292,12 +6292,6 @@
     "2026-11-01"
    ],
    "history": [
-    {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 63,
-     "mean": 0.0072,
-     "t": 2.77
-    },
     {
      "date": "2026-10-31T20:54:45Z",
      "n": 63,
@@ -6468,6 +6462,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 84,
+     "mean": 0.0089,
+     "t": 3.51
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 84,
      "mean": 0.0089,
      "t": 3.51
@@ -6920,12 +6920,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 59,
-     "mean": 0.0113,
-     "t": 3.28
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 59,
      "mean": 0.0113,
@@ -7095,6 +7089,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 81,
+     "mean": 0.0065,
+     "t": 2.95
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 81,
      "mean": 0.0065,
      "t": 2.95
@@ -7144,12 +7144,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 185,
-     "mean": 0.0015,
-     "t": 2.11
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 185,
      "mean": 0.0015,
@@ -7319,6 +7313,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 214,
+     "mean": 0.0014,
+     "t": 2.19
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 214,
      "mean": 0.0014,
      "t": 2.19
@@ -7768,12 +7768,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 175,
-     "mean": 0.0025,
-     "t": 2.95
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 175,
      "mean": 0.0025,
@@ -7943,6 +7937,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 202,
+     "mean": 0.0016,
+     "t": 2.76
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 202,
      "mean": 0.0016,
      "t": 2.76
@@ -8172,12 +8172,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 183,
-     "mean": -0.0178,
-     "t": -3.67
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 183,
      "mean": -0.0178,
@@ -8350,6 +8344,12 @@
      "n": 221,
      "mean": -0.0148,
      "t": -3.44
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
+     "n": 221,
+     "mean": -0.0148,
+     "t": -3.44
     }
    ],
    "text": "NCAAF reads where our side had normal rest",
@@ -8395,12 +8395,6 @@
     "2026-11-01"
    ],
    "history": [
-    {
-     "date": "2026-10-31T16:24:35Z",
-     "n": 195,
-     "mean": 0.0003,
-     "t": 2.02
-    },
     {
      "date": "2026-10-31T16:54:44Z",
      "n": 195,
@@ -8571,6 +8565,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 228,
+     "mean": 0.0015,
+     "t": 2.51
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 228,
      "mean": 0.0015,
      "t": 2.51
@@ -9066,12 +9066,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-30T23:54:43Z",
-     "n": 98,
-     "mean": -0.0147,
-     "t": -2.91
-    },
-    {
      "date": "2026-10-31T00:24:37Z",
      "n": 98,
      "mean": -0.0147,
@@ -9244,6 +9238,12 @@
      "n": 103,
      "mean": -0.0142,
      "t": -2.93
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
+     "n": 103,
+     "mean": -0.0142,
+     "t": -2.93
     }
    ],
    "text": "NHL reads where totals",
@@ -9287,12 +9287,6 @@
     "2026-11-01"
    ],
    "history": [
-    {
-     "date": "2026-10-28T20:11:02Z",
-     "n": 34,
-     "mean": 0.0282,
-     "t": 3.07
-    },
     {
      "date": "2026-10-28T20:24:43Z",
      "n": 34,
@@ -9463,6 +9457,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 40,
+     "mean": 0.028,
+     "t": 3.46
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 40,
      "mean": 0.028,
      "t": 3.46
@@ -9665,12 +9665,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-29T02:24:47Z",
-     "n": 38,
-     "mean": 0.0117,
-     "t": 3.41
-    },
-    {
      "date": "2026-10-29T02:54:37Z",
      "n": 38,
      "mean": 0.0117,
@@ -9840,6 +9834,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 58,
+     "mean": 0.0101,
+     "t": 3.47
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 58,
      "mean": 0.0101,
      "t": 3.47
@@ -10511,12 +10511,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 356,
-     "mean": -0.0093,
-     "t": -2.02
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 356,
      "mean": -0.0093,
@@ -10686,6 +10680,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 394,
+     "mean": -0.0093,
+     "t": -2.45
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 394,
      "mean": -0.0093,
      "t": -2.45
@@ -11842,12 +11842,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 36,
-     "mean": 0.0119,
-     "t": 2.67
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 36,
      "mean": 0.0119,
@@ -12017,6 +12011,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 45,
+     "mean": 0.0094,
+     "t": 2.61
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 45,
      "mean": 0.0094,
      "t": 2.61
@@ -12293,12 +12293,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 37,
-     "mean": 0.0316,
-     "t": 4.23
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 37,
      "mean": 0.0316,
@@ -12468,6 +12462,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 39,
+     "mean": 0.0292,
+     "t": 4.04
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 39,
      "mean": 0.0292,
      "t": 4.04
@@ -12515,12 +12515,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 51,
-     "mean": -0.0235,
-     "t": -4.04
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 51,
      "mean": -0.0235,
@@ -12693,14 +12687,20 @@
      "n": 59,
      "mean": -0.0173,
      "t": -2.66
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
+     "n": 59,
+     "mean": -0.0173,
+     "t": -2.66
     }
    ],
-   "text": "reads where our side was more rested than the opponent and our side travelled further",
+   "text": "reads where our side was more rested than the opponent and the opponent travelled further (200+ miles more)",
    "last": {
     "key": "ALL|restEdge=more&travelEdge=less",
     "scope": "ALL",
     "condition": "restEdge=more&travelEdge=less",
-    "text": "reads where our side was more rested than the opponent and our side travelled further",
+    "text": "reads where our side was more rested than the opponent and the opponent travelled further (200+ miles more)",
     "n": 59,
     "mean": -0.0173,
     "t": -2.66,
@@ -12737,12 +12737,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 122,
-     "mean": -0.0216,
-     "t": -3.9
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 122,
      "mean": -0.0216,
@@ -12912,6 +12906,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 140,
+     "mean": -0.0204,
+     "t": -4.42
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 140,
      "mean": -0.0204,
      "t": -4.42
@@ -13391,12 +13391,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 61,
-     "mean": 0.012,
-     "t": 2.49
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 61,
      "mean": 0.012,
@@ -13566,6 +13560,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 83,
+     "mean": 0.0071,
+     "t": 2.25
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 83,
      "mean": 0.0071,
      "t": 2.25
@@ -13613,12 +13613,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 59,
-     "mean": 0.0064,
-     "t": 2.56
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 59,
      "mean": 0.0064,
@@ -13788,6 +13782,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 75,
+     "mean": 0.0045,
+     "t": 2.4
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 75,
      "mean": 0.0045,
      "t": 2.4
@@ -13834,12 +13834,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 46,
-     "mean": 0.0228,
-     "t": 4.32
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 46,
      "mean": 0.0228,
@@ -14009,6 +14003,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 53,
+     "mean": 0.0216,
+     "t": 4.38
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 53,
      "mean": 0.0216,
      "t": 4.38
@@ -14264,12 +14264,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T16:24:35Z",
-     "n": 42,
-     "mean": 0.0127,
-     "t": 3.22
-    },
-    {
      "date": "2026-10-31T16:54:44Z",
      "n": 42,
      "mean": 0.0127,
@@ -14439,6 +14433,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 51,
+     "mean": 0.0124,
+     "t": 3.69
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 51,
      "mean": 0.0124,
      "t": 3.69
@@ -14646,12 +14646,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 20,
-     "mean": -0.02,
-     "t": -2.15
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 20,
      "mean": -0.02,
@@ -14821,6 +14815,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 20,
+     "mean": -0.02,
+     "t": -2.18
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 20,
      "mean": -0.02,
      "t": -2.18
@@ -14867,12 +14867,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 70,
-     "mean": 0.0042,
-     "t": 2.58
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 70,
      "mean": 0.0042,
@@ -15042,6 +15036,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 77,
+     "mean": 0.0052,
+     "t": 2.94
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 77,
      "mean": 0.0052,
      "t": 2.94
@@ -15088,12 +15088,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 114,
-     "mean": -0.0249,
-     "t": -5.91
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 114,
      "mean": -0.0249,
@@ -15263,6 +15257,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 128,
+     "mean": -0.0236,
+     "t": -5.94
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 128,
      "mean": -0.0236,
      "t": -5.94
@@ -15309,12 +15309,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 25,
-     "mean": 0.0352,
-     "t": 3.11
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 25,
      "mean": 0.0352,
@@ -15484,6 +15478,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 34,
+     "mean": 0.0292,
+     "t": 3.38
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 34,
      "mean": 0.0292,
      "t": 3.38
@@ -15850,12 +15850,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 84,
-     "mean": -0.0277,
-     "t": -5.73
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 84,
      "mean": -0.0277,
@@ -16025,6 +16019,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 94,
+     "mean": -0.0258,
+     "t": -5.56
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 94,
      "mean": -0.0258,
      "t": -5.56
@@ -16071,12 +16071,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 88,
-     "mean": -0.0269,
-     "t": -4.77
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 88,
      "mean": -0.0269,
@@ -16246,6 +16240,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 100,
+     "mean": -0.0253,
+     "t": -5.14
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 100,
      "mean": -0.0253,
      "t": -5.14
@@ -16292,12 +16292,6 @@
    ],
    "history": [
     {
-     "date": "2026-10-31T20:40:27Z",
-     "n": 200,
-     "mean": 0.0007,
-     "t": 2.78
-    },
-    {
      "date": "2026-10-31T20:54:45Z",
      "n": 200,
      "mean": 0.0007,
@@ -16467,6 +16461,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 225,
+     "mean": 0.0013,
+     "t": 3.08
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 225,
      "mean": 0.0013,
      "t": 3.08
@@ -16649,6 +16649,12 @@
      "n": 127,
      "mean": -0.0239,
      "t": -5.5
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
+     "n": 127,
+     "mean": -0.0239,
+     "t": -5.5
     }
    ],
    "text": "NCAAF reads where totals and our side had normal rest",
@@ -16825,6 +16831,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 127,
+     "mean": -0.0209,
+     "t": -4.24
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 127,
      "mean": -0.0209,
      "t": -4.24
@@ -17195,6 +17207,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 18,
+     "mean": 0.0036,
+     "t": 2.98
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 18,
      "mean": 0.0036,
      "t": 2.98
@@ -17720,6 +17738,12 @@
      "n": 42,
      "mean": 0.0027,
      "t": 2.54
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
+     "n": 42,
+     "mean": 0.0027,
+     "t": 2.54
     }
    ],
    "text": "NCAAF reads where moneylines",
@@ -17899,6 +17923,12 @@
      "n": 21,
      "mean": 0.0192,
      "t": 2.26
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
+     "n": 21,
+     "mean": 0.0192,
+     "t": 2.26
     }
    ],
    "text": "reads where the price came from BetMGM",
@@ -18030,6 +18060,12 @@
      "n": 40,
      "mean": -0.0262,
      "t": -5.52
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
+     "n": 40,
+     "mean": -0.0262,
+     "t": -5.52
     }
    ],
    "text": "reads where our side was more rested than the opponent and our side did not travel",
@@ -18154,14 +18190,20 @@
      "n": 21,
      "mean": 0.0569,
      "t": 5.3
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
+     "n": 21,
+     "mean": 0.0569,
+     "t": 5.3
     }
    ],
-   "text": "reads where our side had 2+ days of rest and the opponent travelled further (travel edge ours)",
+   "text": "reads where our side had 2+ days of rest and our side travelled further than the opponent (200+ miles more)",
    "last": {
     "key": "ALL|restDays=2+days&travelEdge=more",
     "scope": "ALL",
     "condition": "restDays=2+days&travelEdge=more",
-    "text": "reads where our side had 2+ days of rest and the opponent travelled further (travel edge ours)",
+    "text": "reads where our side had 2+ days of rest and our side travelled further than the opponent (200+ miles more)",
     "n": 21,
     "mean": 0.0569,
     "t": 5.3,
@@ -18227,6 +18269,12 @@
     },
     {
      "date": "2026-11-01T13:24:45Z",
+     "n": 116,
+     "mean": 0.0052,
+     "t": 3.61
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
      "n": 116,
      "mean": 0.0052,
      "t": 3.61
@@ -18306,14 +18354,20 @@
      "n": 24,
      "mean": 0.0001,
      "t": 2.24
+    },
+    {
+     "date": "2026-11-01T13:54:43Z",
+     "n": 24,
+     "mean": 0.0001,
+     "t": 2.24
     }
    ],
-   "text": "NHL reads where the opponent travelled further (travel edge ours)",
+   "text": "NHL reads where our side travelled further than the opponent (200+ miles more)",
    "last": {
     "key": "NHL|travelEdge=more",
     "scope": "NHL",
     "condition": "travelEdge=more",
-    "text": "NHL reads where the opponent travelled further (travel edge ours)",
+    "text": "NHL reads where our side travelled further than the opponent (200+ miles more)",
     "n": 24,
     "mean": 0.0001,
     "t": 2.24,
