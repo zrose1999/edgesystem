@@ -120949,6 +120949,63 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "ATP|2026-11-01|Yannick Hanfmann at Benjamin Bonzi|h2h|away|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "ATP|2026-11-01|Yannick Hanfmann at Benjamin Bonzi|h2h",
+      "sport": "ATP",
+      "event": "Yannick Hanfmann at Benjamin Bonzi",
+      "commence": "2026-11-01T13:30:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 140,
+      "bookAtPick": "theScore Bet",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -147,
+        "away": 126
+      },
+      "priceTime": "2026-11-01T11:54:32Z",
+      "pickedAt": "2026-11-01T11:54:33Z",
+      "fair": 0.4237,
+      "projection": 0.4237,
+      "edge": 0.007,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "theScore Bet away +140 implies 41.7%. Pinnacle +126 no-vig is 42.4%. Edge +0.7%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -147,
+          "away": 126
+        },
+        "updated": "2026-11-01T11:54:32Z",
+        "snapTime": "2026-11-01T11:54:32Z",
+        "noVig": 0.4237
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "Pinnacle",
+        "price": 126,
+        "line": null,
+        "implied": 0.4425,
+        "printImplied": 0.4425
+      },
+      "priceBook": "Pinnacle",
+      "pinEdgeAtPick": 0.007,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
