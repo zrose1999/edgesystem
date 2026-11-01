@@ -122129,6 +122129,67 @@
       "pinEdgeAtPick": 0.0157,
       "pinEdgeEstimated": false,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "LaLiga|2026-11-01|Real Sociedad at Athletic Bilbao|h2h|home|v1|learned-soccer-1x2|lean|2026-11-01T18:54:40Z|gated|2026-11-01T18:54:40Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "LaLiga|2026-11-01|Real Sociedad at Athletic Bilbao|h2h",
+      "sport": "LaLiga",
+      "event": "Real Sociedad at Athletic Bilbao",
+      "commence": "2026-11-01T20:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 105,
+      "bookAtPick": "FanDuel",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 105,
+        "away": 250,
+        "draw": 260
+      },
+      "priceTime": "2026-11-01T18:54:36Z",
+      "pickedAt": "2026-11-01T18:54:40Z",
+      "fair": 0.4892,
+      "projection": 0.4892,
+      "edge": 0.0014,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-soccer-1x2",
+      "reason": "Learned soccer model (ridge, 151 data points) predicts Pinnacle's home probability gains +0.004 from the open; Pinnacle open 0.517, now 0.486, 0.004 still to come. Fair 0.489. Report: stats/models/soccer_home.json.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 102,
+          "away": 283,
+          "draw": 271
+        },
+        "updated": "2026-11-01T18:54:20Z",
+        "snapTime": "2026-11-01T18:54:36Z",
+        "noVig": 0.4855
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 105,
+        "line": null,
+        "implied": 0.4878,
+        "printImplied": 0.4878
+      },
+      "priceBook": "FanDuel",
+      "contextAtPick": {},
+      "pinEdgeAtPick": -0.0023,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -0.2% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
