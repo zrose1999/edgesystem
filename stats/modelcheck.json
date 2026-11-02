@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-02T14:56:16Z",
+ "asOf": "2026-11-02T15:11:45Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -685,11 +685,11 @@
   "sharp-soft|prob": {
    "pattern": "sharp-soft",
    "unit": "prob",
-   "n": 69,
-   "meanPredicted": 0.0195,
-   "meanRealized": 0.0047,
-   "tRealized": 1.12,
-   "capture": 0.24,
+   "n": 71,
+   "meanPredicted": 0.0191,
+   "meanRealized": 0.0042,
+   "tRealized": 1.02,
+   "capture": 0.22,
    "rightWay": 0.491,
    "noMove": 16,
    "logLossGain": {
@@ -736,13 +736,13 @@
   "soft-dog|prob": {
    "pattern": "soft-dog",
    "unit": "prob",
-   "n": 21,
-   "meanPredicted": 0.0051,
-   "meanRealized": -0.0154,
-   "tRealized": -1.03,
-   "capture": -3.04,
-   "rightWay": 0.429,
-   "noMove": 7,
+   "n": 22,
+   "meanPredicted": 0.006,
+   "meanRealized": -0.0004,
+   "tRealized": -0.19,
+   "capture": -0.07,
+   "rightWay": 0.5,
+   "noMove": 8,
    "logLossGain": {
     "n": 20,
     "mean": -0.00533,
@@ -770,12 +770,12 @@
   "tennis-elo": {
    "pattern": "tennis-elo",
    "unit": "prob",
-   "n": 27,
-   "meanPredicted": 0.0267,
-   "meanRealized": 0.0059,
-   "tRealized": 0.84,
-   "capture": 0.22,
-   "rightWay": 0.522,
+   "n": 29,
+   "meanPredicted": 0.027,
+   "meanRealized": 0.0045,
+   "tRealized": 0.67,
+   "capture": 0.17,
+   "rightWay": 0.48,
    "noMove": 4,
    "logLossGain": {
     "n": 20,
