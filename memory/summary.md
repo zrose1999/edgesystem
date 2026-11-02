@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-11-02 03:26Z)
+# What EDGE is learning (2026-11-02 03:56Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 1054 graded reads counted, 2101 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Scanner (scan.py, 11-01 17:06Z): 40 strategies tracking from 10242 hypotheses (0 new this run); 117 graded scan reads, mean CLV -0.6%. Shadow only; grade.py decides promotion.
@@ -16,7 +16,7 @@ Early negative, still collecting (largest samples):
 Observation: edge size is not yet predicting CLV (A -0.6% on 99, B -0.6% on 322, C -1.3% on 633).
   > last 50 graded reads: A +3.0% on 10, B -0.1% on 29, C -0.9% on 11 (A > B > C holds; diagnostic only)
   > pocket: sharpGapOpen=<1% inside grade A: n 8, CLV +3.7%, t +2.4 (best of 49 tested; a lead to watch)
-  > order holds inside sharpGapPick=<1%: A +2.9% on 20, B -1.0% on 65, C -1.4% on 75 (15 of 52 features tested)
+  > order holds inside sharpDivPick=aligned: A +2.9% on 20, B -1.0% on 65, C -1.4% on 75 (15 of 52 features tested)
 Why reads lost to the close (autopsy, post-pick; 677 of 1054, cause known on 677): overpaid 299 (-1.6%), news-after-pick 43 (-6.8%), sharps-against-at-pick 6 (-5.1%), sharps-against-at-open 1 (-3.1%), bet-into-steam 4 (-3.1%), late-move 18 (-4.4%), sharp-move-against 42 (-2.0%), soft-move-against 2 (-3.2%), model-wrong 262 (-5.5%)
 Process vs result: right-and-rewarded 210, right-but-unlucky 163, lucky-win 306, market-was-right 368, push 3; right-but-unlucky losses hurt most by close-margin, flipped-late, overtime (results are noise at this sample; CLV decides)
 Gated by the Pinnacle gate (scored, not counted): n 57, CLV -0.5%, t -1.2 (positive = the gate blocks winners); best pocket pattern=tennis-elo n 9, CLV +0.8%, t +0.4 (of 36 tested)
