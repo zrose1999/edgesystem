@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-02T18:59:54Z",
+ "asOf": "2026-11-02T19:15:46Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -736,12 +736,12 @@
   "soft-dog|prob": {
    "pattern": "soft-dog",
    "unit": "prob",
-   "n": 22,
-   "meanPredicted": 0.006,
-   "meanRealized": -0.0004,
-   "tRealized": -0.19,
-   "capture": -0.07,
-   "rightWay": 0.5,
+   "n": 24,
+   "meanPredicted": 0.0052,
+   "meanRealized": -0.0014,
+   "tRealized": -0.66,
+   "capture": -0.28,
+   "rightWay": 0.438,
    "noMove": 8,
    "logLossGain": {
     "n": 20,
@@ -770,12 +770,12 @@
   "tennis-elo": {
    "pattern": "tennis-elo",
    "unit": "prob",
-   "n": 29,
-   "meanPredicted": 0.027,
-   "meanRealized": 0.0045,
-   "tRealized": 0.67,
-   "capture": 0.17,
-   "rightWay": 0.48,
+   "n": 31,
+   "meanPredicted": 0.0267,
+   "meanRealized": 0.0015,
+   "tRealized": 0.23,
+   "capture": 0.06,
+   "rightWay": 0.444,
    "noMove": 4,
    "logLossGain": {
     "n": 20,
@@ -787,12 +787,12 @@
   "tennis-fatigue": {
    "pattern": "tennis-fatigue",
    "unit": "prob",
-   "n": 6,
+   "n": 7,
    "meanPredicted": 0.0201,
-   "meanRealized": 0.0035,
-   "tRealized": 0.39,
-   "capture": 0.17,
-   "rightWay": 0.75,
+   "meanRealized": -0.0042,
+   "tRealized": -0.39,
+   "capture": -0.21,
+   "rightWay": 0.6,
    "noMove": 2,
    "logLossGain": {
     "n": 6,
