@@ -132069,7 +132069,7 @@
       "rowId": "ATP|2026-11-02|Juan Manuel Cerundolo at Casper Ruud|h2h",
       "sport": "ATP",
       "event": "Juan Manuel Cerundolo at Casper Ruud",
-      "commence": "2026-11-02T12:50:00Z",
+      "commence": "2026-11-02T13:20:00Z",
       "market": "h2h",
       "side": "home",
       "lineAtPick": null,
@@ -135360,6 +135360,63 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "ATP|2026-11-02|Matteo Arnaldi at Cameron Norrie|h2h|home|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "ATP|2026-11-02|Matteo Arnaldi at Cameron Norrie|h2h",
+      "sport": "ATP",
+      "event": "Matteo Arnaldi at Cameron Norrie",
+      "commence": "2026-11-02T12:30:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": -220,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -291,
+        "away": 229
+      },
+      "priceTime": "2026-11-02T11:54:33Z",
+      "pickedAt": "2026-11-02T11:54:34Z",
+      "fair": 0.7152,
+      "projection": 0.7152,
+      "edge": 0.0277,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "Hard Rock Bet home -220 implies 68.8%. Pinnacle -270 no-vig is 71.5%. Edge +2.8%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -270,
+          "away": 234
+        },
+        "updated": "2026-11-02T11:54:09Z",
+        "snapTime": "2026-11-02T11:54:33Z",
+        "noVig": 0.7152
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": -250,
+        "line": null,
+        "implied": 0.7143,
+        "printImplied": 0.7442
+      },
+      "priceBook": "BetMGM",
+      "pinEdgeAtPick": 0.0277,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
