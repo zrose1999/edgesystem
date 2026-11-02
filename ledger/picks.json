@@ -137539,6 +137539,67 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.2% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NBA|2026-11-03|Atlanta Hawks at Indiana Pacers|spread|away|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NBA|2026-11-03|Atlanta Hawks at Indiana Pacers|spread",
+      "sport": "NBA",
+      "event": "Atlanta Hawks at Indiana Pacers",
+      "commence": "2026-11-03T00:40:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": -9.5,
+      "priceAtPick": 100,
+      "bookAtPick": "theScore Bet",
+      "marketNumber": 10.5,
+      "marketPrices": {
+        "home": -110,
+        "away": -110
+      },
+      "priceTime": "2026-11-02T22:54:32Z",
+      "pickedAt": "2026-11-02T22:54:34Z",
+      "fair": 0.5174,
+      "projection": 0.5174,
+      "edge": 0.0174,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "theScore Bet away -9.5 +100 implies 50.0%. Pinnacle -107 no-vig is 50.2% at 10, worth 51.7% at this line. Edge +1.7%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": 10.0,
+        "prices": {
+          "home": -105,
+          "away": -107
+        },
+        "updated": "2026-11-02T22:54:27Z",
+        "snapTime": "2026-11-02T22:54:32Z",
+        "noVig": 0.5024
+      },
+      "contextAtPick": {
+        "injury": "Aaron Nesmith (Pacers, worth 0.47): weight 0 at the open, 1 now, +0.47 spread, -0.28 total | Andrew Nembhard (Pacers, worth 1.83): weight 0 at the open, 1 now, +1.83 spread, -1.10 total | Obi Toppin (Pacers, worth 1.58): weight 1 at the open, 0.5 now, -0.79 spread, +0.47 total"
+      },
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": -102,
+        "line": 10.5,
+        "implied": 0.505,
+        "printImplied": 0.5238
+      },
+      "priceBook": "BetMGM",
+      "estimated": true,
+      "lineAdj": 0.015,
+      "pinEdgeAtPick": 0.0174,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
     }
   ]
 }
