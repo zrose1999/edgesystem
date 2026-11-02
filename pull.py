@@ -575,6 +575,35 @@ def row_for(rows, index, sport, game, market):
     return row
 
 
+INPLAY_JUMP = 0.15   # tennis close vs the last pre-start snap, home no-vig (2026-11-02)
+
+
+def guard_inplay_close(row):
+    """Tennis start times are a schedule guess (order of play: matches start early or late), so the history call at
+    the listed start can return an in-play price. Hanfmann-Bonzi 11-01: last pre-start snap home 0.57, history close
+    0.88 four minutes before the listed start, scored a read at -30% CLV. When a tennis moneyline close jumps more than
+    INPLAY_JUMP no-vig from the last pre-start snap, the last pre-start snap is the close instead (it was taken while
+    the game was still listed as upcoming, so it cannot be in play). Returns True when it replaced the close."""
+    c, last = row.get("closeSnap"), row.get("lastSnap")
+    if row.get("sport") not in TENNIS or row.get("market") != "h2h" or not isinstance(c, dict) or not isinstance(last, dict):
+        return False
+    if row.get("closeSource") in ("lastSnap", "inplayGuard") or not last.get("time") or last["time"] >= (c.get("time") or ""):
+        return False
+    try:
+        nv = lambda s: implied(s["home"]) / (implied(s["home"]) + implied(s["away"]))
+        jump = abs(nv(c) - nv(last))
+    except (KeyError, TypeError, ValueError, ZeroDivisionError):
+        return False
+    if jump <= INPLAY_JUMP:
+        return False
+    row["closeRejected"] = {"snap": c, "jump": round(jump, 3)}
+    row["closeSnap"] = dict(last)
+    row["closeGapMin"] = round((parse(row["commence"]) - parse(last["time"])).total_seconds() / 60, 1) if row.get("commence") else None
+    row["closeSource"] = "inplayGuard"
+    legacy(row, "close", row["closeSnap"])
+    return True
+
+
 CLOSE_FIELDS = ("closeSnap", "closeGapMin", "closeSource", "close", "closeLine", "closePrice", "closeTime", "closeBook")
 
 
@@ -822,6 +851,7 @@ def pull(near=None):
             row["closeGapMin"] = round((parse(commence) - parse(stamp)).total_seconds() / 60, 1)
             legacy(row, "close", snap)
             closed += 1
+            guard_inplay_close(row)
 
     # 3. Final scores, completed games only.
     need = defaultdict(list)
@@ -850,6 +880,8 @@ def pull(near=None):
             row["result"] = f"{row['away']} {a:g}, {row['home']} {h:g}"
             scored += 1
 
+    # Tennis closes already taken in play (last 7 days) are repaired once; grade.py rescores their picks.
+    guarded = sum(guard_inplay_close(r) for r in rows if (r.get("commence") or "") >= floor)
     moved += reconcile_moved(rows, now)   # again, so closes and scores taken this run reach the old rows now
     ledger["rows"] = rows
     ledger["asOfCt"] = now
@@ -857,7 +889,7 @@ def pull(near=None):
     ledger["credits"] = dict(CREDITS)
     save(LEDGER, ledger)
     print(json.dumps({"opened": opened, "closed": closed, "scored": scored, "rows": len(rows),
-                      "historyCalls": calls, "freeCloses": free, "movedRows": moved, "snaps": snaps, "closesSkippedForCredits": skipped,
+                      "historyCalls": calls, "freeCloses": free, "movedRows": moved, "inplayGuarded": guarded, "snaps": snaps, "closesSkippedForCredits": skipped,
                       "creditsRemaining": CREDITS["remaining"]}))
 
 

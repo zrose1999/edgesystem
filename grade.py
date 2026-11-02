@@ -263,12 +263,13 @@ def main():
         # Rows whose game moved to another date follow the live row (pull.reconcile_moved, 2026-10-25). A pick
         # scored on the old row's own close (taken at the wrong kickoff, e.g. in play) is scored again on the
         # live row's close, once per close; closeScoredAt records which close it was scored on.
-        if row.get("movedTo") and "clvBench" in pick and pick.get("closeScoredAt") != (close or {}).get("time"):
+        if (row.get("movedTo") or row.get("closeSource") == "inplayGuard") and "clvBench" in pick \
+                and pick.get("closeScoredAt") != (close or {}).get("time"):
             for k in RESCORE_FIELDS:
                 pick.pop(k, None)
         if close and pick["side"] in close and "clvBench" not in pick:
             score_pick(pick, close)
-            if row.get("movedTo"):
+            if row.get("movedTo") or row.get("closeSource") == "inplayGuard":
                 pick["closeScoredAt"] = close.get("time")
         if row.get("final") and "result" not in pick:
             pick["result"], pick["units"] = result(pick, row["score"])

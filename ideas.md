@@ -30,6 +30,8 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   there is no favourite price shade to avoid. A margin on the gate would not fix it; a side filter (or soft-dog) would.
 - 2026-11-01 refresh (health check): holding on fresh reads. Since 10-30: favourite spreads -1.0% (n 30, t -1.1), dog
   spreads +2.6% (n 18, t 1.9). All counted: favourites -1.6% (n 182, t -4.3), dogs +0.4% (n 170, t 0.8).
+- 2026-11-02 refresh (health check): all counted: favourites -1.6% (n 190, t -4.3), dogs +0.2% (n 184, t 0.4). Since
+  10-30 12Z only 3 favourite spreads (+2.7%) and 12 dog spreads (+0.2%): too few fresh reads to move it either way.
 
 ### 2. Away teams travelling east (2026-10-30, lead, waits on the NFL backfill)
 - NFL history 2015-2026 (PR #8): home moneyline when the away team travels east ROI -11.1% at the close (n 847, t -3.2,
@@ -57,9 +59,29 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   close); NBA away +1.6% (n 9), NBA home -0.0% (n 45). Partial support: the home side loses, the road side is only flat.
 - Variants tried this run: ~50 (24 travel splits, ~30 home-drift splits by sport, market and favourite/dog). At that
   count a t of -2.4 is borderline, so no shadow pattern yet.
+- 2026-11-02: not re-run (snapshots grew ~15% since 11-01; waits for the double).
 - Test next: re-run on the snapshots when they double (late November); if the NHL+NBA drift holds at t <= -2.5 in both
   halves, launch a shadow pattern (road side of NHL/NBA moneylines when a soft price is at or better than Pinnacle's
   fair, stamped early). Kill it if the combined drift is above -0.3% on 250+ games.
+
+### 4. NBA totals drift down before the final hour (2026-11-02, lead, testing)
+- Observation: on Pinnacle snapshots, NBA totals taken 6h+ before tip fell -0.61 points by the final hour (n 73, t -2.3;
+  halves -0.69 and -0.53, t -1.7 and -1.6). From 3-6h out the drift is only -0.12 (n 69, t -1.2), so it happens while
+  injury reports settle. NHL (+0.01, n 59) and NFL (0.00, n 27) show none; NCAAF rose +0.31 (n 78, t 2.2) but only in
+  the first half (+0.65 vs +0.06).
+- Mechanism: early NBA totals price full rosters. Late scratches and rest days remove scorers more often than surprise
+  returns add them, so news skews the total down; the line pays for it only once the reports are out.
+- Living memory agrees on direction: EDGE's counted NBA unders stamped 6h+ early gained +1.6% of market move (n 39,
+  t 1.9), overs -0.2% (n 53); all NBA over reads 6h+ (gated included) moved -0.9% (n 113, t -1.9). Overs lose -2.3%
+  CLV early (n 53, t -2.8), unders -0.6% (n 39).
+- Tradeable? Not at a US book: a soft-book under taken 6h+ early still lost -1.3% to Pinnacle's final-hour no-vig
+  (n 73, t -2.3; slope 0.021 per point), because the ~2.5% vig is bigger than the ~1.2% move. The early over lost
+  -3.5% (n 73, t -6.2). Only 3 early unders passed the Pinnacle gate. It could pay where the cost is low (Kalshi maker
+  orders, which kalshi-sharp-alt already places on NBA totals at Pinnacle's fair), or as a filter: no NBA overs 6h+ out.
+- Variants tried: ~40 (totals drift by sport and half, NCAAF bands and Saturday, NBA windows, size, book, CLV by side).
+- Test next: re-run when NBA snapshots reach 150 games; if the 6h+ drift holds at t <= -2.5 in both halves, propose
+  for the weekly review either a shadow over-filter on learned-nba-total or a Kalshi maker under test. Kill it if the
+  drift is above -0.3 points on 150+ games.
 
 ## Experiments (live shadow patterns, stake 0)
 
@@ -74,6 +96,11 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   +0.6% (n 31, t 1.5, halves +0.6/+0.7); at 1%+ +1.5% (n 10). DK's moneyline margin sits on favourites (next idea),
   which is why soft dogs exist on moneylines.
 - 2026-11-01: 28 reads in 7 days, 20 graded, CLV +0.5% (t 2.1), 14 of 20 beat the close. On track; judged at 30.
+- 2026-11-02: 28 graded. STATE showed -0.7% (t -0.6), but one read (ATP Hanfmann +140, 11-01) was scored on an in-play
+  close (+720, four minutes before the listed start): fixed in pull.py (tennis in-play close guard). Rescored: +0.4%
+  (n 28, t 1.9), halves +0.4% and +0.4%; 0.5-1% edges +0.3% (n 22), 1%+ +0.8% (n 6); NBA +1.2% (n 7), NCAAF +0.1%
+  (n 11), NFL -0.2% (n 6). Price paid +0.9% (beats Pinnacle by construction), market move -1.6% (n 28, t -1.5): the
+  edge is the price, and the move runs mildly against dogs here. Judged at 30, from the next full run's numbers.
 
 ## Killed
 
