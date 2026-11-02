@@ -128925,6 +128925,126 @@
       "pinEdgeAtPick": 0.028,
       "pinEdgeEstimated": false,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-05|Ball State Cardinals at UMass Minutemen|spread|away|v1|lean|learned-scan-ncaaf-spread|2026-11-02T00:24:40Z|gated|2026-11-02T00:24:40Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-05|Ball State Cardinals at UMass Minutemen|spread",
+      "sport": "NCAAF",
+      "event": "Ball State Cardinals at UMass Minutemen",
+      "commence": "2026-11-05T00:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 3.5,
+      "priceAtPick": -113,
+      "marketNumber": -3.5,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-11-01T23:09:40Z",
+      "pickedAt": "2026-11-02T00:24:40Z",
+      "fair": -2.6609,
+      "projection": -2.6609,
+      "edge": 0.839,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": 0.198,
+      "modelWeight": 0.299,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-spread",
+      "reason": "Model learned on the scanner's data (gbm, 14 data points, passed the out-of-sample gate) predicts a move of -0.839 from the open for away; 0.839 still to come. Report: stats/models/scan_ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": -3.0,
+        "prices": {
+          "home": -114,
+          "away": -102
+        },
+        "updated": "2026-11-01T23:09:13Z",
+        "snapTime": "2026-11-01T23:09:40Z",
+        "noVig": 0.4861
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -113,
+        "line": -3.5,
+        "implied": 0.5305,
+        "printImplied": 0.5349
+      },
+      "pinEdgeAtPick": -0.0019,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -0.2% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-05|Toledo Rockets at Sacramento State Hornets|spread|away|v1|lean|learned-scan-ncaaf-spread|2026-11-02T00:24:40Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-05|Toledo Rockets at Sacramento State Hornets|spread",
+      "sport": "NCAAF",
+      "event": "Toledo Rockets at Sacramento State Hornets",
+      "commence": "2026-11-05T00:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": -25.5,
+      "priceAtPick": -109,
+      "marketNumber": 25.5,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": -108,
+        "away": -112
+      },
+      "priceTime": "2026-11-01T23:09:40Z",
+      "pickedAt": "2026-11-02T00:24:40Z",
+      "fair": 25.806,
+      "projection": 25.806,
+      "edge": 0.306,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": 0.19,
+      "modelWeight": 0.299,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-spread",
+      "reason": "Model learned on the scanner's data (gbm, 14 data points, passed the out-of-sample gate) predicts a move of -0.306 from the open for away; 0.306 still to come. Report: stats/models/scan_ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": 26.5,
+        "prices": {
+          "home": -108,
+          "away": -108
+        },
+        "updated": "2026-11-01T23:09:13Z",
+        "snapTime": "2026-11-01T23:09:40Z",
+        "noVig": 0.5
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -109,
+        "line": 25.5,
+        "implied": 0.5215,
+        "printImplied": 0.5283
+      },
+      "pinEdgeAtPick": 0.0035,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
     }
   ]
 }
