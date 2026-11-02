@@ -136499,6 +136499,122 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.2% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "SerieA|2026-11-08|Juventus at Fiorentina|h2h|home|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "SerieA|2026-11-08|Juventus at Fiorentina|h2h",
+      "sport": "SerieA",
+      "event": "Juventus at Fiorentina",
+      "commence": "2026-11-08T19:45:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 300,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 261,
+        "away": 108,
+        "draw": 260
+      },
+      "priceTime": "2026-11-02T19:24:31Z",
+      "pickedAt": "2026-11-02T19:24:32Z",
+      "fair": 0.2658,
+      "projection": 0.2658,
+      "edge": 0.0158,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "Hard Rock Bet home +300 implies 25.0%. Pinnacle +261 no-vig is 26.6%. Edge +1.6%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 261,
+          "away": 108,
+          "draw": 260
+        },
+        "updated": "2026-11-02T19:24:15Z",
+        "snapTime": "2026-11-02T19:24:31Z",
+        "noVig": 0.2658
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": 270,
+        "line": null,
+        "implied": 0.2703,
+        "printImplied": 0.277
+      },
+      "priceBook": "BetMGM",
+      "pinEdgeAtPick": 0.0158,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "ATP|2026-11-04|Daniil Medvedev at Ignacio Buse|h2h|home|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "ATP|2026-11-04|Daniil Medvedev at Ignacio Buse|h2h",
+      "sport": "ATP",
+      "event": "Daniil Medvedev at Ignacio Buse",
+      "commence": "2026-11-04T10:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 590,
+      "bookAtPick": "FanDuel",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 508,
+        "away": -760
+      },
+      "priceTime": "2026-11-02T19:24:31Z",
+      "pickedAt": "2026-11-02T19:24:32Z",
+      "fair": 0.1521,
+      "projection": 0.1521,
+      "edge": 0.0072,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "FanDuel home +590 implies 14.5%. Pinnacle +486 no-vig is 15.2%. Edge +0.7%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 486,
+          "away": -649
+        },
+        "updated": "2026-11-02T19:24:26Z",
+        "snapTime": "2026-11-02T19:24:31Z",
+        "noVig": 0.1521
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 590,
+        "line": null,
+        "implied": 0.1449,
+        "printImplied": 0.1645
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.0072,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
