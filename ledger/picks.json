@@ -133805,7 +133805,7 @@
       "rowId": "ATP|2026-11-02|Titouan Droguet at Alex Molcan|h2h",
       "sport": "ATP",
       "event": "Titouan Droguet at Alex Molcan",
-      "commence": "2026-11-02T17:00:00Z",
+      "commence": "2026-11-02T17:25:00Z",
       "market": "h2h",
       "side": "home",
       "lineAtPick": null,
@@ -135851,6 +135851,63 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.7% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "ATP|2026-11-02|Karen Khachanov at Denis Shapovalov|h2h|home|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "ATP|2026-11-02|Karen Khachanov at Denis Shapovalov|h2h",
+      "sport": "ATP",
+      "event": "Karen Khachanov at Denis Shapovalov",
+      "commence": "2026-11-02T18:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 160,
+      "bookAtPick": "BetRivers",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 136,
+        "away": -167
+      },
+      "priceTime": "2026-11-02T17:24:34Z",
+      "pickedAt": "2026-11-02T17:24:36Z",
+      "fair": 0.3919,
+      "projection": 0.3919,
+      "edge": 0.0073,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "BetRivers home +160 implies 38.5%. Pinnacle +146 no-vig is 39.2%. Edge +0.7%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 146,
+          "away": -165
+        },
+        "updated": "2026-11-02T17:24:34Z",
+        "snapTime": "2026-11-02T17:24:34Z",
+        "noVig": 0.3919
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 152,
+        "line": null,
+        "implied": 0.3968,
+        "printImplied": 0.4237
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.0073,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
