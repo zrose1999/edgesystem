@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-11-02 12:56Z)
+# What EDGE is learning (2026-11-02 13:26Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 1054 graded reads counted, 2102 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Scanner (scan.py, 11-02 11:15Z): 40 strategies tracking from 10258 hypotheses (0 new this run); 117 graded scan reads, mean CLV -0.6%. Shadow only; grade.py decides promotion.
@@ -22,7 +22,7 @@ Process vs result: right-and-rewarded 211, right-but-unlucky 163, lucky-win 306,
 Gated by the Pinnacle gate (scored, not counted): n 57, CLV -0.5%, t -1.2 (positive = the gate blocks winners); best pocket pattern=tennis-elo n 9, CLV +0.8%, t +0.4 (of 36 tested)
 Data gaps, waiting on a source: public-pct (needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack); guru (needs an account list + reader (Reddit API free, X API paid); log account, number, time, result)
 Coverage of added features (BREAKAGE if still 0 one health-check cycle after shipping):
-- snaps: 1429 price snapshots stored in the last 26h, latest 11-02 12:54Z, 1533 games with 2+ (late steam, since 10-19 18:15Z)
+- snaps: 1303 price snapshots stored in the last 26h, latest 11-02 13:24Z, 1533 games with 2+ (late steam, since 10-19 18:15Z)
 - pinAtPick on 399 of 662 graded reads since 10-19 18:00Z; 1111 of 1434 new reads stamped (Pinnacle at the pick)
 - contextAtPick on 662 of 662 graded reads since 10-19 18:00Z; 1434 of 1434 new reads stamped (weather/injury/goalie as stamped)
 - sharpDivergenceAtPick on 240 of 662 graded reads since 10-19 18:00Z (needs Pinnacle on the same line)
