@@ -582,3 +582,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-02 | ATP: role=dog + sharpDivPick=aligned | 8 | +0.7% | found inside ATP role=dog (best of 5 features tested); small sample, may share reads with other rows |
 | 2026-11-02 | ATP: edgeBar=0.5-1x + venue=home | 8 | +0.6% | found inside ATP venue=home (best of 12 features tested); small sample, may share reads with other rows |
 | 2026-11-02 | ATP: role=dog + sharpGapPick=<1% | 8 | +0.7% | found inside ATP role=dog (best of 5 features tested); small sample, may share reads with other rows |
+| 2026-11-02 | ATP: grade=B + timing=day | 8 | +0.3% | found inside ATP timing=day (best of 11 features tested); small sample, may share reads with other rows |
