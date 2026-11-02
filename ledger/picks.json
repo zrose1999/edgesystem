@@ -135908,6 +135908,69 @@
       "pinEdgeAtPick": 0.0073,
       "pinEdgeEstimated": false,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NHL|2026-11-03|Detroit Red Wings at Florida Panthers|h2h|away|v1|lean|goalie-news|2026-11-02T17:39:34Z|gated|2026-11-02T17:39:34Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NHL|2026-11-03|Detroit Red Wings at Florida Panthers|h2h",
+      "sport": "NHL",
+      "event": "Detroit Red Wings at Florida Panthers",
+      "commence": "2026-11-03T00:10:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 160,
+      "marketNumber": null,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": -185,
+        "away": 154
+      },
+      "priceTime": "2026-11-02T17:39:28Z",
+      "pickedAt": "2026-11-02T17:39:34Z",
+      "fair": 0.602,
+      "projection": 0.602,
+      "edge": 0.013,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.003,
+      "modelWeight": 0.134,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Panthers: Akira Schmid (expected) at the open, now Jacob Markstrom (confirmed), GSAx/60 -0.02 to -0.15 | Wings: John Gibson (expected) at the open, now Daniil Tarasov (confirmed), GSAx/60 +0.04 to +0.11. Open home win 0.614, goalie change -0.012, fair 0.602.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -173,
+          "away": 155
+        },
+        "updated": "2026-11-02T17:39:15Z",
+        "snapTime": "2026-11-02T17:39:28Z",
+        "noVig": 0.3792
+      },
+      "contextAtPick": {
+        "goalie": "Panthers: Akira Schmid (expected) at the open, now Jacob Markstrom (confirmed), GSAx/60 -0.02 to -0.15 | Wings: John Gibson (expected) at the open, now Daniil Tarasov (confirmed), GSAx/60 +0.04 to +0.11"
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": 160,
+        "line": null,
+        "implied": 0.3846,
+        "printImplied": 0.3937
+      },
+      "pinEdgeAtPick": -0.0054,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -0.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
