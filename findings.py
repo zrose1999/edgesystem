@@ -176,6 +176,25 @@ def evaluate(es, half_at, ctx):
     return r
 
 
+def row_side(e):
+    return (e.get("date"), e.get("event"), e.get("market"), e.get("side"))
+
+
+def by_game(es, ctx):
+    """Independence check (health check 2026-11-03): several patterns often stamp the same game and side, and those
+    reads share one CLV, so n overstates the evidence. Count each game-side once (mean CLV of its reads) inside and
+    outside the condition and recompute the Welch t. Informational: statuses still use the read-level test."""
+    def collapse(rows):
+        g = defaultdict(list)
+        for e in rows:
+            g[row_side(e)].append(e["clvProb"])
+        return {k: sum(v) / len(v) for k, v in g.items()}
+    inn = collapse(es)
+    out = {k: v for k, v in collapse(ctx).items() if k not in inn}
+    a, b = list(inn.values()), list(out.values())
+    return {"games": len(a), "mean": round(mean(a), 4) if a else None, "t": round(welch(a, b), 2)}
+
+
 def passes(r, min_n=MIN_N):
     """n, both halves big enough, |Welch t| >= MIN_T, and the difference has the same sign in both halves.
     A "wins" finding must also be above 0 CLV itself: better than a losing average is not a win."""
@@ -290,6 +309,7 @@ def build(now=None):
                       "half1": {"n": r["n1"], "mean": round(r["m1"], 4), "diff": round(r["d1"], 4)},
                       "half2": {"n": r["n2"], "mean": round(r["m2"], 4), "diff": round(r["d2"], 4)},
                       "confound": confound(es, half_at, reads if scope == "ALL" else by_sport[scope], r["diff"]),
+                      "byGame": by_game(es, reads if scope == "ALL" else by_sport[scope]),
                       "direction": "wins" if r["diff"] > 0 else "loses"})
     found.sort(key=lambda f: -abs(f["t"]))
 
@@ -414,6 +434,10 @@ def markdown(rep, faded):
                 w = c.get("without") or {}
                 note = (f" {c['share']:.0%} of these reads are {c['topPattern']}; without it the difference is "
                         f"{pct(w.get('diff'))} on {w.get('n')}: {c['verdict']}.")
+            bg = f.get("byGame") or {}
+            if bg.get("games") and bg["games"] < f["n"]:
+                weak = " (weak once games are counted once)" if abs(bg.get("t") or 0) < MIN_T else ""
+                note += (f" From {bg['games']} games; one per game: {pct(bg.get('mean'))}, t {bg.get('t'):+.1f}{weak}.")
             days = f"{f['daysSeen']} day" + ("s" if f["daysSeen"] != 1 else "")
             L.append(f"- **{f['status']}** (seen {days}, since {f['firstSeen']}): {f['text']}: CLV {pct(f['mean'])} on "
                      f"{f['n']} vs {pct(f['outside'])} on the rest (difference t {f['t']:+.1f}); held in both halves "

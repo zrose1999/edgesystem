@@ -32,6 +32,8 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   spreads +2.6% (n 18, t 1.9). All counted: favourites -1.6% (n 182, t -4.3), dogs +0.4% (n 170, t 0.8).
 - 2026-11-02 refresh (health check): all counted: favourites -1.6% (n 190, t -4.3), dogs +0.2% (n 184, t 0.4). Since
   10-30 12Z only 3 favourite spreads (+2.7%) and 12 dog spreads (+0.2%): too few fresh reads to move it either way.
+- 2026-11-03 refresh (health check): all counted: favourites -1.5% (n 192, t -4.2; memory query same), dogs +0.2%
+  (n 185, t 0.4). Since 10-30 12Z: 4 favourite spreads (+2.6%), 12 dog spreads (+0.2%). Still too few fresh reads.
 
 ### 2. Away teams travelling east (2026-10-30, lead, waits on the NFL backfill)
 - NFL history 2015-2026 (PR #8): home moneyline when the away team travels east ROI -11.1% at the close (n 847, t -3.2,
@@ -101,8 +103,29 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   (n 28, t 1.9), halves +0.4% and +0.4%; 0.5-1% edges +0.3% (n 22), 1%+ +0.8% (n 6); NBA +1.2% (n 7), NCAAF +0.1%
   (n 11), NFL -0.2% (n 6). Price paid +0.9% (beats Pinnacle by construction), market move -1.6% (n 28, t -1.5): the
   edge is the price, and the move runs mildly against dogs here. Judged at 30, from the next full run's numbers.
+- 2026-11-03 judgement at 30+ (health check): 38 graded, +0.5% (t 2.0); halves +0.4% (n 19, t 1.45) and +0.6%
+  (n 19, t 1.44): positive in both but just under the 1.5 bar, so neither "holds" nor kill; keep running, judge again
+  at 50 (kill if <= 0). No floor tweak: the 1%+ bucket is not the better one (+0.8% under 1% n 12, -0.6% at 1%+ n 5,
+  where Pinnacle at the pick is stored). By market: moneylines +0.6% (n 31, t 2.0), spreads +0.1% (n 7); by sport NBA
+  +0.7% (n 11), ATP +1.1% (n 7), NCAAF +0.1% (n 11), NFL -0.2% (n 6), NHL +0.9% (n 3). Each read is its own game-side.
 
 ## Killed
+
+### Pattern consensus (2026-11-03, killed)
+- Observation: findings.py's strongest new finding (NBA, 2+ days of rest and our side travelled further, +6.4% on 19)
+  came from 10 game-sides, and one game (GSW at PHX 10-25) supplied 8 of the 19 reads: rest-spot, edge-stack, five
+  scan-nba-rest* patterns and learned-scan-nba-spread all took the same side. Idea: when several independent pattern
+  families agree on one game-side, the read is better (agreement as evidence).
+- Mechanism tried: separate families (scan, learned, sharp-soft, soft-dog, situational) see different information;
+  agreement should filter noise.
+- Test (memory log, non-parked picks, leans and gated reads, one row per game-side, first read's CLV): 1 family -0.7%
+  (n 512, t -3.6); 2 families -0.4% (n 105, t -1.0); 3 -0.6% (n 20); 4+ +3.0% (n 7). Halves for 2+: -1.4% (n 52), then
+  +0.5% (n 80). By sport 2+: NBA +1.9% (n 30), NCAAF -1.1% (n 58), NHL -1.2% (n 33). No consistent lift; 6 variants.
+  72 of 572 game-markets had patterns on both sides.
+- Kept from it: read-level counts overstate evidence. 780 counted reads are 593 game-sides; collapsing to one value per
+  game-side, findings.py clears 37 conditions vs ~19.9 by chance (was 71 vs ~30.7), and 30 of the 71 survive the full
+  re-scan. findings.py now prints each finding's game count and per-game t (byGame), report-only.
+- Re-test when there are 1,500+ game-sides.
 
 ### Express spread reads on the moneyline (2026-10-31, killed)
 - Observation: spread and total reads pay ~2.1% vs fair at the pick (autopsy split, n 312 spreads, 391 totals), moneyline

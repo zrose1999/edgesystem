@@ -167,21 +167,42 @@ CACHE = ROOT / "stats" / "features" / "understat_cache.json"
 CACHE_H = 6
 
 
+DOWN_H = 2            # after a failed fetch, skip Understat for this long (cache key "_down")
+_DOWN = False         # set on the first failure in this process: the other leagues use the cache at once
+
+
 def understat_cached(us, y):
-    """Understat league data, refetched at most every CACHE_H hours (fast runs come every 15 minutes)."""
+    """Understat league data, refetched at most every CACHE_H hours (fast runs come every 15 minutes).
+    Circuit breaker (health check 2026-11-03): when Understat hangs, each curl waited its full 40 s and a morning run
+    spent ~10 minutes on 15 failed calls. Now one failure stops fetching for the rest of the run and for DOWN_H hours;
+    the cached dates are used meanwhile."""
+    global _DOWN
     cache = json.loads(CACHE.read_text()) if CACHE.exists() else {}
     key = f"{us}/{y}"
     rec = cache.get(key)
     now = datetime.now(timezone.utc)
     if rec and (now - datetime.fromisoformat(rec["at"])).total_seconds() < CACHE_H * 3600:
         return rec["dates"]
+    down = cache.get("_down")
+    if _DOWN or (down and (now - datetime.fromisoformat(down)).total_seconds() < DOWN_H * 3600):
+        return rec["dates"] if rec else None
     try:
         out = subprocess.run(["curl", "-s", "--compressed", "-m", "40", "-H", "X-Requested-With: XMLHttpRequest",
                               f"https://understat.com/getLeagueData/{us}/{y}"], capture_output=True).stdout
-        dates = sorted([g for g in json.loads(out)["dates"]], key=lambda g: g["datetime"])
+        try:
+            data = json.loads(out)
+        except ValueError as exc:
+            snippet = out[:120].decode("utf-8", "replace").replace("\n", " ")
+            raise ValueError(f"not JSON ({len(out)} bytes): {snippet!r}") from exc
+        dates = sorted([g for g in data["dates"]], key=lambda g: g["datetime"])
     except Exception as exc:  # noqa: BLE001
-        print("understat", us, y, exc)
+        print("understat", us, y, exc, f"(skipping Understat for {DOWN_H}h; cached form in use)")
+        _DOWN = True
+        cache["_down"] = now.isoformat()
+        CACHE.parent.mkdir(parents=True, exist_ok=True)
+        CACHE.write_text(json.dumps(cache, separators=(",", ":")))
         return rec["dates"] if rec else None
+    cache.pop("_down", None)
     slim = [{k: g.get(k) for k in ("datetime", "isResult", "h", "a", "goals", "xG", "forecast")} for g in dates]
     cache[key] = {"at": now.isoformat(), "dates": slim}
     CACHE.parent.mkdir(parents=True, exist_ok=True)

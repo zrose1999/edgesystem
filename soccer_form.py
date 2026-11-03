@@ -21,13 +21,19 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "stats" / "soccer_form.json"
+CACHE = ROOT / "stats" / "features" / "understat_cache.json"
 LEAGUES = {"EPL": "EPL", "LaLiga": "La_liga", "Bundesliga": "Bundesliga", "SerieA": "Serie_A", "Ligue1": "Ligue_1"}
 
 
 def understat(league, year):
     out = subprocess.run(["curl", "-s", "--compressed", "-m", "40", "-H", "X-Requested-With: XMLHttpRequest",
                           f"https://understat.com/getLeagueData/{league}/{year}"], capture_output=True).stdout
-    return json.loads(out)
+    try:
+        return json.loads(out)
+    except ValueError as exc:
+        # Say what came back (empty, an error page, a moved endpoint) so the run log shows the cause.
+        snippet = out[:120].decode("utf-8", "replace").replace("\n", " ")
+        raise ValueError(f"not JSON ({len(out)} bytes): {snippet!r}") from exc
 
 
 def norm(s):
@@ -54,19 +60,51 @@ def form(dates):
     return out
 
 
+def cached_dates(us, year):
+    """Understat dates from features_soccer.py's cache (stats/features/understat_cache.json), or None."""
+    try:
+        rec = json.loads(CACHE.read_text()).get(f"{us}/{year}")
+        return (rec["dates"], rec["at"][:19] + "Z") if rec and rec.get("dates") else None
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def main():
+    """A failed Understat fetch never wipes a league: it keeps the last good form (this file, else the features
+    cache) and the file's asOf becomes the oldest league's fetch time, so loop_check.py reports the staleness.
+    (2026-11-03: Understat stopped returning JSON on 11-01 ~21Z and three runs wrote "leagues": {}.)"""
     now = datetime.now(timezone.utc)
+    stamp = now.strftime("%Y-%m-%dT%H:%M:%SZ")
     year = now.year if now.month >= 7 else now.year - 1
-    res = {"asOf": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "leagues": {}}
+    try:
+        prev = json.loads(OUT.read_text())
+    except Exception:  # noqa: BLE001
+        prev = {}
+    res = {"asOf": stamp, "leagues": {}, "fetchedAt": {}}
+    down = False          # one failure skips the other leagues: a hanging Understat cost 40 s per call
     for ours, us in LEAGUES.items():
-        try:
-            cur = form(understat(us, year)["dates"])
-        except Exception as exc:  # noqa: BLE001
-            print("understat", us, exc)
-            continue
-        res["leagues"][ours] = cur
+        if not down:
+            try:
+                res["leagues"][ours] = form(understat(us, year)["dates"])
+                res["fetchedAt"][ours] = stamp
+                continue
+            except Exception as exc:  # noqa: BLE001
+                print("understat", us, exc)
+                down = True
+        if (prev.get("leagues") or {}).get(ours):
+            res["leagues"][ours] = prev["leagues"][ours]
+            res["fetchedAt"][ours] = (prev.get("fetchedAt") or {}).get(ours) or prev.get("asOf")
+        elif (hit := cached_dates(us, year)):
+            res["leagues"][ours] = form(hit[0])
+            res["fetchedAt"][ours] = hit[1]
+    if res["fetchedAt"]:
+        res["asOf"] = min(res["fetchedAt"].values())
+    stale = sorted(k for k, v in res["fetchedAt"].items() if v != stamp)
+    if stale or len(res["leagues"]) < len(LEAGUES):
+        print(f"::warning::soccer_form.py: Understat fetch failed; stale form kept for {stale}, "
+              f"missing {sorted(set(LEAGUES) - set(res['leagues']))}")
     OUT.write_text(json.dumps(res, indent=1, ensure_ascii=False))
-    print(json.dumps({"soccerForm": {k: len(v) for k, v in res["leagues"].items()}}))
+    print(json.dumps({"soccerForm": {k: len(v) for k, v in res["leagues"].items()}, "stale": stale}))
 
 
 if __name__ == "__main__":
