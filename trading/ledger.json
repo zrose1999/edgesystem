@@ -19157,14 +19157,19 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.69,
         "lastSeen": "2026-11-03T14:24:48Z",
         "closeMid": 0.69,
-        "clv": 0.22
+        "clv": 0.22,
+        "result": "no",
+        "won": true,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-03T18:55:43Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV030400MAYAZU-AZU",
@@ -19244,14 +19249,19 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.56,
         "lastSeen": "2026-11-03T15:25:02Z",
         "closeMid": 0.56,
-        "clv": -0.01
+        "clv": -0.01,
+        "result": "no",
+        "won": true,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-03T18:55:43Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV031600BSTAMEI-MEI",
@@ -25174,6 +25184,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-03T18:22:52Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-03T18:55:43Z"
       }
     ]
   },
@@ -27805,8 +27819,8 @@
         "orderId": "01a19989-eab8-790c-8def-fbbdbead5770",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.475,
-        "lastSeen": "2026-11-03T18:22:52Z"
+        "lastMid": 0.495,
+        "lastSeen": "2026-11-03T18:55:43Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -31885,6 +31899,52 @@
         "status": "resting",
         "time": "2026-11-03T18:22:52Z",
         "test": true
+      },
+      {
+        "ticker": "KXNFLGAME-26NOV08CLENO-CLE",
+        "title": "Cleveland",
+        "sport": "NFL",
+        "kind": "game",
+        "event": "Cleveland Browns at New Orleans Saints",
+        "commence": "2026-11-08T18:00:00Z",
+        "side": "no",
+        "strike": null,
+        "source": "mirror:sharp-soft",
+        "fair": 0.5865,
+        "edge": 0.0391,
+        "estimated": true,
+        "why": "EDGE sharp-soft B pick (DraftKings home -125 implies 55.6%. Pinnacle -143 no-vig is 57.1%. Edge +1.5%.). Pinnacle fair here 57.1% plus the pick's edge = 58.7%; Kalshi NO 0.53 + fee = 0.547.",
+        "orderId": "01a1a2c4-b5b8-75d2-b494-3d72bccd93b5",
+        "orderPath": "v2",
+        "price": 0.52,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-03T18:55:43Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNCAAFTOTAL-26NOV06TCUARIZ-44",
+        "title": "Over 43.5 points",
+        "sport": "NCAAF",
+        "kind": "total",
+        "event": "TCU Horned Frogs at Arizona Wildcats",
+        "commence": "2026-11-07T03:15:00Z",
+        "side": "no",
+        "strike": 43.5,
+        "source": "kalshi-drift",
+        "fair": 0.5109,
+        "edge": 0.0235,
+        "estimated": true,
+        "why": "Pinnacle fair 50.7% plus the measured drift still to come +0.40%; Kalshi NO 0.47 + fee = 0.487.",
+        "orderId": "01a1a2c4-b5b8-74cf-86f6-be6729447c43",
+        "orderPath": "v2",
+        "price": 0.46,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-03T18:55:43Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -31944,7 +32004,7 @@
       }
     ]
   },
-  "asOf": "2026-11-03T18:22:52Z",
+  "asOf": "2026-11-03T18:55:43Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -31981,8 +32041,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 268,
-      "resting": 13,
+      "orders": 271,
+      "resting": 16,
       "filled": 132,
       "expired": 123,
       "fillRate": 0.518,
@@ -31995,8 +32055,11 @@
       "pairedTakerClvNet": -0.0189,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 1,
+    "liveSkips": {
+      "already held": 4,
+      "test: same contract already held": 1
+    },
+    "liveCandidates": 7,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -32037,9 +32100,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 0.82,
+      "spentToday": 1.8,
       "trades": 81,
-      "resting": 3
+      "resting": 5
     },
     "config": {
       "startingBankroll": 35.0,
@@ -32064,7 +32127,7 @@
       "kalshiMarkets": 4649,
       "eventsMatched": 245,
       "eventsUnmatched": 228,
-      "candidates": 1
+      "candidates": 7
     }
   },
   "account": {
@@ -32073,11 +32136,11 @@
     "detail": {
       "balance": 7858,
       "balance_dollars": "78.5823",
-      "portfolio_value": 40,
-      "updated_ts": 1793730194
+      "portfolio_value": 42,
+      "updated_ts": 1793732163
     },
     "env": "production",
-    "checkedAt": "2026-11-03T18:23:14Z"
+    "checkedAt": "2026-11-03T18:56:03Z"
   },
   "maker": {
     "start": 0.0,
@@ -37560,6 +37623,63 @@
         "takerEdge": 0.0428,
         "makerEdge": 0.0653,
         "postedAt": "2026-11-03T18:22:52Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNFLGAME-26NOV08CLENO-CLE",
+        "title": "Cleveland",
+        "sport": "NFL",
+        "kind": "game",
+        "event": "Cleveland Browns at New Orleans Saints",
+        "commence": "2026-11-08T18:00:00Z",
+        "side": "no",
+        "source": "mirror:sharp-soft",
+        "fair": 0.5865,
+        "estimated": true,
+        "price": 0.52,
+        "bidAtPost": 0.52,
+        "askAtPost": 0.53,
+        "takerEdge": 0.0391,
+        "makerEdge": 0.0621,
+        "postedAt": "2026-11-03T18:55:43Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNFLGAME-26NOV08CLENO-CLE",
+        "title": "Cleveland",
+        "sport": "NFL",
+        "kind": "game",
+        "event": "Cleveland Browns at New Orleans Saints",
+        "commence": "2026-11-08T18:00:00Z",
+        "side": "no",
+        "source": "kalshi-sharp",
+        "fair": 0.571,
+        "estimated": false,
+        "price": 0.52,
+        "bidAtPost": 0.52,
+        "askAtPost": 0.53,
+        "takerEdge": 0.0236,
+        "makerEdge": 0.0466,
+        "postedAt": "2026-11-03T18:55:43Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNCAAFTOTAL-26NOV06TCUARIZ-44",
+        "title": "Over 43.5 points",
+        "sport": "NCAAF",
+        "kind": "total",
+        "event": "TCU Horned Frogs at Arizona Wildcats",
+        "commence": "2026-11-07T03:15:00Z",
+        "side": "no",
+        "source": "kalshi-drift",
+        "fair": 0.5109,
+        "estimated": true,
+        "price": 0.46,
+        "bidAtPost": 0.46,
+        "askAtPost": 0.47,
+        "takerEdge": 0.0235,
+        "makerEdge": 0.0466,
+        "postedAt": "2026-11-03T18:55:43Z",
         "status": "resting"
       }
     ],
