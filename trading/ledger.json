@@ -18741,14 +18741,19 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.135,
         "lastSeen": "2026-11-03T17:40:09Z",
         "closeMid": 0.135,
-        "clv": -0.095
+        "clv": -0.095,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-03T21:24:57Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV021000NOITSA-NOI",
@@ -19289,7 +19294,9 @@
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.395,
-        "lastSeen": "2026-11-03T17:40:09Z"
+        "lastSeen": "2026-11-03T17:40:09Z",
+        "closeMid": 0.395,
+        "clv": -0.005
       },
       {
         "ticker": "KXCS2GAME-26NOV030800RUSMIBR-RUS",
@@ -19533,14 +19540,19 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.43,
         "lastSeen": "2026-11-03T16:54:49Z",
         "closeMid": 0.43,
-        "clv": -0.03
+        "clv": -0.03,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-03T21:24:57Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV030900LILMIXMEL-LILMIX",
@@ -19707,14 +19719,19 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.315,
         "lastSeen": "2026-11-03T17:40:09Z",
         "closeMid": 0.315,
-        "clv": -0.035
+        "clv": -0.035,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-03T21:24:57Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV030630MAYFAL-MAY",
@@ -19735,10 +19752,15 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
-        "trackOnly": true
+        "trackOnly": true,
+        "result": "yes",
+        "won": true,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-03T21:24:57Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV032330B8NAVI-NAVI",
@@ -19839,14 +19861,19 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.435,
         "lastSeen": "2026-11-03T17:40:09Z",
         "closeMid": 0.435,
-        "clv": -0.035
+        "clv": -0.035,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-03T21:24:57Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV031300RBLSWRA-WRA",
@@ -19867,10 +19894,15 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
-        "trackOnly": true
+        "trackOnly": true,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-03T21:24:57Z"
       }
     ],
     "equity": [
@@ -25212,6 +25244,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-03T20:51:40Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-03T21:24:57Z"
       }
     ]
   },
@@ -27844,7 +27880,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.495,
-        "lastSeen": "2026-11-03T20:51:40Z"
+        "lastSeen": "2026-11-03T21:24:57Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -32074,7 +32110,7 @@
       }
     ]
   },
-  "asOf": "2026-11-03T20:51:40Z",
+  "asOf": "2026-11-03T21:24:57Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32126,6 +32162,7 @@
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {
+      "already held": 2,
       "test: same contract already held": 1
     },
     "liveCandidates": 3,
@@ -32148,9 +32185,9 @@
       },
       "cs2-elo": {
         "status": "shadow",
-        "n": 370,
+        "n": 371,
         "meanClvNet": -0.038,
-        "t": -8.04,
+        "t": -8.06,
         "tNeeded": 2.0,
         "freshN": 0
       },
@@ -32193,9 +32230,9 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4711,
-      "eventsMatched": 255,
-      "eventsUnmatched": 220,
+      "kalshiMarkets": 4897,
+      "eventsMatched": 257,
+      "eventsUnmatched": 224,
       "candidates": 3
     }
   },
@@ -32206,10 +32243,10 @@
       "balance": 7858,
       "balance_dollars": "78.5823",
       "portfolio_value": 42,
-      "updated_ts": 1793739121
+      "updated_ts": 1793741120
     },
     "env": "production",
-    "checkedAt": "2026-11-03T20:52:01Z"
+    "checkedAt": "2026-11-03T21:25:20Z"
   },
   "maker": {
     "start": 0.0,
@@ -41768,9 +41805,9 @@
     },
     "cs2-elo": {
       "status": "shadow",
-      "n": 370,
+      "n": 371,
       "meanClvNet": -0.038,
-      "t": -8.04,
+      "t": -8.06,
       "tNeeded": 2.0,
       "freshN": 0
     },
