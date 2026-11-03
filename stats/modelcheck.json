@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-03T08:40:01Z",
+ "asOf": "2026-11-03T11:24:35Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -64,9 +64,9 @@
    "rightWay": 1.0,
    "noMove": 0,
    "logLossGain": {
-    "n": 1,
-    "mean": -0.08711,
-    "t": 0.0
+    "n": 3,
+    "mean": 0.00904,
+    "t": 0.11
    },
    "verdict": "collecting"
   },
@@ -183,9 +183,9 @@
    "rightWay": 0.833,
    "noMove": 0,
    "logLossGain": {
-    "n": 5,
-    "mean": 0.01206,
-    "t": 0.56
+    "n": 6,
+    "mean": 0.00244,
+    "t": 0.12
    },
    "verdict": "collecting"
   },
@@ -387,8 +387,8 @@
    "rightWay": 0.529,
    "noMove": 82,
    "logLossGain": {
-    "n": 198,
-    "mean": -0.01306,
+    "n": 201,
+    "mean": -0.01284,
     "t": -1.31
    },
    "verdict": "collecting"
@@ -438,9 +438,9 @@
    "rightWay": 0.636,
    "noMove": 4,
    "logLossGain": {
-    "n": 14,
-    "mean": -0.00128,
-    "t": -0.1
+    "n": 15,
+    "mean": 0.00239,
+    "t": 0.2
    },
    "verdict": "collecting"
   },
@@ -455,9 +455,9 @@
    "rightWay": 0.533,
    "noMove": 0,
    "logLossGain": {
-    "n": 14,
-    "mean": -0.00049,
-    "t": -0.03
+    "n": 15,
+    "mean": 0.00195,
+    "t": 0.14
    },
    "verdict": "collecting"
   },
@@ -472,9 +472,9 @@
    "rightWay": 0.556,
    "noMove": 0,
    "logLossGain": {
-    "n": 8,
-    "mean": 0.02762,
-    "t": 1.58
+    "n": 9,
+    "mean": 0.02927,
+    "t": 1.89
    },
    "verdict": "collecting"
   },
@@ -489,9 +489,9 @@
    "rightWay": 0.429,
    "noMove": 1,
    "logLossGain": {
-    "n": 14,
-    "mean": 0.00235,
-    "t": 0.18
+    "n": 15,
+    "mean": 0.0053,
+    "t": 0.41
    },
    "verdict": "collecting"
   },
@@ -523,9 +523,9 @@
    "rightWay": 0.545,
    "noMove": 3,
    "logLossGain": {
-    "n": 13,
-    "mean": -0.00863,
-    "t": -0.92
+    "n": 14,
+    "mean": -0.00566,
+    "t": -0.61
    },
    "verdict": "collecting"
   },
@@ -540,9 +540,9 @@
    "rightWay": 0.6,
    "noMove": 3,
    "logLossGain": {
-    "n": 7,
-    "mean": 0.00481,
-    "t": 0.27
+    "n": 8,
+    "mean": 0.00985,
+    "t": 0.61
    },
    "verdict": "collecting"
   },
@@ -557,9 +557,9 @@
    "rightWay": 0.625,
    "noMove": 5,
    "logLossGain": {
-    "n": 12,
-    "mean": -0.00052,
-    "t": -0.07
+    "n": 13,
+    "mean": 0.00162,
+    "t": 0.21
    },
    "verdict": "collecting"
   },
@@ -753,17 +753,17 @@
   "soft-dog|prob": {
    "pattern": "soft-dog",
    "unit": "prob",
-   "n": 30,
-   "meanPredicted": 0.0054,
-   "meanRealized": -0.0035,
-   "tRealized": -1.38,
-   "capture": -0.64,
-   "rightWay": 0.45,
+   "n": 31,
+   "meanPredicted": 0.0061,
+   "meanRealized": -0.0013,
+   "tRealized": -0.41,
+   "capture": -0.22,
+   "rightWay": 0.476,
    "noMove": 10,
    "logLossGain": {
-    "n": 24,
-    "mean": -0.00502,
-    "t": -1.37
+    "n": 25,
+    "mean": -0.00491,
+    "t": -1.39
    },
    "verdict": "collecting"
   },

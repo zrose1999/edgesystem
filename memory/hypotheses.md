@@ -596,3 +596,5 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-03 | NFL: moveBeforePick=none + role=fav | 18 | +0.1% | found inside NFL injury=any (best of 15 pairs tested); small sample, may share reads with other rows |
 | 2026-11-03 | NFL: moveBeforePick=none + restEdge=more | 13 | +3.6% | found inside NFL moveBeforePick=none (best of 36 features tested); small sample, may share reads with other rows |
 | 2026-11-03 | NFL: injury=any + role=fav | 18 | +0.1% | found inside NFL moveBeforePick=none (best of 9 pairs tested); small sample, may share reads with other rows |
+| 2026-11-03 | ATP: edgeBar=<0.5x + role=dog | 11 | +0.0% | found inside ATP edgeBar=<0.5x (best of 9 features tested); small sample, may share reads with other rows |
+| 2026-11-03 | ATP: grade=B + venue=home | 10 | +1.1% | found inside ATP venue=home (best of 12 features tested); small sample, may share reads with other rows |

@@ -1,41 +1,41 @@
 {
-  "asOf": "2026-11-02T20:43:12Z",
+  "asOf": "2026-11-03T11:09:57Z",
   "sport": "NBA",
-  "backtestGames": 1086,
+  "backtestGames": 1101,
   "kSide": 0.0,
   "side": {
-    "kRaw": -0.129,
-    "n": 1086,
-    "se": 0.104
+    "kRaw": -0.116,
+    "n": 1101,
+    "se": 0.103
   },
   "moveSide": {
     "kMove": 0.044,
-    "n": 1086,
-    "se": 0.019
+    "n": 1101,
+    "se": 0.018
   },
-  "kTotal": 0.027,
+  "kTotal": 0.024,
   "total": {
-    "kRaw": 0.027,
-    "n": 1086,
-    "se": 0.102
+    "kRaw": 0.024,
+    "n": 1101,
+    "se": 0.101
   },
   "moveTotal": {
     "kMove": 0.119,
-    "n": 1086,
+    "n": 1101,
     "se": 0.021
   },
   "bigGap": {
     "gapAtLeast": 5.0,
-    "games": 250,
-    "modelSideWon": 125,
-    "modelSideLost": 125
+    "games": 255,
+    "modelSideWon": 128,
+    "modelSideLost": 127
   },
-  "maeMarketSide": 11.27,
-  "maeRawSide": 11.98,
+  "maeMarketSide": 11.24,
+  "maeRawSide": 11.94,
   "read": "k (kSide, kTotal, kProb) is how much of the model's gap from the closing market held up in results. 0 means the market already knows what these ratings know. kMove above 0 means the model's gap from the OPEN tended to be where the line moved by the close, which is the edge that beats the close. Use the fair numbers in matchups as given.",
   "fetch": {
-    "fetchedDays": 12,
+    "fetchedDays": 13,
     "dayErrors": 0,
-    "newLines": 0
+    "newLines": 15
   }
 }
