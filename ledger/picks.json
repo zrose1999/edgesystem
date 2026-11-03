@@ -138380,6 +138380,132 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NFL|2026-11-10|Buffalo Bills at Minnesota Vikings|spread|home|v1|lean|learned-nfl-spread|2026-11-03T01:31:12Z|gated|2026-11-03T01:31:12Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NFL|2026-11-10|Buffalo Bills at Minnesota Vikings|spread",
+      "sport": "NFL",
+      "event": "Buffalo Bills at Minnesota Vikings",
+      "commence": "2026-11-10T01:15:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": 3.5,
+      "priceAtPick": -118,
+      "marketNumber": 3.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "home": -118,
+        "away": -102
+      },
+      "priceTime": "2026-11-03T00:54:36Z",
+      "pickedAt": "2026-11-03T01:31:12Z",
+      "fair": 2.85,
+      "projection": 2.85,
+      "edge": 0.65,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.571,
+      "modelWeight": 0.091,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-nfl-spread",
+      "reason": "Learned NFL model (gbm, 82 data points; nflverse closes with backfilled opens) predicts the spread moves -0.650 from the open; open 2.5, now 3.5, 0.650 still to come. Fair 2.850. Report: stats/models/nfl_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": 3.0,
+        "prices": {
+          "home": 104,
+          "away": -117
+        },
+        "updated": "2026-11-03T00:54:14Z",
+        "snapTime": "2026-11-03T00:54:36Z",
+        "noVig": 0.4755
+      },
+      "contextAtPick": {
+        "injury": "MIN QB Kyler Murray, average (-0.03 EPA/dropback): Active at the open, Questionable now, +1.75 spread, -1.12 total | MIN RB1 Aaron Jones Sr.: Questionable at the open, Active now, -0.12 spread, +0.25 total | MIN LT Christian Darrisaw: Active at the open, Questionable now, +0.25 spread | MIN OL starter Joe Huber: Questionable at the open, Active now, -0.12 spread | BUF OL starter Spencer Brown: Active at the open, Out now, +0.25 spread | BUF defensive starter C.J. Gardner-Johnson: Suspension at the open, Active now, -0.25 spread | BUF defensive starter Ed Oliver: Questionable at the open, Active now, -0.12 spread | BUF defensive starter Dee Alford: Active at the open, Out now, +0.25 spread"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -118,
+        "line": 3.5,
+        "implied": 0.5413,
+        "printImplied": 0.5413
+      },
+      "pinEdgeAtPick": -0.0208,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.1% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NFL|2026-11-10|Buffalo Bills at Minnesota Vikings|total|over|v1|lean|learned-nfl-total|2026-11-03T01:31:12Z|gated|2026-11-03T01:31:12Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NFL|2026-11-10|Buffalo Bills at Minnesota Vikings|total",
+      "sport": "NFL",
+      "event": "Buffalo Bills at Minnesota Vikings",
+      "commence": "2026-11-10T01:15:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 46.5,
+      "priceAtPick": -104,
+      "marketNumber": 46.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "over": -105,
+        "under": -115
+      },
+      "priceTime": "2026-11-03T00:54:36Z",
+      "pickedAt": "2026-11-03T01:31:12Z",
+      "fair": 46.727,
+      "projection": 46.727,
+      "edge": 0.227,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": false,
+      "edgeShrunk": -0.857,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-nfl-total",
+      "reason": "Learned NFL model (ridge, 82 data points; nflverse closes with backfilled opens) predicts the total moves +0.227 from the open; open 47.5, now 46.5, 0.227 still to come. Fair 46.727. Report: stats/models/nfl_total.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": 46.5,
+        "prices": {
+          "over": -102,
+          "under": -112
+        },
+        "updated": "2026-11-03T00:54:14Z",
+        "snapTime": "2026-11-03T00:54:36Z",
+        "noVig": 0.4883
+      },
+      "contextAtPick": {
+        "injury": "MIN QB Kyler Murray, average (-0.03 EPA/dropback): Active at the open, Questionable now, +1.75 spread, -1.12 total | MIN RB1 Aaron Jones Sr.: Questionable at the open, Active now, -0.12 spread, +0.25 total | MIN LT Christian Darrisaw: Active at the open, Questionable now, +0.25 spread | MIN OL starter Joe Huber: Questionable at the open, Active now, -0.12 spread | BUF OL starter Spencer Brown: Active at the open, Out now, +0.25 spread | BUF defensive starter C.J. Gardner-Johnson: Suspension at the open, Active now, -0.25 spread | BUF defensive starter Ed Oliver: Questionable at the open, Active now, -0.12 spread | BUF defensive starter Dee Alford: Active at the open, Out now, +0.25 spread"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -104,
+        "line": 46.5,
+        "implied": 0.5098,
+        "printImplied": 0.5122
+      },
+      "pinEdgeAtPick": -0.0215,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.1% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
