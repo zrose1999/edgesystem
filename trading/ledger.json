@@ -17737,14 +17737,19 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.325,
         "lastSeen": "2026-11-02T16:31:37Z",
         "closeMid": 0.325,
-        "clv": -0.075
+        "clv": -0.075,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-03T17:54:46Z"
       },
       {
         "ticker": "KXCS2GAME-26OCT311330ISOG-OG",
@@ -19540,14 +19545,19 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.515,
         "lastSeen": "2026-11-03T13:31:21Z",
         "closeMid": 0.515,
-        "clv": -0.035
+        "clv": -0.035,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-03T17:54:46Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV030900FALWRA-WRA",
@@ -25141,6 +25151,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-03T17:40:09Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-03T17:54:46Z"
       }
     ]
   },
@@ -27773,7 +27787,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.475,
-        "lastSeen": "2026-11-03T17:40:09Z"
+        "lastSeen": "2026-11-03T17:54:46Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -31888,7 +31902,7 @@
       }
     ]
   },
-  "asOf": "2026-11-03T17:40:09Z",
+  "asOf": "2026-11-03T17:54:46Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -31939,10 +31953,8 @@
       "pairedTakerClvNet": -0.0189,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {
-      "sport paper-only": 19
-    },
-    "liveCandidates": 19,
+    "liveSkips": {},
+    "liveCandidates": 0,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -32007,10 +32019,10 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 6036,
-      "eventsMatched": 533,
-      "eventsUnmatched": 320,
-      "candidates": 19
+      "kalshiMarkets": 4649,
+      "eventsMatched": 245,
+      "eventsUnmatched": 228,
+      "candidates": 0
     }
   },
   "account": {
@@ -32020,10 +32032,10 @@
       "balance": 7858,
       "balance_dollars": "78.5823",
       "portfolio_value": 40,
-      "updated_ts": 1793727646
+      "updated_ts": 1793728507
     },
     "env": "production",
-    "checkedAt": "2026-11-03T17:40:46Z"
+    "checkedAt": "2026-11-03T17:55:07Z"
   },
   "maker": {
     "start": 0.0,
