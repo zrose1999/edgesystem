@@ -356,19 +356,18 @@ const archName = p => { const m = /^learned-archive-(.+)-([a-z0-9]+)$/.exec(p ||
 const stratName = p => (STRAT[p] || archName(p) || [p || "Analyst read"])[0];
 const state = { desk: "clv", sport: "All", grade: "AB", betsOnly: false, data: null, group: "All", tab: "board" };
 // Each sport gets its own tab; every section below (picks, results, strategies, trading) follows it.
+// 2026-11-03 (Zack): the desk focuses on NFL, college football and NBA. Every other sport is set aside on the data
+// side (focus.py) and hidden here; to show one again, add it to FOCUS and to GROUPS.
+const FOCUS = ["NFL", "NCAAF", "NBA"];
 const GROUPS = [
-  ["All", "All sports", null],
+  ["All", "All three", null],
   ["NFL", "NFL", ["NFL"]],
   ["NCAAF", "College football", ["NCAAF"]],
-  ["NBA", "NBA", ["NBA"]],
-  ["NHL", "NHL", ["NHL"]],
-  ["Soccer", "Soccer", ["EPL", "LaLiga", "SerieA", "Bundesliga", "Ligue1", "UCL", "UEL", "MLS"]],
-  ["Tennis", "Tennis", ["ATP", "WTA"]],
-  ["CS2", "CS2", ["CS2"]]
+  ["NBA", "NBA", ["NBA"]]
 ];
 const GROUP_OF = Object.fromEntries(GROUPS.flatMap(([g, , ss]) => (ss || []).map(s => [s, g])));
-const inGroup = sport => state.group === "All" || GROUP_OF[sport] === state.group;
-const groupSports = () => (GROUPS.find(g => g[0] === state.group) || [])[2] || null;
+const inGroup = sport => FOCUS.includes(sport) && (state.group === "All" || GROUP_OF[sport] === state.group);
+const groupSports = () => (GROUPS.find(g => g[0] === state.group) || [])[2] || FOCUS;
 const MODELS = {
   NFL: [["nfl_spread", "Spread"], ["nfl_total", "Total"], ["nfl_ml", "Moneyline"]],
   NCAAF: [["ncaaf_spread", "Spread"], ["ncaaf_total", "Total"]],
@@ -619,8 +618,8 @@ function renderStrategies() {
   const { picks, score } = state.data;
   const pats = (score && score.patterns) || [];
   const byId = Object.fromEntries(pats.map(p => [p.id, p]));
-  $("#roseHist").classList.toggle("hidden", state.group !== "All");
-  if (state.group !== "All") { renderStrategiesSport(picks, byId); return; }
+  $("#roseHist").classList.add("hidden");   // Rose history (mostly MLB and soccer) set aside 2026-11-03
+  renderStrategiesSport(picks, byId); return;
   const always = ["sharp-soft", "sharp-soft-alt", "news-lag", "wind-total", "stats-model", "trend-fade", "nba-stats-model", "nba-model-fav", "rest-spot", "goalie-news", "ncaaf-total-move", "ncaaf-spot", "nhl-ml-move", "nhl-total-move", "tennis-elo", "tennis-fatigue", "edge-stack", "sharp-drift", "soccer-drift", "learned-nhl-ml", "learned-nhl-over", "learned-soccer-1x2", "learned-soccer-over", "learned-nba-total", "learned-ncaaf-spread", "learned-ncaaf-total"];
   const names = [...new Set([...always, ...Object.keys(STRAT).filter(k => byId[k] || picks.some(p => p.pattern === k)), ...pats.map(p => p.id)])];
   const N = 15;
@@ -644,7 +643,7 @@ function renderStrategies() {
   }).join("") || `<div class="empty"><strong>No strategies have picks yet</strong><p>They appear here as soon as one stamps its first pick.</p></div>`;
 }
 
-const groupName = () => (GROUPS.find(g => g[0] === state.group) || [, "All sports"])[1];
+const groupName = () => (GROUPS.find(g => g[0] === state.group) || [, "NFL, college football and NBA"])[1].replace("All three", "NFL, college football and NBA");
 
 // Per-sport strategy records, computed from this sport's own picks (a strategy can run in several sports).
 function tstat(v) {
@@ -933,7 +932,7 @@ function renderTrading() {
   $("#tradeList").innerHTML = (open.length ? `<h2 class="sub2">Open positions</h2>${open.map(tradeRow).join("")}` : "")
     + (done.length ? `<h2 class="sub2">Settled</h2>${done.map(tradeRow).join("")}` : "")
     + (!open.length && !done.length ? `<div class="empty"><strong>No trades in this book yet</strong><p>${state.book === "live" ? "Real orders start after you approve live trading, and only for the sources you allow." : "Paper trades appear as soon as a Kalshi price clears the edge bar."}</p></div>` : "");
-  const tNote = state.group === "All" ? "" : `<p class="note" style="margin-top:14px">Balance, record and chart cover the whole book; the list above shows ${esc(groupName())} trades only.${["Soccer", "Tennis", "CS2"].includes(state.group) ? " This sport trades on paper only until you approve it for real money." : ""}</p>`;
+  const tNote = state.group === "All" ? "" : `<p class="note" style="margin-top:14px">Balance, record and chart cover the whole book; the list above shows ${esc(groupName())} trades only.</p>`;
   $("#tradeRules").innerHTML = tNote + (state.book === "paper"
     ? `<p class="note" style="margin-top:14px">The paper book tests every source at once from a $${Number(cfg.startingBankroll || 0).toFixed(0)} balance, each source with its own $${Number(cfg.maxPerDay || 0).toFixed(0)} daily cap, and never stops, so you can see which sources earn their place in the real-money list above.</p>`
     : `<p class="note" style="margin-top:14px">This book follows the switch panel above: its balance, limits and sources. Each time you switch on, a new session starts and the last one is kept in the record.</p>`);
