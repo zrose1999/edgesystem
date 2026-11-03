@@ -600,3 +600,5 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-03 | ATP: grade=B + venue=home | 10 | +1.1% | found inside ATP venue=home (best of 12 features tested); small sample, may share reads with other rows |
 | 2026-11-03 | bookAtPick=DraftKings + sport=NBA | 8 | +2.4% | found inside ALL bookAtPick=DraftKings (best of 36 features tested); small sample, may share reads with other rows |
 | 2026-11-03 | pattern=sharp-soft-alt + timing=early | 9 | +2.8% | found inside ALL timing=early (best of 68 features tested); small sample, may share reads with other rows |
+| 2026-11-03 | sharpDivPick=pin-for + timing=early | 11 | +2.7% | found inside ALL edgeBar=0.5-1x (best of 32 pairs tested); small sample, may share reads with other rows |
+| 2026-11-03 | ATP: pinEdge=0-2% + venue=home | 8 | +1.0% | found inside ATP venue=home (best of 13 features tested); small sample, may share reads with other rows |
