@@ -259,4 +259,7 @@ def backtest():
 
 
 if __name__ == "__main__":
+    import focus  # set-aside sports skip the scheduled run (2026-11-03)
+    if "--backtest" not in sys.argv[1:]:
+        focus.need("CS2", what="cs2.py")
     backtest() if "--backtest" in sys.argv[1:] else main()

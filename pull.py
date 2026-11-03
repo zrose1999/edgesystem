@@ -54,12 +54,12 @@ SPORTS = {
 }
 # Only sports the desk actually reads are pulled. Each sport costs Odds API credits,
 # and history calls for closes cost the most. Add a sport here when it gets real reads.
-# EDGE_SPORTS overrides this, e.g. EDGE_SPORTS=NFL,NCAAF
-ACTIVE = ["NFL", "NCAAF", "NBA", "NHL", "EPL", "UCL", "LaLiga", "SerieA", "Bundesliga", "Ligue1", "UEL", "MLS",
-          "ATP", "WTA"]   # prices collected
+# 2026-11-03 (Zack): the list lives in focus.py (NFL, NCAAF, NBA); every other sport is set aside there, not deleted.
+# EDGE_SPORTS overrides it for one run, e.g. EDGE_SPORTS=NFL,NCAAF
+# Before 11-03: NFL, NCAAF, NBA, NHL, EPL, UCL, LaLiga, SerieA, Bundesliga, Ligue1, UEL, MLS, ATP, WTA.
+import focus  # noqa: E402
+ACTIVE = focus.active()   # prices collected
 READ = ["NFL"]                                          # sports the analyst reads and picks
-_env = [s.strip().upper() for s in os.environ.get("EDGE_SPORTS", "").split(",") if s.strip()]
-ACTIVE = _env or ACTIVE
 # Credit guard. The Odds API reports credits left on every response.
 # Under RESERVE, near-game (EDGE_NEAR) runs stop; under FAST_RESERVE, fast runs stop. Under FLOOR, no close lookups at all.
 # (History closes are no longer limited to READ sports under RESERVE: since 2026-10-14 they are fetched only for rows
@@ -254,6 +254,8 @@ def gate_direct(entries, picks_list, snaps):
     from. Returns the entries to append: waits dropped, repeat gated entries dropped."""
     out, doc = [], {"picks": list(picks_list)}
     for e in entries:
+        if e.get("sport") and e["sport"] not in ACTIVE:
+            continue   # set-aside sport (focus.py, 2026-11-03): no new reads
         snap = snaps.get(e.get("rowId"))
         if snap is None:
             out.append(e)
@@ -901,6 +903,8 @@ def make_pick(a):
     row = next((r for r in ledger.get("rows") or [] if r.get("id") == a.id), None)
     if not row:
         fail("no row with that id")
+    if row.get("sport") not in ACTIVE:
+        fail(f"{row.get('sport')} is set aside (focus.py). Active: {', '.join(ACTIVE)}.")
     if row.get("sport") not in READ:
         fail(f"{row.get('sport')} is collected for data only. Picks are open for {', '.join(READ)}.")
     if (a.pattern or "").strip() in PARKED:
@@ -1044,6 +1048,8 @@ def make_read(a):
     row = next((r for r in ledger.get("rows") or [] if r.get("id") == a.id), None)
     if not row:
         fail("no row with that id")
+    if row.get("sport") not in ACTIVE:
+        fail(f"{row.get('sport')} is set aside (focus.py). Active: {', '.join(ACTIVE)}.")
     if row.get("sport") not in READ:
         fail(f"{row.get('sport')} is collected for data only. Reads are open for {', '.join(READ)}.")
     snap = row.get("lastSnap")

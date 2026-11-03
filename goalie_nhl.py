@@ -323,4 +323,7 @@ def main(dry=False):
 
 
 if __name__ == "__main__":
+    import focus  # set-aside sports skip the scheduled run (2026-11-03)
+    if "--backtest" not in sys.argv[1:]:
+        focus.need("NHL", what="goalie_nhl.py")
     main(dry="--dry" in sys.argv[1:])

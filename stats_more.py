@@ -714,7 +714,8 @@ def run(sport):
 
 
 def main():
-    sports = [s.upper() for s in sys.argv[1:]] or list(CONFIG) + list(DATA_ONLY)
+    import focus  # 2026-11-03: the default run covers active sports only (NHL, EPL, MLB set aside)
+    sports = [s.upper() for s in sys.argv[1:]] or [s for s in list(CONFIG) + list(DATA_ONLY) if focus.is_active(s)]
     for s in sports:
         try:
             print(json.dumps(run(s)))

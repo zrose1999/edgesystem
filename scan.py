@@ -804,6 +804,8 @@ def stamp(dry=False):
     for row in ledger.get("rows") or []:
         if not row.get("commence") or not (pull.iso(now) < row["commence"] <= horizon) or not row.get("lastSnap"):
             continue
+        if row.get("sport") not in pull.ACTIVE:
+            continue   # set-aside sport (focus.py, 2026-11-03)
         mine = [s for s in strategies if s["sport"] == row["sport"] and s["market"] == row["market"]
                 and (row["id"], s["id"]) not in done]
         if not mine:
@@ -1082,7 +1084,9 @@ def main(dry=False):
     now = pull.iso(datetime.now(timezone.utc))
     espn = espn_samples()
     ids = {f[3].get("id") for f in espn if f[0] == "NCAAF"}
-    samples = espn + cfbd_samples(ids) + soccer_samples() + nfl_samples()
+    import focus  # 2026-11-03: the scanner tests active sports only, so its 40 slots go to NFL, NCAAF and NBA
+    soc = soccer_samples() if any(focus.is_active(s) for s in ("EPL", "LaLiga", "SerieA", "Bundesliga", "Ligue1")) else []
+    samples = [x for x in espn + cfbd_samples(ids) + soc + nfl_samples() if focus.is_active(x[0])]
     tests = run_tests(samples)
     store, found = adopt(tests, now, dry)
     if not dry:

@@ -107,5 +107,11 @@ def main():
     print(json.dumps({"soccerForm": {k: len(v) for k, v in res["leagues"].items()}, "stale": stale}))
 
 
+import sys  # noqa: E402
+
+
 if __name__ == "__main__":
+    import focus  # set-aside sports skip the scheduled run (2026-11-03)
+    if "--backtest" not in sys.argv[1:]:
+        focus.need("EPL", "LaLiga", "SerieA", "Bundesliga", "Ligue1", what="soccer_form.py")
     main()

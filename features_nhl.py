@@ -336,6 +336,8 @@ def build_history():
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "history"
     if cmd == "refresh":
+        import focus  # set aside 2026-11-03: the scheduled refresh skips while NHL is set aside
+        focus.need("NHL", what="features_nhl.py refresh")
         now = datetime.now(timezone.utc)
         season = now.year if now.month >= 9 else now.year - 1
         print("team games", refresh_team_games())

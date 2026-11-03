@@ -28,8 +28,9 @@ for _n in (json.loads(_AT.read_text()) if _AT.exists() else {}):
     _sp, _mk = _n[len("archive_"):].rsplit("_", 1)
     ARCHIVE_MODELS.setdefault(_sp, []).append(f"learned-archive-{_sp}-{_mk}")
 
-SPORTS = ["NFL", "NCAAF", "NBA", "NHL", "EPL", "UCL", "UEL", "LaLiga", "SerieA", "Bundesliga", "Ligue1", "MLS",
-          "ATP", "WTA"]
+import focus  # noqa: E402  2026-11-03: set-aside sports are not checked (they are paused on purpose)
+SPORTS = [s for s in ["NFL", "NCAAF", "NBA", "NHL", "EPL", "UCL", "UEL", "LaLiga", "SerieA", "Bundesliga", "Ligue1",
+                      "MLS", "ATP", "WTA"] if focus.is_active(s)]
 STRATEGIES = {
     "NFL": ["news-lag", "wind-total", "sharp-soft", "sharp-soft-alt", "edge-stack", "soft-dog"],
     "NCAAF": ["learned-ncaaf-spread", "learned-ncaaf-total", "ncaaf-total-move", "ncaaf-spot", "wind-total", "sharp-soft", "sharp-soft-alt", "sharp-drift", "edge-stack", "soft-dog"],
