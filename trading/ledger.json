@@ -18746,7 +18746,9 @@
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.135,
-        "lastSeen": "2026-11-03T17:40:09Z"
+        "lastSeen": "2026-11-03T17:40:09Z",
+        "closeMid": 0.135,
+        "clv": -0.095
       },
       {
         "ticker": "KXCS2GAME-26NOV021000NOITSA-NOI",
@@ -19524,7 +19526,9 @@
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.43,
-        "lastSeen": "2026-11-03T16:54:49Z"
+        "lastSeen": "2026-11-03T16:54:49Z",
+        "closeMid": 0.43,
+        "clv": -0.03
       },
       {
         "ticker": "KXCS2GAME-26NOV030900LILMIXMEL-LILMIX",
@@ -19606,14 +19610,19 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.675,
         "lastSeen": "2026-11-03T14:54:45Z",
         "closeMid": 0.675,
-        "clv": 0.095
+        "clv": 0.095,
+        "result": "yes",
+        "won": true,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-03T18:22:52Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV031430BOJGLI-GLI",
@@ -19689,7 +19698,9 @@
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.315,
-        "lastSeen": "2026-11-03T17:40:09Z"
+        "lastSeen": "2026-11-03T17:40:09Z",
+        "closeMid": 0.315,
+        "clv": -0.035
       },
       {
         "ticker": "KXCS2GAME-26NOV030630MAYFAL-MAY",
@@ -19791,7 +19802,9 @@
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.44,
-        "lastSeen": "2026-11-03T17:40:09Z"
+        "lastSeen": "2026-11-03T17:40:09Z",
+        "closeMid": 0.44,
+        "clv": 0.18
       },
       {
         "ticker": "KXCS2GAME-26NOV031300RBLSWRA-WRA",
@@ -19817,7 +19830,9 @@
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.435,
-        "lastSeen": "2026-11-03T17:40:09Z"
+        "lastSeen": "2026-11-03T17:40:09Z",
+        "closeMid": 0.435,
+        "clv": -0.035
       },
       {
         "ticker": "KXCS2GAME-26NOV031300RBLSWRA-WRA",
@@ -25155,6 +25170,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-03T17:54:46Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-03T18:22:52Z"
       }
     ]
   },
@@ -27787,7 +27806,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.475,
-        "lastSeen": "2026-11-03T17:54:46Z"
+        "lastSeen": "2026-11-03T18:22:52Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -31843,6 +31862,29 @@
         "status": "resting",
         "time": "2026-11-03T11:24:36Z",
         "test": true
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV08CLENO-NO4",
+        "title": "New Orleans wins by over 3.5 points",
+        "sport": "NFL",
+        "kind": "spread",
+        "event": "Cleveland Browns at New Orleans Saints",
+        "commence": "2026-11-08T18:00:00Z",
+        "side": "yes",
+        "strike": 3.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4494,
+        "edge": 0.0428,
+        "estimated": true,
+        "why": "Pinnacle fair 44.9% vs Kalshi YES 0.39 + fee = 0.407.",
+        "orderId": "01a1a2a6-aa50-7115-8e8a-32e2505e4741",
+        "orderPath": "v2",
+        "price": 0.38,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-03T18:22:52Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -31902,7 +31944,7 @@
       }
     ]
   },
-  "asOf": "2026-11-03T17:54:46Z",
+  "asOf": "2026-11-03T18:22:52Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -31939,8 +31981,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 267,
-      "resting": 12,
+      "orders": 268,
+      "resting": 13,
       "filled": 132,
       "expired": 123,
       "fillRate": 0.518,
@@ -31954,7 +31996,7 @@
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {},
-    "liveCandidates": 0,
+    "liveCandidates": 1,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -31974,9 +32016,9 @@
       },
       "cs2-elo": {
         "status": "shadow",
-        "n": 363,
-        "meanClvNet": -0.0385,
-        "t": -8.05,
+        "n": 368,
+        "meanClvNet": -0.0382,
+        "t": -8.04,
         "tNeeded": 2.0,
         "freshN": 0
       },
@@ -31995,9 +32037,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 0.44,
+      "spentToday": 0.82,
       "trades": 81,
-      "resting": 2
+      "resting": 3
     },
     "config": {
       "startingBankroll": 35.0,
@@ -32022,7 +32064,7 @@
       "kalshiMarkets": 4649,
       "eventsMatched": 245,
       "eventsUnmatched": 228,
-      "candidates": 0
+      "candidates": 1
     }
   },
   "account": {
@@ -32032,10 +32074,10 @@
       "balance": 7858,
       "balance_dollars": "78.5823",
       "portfolio_value": 40,
-      "updated_ts": 1793728507
+      "updated_ts": 1793730194
     },
     "env": "production",
-    "checkedAt": "2026-11-03T17:55:07Z"
+    "checkedAt": "2026-11-03T18:23:14Z"
   },
   "maker": {
     "start": 0.0,
@@ -37500,6 +37542,25 @@
         "makerEdge": 0.0478,
         "postedAt": "2026-11-03T11:24:36Z",
         "status": "resting"
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV08CLENO-NO4",
+        "title": "New Orleans wins by over 3.5 points",
+        "sport": "NFL",
+        "kind": "spread",
+        "event": "Cleveland Browns at New Orleans Saints",
+        "commence": "2026-11-08T18:00:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4494,
+        "estimated": true,
+        "price": 0.38,
+        "bidAtPost": 0.38,
+        "askAtPost": 0.39,
+        "takerEdge": 0.0428,
+        "makerEdge": 0.0653,
+        "postedAt": "2026-11-03T18:22:52Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -41458,9 +41519,9 @@
     },
     "cs2-elo": {
       "status": "shadow",
-      "n": 363,
-      "meanClvNet": -0.0385,
-      "t": -8.05,
+      "n": 368,
+      "meanClvNet": -0.0382,
+      "t": -8.04,
       "tNeeded": 2.0,
       "freshN": 0
     },
