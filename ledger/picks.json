@@ -139345,6 +139345,67 @@
       "pinEdgeAtPick": 0.0153,
       "pinEdgeEstimated": true,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "ATP|2026-11-04|Tomas Machac at Arthur Fils|h2h|home|v1|lean|tennis-fatigue|2026-11-03T04:24:44Z|gated|2026-11-03T04:24:44Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "ATP|2026-11-04|Tomas Machac at Arthur Fils|h2h",
+      "sport": "ATP",
+      "event": "Tomas Machac at Arthur Fils",
+      "commence": "2026-11-04T10:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": -210,
+      "marketNumber": null,
+      "priceBook": "BetMGM",
+      "marketPrices": {
+        "home": -216,
+        "away": 174
+      },
+      "priceTime": "2026-11-03T03:54:25Z",
+      "pickedAt": "2026-11-03T04:24:44Z",
+      "fair": 0.679,
+      "projection": 0.679,
+      "edge": 0.002,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.031,
+      "modelWeight": 0.081,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "tennis-fatigue",
+      "reason": "Away player played 38 more games in the last 2 days; fair 0.679 (starting value 0.02). Hard. Games in the last 2 days: Arthur Fils 0, Tomas Machac 38.",
+      "falsifier": "The price closes at or past the market's open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "tennis.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -194,
+          "away": 168
+        },
+        "updated": "2026-11-03T03:54:14Z",
+        "snapTime": "2026-11-03T03:54:25Z",
+        "noVig": 0.6434
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": -210,
+        "line": null,
+        "implied": 0.6774,
+        "printImplied": 0.6835
+      },
+      "pinEdgeAtPick": -0.0341,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -3.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
