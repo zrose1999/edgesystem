@@ -19228,14 +19228,19 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.315,
         "lastSeen": "2026-11-03T17:40:09Z",
         "closeMid": 0.315,
-        "clv": 0.045
+        "clv": 0.045,
+        "result": "no",
+        "won": true,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-03T22:24:41Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV031030RGGBOY-RGG",
@@ -19465,7 +19470,9 @@
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.1,
-        "lastSeen": "2026-11-03T17:40:09Z"
+        "lastSeen": "2026-11-03T17:40:09Z",
+        "closeMid": 0.1,
+        "clv": -0.14
       },
       {
         "ticker": "KXCS2GAME-26NOV030900SSINSDRAMA-DRAMA",
@@ -25261,6 +25268,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-03T21:54:50Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-03T22:24:41Z"
       }
     ]
   },
@@ -27893,7 +27904,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.495,
-        "lastSeen": "2026-11-03T21:54:50Z"
+        "lastSeen": "2026-11-03T22:24:41Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -32123,7 +32134,7 @@
       }
     ]
   },
-  "asOf": "2026-11-03T21:54:50Z",
+  "asOf": "2026-11-03T22:24:41Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32197,9 +32208,9 @@
       },
       "cs2-elo": {
         "status": "shadow",
-        "n": 371,
-        "meanClvNet": -0.038,
-        "t": -8.06,
+        "n": 372,
+        "meanClvNet": -0.0383,
+        "t": -8.13,
         "tNeeded": 2.0,
         "freshN": 0
       },
@@ -32242,9 +32253,9 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 5021,
+      "kalshiMarkets": 5023,
       "eventsMatched": 257,
-      "eventsUnmatched": 228,
+      "eventsUnmatched": 229,
       "candidates": 1
     }
   },
@@ -32255,10 +32266,10 @@
       "balance": 7858,
       "balance_dollars": "78.5823",
       "portfolio_value": 42,
-      "updated_ts": 1793742911
+      "updated_ts": 1793744703
     },
     "env": "production",
-    "checkedAt": "2026-11-03T21:55:11Z"
+    "checkedAt": "2026-11-03T22:25:03Z"
   },
   "maker": {
     "start": 0.0,
@@ -41817,9 +41828,9 @@
     },
     "cs2-elo": {
       "status": "shadow",
-      "n": 371,
-      "meanClvNet": -0.038,
-      "t": -8.06,
+      "n": 372,
+      "meanClvNet": -0.0383,
+      "t": -8.13,
       "tNeeded": 2.0,
       "freshN": 0
     },
