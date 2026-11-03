@@ -19833,14 +19833,19 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.44,
         "lastSeen": "2026-11-03T17:40:09Z",
         "closeMid": 0.44,
-        "clv": 0.18
+        "clv": 0.18,
+        "result": "yes",
+        "won": true,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-03T21:39:54Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV031300RBLSWRA-WRA",
@@ -25248,6 +25253,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-03T21:24:57Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-03T21:39:54Z"
       }
     ]
   },
@@ -27880,7 +27889,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.495,
-        "lastSeen": "2026-11-03T21:24:57Z"
+        "lastSeen": "2026-11-03T21:39:54Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -32110,7 +32119,7 @@
       }
     ]
   },
-  "asOf": "2026-11-03T21:24:57Z",
+  "asOf": "2026-11-03T21:39:54Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32230,9 +32239,9 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4897,
+      "kalshiMarkets": 5021,
       "eventsMatched": 257,
-      "eventsUnmatched": 224,
+      "eventsUnmatched": 228,
       "candidates": 3
     }
   },
@@ -32243,10 +32252,10 @@
       "balance": 7858,
       "balance_dollars": "78.5823",
       "portfolio_value": 42,
-      "updated_ts": 1793741120
+      "updated_ts": 1793742012
     },
     "env": "production",
-    "checkedAt": "2026-11-03T21:25:20Z"
+    "checkedAt": "2026-11-03T21:40:12Z"
   },
   "maker": {
     "start": 0.0,
