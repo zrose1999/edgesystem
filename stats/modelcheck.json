@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-03T23:09:51Z",
+ "asOf": "2026-11-03T23:24:48Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -39,17 +39,17 @@
   "goalie-news": {
    "pattern": "goalie-news",
    "unit": "prob",
-   "n": 41,
-   "meanPredicted": 0.0398,
-   "meanRealized": 0.0063,
-   "tRealized": 2.58,
-   "capture": 0.16,
+   "n": 39,
+   "meanPredicted": 0.0393,
+   "meanRealized": 0.0066,
+   "tRealized": 2.59,
+   "capture": 0.17,
    "rightWay": 0.75,
-   "noMove": 21,
+   "noMove": 19,
    "logLossGain": {
-    "n": 41,
-    "mean": 0.01358,
-    "t": 0.98
+    "n": 39,
+    "mean": 0.01379,
+    "t": 0.97
    },
    "verdict": "proven"
   },
@@ -141,17 +141,17 @@
   "learned-nhl-ml": {
    "pattern": "learned-nhl-ml",
    "unit": "prob",
-   "n": 34,
-   "meanPredicted": 0.0261,
-   "meanRealized": 0.0197,
-   "tRealized": 4.85,
-   "capture": 0.75,
-   "rightWay": 0.893,
+   "n": 33,
+   "meanPredicted": 0.026,
+   "meanRealized": 0.0191,
+   "tRealized": 4.61,
+   "capture": 0.73,
+   "rightWay": 0.889,
    "noMove": 6,
    "logLossGain": {
-    "n": 34,
-    "mean": -0.00345,
-    "t": -0.36
+    "n": 33,
+    "mean": -0.00499,
+    "t": -0.51
    },
    "verdict": "proven"
   },
@@ -243,17 +243,17 @@
   "learned-scan-nhl-h2h": {
    "pattern": "learned-scan-nhl-h2h",
    "unit": "prob",
-   "n": 5,
-   "meanPredicted": 0.0284,
-   "meanRealized": 0.0144,
-   "tRealized": 1.94,
-   "capture": 0.51,
-   "rightWay": 0.75,
+   "n": 4,
+   "meanPredicted": 0.0278,
+   "meanRealized": 0.0082,
+   "tRealized": 1.55,
+   "capture": 0.29,
+   "rightWay": 0.667,
    "noMove": 1,
    "logLossGain": {
-    "n": 5,
-    "mean": -0.01211,
-    "t": -0.49
+    "n": 4,
+    "mean": -0.02775,
+    "t": -1.12
    },
    "verdict": "collecting"
   },
@@ -600,17 +600,17 @@
   "scan-nhl-h2h-away-restedgeawaymore-88eede": {
    "pattern": "scan-nhl-h2h-away-restedgeawaymore-88eede",
    "unit": "prob",
-   "n": 5,
-   "meanPredicted": 0.0347,
-   "meanRealized": 0.0238,
-   "tRealized": 2.74,
-   "capture": 0.69,
+   "n": 4,
+   "meanPredicted": 0.0349,
+   "meanRealized": 0.02,
+   "tRealized": 1.98,
+   "capture": 0.57,
    "rightWay": 1.0,
    "noMove": 1,
    "logLossGain": {
-    "n": 5,
-    "mean": -0.00203,
-    "t": -0.05
+    "n": 4,
+    "mean": -0.0163,
+    "t": -0.34
    },
    "verdict": "collecting"
   },
