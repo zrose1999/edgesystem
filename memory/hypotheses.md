@@ -583,3 +583,16 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-02 | ATP: edgeBar=0.5-1x + venue=home | 8 | +0.6% | found inside ATP venue=home (best of 12 features tested); small sample, may share reads with other rows |
 | 2026-11-02 | ATP: role=dog + sharpGapPick=<1% | 8 | +0.7% | found inside ATP role=dog (best of 5 features tested); small sample, may share reads with other rows |
 | 2026-11-02 | ATP: grade=B + timing=day | 8 | +0.3% | found inside ATP timing=day (best of 11 features tested); small sample, may share reads with other rows |
+| 2026-11-03 | pattern=sharp-soft + tzShift=east | 8 | +1.2% | found inside ALL tzShift=east (best of 44 features tested); small sample, may share reads with other rows |
+| 2026-11-03 | pinEdge=0-2% + tzShift=west | 8 | +1.1% | found inside ALL tzShift=west (best of 43 features tested); small sample, may share reads with other rows |
+| 2026-11-03 | NBA: edgeBar=0.5-1x + pattern=sharp-soft-alt | 8 | +2.7% | found inside NBA edgeBar=0.5-1x (best of 52 features tested); small sample, may share reads with other rows |
+| 2026-11-03 | NBA: moveBeforePick=against + venue=away | 8 | +0.6% | found inside NBA moveBeforePick=against (best of 17 features tested); small sample, may share reads with other rows |
+| 2026-11-03 | NBA: role=fav + venue=away | 10 | +0.8% | found inside NBA restEdge=more (best of 15 pairs tested); small sample, may share reads with other rows |
+| 2026-11-03 | NBA: edgeBar=0.5-1x + timing=late | 8 | +0.1% | found inside NBA role=fav (best of 6 pairs tested); small sample, may share reads with other rows |
+| 2026-11-03 | NBA: pinEdge=2%+ + steamBeforePick=flat | 9 | +2.4% | found inside NBA steamBeforePick=flat (best of 41 features tested); small sample, may share reads with other rows |
+| 2026-11-03 | NBA: pattern=sharp-soft + travelEdge=even | 8 | +3.4% | found inside NBA travelEdge=even (best of 31 features tested); small sample, may share reads with other rows |
+| 2026-11-03 | NBA: travel=500-1500 + tzShift=east | 13 | +0.9% | found inside NBA tzShift=east (best of 13 features tested); small sample, may share reads with other rows |
+| 2026-11-03 | NFL: edgeBar=<0.5x + restDays=long | 8 | +3.8% | found inside NFL edgeBar=<0.5x (best of 30 features tested); small sample, may share reads with other rows |
+| 2026-11-03 | NFL: moveBeforePick=none + role=fav | 18 | +0.1% | found inside NFL injury=any (best of 15 pairs tested); small sample, may share reads with other rows |
+| 2026-11-03 | NFL: moveBeforePick=none + restEdge=more | 13 | +3.6% | found inside NFL moveBeforePick=none (best of 36 features tested); small sample, may share reads with other rows |
+| 2026-11-03 | NFL: injury=any + role=fav | 18 | +0.1% | found inside NFL moveBeforePick=none (best of 9 pairs tested); small sample, may share reads with other rows |

@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-03T03:31:16Z",
+ "asOf": "2026-11-03T04:01:44Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -39,34 +39,51 @@
   "goalie-news": {
    "pattern": "goalie-news",
    "unit": "prob",
-   "n": 40,
-   "meanPredicted": 0.0402,
-   "meanRealized": 0.0065,
+   "n": 41,
+   "meanPredicted": 0.0398,
+   "meanRealized": 0.0063,
    "tRealized": 2.58,
    "capture": 0.16,
    "rightWay": 0.75,
-   "noMove": 20,
+   "noMove": 21,
    "logLossGain": {
-    "n": 40,
-    "mean": 0.01225,
-    "t": 0.87
+    "n": 41,
+    "mean": 0.01358,
+    "t": 0.98
    },
    "verdict": "proven"
+  },
+  "learned-nba-spread": {
+   "pattern": "learned-nba-spread",
+   "unit": "points",
+   "n": 3,
+   "meanPredicted": 1.916,
+   "meanRealized": 2.3333,
+   "tRealized": 1.75,
+   "capture": 1.22,
+   "rightWay": 1.0,
+   "noMove": 0,
+   "logLossGain": {
+    "n": 1,
+    "mean": -0.08711,
+    "t": 0.0
+   },
+   "verdict": "collecting"
   },
   "learned-nba-total": {
    "pattern": "learned-nba-total",
    "unit": "points",
-   "n": 37,
-   "meanPredicted": 1.9674,
-   "meanRealized": 0.1081,
-   "tRealized": 0.26,
-   "capture": 0.05,
-   "rightWay": 0.548,
+   "n": 39,
+   "meanPredicted": 1.9344,
+   "meanRealized": 0.1795,
+   "tRealized": 0.44,
+   "capture": 0.09,
+   "rightWay": 0.545,
    "noMove": 6,
    "logLossGain": {
-    "n": 37,
-    "mean": -0.03839,
-    "t": -2.18
+    "n": 39,
+    "mean": -0.03316,
+    "t": -1.94
    },
    "verdict": "collecting"
   },
@@ -124,68 +141,68 @@
   "learned-nhl-ml": {
    "pattern": "learned-nhl-ml",
    "unit": "prob",
-   "n": 32,
-   "meanPredicted": 0.0264,
-   "meanRealized": 0.0218,
-   "tRealized": 5.39,
-   "capture": 0.82,
-   "rightWay": 0.962,
+   "n": 34,
+   "meanPredicted": 0.0261,
+   "meanRealized": 0.0197,
+   "tRealized": 4.85,
+   "capture": 0.75,
+   "rightWay": 0.893,
    "noMove": 6,
    "logLossGain": {
-    "n": 32,
-    "mean": -0.00662,
-    "t": -0.66
+    "n": 34,
+    "mean": -0.00345,
+    "t": -0.36
    },
    "verdict": "proven"
   },
   "learned-nhl-over": {
    "pattern": "learned-nhl-over",
    "unit": "prob",
-   "n": 32,
-   "meanPredicted": 0.0315,
-   "meanRealized": 0.0163,
-   "tRealized": 3.77,
-   "capture": 0.52,
+   "n": 33,
+   "meanPredicted": 0.0313,
+   "meanRealized": 0.0158,
+   "tRealized": 3.75,
+   "capture": 0.51,
    "rightWay": 0.889,
-   "noMove": 5,
+   "noMove": 6,
    "logLossGain": {
-    "n": 32,
-    "mean": -0.00574,
-    "t": -0.49
+    "n": 33,
+    "mean": -0.00401,
+    "t": -0.35
    },
    "verdict": "proven"
   },
   "learned-scan-nba-h2h": {
    "pattern": "learned-scan-nba-h2h",
    "unit": "prob",
-   "n": 1,
-   "meanPredicted": 0.0274,
-   "meanRealized": 0.0312,
-   "tRealized": 0.0,
-   "capture": 1.14,
-   "rightWay": 1.0,
+   "n": 6,
+   "meanPredicted": 0.0279,
+   "meanRealized": 0.0224,
+   "tRealized": 1.2,
+   "capture": 0.8,
+   "rightWay": 0.833,
    "noMove": 0,
    "logLossGain": {
-    "n": 1,
-    "mean": -0.04695,
-    "t": 0.0
+    "n": 5,
+    "mean": 0.01206,
+    "t": 0.56
    },
    "verdict": "collecting"
   },
   "learned-scan-nba-spread": {
    "pattern": "learned-scan-nba-spread",
    "unit": "points",
-   "n": 21,
-   "meanPredicted": 0.9576,
-   "meanRealized": 0.8571,
-   "tRealized": 1.4,
-   "capture": 0.9,
-   "rightWay": 0.643,
+   "n": 22,
+   "meanPredicted": 0.929,
+   "meanRealized": 1.0455,
+   "tRealized": 1.71,
+   "capture": 1.13,
+   "rightWay": 0.667,
    "noMove": 7,
    "logLossGain": {
-    "n": 21,
-    "mean": -0.01315,
-    "t": -1.01
+    "n": 22,
+    "mean": -0.01343,
+    "t": -1.08
    },
    "verdict": "collecting"
   },
@@ -226,17 +243,17 @@
   "learned-scan-nhl-h2h": {
    "pattern": "learned-scan-nhl-h2h",
    "unit": "prob",
-   "n": 3,
-   "meanPredicted": 0.0267,
-   "meanRealized": 0.0194,
-   "tRealized": 1.66,
-   "capture": 0.73,
-   "rightWay": 0.667,
-   "noMove": 0,
+   "n": 5,
+   "meanPredicted": 0.0284,
+   "meanRealized": 0.0144,
+   "tRealized": 1.94,
+   "capture": 0.51,
+   "rightWay": 0.75,
+   "noMove": 1,
    "logLossGain": {
-    "n": 3,
-    "mean": -0.01189,
-    "t": -0.37
+    "n": 5,
+    "mean": -0.01211,
+    "t": -0.49
    },
    "verdict": "collecting"
   },
@@ -362,13 +379,13 @@
   "news-lag": {
    "pattern": "news-lag",
    "unit": "points",
-   "n": 200,
-   "meanPredicted": 1.5379,
-   "meanRealized": 0.0975,
+   "n": 203,
+   "meanPredicted": 1.5201,
+   "meanRealized": 0.0961,
    "tRealized": 0.88,
    "capture": 0.06,
    "rightWay": 0.529,
-   "noMove": 79,
+   "noMove": 82,
    "logLossGain": {
     "n": 198,
     "mean": -0.01306,
@@ -413,97 +430,97 @@
   "rest-spot": {
    "pattern": "rest-spot",
    "unit": "points",
-   "n": 13,
-   "meanPredicted": 0.7462,
-   "meanRealized": 1.3077,
-   "tRealized": 1.8,
-   "capture": 1.75,
-   "rightWay": 0.667,
+   "n": 15,
+   "meanPredicted": 0.74,
+   "meanRealized": 1.4,
+   "tRealized": 2.01,
+   "capture": 1.89,
+   "rightWay": 0.636,
    "noMove": 4,
    "logLossGain": {
-    "n": 13,
-    "mean": 0.00092,
-    "t": 0.07
+    "n": 14,
+    "mean": -0.00128,
+    "t": -0.1
    },
    "verdict": "collecting"
   },
   "scan-nba-h2h-home-restawayb2b-60ea66": {
    "pattern": "scan-nba-h2h-home-restawayb2b-60ea66",
    "unit": "prob",
-   "n": 13,
-   "meanPredicted": 0.0314,
-   "meanRealized": 0.02,
+   "n": 15,
+   "meanPredicted": 0.0309,
+   "meanRealized": 0.0174,
    "tRealized": 1.06,
-   "capture": 0.64,
-   "rightWay": 0.538,
+   "capture": 0.56,
+   "rightWay": 0.533,
    "noMove": 0,
    "logLossGain": {
-    "n": 13,
-    "mean": -0.00333,
-    "t": -0.21
+    "n": 14,
+    "mean": -0.00049,
+    "t": -0.03
    },
    "verdict": "collecting"
   },
   "scan-nba-h2h-home-restawayb2brestedgehomemore-a2651e": {
    "pattern": "scan-nba-h2h-home-restawayb2brestedgehomemore-a2651e",
    "unit": "prob",
-   "n": 7,
-   "meanPredicted": 0.0352,
-   "meanRealized": 0.0176,
+   "n": 9,
+   "meanPredicted": 0.0345,
+   "meanRealized": 0.0137,
    "tRealized": 0.82,
-   "capture": 0.5,
-   "rightWay": 0.571,
+   "capture": 0.4,
+   "rightWay": 0.556,
    "noMove": 0,
    "logLossGain": {
-    "n": 7,
-    "mean": 0.02571,
-    "t": 1.28
+    "n": 8,
+    "mean": 0.02762,
+    "t": 1.58
    },
    "verdict": "collecting"
   },
   "scan-nba-h2h-home-restedgehomemore-57b863": {
    "pattern": "scan-nba-h2h-home-restedgehomemore-57b863",
    "unit": "prob",
-   "n": 13,
-   "meanPredicted": 0.0289,
-   "meanRealized": 0.007,
-   "tRealized": 0.54,
-   "capture": 0.24,
-   "rightWay": 0.385,
-   "noMove": 0,
+   "n": 15,
+   "meanPredicted": 0.0291,
+   "meanRealized": 0.0072,
+   "tRealized": 0.64,
+   "capture": 0.25,
+   "rightWay": 0.429,
+   "noMove": 1,
    "logLossGain": {
-    "n": 13,
-    "mean": -0.0001,
-    "t": -0.01
+    "n": 14,
+    "mean": 0.00235,
+    "t": 0.18
    },
    "verdict": "collecting"
   },
   "scan-nba-spread-away-restedgeawaymore-1e501d": {
    "pattern": "scan-nba-spread-away-restedgeawaymore-1e501d",
    "unit": "points",
-   "n": 9,
-   "meanPredicted": 0.3544,
-   "meanRealized": 1.7778,
-   "tRealized": 2.14,
-   "capture": 5.02,
-   "rightWay": 0.714,
+   "n": 10,
+   "meanPredicted": 0.3564,
+   "meanRealized": 2.1,
+   "tRealized": 2.6,
+   "capture": 5.89,
+   "rightWay": 0.75,
    "noMove": 2,
    "logLossGain": {
-    "n": 9,
-    "mean": 0.01144,
-    "t": 1.8
+    "n": 10,
+    "mean": 0.00808,
+    "t": 1.22
    },
    "verdict": "collecting"
   },
   "scan-nba-spread-home-restawayb2b-7f68d5": {
    "pattern": "scan-nba-spread-home-restawayb2b-7f68d5",
    "unit": "points",
-   "n": 13,
-   "meanPredicted": 0.5628,
-   "meanRealized": 0.7692,
-   "tRealized": 0.85,
-   "capture": 1.37,
-   "rightWay": 0.6,
+   "n": 14,
+   "meanPredicted": 0.5616,
+   "meanRealized": 0.6429,
+   "tRealized": 0.76,
+   "capture": 1.14,
+   "rightWay": 0.545,
    "noMove": 3,
    "logLossGain": {
     "n": 13,
@@ -515,12 +532,12 @@
   "scan-nba-spread-home-restawayb2brestedgehomemore-ee7657": {
    "pattern": "scan-nba-spread-home-restawayb2brestedgehomemore-ee7657",
    "unit": "points",
-   "n": 7,
-   "meanPredicted": 0.7391,
-   "meanRealized": 0.7143,
-   "tRealized": 1.18,
-   "capture": 0.97,
-   "rightWay": 0.75,
+   "n": 8,
+   "meanPredicted": 0.7408,
+   "meanRealized": 0.5,
+   "tRealized": 0.88,
+   "capture": 0.67,
+   "rightWay": 0.6,
    "noMove": 3,
    "logLossGain": {
     "n": 7,
@@ -532,12 +549,12 @@
   "scan-nba-spread-home-restedgehomemore-b7ece4": {
    "pattern": "scan-nba-spread-home-restedgehomemore-b7ece4",
    "unit": "points",
-   "n": 12,
-   "meanPredicted": 0.4427,
-   "meanRealized": 0.4167,
-   "tRealized": 1.0,
-   "capture": 0.94,
-   "rightWay": 0.714,
+   "n": 13,
+   "meanPredicted": 0.4433,
+   "meanRealized": 0.3077,
+   "tRealized": 0.77,
+   "capture": 0.69,
+   "rightWay": 0.625,
    "noMove": 5,
    "logLossGain": {
     "n": 12,
@@ -583,17 +600,17 @@
   "scan-nhl-h2h-away-restedgeawaymore-88eede": {
    "pattern": "scan-nhl-h2h-away-restedgeawaymore-88eede",
    "unit": "prob",
-   "n": 4,
-   "meanPredicted": 0.0343,
-   "meanRealized": 0.0264,
-   "tRealized": 2.45,
-   "capture": 0.77,
+   "n": 5,
+   "meanPredicted": 0.0347,
+   "meanRealized": 0.0238,
+   "tRealized": 2.74,
+   "capture": 0.69,
    "rightWay": 1.0,
    "noMove": 1,
    "logLossGain": {
-    "n": 4,
-    "mean": 0.01652,
-    "t": 0.37
+    "n": 5,
+    "mean": -0.00203,
+    "t": -0.05
    },
    "verdict": "collecting"
   },
@@ -617,17 +634,17 @@
   "scan-nhl-total-over-total55-c4eaa6": {
    "pattern": "scan-nhl-total-over-total55-c4eaa6",
    "unit": "prob",
-   "n": 19,
-   "meanPredicted": 0.0353,
-   "meanRealized": -0.0053,
-   "tRealized": -2.42,
-   "capture": -0.15,
-   "rightWay": 0.091,
+   "n": 20,
+   "meanPredicted": 0.0354,
+   "meanRealized": -0.0056,
+   "tRealized": -2.66,
+   "capture": -0.16,
+   "rightWay": 0.083,
    "noMove": 8,
    "logLossGain": {
-    "n": 19,
-    "mean": 0.00383,
-    "t": 0.23
+    "n": 20,
+    "mean": 0.00682,
+    "t": 0.42
    },
    "verdict": "collecting"
   },
@@ -685,34 +702,34 @@
   "sharp-soft|prob": {
    "pattern": "sharp-soft",
    "unit": "prob",
-   "n": 71,
-   "meanPredicted": 0.0191,
-   "meanRealized": 0.0042,
-   "tRealized": 1.02,
-   "capture": 0.22,
-   "rightWay": 0.491,
-   "noMove": 16,
+   "n": 76,
+   "meanPredicted": 0.019,
+   "meanRealized": 0.005,
+   "tRealized": 1.28,
+   "capture": 0.26,
+   "rightWay": 0.492,
+   "noMove": 17,
    "logLossGain": {
-    "n": 67,
-    "mean": 0.007,
-    "t": 0.97
+    "n": 72,
+    "mean": 0.00503,
+    "t": 0.73
    },
    "verdict": "collecting"
   },
   "sharp-soft-alt": {
    "pattern": "sharp-soft-alt",
    "unit": "points",
-   "n": 35,
-   "meanPredicted": 0.7937,
-   "meanRealized": 0.3286,
+   "n": 36,
+   "meanPredicted": 0.7878,
+   "meanRealized": 0.3194,
    "tRealized": 1.48,
    "capture": 0.41,
    "rightWay": 0.667,
-   "noMove": 17,
+   "noMove": 18,
    "logLossGain": {
-    "n": 35,
-    "mean": -0.00503,
-    "t": -0.38
+    "n": 36,
+    "mean": -0.00588,
+    "t": -0.46
    },
    "verdict": "collecting"
   },
@@ -736,17 +753,17 @@
   "soft-dog|prob": {
    "pattern": "soft-dog",
    "unit": "prob",
-   "n": 25,
-   "meanPredicted": 0.0051,
-   "meanRealized": -0.0029,
-   "tRealized": -1.13,
-   "capture": -0.56,
-   "rightWay": 0.412,
-   "noMove": 8,
+   "n": 30,
+   "meanPredicted": 0.0054,
+   "meanRealized": -0.0035,
+   "tRealized": -1.38,
+   "capture": -0.64,
+   "rightWay": 0.45,
+   "noMove": 10,
    "logLossGain": {
-    "n": 20,
-    "mean": -0.00533,
-    "t": -1.27
+    "n": 24,
+    "mean": -0.00502,
+    "t": -1.37
    },
    "verdict": "collecting"
   },
