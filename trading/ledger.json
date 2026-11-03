@@ -25285,6 +25285,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-03T22:54:49Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-03T23:09:51Z"
       }
     ]
   },
@@ -27917,7 +27921,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.495,
-        "lastSeen": "2026-11-03T22:54:49Z"
+        "lastSeen": "2026-11-03T23:09:51Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -32147,7 +32151,7 @@
       }
     ]
   },
-  "asOf": "2026-11-03T22:54:49Z",
+  "asOf": "2026-11-03T23:09:51Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32192,7 +32196,7 @@
       "clvN": 129,
       "meanClv": -0.0075,
       "meanClvNet": -0.0117,
-      "settledPnl": 2.03,
+      "settledPnl": 2.61,
       "pairedWithTaker": 70,
       "pairedMakerClvNet": -0.003,
       "pairedTakerClvNet": -0.0189,
@@ -32267,8 +32271,8 @@
     },
     "lastScan": {
       "kalshiMarkets": 5023,
-      "eventsMatched": 257,
-      "eventsUnmatched": 229,
+      "eventsMatched": 277,
+      "eventsUnmatched": 209,
       "candidates": 1
     }
   },
@@ -32279,10 +32283,10 @@
       "balance": 7858,
       "balance_dollars": "78.5823",
       "portfolio_value": 42,
-      "updated_ts": 1793746508
+      "updated_ts": 1793747412
     },
     "env": "production",
-    "checkedAt": "2026-11-03T22:55:08Z"
+    "checkedAt": "2026-11-03T23:10:12Z"
   },
   "maker": {
     "start": 0.0,
@@ -41479,14 +41483,19 @@
         "cost": 0.42,
         "fee": 0.0043,
         "time": "2026-10-31T19:54:43Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-10-31T19:24:35Z",
         "lastMid": 0.435,
         "lastSeen": "2026-11-03T17:40:09Z",
         "closeMid": 0.435,
-        "clv": 0.015
+        "clv": 0.015,
+        "result": "yes",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.58,
+        "settledAt": "2026-11-03T23:09:51Z"
       },
       {
         "ticker": "KXNBASPREAD-26OCT31SACMEM-MEM10",
