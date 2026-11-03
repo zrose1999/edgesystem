@@ -34,6 +34,11 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   10-30 12Z only 3 favourite spreads (+2.7%) and 12 dog spreads (+0.2%): too few fresh reads to move it either way.
 - 2026-11-03 refresh (health check): all counted: favourites -1.5% (n 192, t -4.2; memory query same), dogs +0.2%
   (n 185, t 0.4). Since 10-30 12Z: 4 favourite spreads (+2.6%), 12 dog spreads (+0.2%). Still too few fresh reads.
+- 2026-11-03 weekly review: unchanged (fav -1.53% n 192, t -4.2; dog +0.18% n 185). Fresh since 10-30 12Z still 4 fav
+  (+2.6%) and 12 dog (+0.2%): most new spread reads are gated, so the kill test (30+ fresh favourite reads) will take
+  weeks. Refinement from the living memory (non-parked counted dog spreads): dogs of 0.5-3 +3.1% (n 31, t 2.4) and
+  3.5-7 +3.3% (n 32, t 3.2), dogs over 7 -1.1% (n 46): the dog edge sits on short and medium spreads (see lead 6).
+  No change proposed; soft-dog already tests the side.
 
 ### 2. Away teams travelling east (2026-10-30, lead, waits on the NFL backfill)
 - NFL history 2015-2026 (PR #8): home moneyline when the away team travels east ROI -11.1% at the close (n 847, t -3.2,
@@ -62,6 +67,9 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - Variants tried this run: ~50 (24 travel splits, ~30 home-drift splits by sport, market and favourite/dog). At that
   count a t of -2.4 is borderline, so no shadow pattern yet.
 - 2026-11-02: not re-run (snapshots grew ~15% since 11-01; waits for the double).
+- 2026-11-03 weekly review re-run (Pinnacle no-vig, first snap to last within 3h): NHL+NBA home drift -0.88% (n 151,
+  t -3.3; halves -0.81% t -2.2 and -0.95% t -2.5). Strengthening but not yet t <= -2.5 in both halves, and the
+  snapshots have not doubled (127 -> 151). NCAAF +0.1% (n 102), NFL +0.1% (n 25): still pro-league only.
 - Test next: re-run on the snapshots when they double (late November); if the NHL+NBA drift holds at t <= -2.5 in both
   halves, launch a shadow pattern (road side of NHL/NBA moneylines when a soft price is at or better than Pinnacle's
   fair, stamped early). Kill it if the combined drift is above -0.3% on 250+ games.
@@ -81,9 +89,58 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   -3.5% (n 73, t -6.2). Only 3 early unders passed the Pinnacle gate. It could pay where the cost is low (Kalshi maker
   orders, which kalshi-sharp-alt already places on NBA totals at Pinnacle's fair), or as a filter: no NBA overs 6h+ out.
 - Variants tried: ~40 (totals drift by sport and half, NCAAF bands and Saturday, NBA windows, size, book, CLV by side).
+- 2026-11-03 weekly review: snapshots -0.68 points (n 76, t -2.5; halves -0.54 t -1.3, -0.82 t -2.3). Living memory:
+  learned-nba-total overs (all stamped 6h+ out) -2.65% (n 24, t -1.9) vs its unders +0.82% (n 15); all counted NBA
+  over reads -2.2% (n 62, t -3.2). The loss review agrees: learned-nba-total's losses split on side (overs -3.0% n 22
+  vs unders +0.8% n 15) more than on any other pre-pick feature (17 tested). Still a lead: candidate tweak for a health
+  check under the 10-30 rule is "learned-nba-total stamps no overs 6h+ before tip" once the drift holds in both halves.
 - Test next: re-run when NBA snapshots reach 150 games; if the 6h+ drift holds at t <= -2.5 in both halves, propose
   for the weekly review either a shadow over-filter on learned-nba-total or a Kalshi maker under test. Kill it if the
   drift is above -0.3 points on 150+ games.
+
+### 5. Slow books carry the real stale prices (2026-11-03 weekly review, lead, strongest this week)
+- Observation: the loss review showed soft-dog's 12 losses are all "sharp-move-against": the price beat Pinnacle, then
+  Pinnacle moved against us. Split by the book the price came from (sharp-soft, sharp-soft-alt and soft-dog, counted
+  reads since the 10-28 book additions): BetRivers, Hard Rock Bet, theScore Bet, Bally Bet, Fanatics +1.49% (n 60,
+  53 game-sides, t 4.9; halves +1.24% t 2.6 and +1.74% t 4.5) vs DraftKings, FanDuel, BetMGM, Caesars -0.04% (n 31,
+  27 game-sides; halves -0.42%, +0.32%). Welch t 3.2. FanDuel alone -0.40% (n 21). Price paid is the same (slow
+  +1.65%, FanDuel +1.70% better than Pinnacle); the difference is all market move (slow -0.33%, FanDuel -2.10%).
+  Inside soft-dog alone: BetRivers +0.93% (n 17, t 2.2), FanDuel -0.01% (n 10).
+- Mechanism: FanDuel and DraftKings move their own numbers fast and sometimes ahead of Pinnacle, so their price beating
+  Pinnacle often means Pinnacle is about to follow (the edge is gone by the close). Kambi-run and regional books
+  (BetRivers, Hard Rock, theScore) copy the market late, so their off-prices are lag, and lag is what CLV pays for.
+- Living memory: bookAtPick=BetRivers n 30, +1.32%, t 4.25 (24 of 30 beat the close); bookAtPick=FanDuel since 10-29
+  n 26, -0.44%, t -0.9.
+- Variants tried: 6 (book groups, per pattern, soft-dog only, halves, price vs move split, game-sides).
+- Kill it if: on the next 40 slow-book reads the slow minus big-book gap falls under +0.5% or loses one half.
+- Next step (fits the 10-30 rule): a health check may launch one shadow pattern "slow-soft" (sharp-soft and soft-dog
+  logic, slow books only, its own id) so the slice is scored as a pattern; or, cheaper and without duplicate reads,
+  findings.py tracks bookGroup=slow as a feature. Not a change to sharp-soft itself while it sits 2 picks from the bar.
+
+### 6. Short spreads drift to the underdog (2026-11-03 weekly review, lead)
+- Observation: the scanner's first NFL survivors from the 2020-2024 opening-line backfill are all short-spread dogs:
+  away when the home side is a 0.5-3 favourite +0.56 pts open to close (n 200, t 4.5) and home when it is a 0.5-3 dog
+  +0.60 pts (n 172, t 4.3). EDGE's own Pinnacle snapshots agree across sports: the spread moves toward the dog by
+  +0.71 pts from the first snapshot to the last within an hour of the start on 0.5-3 lines (n 56, NBA/NCAAF/NFL,
+  t 3.1; halves +0.41 t 1.5, +1.00 t 2.8), but not on 3.5-7 (-0.06, n 76) or 7.5+ (-0.02, n 65).
+- Mechanism: near pick'em the public picks a side and lays the short number with the favourite; books open short
+  favourites a touch heavy, and sharp money takes the points, so the number drifts toward the dog by the close.
+- Living memory: counted non-parked dog spreads 0.5-3 +3.1% (n 31, t 2.4); all dog spreads +0.18% (n 185).
+- Caveat: the third NFL survivor (away when the closing line is a 0.5-3 home dog) conditions on the close band; it
+  stamps live only inside 3h on the current line, but its historical move is partly selection by the close.
+- Variants tried: 9 (three line bands x three sports). Overlaps lead 1 and soft-dog.
+- Kill it if: snapshots at 120+ short-spread games show under +0.3 pts toward the dog, or one half reverses.
+- Test next: the three NFL scan strategies score this live; at 150 snapshot games check whether a soft-book dog price
+  at or above Pinnacle's fair on 0.5-3 spreads beats the close (the tradeable version).
+
+### 7. The gate passes reads it cannot check (2026-11-03 weekly review, proposed to Zack)
+- Observation: 32 counted reads since the gate went live have pinGate "unchecked" (Pinnacle on another number, so no
+  same-line comparison): -1.45% (n 31 leans + 1 pick, 19 game-sides, t -4.4; halves -1.77% and -1.16%). 30 are NHL
+  totals (Pinnacle 6.0 vs the US book 5.5 or 6.5; scan-nhl-total-over-total55 8, learned-scan-nhl-total 6,
+  learned-nhl-over 6). The loss is the price (vig, -1.95%), the move is +0.48%.
+- Living memory: NHL totals since 10-29 n 31, -1.41%, t -4.3 (almost all of them unchecked); NHL totals all n 113, -1.44%.
+- Proposed (gate change, Zack's): count a read only when the gate could compare; unchecked reads become gated
+  (scored, not counted) until pull.py converts Pinnacle's number to the read's line.
 
 ## Experiments (live shadow patterns, stake 0)
 
@@ -108,6 +165,11 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   at 50 (kill if <= 0). No floor tweak: the 1%+ bucket is not the better one (+0.8% under 1% n 12, -0.6% at 1%+ n 5,
   where Pinnacle at the pick is stored). By market: moneylines +0.6% (n 31, t 2.0), spreads +0.1% (n 7); by sport NBA
   +0.7% (n 11), ATP +1.1% (n 7), NCAAF +0.1% (n 11), NFL -0.2% (n 6), NHL +0.9% (n 3). Each read is its own game-side.
+- 2026-11-03 weekly review (all reads are fresh, stamped after launch): 38 graded, +0.48% (t 2.0), halves +0.36%
+  (t 1.45) and +0.61% (t 1.44); unchanged since the morning judgement, keeps running to 50. Loss review: all 12 of its
+  losses are sharp-move-against (price +0.9% better than Pinnacle, then the market moved against the dog). By book:
+  BetRivers +0.93% (n 17, t 2.2), FanDuel -0.01% (n 10): see lead 5. If lead 5 holds, the one allowed tweak should be
+  the book list (slow books only), not the 0.5% floor.
 
 ## Killed
 
