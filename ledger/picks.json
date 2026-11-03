@@ -134572,7 +134572,7 @@
       "rowId": "ATP|2026-11-03|Arthur Gea at Jan-Lennard Struff|h2h",
       "sport": "ATP",
       "event": "Arthur Gea at Jan-Lennard Struff",
-      "commence": "2026-11-03T17:20:00Z",
+      "commence": "2026-11-03T17:30:00Z",
       "market": "h2h",
       "side": "away",
       "lineAtPick": null,
@@ -134634,7 +134634,7 @@
       "rowId": "ATP|2026-11-03|Arthur Gea at Jan-Lennard Struff|h2h",
       "sport": "ATP",
       "event": "Arthur Gea at Jan-Lennard Struff",
-      "commence": "2026-11-03T17:20:00Z",
+      "commence": "2026-11-03T17:30:00Z",
       "market": "h2h",
       "side": "away",
       "lineAtPick": null,
@@ -140014,7 +140014,7 @@
       "rowId": "ATP|2026-11-03|Arthur Gea at Jan-Lennard Struff|h2h",
       "sport": "ATP",
       "event": "Arthur Gea at Jan-Lennard Struff",
-      "commence": "2026-11-03T17:20:00Z",
+      "commence": "2026-11-03T17:30:00Z",
       "market": "h2h",
       "side": "home",
       "lineAtPick": null,
@@ -140415,6 +140415,116 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.1% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NHL|2026-11-04|Minnesota Wild at Philadelphia Flyers|total|under|v1|lean|goalie-news|2026-11-03T16:24:33Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NHL|2026-11-04|Minnesota Wild at Philadelphia Flyers|total",
+      "sport": "NHL",
+      "event": "Minnesota Wild at Philadelphia Flyers",
+      "commence": "2026-11-04T00:10:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 5.5,
+      "priceAtPick": 110,
+      "marketNumber": 5.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -130,
+        "under": 110
+      },
+      "priceTime": "2026-11-03T15:09:34Z",
+      "pickedAt": "2026-11-03T16:24:33Z",
+      "fair": 0.521,
+      "projection": 0.521,
+      "edge": 0.003,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": 0.0,
+      "modelWeight": 0.135,
+      "shrinkBase": "print",
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Flyers: Joseph Woll (expected) at the open, now Dan Vladar (confirmed), GSAx/60 -0.03 to +0.18. Open over 5.5 0.534, expected goals -0.07, fair over 0.521.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": 6.0,
+        "prices": {
+          "over": 103,
+          "under": -116
+        },
+        "updated": "2026-11-03T15:09:16Z",
+        "snapTime": "2026-11-03T15:09:34Z",
+        "noVig": 0.5222
+      },
+      "contextAtPick": {
+        "goalie": "Flyers: Joseph Woll (expected) at the open, now Dan Vladar (confirmed), GSAx/60 -0.03 to +0.18"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": 110,
+        "line": 5.5,
+        "implied": 0.4762,
+        "printImplied": 0.4762
+      },
+      "pinGate": "unchecked"
+    },
+    {
+      "pickId": "NHL|2026-11-04|Minnesota Wild at Philadelphia Flyers|h2h|none|v1|pass|goalie-news|2026-11-03T16:24:33Z",
+      "kind": "pass",
+      "grade": "P",
+      "rowId": "NHL|2026-11-04|Minnesota Wild at Philadelphia Flyers|h2h",
+      "sport": "NHL",
+      "event": "Minnesota Wild at Philadelphia Flyers",
+      "commence": "2026-11-04T00:10:00Z",
+      "market": "h2h",
+      "side": null,
+      "lineAtPick": null,
+      "priceAtPick": null,
+      "marketNumber": null,
+      "priceBook": null,
+      "marketPrices": {
+        "home": 145,
+        "away": -175
+      },
+      "priceTime": "2026-11-03T15:09:34Z",
+      "pickedAt": "2026-11-03T16:24:33Z",
+      "fair": 0.405,
+      "projection": 0.405,
+      "edge": -0.002,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": null,
+      "modelWeight": 0.135,
+      "shrinkBase": null,
+      "confidence": "medium",
+      "pattern": "goalie-news",
+      "reason": "Flyers: Joseph Woll (expected) at the open, now Dan Vladar (confirmed), GSAx/60 -0.03 to +0.18. Open home win 0.392, goalie change +0.013, fair 0.405.",
+      "falsifier": "The price closes at or past the fair number on the other side, or the starter changes back before puck drop.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "goalie_nhl.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 158,
+          "away": -177
+        },
+        "updated": "2026-11-03T15:09:16Z",
+        "snapTime": "2026-11-03T15:09:34Z"
+      },
+      "contextAtPick": {
+        "goalie": "Flyers: Joseph Woll (expected) at the open, now Dan Vladar (confirmed), GSAx/60 -0.03 to +0.18"
+      },
+      "bestAtPick": null
     }
   ]
 }

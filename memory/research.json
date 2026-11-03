@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-03T15:54:37Z",
+ "asOf": "2026-11-03T16:25:19Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 1090,
  "loggedReads": 2213,
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1492,
-   "with": 1169,
+   "reads": 1493,
+   "with": 1170,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1492,
-   "with": 1492,
+   "reads": 1493,
+   "with": 1493,
    "alarm": false
   }
  },
@@ -98,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1284,
-  "latest": "2026-11-03T15:54:30Z",
+  "linesLastCycle": 1306,
+  "latest": "2026-11-03T16:24:31Z",
   "rowsWithHistory": 1607,
   "alarm": false
  },
@@ -11537,7 +11537,7 @@
    "n": 376,
    "meanClvProb": -0.0058,
    "pocket": {
-    "feature": "restDays=short",
+    "feature": "shortWeek=yes",
     "n": 8,
     "meanClvProb": 0.0284,
     "tStat": 1.95
@@ -11603,7 +11603,7 @@
    "n": 100,
    "meanClvProb": -0.0064,
    "pocket": {
-    "feature": "sharpGapOpen=<1%",
+    "feature": "sharpDiv=aligned",
     "n": 8,
     "meanClvProb": 0.0374,
     "tStat": 2.39
@@ -13204,7 +13204,7 @@
    "n": 39,
    "meanClvProb": -0.024,
    "pocket": {
-    "feature": "sharpGapPick=<1%",
+    "feature": "sharpDivPick=aligned",
     "n": 10,
     "meanClvProb": 0.0091,
     "tStat": 8.47
@@ -13500,7 +13500,7 @@
    "n": 29,
    "meanClvProb": -0.0038,
    "pocket": {
-    "feature": "restDays=long",
+    "feature": "restEdge=more",
     "n": 8,
     "meanClvProb": 0.01,
     "tStat": 2.05
@@ -13623,7 +13623,7 @@
    "n": 25,
    "meanClvProb": -0.0093,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 12,
     "meanClvProb": 0.0069,
     "tStat": 0.44
@@ -13981,7 +13981,7 @@
    "n": 51,
    "meanClvProb": -0.0268,
    "pocket": {
-    "feature": "restDays=long",
+    "feature": "restEdge=more",
     "n": 11,
     "meanClvProb": 0.0015,
     "tStat": 0.1
