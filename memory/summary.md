@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-11-03 04:31Z)
+# What EDGE is learning (2026-11-03 05:01Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 1087 graded reads counted, 2191 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Scanner (scan.py, 11-02 20:47Z): 40 strategies tracking from 10258 hypotheses (0 new this run); 125 graded scan reads, mean CLV -0.6%. Shadow only; grade.py decides promotion.
@@ -15,8 +15,8 @@ Early negative, still collecting (largest samples):
   > pocket: sharpDiv=pin-for inside timing=day: n 11, CLV +3.5%, t +1.9 (best of 88 tested; a lead to watch) | pair: role=dog + moveBeforePick=none n 58, CLV +0.4% (best of 25)
 Observation: edge size is not yet predicting CLV (A -0.6% on 99, B -0.4% on 339, C -1.2% on 649).
   > last 50 graded reads: A +1.1% on 5, B +0.8% on 25, C -0.5% on 20 (A > B > C holds; diagnostic only)
-  > pocket: sharpGapOpen=<1% inside grade A: n 8, CLV +3.7%, t +2.4 (best of 49 tested; a lead to watch)
-  > order holds inside sharpGapOpen=<1%: A +3.7% on 8, B +0.7% on 28, C -0.5% on 38 (20 of 53 features tested)
+  > pocket: sharpDiv=aligned inside grade A: n 8, CLV +3.7%, t +2.4 (best of 49 tested; a lead to watch)
+  > order holds inside sharpDiv=aligned: A +3.7% on 8, B +0.7% on 28, C -0.5% on 38 (20 of 53 features tested)
 Why reads lost to the close (autopsy, post-pick; 690 of 1087, cause known on 690): overpaid 300 (-1.6%), news-after-pick 42 (-6.9%), sharps-against-at-pick 6 (-5.1%), sharps-against-at-open 1 (-3.1%), bet-into-steam 4 (-3.1%), late-move 20 (-4.1%), sharp-move-against 49 (-1.9%), soft-move-against 2 (-3.2%), model-wrong 266 (-5.4%)
 Process vs result: right-and-rewarded 218, right-but-unlucky 168, lucky-win 314, market-was-right 369, push 3; right-but-unlucky losses hurt most by close-margin, flipped-late, overtime (results are noise at this sample; CLV decides)
 Gated by the Pinnacle gate (scored, not counted): n 84, CLV -0.4%, t -0.8 (positive = the gate blocks winners); best pocket tzShift=east n 13, CLV +2.7%, t +1.3 (of 46 tested)
