@@ -134572,7 +134572,7 @@
       "rowId": "ATP|2026-11-03|Arthur Gea at Jan-Lennard Struff|h2h",
       "sport": "ATP",
       "event": "Arthur Gea at Jan-Lennard Struff",
-      "commence": "2026-11-03T17:30:00Z",
+      "commence": "2026-11-03T17:40:00Z",
       "market": "h2h",
       "side": "away",
       "lineAtPick": null,
@@ -134634,7 +134634,7 @@
       "rowId": "ATP|2026-11-03|Arthur Gea at Jan-Lennard Struff|h2h",
       "sport": "ATP",
       "event": "Arthur Gea at Jan-Lennard Struff",
-      "commence": "2026-11-03T17:30:00Z",
+      "commence": "2026-11-03T17:40:00Z",
       "market": "h2h",
       "side": "away",
       "lineAtPick": null,
@@ -140014,7 +140014,7 @@
       "rowId": "ATP|2026-11-03|Arthur Gea at Jan-Lennard Struff|h2h",
       "sport": "ATP",
       "event": "Arthur Gea at Jan-Lennard Struff",
-      "commence": "2026-11-03T17:30:00Z",
+      "commence": "2026-11-03T17:40:00Z",
       "market": "h2h",
       "side": "home",
       "lineAtPick": null,
@@ -140576,6 +140576,118 @@
         "goalie": "Jackets: Jet Greaves (expected) at the open, now Cam Talbot (confirmed), GSAx/60 +0.04 to -0.19 | Avalanche: Scott Wedgewood (expected) at the open, now Scott Wedgewood (confirmed), GSAx/60 +0.22 to +0.30"
       },
       "bestAtPick": null
+    },
+    {
+      "pickId": "NHL|2026-11-04|Winnipeg Jets at Montr\u00e9al Canadiens|total|over|v1|learned-nhl-over",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NHL|2026-11-04|Winnipeg Jets at Montr\u00e9al Canadiens|total",
+      "sport": "NHL",
+      "event": "Winnipeg Jets at Montr\u00e9al Canadiens",
+      "commence": "2026-11-04T00:10:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 5.5,
+      "priceAtPick": -130,
+      "bookAtPick": "DraftKings",
+      "marketNumber": 5.5,
+      "marketPrices": {
+        "over": -130,
+        "under": 110
+      },
+      "priceTime": "2026-11-03T15:09:34Z",
+      "pickedAt": "2026-11-03T17:24:43Z",
+      "fair": 0.5891,
+      "projection": 0.5891,
+      "edge": 0.0239,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "learned-nhl-over",
+      "reason": "Learned model (ridge, 191 data points, trained 2026-11-01) predicts the over 5.5 price moves +0.045 from the open; open 0.545, now 0.545, 0.045 still to come. Fair 0.589. Report: stats/models/nhl_over.json.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": 6.0,
+        "prices": {
+          "over": -103,
+          "under": -109
+        },
+        "updated": "2026-11-03T15:09:16Z",
+        "snapTime": "2026-11-03T15:09:34Z",
+        "noVig": 0.4929
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -130,
+        "line": 5.5,
+        "implied": 0.5652,
+        "printImplied": 0.5652
+      },
+      "priceBook": "DraftKings",
+      "contextAtPick": {},
+      "pinGate": "unchecked"
+    },
+    {
+      "pickId": "NHL|2026-11-04|Winnipeg Jets at Montr\u00e9al Canadiens|total|over|v1|lean|edge-stack|2026-11-03T17:24:49Z",
+      "kind": "lean",
+      "grade": "C",
+      "rowId": "NHL|2026-11-04|Winnipeg Jets at Montr\u00e9al Canadiens|total",
+      "sport": "NHL",
+      "event": "Winnipeg Jets at Montr\u00e9al Canadiens",
+      "commence": "2026-11-04T00:10:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 5.5,
+      "priceAtPick": -130,
+      "marketNumber": 5.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -130,
+        "under": 110
+      },
+      "priceTime": "2026-11-03T15:09:34Z",
+      "pickedAt": "2026-11-03T17:24:49Z",
+      "fair": 0.583,
+      "projection": 0.583,
+      "edge": 0.018,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": 0.004,
+      "modelWeight": 0.197,
+      "shrinkBase": "print",
+      "confidence": "medium",
+      "pattern": "edge-stack",
+      "reason": "Edge stack (2 sources, x0.85 for overlap): learned-nhl-over +0.045; opening drift +0.001. Fair 0.583.",
+      "falsifier": "The line closes at or past the current number on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "edge_stack.py",
+      "pinAtPick": {
+        "line": 6.0,
+        "prices": {
+          "over": -103,
+          "under": -109
+        },
+        "updated": "2026-11-03T15:09:16Z",
+        "snapTime": "2026-11-03T15:09:34Z",
+        "noVig": 0.4929
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -130,
+        "line": 5.5,
+        "implied": 0.5652,
+        "printImplied": 0.5652
+      },
+      "pinGate": "unchecked"
     }
   ]
 }
