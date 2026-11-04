@@ -19294,14 +19294,19 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.395,
         "lastSeen": "2026-11-03T17:40:09Z",
         "closeMid": 0.395,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-04T00:24:42Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV030800RUSMIBR-RUS",
@@ -25297,6 +25302,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-03T23:54:46Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-04T00:24:42Z"
       }
     ]
   },
@@ -27929,7 +27938,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.495,
-        "lastSeen": "2026-11-03T23:54:46Z"
+        "lastSeen": "2026-11-04T00:24:42Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -32159,7 +32168,7 @@
       }
     ]
   },
-  "asOf": "2026-11-03T23:54:46Z",
+  "asOf": "2026-11-04T00:24:42Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32278,9 +32287,9 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 5023,
+      "kalshiMarkets": 5143,
       "eventsMatched": 277,
-      "eventsUnmatched": 209,
+      "eventsUnmatched": 214,
       "candidates": 1
     }
   },
@@ -32291,10 +32300,10 @@
       "balance": 7858,
       "balance_dollars": "78.5823",
       "portfolio_value": 42,
-      "updated_ts": 1793750104
+      "updated_ts": 1793751901
     },
     "env": "production",
-    "checkedAt": "2026-11-03T23:55:04Z"
+    "checkedAt": "2026-11-04T00:25:01Z"
   },
   "maker": {
     "start": 0.0,
