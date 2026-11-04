@@ -19533,14 +19533,19 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.155,
         "lastSeen": "2026-11-03T15:25:02Z",
         "closeMid": 0.155,
-        "clv": -0.045
+        "clv": -0.045,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-04T18:35:25Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV031300BOJDIA-DIA",
@@ -25449,6 +25454,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-04T18:24:53Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-04T18:35:25Z"
       }
     ]
   },
@@ -28081,7 +28090,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.505,
-        "lastSeen": "2026-11-04T18:24:53Z"
+        "lastSeen": "2026-11-04T18:35:25Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -28249,7 +28258,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.6,
-        "lastSeen": "2026-11-04T18:24:53Z"
+        "lastSeen": "2026-11-04T18:35:25Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV08CLENO-NO4",
@@ -28277,7 +28286,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.445,
-        "lastSeen": "2026-11-04T18:24:53Z"
+        "lastSeen": "2026-11-04T18:35:25Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV07TXSTORST-ORST6",
@@ -28305,7 +28314,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.465,
-        "lastSeen": "2026-11-04T18:24:53Z"
+        "lastSeen": "2026-11-04T18:35:25Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV04TOLSAC-52",
@@ -28333,7 +28342,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.455,
-        "lastSeen": "2026-11-04T18:24:53Z"
+        "lastSeen": "2026-11-04T18:35:25Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08NYJKC-NYJ",
@@ -28361,7 +28370,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.185,
-        "lastSeen": "2026-11-04T18:24:53Z"
+        "lastSeen": "2026-11-04T18:35:25Z"
       }
     ],
     "equity": [
@@ -32501,6 +32510,29 @@
         "status": "resting",
         "time": "2026-11-04T17:54:44Z",
         "test": true
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV04UTANOP-NOP7",
+        "title": "New Orleans wins by over 6.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Utah Jazz at New Orleans Pelicans",
+        "commence": "2026-11-05T01:10:00Z",
+        "side": "yes",
+        "strike": 6.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.517,
+        "edge": 0.0497,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt B pick (Caesars home -5 -105 implies 51.2%. Pinnacle -108 no-vig is 50.7% at -6, worth 53.7% at this line. Edge +2.5%.). Pinnacle fair here 49.2% plus the pick's edge = 51.7%; Kalshi YES 0.45 + fee = 0.467.",
+        "orderId": "01a1a7d8-87a0-7b39-8123-7018679bb49f",
+        "orderPath": "v2",
+        "price": 0.44,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-04T18:35:25Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -32560,7 +32592,7 @@
       }
     ]
   },
-  "asOf": "2026-11-04T18:24:53Z",
+  "asOf": "2026-11-04T18:35:25Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32597,8 +32629,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 276,
-      "resting": 19,
+      "orders": 278,
+      "resting": 21,
       "filled": 132,
       "expired": 125,
       "fillRate": 0.514,
@@ -32612,9 +32644,10 @@
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {
-      "already held": 2
+      "already held": 2,
+      "test: same contract already held": 1
     },
-    "liveCandidates": 2,
+    "liveCandidates": 4,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -32655,9 +32688,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 1.96,
+      "spentToday": 2.4,
       "trades": 86,
-      "resting": 5
+      "resting": 6
     },
     "config": {
       "startingBankroll": 35.0,
@@ -32682,7 +32715,7 @@
       "kalshiMarkets": 5723,
       "eventsMatched": 283,
       "eventsUnmatched": 262,
-      "candidates": 2
+      "candidates": 4
     }
   },
   "account": {
@@ -32692,10 +32725,10 @@
       "balance": 6437,
       "balance_dollars": "64.3775",
       "portfolio_value": 254,
-      "updated_ts": 1793816715
+      "updated_ts": 1793817348
     },
     "env": "production",
-    "checkedAt": "2026-11-04T18:25:15Z"
+    "checkedAt": "2026-11-04T18:35:48Z"
   },
   "maker": {
     "start": 0.0,
@@ -38332,6 +38365,44 @@
         "takerEdge": 0.0203,
         "makerEdge": 0.0433,
         "postedAt": "2026-11-04T17:54:44Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV04UTANOP-NOP7",
+        "title": "New Orleans wins by over 6.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Utah Jazz at New Orleans Pelicans",
+        "commence": "2026-11-05T01:10:00Z",
+        "side": "yes",
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.517,
+        "estimated": true,
+        "price": 0.44,
+        "bidAtPost": 0.44,
+        "askAtPost": 0.45,
+        "takerEdge": 0.0497,
+        "makerEdge": 0.0727,
+        "postedAt": "2026-11-04T18:35:25Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV04UTANOP-NOP7",
+        "title": "New Orleans wins by over 6.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Utah Jazz at New Orleans Pelicans",
+        "commence": "2026-11-05T01:10:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4921,
+        "estimated": true,
+        "price": 0.44,
+        "bidAtPost": 0.44,
+        "askAtPost": 0.45,
+        "takerEdge": 0.0248,
+        "makerEdge": 0.0478,
+        "postedAt": "2026-11-04T18:35:25Z",
         "status": "resting"
       }
     ],
