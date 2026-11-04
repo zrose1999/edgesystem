@@ -112,6 +112,25 @@ footer { color: var(--muted); font-size: 12.5px; max-width: 80ch; }
 .guide h2 { font-size: 18px; }
 .guide ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: 13px; color: var(--muted); max-width: 80ch; }
 .guide b { color: var(--ink); font-weight: 600; }
+.lines { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.lc { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 14px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.lc .hd { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.lc .mkt { font: 600 20px/1.1 var(--display); letter-spacing: .03em; text-transform: uppercase; }
+.lc .verdict { font: 600 13px/1.3 var(--body); padding: 6px 9px; border-radius: 3px; }
+.lc .verdict.lean { background: var(--off-soft); color: var(--off); } .lc .verdict.pass { background: var(--track); color: var(--muted); }
+.kv { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; font: 12.5px/1.4 var(--mono); }
+.kv span:nth-child(odd) { color: var(--muted); } .kv b { font-weight: 500; }
+.move { display: flex; align-items: center; gap: 6px; font: 600 15px/1 var(--mono); flex-wrap: wrap; }
+.move .ar { color: var(--muted); font-weight: 400; }
+.lc ul { margin: 0; padding-left: 16px; display: grid; gap: 4px; font-size: 13px; }
+.probs { display: grid; gap: 5px; }
+.pr { display: grid; grid-template-columns: 7.5em 1fr 3.4em; gap: 8px; align-items: center; font-size: 12px; }
+.pr .bar { height: 8px; background: var(--track); border-radius: 2px; position: relative; overflow: hidden; }
+.pr .bar i { position: absolute; inset: 0 auto 0 0; background: var(--turf); border-radius: 2px; }
+.pr .bar.mk i { background: var(--ink); }
+.pr .v { font: 500 12px var(--mono); text-align: right; }
+td.best { color: var(--off); font-weight: 600; }
+@media (max-width: 900px) { .lines { grid-template-columns: 1fr; } }
 @media (max-width: 760px) {
   .tape, .two { grid-template-columns: 1fr; }
   .team .ab { font-size: 42px; }
@@ -272,6 +291,48 @@ function people(g, t) {
     <div class="tbl"><table><thead><tr><th>Rusher</th><th>Carry share</th><th>Yds/g</th><th>YPC</th><th>Status</th></tr></thead><tbody>${ru}</tbody></table></div></div>`;
 }
 
+
+function probRows(rows) {
+  return `<div class="probs">${rows.map(([l,v,mk]) => `<div class="pr"><span>${esc(l)}</span><span class="bar${mk?" mk":""}"><i style="width:${Math.round(v*100)}%"></i></span><span class="v">${Math.round(v*100)}%</span></div>`).join("")}</div>`;
+}
+const am = v => v == null ? "–" : (v > 0 ? "+" + v : "" + v);
+function bookTable(g) {
+  const L = g.gameLines, H = g.home, A = g.away;
+  const names = L.ml.books.map(b => b.book);
+  const bestOf = (arr, k) => Math.max(...arr.filter(b => !b.sharp && b[k] != null).map(b => b[k]));
+  const bh = bestOf(L.ml.books,"home"), ba = bestOf(L.ml.books,"away"), sh = bestOf(L.spread.books,"home"), sa = bestOf(L.spread.books,"away"),
+        to = bestOf(L.total.books,"over"), tu = bestOf(L.total.books,"under");
+  const c = (v, b, sharp) => `<td class="${!sharp && v === b ? "best" : ""}">${am(v)}</td>`;
+  const rows = names.map(n => {
+    const m = L.ml.books.find(b => b.book === n), s = L.spread.books.find(b => b.book === n), t = L.total.books.find(b => b.book === n);
+    return `<tr><td>${esc(n)}${m.sharp ? ' <span style="color:var(--muted)">(sharp)</span>' : ""}</td>${c(m.home,bh,m.sharp)}${c(m.away,ba,m.sharp)}<td>${sl(s.line)}</td>${c(s.home,sh,s.sharp)}${c(s.away,sa,s.sharp)}<td>${t.line}</td>${c(t.over,to,t.sharp)}${c(t.under,tu,t.sharp)}</tr>`;
+  }).join("");
+  return `<div class="tbl"><table><thead><tr><th>Book</th><th>${H} ML</th><th>${A} ML</th><th>${H} spread</th><th>${H}</th><th>${A}</th><th>Total</th><th>Over</th><th>Under</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+function linesSection(g) {
+  const L = g.gameLines; if (!L) return "";
+  const R = L.reads, H = g.home, A = g.away;
+  const ml = `<article class="lc"><div class="hd"><span class="mkt">Moneyline</span></div><span class="verdict ${R.ml.tone}">${esc(R.ml.verdict)}</span>
+    <div class="move">${H} ${am(L.ml.open.home)} <span class="ar">open</span> &rarr; ${am(L.ml.pin.home)} <span class="ar">Pinnacle now</span></div>
+    ${probRows([["Market",L.ml.marketProb,1],["Matchup view",L.ml.viewProb],["EDGE ratings",L.ml.modelProb],["ESPN FPI",L.ml.fpiProb]])}
+    <div class="kv"><span>${H} chance (market)</span><b>${Math.round(L.ml.marketProb*100)}% · fair ${am(L.ml.fairMarket)}</b><span>Best ${H}</span><b>${am(L.ml.bestHome.price)} ${esc(L.ml.bestHome.book)}</b><span>Best ${A}</span><b>${am(L.ml.bestAway.price)} ${esc(L.ml.bestAway.book)}</b></div>
+    <ul>${R.ml.why.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></article>`;
+  const sp = `<article class="lc"><div class="hd"><span class="mkt">Spread</span></div><span class="verdict ${R.spread.tone}">${esc(R.spread.verdict)}</span>
+    <div class="move">${H} ${sl(L.spread.open)} <span class="ar">open</span> &rarr; ${sl(L.spread.espnOpen)} <span class="ar">DK open</span> &rarr; ${sl(L.spread.now)} <span class="ar">now</span></div>
+    ${probRows([["Pinnacle",L.spread.pinNoVig,1],["Matchup view",L.spread.viewCover],["EDGE ratings",L.spread.modelCover]])}
+    <div class="kv"><span>Fair line</span><b>view ${sl(L.spread.viewFair)} · ratings ${sl(L.spread.modelFair)}</b><span>Best ${H}</span><b>${am(L.spread.bestHome.price)} ${esc(L.spread.bestHome.book)}</b><span>Best ${A} +${-L.spread.now}</span><b>${am(L.spread.bestAway.price)} ${esc(L.spread.bestAway.book)}</b></div>
+    <ul>${R.spread.why.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></article>`;
+  const tt = `<article class="lc"><div class="hd"><span class="mkt">Over / under</span></div><span class="verdict ${R.total.tone}">${esc(R.total.verdict)}</span>
+    <div class="move">${L.total.open} <span class="ar">open</span> &rarr; ${L.total.espnOpen} <span class="ar">DK open</span> &rarr; ${L.total.now} <span class="ar">now</span></div>
+    ${probRows([["Pinnacle under",1-L.total.pinNoVigOver,1],["Matchup view",L.total.viewUnder],["EDGE ratings",L.total.modelUnder]])}
+    <div class="kv"><span>Fair total</span><b>view ${L.total.viewFair} · ratings ${L.total.modelFair}</b><span>Best under</span><b>${am(L.total.bestUnder.price)} ${esc(L.total.bestUnder.book)}</b><span>Best over</span><b>${am(L.total.bestOver.price)} ${esc(L.total.bestOver.book)}</b></div>
+    <ul>${R.total.why.map(w=>`<li>${esc(w)}</li>`).join("")}</ul></article>`;
+  const C = L.calibration;
+  return `<section class="sec"><div class="sechead"><h2>Game lines</h2><p>Every book EDGE pulls, ${new Date(L.snapTime).toLocaleString(undefined,{month:"numeric",day:"numeric",hour:"numeric",minute:"2-digit"})}. Green = best US price.</p></div>
+    <div class="lines">${ml}${sp}${tt}</div>${bookTable(g)}
+    <p class="sub" style="font-size:12.5px">Chances: margin spread ${L.sdMargin} points (from the market's ${C.maeMarket}-point average miss), total spread ${L.sdTotal}. EDGE's ${C.games.toLocaleString()}-game backtest: the market misses by ${C.maeMarket} points a game, the raw ratings by ${C.maeModel}, and the ratings' gap from the close has not held up on sides. Read the view and ratings bars as context; the market bar is the price to beat.</p></section>`;
+}
+
 function show(id, push) {
   const g = DATA.games.find(x => x.id === id) || DATA.games[0];
   document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c.id === "chip-" + g.id ? "true" : "false"));
@@ -290,6 +351,7 @@ function show(id, push) {
       ${g.roof ? `<span>${esc(g.venue ? g.venue + ", " : "")}${esc(g.roof)}${g.surface ? ", "+esc(g.surface) : ""}</span>` : ""}</div>
     ${g.edgeModel || g.predictor ? `<div class="facts">${g.edgeModel ? `<span>EDGE NCAAF model (raw) <b>${g.home} ${sl(-g.edgeModel.rawMargin)} · ${g.edgeModel.rawTotal}</b>, fair after k <b>${sl(g.edgeModel.fairHomeLine)} · ${g.edgeModel.fairTotal}</b> (no CLV-desk play)</span>` : ""}${g.predictor ? `<span>ESPN FPI win chance <b>${g.home} ${g.predictor.homeTeam.gameProjection}%</b></span>` : ""}${g.lines.h2h?.prices?.home ? `<span>Moneyline <b>${g.home} ${sl(g.lines.h2h.prices.home)} · ${g.away} ${sl(g.lines.h2h.prices.away)}</b></span>` : ""}</div>` : ""}
     ${g.weather ? `<div class="facts"><span>Weather: ${esc(g.weather)}</span></div>` : ""}
+    ${linesSection(g)}
     ${flags.length ? `<div class="warn"><b>Starter check</b>${flags.map(f=>`<span>${esc(f)}</span>`).join("")}</div>` : ""}
     <section class="sec"><div class="sechead"><h2>Tale of the tape</h2>
       <div class="legend"><span><i style="background:var(--off)"></i>offense rank</span><span><i style="background:var(--def)"></i>defense rank</span><span>1 = best in the league, ${DATA.nTeams || 32} = worst</span></div></div>
