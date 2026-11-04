@@ -25431,6 +25431,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-04T16:54:46Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-04T17:24:39Z"
       }
     ]
   },
@@ -28063,7 +28067,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.495,
-        "lastSeen": "2026-11-04T16:54:46Z"
+        "lastSeen": "2026-11-04T17:24:39Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -28231,7 +28235,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.6,
-        "lastSeen": "2026-11-04T16:54:46Z"
+        "lastSeen": "2026-11-04T17:24:39Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV08CLENO-NO4",
@@ -28259,7 +28263,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.445,
-        "lastSeen": "2026-11-04T16:54:46Z"
+        "lastSeen": "2026-11-04T17:24:39Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV07TXSTORST-ORST6",
@@ -28287,7 +28291,33 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.465,
-        "lastSeen": "2026-11-04T16:54:46Z"
+        "lastSeen": "2026-11-04T17:24:39Z"
+      },
+      {
+        "ticker": "KXNCAAFTOTAL-26NOV04TOLSAC-52",
+        "title": "Over 51.5 points",
+        "sport": "NCAAF",
+        "kind": "total",
+        "event": "Toledo Rockets at Sacramento State Hornets",
+        "commence": "2026-11-05T00:00:00Z",
+        "side": "no",
+        "strike": 51.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5196,
+        "edge": 0.0221,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt B pick (FanDuel under 53.5 -110 implies 52.4%. Pinnacle -119 no-vig is 52.2% at 52.5, worth 54.0% at this line. Edge +1.6%.). Pinnacle fair here 50.4% plus the pick's edge = 52.0%; Kalshi NO 0.48 + fee = 0.497.",
+        "ask": 0.45,
+        "count": 1.0,
+        "cost": 0.45,
+        "fee": 0.0,
+        "time": "2026-11-04T17:24:39Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a19db0-ff28-7549-9233-19e947221b11",
+        "test": true,
+        "fillChecked": true
       }
     ],
     "equity": [
@@ -29206,6 +29236,14 @@
       {
         "t": "2026-11-04T07:59:36Z",
         "open": 1.74,
+        "realized": 0.68,
+        "equity": 35.68,
+        "clvN": 73,
+        "meanClv": 0.0032
+      },
+      {
+        "t": "2026-11-04T17:24:39Z",
+        "open": 2.19,
         "realized": 0.68,
         "equity": 35.68,
         "clvN": 73,
@@ -32131,8 +32169,8 @@
         "orderPath": "v2 after shard funding",
         "price": 0.45,
         "count": 1,
-        "filledSeen": 0,
-        "status": "resting",
+        "filledSeen": 1.0,
+        "status": "executed",
         "time": "2026-11-02T19:15:46Z",
         "test": true
       },
@@ -32424,7 +32462,7 @@
       }
     ]
   },
-  "asOf": "2026-11-04T16:54:46Z",
+  "asOf": "2026-11-04T17:24:39Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32452,7 +32490,7 @@
       "meanClv": -0.0052
     },
     "live": {
-      "open": 1.74,
+      "open": 2.19,
       "realized": 0.68,
       "equity": 35.68,
       "clvN": 73,
@@ -32517,9 +32555,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 0.46,
-      "trades": 84,
-      "resting": 5
+      "spentToday": 0.91,
+      "trades": 85,
+      "resting": 4
     },
     "config": {
       "startingBankroll": 35.0,
@@ -32549,15 +32587,15 @@
   },
   "account": {
     "keys": "ok",
-    "balance": 69.3,
+    "balance": 64.56,
     "detail": {
-      "balance": 6929,
-      "balance_dollars": "69.2984",
-      "portfolio_value": 190,
-      "updated_ts": 1793811308
+      "balance": 6456,
+      "balance_dollars": "64.5601",
+      "portfolio_value": 386,
+      "updated_ts": 1793813099
     },
     "env": "production",
-    "checkedAt": "2026-11-04T16:55:08Z"
+    "checkedAt": "2026-11-04T17:24:59Z"
   },
   "maker": {
     "start": 0.0,
