@@ -25373,6 +25373,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-04T07:59:36Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-04T11:10:29Z"
       }
     ]
   },
@@ -28004,8 +28008,8 @@
         "orderId": "01a19989-eab8-790c-8def-fbbdbead5770",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.495,
-        "lastSeen": "2026-11-04T07:59:36Z"
+        "lastMid": 0.485,
+        "lastSeen": "2026-11-04T11:10:29Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -28173,7 +28177,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.525,
-        "lastSeen": "2026-11-04T07:59:36Z"
+        "lastSeen": "2026-11-04T11:10:29Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV08CLENO-NO4",
@@ -28201,7 +28205,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.385,
-        "lastSeen": "2026-11-04T07:59:36Z"
+        "lastSeen": "2026-11-04T11:10:29Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV07TXSTORST-ORST6",
@@ -28227,7 +28231,9 @@
         "mode": "maker",
         "orderId": "01a1a32e-e168-7971-8637-174318e2a456",
         "test": true,
-        "fillChecked": true
+        "fillChecked": true,
+        "lastMid": 0.46,
+        "lastSeen": "2026-11-04T11:10:29Z"
       }
     ],
     "equity": [
@@ -32364,7 +32370,7 @@
       }
     ]
   },
-  "asOf": "2026-11-04T07:59:36Z",
+  "asOf": "2026-11-04T11:10:29Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32415,8 +32421,10 @@
       "pairedTakerClvNet": -0.0189,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 0,
+    "liveSkips": {
+      "already held": 1
+    },
+    "liveCandidates": 1,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -32484,7 +32492,7 @@
       "kalshiMarkets": 5723,
       "eventsMatched": 282,
       "eventsUnmatched": 263,
-      "candidates": 0
+      "candidates": 1
     }
   },
   "account": {
@@ -32493,11 +32501,11 @@
     "detail": {
       "balance": 6929,
       "balance_dollars": "69.2984",
-      "portfolio_value": 177,
-      "updated_ts": 1793779196
+      "portfolio_value": 175,
+      "updated_ts": 1793790651
     },
     "env": "production",
-    "checkedAt": "2026-11-04T07:59:56Z"
+    "checkedAt": "2026-11-04T11:10:51Z"
   },
   "maker": {
     "start": 0.0,
