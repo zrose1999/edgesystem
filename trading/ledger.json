@@ -19803,14 +19803,19 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.195,
         "lastSeen": "2026-11-03T17:40:09Z",
         "closeMid": 0.195,
-        "clv": -0.015
+        "clv": -0.015,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-04T07:59:36Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV032330TYLOOTL-TL",
@@ -19831,14 +19836,19 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.325,
         "lastSeen": "2026-11-03T17:40:09Z",
         "closeMid": 0.325,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-04T07:59:36Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV031300REV9INE-REV",
@@ -25359,6 +25369,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-04T04:54:37Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-04T07:59:36Z"
       }
     ]
   },
@@ -27991,7 +28005,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.495,
-        "lastSeen": "2026-11-04T04:54:37Z"
+        "lastSeen": "2026-11-04T07:59:36Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -28159,7 +28173,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.525,
-        "lastSeen": "2026-11-04T04:54:37Z"
+        "lastSeen": "2026-11-04T07:59:36Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV08CLENO-NO4",
@@ -28187,7 +28201,33 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.385,
-        "lastSeen": "2026-11-04T04:54:37Z"
+        "lastSeen": "2026-11-04T07:59:36Z"
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV07TXSTORST-ORST6",
+        "title": "Oregon St. wins by over 5.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Texas State Bobcats at Oregon State Beavers",
+        "commence": "2026-11-08T03:30:00Z",
+        "side": "no",
+        "strike": 5.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5075,
+        "edge": 0.0201,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt A pick (Bally Bet away +7 -106 implies 51.5%. Pinnacle -109 no-vig is 50.2% at -6.5, worth 54.5% at this line. Edge +3.0%.). Pinnacle fair here 47.7% plus the pick's edge = 50.8%; Kalshi NO 0.47 + fee = 0.487.",
+        "ask": 0.46,
+        "count": 1.0,
+        "cost": 0.46,
+        "fee": 0.0,
+        "time": "2026-11-04T07:59:36Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1a32e-e168-7971-8637-174318e2a456",
+        "test": true,
+        "fillChecked": true
       }
     ],
     "equity": [
@@ -29098,6 +29138,14 @@
       {
         "t": "2026-11-04T04:24:51Z",
         "open": 1.28,
+        "realized": 0.68,
+        "equity": 35.68,
+        "clvN": 73,
+        "meanClv": 0.0032
+      },
+      {
+        "t": "2026-11-04T07:59:36Z",
+        "open": 1.74,
         "realized": 0.68,
         "equity": 35.68,
         "clvN": 73,
@@ -32230,8 +32278,8 @@
         "orderPath": "v2",
         "price": 0.46,
         "count": 1,
-        "filledSeen": 0,
-        "status": "resting",
+        "filledSeen": 1.0,
+        "status": "executed",
         "time": "2026-11-03T20:51:40Z",
         "test": true
       },
@@ -32316,7 +32364,7 @@
       }
     ]
   },
-  "asOf": "2026-11-04T04:54:37Z",
+  "asOf": "2026-11-04T07:59:36Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32344,7 +32392,7 @@
       "meanClv": -0.0052
     },
     "live": {
-      "open": 1.28,
+      "open": 1.74,
       "realized": 0.68,
       "equity": 35.68,
       "clvN": 73,
@@ -32409,9 +32457,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 2.91,
-      "trades": 83,
-      "resting": 6
+      "spentToday": 0.46,
+      "trades": 84,
+      "resting": 5
     },
     "config": {
       "startingBankroll": 35.0,
@@ -32433,23 +32481,23 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 5776,
-      "eventsMatched": 285,
+      "kalshiMarkets": 5723,
+      "eventsMatched": 282,
       "eventsUnmatched": 263,
       "candidates": 0
     }
   },
   "account": {
     "keys": "ok",
-    "balance": 69.76,
+    "balance": 69.3,
     "detail": {
-      "balance": 6976,
-      "balance_dollars": "69.7628",
-      "portfolio_value": 132,
-      "updated_ts": 1793768097
+      "balance": 6929,
+      "balance_dollars": "69.2984",
+      "portfolio_value": 177,
+      "updated_ts": 1793779196
     },
     "env": "production",
-    "checkedAt": "2026-11-04T04:54:57Z"
+    "checkedAt": "2026-11-04T07:59:56Z"
   },
   "maker": {
     "start": 0.0,
