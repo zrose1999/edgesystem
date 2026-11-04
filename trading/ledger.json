@@ -19975,7 +19975,9 @@
         "fee": 0.02,
         "status": "open",
         "book": "paper",
-        "mode": "paper"
+        "mode": "paper",
+        "lastMid": 0.35,
+        "lastSeen": "2026-11-04T19:09:56Z"
       }
     ],
     "equity": [
@@ -25493,6 +25495,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-04T18:54:45Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-04T19:09:56Z"
       }
     ]
   },
@@ -28125,7 +28131,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.505,
-        "lastSeen": "2026-11-04T18:54:45Z"
+        "lastSeen": "2026-11-04T19:09:56Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -28293,7 +28299,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.6,
-        "lastSeen": "2026-11-04T18:54:45Z"
+        "lastSeen": "2026-11-04T19:09:56Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV08CLENO-NO4",
@@ -28321,7 +28327,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.445,
-        "lastSeen": "2026-11-04T18:54:45Z"
+        "lastSeen": "2026-11-04T19:09:56Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV07TXSTORST-ORST6",
@@ -28349,7 +28355,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.465,
-        "lastSeen": "2026-11-04T18:54:45Z"
+        "lastSeen": "2026-11-04T19:09:56Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV04TOLSAC-52",
@@ -28377,7 +28383,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.455,
-        "lastSeen": "2026-11-04T18:54:45Z"
+        "lastSeen": "2026-11-04T19:09:56Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08NYJKC-NYJ",
@@ -28405,7 +28411,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.185,
-        "lastSeen": "2026-11-04T18:54:45Z"
+        "lastSeen": "2026-11-04T19:09:56Z"
       }
     ],
     "equity": [
@@ -32627,7 +32633,7 @@
       }
     ]
   },
-  "asOf": "2026-11-04T18:54:45Z",
+  "asOf": "2026-11-04T19:09:56Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32665,10 +32671,10 @@
     "liveStopped": null,
     "maker": {
       "orders": 282,
-      "resting": 25,
-      "filled": 132,
+      "resting": 21,
+      "filled": 136,
       "expired": 125,
-      "fillRate": 0.514,
+      "fillRate": 0.521,
       "clvN": 129,
       "meanClv": -0.0075,
       "meanClvNet": -0.0117,
@@ -32679,11 +32685,9 @@
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {
-      "maker order failed": 5,
-      "already held": 3,
-      "test: same contract already held": 1
+      "already held": 1
     },
-    "liveCandidates": 9,
+    "liveCandidates": 1,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -32751,7 +32755,7 @@
       "kalshiMarkets": 5723,
       "eventsMatched": 283,
       "eventsUnmatched": 262,
-      "candidates": 9
+      "candidates": 1
     }
   },
   "account": {
@@ -32761,10 +32765,10 @@
       "balance": 6437,
       "balance_dollars": "64.3775",
       "portfolio_value": 254,
-      "updated_ts": 1793818511
+      "updated_ts": 1793819419
     },
     "env": "production",
-    "checkedAt": "2026-11-04T18:55:11Z"
+    "checkedAt": "2026-11-04T19:10:20Z"
   },
   "maker": {
     "start": 0.0,
@@ -38458,7 +38462,9 @@
         "takerEdge": 0.0709,
         "makerEdge": 0.1034,
         "postedAt": "2026-11-04T18:54:45Z",
-        "status": "resting"
+        "status": "filled",
+        "filledAt": "2026-11-04T19:09:56Z",
+        "askAtFill": 0.36
       },
       {
         "ticker": "KXNFLGAME-26NOV08ARISEA-SEA",
@@ -38477,7 +38483,9 @@
         "takerEdge": 0.051,
         "makerEdge": 0.0696,
         "postedAt": "2026-11-04T18:54:45Z",
-        "status": "resting"
+        "status": "filled",
+        "filledAt": "2026-11-04T19:09:56Z",
+        "askAtFill": 0.78
       },
       {
         "ticker": "KXNFLTOTAL-26NOV08ARISEA-43",
@@ -38496,7 +38504,9 @@
         "takerEdge": 0.0386,
         "makerEdge": 0.0615,
         "postedAt": "2026-11-04T18:54:45Z",
-        "status": "resting"
+        "status": "filled",
+        "filledAt": "2026-11-04T19:09:56Z",
+        "askAtFill": 0.4
       },
       {
         "ticker": "KXNFLTOTAL-26NOV08ARISEA-42",
@@ -38515,7 +38525,9 @@
         "takerEdge": 0.0203,
         "makerEdge": 0.0434,
         "postedAt": "2026-11-04T18:54:45Z",
-        "status": "resting"
+        "status": "filled",
+        "filledAt": "2026-11-04T19:09:56Z",
+        "askAtFill": 0.43
       }
     ],
     "trades": [
@@ -42457,6 +42469,98 @@
         "payout": 0.0,
         "pnl": -0.43,
         "settledAt": "2026-11-03T04:01:44Z"
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV08ARISEA-SEA14",
+        "title": "Seattle wins by over 13.5 points",
+        "sport": "NFL",
+        "kind": "spread",
+        "event": "Arizona Cardinals at Seattle Seahawks",
+        "commence": "2026-11-08T21:25:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4674,
+        "estimated": true,
+        "ask": 0.36,
+        "count": 1,
+        "cost": 0.36,
+        "fee": 0.004,
+        "time": "2026-11-04T19:09:56Z",
+        "status": "open",
+        "book": "maker",
+        "mode": "paper",
+        "postedAt": "2026-11-04T18:54:45Z",
+        "lastMid": 0.35,
+        "lastSeen": "2026-11-04T19:09:56Z"
+      },
+      {
+        "ticker": "KXNFLGAME-26NOV08ARISEA-SEA",
+        "title": "Seattle",
+        "sport": "NFL",
+        "kind": "game",
+        "event": "Arizona Cardinals at Seattle Seahawks",
+        "commence": "2026-11-08T21:25:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp",
+        "fair": 0.8526,
+        "estimated": false,
+        "ask": 0.78,
+        "count": 1,
+        "cost": 0.78,
+        "fee": 0.003,
+        "time": "2026-11-04T19:09:56Z",
+        "status": "open",
+        "book": "maker",
+        "mode": "paper",
+        "postedAt": "2026-11-04T18:54:45Z",
+        "lastMid": 0.77,
+        "lastSeen": "2026-11-04T19:09:56Z"
+      },
+      {
+        "ticker": "KXNFLTOTAL-26NOV08ARISEA-43",
+        "title": "Over 42.5 points",
+        "sport": "NFL",
+        "kind": "total",
+        "event": "Arizona Cardinals at Seattle Seahawks",
+        "commence": "2026-11-08T21:25:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4757,
+        "estimated": true,
+        "ask": 0.41,
+        "count": 1,
+        "cost": 0.41,
+        "fee": 0.0042,
+        "time": "2026-11-04T19:09:56Z",
+        "status": "open",
+        "book": "maker",
+        "mode": "paper",
+        "postedAt": "2026-11-04T18:54:45Z",
+        "lastMid": 0.39,
+        "lastSeen": "2026-11-04T19:09:56Z"
+      },
+      {
+        "ticker": "KXNFLTOTAL-26NOV08ARISEA-42",
+        "title": "Over 41.5 points",
+        "sport": "NFL",
+        "kind": "total",
+        "event": "Arizona Cardinals at Seattle Seahawks",
+        "commence": "2026-11-08T21:25:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp",
+        "fair": 0.4977,
+        "estimated": false,
+        "ask": 0.45,
+        "count": 1,
+        "cost": 0.45,
+        "fee": 0.0043,
+        "time": "2026-11-04T19:09:56Z",
+        "status": "open",
+        "book": "maker",
+        "mode": "paper",
+        "postedAt": "2026-11-04T18:54:45Z",
+        "lastMid": 0.42,
+        "lastSeen": "2026-11-04T19:09:56Z"
       }
     ],
     "equity": [],
