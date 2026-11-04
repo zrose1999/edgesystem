@@ -604,3 +604,6 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-03 | ATP: pinEdge=0-2% + venue=home | 8 | +1.0% | found inside ATP venue=home (best of 13 features tested); small sample, may share reads with other rows |
 | 2026-11-04 | pattern=tennis-elo + venue=away | 8 | +0.0% | found inside ALL pattern=tennis-elo (best of 10 features tested); small sample, may share reads with other rows |
 | 2026-11-04 | ATP: grade=B + role=fav | 8 | +1.1% | found inside ATP role=fav (best of 6 features tested); small sample, may share reads with other rows |
+| 2026-11-04 | edgeBar=0.5-1x + sport=UCL | 8 | +4.7% | found inside ALL edgeBar=0.5-1x (best of 86 features tested); small sample, may share reads with other rows |
+| 2026-11-04 | grade=B + sport=UCL | 8 | +4.7% | found inside ALL grade=B (best of 82 features tested); small sample, may share reads with other rows |
+| 2026-11-04 | sport=UCL + timing=early | 8 | +3.9% | found inside ALL timing=early (best of 70 features tested); small sample, may share reads with other rows |

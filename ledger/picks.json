@@ -51610,7 +51610,19 @@
         "line": null,
         "implied": 0.4082,
         "printImplied": 0.4167
-      }
+      },
+      "closeLine": null,
+      "closePrice": -120,
+      "closeNoVig": 0.5233,
+      "estimated": false,
+      "clvPoints": 0.0,
+      "clvProb": 0.1119,
+      "clvProbPrint": 0.1151,
+      "clvProbPin": 0.1119,
+      "closeNoVigPin": 0.5201,
+      "clvBench": "pinnacle",
+      "clvProbBest": 0.1119,
+      "clvProbAtPrintPrice": 0.1034
     },
     {
       "pickId": "NBA|2026-10-22|Golden State Warriors at Los Angeles Lakers|spread|home|v1|reread|news-lag|2026-10-22T01:23:47Z",
@@ -69893,7 +69905,19 @@
         "implied": 0.1176,
         "printImplied": 0.1176
       },
-      "priceBook": "FanDuel"
+      "priceBook": "FanDuel",
+      "closeLine": null,
+      "closePrice": 1100,
+      "closeNoVig": 0.0655,
+      "estimated": false,
+      "clvPoints": 0.0,
+      "clvProb": -0.0495,
+      "clvProbPrint": -0.0521,
+      "clvProbPin": -0.0495,
+      "closeNoVigPin": 0.0682,
+      "clvBench": "pinnacle",
+      "clvProbBest": -0.0495,
+      "clvProbAtPrintPrice": -0.0495
     },
     {
       "pickId": "NFL|2026-10-25|San Francisco 49ers at Atlanta Falcons|spread|away|v1|reread|news-lag|2026-10-23T21:57:29Z",
@@ -123668,7 +123692,9 @@
       "closeNoVigPin": 0.8122,
       "clvBench": "pinnacle",
       "clvProbBest": 0.0345,
-      "clvProbAtPrintPrice": -0.0138
+      "clvProbAtPrintPrice": -0.0138,
+      "result": "win",
+      "units": 0.308
     },
     {
       "pickId": "ATP|2026-11-03|Francisco Cerundolo at Arthur Rinderknech|h2h|home|v1|soft-dog",
@@ -125075,7 +125101,19 @@
       "priceBook": "BetMGM",
       "pinEdgeAtPick": 0.0175,
       "pinEdgeEstimated": false,
-      "pinGate": "pass"
+      "pinGate": "pass",
+      "closeLine": null,
+      "closePrice": 100,
+      "closeNoVig": 0.4819,
+      "estimated": false,
+      "clvPoints": 0.0,
+      "clvProb": 0.0216,
+      "clvProbPrint": 0.0274,
+      "clvProbPin": 0.0216,
+      "closeNoVigPin": 0.4761,
+      "clvBench": "pinnacle",
+      "clvProbBest": 0.011,
+      "clvProbAtPrintPrice": -0.0239
     },
     {
       "pickId": "NCAAF|2026-11-07|Kentucky Wildcats at Tennessee Volunteers|h2h|home|v1|sharp-soft",
@@ -144487,6 +144525,294 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -3.1% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-07|Louisiana Tech Bulldogs at Troy Trojans|total|under|v1|lean|scan-ncaaf-total-under-dowsatrestawaynormal-f657ba|2026-11-04T21:12:48Z|gated|2026-11-04T21:12:48Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-07|Louisiana Tech Bulldogs at Troy Trojans|total",
+      "sport": "NCAAF",
+      "event": "Louisiana Tech Bulldogs at Troy Trojans",
+      "commence": "2026-11-07T21:00:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 47.5,
+      "priceAtPick": -112,
+      "marketNumber": 47.5,
+      "priceBook": "BetMGM",
+      "marketPrices": {
+        "over": -102,
+        "under": -118
+      },
+      "priceTime": "2026-11-04T21:12:31Z",
+      "pickedAt": "2026-11-04T21:12:48Z",
+      "fair": 47.0157,
+      "projection": 47.0157,
+      "edge": 0.484,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "edgeShrunk": -1.712,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-ncaaf-total-under-dowsatrestawaynormal-f657ba",
+      "reason": "Scanner strategy scan-ncaaf-total-under-dowsatrestawaynormal-f657ba: NCAAF total under when dow Sat; restAway normal; measured open-to-close move +0.605 for this side (+0.385 beyond the league average; n 432, t +2.9) x0.8, 0.484 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": 47.5,
+        "prices": {
+          "over": -111,
+          "under": -105
+        },
+        "updated": "2026-11-04T21:12:23Z",
+        "snapTime": "2026-11-04T21:12:31Z",
+        "noVig": 0.4931
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 7.5,
+          "pop": 0,
+          "text": "Mostly Sunny; Partly Cloudy",
+          "heavy": false,
+          "temp": 69,
+          "value": 0.0,
+          "asOf": "2026-11-04T21:12:33Z",
+          "venue": "Veterans Memorial Stadium (AL)"
+        }
+      },
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": -112,
+        "line": 47.5,
+        "implied": 0.5283,
+        "printImplied": 0.5413
+      },
+      "pinEdgeAtPick": -0.0352,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -3.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-07|Northern Illinois Huskies at San Jose State Spartans|total|under|v1|lean|scan-ncaaf-total-under-dowsatrestawaynormal-f657ba|2026-11-04T21:12:48Z|gated|2026-11-04T21:12:48Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-07|Northern Illinois Huskies at San Jose State Spartans|total",
+      "sport": "NCAAF",
+      "event": "Northern Illinois Huskies at San Jose State Spartans",
+      "commence": "2026-11-07T21:00:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 51.5,
+      "priceAtPick": -102,
+      "marketNumber": 51.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -118,
+        "under": -102
+      },
+      "priceTime": "2026-11-04T21:12:31Z",
+      "pickedAt": "2026-11-04T21:12:48Z",
+      "fair": 51.0157,
+      "projection": 51.0157,
+      "edge": 0.484,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "edgeShrunk": -0.652,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-ncaaf-total-under-dowsatrestawaynormal-f657ba",
+      "reason": "Scanner strategy scan-ncaaf-total-under-dowsatrestawaynormal-f657ba: NCAAF total under when dow Sat; restAway normal; measured open-to-close move +0.605 for this side (+0.385 beyond the league average; n 432, t +2.9) x0.8, 0.484 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": 52.0,
+        "prices": {
+          "over": -108,
+          "under": -108
+        },
+        "updated": "2026-11-04T21:12:23Z",
+        "snapTime": "2026-11-04T21:12:31Z",
+        "noVig": 0.5
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 0.5,
+          "pop": 0,
+          "text": "Sunny",
+          "heavy": false,
+          "temp": 77,
+          "value": 0.0,
+          "asOf": "2026-11-04T21:12:33Z",
+          "venue": "CEFCU Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -102,
+        "line": 51.5,
+        "implied": 0.505,
+        "printImplied": 0.505
+      },
+      "pinEdgeAtPick": -0.014,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-07|Northern Illinois Huskies at San Jose State Spartans|h2h|away|v1|lean|scan-ncaaf-h2h-away-homeprice75-34b04b|2026-11-04T21:12:49Z|gated|2026-11-04T21:12:49Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-07|Northern Illinois Huskies at San Jose State Spartans|h2h",
+      "sport": "NCAAF",
+      "event": "Northern Illinois Huskies at San Jose State Spartans",
+      "commence": "2026-11-07T21:00:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 320,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -395,
+        "away": 310
+      },
+      "priceTime": "2026-11-04T21:12:31Z",
+      "pickedAt": "2026-11-04T21:12:49Z",
+      "fair": 0.7516,
+      "projection": 0.7516,
+      "edge": 0.01,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.013,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-ncaaf-h2h-away-homeprice75-34b04b",
+      "reason": "Scanner strategy scan-ncaaf-h2h-away-homeprice75-34b04b: NCAAF h2h away when homePrice 75%+; measured open-to-close move +0.00568 for this side (+0.00719 beyond the league average; n 234, t +3.1) x0.8, 0.00454 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -391,
+          "away": 316
+        },
+        "updated": "2026-11-04T21:12:23Z",
+        "snapTime": "2026-11-04T21:12:31Z",
+        "noVig": 0.222
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 0.5,
+          "pop": 0,
+          "text": "Sunny",
+          "heavy": false,
+          "temp": 77,
+          "value": 0.0,
+          "asOf": "2026-11-04T21:12:33Z",
+          "venue": "CEFCU Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 320,
+        "line": null,
+        "implied": 0.2381,
+        "printImplied": 0.2439
+      },
+      "pinEdgeAtPick": -0.0161,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-07|Northern Illinois Huskies at San Jose State Spartans|h2h|away|v1|lean|scan-ncaaf-h2h-away-homeprice75restawaynormal-964b67|2026-11-04T21:12:49Z|gated|2026-11-04T21:12:49Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-07|Northern Illinois Huskies at San Jose State Spartans|h2h",
+      "sport": "NCAAF",
+      "event": "Northern Illinois Huskies at San Jose State Spartans",
+      "commence": "2026-11-07T21:00:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 320,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -395,
+        "away": 310
+      },
+      "priceTime": "2026-11-04T21:12:31Z",
+      "pickedAt": "2026-11-04T21:12:49Z",
+      "fair": 0.7483,
+      "projection": 0.7483,
+      "edge": 0.014,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.013,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-ncaaf-h2h-away-homeprice75restawaynormal-964b67",
+      "reason": "Scanner strategy scan-ncaaf-h2h-away-homeprice75restawaynormal-964b67: NCAAF h2h away when homePrice 75%+; restAway normal; measured open-to-close move +0.00972 for this side (+0.0112 beyond the league average; n 123, t +2.9) x0.8, 0.00778 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -391,
+          "away": 316
+        },
+        "updated": "2026-11-04T21:12:23Z",
+        "snapTime": "2026-11-04T21:12:31Z",
+        "noVig": 0.222
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 0.5,
+          "pop": 0,
+          "text": "Sunny",
+          "heavy": false,
+          "temp": 77,
+          "value": 0.0,
+          "asOf": "2026-11-04T21:12:33Z",
+          "venue": "CEFCU Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 320,
+        "line": null,
+        "implied": 0.2381,
+        "printImplied": 0.2439
+      },
+      "pinEdgeAtPick": -0.0161,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }

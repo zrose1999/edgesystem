@@ -19984,7 +19984,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.35,
-        "lastSeen": "2026-11-04T20:54:52Z"
+        "lastSeen": "2026-11-04T21:13:00Z"
       }
     ],
     "equity": [
@@ -25530,6 +25530,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-04T20:54:52Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-04T21:13:00Z"
       }
     ]
   },
@@ -28162,7 +28166,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.505,
-        "lastSeen": "2026-11-04T20:54:52Z"
+        "lastSeen": "2026-11-04T21:13:00Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -28330,7 +28334,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.605,
-        "lastSeen": "2026-11-04T20:54:52Z"
+        "lastSeen": "2026-11-04T21:13:00Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV08CLENO-NO4",
@@ -28358,7 +28362,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.445,
-        "lastSeen": "2026-11-04T20:54:52Z"
+        "lastSeen": "2026-11-04T21:13:00Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV07TXSTORST-ORST6",
@@ -28386,7 +28390,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.465,
-        "lastSeen": "2026-11-04T20:54:52Z"
+        "lastSeen": "2026-11-04T21:13:00Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV04TOLSAC-52",
@@ -28414,7 +28418,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.465,
-        "lastSeen": "2026-11-04T20:54:52Z"
+        "lastSeen": "2026-11-04T21:13:00Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08NYJKC-NYJ",
@@ -28442,7 +28446,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.185,
-        "lastSeen": "2026-11-04T20:54:52Z"
+        "lastSeen": "2026-11-04T21:13:00Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV04UTANOP-NOP7",
@@ -28468,7 +28472,9 @@
         "mode": "maker",
         "orderId": "01a1a7d8-87a0-7b39-8123-7018679bb49f",
         "test": true,
-        "fillChecked": true
+        "fillChecked": true,
+        "lastMid": 0.445,
+        "lastSeen": "2026-11-04T21:13:00Z"
       }
     ],
     "equity": [
@@ -32639,6 +32645,29 @@
         "status": "executed",
         "time": "2026-11-04T18:35:25Z",
         "test": true
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV07ODUCCAR-CCAR6",
+        "title": "Coastal Carolina wins by over 5.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Old Dominion Monarchs at Coastal Carolina Chanticleers",
+        "commence": "2026-11-07T18:00:00Z",
+        "side": "no",
+        "strike": 5.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.4879,
+        "edge": 0.0307,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt B pick (theScore Bet away +7.5 -105 implies 51.2%. Pinnacle -105 no-vig is 49.3% at -7, worth 53.6% at this line. Edge +2.3%.). Pinnacle fair here 46.5% plus the pick's edge = 48.8%; Kalshi NO 0.44 + fee = 0.457.",
+        "orderId": "01a1a868-b9b0-7a5e-b8d1-c17c84061551",
+        "orderPath": "v2",
+        "price": 0.43,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-04T21:13:00Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -32698,7 +32727,7 @@
       }
     ]
   },
-  "asOf": "2026-11-04T20:54:52Z",
+  "asOf": "2026-11-04T21:13:00Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32735,8 +32764,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 283,
-      "resting": 22,
+      "orders": 284,
+      "resting": 23,
       "filled": 136,
       "expired": 125,
       "fillRate": 0.521,
@@ -32749,8 +32778,10 @@
       "pairedTakerClvNet": -0.0194,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 0,
+    "liveSkips": {
+      "already held": 3
+    },
+    "liveCandidates": 4,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -32791,9 +32822,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 2.4,
+      "spentToday": 2.83,
       "trades": 87,
-      "resting": 5
+      "resting": 6
     },
     "config": {
       "startingBankroll": 35.0,
@@ -32818,7 +32849,7 @@
       "kalshiMarkets": 5729,
       "eventsMatched": 283,
       "eventsUnmatched": 265,
-      "candidates": 0
+      "candidates": 4
     }
   },
   "account": {
@@ -32828,10 +32859,10 @@
       "balance": 6393,
       "balance_dollars": "63.9331",
       "portfolio_value": 300,
-      "updated_ts": 1793825711
+      "updated_ts": 1793826798
     },
     "env": "production",
-    "checkedAt": "2026-11-04T20:55:11Z"
+    "checkedAt": "2026-11-04T21:13:18Z"
   },
   "maker": {
     "start": 0.0,
@@ -38610,6 +38641,25 @@
         "makerEdge": 0.0449,
         "postedAt": "2026-11-04T19:54:50Z",
         "status": "resting"
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV07ODUCCAR-CCAR6",
+        "title": "Coastal Carolina wins by over 5.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Old Dominion Monarchs at Coastal Carolina Chanticleers",
+        "commence": "2026-11-07T18:00:00Z",
+        "side": "no",
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.4879,
+        "estimated": true,
+        "price": 0.43,
+        "bidAtPost": 0.43,
+        "askAtPost": 0.44,
+        "takerEdge": 0.0307,
+        "makerEdge": 0.0536,
+        "postedAt": "2026-11-04T21:13:00Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -42575,7 +42625,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.35,
-        "lastSeen": "2026-11-04T20:54:52Z"
+        "lastSeen": "2026-11-04T21:13:00Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08ARISEA-SEA",
@@ -42598,7 +42648,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.775,
-        "lastSeen": "2026-11-04T20:54:52Z"
+        "lastSeen": "2026-11-04T21:13:00Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV08ARISEA-43",
@@ -42621,7 +42671,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.395,
-        "lastSeen": "2026-11-04T20:54:52Z"
+        "lastSeen": "2026-11-04T21:13:00Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV08ARISEA-42",
@@ -42644,7 +42694,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.425,
-        "lastSeen": "2026-11-04T20:54:52Z"
+        "lastSeen": "2026-11-04T21:13:00Z"
       }
     ],
     "equity": [],
