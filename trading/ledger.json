@@ -19470,14 +19470,19 @@
         "count": 0,
         "cost": 0.0,
         "fee": 0.0,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "trackOnly": true,
         "lastMid": 0.1,
         "lastSeen": "2026-11-03T17:40:09Z",
         "closeMid": 0.1,
-        "clv": -0.14
+        "clv": -0.14,
+        "result": "yes",
+        "won": true,
+        "payout": 0.0,
+        "pnl": 0.0,
+        "settledAt": "2026-11-04T01:39:55Z"
       },
       {
         "ticker": "KXCS2GAME-26NOV030900SSINSDRAMA-DRAMA",
@@ -25314,6 +25319,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-04T01:24:48Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-04T01:39:55Z"
       }
     ]
   },
@@ -27946,7 +27955,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.495,
-        "lastSeen": "2026-11-04T01:24:48Z"
+        "lastSeen": "2026-11-04T01:39:55Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -28112,7 +28121,9 @@
         "mode": "maker",
         "orderId": "01a1a2c4-b5b8-75d2-b494-3d72bccd93b5",
         "test": true,
-        "fillChecked": true
+        "fillChecked": true,
+        "lastMid": 0.525,
+        "lastSeen": "2026-11-04T01:39:55Z"
       }
     ],
     "equity": [
@@ -32210,7 +32221,7 @@
       }
     ]
   },
-  "asOf": "2026-11-04T01:24:48Z",
+  "asOf": "2026-11-04T01:39:55Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32329,9 +32340,9 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 5215,
+      "kalshiMarkets": 5218,
       "eventsMatched": 277,
-      "eventsUnmatched": 218,
+      "eventsUnmatched": 219,
       "candidates": 1
     }
   },
@@ -32342,10 +32353,10 @@
       "balance": 7805,
       "balance_dollars": "78.0579",
       "portfolio_value": 94,
-      "updated_ts": 1793755510
+      "updated_ts": 1793756416
     },
     "env": "production",
-    "checkedAt": "2026-11-04T01:25:10Z"
+    "checkedAt": "2026-11-04T01:40:16Z"
   },
   "maker": {
     "start": 0.0,
