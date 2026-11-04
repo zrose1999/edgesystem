@@ -25435,6 +25435,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-04T17:24:39Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-04T17:39:59Z"
       }
     ]
   },
@@ -28067,7 +28071,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.495,
-        "lastSeen": "2026-11-04T17:24:39Z"
+        "lastSeen": "2026-11-04T17:39:59Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -28235,7 +28239,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.6,
-        "lastSeen": "2026-11-04T17:24:39Z"
+        "lastSeen": "2026-11-04T17:39:59Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV08CLENO-NO4",
@@ -28263,7 +28267,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.445,
-        "lastSeen": "2026-11-04T17:24:39Z"
+        "lastSeen": "2026-11-04T17:39:59Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV07TXSTORST-ORST6",
@@ -28291,7 +28295,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.465,
-        "lastSeen": "2026-11-04T17:24:39Z"
+        "lastSeen": "2026-11-04T17:39:59Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV04TOLSAC-52",
@@ -28316,6 +28320,34 @@
         "book": "live",
         "mode": "maker",
         "orderId": "01a19db0-ff28-7549-9233-19e947221b11",
+        "test": true,
+        "fillChecked": true,
+        "lastMid": 0.455,
+        "lastSeen": "2026-11-04T17:39:59Z"
+      },
+      {
+        "ticker": "KXNFLGAME-26NOV08NYJKC-NYJ",
+        "title": "New York J",
+        "sport": "NFL",
+        "kind": "game",
+        "event": "New York Jets at Kansas City Chiefs",
+        "commence": "2026-11-08T18:00:00Z",
+        "side": "yes",
+        "strike": null,
+        "source": "mirror:sharp-soft",
+        "fair": 0.2256,
+        "edge": 0.0248,
+        "estimated": true,
+        "why": "EDGE sharp-soft B pick (BetRivers away +450 implies 18.2%. Pinnacle +350 no-vig is 20.0%. Edge +1.9%.). Pinnacle fair here 20.7% plus the pick's edge = 22.6%; Kalshi YES 0.19 + fee = 0.201.",
+        "ask": 0.18,
+        "count": 1.0,
+        "cost": 0.18,
+        "fee": 0.0,
+        "time": "2026-11-04T17:39:59Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1a47e-fc60-758a-915a-1c8186a4bbed",
         "test": true,
         "fillChecked": true
       }
@@ -29244,6 +29276,14 @@
       {
         "t": "2026-11-04T17:24:39Z",
         "open": 2.19,
+        "realized": 0.68,
+        "equity": 35.68,
+        "clvN": 73,
+        "meanClv": 0.0032
+      },
+      {
+        "t": "2026-11-04T17:39:59Z",
+        "open": 2.37,
         "realized": 0.68,
         "equity": 35.68,
         "clvN": 73,
@@ -32399,8 +32439,8 @@
         "orderPath": "v2",
         "price": 0.18,
         "count": 1,
-        "filledSeen": 0,
-        "status": "resting",
+        "filledSeen": 1.0,
+        "status": "executed",
         "time": "2026-11-04T02:58:49Z",
         "test": true
       }
@@ -32462,7 +32502,7 @@
       }
     ]
   },
-  "asOf": "2026-11-04T17:24:39Z",
+  "asOf": "2026-11-04T17:39:59Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32490,7 +32530,7 @@
       "meanClv": -0.0052
     },
     "live": {
-      "open": 2.19,
+      "open": 2.37,
       "realized": 0.68,
       "equity": 35.68,
       "clvN": 73,
@@ -32513,8 +32553,10 @@
       "pairedTakerClvNet": -0.0189,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 0,
+    "liveSkips": {
+      "already held": 1
+    },
+    "liveCandidates": 1,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -32555,9 +32597,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 0.91,
-      "trades": 85,
-      "resting": 4
+      "spentToday": 1.09,
+      "trades": 86,
+      "resting": 3
     },
     "config": {
       "startingBankroll": 35.0,
@@ -32580,22 +32622,22 @@
     },
     "lastScan": {
       "kalshiMarkets": 5723,
-      "eventsMatched": 282,
-      "eventsUnmatched": 263,
-      "candidates": 0
+      "eventsMatched": 283,
+      "eventsUnmatched": 262,
+      "candidates": 1
     }
   },
   "account": {
     "keys": "ok",
-    "balance": 64.56,
+    "balance": 64.38,
     "detail": {
-      "balance": 6456,
-      "balance_dollars": "64.5601",
-      "portfolio_value": 386,
-      "updated_ts": 1793813099
+      "balance": 6437,
+      "balance_dollars": "64.3775",
+      "portfolio_value": 274,
+      "updated_ts": 1793814018
     },
     "env": "production",
-    "checkedAt": "2026-11-04T17:24:59Z"
+    "checkedAt": "2026-11-04T17:40:18Z"
   },
   "maker": {
     "start": 0.0,
