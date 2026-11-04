@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-04T18:35:24Z",
+ "asOf": "2026-11-04T18:54:45Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -855,17 +855,17 @@
   "wind-total": {
    "pattern": "wind-total",
    "unit": "points",
-   "n": 16,
-   "meanPredicted": 2.3438,
-   "meanRealized": 0.375,
-   "tRealized": 1.19,
-   "capture": 0.16,
-   "rightWay": 0.667,
+   "n": 15,
+   "meanPredicted": 2.3667,
+   "meanRealized": 0.3333,
+   "tRealized": 1.0,
+   "capture": 0.14,
+   "rightWay": 0.636,
    "noMove": 4,
    "logLossGain": {
-    "n": 16,
-    "mean": -0.00246,
-    "t": -0.1
+    "n": 15,
+    "mean": 0.00352,
+    "t": 0.14
    },
    "verdict": "collecting"
   }
