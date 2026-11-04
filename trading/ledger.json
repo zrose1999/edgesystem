@@ -25337,6 +25337,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-04T02:54:46Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-04T02:58:49Z"
       }
     ]
   },
@@ -27969,7 +27973,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.495,
-        "lastSeen": "2026-11-04T02:54:46Z"
+        "lastSeen": "2026-11-04T02:58:49Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -28137,7 +28141,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.525,
-        "lastSeen": "2026-11-04T02:54:46Z"
+        "lastSeen": "2026-11-04T02:58:49Z"
       }
     ],
     "equity": [
@@ -32176,6 +32180,29 @@
         "status": "resting",
         "time": "2026-11-03T20:51:40Z",
         "test": true
+      },
+      {
+        "ticker": "KXNFLGAME-26NOV08NYJKC-NYJ",
+        "title": "New York J",
+        "sport": "NFL",
+        "kind": "game",
+        "event": "New York Jets at Kansas City Chiefs",
+        "commence": "2026-11-08T18:00:00Z",
+        "side": "yes",
+        "strike": null,
+        "source": "mirror:sharp-soft",
+        "fair": 0.2256,
+        "edge": 0.0248,
+        "estimated": true,
+        "why": "EDGE sharp-soft B pick (BetRivers away +450 implies 18.2%. Pinnacle +350 no-vig is 20.0%. Edge +1.9%.). Pinnacle fair here 20.7% plus the pick's edge = 22.6%; Kalshi YES 0.19 + fee = 0.201.",
+        "orderId": "01a1a47e-fc60-758a-915a-1c8186a4bbed",
+        "orderPath": "v2",
+        "price": 0.18,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-04T02:58:49Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -32235,7 +32262,7 @@
       }
     ]
   },
-  "asOf": "2026-11-04T02:54:46Z",
+  "asOf": "2026-11-04T02:58:49Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32286,8 +32313,11 @@
       "pairedTakerClvNet": -0.0189,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 0,
+    "liveSkips": {
+      "test: same contract already held": 1,
+      "already held": 1
+    },
+    "liveCandidates": 3,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -32328,9 +32358,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 2.73,
+      "spentToday": 2.91,
       "trades": 82,
-      "resting": 6
+      "resting": 7
     },
     "config": {
       "startingBankroll": 35.0,
@@ -32353,9 +32383,9 @@
     },
     "lastScan": {
       "kalshiMarkets": 5826,
-      "eventsMatched": 279,
-      "eventsUnmatched": 271,
-      "candidates": 0
+      "eventsMatched": 288,
+      "eventsUnmatched": 262,
+      "candidates": 3
     }
   },
   "account": {
@@ -32364,11 +32394,11 @@
     "detail": {
       "balance": 7314,
       "balance_dollars": "73.1469",
-      "portfolio_value": 337,
-      "updated_ts": 1793760904
+      "portfolio_value": 353,
+      "updated_ts": 1793761148
     },
     "env": "production",
-    "checkedAt": "2026-11-04T02:55:04Z"
+    "checkedAt": "2026-11-04T02:59:08Z"
   },
   "maker": {
     "start": 0.0,
