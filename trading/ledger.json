@@ -10305,7 +10305,9 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.215,
-        "lastSeen": "2026-11-03T17:40:09Z"
+        "lastSeen": "2026-11-03T17:40:09Z",
+        "closeMid": 0.215,
+        "clv": 0.005
       },
       {
         "ticker": "KXCS2GAME-26OCT230630ENCEPUNITY-UNITY",
@@ -25439,6 +25441,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-04T17:39:59Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-04T17:54:44Z"
       }
     ]
   },
@@ -28071,7 +28077,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.495,
-        "lastSeen": "2026-11-04T17:39:59Z"
+        "lastSeen": "2026-11-04T17:54:44Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -28239,7 +28245,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.6,
-        "lastSeen": "2026-11-04T17:39:59Z"
+        "lastSeen": "2026-11-04T17:54:44Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV08CLENO-NO4",
@@ -28267,7 +28273,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.445,
-        "lastSeen": "2026-11-04T17:39:59Z"
+        "lastSeen": "2026-11-04T17:54:44Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV07TXSTORST-ORST6",
@@ -28295,7 +28301,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.465,
-        "lastSeen": "2026-11-04T17:39:59Z"
+        "lastSeen": "2026-11-04T17:54:44Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV04TOLSAC-52",
@@ -28323,7 +28329,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.455,
-        "lastSeen": "2026-11-04T17:39:59Z"
+        "lastSeen": "2026-11-04T17:54:44Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08NYJKC-NYJ",
@@ -28349,7 +28355,9 @@
         "mode": "maker",
         "orderId": "01a1a47e-fc60-758a-915a-1c8186a4bbed",
         "test": true,
-        "fillChecked": true
+        "fillChecked": true,
+        "lastMid": 0.185,
+        "lastSeen": "2026-11-04T17:54:44Z"
       }
     ],
     "equity": [
@@ -32443,6 +32451,52 @@
         "status": "executed",
         "time": "2026-11-04T02:58:49Z",
         "test": true
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV04MILBOS-BOS13",
+        "title": "Boston wins by over 12.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Milwaukee Bucks at Boston Celtics",
+        "commence": "2026-11-05T00:40:00Z",
+        "side": "yes",
+        "strike": 12.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4676,
+        "edge": 0.0205,
+        "estimated": true,
+        "why": "Pinnacle fair 46.8% vs Kalshi YES 0.43 + fee = 0.447.",
+        "orderId": "01a1a7b3-4490-742a-961c-428818647445",
+        "orderPath": "v2",
+        "price": 0.42,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-04T17:54:44Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV04MILBOS-BOS12",
+        "title": "Boston wins by over 11.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Milwaukee Bucks at Boston Celtics",
+        "commence": "2026-11-05T00:40:00Z",
+        "side": "yes",
+        "strike": 11.5,
+        "source": "kalshi-sharp",
+        "fair": 0.4976,
+        "edge": 0.0203,
+        "estimated": false,
+        "why": "Pinnacle fair 49.8% vs Kalshi YES 0.46 + fee = 0.477.",
+        "orderId": "01a1a7b3-4878-7479-9dc3-57f63582b929",
+        "orderPath": "v2",
+        "price": 0.45,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-04T17:54:44Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -32502,7 +32556,7 @@
       }
     ]
   },
-  "asOf": "2026-11-04T17:39:59Z",
+  "asOf": "2026-11-04T17:54:44Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32526,8 +32580,8 @@
       "open": 4.2,
       "realized": -81.59,
       "equity": 18.41,
-      "clvN": 248,
-      "meanClv": -0.0052
+      "clvN": 249,
+      "meanClv": -0.0051
     },
     "live": {
       "open": 2.37,
@@ -32539,11 +32593,11 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 274,
-      "resting": 18,
+      "orders": 276,
+      "resting": 19,
       "filled": 132,
-      "expired": 124,
-      "fillRate": 0.516,
+      "expired": 125,
+      "fillRate": 0.514,
       "clvN": 129,
       "meanClv": -0.0075,
       "meanClvNet": -0.0117,
@@ -32556,7 +32610,7 @@
     "liveSkips": {
       "already held": 1
     },
-    "liveCandidates": 1,
+    "liveCandidates": 3,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -32568,10 +32622,10 @@
       },
       "kalshi-sharp": {
         "status": "shadow",
-        "n": 14,
-        "meanClvNet": -0.023,
-        "t": -0.84,
-        "tNeeded": null,
+        "n": 15,
+        "meanClvNet": -0.0224,
+        "t": -0.88,
+        "tNeeded": 2.5,
         "freshN": 0
       },
       "cs2-elo": {
@@ -32597,9 +32651,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 1.09,
+      "spentToday": 1.96,
       "trades": 86,
-      "resting": 3
+      "resting": 5
     },
     "config": {
       "startingBankroll": 35.0,
@@ -32624,7 +32678,7 @@
       "kalshiMarkets": 5723,
       "eventsMatched": 283,
       "eventsUnmatched": 262,
-      "candidates": 1
+      "candidates": 3
     }
   },
   "account": {
@@ -32633,11 +32687,11 @@
     "detail": {
       "balance": 6437,
       "balance_dollars": "64.3775",
-      "portfolio_value": 274,
-      "updated_ts": 1793814018
+      "portfolio_value": 264,
+      "updated_ts": 1793814907
     },
     "env": "production",
-    "checkedAt": "2026-11-04T17:40:18Z"
+    "checkedAt": "2026-11-04T17:55:07Z"
   },
   "maker": {
     "start": 0.0,
@@ -34543,7 +34597,8 @@
         "takerEdge": 0.0348,
         "makerEdge": 0.0536,
         "postedAt": "2026-10-23T01:22:33Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-04T17:54:44Z"
       },
       {
         "ticker": "KXNHLGAME-26OCT22UTASEA-UTA",
@@ -38235,6 +38290,44 @@
         "takerEdge": 0.0201,
         "makerEdge": 0.0432,
         "postedAt": "2026-11-03T20:51:40Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV04MILBOS-BOS13",
+        "title": "Boston wins by over 12.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Milwaukee Bucks at Boston Celtics",
+        "commence": "2026-11-05T00:40:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4676,
+        "estimated": true,
+        "price": 0.42,
+        "bidAtPost": 0.42,
+        "askAtPost": 0.43,
+        "takerEdge": 0.0205,
+        "makerEdge": 0.0433,
+        "postedAt": "2026-11-04T17:54:44Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV04MILBOS-BOS12",
+        "title": "Boston wins by over 11.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Milwaukee Bucks at Boston Celtics",
+        "commence": "2026-11-05T00:40:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp",
+        "fair": 0.4976,
+        "estimated": false,
+        "price": 0.45,
+        "bidAtPost": 0.45,
+        "askAtPost": 0.46,
+        "takerEdge": 0.0203,
+        "makerEdge": 0.0433,
+        "postedAt": "2026-11-04T17:54:44Z",
         "status": "resting"
       }
     ],
@@ -42193,10 +42286,10 @@
     },
     "kalshi-sharp": {
       "status": "shadow",
-      "n": 14,
-      "meanClvNet": -0.023,
-      "t": -0.84,
-      "tNeeded": null,
+      "n": 15,
+      "meanClvNet": -0.0224,
+      "t": -0.88,
+      "tNeeded": 2.5,
       "freshN": 0
     },
     "cs2-elo": {
