@@ -11088,13 +11088,18 @@
         "count": 2,
         "cost": 0.24,
         "fee": 0.02,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.075,
         "lastSeen": "2026-11-03T17:40:09Z",
         "closeMid": 0.075,
-        "clv": -0.045
+        "clv": -0.045,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.26,
+        "settledAt": "2026-11-04T23:24:47Z"
       },
       {
         "ticker": "KXCS2GAME-26OCT240400RYVNOI-NOI",
@@ -19984,7 +19989,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.35,
-        "lastSeen": "2026-11-04T22:52:20Z"
+        "lastSeen": "2026-11-04T23:24:47Z"
       }
     ],
     "equity": [
@@ -22173,6 +22178,14 @@
         "open": 4.37,
         "realized": -81.82,
         "equity": 18.18,
+        "clvN": 250,
+        "meanClv": -0.0053
+      },
+      {
+        "t": "2026-11-04T23:24:47Z",
+        "open": 4.11,
+        "realized": -82.08,
+        "equity": 17.92,
         "clvN": 250,
         "meanClv": -0.0053
       }
@@ -25554,6 +25567,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-04T22:52:20Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-04T23:24:47Z"
       }
     ]
   },
@@ -28186,7 +28203,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.515,
-        "lastSeen": "2026-11-04T22:52:20Z"
+        "lastSeen": "2026-11-04T23:24:47Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -28354,7 +28371,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.605,
-        "lastSeen": "2026-11-04T22:52:20Z"
+        "lastSeen": "2026-11-04T23:24:47Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV08CLENO-NO4",
@@ -28382,7 +28399,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.455,
-        "lastSeen": "2026-11-04T22:52:20Z"
+        "lastSeen": "2026-11-04T23:24:47Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV07TXSTORST-ORST6",
@@ -28410,7 +28427,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.465,
-        "lastSeen": "2026-11-04T22:52:20Z"
+        "lastSeen": "2026-11-04T23:24:47Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV04TOLSAC-52",
@@ -28438,7 +28455,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.475,
-        "lastSeen": "2026-11-04T22:52:20Z"
+        "lastSeen": "2026-11-04T23:24:47Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08NYJKC-NYJ",
@@ -28466,7 +28483,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.185,
-        "lastSeen": "2026-11-04T22:52:20Z"
+        "lastSeen": "2026-11-04T23:24:47Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV04UTANOP-NOP7",
@@ -28493,8 +28510,8 @@
         "orderId": "01a1a7d8-87a0-7b39-8123-7018679bb49f",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.445,
-        "lastSeen": "2026-11-04T22:52:20Z"
+        "lastMid": 0.435,
+        "lastSeen": "2026-11-04T23:24:47Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV06TCUARIZ-44",
@@ -28520,7 +28537,9 @@
         "mode": "maker",
         "orderId": "01a1a2c4-b5b8-74cf-86f6-be6729447c43",
         "test": true,
-        "fillChecked": true
+        "fillChecked": true,
+        "lastMid": 0.455,
+        "lastSeen": "2026-11-04T23:24:47Z"
       }
     ],
     "equity": [
@@ -32781,7 +32800,7 @@
       }
     ]
   },
-  "asOf": "2026-11-04T22:52:20Z",
+  "asOf": "2026-11-04T23:24:47Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32802,9 +32821,9 @@
     "liveActive": true,
     "liveWhy": "on since 2026-10-21T20:30:14.905Z",
     "paper": {
-      "open": 4.37,
-      "realized": -81.82,
-      "equity": 18.18,
+      "open": 4.11,
+      "realized": -82.08,
+      "equity": 17.92,
       "clvN": 250,
       "meanClv": -0.0053
     },
@@ -32819,14 +32838,14 @@
     "liveStopped": null,
     "maker": {
       "orders": 284,
-      "resting": 22,
-      "filled": 137,
+      "resting": 20,
+      "filled": 139,
       "expired": 125,
-      "fillRate": 0.523,
+      "fillRate": 0.527,
       "clvN": 130,
       "meanClv": -0.0077,
       "meanClvNet": -0.0119,
-      "settledPnl": 2.61,
+      "settledPnl": 2.5,
       "pairedWithTaker": 71,
       "pairedMakerClvNet": -0.0035,
       "pairedTakerClvNet": -0.0194,
@@ -32900,9 +32919,9 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 5729,
-      "eventsMatched": 287,
-      "eventsUnmatched": 261,
+      "kalshiMarkets": 5731,
+      "eventsMatched": 295,
+      "eventsUnmatched": 254,
       "candidates": 4
     }
   },
@@ -32912,11 +32931,11 @@
     "detail": {
       "balance": 6346,
       "balance_dollars": "63.4687",
-      "portfolio_value": 349,
-      "updated_ts": 1793832760
+      "portfolio_value": 347,
+      "updated_ts": 1793834711
     },
     "env": "production",
-    "checkedAt": "2026-11-04T22:52:40Z"
+    "checkedAt": "2026-11-04T23:25:11Z"
   },
   "maker": {
     "start": 0.0,
@@ -38574,7 +38593,9 @@
         "takerEdge": 0.0497,
         "makerEdge": 0.0727,
         "postedAt": "2026-11-04T18:35:25Z",
-        "status": "resting"
+        "status": "filled",
+        "filledAt": "2026-11-04T23:24:47Z",
+        "askAtFill": 0.44
       },
       {
         "ticker": "KXNBASPREAD-26NOV04UTANOP-NOP7",
@@ -38593,7 +38614,9 @@
         "takerEdge": 0.0248,
         "makerEdge": 0.0478,
         "postedAt": "2026-11-04T18:35:25Z",
-        "status": "resting"
+        "status": "filled",
+        "filledAt": "2026-11-04T23:24:47Z",
+        "askAtFill": 0.44
       },
       {
         "ticker": "KXNFLSPREAD-26NOV08ARISEA-SEA14",
@@ -40055,14 +40078,19 @@
         "cost": 0.11,
         "fee": 0.0017,
         "time": "2026-10-24T11:11:36Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-10-23T21:57:49Z",
         "lastMid": 0.075,
         "lastSeen": "2026-11-03T17:40:09Z",
         "closeMid": 0.075,
-        "clv": -0.035
+        "clv": -0.035,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.11,
+        "settledAt": "2026-11-04T23:24:47Z"
       },
       {
         "ticker": "KXNBATOTAL-26OCT24MIACHA-231",
@@ -42681,7 +42709,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.35,
-        "lastSeen": "2026-11-04T22:52:20Z"
+        "lastSeen": "2026-11-04T23:24:47Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08ARISEA-SEA",
@@ -42704,7 +42732,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.775,
-        "lastSeen": "2026-11-04T22:52:20Z"
+        "lastSeen": "2026-11-04T23:24:47Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV08ARISEA-43",
@@ -42727,7 +42755,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.395,
-        "lastSeen": "2026-11-04T22:52:20Z"
+        "lastSeen": "2026-11-04T23:24:47Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV08ARISEA-42",
@@ -42750,7 +42778,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.425,
-        "lastSeen": "2026-11-04T22:52:20Z"
+        "lastSeen": "2026-11-04T23:24:47Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV06TCUARIZ-44",
@@ -42773,7 +42801,53 @@
         "mode": "paper",
         "postedAt": "2026-11-03T18:55:43Z",
         "lastMid": 0.455,
-        "lastSeen": "2026-11-04T22:52:20Z"
+        "lastSeen": "2026-11-04T23:24:47Z"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV04UTANOP-NOP7",
+        "title": "New Orleans wins by over 6.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Utah Jazz at New Orleans Pelicans",
+        "commence": "2026-11-05T01:10:00Z",
+        "side": "yes",
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.517,
+        "estimated": true,
+        "ask": 0.44,
+        "count": 1,
+        "cost": 0.44,
+        "fee": 0.0043,
+        "time": "2026-11-04T23:24:47Z",
+        "status": "open",
+        "book": "maker",
+        "mode": "paper",
+        "postedAt": "2026-11-04T18:35:25Z",
+        "lastMid": 0.435,
+        "lastSeen": "2026-11-04T23:24:47Z"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV04UTANOP-NOP7",
+        "title": "New Orleans wins by over 6.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Utah Jazz at New Orleans Pelicans",
+        "commence": "2026-11-05T01:10:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4921,
+        "estimated": true,
+        "ask": 0.44,
+        "count": 1,
+        "cost": 0.44,
+        "fee": 0.0043,
+        "time": "2026-11-04T23:24:47Z",
+        "status": "open",
+        "book": "maker",
+        "mode": "paper",
+        "postedAt": "2026-11-04T18:35:25Z",
+        "lastMid": 0.435,
+        "lastSeen": "2026-11-04T23:24:47Z"
       }
     ],
     "equity": [],
