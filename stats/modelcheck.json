@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-04T02:58:48Z",
+ "asOf": "2026-11-04T03:24:38Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -39,17 +39,17 @@
   "goalie-news": {
    "pattern": "goalie-news",
    "unit": "prob",
-   "n": 40,
+   "n": 39,
    "meanPredicted": 0.0389,
-   "meanRealized": 0.0065,
-   "tRealized": 2.58,
+   "meanRealized": 0.0066,
+   "tRealized": 2.59,
    "capture": 0.17,
    "rightWay": 0.75,
-   "noMove": 20,
+   "noMove": 19,
    "logLossGain": {
-    "n": 40,
-    "mean": 0.01234,
-    "t": 0.89
+    "n": 39,
+    "mean": 0.01485,
+    "t": 1.06
    },
    "verdict": "proven"
   },
@@ -566,17 +566,17 @@
   "scan-ncaaf-h2h-away-homeprice75resthomenormal-4e85b7": {
    "pattern": "scan-ncaaf-h2h-away-homeprice75resthomenormal-4e85b7",
    "unit": "prob",
-   "n": 11,
+   "n": 10,
    "meanPredicted": 0.0291,
-   "meanRealized": 0.0036,
-   "tRealized": 1.12,
-   "capture": 0.12,
-   "rightWay": 0.714,
+   "meanRealized": 0.0028,
+   "tRealized": 0.83,
+   "capture": 0.1,
+   "rightWay": 0.667,
    "noMove": 4,
    "logLossGain": {
-    "n": 11,
-    "mean": -0.00459,
-    "t": -0.15
+    "n": 10,
+    "mean": -0.00133,
+    "t": -0.04
    },
    "verdict": "collecting"
   },
