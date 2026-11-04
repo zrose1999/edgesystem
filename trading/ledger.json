@@ -10301,13 +10301,18 @@
         "count": 1,
         "cost": 0.21,
         "fee": 0.02,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.215,
         "lastSeen": "2026-11-03T17:40:09Z",
         "closeMid": 0.215,
-        "clv": 0.005
+        "clv": 0.005,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.23,
+        "settledAt": "2026-11-04T20:54:52Z"
       },
       {
         "ticker": "KXCS2GAME-26OCT230630ENCEPUNITY-UNITY",
@@ -19979,7 +19984,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.35,
-        "lastSeen": "2026-11-04T20:24:47Z"
+        "lastSeen": "2026-11-04T20:54:52Z"
       }
     ],
     "equity": [
@@ -22162,6 +22167,14 @@
         "equity": 18.41,
         "clvN": 249,
         "meanClv": -0.0051
+      },
+      {
+        "t": "2026-11-04T20:54:52Z",
+        "open": 4.37,
+        "realized": -81.82,
+        "equity": 18.18,
+        "clvN": 250,
+        "meanClv": -0.0053
       }
     ],
     "stopped": null,
@@ -25513,6 +25526,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-04T20:24:47Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-04T20:54:52Z"
       }
     ]
   },
@@ -28145,7 +28162,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.505,
-        "lastSeen": "2026-11-04T20:24:47Z"
+        "lastSeen": "2026-11-04T20:54:52Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -28313,7 +28330,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.605,
-        "lastSeen": "2026-11-04T20:24:47Z"
+        "lastSeen": "2026-11-04T20:54:52Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV08CLENO-NO4",
@@ -28341,7 +28358,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.445,
-        "lastSeen": "2026-11-04T20:24:47Z"
+        "lastSeen": "2026-11-04T20:54:52Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV07TXSTORST-ORST6",
@@ -28369,7 +28386,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.465,
-        "lastSeen": "2026-11-04T20:24:47Z"
+        "lastSeen": "2026-11-04T20:54:52Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV04TOLSAC-52",
@@ -28397,7 +28414,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.465,
-        "lastSeen": "2026-11-04T20:24:47Z"
+        "lastSeen": "2026-11-04T20:54:52Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08NYJKC-NYJ",
@@ -28425,7 +28442,33 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.185,
-        "lastSeen": "2026-11-04T20:24:47Z"
+        "lastSeen": "2026-11-04T20:54:52Z"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV04UTANOP-NOP7",
+        "title": "New Orleans wins by over 6.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Utah Jazz at New Orleans Pelicans",
+        "commence": "2026-11-05T01:10:00Z",
+        "side": "yes",
+        "strike": 6.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.517,
+        "edge": 0.0497,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt B pick (Caesars home -5 -105 implies 51.2%. Pinnacle -108 no-vig is 50.7% at -6, worth 53.7% at this line. Edge +2.5%.). Pinnacle fair here 49.2% plus the pick's edge = 51.7%; Kalshi YES 0.45 + fee = 0.467.",
+        "ask": 0.44,
+        "count": 1.0,
+        "cost": 0.44,
+        "fee": 0.0,
+        "time": "2026-11-04T20:54:52Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1a7d8-87a0-7b39-8123-7018679bb49f",
+        "test": true,
+        "fillChecked": true
       }
     ],
     "equity": [
@@ -29360,6 +29403,14 @@
       {
         "t": "2026-11-04T17:39:59Z",
         "open": 2.37,
+        "realized": 0.68,
+        "equity": 35.68,
+        "clvN": 73,
+        "meanClv": 0.0032
+      },
+      {
+        "t": "2026-11-04T20:54:52Z",
+        "open": 2.81,
         "realized": 0.68,
         "equity": 35.68,
         "clvN": 73,
@@ -32584,8 +32635,8 @@
         "orderPath": "v2",
         "price": 0.44,
         "count": 1,
-        "filledSeen": 0,
-        "status": "resting",
+        "filledSeen": 1.0,
+        "status": "executed",
         "time": "2026-11-04T18:35:25Z",
         "test": true
       }
@@ -32647,7 +32698,7 @@
       }
     ]
   },
-  "asOf": "2026-11-04T20:24:47Z",
+  "asOf": "2026-11-04T20:54:52Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32668,14 +32719,14 @@
     "liveActive": true,
     "liveWhy": "on since 2026-10-21T20:30:14.905Z",
     "paper": {
-      "open": 4.6,
-      "realized": -81.59,
-      "equity": 18.41,
+      "open": 4.37,
+      "realized": -81.82,
+      "equity": 18.18,
       "clvN": 250,
       "meanClv": -0.0053
     },
     "live": {
-      "open": 2.37,
+      "open": 2.81,
       "realized": 0.68,
       "equity": 35.68,
       "clvN": 73,
@@ -32741,8 +32792,8 @@
       "maxPerDay": 5.0,
       "orderType": "maker",
       "spentToday": 2.4,
-      "trades": 86,
-      "resting": 6
+      "trades": 87,
+      "resting": 5
     },
     "config": {
       "startingBankroll": 35.0,
@@ -32764,23 +32815,23 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 5727,
+      "kalshiMarkets": 5729,
       "eventsMatched": 283,
-      "eventsUnmatched": 264,
+      "eventsUnmatched": 265,
       "candidates": 0
     }
   },
   "account": {
     "keys": "ok",
-    "balance": 64.38,
+    "balance": 63.93,
     "detail": {
-      "balance": 6437,
-      "balance_dollars": "64.3775",
-      "portfolio_value": 256,
-      "updated_ts": 1793823905
+      "balance": 6393,
+      "balance_dollars": "63.9331",
+      "portfolio_value": 300,
+      "updated_ts": 1793825711
     },
     "env": "production",
-    "checkedAt": "2026-11-04T20:25:05Z"
+    "checkedAt": "2026-11-04T20:55:11Z"
   },
   "maker": {
     "start": 0.0,
@@ -42524,7 +42575,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.35,
-        "lastSeen": "2026-11-04T20:24:47Z"
+        "lastSeen": "2026-11-04T20:54:52Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08ARISEA-SEA",
@@ -42547,7 +42598,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.775,
-        "lastSeen": "2026-11-04T20:24:47Z"
+        "lastSeen": "2026-11-04T20:54:52Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV08ARISEA-43",
@@ -42570,7 +42621,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.395,
-        "lastSeen": "2026-11-04T20:24:47Z"
+        "lastSeen": "2026-11-04T20:54:52Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV08ARISEA-42",
@@ -42593,7 +42644,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.425,
-        "lastSeen": "2026-11-04T20:24:47Z"
+        "lastSeen": "2026-11-04T20:54:52Z"
       }
     ],
     "equity": [],
