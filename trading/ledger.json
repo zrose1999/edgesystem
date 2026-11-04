@@ -25349,6 +25349,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-04T03:56:42Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-04T04:24:51Z"
       }
     ]
   },
@@ -27981,7 +27985,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.495,
-        "lastSeen": "2026-11-04T03:56:42Z"
+        "lastSeen": "2026-11-04T04:24:51Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -28149,7 +28153,33 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.525,
-        "lastSeen": "2026-11-04T03:56:42Z"
+        "lastSeen": "2026-11-04T04:24:51Z"
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV08CLENO-NO4",
+        "title": "New Orleans wins by over 3.5 points",
+        "sport": "NFL",
+        "kind": "spread",
+        "event": "Cleveland Browns at New Orleans Saints",
+        "commence": "2026-11-08T18:00:00Z",
+        "side": "yes",
+        "strike": 3.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4494,
+        "edge": 0.0428,
+        "estimated": true,
+        "why": "Pinnacle fair 44.9% vs Kalshi YES 0.39 + fee = 0.407.",
+        "ask": 0.38,
+        "count": 1.0,
+        "cost": 0.38,
+        "fee": 0.0,
+        "time": "2026-11-04T04:24:51Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1a2a6-aa50-7115-8e8a-32e2505e4741",
+        "test": true,
+        "fillChecked": true
       }
     ],
     "equity": [
@@ -29052,6 +29082,14 @@
       {
         "t": "2026-11-04T01:24:48Z",
         "open": 0.9,
+        "realized": 0.68,
+        "equity": 35.68,
+        "clvN": 73,
+        "meanClv": 0.0032
+      },
+      {
+        "t": "2026-11-04T04:24:51Z",
+        "open": 1.28,
         "realized": 0.68,
         "equity": 35.68,
         "clvN": 73,
@@ -32092,8 +32130,8 @@
         "orderPath": "v2",
         "price": 0.38,
         "count": 1,
-        "filledSeen": 0,
-        "status": "resting",
+        "filledSeen": 1.0,
+        "status": "executed",
         "time": "2026-11-03T18:22:52Z",
         "test": true
       },
@@ -32270,7 +32308,7 @@
       }
     ]
   },
-  "asOf": "2026-11-04T03:56:42Z",
+  "asOf": "2026-11-04T04:24:51Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32298,7 +32336,7 @@
       "meanClv": -0.0052
     },
     "live": {
-      "open": 0.9,
+      "open": 1.28,
       "realized": 0.68,
       "equity": 35.68,
       "clvN": 73,
@@ -32321,11 +32359,8 @@
       "pairedTakerClvNet": -0.0189,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {
-      "already held": 2,
-      "test: same contract already held": 1
-    },
-    "liveCandidates": 3,
+    "liveSkips": {},
+    "liveCandidates": 0,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -32367,8 +32402,8 @@
       "maxPerDay": 5.0,
       "orderType": "maker",
       "spentToday": 2.91,
-      "trades": 82,
-      "resting": 7
+      "trades": 83,
+      "resting": 6
     },
     "config": {
       "startingBankroll": 35.0,
@@ -32390,23 +32425,23 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 5775,
+      "kalshiMarkets": 5776,
       "eventsMatched": 285,
       "eventsUnmatched": 263,
-      "candidates": 3
+      "candidates": 0
     }
   },
   "account": {
     "keys": "ok",
-    "balance": 70.15,
+    "balance": 69.76,
     "detail": {
-      "balance": 7014,
-      "balance_dollars": "70.1470",
-      "portfolio_value": 379,
-      "updated_ts": 1793764623
+      "balance": 6976,
+      "balance_dollars": "69.7628",
+      "portfolio_value": 183,
+      "updated_ts": 1793766309
     },
     "env": "production",
-    "checkedAt": "2026-11-04T03:57:03Z"
+    "checkedAt": "2026-11-04T04:25:09Z"
   },
   "maker": {
     "start": 0.0,
