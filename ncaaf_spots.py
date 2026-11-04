@@ -92,14 +92,20 @@ def main(dry=False):
     ledger = pull.load(pull.LEDGER, {"rows": []})
     done = {p.get("rowId") for p in pull.load(pull.PICKS, {"picks": []})["picks"] if p.get("pattern") == PATTERN}
     horizon = pull.iso(now + timedelta(days=WINDOW_D))
+    # Live rows whose moved-from row already carries this pattern's read: one read per game and market.
+    moved_done = {r.get("movedTo") for r in ledger.get("rows") or [] if r.get("movedTo") and r.get("id") in done}
     todo = []
     for row in ledger.get("rows") or []:
         if row.get("sport") != "NCAAF" or row.get("market") not in ("spread", "total") or row.get("id") in done:
             continue
+        # A row whose game moved to another UTC date is stale; its live row (movedTo) carries the prices
+        # (2026-11-04: 5 reads rejected "stored price is 3841+ minutes old" on moved Saturday-night rows).
+        if row.get("movedTo") or row.get("id") in moved_done:
+            continue
         if not row.get("commence") or not (pull.iso(now) < row["commence"] <= horizon):
             continue
         info = espn.get((row["home"], row["away"])) or by_names.get((mascotless(row["home"]), mascotless(row["away"])))
-        o, c = row.get("openSnap") or {}, row.get("lastSnap") or {}
+        o, c = row.get("firstOpenSnap") or row.get("openSnap") or {}, row.get("lastSnap") or {}
         if not info or o.get("line") is None or c.get("line") is None or info["neutral"]:
             continue
         parts = []
@@ -122,7 +128,7 @@ def main(dry=False):
                 parts.append(("home favourite 21+", -0.34))
         else:
             sp = next((r for r in ledger["rows"] if r.get("id") == row["id"].replace("|total", "|spread")), None)
-            so = ((sp or {}).get("openSnap") or {}).get("line")
+            so = ((sp or {}).get("firstOpenSnap") or (sp or {}).get("openSnap") or {}).get("line")
             if so is not None and so >= 7:
                 parts.append(("home underdog 7+", -0.49))
             if o["line"] < 45:

@@ -111,6 +111,19 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 
 ## Killed
 
+### Pinnacle's moneyline lags its own spread (2026-11-04, killed)
+- Observation: Pinnacle prices a game's spread and moneyline separately, and college moneylines are thinner than the
+  spread. Idea: when the spread-implied win chance and the moneyline's no-vig disagree 6h+ out, the thinner moneyline
+  catches up by the close, so a soft moneyline on the side the spread favours carries value.
+- Test (Pinnacle snapshots, NFL/NCAAF/NBA, first paired spread+moneyline snap 6h+ before the start vs last within 3h,
+  moved rows dropped; spread converted with a normal margin, sd 13.5/15.5/12, juice as points; gap centred per sport):
+  184 games, 75 with a gap of 2%+. Moneyline toward the spread +0.06% (t 0.1; NFL -0.6% n 18, NCAAF +0.7% n 26, NBA
+  -0.1% n 31; halves -0.3% and +0.4%); slope of the moneyline move on the gap -0.05. The spread toward the moneyline
+  +0.9% (t 1.6), the opposite way and not clean. 4 variants (3 sports, 2 directions).
+- Living memory (moneyline reads): NFL n 5 +0.2%, NCAAF n 45 +0.2% (t 0.5), NBA n 73 +0.3% (t 0.7): no moneyline edge
+  to explain either.
+- Verdict: Pinnacle keeps its two markets consistent; nothing to trade. Re-test only with a season of snapshots.
+
 ### Pattern consensus (2026-11-03, killed)
 - Observation: findings.py's strongest new finding (NBA, 2+ days of rest and our side travelled further, +6.4% on 19)
   came from 10 game-sides, and one game (GSW at PHX 10-25) supplied 8 of the 19 reads: rest-spot, edge-stack, five

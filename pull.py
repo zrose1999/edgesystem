@@ -626,6 +626,14 @@ def reconcile_moved(rows, now):
         if len(group) < 2:
             continue
         canon = max(group, key=lambda r: ((r.get("lastSnap") or {}).get("time") or "", r.get("openTime") or ""))
+        # The live row's own openSnap is its first price under the new date, often days after the market opened.
+        # Keep the group's earliest open beside it (additive; openSnap unchanged) so move-from-open reads can use
+        # the real open (2026-11-04: ncaaf-spot read the stale old rows and was rejected 5 times).
+        first = min((r for r in group if (r.get("openSnap") or {}).get("time")),
+                    key=lambda r: r["openSnap"]["time"], default=None)
+        if first is not None and first is not canon and first["openSnap"]["time"] < (canon.get("openSnap") or {}).get("time", "~"):
+            if (canon.get("firstOpenSnap") or {}).get("time") != first["openSnap"]["time"]:
+                canon["firstOpenSnap"] = dict(first["openSnap"], fromRow=first["id"])
         for r in group:
             if r is canon:
                 r.pop("movedTo", None)
