@@ -1,143 +1,143 @@
 {
  "target": "scan_ncaaf_h2h",
- "trained": "2026-10-29T17:25:37Z",
- "rows": 566,
+ "trained": "2026-11-05T18:40:06Z",
+ "rows": 623,
  "features": 14,
  "unit": "prob",
  "from": "2025-11-28T20:30Z",
- "to": "2026-10-29T00:00Z",
+ "to": "2026-11-05T00:30Z",
  "results": {
   "baseline": {
    "blocks": [
     {
-     "from": 226,
-     "to": 294,
-     "trades": 68,
-     "meanMove": -0.0035521761371512988,
-     "t": -0.5908672628159631
+     "from": 249,
+     "to": 323,
+     "trades": 74,
+     "meanMove": -0.007200995300888742,
+     "t": -1.3213540201144351
     },
     {
-     "from": 294,
-     "to": 362,
-     "trades": 68,
-     "meanMove": 0.008431421685182927,
-     "t": 1.4979134655263011
+     "from": 323,
+     "to": 398,
+     "trades": 75,
+     "meanMove": -0.00093598118671388,
+     "t": -0.14715775162499872
     },
     {
-     "from": 362,
-     "to": 430,
-     "trades": 68,
-     "meanMove": -0.008053183484836217,
-     "t": -1.154453984234815
+     "from": 398,
+     "to": 473,
+     "trades": 75,
+     "meanMove": 0.005897344432749754,
+     "t": 0.9760550122949241
     },
     {
-     "from": 430,
-     "to": 498,
-     "trades": 68,
-     "meanMove": 0.003903777057532301,
-     "t": 0.5965264240964181
+     "from": 473,
+     "to": 548,
+     "trades": 75,
+     "meanMove": -0.003345634678771008,
+     "t": -0.43836900479389973
     },
     {
-     "from": 498,
-     "to": 566,
-     "trades": 68,
-     "meanMove": 0.002954971145032346,
-     "t": 0.3650672611346091
+     "from": 548,
+     "to": 623,
+     "trades": 75,
+     "meanMove": 0.0033771050340990092,
+     "t": 0.49659110333156736
     }
    ],
    "oosCorr": null,
-   "trades": 340,
-   "meanMove": 0.0007369620531520111,
-   "t": 0.25,
-   "positiveBlocks": 3
+   "trades": 374,
+   "meanMove": -0.0004235591769076911,
+   "t": -0.15,
+   "positiveBlocks": 2
   },
   "ridge": {
    "blocks": [
     {
-     "from": 226,
-     "to": 294,
-     "trades": 15,
-     "meanMove": 0.013309688943138892,
-     "t": 1.1899471599791993
+     "from": 249,
+     "to": 323,
+     "trades": 29,
+     "meanMove": 0.012078869880955469,
+     "t": 1.461663672932432
     },
     {
-     "from": 294,
-     "to": 362,
-     "trades": 32,
-     "meanMove": 0.016798495144455645,
-     "t": 2.4689087550638322
+     "from": 323,
+     "to": 398,
+     "trades": 26,
+     "meanMove": 0.007901335326650615,
+     "t": 0.6986522458132742
     },
     {
-     "from": 362,
-     "to": 430,
-     "trades": 21,
-     "meanMove": -0.01636869551938035,
-     "t": -1.1764989614687826
+     "from": 398,
+     "to": 473,
+     "trades": 24,
+     "meanMove": 0.008444246918742411,
+     "t": 0.8699353120854304
     },
     {
-     "from": 430,
-     "to": 498,
-     "trades": 23,
-     "meanMove": 0.018179388815465842,
-     "t": 2.206545404370041
+     "from": 473,
+     "to": 548,
+     "trades": 25,
+     "meanMove": 0.010488426373204152,
+     "t": 1.199559115315116
     },
     {
-     "from": 498,
-     "to": 566,
-     "trades": 23,
-     "meanMove": 0.014518761686633795,
-     "t": 1.4680675868862285
+     "from": 548,
+     "to": 623,
+     "trades": 20,
+     "meanMove": 0.01824675549067282,
+     "t": 1.5648065647834026
     }
    ],
-   "oosCorr": 0.1184,
-   "trades": 105,
-   "meanMove": 0.01445802765012087,
-   "t": 3.31,
-   "positiveBlocks": 4
+   "oosCorr": 0.1441,
+   "trades": 115,
+   "meanMove": 0.018916816274764117,
+   "t": 4.54,
+   "positiveBlocks": 5
   },
   "gbm": {
    "blocks": [
     {
-     "from": 226,
-     "to": 294,
+     "from": 249,
+     "to": 323,
+     "trades": 33,
+     "meanMove": 0.0015024962446575493,
+     "t": 0.17022803012786072
+    },
+    {
+     "from": 323,
+     "to": 398,
+     "trades": 31,
+     "meanMove": 0.006492823168864378,
+     "t": 0.6372776755858243
+    },
+    {
+     "from": 398,
+     "to": 473,
+     "trades": 34,
+     "meanMove": 0.00582246841446135,
+     "t": 0.5974904982887504
+    },
+    {
+     "from": 473,
+     "to": 548,
      "trades": 26,
-     "meanMove": -0.005609857740361499,
-     "t": -0.4912326864675161
+     "meanMove": 0.026438095726117224,
+     "t": 2.0513937974125023
     },
     {
-     "from": 294,
-     "to": 362,
-     "trades": 32,
-     "meanMove": 0.015104042495900045,
-     "t": 1.7672803836108137
-    },
-    {
-     "from": 362,
-     "to": 430,
-     "trades": 28,
-     "meanMove": -0.005111640272919464,
-     "t": -0.4744023965098479
-    },
-    {
-     "from": 430,
-     "to": 498,
-     "trades": 21,
-     "meanMove": 0.010746768659253341,
-     "t": 1.1688731012170928
-    },
-    {
-     "from": 498,
-     "to": 566,
-     "trades": 25,
-     "meanMove": 0.03118034820729815,
-     "t": 2.1990099037405226
+     "from": 548,
+     "to": 623,
+     "trades": 26,
+     "meanMove": 0.03460825561857813,
+     "t": 2.355234772396613
     }
    ],
-   "oosCorr": 0.0934,
-   "trades": 118,
-   "meanMove": 0.005034252108730933,
-   "t": 1.06,
-   "positiveBlocks": 3
+   "oosCorr": 0.1462,
+   "trades": 126,
+   "meanMove": 0.014436573412148131,
+   "t": 2.94,
+   "positiveBlocks": 5
   }
  },
  "chosen": "ridge",
@@ -146,53 +146,43 @@
  "signals": [
   {
    "feature": "dow_Tue",
-   "mseGain": 3.858875673136159e-05,
-   "corrWithMove": 0.109
-  },
-  {
-   "feature": "rest_away",
-   "mseGain": 3.243356220803588e-05,
-   "corrWithMove": -0.095
+   "mseGain": 6.53043604401755e-05,
+   "corrWithMove": 0.1
   },
   {
    "feature": "open_prob",
-   "mseGain": 2.4642690291317663e-05,
-   "corrWithMove": -0.139
+   "mseGain": 5.441394613860638e-05,
+   "corrWithMove": -0.138
   },
   {
-   "feature": "open_line",
-   "mseGain": 5.4626211014492665e-06,
-   "corrWithMove": 0.122
-  },
-  {
-   "feature": "weekend",
-   "mseGain": 4.033889758704723e-06,
-   "corrWithMove": 0.031
-  },
-  {
-   "feature": "dow_Thu",
-   "mseGain": 3.2700035533486833e-06,
-   "corrWithMove": -0.015
-  },
-  {
-   "feature": "dow_Sat",
-   "mseGain": 2.3672587808852563e-06,
-   "corrWithMove": 0.032
+   "feature": "rest_away",
+   "mseGain": 3.13212792359273e-05,
+   "corrWithMove": -0.094
   },
   {
    "feature": "dow_Fri",
-   "mseGain": 1.8563974863690727e-06,
-   "corrWithMove": -0.068
+   "mseGain": 1.8492103535810295e-05,
+   "corrWithMove": -0.069
   },
   {
-   "feature": "dow_Wed",
-   "mseGain": 1.250873943909811e-06,
-   "corrWithMove": -0.004
+   "feature": "dow_Thu",
+   "mseGain": 7.421210267307115e-06,
+   "corrWithMove": -0.014
+  },
+  {
+   "feature": "weekend",
+   "mseGain": 3.886962609167977e-06,
+   "corrWithMove": 0.04
   },
   {
    "feature": "rest_home",
-   "mseGain": 6.568893129270392e-07,
-   "corrWithMove": 0.013
+   "mseGain": 3.710149993778767e-06,
+   "corrWithMove": 0.019
+  },
+  {
+   "feature": "dow_Sat",
+   "mseGain": 3.3976432083585723e-06,
+   "corrWithMove": 0.041
   }
  ]
 }

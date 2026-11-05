@@ -1,142 +1,142 @@
 {
  "target": "scan_nba_spread",
- "trained": "2026-10-29T17:25:33Z",
- "rows": 1138,
+ "trained": "2026-11-05T18:40:00Z",
+ "rows": 1191,
  "features": 14,
  "unit": "points",
  "from": "2025-11-25T00:00Z",
- "to": "2026-10-29T02:30Z",
+ "to": "2026-11-05T03:30Z",
  "results": {
   "baseline": {
    "blocks": [
     {
-     "from": 455,
-     "to": 591,
-     "trades": 136,
-     "meanMove": 0.22794117647058823,
-     "t": 0.8908792538105782
+     "from": 476,
+     "to": 619,
+     "trades": 143,
+     "meanMove": 0.18181818181818182,
+     "t": 0.7456702330021913
     },
     {
-     "from": 591,
-     "to": 728,
-     "trades": 137,
-     "meanMove": -0.13138686131386862,
-     "t": -0.883945540810663
+     "from": 619,
+     "to": 762,
+     "trades": 143,
+     "meanMove": 0.0,
+     "t": 0.0
     },
     {
-     "from": 728,
-     "to": 864,
-     "trades": 136,
-     "meanMove": 0.18382352941176472,
-     "t": 1.2510313676528526
+     "from": 762,
+     "to": 905,
+     "trades": 143,
+     "meanMove": 0.07692307692307693,
+     "t": 0.5177919265796188
     },
     {
-     "from": 864,
-     "to": 1001,
-     "trades": 137,
-     "meanMove": 0.029197080291970802,
-     "t": 0.11028513841807587
+     "from": 905,
+     "to": 1048,
+     "trades": 143,
+     "meanMove": -0.006993006993006993,
+     "t": -0.026776410853847132
     },
     {
-     "from": 1001,
-     "to": 1138,
-     "trades": 137,
-     "meanMove": -0.12408759124087591,
-     "t": -0.6764913439214382
+     "from": 1048,
+     "to": 1191,
+     "trades": 143,
+     "meanMove": -0.1258741258741259,
+     "t": -0.47738875020600324
     }
    ],
    "oosCorr": null,
-   "trades": 683,
-   "meanMove": 0.036603221083455345,
-   "t": 0.4,
-   "positiveBlocks": 3
+   "trades": 715,
+   "meanMove": 0.025174825174825177,
+   "t": 0.26,
+   "positiveBlocks": 2
   },
   "ridge": {
    "blocks": [
     {
-     "from": 455,
-     "to": 591,
-     "trades": 53,
-     "meanMove": 0.8301886792452831,
-     "t": 2.267387902661054
-    },
-    {
-     "from": 591,
-     "to": 728,
+     "from": 476,
+     "to": 619,
      "trades": 57,
-     "meanMove": 0.22807017543859648,
-     "t": 1.0662801638379706
+     "meanMove": 0.9298245614035088,
+     "t": 2.6610712281015667
     },
     {
-     "from": 728,
-     "to": 864,
+     "from": 619,
+     "to": 762,
+     "trades": 38,
+     "meanMove": 0.3157894736842105,
+     "t": 1.2607532695506196
+    },
+    {
+     "from": 762,
+     "to": 905,
+     "trades": 34,
+     "meanMove": 0.29411764705882354,
+     "t": 0.9704539257058052
+    },
+    {
+     "from": 905,
+     "to": 1048,
+     "trades": 38,
+     "meanMove": 0.7368421052631579,
+     "t": 2.0629756529345995
+    },
+    {
+     "from": 1048,
+     "to": 1191,
      "trades": 31,
-     "meanMove": 0.5161290322580645,
-     "t": 1.57601688973817
-    },
-    {
-     "from": 864,
-     "to": 1001,
-     "trades": 46,
-     "meanMove": 0.782608695652174,
-     "t": 2.4236944781570204
-    },
-    {
-     "from": 1001,
-     "to": 1138,
-     "trades": 27,
-     "meanMove": 0.7037037037037037,
-     "t": 1.7338991175682363
+     "meanMove": 0.7741935483870968,
+     "t": 2.1426294094867284
     }
    ],
-   "oosCorr": 0.1385,
-   "trades": 205,
-   "meanMove": 0.7219512195121951,
-   "t": 4.83,
+   "oosCorr": 0.1255,
+   "trades": 216,
+   "meanMove": 0.6944444444444444,
+   "t": 4.9,
    "positiveBlocks": 5
   },
   "gbm": {
    "blocks": [
     {
-     "from": 455,
-     "to": 591,
-     "trades": 47,
-     "meanMove": 0.2765957446808511,
-     "t": 0.5755025070761971
+     "from": 476,
+     "to": 619,
+     "trades": 49,
+     "meanMove": 0.10204081632653061,
+     "t": 0.2120790212264707
     },
     {
-     "from": 591,
-     "to": 728,
-     "trades": 72,
-     "meanMove": 0.1388888888888889,
-     "t": 0.5992442472089897
+     "from": 619,
+     "to": 762,
+     "trades": 71,
+     "meanMove": 0.323943661971831,
+     "t": 1.6007108163658978
     },
     {
-     "from": 728,
-     "to": 864,
-     "trades": 37,
-     "meanMove": 0.2702702702702703,
-     "t": 1.08077411149503
+     "from": 762,
+     "to": 905,
+     "trades": 32,
+     "meanMove": 0.125,
+     "t": 0.4472135954999579
     },
     {
-     "from": 864,
-     "to": 1001,
-     "trades": 31,
-     "meanMove": 0.6774193548387096,
-     "t": 1.58084013567705
+     "from": 905,
+     "to": 1048,
+     "trades": 43,
+     "meanMove": 1.5348837209302326,
+     "t": 2.749772680305459
     },
     {
-     "from": 1001,
-     "to": 1138,
-     "trades": 45,
-     "meanMove": 0.6444444444444445,
-     "t": 1.7313958794885835
+     "from": 1048,
+     "to": 1191,
+     "trades": 48,
+     "meanMove": 0.3541666666666667,
+     "t": 1.097393925851348
     }
    ],
-   "oosCorr": 0.1095,
-   "trades": 205,
-   "meanMove": 0.4975609756097561,
-   "t": 2.56,
+   "oosCorr": 0.0753,
+   "trades": 215,
+   "meanMove": 0.586046511627907,
+   "t": 3.43,
    "positiveBlocks": 5
   }
  },
@@ -146,68 +146,43 @@
  "signals": [
   {
    "feature": "rest_diff",
-   "mseGain": 0.06255875643150421,
-   "corrWithMove": 0.143
-  },
-  {
-   "feature": "dow_Wed",
-   "mseGain": 0.0368789464157544,
-   "corrWithMove": 0.059
-  },
-  {
-   "feature": "dow_Tue",
-   "mseGain": 0.015053110552488924,
-   "corrWithMove": -0.083
+   "mseGain": 0.05113543552618882,
+   "corrWithMove": 0.132
   },
   {
    "feature": "dow_Fri",
-   "mseGain": 0.007395707182078937,
-   "corrWithMove": 0.022
+   "mseGain": 0.022093401822101733,
+   "corrWithMove": 0.015
+  },
+  {
+   "feature": "dow_Tue",
+   "mseGain": 0.02076362102475393,
+   "corrWithMove": -0.076
+  },
+  {
+   "feature": "dow_Wed",
+   "mseGain": 0.02021808562879901,
+   "corrWithMove": 0.07
   },
   {
    "feature": "rest_away",
-   "mseGain": 0.006746509217369301,
-   "corrWithMove": -0.079
-  },
-  {
-   "feature": "rest_home",
-   "mseGain": 0.005796492296659572,
-   "corrWithMove": 0.052
+   "mseGain": 0.019941775609559897,
+   "corrWithMove": -0.074
   },
   {
    "feature": "month",
-   "mseGain": 0.004577547540797866,
-   "corrWithMove": -0.031
+   "mseGain": 0.006007698788322635,
+   "corrWithMove": -0.029
   },
   {
-   "feature": "dow_Thu",
-   "mseGain": 0.0031039498682323696,
-   "corrWithMove": -0.004
-  },
-  {
-   "feature": "weekend",
-   "mseGain": 0.002455477536670969,
-   "corrWithMove": 0.008
+   "feature": "rest_home",
+   "mseGain": 0.0028889994400573826,
+   "corrWithMove": 0.049
   },
   {
    "feature": "dow_Sun",
-   "mseGain": 0.002101641874168614,
-   "corrWithMove": -0.007
-  },
-  {
-   "feature": "dow_Sat",
-   "mseGain": 0.00208839139468342,
-   "corrWithMove": 0.018
-  },
-  {
-   "feature": "open_line",
-   "mseGain": 0.0019511031528436362,
-   "corrWithMove": -0.015
-  },
-  {
-   "feature": "open_abs_line",
-   "mseGain": 0.0015611133506041597,
-   "corrWithMove": -0.008
+   "mseGain": 0.0007202395156902242,
+   "corrWithMove": -0.009
   }
  ]
 }

@@ -63416,7 +63416,19 @@
         "implied": 0.4762,
         "printImplied": 0.4762
       },
-      "priceBook": "FanDuel"
+      "priceBook": "FanDuel",
+      "closeLine": null,
+      "closePrice": -105,
+      "closeNoVig": 0.4888,
+      "estimated": false,
+      "clvPoints": 0.0,
+      "clvProb": 0.0172,
+      "clvProbPrint": 0.0127,
+      "clvProbPin": 0.0172,
+      "closeNoVigPin": 0.4934,
+      "clvBench": "pinnacle",
+      "clvProbBest": 0.0172,
+      "clvProbAtPrintPrice": 0.0172
     },
     {
       "pickId": "NCAAF|2026-10-24|Pittsburgh Panthers at Miami Hurricanes|total|over|v1|wind-total",
@@ -148615,6 +148627,222 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-07|Old Dominion Monarchs at Coastal Carolina Chanticleers|spread|away|v1|lean|learned-scan-ncaaf-spread|2026-11-05T18:40:35Z|gated|2026-11-05T18:40:35Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-07|Old Dominion Monarchs at Coastal Carolina Chanticleers|spread",
+      "sport": "NCAAF",
+      "event": "Old Dominion Monarchs at Coastal Carolina Chanticleers",
+      "commence": "2026-11-07T18:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 6.5,
+      "priceAtPick": -104,
+      "marketNumber": -6.5,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": -110,
+        "away": -110
+      },
+      "priceTime": "2026-11-05T18:39:24Z",
+      "pickedAt": "2026-11-05T18:40:35Z",
+      "fair": -6.2314,
+      "projection": -6.2314,
+      "edge": 0.269,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.399,
+      "modelWeight": 0.353,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-spread",
+      "reason": "Model learned on the scanner's data (gbm, 14 data points, passed the out-of-sample gate) predicts a move of -0.269 from the open for away; 0.269 still to come. Report: stats/models/scan_ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": -6.5,
+        "prices": {
+          "home": -111,
+          "away": -103
+        },
+        "updated": "2026-11-05T18:39:06Z",
+        "snapTime": "2026-11-05T18:39:24Z",
+        "noVig": 0.4907
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 7.5,
+          "pop": 0,
+          "text": "Sunny",
+          "heavy": false,
+          "temp": 71,
+          "value": 0.0,
+          "asOf": "2026-11-05T18:40:10Z",
+          "venue": "Brooks Stadium (SC)"
+        }
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -104,
+        "line": -6.5,
+        "implied": 0.5098,
+        "printImplied": 0.5238
+      },
+      "pinEdgeAtPick": -0.0191,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.9% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-07|South Alabama Jaguars at Louisiana Ragin Cajuns|spread|away|v1|lean|learned-scan-ncaaf-spread|2026-11-05T18:40:35Z|gated|2026-11-05T18:40:35Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-07|South Alabama Jaguars at Louisiana Ragin Cajuns|spread",
+      "sport": "NCAAF",
+      "event": "South Alabama Jaguars at Louisiana Ragin Cajuns",
+      "commence": "2026-11-07T22:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 7.5,
+      "priceAtPick": -113,
+      "marketNumber": -7.5,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-11-05T18:39:24Z",
+      "pickedAt": "2026-11-05T18:40:35Z",
+      "fair": -7.2421,
+      "projection": -7.2421,
+      "edge": 0.258,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.396,
+      "modelWeight": 0.353,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-spread",
+      "reason": "Model learned on the scanner's data (gbm, 14 data points, passed the out-of-sample gate) predicts a move of -0.258 from the open for away; 0.258 still to come. Report: stats/models/scan_ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": -7.5,
+        "prices": {
+          "home": -102,
+          "away": -112
+        },
+        "updated": "2026-11-05T18:39:06Z",
+        "snapTime": "2026-11-05T18:39:24Z",
+        "noVig": 0.5117
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 10.0,
+          "pop": 0,
+          "text": "Mostly Sunny; Partly Cloudy",
+          "heavy": false,
+          "temp": 69,
+          "value": 0.0,
+          "asOf": "2026-11-05T18:40:10Z",
+          "venue": "Our Lady of Lourdes Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -113,
+        "line": -7.5,
+        "implied": 0.5305,
+        "printImplied": 0.5349
+      },
+      "pinEdgeAtPick": -0.0188,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.9% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-08|West Virginia Mountaineers at Texas Tech Red Raiders|h2h|away|v1|lean|learned-scan-ncaaf-h2h|2026-11-05T18:40:35Z|gated|2026-11-05T18:40:35Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-08|West Virginia Mountaineers at Texas Tech Red Raiders|h2h",
+      "sport": "NCAAF",
+      "event": "West Virginia Mountaineers at Texas Tech Red Raiders",
+      "commence": "2026-11-08T02:30:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 600,
+      "marketNumber": null,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "home": -900,
+        "away": 600
+      },
+      "priceTime": "2026-11-05T18:39:24Z",
+      "pickedAt": "2026-11-05T18:40:35Z",
+      "fair": 0.8502,
+      "projection": 0.8502,
+      "edge": 0.007,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.02,
+      "modelWeight": 0.137,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-h2h",
+      "reason": "Model learned on the scanner's data (ridge, 14 data points, passed the out-of-sample gate) predicts a move of -0.00695 from the open for away; 0.00695 still to come. Report: stats/models/scan_ncaaf_h2h.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -902,
+          "away": 625
+        },
+        "updated": "2026-11-05T18:39:06Z",
+        "snapTime": "2026-11-05T18:39:24Z",
+        "noVig": 0.1189
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 0.0,
+          "pop": 5,
+          "text": "Mostly Cloudy",
+          "heavy": false,
+          "temp": 52,
+          "value": 0.0,
+          "asOf": "2026-11-05T18:40:10Z",
+          "venue": "Galaxy Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": 600,
+        "line": null,
+        "implied": 0.1429,
+        "printImplied": 0.1429
+      },
+      "pinEdgeAtPick": -0.024,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
