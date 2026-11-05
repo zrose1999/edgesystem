@@ -19989,7 +19989,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.35,
-        "lastSeen": "2026-11-05T02:54:43Z"
+        "lastSeen": "2026-11-05T03:22:28Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV07ALSTTXSO-TXSO",
@@ -20014,7 +20014,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.245,
-        "lastSeen": "2026-11-05T02:54:43Z"
+        "lastSeen": "2026-11-05T03:22:28Z"
       }
     ],
     "equity": [
@@ -25636,6 +25636,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-05T02:54:43Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-05T03:22:28Z"
       }
     ]
   },
@@ -28268,7 +28272,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.535,
-        "lastSeen": "2026-11-05T02:54:43Z"
+        "lastSeen": "2026-11-05T03:22:28Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV02CHISEA-SEA3",
@@ -28436,7 +28440,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.605,
-        "lastSeen": "2026-11-05T02:54:43Z"
+        "lastSeen": "2026-11-05T03:22:28Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV08CLENO-NO4",
@@ -28464,7 +28468,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.455,
-        "lastSeen": "2026-11-05T02:54:43Z"
+        "lastSeen": "2026-11-05T03:22:28Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV07TXSTORST-ORST6",
@@ -28492,7 +28496,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.465,
-        "lastSeen": "2026-11-05T02:54:43Z"
+        "lastSeen": "2026-11-05T03:22:28Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV04TOLSAC-52",
@@ -28513,7 +28517,7 @@
         "cost": 0.45,
         "fee": 0.0,
         "time": "2026-11-04T17:24:39Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a19db0-ff28-7549-9233-19e947221b11",
@@ -28522,7 +28526,12 @@
         "lastMid": 0.475,
         "lastSeen": "2026-11-04T23:54:50Z",
         "closeMid": 0.475,
-        "clv": 0.025
+        "clv": 0.025,
+        "result": "no",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.55,
+        "settledAt": "2026-11-05T03:22:28Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08NYJKC-NYJ",
@@ -28550,7 +28559,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.185,
-        "lastSeen": "2026-11-05T02:54:43Z"
+        "lastSeen": "2026-11-05T03:22:28Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV04UTANOP-NOP7",
@@ -28608,7 +28617,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.435,
-        "lastSeen": "2026-11-05T02:54:43Z"
+        "lastSeen": "2026-11-05T03:22:28Z"
       }
     ],
     "equity": [
@@ -29563,6 +29572,14 @@
         "equity": 35.68,
         "clvN": 73,
         "meanClv": 0.0032
+      },
+      {
+        "t": "2026-11-05T03:22:28Z",
+        "open": 2.82,
+        "realized": 1.23,
+        "equity": 36.23,
+        "clvN": 75,
+        "meanClv": 0.0033
       }
     ],
     "stopped": null,
@@ -32856,6 +32873,29 @@
         "status": "resting",
         "time": "2026-11-04T23:54:50Z",
         "test": true
+      },
+      {
+        "ticker": "KXNCAAFTOTAL-26NOV07RUTGWIS-44",
+        "title": "Over 43.5 points",
+        "sport": "NCAAF",
+        "kind": "total",
+        "event": "Rutgers Scarlet Knights at Wisconsin Badgers",
+        "commence": "2026-11-07T21:15:00Z",
+        "side": "no",
+        "strike": 43.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4624,
+        "edge": 0.0254,
+        "estimated": true,
+        "why": "Pinnacle fair 46.2% vs Kalshi NO 0.42 + fee = 0.437.",
+        "orderId": "01a1a9bb-0340-75dc-bfd4-47e110f275e9",
+        "orderPath": "v2",
+        "price": 0.41,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-05T03:22:28Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -32915,7 +32955,7 @@
       }
     ]
   },
-  "asOf": "2026-11-05T02:54:43Z",
+  "asOf": "2026-11-05T03:22:28Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -32943,17 +32983,17 @@
       "meanClv": -0.0053
     },
     "live": {
-      "open": 3.27,
-      "realized": 0.68,
-      "equity": 35.68,
+      "open": 2.82,
+      "realized": 1.23,
+      "equity": 36.23,
       "clvN": 75,
       "meanClv": 0.0033
     },
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 286,
-      "resting": 18,
+      "orders": 287,
+      "resting": 19,
       "filled": 140,
       "expired": 128,
       "fillRate": 0.522,
@@ -32966,8 +33006,11 @@
       "pairedTakerClvNet": -0.0194,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 0,
+    "liveSkips": {
+      "already held": 4,
+      "test: same contract already held": 1
+    },
+    "liveCandidates": 6,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -33008,9 +33051,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 3.18,
+      "spentToday": 3.59,
       "trades": 88,
-      "resting": 5
+      "resting": 6
     },
     "config": {
       "startingBankroll": 35.0,
@@ -33032,10 +33075,10 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 6386,
-      "eventsMatched": 295,
-      "eventsUnmatched": 314,
-      "candidates": 0
+      "kalshiMarkets": 6108,
+      "eventsMatched": 282,
+      "eventsUnmatched": 313,
+      "candidates": 6
     }
   },
   "account": {
@@ -33044,11 +33087,11 @@
     "detail": {
       "balance": 6346,
       "balance_dollars": "63.4687",
-      "portfolio_value": 369,
-      "updated_ts": 1793847305
+      "portfolio_value": 371,
+      "updated_ts": 1793848968
     },
     "env": "production",
-    "checkedAt": "2026-11-05T02:55:05Z"
+    "checkedAt": "2026-11-05T03:22:48Z"
   },
   "maker": {
     "start": 0.0,
@@ -38895,6 +38938,25 @@
         "makerEdge": 0.0437,
         "postedAt": "2026-11-04T23:54:50Z",
         "status": "resting"
+      },
+      {
+        "ticker": "KXNCAAFTOTAL-26NOV07RUTGWIS-44",
+        "title": "Over 43.5 points",
+        "sport": "NCAAF",
+        "kind": "total",
+        "event": "Rutgers Scarlet Knights at Wisconsin Badgers",
+        "commence": "2026-11-07T21:15:00Z",
+        "side": "no",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4624,
+        "estimated": true,
+        "price": 0.41,
+        "bidAtPost": 0.41,
+        "askAtPost": 0.42,
+        "takerEdge": 0.0254,
+        "makerEdge": 0.0482,
+        "postedAt": "2026-11-05T03:22:28Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -42865,7 +42927,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.35,
-        "lastSeen": "2026-11-05T02:54:43Z"
+        "lastSeen": "2026-11-05T03:22:28Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08ARISEA-SEA",
@@ -42888,7 +42950,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.775,
-        "lastSeen": "2026-11-05T02:54:43Z"
+        "lastSeen": "2026-11-05T03:22:28Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV08ARISEA-43",
@@ -42911,7 +42973,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.395,
-        "lastSeen": "2026-11-05T02:54:43Z"
+        "lastSeen": "2026-11-05T03:22:28Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV08ARISEA-42",
@@ -42934,7 +42996,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.425,
-        "lastSeen": "2026-11-05T02:54:43Z"
+        "lastSeen": "2026-11-05T03:22:28Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV06TCUARIZ-44",
@@ -42957,7 +43019,7 @@
         "mode": "paper",
         "postedAt": "2026-11-03T18:55:43Z",
         "lastMid": 0.435,
-        "lastSeen": "2026-11-05T02:54:43Z"
+        "lastSeen": "2026-11-05T03:22:28Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV04UTANOP-NOP7",
@@ -43030,7 +43092,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T19:54:50Z",
         "lastMid": 0.425,
-        "lastSeen": "2026-11-05T02:54:43Z"
+        "lastSeen": "2026-11-05T03:22:28Z"
       }
     ],
     "equity": [],

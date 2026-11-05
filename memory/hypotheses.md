@@ -607,3 +607,9 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-04 | edgeBar=0.5-1x + sport=UCL | 8 | +4.7% | found inside ALL edgeBar=0.5-1x (best of 86 features tested); small sample, may share reads with other rows |
 | 2026-11-04 | grade=B + sport=UCL | 8 | +4.7% | found inside ALL grade=B (best of 82 features tested); small sample, may share reads with other rows |
 | 2026-11-04 | sport=UCL + timing=early | 8 | +3.9% | found inside ALL timing=early (best of 70 features tested); small sample, may share reads with other rows |
+| 2026-11-05 | moveBeforePick=against + restDays=1day | 8 | +1.5% | found inside ALL moveBeforePick=against (best of 46 features tested); small sample, may share reads with other rows |
+| 2026-11-05 | grade=B + restDays=short | 8 | +2.7% | found inside ALL restDays=short (best of 13 features tested); small sample, may share reads with other rows |
+| 2026-11-05 | grade=B + shortWeek=yes | 8 | +2.7% | found inside ALL shortWeek=yes (best of 13 features tested); small sample, may share reads with other rows |
+| 2026-11-05 | NBA: bookAtPick=DraftKings + edgeBar=0.5-1x | 8 | +2.4% | found inside NBA edgeBar=0.5-1x (best of 54 features tested); small sample, may share reads with other rows |
+| 2026-11-05 | NBA: edgeBar=1-2x + timing=late | 9 | +2.4% | found inside NBA restDays=1day (best of 26 pairs tested); small sample, may share reads with other rows |
+| 2026-11-05 | NBA: sharpDiv=pin-for + timing=day | 8 | +3.8% | found inside NBA timing=day (best of 58 features tested); small sample, may share reads with other rows |
