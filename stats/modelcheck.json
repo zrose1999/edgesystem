@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-05T08:29:49Z",
+ "asOf": "2026-11-05T11:10:23Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -56,17 +56,17 @@
   "learned-nba-spread": {
    "pattern": "learned-nba-spread",
    "unit": "points",
-   "n": 8,
-   "meanPredicted": 1.3538,
-   "meanRealized": 1.0,
-   "tRealized": 1.53,
-   "capture": 0.74,
-   "rightWay": 0.75,
+   "n": 9,
+   "meanPredicted": 1.2984,
+   "meanRealized": 1.1111,
+   "tRealized": 1.89,
+   "capture": 0.86,
+   "rightWay": 0.778,
    "noMove": 0,
    "logLossGain": {
-    "n": 4,
-    "mean": 0.01433,
-    "t": 0.24
+    "n": 9,
+    "mean": -0.02708,
+    "t": -0.81
    },
    "verdict": "collecting"
   },
@@ -81,9 +81,9 @@
    "rightWay": 0.543,
    "noMove": 6,
    "logLossGain": {
-    "n": 40,
-    "mean": -0.03447,
-    "t": -2.13
+    "n": 41,
+    "mean": -0.03485,
+    "t": -2.21
    },
    "verdict": "collecting"
   },
@@ -234,9 +234,9 @@
    "rightWay": 0.7,
    "noMove": 7,
    "logLossGain": {
-    "n": 16,
-    "mean": -0.01378,
-    "t": -1.18
+    "n": 17,
+    "mean": -0.0106,
+    "t": -0.93
    },
    "verdict": "collecting"
   },
@@ -608,9 +608,9 @@
    "rightWay": 0.667,
    "noMove": 0,
    "logLossGain": {
-    "n": 2,
-    "mean": -0.00077,
-    "t": -0.03
+    "n": 3,
+    "mean": -0.00834,
+    "t": -0.53
    },
    "verdict": "collecting"
   },
@@ -727,9 +727,9 @@
    "rightWay": 0.529,
    "noMove": 18,
    "logLossGain": {
-    "n": 81,
-    "mean": 0.00394,
-    "t": 0.63
+    "n": 82,
+    "mean": 0.00427,
+    "t": 0.69
    },
    "verdict": "collecting"
   },
@@ -744,9 +744,9 @@
    "rightWay": 0.667,
    "noMove": 19,
    "logLossGain": {
-    "n": 38,
-    "mean": -0.00178,
-    "t": -0.14
+    "n": 40,
+    "mean": 0.00082,
+    "t": 0.07
    },
    "verdict": "collecting"
   },
@@ -778,9 +778,9 @@
    "rightWay": 0.483,
    "noMove": 13,
    "logLossGain": {
-    "n": 31,
-    "mean": -0.00535,
-    "t": -1.77
+    "n": 32,
+    "mean": -0.00563,
+    "t": -1.92
    },
    "verdict": "collecting"
   },
