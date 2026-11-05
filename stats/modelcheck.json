@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-05T01:40:06Z",
+ "asOf": "2026-11-05T01:54:32Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -39,17 +39,17 @@
   "goalie-news": {
    "pattern": "goalie-news",
    "unit": "prob",
-   "n": 39,
+   "n": 38,
    "meanPredicted": 0.0389,
-   "meanRealized": 0.0066,
+   "meanRealized": 0.0068,
    "tRealized": 2.59,
    "capture": 0.17,
    "rightWay": 0.75,
-   "noMove": 19,
+   "noMove": 18,
    "logLossGain": {
-    "n": 39,
-    "mean": 0.01485,
-    "t": 1.06
+    "n": 38,
+    "mean": 0.01704,
+    "t": 1.2
    },
    "verdict": "proven"
   },
@@ -73,17 +73,17 @@
   "learned-nba-total": {
    "pattern": "learned-nba-total",
    "unit": "points",
-   "n": 38,
-   "meanPredicted": 1.9068,
-   "meanRealized": 0.1842,
-   "tRealized": 0.44,
-   "capture": 0.1,
-   "rightWay": 0.545,
+   "n": 37,
+   "meanPredicted": 1.8924,
+   "meanRealized": 0.1622,
+   "tRealized": 0.38,
+   "capture": 0.09,
+   "rightWay": 0.531,
    "noMove": 5,
    "logLossGain": {
-    "n": 38,
-    "mean": -0.02989,
-    "t": -1.73
+    "n": 37,
+    "mean": -0.03374,
+    "t": -1.95
    },
    "verdict": "collecting"
   },
@@ -158,17 +158,17 @@
   "learned-nhl-over": {
    "pattern": "learned-nhl-over",
    "unit": "prob",
-   "n": 35,
-   "meanPredicted": 0.0313,
+   "n": 34,
+   "meanPredicted": 0.0317,
    "meanRealized": 0.0155,
-   "tRealized": 3.87,
+   "tRealized": 3.76,
    "capture": 0.49,
-   "rightWay": 0.897,
+   "rightWay": 0.893,
    "noMove": 6,
    "logLossGain": {
-    "n": 35,
-    "mean": -0.00269,
-    "t": -0.24
+    "n": 34,
+    "mean": -0.00382,
+    "t": -0.33
    },
    "verdict": "proven"
   },
@@ -243,17 +243,17 @@
   "learned-scan-nhl-h2h": {
    "pattern": "learned-scan-nhl-h2h",
    "unit": "prob",
-   "n": 4,
-   "meanPredicted": 0.0278,
-   "meanRealized": 0.0082,
-   "tRealized": 1.55,
-   "capture": 0.29,
-   "rightWay": 0.667,
+   "n": 3,
+   "meanPredicted": 0.0288,
+   "meanRealized": 0.0113,
+   "tRealized": 1.89,
+   "capture": 0.39,
+   "rightWay": 1.0,
    "noMove": 1,
    "logLossGain": {
-    "n": 4,
-    "mean": -0.02775,
-    "t": -1.12
+    "n": 3,
+    "mean": -0.01868,
+    "t": -0.57
    },
    "verdict": "collecting"
   },
