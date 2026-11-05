@@ -148845,6 +148845,124 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NBA|2026-11-07|Toronto Raptors at Milwaukee Bucks|h2h|away|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NBA|2026-11-07|Toronto Raptors at Milwaukee Bucks|h2h",
+      "sport": "NBA",
+      "event": "Toronto Raptors at Milwaukee Bucks",
+      "commence": "2026-11-07T01:10:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": -239,
+      "bookAtPick": "DraftKings",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 197,
+        "away": -239
+      },
+      "priceTime": "2026-11-05T23:54:32Z",
+      "pickedAt": "2026-11-05T23:54:34Z",
+      "fair": 0.7325,
+      "projection": 0.7325,
+      "edge": 0.0275,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "DraftKings away -239 implies 70.5%. Pinnacle -300 no-vig is 73.3%. Edge +2.8%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 251,
+          "away": -300
+        },
+        "updated": "2026-11-05T23:54:18Z",
+        "snapTime": "2026-11-05T23:54:32Z",
+        "noVig": 0.7325
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -239,
+        "line": null,
+        "implied": 0.705,
+        "printImplied": 0.705
+      },
+      "priceBook": "DraftKings",
+      "pinEdgeAtPick": 0.0275,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NBA|2026-11-07|Toronto Raptors at Milwaukee Bucks|spread|away|v1|lean|learned-nba-spread|2026-11-05T23:54:40Z|gated|2026-11-05T23:54:40Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NBA|2026-11-07|Toronto Raptors at Milwaukee Bucks|spread",
+      "sport": "NBA",
+      "event": "Toronto Raptors at Milwaukee Bucks",
+      "commence": "2026-11-07T01:10:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": -7.5,
+      "priceAtPick": -110,
+      "marketNumber": 7.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "home": -110,
+        "away": -110
+      },
+      "priceTime": "2026-11-05T23:54:32Z",
+      "pickedAt": "2026-11-05T23:54:40Z",
+      "fair": 9.003,
+      "projection": 9.003,
+      "edge": 1.503,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": false,
+      "edgeShrunk": -0.22,
+      "modelWeight": 0.275,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-nba-spread",
+      "reason": "Learned NBA model (ridge, 89 data points) predicts the spread moves +1.50 from the open; open 7.5, now 7.5, 1.50 still to come. Fair 9.00. Report: stats/models/nba_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": 7.5,
+        "prices": {
+          "home": -107,
+          "away": -105
+        },
+        "updated": "2026-11-05T23:54:18Z",
+        "snapTime": "2026-11-05T23:54:32Z",
+        "noVig": 0.4976
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -110,
+        "line": 7.5,
+        "implied": 0.5238,
+        "printImplied": 0.5238
+      },
+      "pinEdgeAtPick": -0.0262,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
