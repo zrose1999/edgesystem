@@ -141507,7 +141507,7 @@
       "rowId": "NCAAF|2026-11-05|Central Michigan Chippewas at Eastern Michigan Eagles|spread",
       "sport": "NCAAF",
       "event": "Central Michigan Chippewas at Eastern Michigan Eagles",
-      "commence": "2026-11-05T00:30:00Z",
+      "commence": "2026-11-05T00:35:00Z",
       "market": "spread",
       "side": "home",
       "lineAtPick": -1.5,
@@ -141559,7 +141559,8 @@
       "pinEdgeEstimated": true,
       "pinGate": "blocked",
       "gatedFrom": "lean",
-      "note": "Pinnacle gate: price taken is -3.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+      "note": "Pinnacle gate: price taken is -3.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted.",
+      "commenceAtPick": "2026-11-05T00:30:00Z"
     },
     {
       "pickId": "NCAAF|2026-11-04|Buffalo Bulls at Miami (OH) RedHawks|h2h|away|v1|soft-dog",
@@ -145797,6 +145798,124 @@
       "pinEdgeAtPick": 0.0216,
       "pinEdgeEstimated": true,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-05|Central Michigan Chippewas at Eastern Michigan Eagles|h2h|home|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-05|Central Michigan Chippewas at Eastern Michigan Eagles|h2h",
+      "sport": "NCAAF",
+      "event": "Central Michigan Chippewas at Eastern Michigan Eagles",
+      "commence": "2026-11-05T00:35:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 126,
+      "bookAtPick": "Caesars",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 116,
+        "away": -138
+      },
+      "priceTime": "2026-11-05T00:24:40Z",
+      "pickedAt": "2026-11-05T00:24:41Z",
+      "fair": 0.4495,
+      "projection": 0.4495,
+      "edge": 0.007,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "Caesars home +126 implies 44.2%. Pinnacle +112 no-vig is 45.0%. Edge +0.7%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 112,
+          "away": -134
+        },
+        "updated": "2026-11-05T00:24:28Z",
+        "snapTime": "2026-11-05T00:24:40Z",
+        "noVig": 0.4495
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": 126,
+        "line": null,
+        "implied": 0.4425,
+        "printImplied": 0.463
+      },
+      "priceBook": "Caesars",
+      "pinEdgeAtPick": 0.007,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-08|Sam Houston State Bearkats at Jacksonville State Gamecocks|h2h|away|v1|lean|scan-ncaaf-h2h-away-homeprice75-34b04b|2026-11-05T00:24:48Z|gated|2026-11-05T00:24:48Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-08|Sam Houston State Bearkats at Jacksonville State Gamecocks|h2h",
+      "sport": "NCAAF",
+      "event": "Sam Houston State Bearkats at Jacksonville State Gamecocks",
+      "commence": "2026-11-08T00:00:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 600,
+      "marketNumber": null,
+      "priceBook": "BetMGM",
+      "marketPrices": {
+        "home": -850,
+        "away": 575
+      },
+      "priceTime": "2026-11-05T00:24:40Z",
+      "pickedAt": "2026-11-05T00:24:48Z",
+      "fair": 0.8473,
+      "projection": 0.8473,
+      "edge": 0.01,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.016,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-ncaaf-h2h-away-homeprice75-34b04b",
+      "reason": "Scanner strategy scan-ncaaf-h2h-away-homeprice75-34b04b: NCAAF h2h away when homePrice 75%+; measured open-to-close move +0.00568 for this side (+0.00719 beyond the league average; n 234, t +3.1) x0.8, 0.00454 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -853,
+          "away": 599
+        },
+        "updated": "2026-11-05T00:24:28Z",
+        "snapTime": "2026-11-05T00:24:40Z",
+        "noVig": 0.124
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": 600,
+        "line": null,
+        "implied": 0.1429,
+        "printImplied": 0.1481
+      },
+      "pinEdgeAtPick": -0.0189,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.9% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
