@@ -85,6 +85,26 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   for the weekly review either a shadow over-filter on learned-nba-total or a Kalshi maker under test. Kill it if the
   drift is above -0.3 points on 150+ games.
 
+### 5. Rested road teams firm into the close, NBA (2026-11-05, lead, testing)
+- Observation: on Pinnacle snapshots (first snap 6h+ before tip to last snap within 2h), when the away team had more
+  days of rest than the home team, Pinnacle's no-vig moved toward the away side: moneyline home drift -2.9% (n 17,
+  t -2.3, halves -0.9/-4.7), spread -3.7% (same games, n 17, t -2.6, halves -2.0/-5.3). Home more rested: +0.1% (n 20);
+  even rest -0.3% (n 65); all NBA -0.7% (n 102, t -1.9, the lead-3 road drift). findings.py agrees on EDGE's reads
+  (NBA, our side 2+ days rest and travelled 500-1500 miles +5.6% n 25, holding since 11-05; more rested and did not
+  travel -2.5% n 44).
+- Mechanism: openers price home court plus a generic rest term; the rested road side's edge shows up late, as the
+  tired home team's minutes limits and rest days are announced and sharper money arrives, so the close moves road.
+- Tradeable? Away moneyline at the soft book on the first 6h+ snapshot vs Pinnacle's final no-vig: +0.8% (n 25, t 0.8;
+  Pinnacle's own early price +0.9%, fair move +2.2% t 2.3). Positive after vig but not yet significant.
+- Living memory (memory.py query --sport NBA --feature restEdge=more --feature venue=away): n 45, +0.2% CLV, t 0.2,
+  27-18: EDGE's own rested-road reads do not capture the move yet (stamped late or at worse prices).
+- Overlap: scan-nba-spread-away-restedgeawaymore-1e501d already tests the spread side (+3.0% n 9); no moneyline twin
+  and no early-timing condition. rest-spot covers only back-to-backs.
+- Variants tried: ~30 (rest edge by direction, b2b by side, h2h vs spread, soft vs Pinnacle entry, NCAAF has 2 games).
+- Test next: re-run when NBA snapshots with rest reach 40 away-more-rested games; if the soft-book early away price
+  holds +0.5%+ at t >= 2 in both halves, launch a shadow h2h pattern (away more rested, stamped 6h+ early). Kill if
+  the fair move is under +0.5% on 40+ games.
+
 ## Experiments (live shadow patterns, stake 0)
 
 ### soft-dog (launched 2026-10-30, from lead 1)
@@ -108,6 +128,7 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   at 50 (kill if <= 0). No floor tweak: the 1%+ bucket is not the better one (+0.8% under 1% n 12, -0.6% at 1%+ n 5,
   where Pinnacle at the pick is stored). By market: moneylines +0.6% (n 31, t 2.0), spreads +0.1% (n 7); by sport NBA
   +0.7% (n 11), ATP +1.1% (n 7), NCAAF +0.1% (n 11), NFL -0.2% (n 6), NHL +0.9% (n 3). Each read is its own game-side.
+- 2026-11-05: 49 graded, +0.4% (t 1.7), 68 reads in 7 days; the 50-graded judgement falls to the next health check.
 
 ## Killed
 
