@@ -148144,6 +148144,220 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.7% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-07|North Carolina Tar Heels at UConn Huskies|spread|away|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-07|North Carolina Tar Heels at UConn Huskies|spread",
+      "sport": "NCAAF",
+      "event": "North Carolina Tar Heels at UConn Huskies",
+      "commence": "2026-11-07T17:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": -6.5,
+      "priceAtPick": -110,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": 6.5,
+      "marketPrices": {
+        "home": 102,
+        "away": -124
+      },
+      "priceTime": "2026-11-05T15:09:31Z",
+      "pickedAt": "2026-11-05T15:09:32Z",
+      "fair": 0.5425,
+      "projection": 0.5425,
+      "edge": 0.0187,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "Hard Rock Bet away -6.5 -110 implies 52.4%. Pinnacle -107 no-vig is 50.0% at 7, worth 54.2% at this line. Edge +1.9%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": 7.0,
+        "prices": {
+          "home": -107,
+          "away": -107
+        },
+        "updated": "2026-11-05T15:09:02Z",
+        "snapTime": "2026-11-05T15:09:31Z",
+        "noVig": 0.5
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 5.8,
+          "pop": 42,
+          "text": "Chance Light Rain",
+          "heavy": false,
+          "temp": 64,
+          "value": 0.0,
+          "asOf": "2026-11-05T11:09:56Z",
+          "venue": "Pratt & Whitney Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -124,
+        "line": 6.5,
+        "implied": 0.5536,
+        "printImplied": 0.5536
+      },
+      "priceBook": "FanDuel",
+      "estimated": true,
+      "lineAdj": 0.0425,
+      "pinEdgeAtPick": 0.0187,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-06|UTSA Roadrunners at Florida Atlantic Owls|spread|away|v1|lean|ncaaf-spot|2026-11-05T15:09:43Z|gated|2026-11-05T15:09:43Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-06|UTSA Roadrunners at Florida Atlantic Owls|spread",
+      "sport": "NCAAF",
+      "event": "UTSA Roadrunners at Florida Atlantic Owls",
+      "commence": "2026-11-06T00:30:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": -6.5,
+      "priceAtPick": -117,
+      "marketNumber": 6.5,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": -102,
+        "away": -118
+      },
+      "priceTime": "2026-11-05T15:09:31Z",
+      "pickedAt": "2026-11-05T15:09:43Z",
+      "fair": 6.84,
+      "projection": 6.84,
+      "edge": 0.34,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.831,
+      "modelWeight": 0.027,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "ncaaf-spot",
+      "reason": "away off a bye +0.43 (x0.8 overlap) = expected move +0.34. Open 6.5, now 6.5, 0.34 still to come; fair +6.84. (Under the pattern's minimum move: lean only.)",
+      "falsifier": "The line closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "ncaaf_spots.py",
+      "pinAtPick": {
+        "line": 6.5,
+        "prices": {
+          "home": 101,
+          "away": -114
+        },
+        "updated": "2026-11-05T15:09:02Z",
+        "snapTime": "2026-11-05T15:09:31Z",
+        "noVig": 0.5176
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 7.8,
+          "pop": 2,
+          "text": "Clear; Mostly Clear",
+          "heavy": false,
+          "temp": 79,
+          "value": 0.0,
+          "asOf": "2026-11-05T15:09:32Z",
+          "venue": "Flagler Credit Union Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -117,
+        "line": 6.5,
+        "implied": 0.5392,
+        "printImplied": 0.5413
+      },
+      "pinEdgeAtPick": -0.0216,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.2% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-06|UTSA Roadrunners at Florida Atlantic Owls|spread|away|v1|lean|learned-scan-ncaaf-spread|2026-11-05T15:09:48Z|gated|2026-11-05T15:09:48Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-06|UTSA Roadrunners at Florida Atlantic Owls|spread",
+      "sport": "NCAAF",
+      "event": "UTSA Roadrunners at Florida Atlantic Owls",
+      "commence": "2026-11-06T00:30:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": -6.5,
+      "priceAtPick": -117,
+      "marketNumber": 6.5,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": -102,
+        "away": -118
+      },
+      "priceTime": "2026-11-05T15:09:31Z",
+      "pickedAt": "2026-11-05T15:09:48Z",
+      "fair": 7.0374,
+      "projection": 7.0374,
+      "edge": 0.537,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.369,
+      "modelWeight": 0.353,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-spread",
+      "reason": "Model learned on the scanner's data (gbm, 14 data points, passed the out-of-sample gate) predicts a move of -0.537 from the open for away; 0.537 still to come. Report: stats/models/scan_ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": 6.5,
+        "prices": {
+          "home": 101,
+          "away": -114
+        },
+        "updated": "2026-11-05T15:09:02Z",
+        "snapTime": "2026-11-05T15:09:31Z",
+        "noVig": 0.5176
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 7.8,
+          "pop": 2,
+          "text": "Clear; Mostly Clear",
+          "heavy": false,
+          "temp": 79,
+          "value": 0.0,
+          "asOf": "2026-11-05T15:09:32Z",
+          "venue": "Flagler Credit Union Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -117,
+        "line": 6.5,
+        "implied": 0.5392,
+        "printImplied": 0.5413
+      },
+      "pinEdgeAtPick": -0.0216,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.2% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
