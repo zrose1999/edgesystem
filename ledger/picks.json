@@ -151291,6 +151291,135 @@
       "pinEdgeAtPick": 0.0178,
       "pinEdgeEstimated": false,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NBA|2026-11-07|Boston Celtics at Charlotte Hornets|h2h|home|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NBA|2026-11-07|Boston Celtics at Charlotte Hornets|h2h",
+      "sport": "NBA",
+      "event": "Boston Celtics at Charlotte Hornets",
+      "commence": "2026-11-07T00:10:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 375,
+      "bookAtPick": "BetRivers",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 331,
+        "away": -424
+      },
+      "priceTime": "2026-11-06T23:24:26Z",
+      "pickedAt": "2026-11-06T23:24:27Z",
+      "fair": 0.2165,
+      "projection": 0.2165,
+      "edge": 0.0059,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "BetRivers home +375 implies 21.1%. Pinnacle +337 no-vig is 21.6%. Edge +0.6%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 337,
+          "away": -390
+        },
+        "updated": "2026-11-06T23:24:23Z",
+        "snapTime": "2026-11-06T23:24:26Z",
+        "noVig": 0.2165
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": 345,
+        "line": null,
+        "implied": 0.2247,
+        "printImplied": 0.232
+      },
+      "priceBook": "Caesars",
+      "pinEdgeAtPick": 0.0059,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-07|Old Dominion Monarchs at Coastal Carolina Chanticleers|total|under|v1|lean|scan-ncaaf-total-under-dowsatrestawaynormal-f657ba|2026-11-06T23:24:33Z|gated|2026-11-06T23:24:33Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-07|Old Dominion Monarchs at Coastal Carolina Chanticleers|total",
+      "sport": "NCAAF",
+      "event": "Old Dominion Monarchs at Coastal Carolina Chanticleers",
+      "commence": "2026-11-07T18:00:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 45.5,
+      "priceAtPick": -115,
+      "marketNumber": 45.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -105,
+        "under": -115
+      },
+      "priceTime": "2026-11-06T23:24:26Z",
+      "pickedAt": "2026-11-06T23:24:33Z",
+      "fair": 45.0157,
+      "projection": 45.0157,
+      "edge": 0.484,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "edgeShrunk": -1.607,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-ncaaf-total-under-dowsatrestawaynormal-f657ba",
+      "reason": "Scanner strategy scan-ncaaf-total-under-dowsatrestawaynormal-f657ba: NCAAF total under when dow Sat; restAway normal; measured open-to-close move +0.605 for this side (+0.385 beyond the league average; n 432, t +2.9) x0.8, 0.484 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": 44.5,
+        "prices": {
+          "over": -115,
+          "under": -101
+        },
+        "updated": "2026-11-06T23:24:09Z",
+        "snapTime": "2026-11-06T23:24:26Z",
+        "noVig": 0.4838
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 7.0,
+          "pop": 0,
+          "text": "Sunny",
+          "heavy": false,
+          "temp": 70,
+          "value": 0.0,
+          "asOf": "2026-11-06T23:09:31Z",
+          "venue": "Brooks Stadium (SC)"
+        }
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -115,
+        "line": 45.5,
+        "implied": 0.5349,
+        "printImplied": 0.5349
+      },
+      "pinEdgeAtPick": -0.0331,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -3.3% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
