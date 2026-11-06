@@ -81,6 +81,8 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   -3.5% (n 73, t -6.2). Only 3 early unders passed the Pinnacle gate. It could pay where the cost is low (Kalshi maker
   orders, which kalshi-sharp-alt already places on NBA totals at Pinnacle's fair), or as a filter: no NBA overs 6h+ out.
 - Variants tried: ~40 (totals drift by sport and half, NCAAF bands and Saturday, NBA windows, size, book, CLV by side).
+- 2026-11-06 (health check): the 6h+ drift concentrates in games with an early Pinnacle spread under 8 points
+  (-0.82, n 54, t -2.9) vs 8+ (+0.08, n 19); one post-hoc split, not a new lead.
 - Test next: re-run when NBA snapshots reach 150 games; if the 6h+ drift holds at t <= -2.5 in both halves, propose
   for the weekly review either a shadow over-filter on learned-nba-total or a Kalshi maker under test. Kill it if the
   drift is above -0.3 points on 150+ games.
@@ -129,8 +131,25 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   where Pinnacle at the pick is stored). By market: moneylines +0.6% (n 31, t 2.0), spreads +0.1% (n 7); by sport NBA
   +0.7% (n 11), ATP +1.1% (n 7), NCAAF +0.1% (n 11), NFL -0.2% (n 6), NHL +0.9% (n 3). Each read is its own game-side.
 - 2026-11-05: 49 graded, +0.4% (t 1.7), 68 reads in 7 days; the 50-graded judgement falls to the next health check.
+- 2026-11-06 judgement at 50 (health check): 53 graded, +0.7% (t 2.2), 35 of 53 beat the close; halves +0.2% (n 26,
+  t 1.1) and +1.1% (n 27, t 1.95); without the best read (Miami at GSW ML +11.4%) +0.45% (t 2.1). Not <= 0, so not
+  killed; keeps running. Moneylines carry it (+0.8%, n 45, t 2.3), spreads +0.0% (n 8): too few spreads to tweak to
+  moneylines only; revisit at 15 graded spreads. Focus sports +0.7% (n 39, t 1.9): NBA +1.5% (n 16, t 2.0), NFL +0.3%
+  (n 8), NCAAF +0.1% (n 15). Next look at 80 graded.
 
 ## Killed
+
+### Totals regress by level (2026-11-06, killed)
+- Observation: every focus sport's totals reads lose (memory: NFL n 89 -2.1% t -5.3, NCAAF n 141 -2.0% t -6.2, NBA
+  n 110 -1.5% t -3.0) and no totals pattern works. Idea: openers overshoot at the extremes (high totals for hyped
+  offences, low ones for defences), so the market drags high totals down and low ones up by the close.
+- Test (Pinnacle snapshots, first total snap 6h+ before the start vs last within 2h): open total level does not predict
+  the move in any sport (slope NFL +0.03 n 24, NCAAF +0.00 n 63, NBA -0.01 n 73; all |t| < 0.4); terciles flat or
+  noisy (no tercile holds in both halves). Variant by early spread size (blowout risk): NFL 7+ -1.1 (n 4), NCAAF 14+
+  +0.1 (n 12), NBA 8+ +0.1 (n 19); NBA's lead-4 down-drift sits in games under 8 points (-0.82, n 54, t -2.9), noted
+  under lead 4. About 12 variants.
+- Verdict: no level effect; totals losses are the vig and the early-total drift already in lead 4. Re-test with a
+  season of snapshots.
 
 ### Pinnacle's moneyline lags its own spread (2026-11-04, killed)
 - Observation: Pinnacle prices a game's spread and moneyline separately, and college moneylines are thinner than the
