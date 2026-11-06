@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-06T23:24:34Z",
+ "asOf": "2026-11-06T23:54:31Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 1137,
  "loggedReads": 2316,
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1647,
-   "with": 1324,
+   "reads": 1649,
+   "with": 1326,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1647,
-   "with": 1647,
+   "reads": 1649,
+   "with": 1649,
    "alarm": false
   }
  },
@@ -98,9 +98,9 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1038,
-  "latest": "2026-11-06T23:24:26Z",
-  "rowsWithHistory": 1880,
+  "linesLastCycle": 1003,
+  "latest": "2026-11-06T23:54:26Z",
+  "rowsWithHistory": 1882,
   "alarm": false
  },
  "interactionCoverage": {
@@ -12137,7 +12137,7 @@
    "n": 462,
    "meanClvProb": -0.0176,
    "pocket": {
-    "feature": "restDays=short",
+    "feature": "shortWeek=yes",
     "n": 12,
     "meanClvProb": 0.0188,
     "tStat": 1.27
@@ -12752,7 +12752,7 @@
    "n": 165,
    "meanClvProb": -0.0164,
    "pocket": {
-    "feature": "restDays=short",
+    "feature": "shortWeek=yes",
     "n": 8,
     "meanClvProb": 0.0137,
     "tStat": 1.51
@@ -14316,7 +14316,7 @@
    "n": 51,
    "meanClvProb": -0.0268,
    "pocket": {
-    "feature": "restDays=long",
+    "feature": "restEdge=more",
     "n": 11,
     "meanClvProb": 0.0015,
     "tStat": 0.1
@@ -14456,7 +14456,7 @@
    "n": 49,
    "meanClvProb": -0.0096,
    "pocket": {
-    "feature": "restDays=short",
+    "feature": "shortWeek=yes",
     "n": 8,
     "meanClvProb": 0.0137,
     "tStat": 1.51
@@ -14522,7 +14522,7 @@
    "n": 56,
    "meanClvProb": -0.0129,
    "pocket": {
-    "feature": "restDays=short",
+    "feature": "shortWeek=yes",
     "n": 8,
     "meanClvProb": 0.0137,
     "tStat": 1.51

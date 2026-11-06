@@ -151420,6 +151420,122 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -3.3% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-07|Clemson Tigers at Syracuse Orange|spread|home|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-07|Clemson Tigers at Syracuse Orange|spread",
+      "sport": "NCAAF",
+      "event": "Clemson Tigers at Syracuse Orange",
+      "commence": "2026-11-07T17:00:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": 3.0,
+      "priceAtPick": -118,
+      "bookAtPick": "Bally Bet",
+      "marketNumber": 2.5,
+      "marketPrices": {
+        "home": -115,
+        "away": -105
+      },
+      "priceTime": "2026-11-06T23:54:26Z",
+      "pickedAt": "2026-11-06T23:54:26Z",
+      "fair": 0.5565,
+      "projection": 0.5565,
+      "edge": 0.0152,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "Bally Bet home +3 -118 implies 54.1%. Pinnacle -113 no-vig is 51.4% at 2.5, worth 55.7% at this line. Edge +1.5%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": 2.5,
+        "prices": {
+          "home": -113,
+          "away": -101
+        },
+        "updated": "2026-11-06T23:54:24Z",
+        "snapTime": "2026-11-06T23:54:26Z",
+        "noVig": 0.514
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -115,
+        "line": 2.5,
+        "implied": 0.5349,
+        "printImplied": 0.5349
+      },
+      "priceBook": "FanDuel",
+      "estimated": true,
+      "lineAdj": 0.0425,
+      "pinEdgeAtPick": 0.0152,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-08|Wyoming Cowboys at UNLV Rebels|h2h|home|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-08|Wyoming Cowboys at UNLV Rebels|h2h",
+      "sport": "NCAAF",
+      "event": "Wyoming Cowboys at UNLV Rebels",
+      "commence": "2026-11-08T03:30:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": -170,
+      "bookAtPick": "theScore Bet",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -198,
+        "away": 164
+      },
+      "priceTime": "2026-11-06T23:54:26Z",
+      "pickedAt": "2026-11-06T23:54:26Z",
+      "fair": 0.6453,
+      "projection": 0.6453,
+      "edge": 0.0157,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "theScore Bet home -170 implies 63.0%. Pinnacle -195 no-vig is 64.5%. Edge +1.6%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -195,
+          "away": 170
+        },
+        "updated": "2026-11-06T23:54:24Z",
+        "snapTime": "2026-11-06T23:54:26Z",
+        "noVig": 0.6453
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -182,
+        "line": null,
+        "implied": 0.6454,
+        "printImplied": 0.6644
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.0157,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
