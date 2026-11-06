@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-06T17:24:36Z",
+ "asOf": "2026-11-06T17:39:57Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 1137,
  "loggedReads": 2316,
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1632,
-   "with": 1309,
+   "reads": 1637,
+   "with": 1314,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1632,
-   "with": 1632,
+   "reads": 1637,
+   "with": 1637,
    "alarm": false
   }
  },
@@ -98,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 677,
-  "latest": "2026-11-06T15:09:32Z",
+  "linesLastCycle": 773,
+  "latest": "2026-11-06T17:39:31Z",
   "rowsWithHistory": 1867,
   "alarm": false
  },
@@ -12000,7 +12000,7 @@
    "n": 104,
    "meanClvProb": -0.0054,
    "pocket": {
-    "feature": "sharpDiv=aligned",
+    "feature": "sharpGapOpen=<1%",
     "n": 8,
     "meanClvProb": 0.0374,
     "tStat": 2.39
@@ -13539,7 +13539,7 @@
    "n": 39,
    "meanClvProb": -0.024,
    "pocket": {
-    "feature": "sharpGapPick=<1%",
+    "feature": "sharpDivPick=aligned",
     "n": 10,
     "meanClvProb": 0.0091,
     "tStat": 8.47
@@ -14255,7 +14255,7 @@
    "n": 19,
    "meanClvProb": -0.0057,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 8,
     "meanClvProb": 0.015,
     "tStat": 1.44
@@ -14316,7 +14316,7 @@
    "n": 51,
    "meanClvProb": -0.0268,
    "pocket": {
-    "feature": "restDays=long",
+    "feature": "restEdge=more",
     "n": 11,
     "meanClvProb": 0.0015,
     "tStat": 0.1
@@ -14348,7 +14348,7 @@
    "n": 19,
    "meanClvProb": -0.0057,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 8,
     "meanClvProb": 0.015,
     "tStat": 1.44
