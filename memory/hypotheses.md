@@ -613,3 +613,15 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-05 | NBA: bookAtPick=DraftKings + edgeBar=0.5-1x | 8 | +2.4% | found inside NBA edgeBar=0.5-1x (best of 54 features tested); small sample, may share reads with other rows |
 | 2026-11-05 | NBA: edgeBar=1-2x + timing=late | 9 | +2.4% | found inside NBA restDays=1day (best of 26 pairs tested); small sample, may share reads with other rows |
 | 2026-11-05 | NBA: sharpDiv=pin-for + timing=day | 8 | +3.8% | found inside NBA timing=day (best of 58 features tested); small sample, may share reads with other rows |
+| 2026-11-06 | injury=qb + role=dog | 10 | +1.4% | found inside ALL market=spread (best of 28 pairs tested); small sample, may share reads with other rows |
+| 2026-11-06 | shortWeek=yes + travel=none | 8 | +1.4% | found inside ALL travel=none (best of 58 features tested); small sample, may share reads with other rows |
+| 2026-11-06 | NCAAF: bookAtPick=Hard Rock Bet + sharpDivPick=aligned | 8 | +1.6% | found inside NCAAF sharpDivPick=aligned (best of 31 features tested); small sample, may share reads with other rows |
+| 2026-11-06 | NCAAF: bookAtPick=Hard Rock Bet + sharpGapPick=<1% | 8 | +1.6% | found inside NCAAF sharpGapPick=<1% (best of 31 features tested); small sample, may share reads with other rows |
+| 2026-11-06 | NCAAF: restEdge=less + travelEdge=less | 11 | +1.3% | found inside NCAAF travelEdge=less (best of 36 features tested); small sample, may share reads with other rows |
+| 2026-11-06 | NFL: injury=qb + role=dog | 9 | +1.8% | found inside NFL keyNumber=yes (best of 13 pairs tested); small sample, may share reads with other rows |
+| 2026-11-06 | NFL: grade=B + restDays=short | 8 | +1.5% | found inside NFL restDays=short (best of 16 features tested); small sample, may share reads with other rows |
+| 2026-11-06 | NFL: sharpDivPick=pin-for + timing=early | 9 | +1.4% | found inside NFL restEdge=even (best of 14 pairs tested); small sample, may share reads with other rows |
+| 2026-11-06 | NFL: grade=B + shortWeek=yes | 8 | +1.5% | found inside NFL shortWeek=yes (best of 16 features tested); small sample, may share reads with other rows |
+| 2026-11-06 | NFL: sharpDivPick=pin-for + travel=none | 8 | +1.5% | found inside NFL travel=none (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-11-06 | NFL: shortWeek=yes + travelEdge=less | 8 | +1.4% | found inside NFL travelEdge=less (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-11-06 | NFL: shortWeek=yes + venue=home | 8 | +1.4% | found inside NFL venue=home (best of 28 features tested); small sample, may share reads with other rows |
