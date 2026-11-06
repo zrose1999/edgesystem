@@ -150127,6 +150127,292 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.3% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-07|TCU Horned Frogs at Arizona Wildcats|spread|away|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-07|TCU Horned Frogs at Arizona Wildcats|spread",
+      "sport": "NCAAF",
+      "event": "TCU Horned Frogs at Arizona Wildcats",
+      "commence": "2026-11-07T03:15:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 7.5,
+      "priceAtPick": -115,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": -7.0,
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-11-06T15:09:32Z",
+      "pickedAt": "2026-11-06T15:09:33Z",
+      "fair": 0.5567,
+      "projection": 0.5567,
+      "edge": 0.0218,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "Hard Rock Bet away +7.5 -115 implies 53.5%. Pinnacle -112 no-vig is 51.4% at -7, worth 55.7% at this line. Edge +2.2%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": -7.0,
+        "prices": {
+          "home": 100,
+          "away": -112
+        },
+        "updated": "2026-11-06T15:09:23Z",
+        "snapTime": "2026-11-06T15:09:32Z",
+        "noVig": 0.5142
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 5.5,
+          "pop": 8,
+          "text": "Partly Cloudy; Mostly Clear",
+          "heavy": false,
+          "temp": 62,
+          "value": 0.0,
+          "asOf": "2026-11-06T11:10:15Z",
+          "venue": "Casino Del Sol Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": -110,
+        "line": -7.0,
+        "implied": 0.5238,
+        "printImplied": 0.5349
+      },
+      "priceBook": "BetMGM",
+      "estimated": true,
+      "lineAdj": 0.0425,
+      "pinEdgeAtPick": 0.0218,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-07|Rice Owls at North Texas Mean Green|spread|home|v1|lean|scan-ncaaf-spread-home-resthomelong-ef5595|2026-11-06T15:09:48Z|gated|2026-11-06T15:09:48Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-07|Rice Owls at North Texas Mean Green|spread",
+      "sport": "NCAAF",
+      "event": "Rice Owls at North Texas Mean Green",
+      "commence": "2026-11-07T21:00:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -16.5,
+      "priceAtPick": -110,
+      "marketNumber": -16.5,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": -115,
+        "away": -105
+      },
+      "priceTime": "2026-11-06T15:09:32Z",
+      "pickedAt": "2026-11-06T15:09:48Z",
+      "fair": -16.9411,
+      "projection": -16.9411,
+      "edge": 0.441,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.454,
+      "modelWeight": 0.091,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-ncaaf-spread-home-resthomelong-ef5595",
+      "reason": "Scanner strategy scan-ncaaf-spread-home-resthomelong-ef5595: NCAAF spread home when restHome long; measured open-to-close move +0.551 for this side (+0.517 beyond the league average; n 292, t +3.2) x0.8, 0.441 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": -17.0,
+        "prices": {
+          "home": -106,
+          "away": -108
+        },
+        "updated": "2026-11-06T15:09:23Z",
+        "snapTime": "2026-11-06T15:09:32Z",
+        "noVig": 0.4977
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 5.0,
+          "pop": 1,
+          "text": "Mostly Sunny; Partly Sunny; Partly Cloudy",
+          "heavy": false,
+          "temp": 67,
+          "value": 0.0,
+          "asOf": "2026-11-06T15:09:33Z",
+          "venue": "DATCU Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -110,
+        "line": -16.5,
+        "implied": 0.5238,
+        "printImplied": 0.5349
+      },
+      "pinEdgeAtPick": -0.0136,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-08|Michigan State Spartans at Michigan Wolverines|h2h|away|v1|lean|scan-ncaaf-h2h-away-homeprice75-34b04b|2026-11-06T15:09:48Z|gated|2026-11-06T15:09:48Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-08|Michigan State Spartans at Michigan Wolverines|h2h",
+      "sport": "NCAAF",
+      "event": "Michigan State Spartans at Michigan Wolverines",
+      "commence": "2026-11-08T00:30:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 480,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -625,
+        "away": 455
+      },
+      "priceTime": "2026-11-06T15:09:32Z",
+      "pickedAt": "2026-11-06T15:09:48Z",
+      "fair": 0.8153,
+      "projection": 0.8153,
+      "edge": 0.012,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.014,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-ncaaf-h2h-away-homeprice75-34b04b",
+      "reason": "Scanner strategy scan-ncaaf-h2h-away-homeprice75-34b04b: NCAAF h2h away when homePrice 75%+; measured open-to-close move +0.00568 for this side (+0.00691 beyond the league average; n 234, t +3.0) x0.8, 0.00454 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -632,
+          "away": 472
+        },
+        "updated": "2026-11-06T15:09:23Z",
+        "snapTime": "2026-11-06T15:09:32Z",
+        "noVig": 0.1557
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 6.5,
+          "pop": 0,
+          "text": "Mostly Clear",
+          "heavy": false,
+          "temp": 44,
+          "value": 0.0,
+          "asOf": "2026-11-06T15:09:33Z",
+          "venue": "Michigan Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 480,
+        "line": null,
+        "implied": 0.1724,
+        "printImplied": 0.1802
+      },
+      "pinEdgeAtPick": -0.0167,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.7% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-08|Michigan State Spartans at Michigan Wolverines|h2h|away|v1|lean|learned-scan-ncaaf-h2h|2026-11-06T15:09:49Z|gated|2026-11-06T15:09:49Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-08|Michigan State Spartans at Michigan Wolverines|h2h",
+      "sport": "NCAAF",
+      "event": "Michigan State Spartans at Michigan Wolverines",
+      "commence": "2026-11-08T00:30:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 480,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -625,
+        "away": 455
+      },
+      "priceTime": "2026-11-06T15:09:32Z",
+      "pickedAt": "2026-11-06T15:09:49Z",
+      "fair": 0.813,
+      "projection": 0.813,
+      "edge": 0.015,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.012,
+      "modelWeight": 0.137,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-h2h",
+      "reason": "Model learned on the scanner's data (ridge, 14 data points, passed the out-of-sample gate) predicts a move of -0.00683 from the open for away; 0.00683 still to come. Report: stats/models/scan_ncaaf_h2h.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -632,
+          "away": 472
+        },
+        "updated": "2026-11-06T15:09:23Z",
+        "snapTime": "2026-11-06T15:09:32Z",
+        "noVig": 0.1557
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 6.5,
+          "pop": 0,
+          "text": "Mostly Clear",
+          "heavy": false,
+          "temp": 44,
+          "value": 0.0,
+          "asOf": "2026-11-06T15:09:33Z",
+          "venue": "Michigan Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 480,
+        "line": null,
+        "implied": 0.1724,
+        "printImplied": 0.1802
+      },
+      "pinEdgeAtPick": -0.0167,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.7% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
