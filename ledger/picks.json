@@ -150750,6 +150750,135 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.9% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-08|Iowa Hawkeyes at Northwestern Wildcats|h2h|home|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "A",
+      "rowId": "NCAAF|2026-11-08|Iowa Hawkeyes at Northwestern Wildcats|h2h",
+      "sport": "NCAAF",
+      "event": "Iowa Hawkeyes at Northwestern Wildcats",
+      "commence": "2026-11-08T00:30:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 100,
+      "bookAtPick": "FanDuel",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -108,
+        "away": -112
+      },
+      "priceTime": "2026-11-06T17:53:26Z",
+      "pickedAt": "2026-11-06T17:53:48Z",
+      "fair": 0.5408,
+      "projection": 0.5408,
+      "edge": 0.0408,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "FanDuel home +100 implies 50.0%. Pinnacle -125 no-vig is 54.1%. Edge +4.1%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -125,
+          "away": 111
+        },
+        "updated": "2026-11-06T17:53:12Z",
+        "snapTime": "2026-11-06T17:53:26Z",
+        "noVig": 0.5408
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 7.5,
+          "pop": 0,
+          "text": "Partly Cloudy; Mostly Clear",
+          "heavy": false,
+          "temp": 46,
+          "value": 0.0,
+          "asOf": "2026-11-06T17:39:32Z",
+          "venue": "Ryan Field"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 100,
+        "line": null,
+        "implied": 0.5,
+        "printImplied": 0.5192
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.0408,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NBA|2026-11-07|Toronto Raptors at Milwaukee Bucks|total|over|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NBA|2026-11-07|Toronto Raptors at Milwaukee Bucks|total",
+      "sport": "NBA",
+      "event": "Toronto Raptors at Milwaukee Bucks",
+      "commence": "2026-11-07T01:10:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 229.5,
+      "priceAtPick": -105,
+      "bookAtPick": "Fanatics",
+      "marketNumber": 229.5,
+      "marketPrices": {
+        "over": -110,
+        "under": -110
+      },
+      "priceTime": "2026-11-06T17:53:26Z",
+      "pickedAt": "2026-11-06T17:53:48Z",
+      "fair": 0.5273,
+      "projection": 0.5273,
+      "edge": 0.0151,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "Fanatics over 229.5 -105 implies 51.2%. Pinnacle -108 no-vig is 50.2% at 230.5, worth 52.7% at this line. Edge +1.5%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": 230.5,
+        "prices": {
+          "over": -108,
+          "under": -106
+        },
+        "updated": "2026-11-06T17:53:06Z",
+        "snapTime": "2026-11-06T17:53:26Z",
+        "noVig": 0.5023
+      },
+      "contextAtPick": {
+        "injury": "Scottie Barnes (Raptors, worth 2.51): weight 0 at the open, 0.5 now, +1.25 spread, -0.75 total"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -110,
+        "line": 229.5,
+        "implied": 0.5238,
+        "printImplied": 0.5238
+      },
+      "priceBook": "DraftKings",
+      "estimated": true,
+      "lineAdj": 0.025,
+      "pinEdgeAtPick": 0.0151,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
     }
   ]
 }
