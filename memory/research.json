@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-06T03:20:06Z",
+ "asOf": "2026-11-06T03:54:43Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 1137,
  "loggedReads": 2306,
@@ -98,7 +98,7 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 761,
+  "linesLastCycle": 734,
   "latest": "2026-11-06T03:19:38Z",
   "rowsWithHistory": 1846,
   "alarm": false
@@ -11915,7 +11915,7 @@
    "n": 66,
    "meanClvProb": -0.0023,
    "pocket": {
-    "feature": "sharpGapOpen=<1%",
+    "feature": "sharpDiv=aligned",
     "n": 10,
     "meanClvProb": 0.0148,
     "tStat": 1.55
@@ -12000,7 +12000,7 @@
    "n": 104,
    "meanClvProb": -0.0054,
    "pocket": {
-    "feature": "sharpDiv=aligned",
+    "feature": "sharpGapOpen=<1%",
     "n": 8,
     "meanClvProb": 0.0374,
     "tStat": 2.39
@@ -12137,7 +12137,7 @@
    "n": 462,
    "meanClvProb": -0.0176,
    "pocket": {
-    "feature": "shortWeek=yes",
+    "feature": "restDays=short",
     "n": 12,
     "meanClvProb": 0.0188,
     "tStat": 1.27
@@ -12752,7 +12752,7 @@
    "n": 165,
    "meanClvProb": -0.0164,
    "pocket": {
-    "feature": "shortWeek=yes",
+    "feature": "restDays=short",
     "n": 8,
     "meanClvProb": 0.0137,
     "tStat": 1.51
@@ -14456,7 +14456,7 @@
    "n": 49,
    "meanClvProb": -0.0096,
    "pocket": {
-    "feature": "shortWeek=yes",
+    "feature": "restDays=short",
     "n": 8,
     "meanClvProb": 0.0137,
     "tStat": 1.51
@@ -14522,7 +14522,7 @@
    "n": 56,
    "meanClvProb": -0.0129,
    "pocket": {
-    "feature": "shortWeek=yes",
+    "feature": "restDays=short",
     "n": 8,
     "meanClvProb": 0.0137,
     "tStat": 1.51
@@ -15112,13 +15112,13 @@
     "tStat": 0.0,
     "beatClose": 0
    },
-   "scan-nba-h2h-home-restawayb2brestedgehomemore-a2651e": {
+   "scan-nba-h2h-home-restawayb2b-60ea66": {
     "n": 1,
     "meanClvProb": -0.1332,
     "tStat": 0.0,
     "beatClose": 0
    },
-   "scan-nba-h2h-home-restawayb2b-60ea66": {
+   "scan-nba-h2h-home-restawayb2brestedgehomemore-a2651e": {
     "n": 1,
     "meanClvProb": -0.1332,
     "tStat": 0.0,
@@ -15126,5 +15126,5 @@
    }
   }
  },
- "hypothesesAdded": 12
+ "hypothesesAdded": 3
 }

@@ -625,3 +625,6 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-06 | NFL: sharpDivPick=pin-for + travel=none | 8 | +1.5% | found inside NFL travel=none (best of 29 features tested); small sample, may share reads with other rows |
 | 2026-11-06 | NFL: shortWeek=yes + travelEdge=less | 8 | +1.4% | found inside NFL travelEdge=less (best of 24 features tested); small sample, may share reads with other rows |
 | 2026-11-06 | NFL: shortWeek=yes + venue=home | 8 | +1.4% | found inside NFL venue=home (best of 28 features tested); small sample, may share reads with other rows |
+| 2026-11-06 | restDays=short + travel=none | 8 | +1.4% | found inside ALL travel=none (best of 58 features tested); small sample, may share reads with other rows |
+| 2026-11-06 | NFL: restDays=short + travelEdge=less | 8 | +1.4% | found inside NFL travelEdge=less (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-11-06 | NFL: restDays=short + venue=home | 8 | +1.4% | found inside NFL venue=home (best of 28 features tested); small sample, may share reads with other rows |
