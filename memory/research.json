@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-06T21:54:41Z",
+ "asOf": "2026-11-06T22:22:45Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 1137,
  "loggedReads": 2316,
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1643,
-   "with": 1320,
+   "reads": 1645,
+   "with": 1322,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1643,
-   "with": 1643,
+   "reads": 1645,
+   "with": 1645,
    "alarm": false
   }
  },
@@ -98,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 908,
-  "latest": "2026-11-06T21:54:33Z",
+  "linesLastCycle": 936,
+  "latest": "2026-11-06T22:22:20Z",
   "rowsWithHistory": 1877,
   "alarm": false
  },
@@ -11915,7 +11915,7 @@
    "n": 66,
    "meanClvProb": -0.0023,
    "pocket": {
-    "feature": "sharpDiv=aligned",
+    "feature": "sharpGapOpen=<1%",
     "n": 10,
     "meanClvProb": 0.0148,
     "tStat": 1.55
@@ -12000,7 +12000,7 @@
    "n": 104,
    "meanClvProb": -0.0054,
    "pocket": {
-    "feature": "sharpDiv=aligned",
+    "feature": "sharpGapOpen=<1%",
     "n": 8,
     "meanClvProb": 0.0374,
     "tStat": 2.39
@@ -12137,7 +12137,7 @@
    "n": 462,
    "meanClvProb": -0.0176,
    "pocket": {
-    "feature": "restDays=short",
+    "feature": "shortWeek=yes",
     "n": 12,
     "meanClvProb": 0.0188,
     "tStat": 1.27
@@ -13539,7 +13539,7 @@
    "n": 39,
    "meanClvProb": -0.024,
    "pocket": {
-    "feature": "sharpDivPick=aligned",
+    "feature": "sharpGapPick=<1%",
     "n": 10,
     "meanClvProb": 0.0091,
     "tStat": 8.47
@@ -14255,7 +14255,7 @@
    "n": 19,
    "meanClvProb": -0.0057,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 8,
     "meanClvProb": 0.015,
     "tStat": 1.44
@@ -14316,7 +14316,7 @@
    "n": 51,
    "meanClvProb": -0.0268,
    "pocket": {
-    "feature": "restDays=long",
+    "feature": "restEdge=more",
     "n": 11,
     "meanClvProb": 0.0015,
     "tStat": 0.1
@@ -14348,7 +14348,7 @@
    "n": 19,
    "meanClvProb": -0.0057,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 8,
     "meanClvProb": 0.015,
     "tStat": 1.44
@@ -14456,7 +14456,7 @@
    "n": 49,
    "meanClvProb": -0.0096,
    "pocket": {
-    "feature": "restDays=short",
+    "feature": "shortWeek=yes",
     "n": 8,
     "meanClvProb": 0.0137,
     "tStat": 1.51
@@ -14522,7 +14522,7 @@
    "n": 56,
    "meanClvProb": -0.0129,
    "pocket": {
-    "feature": "restDays=short",
+    "feature": "shortWeek=yes",
     "n": 8,
     "meanClvProb": 0.0137,
     "tStat": 1.51
