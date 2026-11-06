@@ -1,7 +1,7 @@
-# What EDGE is learning (2026-11-06 08:30Z)
+# What EDGE is learning (2026-11-06 11:10Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
-1137 graded reads counted, 2306 logged. CLV is mean clvProb. Patterns move only by grade.py.
-Scanner (scan.py, 11-05 18:39Z): 23 strategies tracking from 4832 hypotheses (0 new this run); 127 graded scan reads, mean CLV -0.6%. Shadow only; grade.py decides promotion.
+1137 graded reads counted, 2316 logged. CLV is mean clvProb. Patterns move only by grade.py.
+Scanner (scan.py, 11-06 11:10Z): 23 strategies tracking from 4832 hypotheses (0 new this run); 127 graded scan reads, mean CLV -0.6%. Shadow only; grade.py decides promotion.
 Early positive leads (one of many being tested; no acceleration):
 - NCAAF pattern=learned-ncaaf-spread: n 56, CLV +0.6%, t +0.7, last 30d +0.6% on 56; grade.py needs 15 more graded full-bar picks (has 0), t >= 2.0
 - NHL pattern=learned-nhl-ml: n 30, CLV +0.2%, t +0.6, last 30d +0.2% on 30; grade.py needs 14 more graded full-bar picks (has 1), t >= 2.0
@@ -16,15 +16,15 @@ Early negative, still collecting (largest samples):
 Observation: edge size is not yet predicting CLV (A -0.5% on 104, B -0.2% on 373, C -1.2% on 660).
   > last 50 graded reads: A +1.8% on 4, B +0.7% on 36, C -0.4% on 10 (A > B > C holds; diagnostic only)
   > pocket: sharpDiv=aligned inside grade A: n 8, CLV +3.7%, t +2.4 (best of 50 tested; a lead to watch)
-  > order holds inside sharpDiv=aligned: A +3.7% on 8, B +1.2% on 30, C -0.5% on 38 (20 of 53 features tested)
+  > order holds inside sharpGapOpen=<1%: A +3.7% on 8, B +1.2% on 30, C -0.5% on 38 (20 of 53 features tested)
 Why reads lost to the close (autopsy, post-pick; 710 of 1137, cause known on 710): overpaid 306 (-1.6%), news-after-pick 43 (-6.5%), sharps-against-at-pick 6 (-5.1%), sharps-against-at-open 1 (-3.1%), bet-into-steam 4 (-3.1%), late-move 21 (-4.0%), sharp-move-against 55 (-2.0%), soft-move-against 2 (-3.2%), model-wrong 272 (-5.3%)
-Process vs result: right-and-rewarded 227, right-but-unlucky 180, lucky-win 326, market-was-right 375, push 3; right-but-unlucky losses hurt most by close-margin, flipped-late, overtime (results are noise at this sample; CLV decides)
+Process vs result: right-and-rewarded 227, right-but-unlucky 187, lucky-win 326, market-was-right 377, push 3; right-but-unlucky losses hurt most by close-margin, flipped-late, overtime (results are noise at this sample; CLV decides)
 Gated by the Pinnacle gate (scored, not counted): n 114, CLV -1.0%, t -2.3 (positive = the gate blocks winners); best pocket tzShift=east n 16, CLV +2.2%, t +1.3 (of 50 tested)
 Data gaps, waiting on a source: public-pct (needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack); guru (needs an account list + reader (Reddit API free, X API paid); log account, number, time, result)
 Coverage of added features (BREAKAGE if still 0 one health-check cycle after shipping):
-- snaps: 647 price snapshots stored in the last 26h, latest 11-06 03:19Z, 1846 games with 2+ (late steam, since 10-19 18:15Z)
-- pinAtPick on 479 of 745 graded reads since 10-19 18:00Z; 1299 of 1622 new reads stamped (Pinnacle at the pick)
-- contextAtPick on 745 of 745 graded reads since 10-19 18:00Z; 1622 of 1622 new reads stamped (weather/injury/goalie as stamped)
+- snaps: 726 price snapshots stored in the last 26h, latest 11-06 11:09Z, 1854 games with 2+ (late steam, since 10-19 18:15Z)
+- pinAtPick on 479 of 745 graded reads since 10-19 18:00Z; 1305 of 1628 new reads stamped (Pinnacle at the pick)
+- contextAtPick on 745 of 745 graded reads since 10-19 18:00Z; 1628 of 1628 new reads stamped (weather/injury/goalie as stamped)
 - sharpDivergenceAtPick on 301 of 745 graded reads since 10-19 18:00Z (needs Pinnacle on the same line)
 - daysRestHome on 1032 of 1047 graded NBA/NHL/NCAAF/NFL reads (schedules in stats/ (NFL from 2026-10-21))
 - sharpDivergence on 109 of 1137 graded reads since 10-14 00:00Z (Pinnacle at the open)
