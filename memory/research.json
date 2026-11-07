@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-07T23:24:39Z",
+ "asOf": "2026-11-07T23:54:33Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 1186,
  "loggedReads": 2457,
@@ -98,9 +98,9 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1538,
-  "latest": "2026-11-07T23:24:31Z",
-  "rowsWithHistory": 1919,
+  "linesLastCycle": 1583,
+  "latest": "2026-11-07T23:54:27Z",
+  "rowsWithHistory": 1921,
   "alarm": false
  },
  "interactionCoverage": {
@@ -12118,7 +12118,7 @@
    "n": 68,
    "meanClvProb": -0.0037,
    "pocket": {
-    "feature": "sharpGapOpen=<1%",
+    "feature": "sharpDiv=aligned",
     "n": 11,
     "meanClvProb": 0.0051,
     "tStat": 0.39
@@ -13708,7 +13708,7 @@
    "n": 41,
    "meanClvProb": -0.0158,
    "pocket": {
-    "feature": "sharpGapPick=<1%",
+    "feature": "sharpDivPick=aligned",
     "n": 12,
     "meanClvProb": 0.0316,
     "tStat": 2.08
@@ -13925,7 +13925,7 @@
    "n": 33,
    "meanClvProb": -0.0035,
    "pocket": {
-    "feature": "sharpGapPick=<1%",
+    "feature": "sharpDivPick=aligned",
     "n": 9,
     "meanClvProb": 0.0266,
     "tStat": 3.32
@@ -14387,7 +14387,7 @@
    "n": 19,
    "meanClvProb": -0.0057,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 8,
     "meanClvProb": 0.015,
     "tStat": 1.44
@@ -14448,7 +14448,7 @@
    "n": 51,
    "meanClvProb": -0.0268,
    "pocket": {
-    "feature": "restEdge=more",
+    "feature": "restDays=long",
     "n": 11,
     "meanClvProb": 0.0015,
     "tStat": 0.1
@@ -14480,7 +14480,7 @@
    "n": 19,
    "meanClvProb": -0.0057,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 8,
     "meanClvProb": 0.015,
     "tStat": 1.44
@@ -15283,5 +15283,5 @@
    }
   }
  },
- "hypothesesAdded": 0
+ "hypothesesAdded": 1
 }

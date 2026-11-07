@@ -663,3 +663,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-07 | NCAAF: pattern=sharp-soft-alt + travelEdge=more | 11 | +1.7% | found inside NCAAF travelEdge=more (best of 36 features tested); small sample, may share reads with other rows |
 | 2026-11-07 | NCAAF: pattern=sharp-soft-alt + tzShift=west | 8 | +3.2% | found inside NCAAF tzShift=west (best of 34 features tested); small sample, may share reads with other rows |
 | 2026-11-07 | NCAAF: pattern=sharp-soft + wind=<10 | 12 | +1.2% | found inside NCAAF wind=<10 (best of 45 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NCAAF: restEdge=less + sharpDivPick=aligned | 9 | +2.7% | found inside NCAAF restEdge=less (best of 27 features tested); small sample, may share reads with other rows |
