@@ -151538,6 +151538,69 @@
       "pinEdgeAtPick": 0.0157,
       "pinEdgeEstimated": false,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NFL|2026-11-10|Buffalo Bills at Minnesota Vikings|spread|home|v1|lean|scan-nfl-spread-home-linehomedog053-b35cb9|2026-11-07T01:24:41Z|gated|2026-11-07T01:24:41Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NFL|2026-11-10|Buffalo Bills at Minnesota Vikings|spread",
+      "sport": "NFL",
+      "event": "Buffalo Bills at Minnesota Vikings",
+      "commence": "2026-11-10T01:15:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": 3.0,
+      "priceAtPick": -103,
+      "marketNumber": 3.0,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-11-06T23:09:28Z",
+      "pickedAt": "2026-11-07T01:24:41Z",
+      "fair": 2.4256,
+      "projection": 2.4256,
+      "edge": 0.574,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.519,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-nfl-spread-home-linehomedog053-b35cb9",
+      "reason": "Scanner strategy scan-nfl-spread-home-linehomedog053-b35cb9: NFL spread home when line home dog 0.5-3; measured open-to-close move +0.718 for this side (+0.597 beyond the league average; n 172, t +4.3) x0.8, 0.574 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": 3.0,
+        "prices": {
+          "home": -101,
+          "away": -111
+        },
+        "updated": "2026-11-06T23:09:10Z",
+        "snapTime": "2026-11-06T23:09:28Z",
+        "noVig": 0.4882
+      },
+      "contextAtPick": {
+        "injury": "MIN QB Kyler Murray, average (-0.03 EPA/dropback): Active at the open, Questionable now, +1.75 spread, -1.12 total | MIN OL starter Joe Huber: Questionable at the open, Active now, -0.12 spread | MIN defensive starter Andrew Van Ginkel: Active at the open, Questionable now, +0.12 spread | BUF OL starter Spencer Brown: Active at the open, Questionable now, +0.12 spread | BUF defensive starter C.J. Gardner-Johnson: Suspension at the open, Active now, -0.25 spread | BUF defensive starter Ed Oliver: Questionable at the open, Active now, -0.12 spread"
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -103,
+        "line": 3.0,
+        "implied": 0.5074,
+        "printImplied": 0.5122
+      },
+      "pinEdgeAtPick": -0.0192,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.9% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
