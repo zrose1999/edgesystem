@@ -153136,6 +153136,144 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.9% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-07|Texas A&M Aggies at South Carolina Gamecocks|h2h|away|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-07|Texas A&M Aggies at South Carolina Gamecocks|h2h",
+      "sport": "NCAAF",
+      "event": "Texas A&M Aggies at South Carolina Gamecocks",
+      "commence": "2026-11-07T20:00:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 230,
+      "bookAtPick": "BetRivers",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -250,
+        "away": 205
+      },
+      "priceTime": "2026-11-07T14:24:34Z",
+      "pickedAt": "2026-11-07T14:24:34Z",
+      "fair": 0.3083,
+      "projection": 0.3083,
+      "edge": 0.0053,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "BetRivers away +230 implies 30.3%. Pinnacle +210 no-vig is 30.8%. Edge +0.5%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -240,
+          "away": 210
+        },
+        "updated": "2026-11-07T14:24:20Z",
+        "snapTime": "2026-11-07T14:24:34Z",
+        "noVig": 0.3083
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 2.2,
+          "pop": 0,
+          "text": "Sunny; Mostly Sunny; Partly Cloudy",
+          "heavy": false,
+          "temp": 69,
+          "value": 0.0,
+          "asOf": "2026-11-07T11:10:08Z",
+          "venue": "Williams-Brice Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": 215,
+        "line": null,
+        "implied": 0.3175,
+        "printImplied": 0.3279
+      },
+      "priceBook": "DraftKings",
+      "pinEdgeAtPick": 0.0053,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-07|South Alabama Jaguars at Louisiana Ragin Cajuns|spread|away|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-07|South Alabama Jaguars at Louisiana Ragin Cajuns|spread",
+      "sport": "NCAAF",
+      "event": "South Alabama Jaguars at Louisiana Ragin Cajuns",
+      "commence": "2026-11-07T22:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 7.5,
+      "priceAtPick": -110,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": -7.0,
+      "marketPrices": {
+        "home": -112,
+        "away": -108
+      },
+      "priceTime": "2026-11-07T14:24:34Z",
+      "pickedAt": "2026-11-07T14:24:34Z",
+      "fair": 0.5425,
+      "projection": 0.5425,
+      "edge": 0.0187,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "Hard Rock Bet away +7.5 -110 implies 52.4%. Pinnacle -106 no-vig is 50.0% at -7, worth 54.2% at this line. Edge +1.9%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": -7.0,
+        "prices": {
+          "home": -106,
+          "away": -106
+        },
+        "updated": "2026-11-07T14:24:20Z",
+        "snapTime": "2026-11-07T14:24:34Z",
+        "noVig": 0.5
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 7.5,
+          "pop": 1,
+          "text": "Partly Sunny; Mostly Sunny; Mostly Cloudy; Partly Cloudy",
+          "heavy": false,
+          "temp": 73,
+          "value": 0.0,
+          "asOf": "2026-11-07T11:10:08Z",
+          "venue": "Our Lady of Lourdes Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -104,
+        "line": -7.0,
+        "implied": 0.5098,
+        "printImplied": 0.5192
+      },
+      "priceBook": "Caesars",
+      "estimated": true,
+      "lineAdj": 0.0425,
+      "pinEdgeAtPick": 0.0187,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
     }
   ]
 }
