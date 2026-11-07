@@ -155411,6 +155411,74 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.7% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-08|Oklahoma Sooners at Florida Gators|spread|away|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-08|Oklahoma Sooners at Florida Gators|spread",
+      "sport": "NCAAF",
+      "event": "Oklahoma Sooners at Florida Gators",
+      "commence": "2026-11-08T00:45:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 4.5,
+      "priceAtPick": -105,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": -4.0,
+      "marketPrices": {
+        "home": -110,
+        "away": -110
+      },
+      "priceTime": "2026-11-07T21:24:29Z",
+      "pickedAt": "2026-11-07T21:24:30Z",
+      "fair": 0.5199,
+      "projection": 0.5199,
+      "edge": 0.0077,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "Hard Rock Bet away +4.5 -105 implies 51.2%. Pinnacle -115 no-vig is 52.0%. Edge +0.8%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": -4.5,
+        "prices": {
+          "home": 102,
+          "away": -115
+        },
+        "updated": "2026-11-07T21:24:18Z",
+        "snapTime": "2026-11-07T21:24:29Z",
+        "noVig": 0.5199
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 3.5,
+          "pop": 0,
+          "text": "Partly Cloudy; Mostly Clear",
+          "heavy": false,
+          "temp": 66,
+          "value": 0.0,
+          "asOf": "2026-11-07T21:04:47Z",
+          "venue": "Ben Hill Griffin Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -107,
+        "line": -4.0,
+        "implied": 0.5169,
+        "printImplied": 0.5238
+      },
+      "priceBook": "Caesars",
+      "pinEdgeAtPick": 0.0077,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
