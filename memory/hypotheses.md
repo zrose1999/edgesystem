@@ -649,3 +649,17 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-07 | NCAAF: keyNumber=yes + sharpGapPick=<1% | 8 | +2.5% | found inside NCAAF sharpGapPick=<1% (best of 34 features tested); small sample, may share reads with other rows |
 | 2026-11-07 | NCAAF: pattern=soft-dog + venue=home | 9 | +0.2% | found inside NCAAF pattern=soft-dog (best of 15 features tested); small sample, may share reads with other rows |
 | 2026-11-07 | NCAAF: role=fav + venue=away | 11 | +0.3% | found inside NCAAF tzShift=east (best of 8 pairs tested); small sample, may share reads with other rows |
+| 2026-11-07 | bookAtPick=BetRivers + restEdge=less | 9 | +2.8% | found inside ALL restEdge=less (best of 53 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | bookAtPick=BetRivers + sharpGapPick=1-2% | 9 | +1.5% | found inside ALL sharpGapPick=1-2% (best of 41 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | pattern=sharp-soft-alt + travel=1500+ | 8 | +0.4% | found inside ALL travel=1500+ (best of 48 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | pattern=sharp-soft + tzShift=west | 9 | +3.3% | found inside ALL tzShift=west (best of 51 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NCAAF: pattern=soft-dog + travelEdge=even | 10 | +0.5% | found inside NCAAF pattern=soft-dog (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NCAAF: bookAtPick=Hard Rock Bet + restDays=normal | 21 | +1.6% | found inside NCAAF restDays=normal (best of 59 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NCAAF: restEdge=less + sharpGapPick=<1% | 9 | +2.7% | found inside NCAAF restEdge=less (best of 27 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NCAAF: restEdge=less + timing=day | 8 | +1.8% | found inside NCAAF timing=day (best of 47 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NCAAF: pattern=sharp-soft-alt + timing=late | 11 | +1.6% | found inside NCAAF timing=late (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NCAAF: restDays=long + travel=none | 9 | +0.6% | found inside NCAAF travel=none (best of 17 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NCAAF: bookAtPick=Hard Rock Bet + travelEdge=less | 10 | +2.3% | found inside NCAAF travelEdge=less (best of 38 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NCAAF: pattern=sharp-soft-alt + travelEdge=more | 11 | +1.7% | found inside NCAAF travelEdge=more (best of 36 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NCAAF: pattern=sharp-soft-alt + tzShift=west | 8 | +3.2% | found inside NCAAF tzShift=west (best of 34 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NCAAF: pattern=sharp-soft + wind=<10 | 12 | +1.2% | found inside NCAAF wind=<10 (best of 45 features tested); small sample, may share reads with other rows |
