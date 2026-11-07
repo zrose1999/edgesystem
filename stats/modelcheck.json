@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-07T07:45:33Z",
+ "asOf": "2026-11-07T11:10:41Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -64,9 +64,9 @@
    "rightWay": 0.625,
    "noMove": 0,
    "logLossGain": {
-    "n": 7,
-    "mean": -0.05113,
-    "t": -1.79
+    "n": 8,
+    "mean": -0.03395,
+    "t": -1.13
    },
    "verdict": "collecting"
   },
@@ -353,9 +353,9 @@
    "rightWay": 0.46,
    "noMove": 19,
    "logLossGain": {
-    "n": 81,
-    "mean": 0.0008,
-    "t": 0.43
+    "n": 82,
+    "mean": 0.00087,
+    "t": 0.47
    },
    "verdict": "collecting"
   },
@@ -710,9 +710,9 @@
    "rightWay": 1.0,
    "noMove": 1,
    "logLossGain": {
-    "n": 4,
-    "mean": 0.01113,
-    "t": 0.28
+    "n": 5,
+    "mean": 0.00795,
+    "t": 0.25
    },
    "verdict": "collecting"
   },
@@ -727,43 +727,43 @@
    "rightWay": 0.541,
    "noMove": 18,
    "logLossGain": {
-    "n": 85,
-    "mean": 0.00485,
-    "t": 0.8
+    "n": 86,
+    "mean": 0.00559,
+    "t": 0.92
    },
    "verdict": "collecting"
   },
   "sharp-soft-alt": {
    "pattern": "sharp-soft-alt",
    "unit": "points",
-   "n": 43,
-   "meanPredicted": 0.782,
-   "meanRealized": 0.2674,
-   "tRealized": 1.43,
-   "capture": 0.34,
-   "rightWay": 0.636,
+   "n": 44,
+   "meanPredicted": 0.7841,
+   "meanRealized": 0.2841,
+   "tRealized": 1.55,
+   "capture": 0.36,
+   "rightWay": 0.652,
    "noMove": 21,
    "logLossGain": {
-    "n": 42,
-    "mean": -0.00397,
-    "t": -0.33
+    "n": 44,
+    "mean": -0.00313,
+    "t": -0.27
    },
    "verdict": "collecting"
   },
   "soft-dog": {
    "pattern": "soft-dog",
    "unit": "points",
-   "n": 9,
-   "meanPredicted": 0.3508,
-   "meanRealized": 0.7222,
-   "tRealized": 1.61,
-   "capture": 2.06,
+   "n": 10,
+   "meanPredicted": 0.3373,
+   "meanRealized": 0.7,
+   "tRealized": 1.74,
+   "capture": 2.08,
    "rightWay": 1.0,
    "noMove": 6,
    "logLossGain": {
-    "n": 8,
-    "mean": -0.01483,
-    "t": -0.75
+    "n": 10,
+    "mean": -0.00935,
+    "t": -0.58
    },
    "verdict": "collecting"
   },
@@ -778,9 +778,9 @@
    "rightWay": 0.543,
    "noMove": 14,
    "logLossGain": {
-    "n": 36,
-    "mean": -0.00626,
-    "t": -2.36
+    "n": 39,
+    "mean": -0.0059,
+    "t": -2.38
    },
    "verdict": "collecting"
   },

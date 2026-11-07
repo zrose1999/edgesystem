@@ -640,3 +640,8 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-07 | NBA: bookAtPick=BetRivers + travel=500-1500 | 15 | +3.2% | found inside NBA travel=500-1500 (best of 52 features tested); small sample, may share reads with other rows |
 | 2026-11-07 | NBA: edgeBar=1-2x + travelEdge=even | 8 | +4.2% | found inside NBA travelEdge=even (best of 36 features tested); small sample, may share reads with other rows |
 | 2026-11-07 | NBA: pinEdge=2%+ + venue=home | 11 | +3.5% | found inside NBA venue=home (best of 53 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | bookAtPick=Hard Rock Bet + keyNumber=yes | 12 | +1.6% | found inside ALL keyNumber=yes (best of 51 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | moveBeforePick=against + role=dog | 8 | +0.6% | found inside ALL restDays=normal (best of 34 pairs tested); small sample, may share reads with other rows |
+| 2026-11-07 | pattern=soft-dog + tzShift=west | 8 | +2.0% | found inside ALL tzShift=west (best of 45 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NCAAF: pattern=sharp-soft-alt + sharpDivPick=aligned | 8 | +2.5% | found inside NCAAF sharpDivPick=aligned (best of 34 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NCAAF: pattern=sharp-soft-alt + sharpGapPick=<1% | 8 | +2.5% | found inside NCAAF sharpGapPick=<1% (best of 34 features tested); small sample, may share reads with other rows |

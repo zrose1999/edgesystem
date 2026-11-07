@@ -1,6 +1,6 @@
 # Strategy scanner (scan.py)
 
-2026-11-06T17:53:42Z. 24049 game-markets; 4832 hypotheses tested (move 1442, resClose 1954, resOpen 1436). Survivors pass a Benjamini-Hochberg cut at q 0.1 per test kind, the same sign in both time-ordered halves, and a minimum effect. 26 survivors; the strongest 26 are tracked as shadow strategies (stake 0) and stamp live reads, so their CLV builds on its own. grade.py alone decides promotion.
+2026-11-07T11:09:57Z. 24091 game-markets; 4886 hypotheses tested (move 1460, resClose 1972, resOpen 1454). Survivors pass a Benjamini-Hochberg cut at q 0.1 per test kind, the same sign in both time-ordered halves, and a minimum effect. 27 survivors; the strongest 27 are tracked as shadow strategies (stake 0) and stamp live reads, so their CLV builds on its own. grade.py alone decides promotion.
 
 | Strategy | Side | Conditions | Move (CLV) | Result at open | Result at close | Status |
 |---|---|---|---|---|---|---|
@@ -11,21 +11,21 @@
 | NFL spread | home | line home dog 0.5-3 | +0.60 pts (n 172, t +4.3) | ROI -6.6% (n 172, t -0.9) | ROI -7.4% (n 169, t -1.0) | tracking |
 | NCAAF spread | home | line home fav 21+ | +0.31 pts (n 907, t +4.2) | ROI -2.9% (n 900, t -0.9) | ROI -2.2% (n 896, t -0.7) | tracking |
 | NBA spread | home | restEdge home more | +0.52 pts (n 271, t +4.2) | ROI -7.0% (n 271, t -1.2) | ROI -6.3% (n 271, t -1.1) | tracking |
-| NBA spread | home | restAway b2b | +0.63 pts (n 205, t +4.1) | ROI -6.9% (n 205, t -1.0) | ROI -8.7% (n 205, t -1.3) | tracking |
 | NBA spread | away | restEdge away more | +0.50 pts (n 225, t +4.1) | ROI -5.0% (n 225, t -0.8) | ROI -8.4% (n 225, t -1.3) | tracking |
+| NBA spread | home | restAway b2b | +0.63 pts (n 205, t +4.0) | ROI -6.9% (n 205, t -1.0) | ROI -8.7% (n 205, t -1.3) | tracking |
 | NBA h2h | home | restAway b2b; restEdge home more | +1.83% (n 135, t +4.0) | ROI -6.9% (n 135, t -0.8) | ROI -9.8% (n 135, t -1.1) | tracking |
 | NCAAF spread | home | month Aug | +0.50 pts (n 206, t +3.8) | ROI -6.9% (n 205, t -1.0) | ROI -10.5% (n 207, t -1.6) | tracking |
 | NBA h2h | home | restEdge home more | +1.06% (n 270, t +3.5) | ROI -9.0% (n 270, t -1.5) | ROI -10.3% (n 270, t -1.7) | tracking |
-| NCAAF h2h | away | homePrice 75%+; restHome normal | +1.10% (n 149, t +3.4) | ROI -34.2% (n 149, t -2.1) | ROI -42.1% (n 149, t -2.9) | tracking |
-| NBA total | over | month Mar; restHome 1day | +0.82 pts (n 150, t +3.4) | ROI +0.6% (n 150, t +0.1) | ROI -8.3% (n 150, t -1.1) | tracking |
+| NCAAF h2h | away | homePrice 75%+; restHome normal | +1.12% (n 150, t +3.5) | ROI -34.7% (n 150, t -2.1) | ROI -42.5% (n 150, t -2.9) | tracking |
+| NBA total | over | month Mar; restHome 1day | +0.83 pts (n 150, t +3.4) | ROI +0.6% (n 150, t +0.1) | ROI -8.3% (n 150, t -1.1) | tracking |
 | NBA h2h | home | restAway b2b | +1.30% (n 205, t +3.3) | ROI -5.2% (n 205, t -0.7) | ROI -9.8% (n 205, t -1.3) | tracking |
 | NBA spread | away | dow Tue | +0.46 pts (n 152, t +3.2) | ROI -13.3% (n 152, t -1.7) | ROI -15.9% (n 152, t -2.1) | tracking |
 | NCAAF spread | home | restHome long | +0.52 pts (n 292, t +3.2) | ROI +5.7% (n 289, t +1.0) | ROI +3.3% (n 290, t +0.6) | tracking |
-| NCAAF h2h | away | homePrice 75%+ | +0.69% (n 234, t +3.0) | ROI -36.7% (n 234, t -2.1) | ROI -43.0% (n 234, t -3.0) | tracking |
-| NCAAF total | under | dow Sat; restAway normal | +0.39 pts (n 432, t +2.9) | ROI -0.7% (n 431, t -0.2) | ROI -3.2% (n 845, t -1.0) | tracking |
+| NCAAF h2h | away | homePrice 75%+ | +0.71% (n 235, t +3.0) | ROI -37.0% (n 235, t -2.1) | ROI -43.2% (n 235, t -3.0) | tracking |
+| NCAAF h2h | away | homePrice 75%+; restAway normal | +1.13% (n 124, t +3.0) | ROI -33.5% (n 124, t -1.8) | ROI -44.0% (n 124, t -2.9) | tracking |
+| NCAAF total | under | dow Sat; restAway normal | +0.38 pts (n 432, t +2.9) | ROI -0.7% (n 431, t -0.2) | ROI -3.2% (n 845, t -1.0) | tracking |
 | NBA h2h | away | dow Tue | +1.04% (n 151, t +2.9) | ROI -12.3% (n 151, t -1.2) | ROI -15.5% (n 151, t -1.6) | tracking |
-| NCAAF h2h | away | homePrice 75%+; restAway normal | +1.09% (n 123, t +2.9) | ROI -32.9% (n 123, t -1.8) | ROI -43.5% (n 123, t -2.9) | tracking |
-| NBA total | under | month Jan | +0.60 pts (n 233, t +2.8) | ROI +16.3% (n 233, t +2.7) | ROI +14.6% (n 233, t +2.4) | tracking |
+| NBA total | under | month Jan | +0.59 pts (n 233, t +2.8) | ROI +16.3% (n 233, t +2.7) | ROI +14.6% (n 233, t +2.4) | tracking |
 | NFL total | under | closeTotal 40-43; dow Sun | +0.24 pts (n 244, t +2.8) | ROI -6.9% (n 242, t -1.1) | ROI -6.5% (n 489, t -1.5) | tracking |
 | NHL total | over | overPrice 55%-65% | +2.33% (n 186, t +6.6) | ROI +4.1% (n 186, t +0.7) | ROI +7.0% (n 186, t +1.0) | lapsed |
 | MLB total | over | month Jun | +1.27% (n 394, t +6.5) | ROI -0.1% (n 370, t -0.0) | ROI -3.0% (n 378, t -0.6) | lapsed |
