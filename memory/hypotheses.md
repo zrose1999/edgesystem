@@ -647,3 +647,5 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-07 | NCAAF: pattern=sharp-soft-alt + sharpGapPick=<1% | 8 | +2.5% | found inside NCAAF sharpGapPick=<1% (best of 34 features tested); small sample, may share reads with other rows |
 | 2026-11-07 | NCAAF: keyNumber=yes + sharpDivPick=aligned | 8 | +2.5% | found inside NCAAF sharpDivPick=aligned (best of 34 features tested); small sample, may share reads with other rows |
 | 2026-11-07 | NCAAF: keyNumber=yes + sharpGapPick=<1% | 8 | +2.5% | found inside NCAAF sharpGapPick=<1% (best of 34 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NCAAF: pattern=soft-dog + venue=home | 9 | +0.2% | found inside NCAAF pattern=soft-dog (best of 15 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NCAAF: role=fav + venue=away | 11 | +0.3% | found inside NCAAF tzShift=east (best of 8 pairs tested); small sample, may share reads with other rows |
