@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-07T01:40:03Z",
+ "asOf": "2026-11-07T01:54:42Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -226,17 +226,17 @@
   "learned-scan-ncaaf-spread": {
    "pattern": "learned-scan-ncaaf-spread",
    "unit": "points",
-   "n": 19,
-   "meanPredicted": 0.7066,
-   "meanRealized": 0.5,
+   "n": 18,
+   "meanPredicted": 0.7123,
+   "meanRealized": 0.5278,
    "tRealized": 1.39,
-   "capture": 0.71,
+   "capture": 0.74,
    "rightWay": 0.667,
-   "noMove": 7,
+   "noMove": 6,
    "logLossGain": {
-    "n": 19,
-    "mean": -0.00992,
-    "t": -0.95
+    "n": 18,
+    "mean": -0.00873,
+    "t": -0.8
    },
    "verdict": "collecting"
   },
@@ -345,17 +345,17 @@
   "ncaaf-spot": {
    "pattern": "ncaaf-spot",
    "unit": "points",
-   "n": 82,
-   "meanPredicted": 0.3722,
-   "meanRealized": -0.0427,
-   "tRealized": -0.19,
-   "capture": -0.11,
-   "rightWay": 0.46,
+   "n": 81,
+   "meanPredicted": 0.3696,
+   "meanRealized": -0.0309,
+   "tRealized": -0.13,
+   "capture": -0.08,
+   "rightWay": 0.468,
    "noMove": 19,
    "logLossGain": {
-    "n": 82,
-    "mean": 0.00104,
-    "t": 0.56
+    "n": 81,
+    "mean": 0.0008,
+    "t": 0.43
    },
    "verdict": "collecting"
   },
@@ -600,17 +600,17 @@
   "scan-ncaaf-spread-home-resthomelong-ef5595": {
    "pattern": "scan-ncaaf-spread-home-resthomelong-ef5595",
    "unit": "points",
-   "n": 3,
+   "n": 2,
    "meanPredicted": 0.464,
-   "meanRealized": -0.6667,
-   "tRealized": -0.4,
-   "capture": -1.44,
-   "rightWay": 0.667,
+   "meanRealized": -1.5,
+   "tRealized": -0.6,
+   "capture": -3.23,
+   "rightWay": 0.5,
    "noMove": 0,
    "logLossGain": {
-    "n": 3,
-    "mean": -0.00834,
-    "t": -0.53
+    "n": 2,
+    "mean": -0.00027,
+    "t": -0.01
    },
    "verdict": "collecting"
   },

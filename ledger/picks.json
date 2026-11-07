@@ -125530,7 +125530,7 @@
       "rowId": "NCAAF|2026-11-07|New Mexico Lobos at Nevada Wolf Pack|h2h",
       "sport": "NCAAF",
       "event": "New Mexico Lobos at Nevada Wolf Pack",
-      "commence": "2026-11-07T02:00:00Z",
+      "commence": "2026-11-07T02:10:00Z",
       "market": "h2h",
       "side": "home",
       "lineAtPick": null,
@@ -125578,7 +125578,8 @@
       "priceBook": "FanDuel",
       "pinEdgeAtPick": 0.0144,
       "pinEdgeEstimated": false,
-      "pinGate": "pass"
+      "pinGate": "pass",
+      "commenceAtPick": "2026-11-07T02:00:00Z"
     },
     {
       "pickId": "NCAAF|2026-11-07|Old Dominion Monarchs at Coastal Carolina Chanticleers|spread|away|v1|sharp-soft-alt",
@@ -151673,6 +151674,142 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.8% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-07|Vanderbilt Commodores at Mississippi State Bulldogs|h2h|home|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-07|Vanderbilt Commodores at Mississippi State Bulldogs|h2h",
+      "sport": "NCAAF",
+      "event": "Vanderbilt Commodores at Mississippi State Bulldogs",
+      "commence": "2026-11-07T21:15:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": -120,
+      "bookAtPick": "BetRivers",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -137,
+        "away": 114
+      },
+      "priceTime": "2026-11-07T01:54:28Z",
+      "pickedAt": "2026-11-07T01:54:30Z",
+      "fair": 0.5685,
+      "projection": 0.5685,
+      "edge": 0.023,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "BetRivers home -120 implies 54.5%. Pinnacle -140 no-vig is 56.8%. Edge +2.3%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -140,
+          "away": 124
+        },
+        "updated": "2026-11-07T01:54:08Z",
+        "snapTime": "2026-11-07T01:54:28Z",
+        "noVig": 0.5685
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 7.5,
+          "pop": 0,
+          "text": "Partly Sunny; Mostly Sunny; Partly Cloudy",
+          "heavy": false,
+          "temp": 62,
+          "value": 0.0,
+          "asOf": "2026-11-07T01:39:30Z",
+          "venue": "Davis Wade Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -137,
+        "line": null,
+        "implied": 0.5781,
+        "printImplied": 0.5781
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.023,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-07|Temple Owls at Navy Midshipmen|h2h|away|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-07|Temple Owls at Navy Midshipmen|h2h",
+      "sport": "NCAAF",
+      "event": "Temple Owls at Navy Midshipmen",
+      "commence": "2026-11-07T20:30:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 275,
+      "bookAtPick": "BetRivers",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -270,
+        "away": 220
+      },
+      "priceTime": "2026-11-07T01:54:28Z",
+      "pickedAt": "2026-11-07T01:54:30Z",
+      "fair": 0.2908,
+      "projection": 0.2908,
+      "edge": 0.0242,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "BetRivers away +275 implies 26.7%. Pinnacle +225 no-vig is 29.1%. Edge +2.4%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -265,
+          "away": 225
+        },
+        "updated": "2026-11-07T01:54:08Z",
+        "snapTime": "2026-11-07T01:54:28Z",
+        "noVig": 0.2908
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 13.5,
+          "pop": 1,
+          "text": "Sunny; Mostly Clear",
+          "heavy": false,
+          "temp": 59,
+          "value": 0.0,
+          "asOf": "2026-11-07T01:39:30Z",
+          "venue": "Navy-Marine Corps Memorial Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 230,
+        "line": null,
+        "implied": 0.303,
+        "printImplied": 0.3125
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.0242,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
