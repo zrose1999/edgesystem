@@ -155029,6 +155029,63 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.8% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NBA|2026-11-08|Orlando Magic at Golden State Warriors|h2h|home|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "A",
+      "rowId": "NBA|2026-11-08|Orlando Magic at Golden State Warriors|h2h",
+      "sport": "NBA",
+      "event": "Orlando Magic at Golden State Warriors",
+      "commence": "2026-11-08T01:40:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": -205,
+      "bookAtPick": "Bally Bet",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -260,
+        "away": 215
+      },
+      "priceTime": "2026-11-07T19:19:16Z",
+      "pickedAt": "2026-11-07T19:19:18Z",
+      "fair": 0.703,
+      "projection": 0.703,
+      "edge": 0.0309,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "Bally Bet home -205 implies 67.2%. Pinnacle -254 no-vig is 70.3%. Edge +3.1%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -254,
+          "away": 221
+        },
+        "updated": "2026-11-07T19:19:05Z",
+        "snapTime": "2026-11-07T19:19:16Z",
+        "noVig": 0.703
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -229,
+        "line": null,
+        "implied": 0.696,
+        "printImplied": 0.7222
+      },
+      "priceBook": "DraftKings",
+      "pinEdgeAtPick": 0.0309,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
