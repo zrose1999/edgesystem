@@ -155086,6 +155086,148 @@
       "pinEdgeAtPick": 0.0309,
       "pinEdgeEstimated": false,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-08|Miami Hurricanes at Notre Dame Fighting Irish|spread|home|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-08|Miami Hurricanes at Notre Dame Fighting Irish|spread",
+      "sport": "NCAAF",
+      "event": "Miami Hurricanes at Notre Dame Fighting Irish",
+      "commence": "2026-11-08T00:30:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -6.5,
+      "priceAtPick": -120,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": -7.5,
+      "marketPrices": {
+        "home": 100,
+        "away": -122
+      },
+      "priceTime": "2026-11-07T19:54:32Z",
+      "pickedAt": "2026-11-07T19:54:33Z",
+      "fair": 0.5613,
+      "projection": 0.5613,
+      "edge": 0.0159,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "Hard Rock Bet home -6.5 -120 implies 54.5%. Pinnacle -114 no-vig is 51.9% at -7, worth 56.1% at this line. Edge +1.6%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": -7.0,
+        "prices": {
+          "home": -114,
+          "away": 102
+        },
+        "updated": "2026-11-07T19:54:18Z",
+        "snapTime": "2026-11-07T19:54:32Z",
+        "noVig": 0.5188
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 2.5,
+          "pop": 0,
+          "text": "Mostly Clear; Clear",
+          "heavy": false,
+          "temp": 40,
+          "value": 0.0,
+          "asOf": "2026-11-07T19:19:18Z",
+          "venue": "Notre Dame Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 100,
+        "line": -7.5,
+        "implied": 0.5,
+        "printImplied": 0.5
+      },
+      "priceBook": "FanDuel",
+      "estimated": true,
+      "lineAdj": 0.0425,
+      "pinEdgeAtPick": 0.0159,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-08|Liberty Flames at New Mexico State Aggies|spread|away|v1|lean|learned-ncaaf-spread|2026-11-07T19:54:38Z|gated|2026-11-07T19:54:38Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-08|Liberty Flames at New Mexico State Aggies|spread",
+      "sport": "NCAAF",
+      "event": "Liberty Flames at New Mexico State Aggies",
+      "commence": "2026-11-08T01:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": -14.5,
+      "priceAtPick": -110,
+      "marketNumber": 14.5,
+      "priceBook": "BetMGM",
+      "marketPrices": {
+        "home": -108,
+        "away": -112
+      },
+      "priceTime": "2026-11-07T19:54:32Z",
+      "pickedAt": "2026-11-07T19:54:38Z",
+      "fair": 15.616,
+      "projection": 15.616,
+      "edge": 1.116,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": 0.166,
+      "modelWeight": 0.627,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-ncaaf-spread",
+      "reason": "Learned college model (ridge, 330 data points, trained on CFBD history) predicts the spread moves +2.12 from the open; open 13.5, now 14.5, 1.12 still to come. Fair 15.62. Report: stats/models/ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": 15.0,
+        "prices": {
+          "home": -117,
+          "away": 104
+        },
+        "updated": "2026-11-07T19:54:18Z",
+        "snapTime": "2026-11-07T19:54:32Z",
+        "noVig": 0.4755
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 2.0,
+          "pop": 2,
+          "text": "Mostly Cloudy; Partly Cloudy; Mostly Clear",
+          "heavy": false,
+          "temp": 55,
+          "value": 0.0,
+          "asOf": "2026-11-07T19:19:18Z",
+          "venue": "Aggie Memorial Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": -110,
+        "line": 14.5,
+        "implied": 0.5238,
+        "printImplied": 0.5283
+      },
+      "pinEdgeAtPick": -0.0358,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -3.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
