@@ -152446,6 +152446,150 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -4.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-08|Texas State Bobcats at Oregon State Beavers|total|under|v1|lean|wind-total|2026-11-07T07:45:19Z|gated|2026-11-07T07:45:19Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-08|Texas State Bobcats at Oregon State Beavers|total",
+      "sport": "NCAAF",
+      "event": "Texas State Bobcats at Oregon State Beavers",
+      "commence": "2026-11-08T03:30:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 71.5,
+      "priceAtPick": -115,
+      "marketNumber": 71.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -105,
+        "under": -115
+      },
+      "priceTime": "2026-11-07T07:45:07Z",
+      "pickedAt": "2026-11-07T07:45:19Z",
+      "fair": 63.5,
+      "projection": 63.5,
+      "edge": 8.0,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "edgeShrunk": -1.111,
+      "modelWeight": 0.113,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "wind-total",
+      "reason": "Open 66.5; wind 16 mph sustained, -3.0. Fair 63.5.",
+      "falsifier": "The total closes at or below the fair number before the forecast changes, or kickoff wind comes in under 15 mph.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "wind.py",
+      "pinAtPick": {
+        "line": 71.0,
+        "prices": {
+          "over": -115,
+          "under": -102
+        },
+        "updated": "2026-11-07T07:44:53Z",
+        "snapTime": "2026-11-07T07:45:07Z",
+        "noVig": 0.485
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 15.5,
+          "pop": 91,
+          "text": "Chance Light Rain; Light Rain Likely; Light Rain",
+          "heavy": false,
+          "temp": 59,
+          "value": -3.0,
+          "asOf": "2026-11-07T07:45:07Z",
+          "venue": "Reser Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -115,
+        "line": 71.5,
+        "implied": 0.5349,
+        "printImplied": 0.5349
+      },
+      "pinEdgeAtPick": -0.0409,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -4.1% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-07|Louisiana Tech Bulldogs at Troy Trojans|h2h|home|v1|lean|learned-scan-ncaaf-h2h|2026-11-07T07:45:26Z|gated|2026-11-07T07:45:26Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-07|Louisiana Tech Bulldogs at Troy Trojans|h2h",
+      "sport": "NCAAF",
+      "event": "Louisiana Tech Bulldogs at Troy Trojans",
+      "commence": "2026-11-07T21:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 184,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": 180,
+        "away": -218
+      },
+      "priceTime": "2026-11-07T07:45:07Z",
+      "pickedAt": "2026-11-07T07:45:26Z",
+      "fair": 0.3672,
+      "projection": 0.3672,
+      "edge": 0.015,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.02,
+      "modelWeight": 0.137,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-h2h",
+      "reason": "Model learned on the scanner's data (ridge, 14 data points, passed the out-of-sample gate) predicts a move of +0.0101 from the open for home; 0.0101 still to come. Report: stats/models/scan_ncaaf_h2h.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 192,
+          "away": -223
+        },
+        "updated": "2026-11-07T07:44:53Z",
+        "snapTime": "2026-11-07T07:45:07Z",
+        "noVig": 0.326
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 6.2,
+          "pop": 0,
+          "text": "Partly Sunny; Mostly Sunny; Partly Cloudy",
+          "heavy": false,
+          "temp": 65,
+          "value": 0.0,
+          "asOf": "2026-11-07T07:45:07Z",
+          "venue": "Veterans Memorial Stadium (AL)"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 184,
+        "line": null,
+        "implied": 0.3521,
+        "printImplied": 0.3571
+      },
+      "pinEdgeAtPick": -0.0261,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
