@@ -630,3 +630,13 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-06 | NFL: restDays=short + venue=home | 8 | +1.4% | found inside NFL venue=home (best of 28 features tested); small sample, may share reads with other rows |
 | 2026-11-06 | NFL: edgeBar=0.5-1x + restDays=short | 8 | +1.5% | found inside NFL restDays=short (best of 16 features tested); small sample, may share reads with other rows |
 | 2026-11-06 | NFL: edgeBar=0.5-1x + shortWeek=yes | 8 | +1.5% | found inside NFL shortWeek=yes (best of 16 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | market=spread + pinEdge=2%+ | 8 | +3.8% | found inside ALL market=spread (best of 71 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | bookAtPick=BetRivers + timing=day | 19 | +3.0% | found inside ALL timing=day (best of 88 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | pinEdge=2%+ + travel=500-1500 | 13 | +2.5% | found inside ALL travel=500-1500 (best of 81 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NBA: bookAtPick=BetRivers + edgeBar=0.5-1x | 11 | +3.4% | found inside NBA edgeBar=0.5-1x (best of 54 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NBA: bookAtPick=BetRivers + restEdge=even | 19 | +3.1% | found inside NBA restEdge=even (best of 42 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NBA: pinEdge=2%+ + sharpDivPick=aligned | 12 | +4.7% | found inside NBA sharpDivPick=aligned (best of 41 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NBA: pinEdge=2%+ + sharpGapPick=<1% | 12 | +4.7% | found inside NBA sharpGapPick=<1% (best of 41 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NBA: bookAtPick=BetRivers + travel=500-1500 | 15 | +3.2% | found inside NBA travel=500-1500 (best of 52 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NBA: edgeBar=1-2x + travelEdge=even | 8 | +4.2% | found inside NBA travelEdge=even (best of 36 features tested); small sample, may share reads with other rows |
+| 2026-11-07 | NBA: pinEdge=2%+ + venue=home | 11 | +3.5% | found inside NBA venue=home (best of 53 features tested); small sample, may share reads with other rows |
