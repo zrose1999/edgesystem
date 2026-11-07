@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-07T21:54:39Z",
+ "asOf": "2026-11-07T22:24:36Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 1156,
  "loggedReads": 2367,
@@ -98,8 +98,8 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 1513,
-  "latest": "2026-11-07T21:54:31Z",
+  "linesLastCycle": 1557,
+  "latest": "2026-11-07T22:24:29Z",
   "rowsWithHistory": 1915,
   "alarm": false
  },
@@ -12028,7 +12028,7 @@
    "n": 68,
    "meanClvProb": -0.0037,
    "pocket": {
-    "feature": "sharpDiv=aligned",
+    "feature": "sharpGapOpen=<1%",
     "n": 11,
     "meanClvProb": 0.0051,
     "tStat": 0.39
@@ -12113,7 +12113,7 @@
    "n": 105,
    "meanClvProb": -0.004,
    "pocket": {
-    "feature": "sharpDiv=aligned",
+    "feature": "sharpGapOpen=<1%",
     "n": 8,
     "meanClvProb": 0.0374,
     "tStat": 2.39
@@ -12865,7 +12865,7 @@
    "n": 167,
    "meanClvProb": -0.0159,
    "pocket": {
-    "feature": "shortWeek=yes",
+    "feature": "restDays=short",
     "n": 8,
     "meanClvProb": 0.0137,
     "tStat": 1.51
@@ -13882,7 +13882,7 @@
    "n": 47,
    "meanClvProb": -0.0007,
    "pocket": {
-    "feature": "pattern=sharp-soft-alt",
+    "feature": "keyNumber=yes",
     "n": 9,
     "meanClvProb": 0.0263,
     "tStat": 3.41
@@ -13901,7 +13901,7 @@
    "n": 47,
    "meanClvProb": -0.0007,
    "pocket": {
-    "feature": "pattern=sharp-soft-alt",
+    "feature": "keyNumber=yes",
     "n": 9,
     "meanClvProb": 0.0263,
     "tStat": 3.41
@@ -14359,7 +14359,7 @@
    "n": 19,
    "meanClvProb": -0.0057,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 8,
     "meanClvProb": 0.015,
     "tStat": 1.44
@@ -14452,7 +14452,7 @@
    "n": 19,
    "meanClvProb": -0.0057,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 8,
     "meanClvProb": 0.015,
     "tStat": 1.44
