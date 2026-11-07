@@ -806,6 +806,8 @@ def stamp(dry=False):
             continue
         if row.get("sport") not in pull.ACTIVE:
             continue   # set-aside sport (focus.py, 2026-11-03)
+        if row.get("movedTo"):
+            continue   # game moved to another UTC date; the live row carries the prices (2026-11-07: stale-row rejections)
         mine = [s for s in strategies if s["sport"] == row["sport"] and s["market"] == row["market"]
                 and (row["id"], s["id"]) not in done]
         if not mine:
@@ -841,7 +843,7 @@ def stamp(dry=False):
                 basis = f"result-only: ROI {r.get('mean', 0) * 100:+.1f}% on {r.get('n')} games (t {r.get('t', 0):+.1f}); no measured move, lean only"
             why = f"Scanner strategy {s['id']}: {s['sport']} {s['market']} {side} when {conds}; {basis}."
             todo.append((row, s, fair_for(row, side, edge, unit), why, lean))
-    learned = learned_stamp(ledger.get("rows") or [], now, done, dry)
+    learned = learned_stamp([r for r in ledger.get("rows") or [] if not r.get("movedTo")], now, done, dry)
     todo += [(row, {"id": pat, "side": side}, fair, why, lean) for row, pat, fair, why, lean, side in learned]
     stamped = 0
     for row, s, fair, why, lean in todo:

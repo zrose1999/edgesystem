@@ -554,6 +554,7 @@ def main(dry=False):
     now = datetime.now(timezone.utc)
     rows = pull.load(pull.LEDGER, {"rows": []}).get("rows") or []
     rows = [r for r in rows if r.get("sport") in pull.ACTIVE]   # set-aside sports read nothing (focus.py)
+    rows = [r for r in rows if not r.get("movedTo")]   # moved-date rows are stale; the live row (movedTo) is read (2026-11-07)
     picks = pull.load(pull.PICKS, {"picks": []})["picks"]
     done = {(p.get("rowId"), p.get("pattern")) for p in picks}
     todo = nhl_reads(rows, now, done)

@@ -34,6 +34,9 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   10-30 12Z only 3 favourite spreads (+2.7%) and 12 dog spreads (+0.2%): too few fresh reads to move it either way.
 - 2026-11-03 refresh (health check): all counted: favourites -1.5% (n 192, t -4.2; memory query same), dogs +0.2%
   (n 185, t 0.4). Since 10-30 12Z: 4 favourite spreads (+2.6%), 12 dog spreads (+0.2%). Still too few fresh reads.
+- 2026-11-07 refresh (health check, memory/log counted NFL/NCAAF/NBA): all counted favourites -1.5% (n 197,
+  t -4.3), dogs +0.3% (n 193, t 0.7). Since 10-30: favourites +0.8% (n 10, t 0.8), dogs +1.8% (n 20, t 1.7): the
+  gap is in the same direction on fresh reads but favourites are no longer losing; 20 more fresh favourite spreads to the kill test.
 
 ### 2. Away teams travelling east (2026-10-30, lead, waits on the NFL backfill)
 - NFL history 2015-2026 (PR #8): home moneyline when the away team travels east ROI -11.1% at the close (n 847, t -3.2,
@@ -106,6 +109,21 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - Test next: re-run when NBA snapshots with rest reach 40 away-more-rested games; if the soft-book early away price
   holds +0.5%+ at t >= 2 in both halves, launch a shadow h2h pattern (away more rested, stamped 6h+ early). Kill if
   the fair move is under +0.5% on 40+ games.
+
+### 6. Caesars is a slow book on NBA moneylines (2026-11-07, lead, testing)
+- Observation: findings.py flagged "the price came from Caesars" as a new condition today. On counted NFL/NCAAF/NBA
+  reads with Pinnacle at the pick (memory/log, n 280), reads whose best price was at Caesars beat the Pinnacle close
+  +1.7% (n 28, t 2.1, 22 games), and +1.8% (t 2.2) after holding the price gap vs Pinnacle's fair equal (CLV regressed
+  on gap, slope 0.38). Halves: +0.5% (n 14, t 0.7) then +3.1% (n 14, t 2.2). DraftKings -0.5% (n 107), FanDuel -0.2%
+  (n 103), BetMGM -0.8% (n 42; -0.3% gap-adjusted, halves -2.2% then +1.7%, so no stable BetMGM effect on this sample).
+- Mechanism: Caesars (added to pull.BOOKS 10-28) moves its NBA moneylines later than DK/FD and Pinnacle, so when it is
+  the best price the read is often taking a stale number that the close then removes from it. Half of the Caesars reads are
+  NBA h2h and 11 of 28 are soft-dog, so it may be soft-dog's edge showing up through the book that most often lags.
+- Living memory: memory.py query --feature bookAtPick=Caesars n 22, +1.0%, t 1.6; NBA h2h n 3, +1.3%.
+- Variants tried: 4 (2 books x raw and gap-adjusted).
+- Test next: at 50 Caesars-priced counted reads, split by soft-dog vs everything else; if non-soft-dog Caesars reads stay
+  +1%+ at t >= 2 in both halves, it is a book effect and the weekly review can weigh a book-aware bar for sharp-soft.
+  Kill if the gap-adjusted mean falls under +0.5% on 50.
 
 ## Experiments (live shadow patterns, stake 0)
 
