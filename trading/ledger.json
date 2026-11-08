@@ -20015,7 +20015,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.365,
-        "lastSeen": "2026-11-08T18:24:52Z"
+        "lastSeen": "2026-11-08T18:54:47Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV07ALSTTXSO-TXSO",
@@ -20195,6 +20195,31 @@
         "time": "2026-11-08T18:24:52Z",
         "count": 1,
         "cost": 0.29,
+        "fee": 0.02,
+        "status": "open",
+        "book": "paper",
+        "mode": "paper",
+        "lastMid": 0.295,
+        "lastSeen": "2026-11-08T18:54:47Z"
+      },
+      {
+        "ticker": "KXNBAGAME-26NOV08LALDET-LAL",
+        "title": "Los Angeles L",
+        "sport": "NBA",
+        "kind": "game",
+        "event": "Los Angeles Lakers at Detroit Pistons",
+        "commence": "2026-11-08T23:10:00Z",
+        "side": "yes",
+        "ask": 0.3,
+        "strike": null,
+        "source": "mirror:sharp-soft",
+        "fair": 0.3659,
+        "edge": 0.0512,
+        "estimated": true,
+        "why": "EDGE sharp-soft A pick (FanDuel away +235 implies 29.9%. Pinnacle +164 no-vig is 36.3%. Edge +6.4%.). Pinnacle fair here 30.1% plus the pick's edge = 36.6%; Kalshi YES 0.30 + fee = 0.315.",
+        "time": "2026-11-08T18:54:47Z",
+        "count": 1,
+        "cost": 0.3,
         "fee": 0.02,
         "status": "open",
         "book": "paper",
@@ -22473,6 +22498,14 @@
       {
         "t": "2026-11-08T18:24:52Z",
         "open": 4.1,
+        "realized": -82.5,
+        "equity": 17.5,
+        "clvN": 257,
+        "meanClv": -0.0022
+      },
+      {
+        "t": "2026-11-08T18:54:47Z",
+        "open": 4.42,
         "realized": -82.5,
         "equity": 17.5,
         "clvN": 257,
@@ -26528,6 +26561,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-08T18:24:52Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-08T18:54:47Z"
       }
     ]
   },
@@ -30199,6 +30236,58 @@
         "payout": 1.0,
         "pnl": 0.17,
         "settledAt": "2026-11-08T04:24:46Z"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV08LALDET-DET5",
+        "title": "Detroit wins by over 4.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Los Angeles Lakers at Detroit Pistons",
+        "commence": "2026-11-08T23:10:00Z",
+        "side": "no",
+        "strike": 4.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4732,
+        "edge": 0.0564,
+        "estimated": true,
+        "why": "Pinnacle fair 47.3% vs Kalshi NO 0.40 + fee = 0.417.",
+        "ask": 0.39,
+        "count": 1.0,
+        "cost": 0.39,
+        "fee": 0.0,
+        "time": "2026-11-08T18:54:47Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1bc68-3f58-7750-b2d8-1e33d1f96351",
+        "test": true,
+        "fillChecked": true
+      },
+      {
+        "ticker": "KXNBATOTAL-26NOV08LALDET-221",
+        "title": "Over 220.5 points",
+        "sport": "NBA",
+        "kind": "total",
+        "event": "Los Angeles Lakers at Detroit Pistons",
+        "commence": "2026-11-08T23:10:00Z",
+        "side": "yes",
+        "strike": 220.5,
+        "source": "kalshi-sharp",
+        "fair": 0.5023,
+        "edge": 0.0451,
+        "estimated": false,
+        "why": "Pinnacle fair 50.2% vs Kalshi YES 0.44 + fee = 0.457.",
+        "ask": 0.43,
+        "count": 1.0,
+        "cost": 0.43,
+        "fee": 0.0,
+        "time": "2026-11-08T18:54:47Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1bc68-3f58-7c45-874f-bdfbf2b4b078",
+        "test": true,
+        "fillChecked": true
       }
     ],
     "equity": [
@@ -31353,6 +31442,14 @@
         "equity": 35.62,
         "clvN": 96,
         "meanClv": 0.0009
+      },
+      {
+        "t": "2026-11-08T18:54:47Z",
+        "open": 1.9,
+        "realized": 0.62,
+        "equity": 35.62,
+        "clvN": 99,
+        "meanClv": 0.0043
       }
     ],
     "stopped": null,
@@ -35263,8 +35360,8 @@
         "orderPath": "v2",
         "price": 0.39,
         "count": 1,
-        "filledSeen": 0,
-        "status": "resting",
+        "filledSeen": 1.0,
+        "status": "executed",
         "time": "2026-11-08T18:24:52Z",
         "test": true
       },
@@ -35286,9 +35383,32 @@
         "orderPath": "v2",
         "price": 0.43,
         "count": 1,
+        "filledSeen": 1.0,
+        "status": "executed",
+        "time": "2026-11-08T18:24:52Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNBAGAME-26NOV08LALDET-DET",
+        "title": "Detroit",
+        "sport": "NBA",
+        "kind": "game",
+        "event": "Los Angeles Lakers at Detroit Pistons",
+        "commence": "2026-11-08T23:10:00Z",
+        "side": "no",
+        "strike": null,
+        "source": "mirror:sharp-soft",
+        "fair": 0.3659,
+        "edge": 0.0512,
+        "estimated": true,
+        "why": "EDGE sharp-soft A pick (FanDuel away +235 implies 29.9%. Pinnacle +164 no-vig is 36.3%. Edge +6.4%.). Pinnacle fair here 30.1% plus the pick's edge = 36.6%; Kalshi NO 0.30 + fee = 0.315.",
+        "orderId": "01a1bc83-a310-72fb-825f-bc7db88872d7",
+        "orderPath": "v2",
+        "price": 0.29,
+        "count": 1,
         "filledSeen": 0,
         "status": "resting",
-        "time": "2026-11-08T18:24:52Z",
+        "time": "2026-11-08T18:54:47Z",
         "test": true
       }
     ],
@@ -35358,7 +35478,7 @@
       }
     ]
   },
-  "asOf": "2026-11-08T18:24:52Z",
+  "asOf": "2026-11-08T18:54:47Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -35379,14 +35499,14 @@
     "liveActive": true,
     "liveWhy": "on since 2026-10-21T20:30:14.905Z",
     "paper": {
-      "open": 4.1,
+      "open": 4.42,
       "realized": -82.5,
       "equity": 17.5,
       "clvN": 257,
       "meanClv": -0.0022
     },
     "live": {
-      "open": 1.08,
+      "open": 1.9,
       "realized": 0.62,
       "equity": 35.62,
       "clvN": 99,
@@ -35395,8 +35515,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 329,
-      "resting": 3,
+      "orders": 331,
+      "resting": 5,
       "filled": 161,
       "expired": 165,
       "fillRate": 0.494,
@@ -35410,9 +35530,9 @@
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {
-      "already held": 2
+      "test: same contract already held": 3
     },
-    "liveCandidates": 5,
+    "liveCandidates": 4,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -35453,9 +35573,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 1.1,
-      "trades": 107,
-      "resting": 3
+      "spentToday": 1.39,
+      "trades": 109,
+      "resting": 2
     },
     "config": {
       "startingBankroll": 35.0,
@@ -35477,23 +35597,23 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4431,
+      "kalshiMarkets": 4433,
       "eventsMatched": 257,
       "eventsUnmatched": 216,
-      "candidates": 5
+      "candidates": 4
     }
   },
   "account": {
     "keys": "ok",
-    "balance": 97.07,
+    "balance": 96.24,
     "detail": {
-      "balance": 9707,
-      "balance_dollars": "97.0716",
-      "portfolio_value": 173,
-      "updated_ts": 1794162311
+      "balance": 9624,
+      "balance_dollars": "96.2431",
+      "portfolio_value": 228,
+      "updated_ts": 1794164106
     },
     "env": "production",
-    "checkedAt": "2026-11-08T18:25:11Z"
+    "checkedAt": "2026-11-08T18:55:06Z"
   },
   "maker": {
     "start": 0.0,
@@ -42236,6 +42356,44 @@
         "makerEdge": 0.068,
         "postedAt": "2026-11-08T18:24:52Z",
         "status": "resting"
+      },
+      {
+        "ticker": "KXNBAGAME-26NOV08LALDET-LAL",
+        "title": "Los Angeles L",
+        "sport": "NBA",
+        "kind": "game",
+        "event": "Los Angeles Lakers at Detroit Pistons",
+        "commence": "2026-11-08T23:10:00Z",
+        "side": "yes",
+        "source": "mirror:sharp-soft",
+        "fair": 0.3659,
+        "estimated": true,
+        "price": 0.29,
+        "bidAtPost": 0.29,
+        "askAtPost": 0.3,
+        "takerEdge": 0.0512,
+        "makerEdge": 0.0723,
+        "postedAt": "2026-11-08T18:54:47Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNBAGAME-26NOV08LALDET-LAL",
+        "title": "Los Angeles L",
+        "sport": "NBA",
+        "kind": "game",
+        "event": "Los Angeles Lakers at Detroit Pistons",
+        "commence": "2026-11-08T23:10:00Z",
+        "side": "yes",
+        "source": "mirror:soft-dog",
+        "fair": 0.3659,
+        "estimated": true,
+        "price": 0.29,
+        "bidAtPost": 0.29,
+        "askAtPost": 0.3,
+        "takerEdge": 0.0512,
+        "makerEdge": 0.0723,
+        "postedAt": "2026-11-08T18:54:47Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -46220,7 +46378,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.365,
-        "lastSeen": "2026-11-08T18:24:52Z"
+        "lastSeen": "2026-11-08T18:54:47Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08ARISEA-SEA",
@@ -46243,7 +46401,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.785,
-        "lastSeen": "2026-11-08T18:24:52Z"
+        "lastSeen": "2026-11-08T18:54:47Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV08ARISEA-43",
@@ -46266,7 +46424,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.395,
-        "lastSeen": "2026-11-08T18:24:52Z"
+        "lastSeen": "2026-11-08T18:54:47Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV08ARISEA-42",
@@ -46289,7 +46447,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.415,
-        "lastSeen": "2026-11-08T18:24:52Z"
+        "lastSeen": "2026-11-08T18:54:47Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV06TCUARIZ-44",
