@@ -701,3 +701,5 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-08 | NFL: bookAtPick=DraftKings + travel=none | 8 | +2.5% | found inside NFL travel=none (best of 34 features tested); small sample, may share reads with other rows |
 | 2026-11-08 | NFL: sharpDivPick=pin-for + travelEdge=less | 11 | +2.9% | found inside NFL travelEdge=less (best of 28 features tested); small sample, may share reads with other rows |
 | 2026-11-08 | NFL: sharpDivPick=pin-for + venue=home | 14 | +2.7% | found inside NFL venue=home (best of 32 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | NFL: moveBeforePick=for + pattern=soft-dog | 8 | +0.8% | found inside NFL moveBeforePick=for (best of 36 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | NFL: pinEdge=0-2% + restEdge=less | 8 | +1.4% | found inside NFL restEdge=less (best of 20 features tested); small sample, may share reads with other rows |

@@ -20202,7 +20202,9 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.295,
-        "lastSeen": "2026-11-08T22:54:46Z"
+        "lastSeen": "2026-11-08T22:54:46Z",
+        "closeMid": 0.295,
+        "clv": 0.005
       },
       {
         "ticker": "KXNBAGAME-26NOV08LALDET-LAL",
@@ -20227,7 +20229,9 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.295,
-        "lastSeen": "2026-11-08T22:54:46Z"
+        "lastSeen": "2026-11-08T22:54:46Z",
+        "closeMid": 0.295,
+        "clv": -0.005
       },
       {
         "ticker": "KXNBAGAME-26NOV08LALDET-LAL",
@@ -20252,7 +20256,32 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.295,
-        "lastSeen": "2026-11-08T22:54:46Z"
+        "lastSeen": "2026-11-08T22:54:46Z",
+        "closeMid": 0.295,
+        "clv": -0.005
+      },
+      {
+        "ticker": "KXNCAAFGAME-26NOV14TARLUWFL-TARL",
+        "title": "Tarleton St.",
+        "sport": "NCAAF",
+        "kind": "game",
+        "event": "Jacksonville State Gamecocks at Western Kentucky Hilltoppers",
+        "commence": "2026-11-14T20:30:00Z",
+        "side": "no",
+        "ask": 0.18,
+        "strike": null,
+        "source": "kalshi-sharp",
+        "fair": 0.2812,
+        "edge": 0.0908,
+        "estimated": false,
+        "why": "Pinnacle fair 28.1% vs Kalshi NO 0.18 + fee = 0.190.",
+        "time": "2026-11-08T23:10:07Z",
+        "count": 2,
+        "cost": 0.36,
+        "fee": 0.03,
+        "status": "open",
+        "book": "paper",
+        "mode": "paper"
       }
     ],
     "equity": [
@@ -22546,6 +22575,14 @@
         "realized": -82.5,
         "equity": 17.5,
         "clvN": 257,
+        "meanClv": -0.0022
+      },
+      {
+        "t": "2026-11-08T23:10:07Z",
+        "open": 5.13,
+        "realized": -82.5,
+        "equity": 17.5,
+        "clvN": 261,
         "meanClv": -0.0022
       }
     ],
@@ -26642,6 +26679,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-08T22:54:46Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-08T23:10:07Z"
       }
     ]
   },
@@ -30355,7 +30396,9 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.39,
-        "lastSeen": "2026-11-08T22:54:46Z"
+        "lastSeen": "2026-11-08T22:54:46Z",
+        "closeMid": 0.39,
+        "clv": 0.0
       },
       {
         "ticker": "KXNBATOTAL-26NOV08LALDET-221",
@@ -30383,7 +30426,9 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.415,
-        "lastSeen": "2026-11-08T22:54:46Z"
+        "lastSeen": "2026-11-08T22:54:46Z",
+        "closeMid": 0.415,
+        "clv": -0.015
       },
       {
         "ticker": "KXNBAGAME-26NOV08LALDET-DET",
@@ -35484,7 +35529,7 @@
         "price": 0.28,
         "count": 1,
         "filledSeen": 0,
-        "status": "resting",
+        "status": "canceled",
         "time": "2026-11-08T18:24:52Z",
         "test": true
       },
@@ -35556,6 +35601,98 @@
         "status": "executed",
         "time": "2026-11-08T18:54:47Z",
         "test": true
+      },
+      {
+        "ticker": "KXNCAAFGAME-26NOV14TARLUWFL-TARL",
+        "title": "Tarleton St.",
+        "sport": "NCAAF",
+        "kind": "game",
+        "event": "Jacksonville State Gamecocks at Western Kentucky Hilltoppers",
+        "commence": "2026-11-14T20:30:00Z",
+        "side": "no",
+        "strike": null,
+        "source": "kalshi-sharp",
+        "fair": 0.2812,
+        "edge": 0.0908,
+        "estimated": false,
+        "why": "Pinnacle fair 28.1% vs Kalshi NO 0.18 + fee = 0.190.",
+        "orderId": "01a1bd6d-62e8-7f91-ba02-27fb78640456",
+        "orderPath": "v2",
+        "price": 0.14,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-08T23:10:07Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNCAAFGAME-26NOV13FSUPITT-PITT",
+        "title": "Pittsburgh",
+        "sport": "NCAAF",
+        "kind": "game",
+        "event": "Florida State Seminoles at Pittsburgh Panthers",
+        "commence": "2026-11-14T00:00:00Z",
+        "side": "yes",
+        "strike": null,
+        "source": "mirror:sharp-soft",
+        "fair": 0.6636,
+        "edge": 0.0271,
+        "estimated": true,
+        "why": "EDGE sharp-soft B pick (FanDuel home -166 implies 62.4%. Pinnacle -196 no-vig is 64.4%. Edge +2.0%.). Pinnacle fair here 64.4% plus the pick's edge = 66.4%; Kalshi YES 0.62 + fee = 0.636.",
+        "orderId": "01a1bd6d-66d0-70d3-aab9-3e6041cde29b",
+        "orderPath": "v2",
+        "price": 0.61,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-08T23:10:07Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV08UTAMIN-MIN12",
+        "title": "Minnesota wins by over 11.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Utah Jazz at Minnesota Timberwolves",
+        "commence": "2026-11-09T00:10:00Z",
+        "side": "no",
+        "strike": 11.5,
+        "source": "mirror:sharp-soft",
+        "fair": 0.523,
+        "edge": 0.0255,
+        "estimated": true,
+        "why": "EDGE sharp-soft B pick (Caesars away +12 +105 implies 48.8%. Pinnacle -112 no-vig is 51.3%. Edge +2.5%.). Pinnacle fair here 49.8% plus the pick's edge = 52.3%; Kalshi NO 0.48 + fee = 0.497.",
+        "orderId": "01a1bd6d-66d0-7a8b-88d7-8c2305166996",
+        "orderPath": "v2",
+        "price": 0.47,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-08T23:10:07Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV14JVSTWKU-JVST7",
+        "title": "Jacksonville St. wins by over 6.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Jacksonville State Gamecocks at Western Kentucky Hilltoppers",
+        "commence": "2026-11-14T20:30:00Z",
+        "side": "yes",
+        "strike": 6.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5686,
+        "edge": 0.0212,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt B pick (theScore Bet away -6.5 -115 implies 53.5%. Pinnacle -112 no-vig is 50.9% at 7, worth 55.2% at this line. Edge +1.7%.). Pinnacle fair here 55.2% plus the pick's edge = 56.9%; Kalshi YES 0.53 + fee = 0.547.",
+        "orderId": "01a1bd6d-6ab8-7033-a7a6-f338f90f4ab4",
+        "orderPath": "v2",
+        "price": 0.52,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-08T23:10:07Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -35624,7 +35761,7 @@
       }
     ]
   },
-  "asOf": "2026-11-08T22:54:46Z",
+  "asOf": "2026-11-08T23:10:07Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -35645,28 +35782,28 @@
     "liveActive": true,
     "liveWhy": "on since 2026-10-21T20:30:14.905Z",
     "paper": {
-      "open": 4.74,
+      "open": 5.13,
       "realized": -82.5,
       "equity": 17.5,
-      "clvN": 258,
+      "clvN": 261,
       "meanClv": -0.0022
     },
     "live": {
       "open": 1.11,
       "realized": 0.54,
       "equity": 35.54,
-      "clvN": 99,
-      "meanClv": 0.0043
+      "clvN": 101,
+      "meanClv": 0.0041
     },
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 331,
-      "resting": 4,
+      "orders": 336,
+      "resting": 5,
       "filled": 162,
-      "expired": 165,
-      "fillRate": 0.495,
-      "clvN": 161,
+      "expired": 169,
+      "fillRate": 0.489,
+      "clvN": 162,
       "meanClv": -0.0134,
       "meanClvNet": -0.0175,
       "settledPnl": -0.49,
@@ -35676,10 +35813,10 @@
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {
-      "already held": 2,
-      "test: same contract already held": 2
+      "already held": 1,
+      "test: same contract already held": 1
     },
-    "liveCandidates": 4,
+    "liveCandidates": 6,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -35691,9 +35828,9 @@
       },
       "kalshi-sharp": {
         "status": "shadow",
-        "n": 18,
-        "meanClvNet": -0.004,
-        "t": -0.1,
+        "n": 19,
+        "meanClvNet": -0.0046,
+        "t": -0.12,
         "tNeeded": 2.5,
         "freshN": 0
       },
@@ -35720,9 +35857,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 1.39,
+      "spentToday": 2.85,
       "trades": 110,
-      "resting": 1
+      "resting": 4
     },
     "config": {
       "startingBankroll": 35.0,
@@ -35744,10 +35881,10 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4238,
-      "eventsMatched": 242,
+      "kalshiMarkets": 4683,
+      "eventsMatched": 262,
       "eventsUnmatched": 214,
-      "candidates": 4
+      "candidates": 6
     }
   },
   "account": {
@@ -35756,11 +35893,11 @@
     "detail": {
       "balance": 6071,
       "balance_dollars": "60.7171",
-      "portfolio_value": 3149,
-      "updated_ts": 1794178506
+      "portfolio_value": 3541,
+      "updated_ts": 1794179427
     },
     "env": "production",
-    "checkedAt": "2026-11-08T22:55:06Z"
+    "checkedAt": "2026-11-08T23:10:27Z"
   },
   "maker": {
     "start": 0.0,
@@ -42464,7 +42601,8 @@
         "takerEdge": 0.0586,
         "makerEdge": 0.0795,
         "postedAt": "2026-11-08T18:24:52Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-08T23:10:07Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV08LALDET-DET5",
@@ -42483,7 +42621,8 @@
         "takerEdge": 0.0564,
         "makerEdge": 0.079,
         "postedAt": "2026-11-08T18:24:52Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-08T23:10:07Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV08LALDET-221",
@@ -42523,7 +42662,8 @@
         "takerEdge": 0.0512,
         "makerEdge": 0.0723,
         "postedAt": "2026-11-08T18:54:47Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-08T23:10:07Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV08LALDET-LAL",
@@ -42542,6 +42682,102 @@
         "takerEdge": 0.0512,
         "makerEdge": 0.0723,
         "postedAt": "2026-11-08T18:54:47Z",
+        "status": "expired",
+        "expiredAt": "2026-11-08T23:10:07Z"
+      },
+      {
+        "ticker": "KXNCAAFGAME-26NOV14TARLUWFL-TARL",
+        "title": "Tarleton St.",
+        "sport": "NCAAF",
+        "kind": "game",
+        "event": "Jacksonville State Gamecocks at Western Kentucky Hilltoppers",
+        "commence": "2026-11-14T20:30:00Z",
+        "side": "no",
+        "source": "kalshi-sharp",
+        "fair": 0.2812,
+        "estimated": false,
+        "price": 0.14,
+        "bidAtPost": 0.13,
+        "askAtPost": 0.18,
+        "takerEdge": 0.0908,
+        "makerEdge": 0.1391,
+        "postedAt": "2026-11-08T23:10:07Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNCAAFGAME-26NOV13FSUPITT-PITT",
+        "title": "Pittsburgh",
+        "sport": "NCAAF",
+        "kind": "game",
+        "event": "Florida State Seminoles at Pittsburgh Panthers",
+        "commence": "2026-11-14T00:00:00Z",
+        "side": "yes",
+        "source": "mirror:sharp-soft",
+        "fair": 0.6636,
+        "estimated": true,
+        "price": 0.61,
+        "bidAtPost": 0.6,
+        "askAtPost": 0.62,
+        "takerEdge": 0.0271,
+        "makerEdge": 0.0494,
+        "postedAt": "2026-11-08T23:10:07Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV08UTAMIN-MIN12",
+        "title": "Minnesota wins by over 11.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Utah Jazz at Minnesota Timberwolves",
+        "commence": "2026-11-09T00:10:00Z",
+        "side": "no",
+        "source": "mirror:sharp-soft",
+        "fair": 0.523,
+        "estimated": true,
+        "price": 0.47,
+        "bidAtPost": 0.47,
+        "askAtPost": 0.48,
+        "takerEdge": 0.0255,
+        "makerEdge": 0.0486,
+        "postedAt": "2026-11-08T23:10:07Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV08UTAMIN-MIN12",
+        "title": "Minnesota wins by over 11.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Utah Jazz at Minnesota Timberwolves",
+        "commence": "2026-11-09T00:10:00Z",
+        "side": "no",
+        "source": "mirror:soft-dog",
+        "fair": 0.523,
+        "estimated": true,
+        "price": 0.47,
+        "bidAtPost": 0.47,
+        "askAtPost": 0.48,
+        "takerEdge": 0.0255,
+        "makerEdge": 0.0486,
+        "postedAt": "2026-11-08T23:10:07Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV14JVSTWKU-JVST7",
+        "title": "Jacksonville St. wins by over 6.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Jacksonville State Gamecocks at Western Kentucky Hilltoppers",
+        "commence": "2026-11-14T20:30:00Z",
+        "side": "yes",
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5686,
+        "estimated": true,
+        "price": 0.52,
+        "bidAtPost": 0.52,
+        "askAtPost": 0.53,
+        "takerEdge": 0.0212,
+        "makerEdge": 0.0442,
+        "postedAt": "2026-11-08T23:10:07Z",
         "status": "resting"
       }
     ],
@@ -47377,7 +47613,9 @@
         "mode": "paper",
         "postedAt": "2026-11-08T18:24:52Z",
         "lastMid": 0.415,
-        "lastSeen": "2026-11-08T22:54:46Z"
+        "lastSeen": "2026-11-08T22:54:46Z",
+        "closeMid": 0.415,
+        "clv": -0.015
       }
     ],
     "equity": [],
@@ -47394,9 +47632,9 @@
     },
     "kalshi-sharp": {
       "status": "shadow",
-      "n": 18,
-      "meanClvNet": -0.004,
-      "t": -0.1,
+      "n": 19,
+      "meanClvNet": -0.0046,
+      "t": -0.12,
       "tNeeded": 2.5,
       "freshN": 0
     },
