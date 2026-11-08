@@ -20015,7 +20015,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.365,
-        "lastSeen": "2026-11-08T17:54:39Z"
+        "lastSeen": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV07ALSTTXSO-TXSO",
@@ -20176,6 +20176,29 @@
         "payout": 1.0,
         "pnl": 0.57,
         "settledAt": "2026-11-08T07:56:42Z"
+      },
+      {
+        "ticker": "KXNBAGAME-26NOV08LALDET-LAL",
+        "title": "Los Angeles L",
+        "sport": "NBA",
+        "kind": "game",
+        "event": "Los Angeles Lakers at Detroit Pistons",
+        "commence": "2026-11-08T23:10:00Z",
+        "side": "yes",
+        "ask": 0.29,
+        "strike": null,
+        "source": "kalshi-sharp",
+        "fair": 0.363,
+        "edge": 0.0586,
+        "estimated": false,
+        "why": "Pinnacle fair 36.3% vs Kalshi YES 0.29 + fee = 0.304.",
+        "time": "2026-11-08T18:24:52Z",
+        "count": 1,
+        "cost": 0.29,
+        "fee": 0.02,
+        "status": "open",
+        "book": "paper",
+        "mode": "paper"
       }
     ],
     "equity": [
@@ -22442,6 +22465,14 @@
       {
         "t": "2026-11-08T07:56:42Z",
         "open": 3.79,
+        "realized": -82.5,
+        "equity": 17.5,
+        "clvN": 257,
+        "meanClv": -0.0022
+      },
+      {
+        "t": "2026-11-08T18:24:52Z",
+        "open": 4.1,
         "realized": -82.5,
         "equity": 17.5,
         "clvN": 257,
@@ -26493,6 +26524,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-08T17:54:39Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-08T18:24:52Z"
       }
     ]
   },
@@ -29300,7 +29335,9 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.675,
-        "lastSeen": "2026-11-08T17:54:39Z"
+        "lastSeen": "2026-11-08T17:54:39Z",
+        "closeMid": 0.675,
+        "clv": 0.155
       },
       {
         "ticker": "KXNFLSPREAD-26NOV08CLENO-NO4",
@@ -29328,7 +29365,9 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.555,
-        "lastSeen": "2026-11-08T17:54:39Z"
+        "lastSeen": "2026-11-08T17:54:39Z",
+        "closeMid": 0.555,
+        "clv": 0.175
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV07TXSTORST-ORST6",
@@ -29426,7 +29465,9 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.185,
-        "lastSeen": "2026-11-08T17:54:39Z"
+        "lastSeen": "2026-11-08T17:54:39Z",
+        "closeMid": 0.185,
+        "clv": 0.005
       },
       {
         "ticker": "KXNBASPREAD-26NOV04UTANOP-NOP7",
@@ -34970,7 +35011,7 @@
         "price": 0.25,
         "count": 1,
         "filledSeen": 0,
-        "status": "resting",
+        "status": "canceled",
         "time": "2026-11-06T19:10:07Z",
         "test": true
       },
@@ -34993,7 +35034,7 @@
         "price": 0.48,
         "count": 1,
         "filledSeen": 0,
-        "status": "resting",
+        "status": "canceled",
         "time": "2026-11-07T11:10:42Z",
         "test": true
       },
@@ -35062,7 +35103,7 @@
         "price": 0.44,
         "count": 1,
         "filledSeen": 0,
-        "status": "resting",
+        "status": "canceled",
         "time": "2026-11-07T15:24:46Z",
         "test": true
       },
@@ -35154,7 +35195,7 @@
         "price": 0.43,
         "count": 1,
         "filledSeen": 0,
-        "status": "resting",
+        "status": "canceled",
         "time": "2026-11-08T17:00:55Z",
         "test": true
       },
@@ -35177,8 +35218,77 @@
         "price": 0.39,
         "count": 1,
         "filledSeen": 0,
-        "status": "resting",
+        "status": "canceled",
         "time": "2026-11-08T17:54:39Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNBAGAME-26NOV08LALDET-LAL",
+        "title": "Los Angeles L",
+        "sport": "NBA",
+        "kind": "game",
+        "event": "Los Angeles Lakers at Detroit Pistons",
+        "commence": "2026-11-08T23:10:00Z",
+        "side": "yes",
+        "strike": null,
+        "source": "kalshi-sharp",
+        "fair": 0.363,
+        "edge": 0.0586,
+        "estimated": false,
+        "why": "Pinnacle fair 36.3% vs Kalshi YES 0.29 + fee = 0.304.",
+        "orderId": "01a1bc68-3b70-7e72-96a1-d6b977cf62a6",
+        "orderPath": "v2",
+        "price": 0.28,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-08T18:24:52Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV08LALDET-DET5",
+        "title": "Detroit wins by over 4.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Los Angeles Lakers at Detroit Pistons",
+        "commence": "2026-11-08T23:10:00Z",
+        "side": "no",
+        "strike": 4.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4732,
+        "edge": 0.0564,
+        "estimated": true,
+        "why": "Pinnacle fair 47.3% vs Kalshi NO 0.40 + fee = 0.417.",
+        "orderId": "01a1bc68-3f58-7750-b2d8-1e33d1f96351",
+        "orderPath": "v2",
+        "price": 0.39,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-08T18:24:52Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNBATOTAL-26NOV08LALDET-221",
+        "title": "Over 220.5 points",
+        "sport": "NBA",
+        "kind": "total",
+        "event": "Los Angeles Lakers at Detroit Pistons",
+        "commence": "2026-11-08T23:10:00Z",
+        "side": "yes",
+        "strike": 220.5,
+        "source": "kalshi-sharp",
+        "fair": 0.5023,
+        "edge": 0.0451,
+        "estimated": false,
+        "why": "Pinnacle fair 50.2% vs Kalshi YES 0.44 + fee = 0.457.",
+        "orderId": "01a1bc68-3f58-7c45-874f-bdfbf2b4b078",
+        "orderPath": "v2",
+        "price": 0.43,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-08T18:24:52Z",
         "test": true
       }
     ],
@@ -35248,7 +35358,7 @@
       }
     ]
   },
-  "asOf": "2026-11-08T17:54:39Z",
+  "asOf": "2026-11-08T18:24:52Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -35269,7 +35379,7 @@
     "liveActive": true,
     "liveWhy": "on since 2026-10-21T20:30:14.905Z",
     "paper": {
-      "open": 3.79,
+      "open": 4.1,
       "realized": -82.5,
       "equity": 17.5,
       "clvN": 257,
@@ -35279,17 +35389,17 @@
       "open": 1.08,
       "realized": 0.62,
       "equity": 35.62,
-      "clvN": 96,
-      "meanClv": 0.0009
+      "clvN": 99,
+      "meanClv": 0.0043
     },
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 326,
-      "resting": 13,
+      "orders": 329,
+      "resting": 3,
       "filled": 161,
-      "expired": 152,
-      "fillRate": 0.514,
+      "expired": 165,
+      "fillRate": 0.494,
       "clvN": 157,
       "meanClv": -0.0137,
       "meanClvNet": -0.0179,
@@ -35299,8 +35409,10 @@
       "pairedTakerClvNet": -0.0242,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 1,
+    "liveSkips": {
+      "already held": 2
+    },
+    "liveCandidates": 5,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -35341,9 +35453,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 0.82,
+      "spentToday": 1.1,
       "trades": 107,
-      "resting": 5
+      "resting": 3
     },
     "config": {
       "startingBankroll": 35.0,
@@ -35368,7 +35480,7 @@
       "kalshiMarkets": 4431,
       "eventsMatched": 257,
       "eventsUnmatched": 216,
-      "candidates": 1
+      "candidates": 5
     }
   },
   "account": {
@@ -35377,11 +35489,11 @@
     "detail": {
       "balance": 9707,
       "balance_dollars": "97.0716",
-      "portfolio_value": 142,
-      "updated_ts": 1794160500
+      "portfolio_value": 173,
+      "updated_ts": 1794162311
     },
     "env": "production",
-    "checkedAt": "2026-11-08T17:55:00Z"
+    "checkedAt": "2026-11-08T18:25:11Z"
   },
   "maker": {
     "start": 0.0,
@@ -40634,7 +40746,8 @@
         "takerEdge": 0.0287,
         "makerEdge": 0.0465,
         "postedAt": "2026-11-02T02:17:06Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08NYJKC-NYJ",
@@ -40653,7 +40766,8 @@
         "takerEdge": 0.0287,
         "makerEdge": 0.0465,
         "postedAt": "2026-11-02T02:17:06Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08DETMIA-MIA",
@@ -40672,7 +40786,8 @@
         "takerEdge": 0.0245,
         "makerEdge": 0.0441,
         "postedAt": "2026-11-02T02:17:06Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV02CHIPHI-238",
@@ -40874,7 +40989,8 @@
         "takerEdge": 0.0428,
         "makerEdge": 0.0653,
         "postedAt": "2026-11-03T18:22:52Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08CLENO-CLE",
@@ -40893,7 +41009,8 @@
         "takerEdge": 0.0391,
         "makerEdge": 0.0621,
         "postedAt": "2026-11-03T18:55:43Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08CLENO-CLE",
@@ -40912,7 +41029,8 @@
         "takerEdge": 0.0236,
         "makerEdge": 0.0466,
         "postedAt": "2026-11-03T18:55:43Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV06TCUARIZ-44",
@@ -41737,7 +41855,8 @@
         "takerEdge": 0.0215,
         "makerEdge": 0.0416,
         "postedAt": "2026-11-06T19:10:07Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV06TCUARIZ-ARIZ6",
@@ -41776,7 +41895,8 @@
         "takerEdge": 0.0252,
         "makerEdge": 0.048,
         "postedAt": "2026-11-06T23:10:03Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV07CLEMSYR-CLEM3",
@@ -41835,7 +41955,8 @@
         "takerEdge": 0.0399,
         "makerEdge": 0.063,
         "postedAt": "2026-11-07T02:39:25Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV08NYJKC-KC10",
@@ -41854,7 +41975,8 @@
         "takerEdge": 0.0399,
         "makerEdge": 0.063,
         "postedAt": "2026-11-07T02:39:25Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV07ALSTTXSO-ALST6",
@@ -41913,7 +42035,8 @@
         "takerEdge": 0.0203,
         "makerEdge": 0.0433,
         "postedAt": "2026-11-07T15:10:00Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV07RICEUNT-UNT14",
@@ -42034,7 +42157,8 @@
         "takerEdge": 0.0214,
         "makerEdge": 0.0445,
         "postedAt": "2026-11-08T16:54:42Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV08DALIND-DAL3",
@@ -42053,6 +42177,64 @@
         "takerEdge": 0.0243,
         "makerEdge": 0.0469,
         "postedAt": "2026-11-08T17:54:39Z",
+        "status": "expired",
+        "expiredAt": "2026-11-08T18:24:52Z"
+      },
+      {
+        "ticker": "KXNBAGAME-26NOV08LALDET-LAL",
+        "title": "Los Angeles L",
+        "sport": "NBA",
+        "kind": "game",
+        "event": "Los Angeles Lakers at Detroit Pistons",
+        "commence": "2026-11-08T23:10:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp",
+        "fair": 0.363,
+        "estimated": false,
+        "price": 0.28,
+        "bidAtPost": 0.28,
+        "askAtPost": 0.29,
+        "takerEdge": 0.0586,
+        "makerEdge": 0.0795,
+        "postedAt": "2026-11-08T18:24:52Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV08LALDET-DET5",
+        "title": "Detroit wins by over 4.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Los Angeles Lakers at Detroit Pistons",
+        "commence": "2026-11-08T23:10:00Z",
+        "side": "no",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4732,
+        "estimated": true,
+        "price": 0.39,
+        "bidAtPost": 0.38,
+        "askAtPost": 0.4,
+        "takerEdge": 0.0564,
+        "makerEdge": 0.079,
+        "postedAt": "2026-11-08T18:24:52Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNBATOTAL-26NOV08LALDET-221",
+        "title": "Over 220.5 points",
+        "sport": "NBA",
+        "kind": "total",
+        "event": "Los Angeles Lakers at Detroit Pistons",
+        "commence": "2026-11-08T23:10:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp",
+        "fair": 0.5023,
+        "estimated": false,
+        "price": 0.43,
+        "bidAtPost": 0.43,
+        "askAtPost": 0.44,
+        "takerEdge": 0.0451,
+        "makerEdge": 0.068,
+        "postedAt": "2026-11-08T18:24:52Z",
         "status": "resting"
       }
     ],
@@ -46038,7 +46220,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.365,
-        "lastSeen": "2026-11-08T17:54:39Z"
+        "lastSeen": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08ARISEA-SEA",
@@ -46061,7 +46243,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.785,
-        "lastSeen": "2026-11-08T17:54:39Z"
+        "lastSeen": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV08ARISEA-43",
@@ -46084,7 +46266,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.395,
-        "lastSeen": "2026-11-08T17:54:39Z"
+        "lastSeen": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV08ARISEA-42",
@@ -46107,7 +46289,7 @@
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.415,
-        "lastSeen": "2026-11-08T17:54:39Z"
+        "lastSeen": "2026-11-08T18:24:52Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV06TCUARIZ-44",
