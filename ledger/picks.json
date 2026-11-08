@@ -159249,6 +159249,65 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.2% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NFL|2026-11-08|Houston Texans at Los Angeles Chargers|spread|home|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NFL|2026-11-08|Houston Texans at Los Angeles Chargers|spread",
+      "sport": "NFL",
+      "event": "Houston Texans at Los Angeles Chargers",
+      "commence": "2026-11-08T21:05:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": 6.0,
+      "priceAtPick": -110,
+      "bookAtPick": "Caesars",
+      "marketNumber": 5.5,
+      "marketPrices": {
+        "home": -108,
+        "away": -112
+      },
+      "priceTime": "2026-11-08T13:24:30Z",
+      "pickedAt": "2026-11-08T13:24:30Z",
+      "fair": 0.5313,
+      "projection": 0.5313,
+      "edge": 0.0075,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "Caesars home +6 -110 implies 52.4%. Pinnacle -119 no-vig is 53.1%. Edge +0.7%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": 6.0,
+        "prices": {
+          "home": -119,
+          "away": 108
+        },
+        "updated": "2026-11-08T13:24:21Z",
+        "snapTime": "2026-11-08T13:24:30Z",
+        "noVig": 0.5313
+      },
+      "contextAtPick": {
+        "injury": "LAC WR1 Ladd McConkey: Questionable at the open, Active now, -0.25 spread, +0.25 total | LAC LT Joe Alt: Questionable at the open, Active now, -0.25 spread | LAC OL starter Kayode Awosika: Questionable at the open, Doubtful now, +0.12 spread | LAC defensive starter Derwin James Jr.: Questionable at the open, Injured Reserve now, +0.12 spread | LAC defensive starter Donte Jackson: Questionable at the open, Active now, -0.12 spread | HOU RB1 David Montgomery: Questionable at the open, Out now, +0.12 spread, -0.25 total | HOU defensive starter Jalen Pitre: Questionable at the open, Active now, -0.12 spread | HOU defensive starter Reed Blankenship: Questionable at the open, Out now, +0.12 spread"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -108,
+        "line": 5.5,
+        "implied": 0.5192,
+        "printImplied": 0.5192
+      },
+      "priceBook": "DraftKings",
+      "pinEdgeAtPick": 0.0075,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
