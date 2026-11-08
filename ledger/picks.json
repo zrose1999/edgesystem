@@ -159616,6 +159616,75 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.7% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NFL|2026-11-08|New York Giants at Philadelphia Eagles|spread|home|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NFL|2026-11-08|New York Giants at Philadelphia Eagles|spread",
+      "sport": "NFL",
+      "event": "New York Giants at Philadelphia Eagles",
+      "commence": "2026-11-08T18:00:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": 3.0,
+      "priceAtPick": -110,
+      "bookAtPick": "DraftKings",
+      "marketNumber": 3.0,
+      "marketPrices": {
+        "home": -110,
+        "away": -110
+      },
+      "priceTime": "2026-11-08T17:39:28Z",
+      "pickedAt": "2026-11-08T17:39:28Z",
+      "fair": 0.5409,
+      "projection": 0.5409,
+      "edge": 0.0171,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "DraftKings home +3 -110 implies 52.4%. Pinnacle -124 no-vig is 54.1%. Edge +1.7%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": 3.0,
+        "prices": {
+          "home": -124,
+          "away": 112
+        },
+        "updated": "2026-11-08T17:39:23Z",
+        "snapTime": "2026-11-08T17:39:28Z",
+        "noVig": 0.5409
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 8.8,
+          "pop": 0,
+          "text": "Sunny",
+          "heavy": false,
+          "temp": 60,
+          "value": 0.0,
+          "asOf": "2026-11-08T17:00:30Z",
+          "venue": "Lincoln Financial Field"
+        },
+        "injury": "PHI WR1 DeVonta Smith: Questionable at the open, Out now, +0.25 spread, -0.25 total | PHI RB1 Saquon Barkley: Questionable at the open, Active now, -0.12 spread, +0.25 total | PHI defensive starter Nolan Smith Jr.: Questionable at the open, Active now, -0.12 spread | PHI defensive starter Jihaad Campbell: Active at the open, Out now, +0.25 spread | NYG RB1 Cam Skattebo: Questionable at the open, Out now, +0.12 spread, -0.25 total | NYG defensive starter Greg Newsome II: Questionable at the open, Active now, -0.12 spread | NYG defensive starter Jevon Holland: Questionable at the open, Active now, -0.12 spread | NYG defensive starter Darius Alexander: Questionable at the open, Active now, -0.12 spread"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -110,
+        "line": 3.0,
+        "implied": 0.5238,
+        "printImplied": 0.5238
+      },
+      "priceBook": "DraftKings",
+      "pinEdgeAtPick": 0.0171,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
