@@ -117148,7 +117148,19 @@
       "priceBook": "FanDuel",
       "pinEdgeAtPick": 0.0155,
       "pinEdgeEstimated": false,
-      "pinGate": "pass"
+      "pinGate": "pass",
+      "closeLine": null,
+      "closePrice": 130,
+      "closeNoVig": 0.4157,
+      "estimated": false,
+      "clvPoints": 0.0,
+      "clvProb": -0.0315,
+      "clvProbPrint": -0.0287,
+      "clvProbPin": -0.0315,
+      "closeNoVigPin": 0.4129,
+      "clvBench": "pinnacle",
+      "clvProbBest": -0.0522,
+      "clvProbAtPrintPrice": -0.0522
     },
     {
       "pickId": "NHL|2026-10-31|Pittsburgh Penguins at Montr\u00e9al Canadiens|h2h|away|v1|soft-dog",
@@ -123419,7 +123431,21 @@
       "priceBook": "Caesars",
       "pinEdgeAtPick": 0.0154,
       "pinEdgeEstimated": false,
-      "pinGate": "pass"
+      "pinGate": "pass",
+      "closeLine": null,
+      "closePrice": 240,
+      "closeNoVig": 0.2859,
+      "estimated": false,
+      "clvPoints": 0.0,
+      "clvProb": 0.0262,
+      "clvProbPrint": 0.0262,
+      "clvProbPin": 0.0262,
+      "closeNoVigPin": 0.2859,
+      "clvBench": "pinnacle",
+      "clvProbBest": 0.0156,
+      "clvProbAtPrintPrice": -0.0048,
+      "result": "loss",
+      "units": -1.0
     },
     {
       "pickId": "MLS|2026-11-08|Colorado Rapids at FC Dallas|h2h|away|v1|sharp-soft",
@@ -159377,6 +159403,205 @@
       "pinEdgeAtPick": 0.0079,
       "pinEdgeEstimated": false,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NBA|2026-11-09|New Orleans Pelicans at Los Angeles Clippers|total|over|v1|lean|learned-nba-total|2026-11-08T15:09:44Z|gated|2026-11-08T15:09:44Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NBA|2026-11-09|New Orleans Pelicans at Los Angeles Clippers|total",
+      "sport": "NBA",
+      "event": "New Orleans Pelicans at Los Angeles Clippers",
+      "commence": "2026-11-09T02:10:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 226.5,
+      "priceAtPick": -110,
+      "marketNumber": 226.5,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "over": -112,
+        "under": -108
+      },
+      "priceTime": "2026-11-08T15:09:30Z",
+      "pickedAt": "2026-11-08T15:09:44Z",
+      "fair": 227.457,
+      "projection": 227.457,
+      "edge": 0.957,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "edgeShrunk": -0.552,
+      "modelWeight": 0.123,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-nba-total",
+      "reason": "Learned NBA model (ridge, 89 data points) predicts the total moves +1.96 from the open; open 225.5, now 226.5, 0.96 still to come. Fair 227.46. Report: stats/models/nba_total.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": 226.5,
+        "prices": {
+          "over": -108,
+          "under": -104
+        },
+        "updated": "2026-11-08T15:09:22Z",
+        "snapTime": "2026-11-08T15:09:30Z",
+        "noVig": 0.5047
+      },
+      "contextAtPick": {
+        "injury": "Isaiah Jackson (Clippers, worth 0.7): weight 0 at the open, 1 now, +0.70 spread, -0.42 total"
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -110,
+        "line": 226.5,
+        "implied": 0.5238,
+        "printImplied": 0.5283
+      },
+      "pinEdgeAtPick": -0.0191,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.9% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NFL|2026-11-08|Denver Broncos at Carolina Panthers|spread|away|v1|lean|scan-nfl-spread-away-closelinehomedog053-cb0d8c|2026-11-08T15:09:47Z|gated|2026-11-08T15:09:47Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NFL|2026-11-08|Denver Broncos at Carolina Panthers|spread",
+      "sport": "NFL",
+      "event": "Denver Broncos at Carolina Panthers",
+      "commence": "2026-11-08T18:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": -2.5,
+      "priceAtPick": -120,
+      "marketNumber": 2.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "home": 100,
+        "away": -120
+      },
+      "priceTime": "2026-11-08T15:09:30Z",
+      "pickedAt": "2026-11-08T15:09:47Z",
+      "fair": 2.8605,
+      "projection": 2.8605,
+      "edge": 0.361,
+      "edgeUnit": "points",
+      "bar": 1.5,
+      "fullBar": false,
+      "edgeShrunk": -0.387,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-nfl-spread-away-closelinehomedog053-cb0d8c",
+      "reason": "Scanner strategy scan-nfl-spread-away-closelinehomedog053-cb0d8c: NFL spread away when closeLine home dog 0.5-3; measured open-to-close move +0.451 for this side (+0.571 beyond the league average; n 172, t +4.4) x0.8, 0.36 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": 2.5,
+        "prices": {
+          "home": 108,
+          "away": -119
+        },
+        "updated": "2026-11-08T15:09:27Z",
+        "snapTime": "2026-11-08T15:09:30Z",
+        "noVig": 0.5313
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 6.8,
+          "pop": 0,
+          "text": "Sunny",
+          "heavy": false,
+          "temp": 64,
+          "value": 0.0,
+          "asOf": "2026-11-08T15:09:33Z",
+          "venue": "Bank of America Stadium"
+        },
+        "injury": "CAR OL starter Damien Lewis: Questionable at the open, Out now, +0.12 spread | CAR defensive starter Bobby Okereke: Active at the open, Out now, +0.25 spread | CAR defensive starter Jaelan Phillips: Questionable at the open, Out now, +0.12 spread | CAR defensive starter Will Lee III: Questionable at the open, Out now, +0.12 spread | DEN WR1 Jaylen Waddle: Questionable at the open, Active now, -0.25 spread, +0.25 total | DEN LT Garett Bolles: Questionable at the open, Active now, -0.25 spread | DEN defensive starter Zach Allen: Questionable at the open, Active now, -0.12 spread | DEN defensive starter Brandon Jones: Active at the open, Out now, +0.25 spread | DEN defensive starter Eyioma Uwazurike: Questionable at the open, Injured Reserve now, +0.12 spread | DEN defensive starter Pat Surtain II: Questionable at the open, Active now, -0.12 spread"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -120,
+        "line": 2.5,
+        "implied": 0.5455,
+        "printImplied": 0.5455
+      },
+      "pinEdgeAtPick": -0.0141,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NFL|2026-11-08|Cleveland Browns at New Orleans Saints|total|under|v1|lean|scan-nfl-total-under-closetotal4043dowsun-a3ddda|2026-11-08T15:09:47Z|gated|2026-11-08T15:09:47Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NFL|2026-11-08|Cleveland Browns at New Orleans Saints|total",
+      "sport": "NFL",
+      "event": "Cleveland Browns at New Orleans Saints",
+      "commence": "2026-11-08T18:00:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 42.5,
+      "priceAtPick": -110,
+      "marketNumber": 42.5,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "over": -108,
+        "under": -112
+      },
+      "priceTime": "2026-11-08T15:09:30Z",
+      "pickedAt": "2026-11-08T15:09:47Z",
+      "fair": 42.1426,
+      "projection": 42.1426,
+      "edge": 0.357,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": false,
+      "edgeShrunk": -0.647,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-nfl-total-under-closetotal4043dowsun-a3ddda",
+      "reason": "Scanner strategy scan-nfl-total-under-closetotal4043dowsun-a3ddda: NFL total under when closeTotal 40-43; dow Sun; measured open-to-close move +0.447 for this side (+0.242 beyond the league average; n 244, t +2.8) x0.8, 0.357 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": 42.5,
+        "prices": {
+          "over": -103,
+          "under": -109
+        },
+        "updated": "2026-11-08T15:09:27Z",
+        "snapTime": "2026-11-08T15:09:30Z",
+        "noVig": 0.5071
+      },
+      "contextAtPick": {
+        "injury": "NO LT Kelvin Banks Jr.: Injured Reserve at the open, Questionable now, -0.25 spread | NO OL starter Cesar Ruiz: Questionable at the open, Active now, -0.12 spread | NO defensive starter Justin Reid: Questionable at the open, Active now, -0.12 spread | NO defensive starter Nathan Shepherd: Questionable at the open, Active now, -0.12 spread | NO defensive starter Martin Emerson Jr.: Active at the open, Questionable now, +0.12 spread | NO OL back under two out since the open, -0.50 spread, +0.50 total | CLE QB Deshaun Watson, weak (-0.07 EPA/dropback): Active at the open, Questionable now, +0.50 spread, -1.12 total | CLE OL starter Tytus Howard: Questionable at the open, Active now, -0.12 spread | CLE OL starter Austin Barber: Questionable at the open, Active now, -0.12 spread | CLE defensive starter Maliek Collins: Active at the open, Out now, +0.25 spread | CLE defensive starter Tyson Campbell: Questionable at the open, Active now, -0.12 spread | CLE defensive starter Jared Verse: Questionable at the open, Active now, -0.12 spread | CLE defensive starter Myles Harden: Questionable at the open, Active now, -0.12 spread"
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -110,
+        "line": 42.5,
+        "implied": 0.5238,
+        "printImplied": 0.5283
+      },
+      "pinEdgeAtPick": -0.0167,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.7% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
