@@ -686,3 +686,18 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-08 | NCAAF: moveBeforePick=against + tzShift=west | 8 | +1.9% | found inside NCAAF moveBeforePick=against (best of 32 features tested); small sample, may share reads with other rows |
 | 2026-11-08 | NCAAF: timing=day + tzShift=west | 8 | +1.6% | found inside NCAAF timing=day (best of 48 features tested); small sample, may share reads with other rows |
 | 2026-11-08 | NCAAF: sharpDivPick=aligned + timing=early | 11 | +1.0% | found inside NCAAF travelEdge=less (best of 14 pairs tested); small sample, may share reads with other rows |
+| 2026-11-08 | bookAtPick=BetRivers + market=spread | 8 | +4.4% | found inside ALL market=spread (best of 74 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | bookAtPick=DraftKings + restDays=normal | 11 | +1.8% | found inside ALL restDays=normal (best of 71 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | pinEdge=2%+ + tzShift=west | 9 | +5.5% | found inside ALL tzShift=west (best of 54 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | NFL: bookAtPick=DraftKings + edgeBar=0.5-1x | 10 | +2.2% | found inside NFL edgeBar=0.5-1x (best of 41 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | NFL: role=dog + wind=<10 | 9 | +0.4% | found inside NFL injury=any (best of 18 pairs tested); small sample, may share reads with other rows |
+| 2026-11-08 | NFL: moveBeforePick=for + pinEdge=0-2% | 8 | +0.8% | found inside NFL moveBeforePick=for (best of 35 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | NFL: bookAtPick=DraftKings + restDays=normal | 8 | +1.8% | found inside NFL restDays=normal (best of 49 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | NFL: restEdge=even + sharpGapPick=1-2% | 9 | +1.6% | found inside NFL restEdge=even (best of 38 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | NFL: edgeBar=0.5-1x + timing=day | 8 | +0.6% | found inside NFL timing=day (best of 14 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | NFL: sharpGapPick=2%+ + timing=early | 8 | +2.8% | found inside NFL timing=early (best of 45 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | NFL: keyNumber=yes + timing=late | 9 | +0.5% | found inside NFL timing=late (best of 10 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | NFL: sharpDivPick=pin-for + travel=500-1500 | 9 | +0.9% | found inside NFL travel=500-1500 (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | NFL: bookAtPick=DraftKings + travel=none | 8 | +2.5% | found inside NFL travel=none (best of 34 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | NFL: sharpDivPick=pin-for + travelEdge=less | 11 | +2.9% | found inside NFL travelEdge=less (best of 28 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | NFL: sharpDivPick=pin-for + venue=home | 14 | +2.7% | found inside NFL venue=home (best of 32 features tested); small sample, may share reads with other rows |
