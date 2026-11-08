@@ -157,6 +157,19 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 
 ## Killed
 
+### Pinnacle follows the US-book consensus (2026-11-08, killed for now)
+- Observation: sharp-soft assumes the US books move to Pinnacle. The reverse was never tested: when the median of the
+  US books (FanDuel, DraftKings, Caesars, BetMGM, BetRivers, Fanatics, theScore, Hard Rock, Bally) disagrees with
+  Pinnacle at the open, does Pinnacle drift toward them by the last snapshot? Mechanism if true: US books see their
+  own limited-but-informed action (and local injury news) first and Pinnacle's early NCAAF/NBA limits are low.
+- Test (ledger rows with an all-book openSnap, since the five books were added 10-28; Pinnacle no-vig open vs
+  lastSnap, moneylines, NBA/NCAAF/NFL): |gap| 0.5%+ Pinnacle moves toward the US median +0.72% (n 59, t 1.5; NCAAF
+  +1.15% n 24 t 2.7, NBA +0.20% n 27); halves +1.38% / +0.09%; |gap| 1%+ +0.19% (n 30, t 0.2); placebo |gap| < 0.5%
+  +0.58% (n 45, t 1.5), so no dose response. 6 variants (3 thresholds, h2h and spread; spread rows did not parse on a
+  shared line, n 1). Memory: sharpDiv=pin-against h2h n 9, -0.5%; sharpGapOpen=1-2% h2h n 17, -0.3%.
+- Verdict: no edge on 104 games and the first half carries it; sharp-soft's premise stands. Re-test at 300+ rows
+  with full-book opens, NCAAF moneylines first (the only slice near t 2.5).
+
 ### Totals regress by level (2026-11-06, killed)
 - Observation: every focus sport's totals reads lose (memory: NFL n 89 -2.1% t -5.3, NCAAF n 141 -2.0% t -6.2, NBA
   n 110 -1.5% t -3.0) and no totals pattern works. Idea: openers overshoot at the extremes (high totals for hyped
