@@ -681,3 +681,8 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-08 | NCAAF: steamBeforePick=flat + tzShift=east | 8 | +0.3% | found inside NCAAF tzShift=east (best of 31 features tested); small sample, may share reads with other rows |
 | 2026-11-08 | NCAAF: steamBeforePick=toward + wind=<10 | 8 | +1.6% | found inside NCAAF wind=<10 (best of 47 features tested); small sample, may share reads with other rows |
 | 2026-11-08 | NCAAF: moveBeforePick=against + sharpDivPick=aligned | 8 | +0.9% | found inside NCAAF moveBeforePick=against (best of 31 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | keyNumber=yes + pinEdge=2%+ | 10 | +1.9% | found inside ALL keyNumber=yes (best of 53 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | sharpDivPick=aligned + timing=early | 12 | +1.1% | found inside ALL travelEdge=less (best of 30 pairs tested); small sample, may share reads with other rows |
+| 2026-11-08 | NCAAF: moveBeforePick=against + tzShift=west | 8 | +1.9% | found inside NCAAF moveBeforePick=against (best of 32 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | NCAAF: timing=day + tzShift=west | 8 | +1.6% | found inside NCAAF timing=day (best of 48 features tested); small sample, may share reads with other rows |
+| 2026-11-08 | NCAAF: sharpDivPick=aligned + timing=early | 11 | +1.0% | found inside NCAAF travelEdge=less (best of 14 pairs tested); small sample, may share reads with other rows |
