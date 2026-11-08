@@ -20281,7 +20281,9 @@
         "fee": 0.03,
         "status": "open",
         "book": "paper",
-        "mode": "paper"
+        "mode": "paper",
+        "lastMid": 0.185,
+        "lastSeen": "2026-11-08T23:24:35Z"
       }
     ],
     "equity": [
@@ -26683,6 +26685,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-08T23:10:07Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-08T23:24:35Z"
       }
     ]
   },
@@ -30455,6 +30461,32 @@
         "orderId": "01a1bc83-a310-72fb-825f-bc7db88872d7",
         "test": true,
         "fillChecked": true
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV08UTAMIN-MIN12",
+        "title": "Minnesota wins by over 11.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Utah Jazz at Minnesota Timberwolves",
+        "commence": "2026-11-09T00:10:00Z",
+        "side": "no",
+        "strike": 11.5,
+        "source": "mirror:sharp-soft",
+        "fair": 0.523,
+        "edge": 0.0255,
+        "estimated": true,
+        "why": "EDGE sharp-soft B pick (Caesars away +12 +105 implies 48.8%. Pinnacle -112 no-vig is 51.3%. Edge +2.5%.). Pinnacle fair here 49.8% plus the pick's edge = 52.3%; Kalshi NO 0.48 + fee = 0.497.",
+        "ask": 0.47,
+        "count": 1.0,
+        "cost": 0.47,
+        "fee": 0.0,
+        "time": "2026-11-08T23:24:35Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1bd6d-66d0-7a8b-88d7-8c2305166996",
+        "test": true,
+        "fillChecked": true
       }
     ],
     "equity": [
@@ -31641,6 +31673,14 @@
         "equity": 35.54,
         "clvN": 99,
         "meanClv": 0.0043
+      },
+      {
+        "t": "2026-11-08T23:24:35Z",
+        "open": 1.58,
+        "realized": 0.54,
+        "equity": 35.54,
+        "clvN": 101,
+        "meanClv": 0.0041
       }
     ],
     "stopped": null,
@@ -35666,8 +35706,8 @@
         "orderPath": "v2",
         "price": 0.47,
         "count": 1,
-        "filledSeen": 0,
-        "status": "resting",
+        "filledSeen": 1.0,
+        "status": "executed",
         "time": "2026-11-08T23:10:07Z",
         "test": true
       },
@@ -35761,7 +35801,7 @@
       }
     ]
   },
-  "asOf": "2026-11-08T23:10:07Z",
+  "asOf": "2026-11-08T23:24:35Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -35789,7 +35829,7 @@
       "meanClv": -0.0022
     },
     "live": {
-      "open": 1.11,
+      "open": 1.58,
       "realized": 0.54,
       "equity": 35.54,
       "clvN": 101,
@@ -35799,10 +35839,10 @@
     "liveStopped": null,
     "maker": {
       "orders": 336,
-      "resting": 5,
-      "filled": 162,
+      "resting": 3,
+      "filled": 164,
       "expired": 169,
-      "fillRate": 0.489,
+      "fillRate": 0.492,
       "clvN": 162,
       "meanClv": -0.0134,
       "meanClvNet": -0.0175,
@@ -35813,10 +35853,9 @@
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {
-      "already held": 1,
-      "test: same contract already held": 1
+      "already held": 4
     },
-    "liveCandidates": 6,
+    "liveCandidates": 4,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -35858,8 +35897,8 @@
       "maxPerDay": 5.0,
       "orderType": "maker",
       "spentToday": 2.85,
-      "trades": 110,
-      "resting": 4
+      "trades": 111,
+      "resting": 3
     },
     "config": {
       "startingBankroll": 35.0,
@@ -35881,23 +35920,23 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4683,
+      "kalshiMarkets": 4682,
       "eventsMatched": 262,
       "eventsUnmatched": 214,
-      "candidates": 6
+      "candidates": 4
     }
   },
   "account": {
     "keys": "ok",
-    "balance": 60.72,
+    "balance": 60.24,
     "detail": {
-      "balance": 6071,
-      "balance_dollars": "60.7171",
-      "portfolio_value": 3541,
-      "updated_ts": 1794179427
+      "balance": 6024,
+      "balance_dollars": "60.2427",
+      "portfolio_value": 4433,
+      "updated_ts": 1794180297
     },
     "env": "production",
-    "checkedAt": "2026-11-08T23:10:27Z"
+    "checkedAt": "2026-11-08T23:24:57Z"
   },
   "maker": {
     "start": 0.0,
@@ -42740,7 +42779,9 @@
         "takerEdge": 0.0255,
         "makerEdge": 0.0486,
         "postedAt": "2026-11-08T23:10:07Z",
-        "status": "resting"
+        "status": "filled",
+        "filledAt": "2026-11-08T23:24:35Z",
+        "askAtFill": 0.47
       },
       {
         "ticker": "KXNBASPREAD-26NOV08UTAMIN-MIN12",
@@ -42759,7 +42800,9 @@
         "takerEdge": 0.0255,
         "makerEdge": 0.0486,
         "postedAt": "2026-11-08T23:10:07Z",
-        "status": "resting"
+        "status": "filled",
+        "filledAt": "2026-11-08T23:24:35Z",
+        "askAtFill": 0.47
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14JVSTWKU-JVST7",
@@ -47616,6 +47659,52 @@
         "lastSeen": "2026-11-08T22:54:46Z",
         "closeMid": 0.415,
         "clv": -0.015
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV08UTAMIN-MIN12",
+        "title": "Minnesota wins by over 11.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Utah Jazz at Minnesota Timberwolves",
+        "commence": "2026-11-09T00:10:00Z",
+        "side": "no",
+        "source": "mirror:sharp-soft",
+        "fair": 0.523,
+        "estimated": true,
+        "ask": 0.47,
+        "count": 1,
+        "cost": 0.47,
+        "fee": 0.0044,
+        "time": "2026-11-08T23:24:35Z",
+        "status": "open",
+        "book": "maker",
+        "mode": "paper",
+        "postedAt": "2026-11-08T23:10:07Z",
+        "lastMid": 0.465,
+        "lastSeen": "2026-11-08T23:24:35Z"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV08UTAMIN-MIN12",
+        "title": "Minnesota wins by over 11.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Utah Jazz at Minnesota Timberwolves",
+        "commence": "2026-11-09T00:10:00Z",
+        "side": "no",
+        "source": "mirror:soft-dog",
+        "fair": 0.523,
+        "estimated": true,
+        "ask": 0.47,
+        "count": 1,
+        "cost": 0.47,
+        "fee": 0.0044,
+        "time": "2026-11-08T23:24:35Z",
+        "status": "open",
+        "book": "maker",
+        "mode": "paper",
+        "postedAt": "2026-11-08T23:10:07Z",
+        "lastMid": 0.465,
+        "lastSeen": "2026-11-08T23:24:35Z"
       }
     ],
     "equity": [],
