@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-11-08 01:39Z)
+# What EDGE is learning (2026-11-08 01:54Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 1186 graded reads counted, 2457 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Scanner (scan.py, 11-07 16:48Z): 23 strategies tracking from 4886 hypotheses (0 new this run); 129 graded scan reads, mean CLV -0.7%. Shadow only; grade.py decides promotion.
@@ -22,9 +22,9 @@ Process vs result: right-and-rewarded 234, right-but-unlucky 193, lucky-win 329,
 Gated by the Pinnacle gate (scored, not counted): n 189, CLV -1.8%, t -6.0 (positive = the gate blocks winners)
 Data gaps, waiting on a source: public-pct (needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack); guru (needs an account list + reader (Reddit API free, X API paid); log account, number, time, result)
 Coverage of added features (BREAKAGE if still 0 one health-check cycle after shipping):
-- snaps: 1542 price snapshots stored in the last 26h, latest 11-08 01:39Z, 1923 games with 2+ (late steam, since 10-19 18:15Z)
-- pinAtPick on 523 of 794 graded reads since 10-19 18:00Z; 1375 of 1703 new reads stamped (Pinnacle at the pick)
-- contextAtPick on 794 of 794 graded reads since 10-19 18:00Z; 1703 of 1703 new reads stamped (weather/injury/goalie as stamped)
+- snaps: 1500 price snapshots stored in the last 26h, latest 11-08 01:54Z, 1930 games with 2+ (late steam, since 10-19 18:15Z)
+- pinAtPick on 523 of 794 graded reads since 10-19 18:00Z; 1385 of 1713 new reads stamped (Pinnacle at the pick)
+- contextAtPick on 794 of 794 graded reads since 10-19 18:00Z; 1713 of 1713 new reads stamped (weather/injury/goalie as stamped)
 - sharpDivergenceAtPick on 336 of 794 graded reads since 10-19 18:00Z (needs Pinnacle on the same line)
 - daysRestHome on 1077 of 1092 graded NBA/NHL/NCAAF/NFL reads (schedules in stats/ (NFL from 2026-10-21))
 - sharpDivergence on 113 of 1186 graded reads since 10-14 00:00Z (Pinnacle at the open)
