@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-08T00:55:52Z",
+ "asOf": "2026-11-08T01:24:42Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -73,17 +73,17 @@
   "learned-nba-total": {
    "pattern": "learned-nba-total",
    "unit": "points",
-   "n": 41,
-   "meanPredicted": 1.8157,
-   "meanRealized": 0.2195,
-   "tRealized": 0.55,
-   "capture": 0.12,
-   "rightWay": 0.543,
-   "noMove": 6,
+   "n": 39,
+   "meanPredicted": 1.8326,
+   "meanRealized": 0.2821,
+   "tRealized": 0.67,
+   "capture": 0.15,
+   "rightWay": 0.559,
+   "noMove": 5,
    "logLossGain": {
-    "n": 41,
-    "mean": -0.03485,
-    "t": -2.21
+    "n": 39,
+    "mean": -0.03268,
+    "t": -1.99
    },
    "verdict": "collecting"
   },
@@ -226,17 +226,17 @@
   "learned-scan-ncaaf-spread": {
    "pattern": "learned-scan-ncaaf-spread",
    "unit": "points",
-   "n": 27,
-   "meanPredicted": 0.6157,
-   "meanRealized": 0.3889,
-   "tRealized": 1.48,
-   "capture": 0.63,
-   "rightWay": 0.667,
+   "n": 26,
+   "meanPredicted": 0.6072,
+   "meanRealized": 0.3654,
+   "tRealized": 1.34,
+   "capture": 0.6,
+   "rightWay": 0.643,
    "noMove": 12,
    "logLossGain": {
-    "n": 21,
-    "mean": -0.00598,
-    "t": -0.62
+    "n": 20,
+    "mean": -0.00829,
+    "t": -0.85
    },
    "verdict": "collecting"
   },
@@ -634,17 +634,17 @@
   "scan-ncaaf-spread-home-resthomelong-ef5595": {
    "pattern": "scan-ncaaf-spread-home-resthomelong-ef5595",
    "unit": "points",
-   "n": 6,
-   "meanPredicted": 0.4587,
-   "meanRealized": -0.8333,
-   "tRealized": -1.11,
-   "capture": -1.82,
-   "rightWay": 0.333,
+   "n": 5,
+   "meanPredicted": 0.4576,
+   "meanRealized": -0.2,
+   "tRealized": -0.41,
+   "capture": -0.44,
+   "rightWay": 0.5,
    "noMove": 3,
    "logLossGain": {
-    "n": 3,
-    "mean": -0.00795,
-    "t": -0.51
+    "n": 2,
+    "mean": -0.00019,
+    "t": -0.01
    },
    "verdict": "collecting"
   },
