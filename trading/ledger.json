@@ -20303,7 +20303,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.145,
-        "lastSeen": "2026-11-09T14:54:49Z"
+        "lastSeen": "2026-11-09T15:09:47Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV08MIASAC-SAC",
@@ -26869,6 +26869,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-09T14:54:49Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-09T15:09:47Z"
       }
     ]
   },
@@ -30717,8 +30721,8 @@
         "orderId": "01a1bd6d-66d0-70d3-aab9-3e6041cde29b",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.605,
-        "lastSeen": "2026-11-09T14:54:49Z"
+        "lastMid": 0.6,
+        "lastSeen": "2026-11-09T15:09:47Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV14TARLUWFL-TARL",
@@ -30746,7 +30750,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.145,
-        "lastSeen": "2026-11-09T14:54:49Z"
+        "lastSeen": "2026-11-09T15:09:47Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV09DENHOU-HOU",
@@ -30774,7 +30778,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.745,
-        "lastSeen": "2026-11-09T14:54:49Z"
+        "lastSeen": "2026-11-09T15:09:47Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14MIZZUGA-UGA14",
@@ -30802,7 +30806,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.43,
-        "lastSeen": "2026-11-09T14:54:49Z"
+        "lastSeen": "2026-11-09T15:09:47Z"
       }
     ],
     "equity": [
@@ -36212,6 +36216,29 @@
         "status": "resting",
         "time": "2026-11-09T11:10:15Z",
         "test": true
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV15PITCIN-CIN3",
+        "title": "Cincinnati wins by over 2.5 points",
+        "sport": "NFL",
+        "kind": "spread",
+        "event": "Pittsburgh Steelers at Cincinnati Bengals",
+        "commence": "2026-11-16T01:20:00Z",
+        "side": "no",
+        "strike": 2.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4424,
+        "edge": 0.0256,
+        "estimated": true,
+        "why": "Pinnacle fair 44.2% vs Kalshi NO 0.40 + fee = 0.417.",
+        "orderId": "01a1c0dc-0880-7b15-975c-04e068fc04e8",
+        "orderPath": "v2",
+        "price": 0.39,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-09T15:09:47Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -36280,7 +36307,7 @@
       }
     ]
   },
-  "asOf": "2026-11-09T14:54:49Z",
+  "asOf": "2026-11-09T15:09:47Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -36317,8 +36344,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 343,
-      "resting": 7,
+      "orders": 344,
+      "resting": 8,
       "filled": 165,
       "expired": 171,
       "fillRate": 0.491,
@@ -36331,8 +36358,10 @@
       "pairedTakerClvNet": -0.0241,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 0,
+    "liveSkips": {
+      "already held": 1
+    },
+    "liveCandidates": 2,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -36373,9 +36402,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 1.79,
+      "spentToday": 2.18,
       "trades": 115,
-      "resting": 3
+      "resting": 4
     },
     "config": {
       "startingBankroll": 35.0,
@@ -36400,7 +36429,7 @@
       "kalshiMarkets": 5031,
       "eventsMatched": 272,
       "eventsUnmatched": 211,
-      "candidates": 0
+      "candidates": 2
     }
   },
   "account": {
@@ -36409,11 +36438,11 @@
     "detail": {
       "balance": 4868,
       "balance_dollars": "48.6864",
-      "portfolio_value": 1894,
-      "updated_ts": 1794236107
+      "portfolio_value": 1762,
+      "updated_ts": 1794237008
     },
     "env": "production",
-    "checkedAt": "2026-11-09T14:55:07Z"
+    "checkedAt": "2026-11-09T15:10:08Z"
   },
   "maker": {
     "start": 0.0,
@@ -43436,6 +43465,25 @@
         "makerEdge": 0.0445,
         "postedAt": "2026-11-09T11:24:49Z",
         "status": "resting"
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV15PITCIN-CIN3",
+        "title": "Cincinnati wins by over 2.5 points",
+        "sport": "NFL",
+        "kind": "spread",
+        "event": "Pittsburgh Steelers at Cincinnati Bengals",
+        "commence": "2026-11-16T01:20:00Z",
+        "side": "no",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4424,
+        "estimated": true,
+        "price": 0.39,
+        "bidAtPost": 0.39,
+        "askAtPost": 0.4,
+        "takerEdge": 0.0256,
+        "makerEdge": 0.0482,
+        "postedAt": "2026-11-09T15:09:47Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -48379,8 +48427,8 @@
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-08T23:10:07Z",
-        "lastMid": 0.605,
-        "lastSeen": "2026-11-09T14:54:49Z"
+        "lastMid": 0.6,
+        "lastSeen": "2026-11-09T15:09:47Z"
       }
     ],
     "equity": [],
