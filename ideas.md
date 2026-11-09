@@ -124,6 +124,9 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - Test next: at 50 Caesars-priced counted reads, split by soft-dog vs everything else; if non-soft-dog Caesars reads stay
   +1%+ at t >= 2 in both halves, it is a book effect and the weekly review can weigh a book-aware bar for sharp-soft.
   Kill if the gap-adjusted mean falls under +0.5% on 50.
+- Refresh 2026-11-09 (health check; counted NFL/NCAAF/NBA reads with Pinnacle at the pick, vs Pinnacle close): Caesars
+  +1.6% (n 39, t 2.9), not soft-dog +1.5% (n 23, t 2.0), soft-dog +1.9% (n 16); DraftKings -0.1% (n 129), FanDuel -0.4%
+  (n 141), BetMGM -0.6% (n 47). Holding; 11 more to the 50-read split.
 
 ## Experiments (live shadow patterns, stake 0)
 
@@ -156,6 +159,20 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   (n 8), NCAAF +0.1% (n 15). Next look at 80 graded.
 
 ## Killed
+
+### Pinnacle's quote age at the pick (2026-11-09, killed for now)
+- Observation: the gate trusts Pinnacle's price at the pick, but pinAtPick.updated is sometimes an hour or more before
+  pickedAt. Idea: a stale Pinnacle quote is a weaker fair price (low early limits, nobody re-pricing), so reads made
+  against one should lose more, and the gate should demand a fresh quote.
+- Test (memory/log, NFL/NCAAF/NBA reads with pinAtPick.updated and a CLV, n 1008): quote 60+ min old -2.2% (n 182,
+  t -9.0; per game -2.3%, n 90) vs under 15 min -0.2 to -1.2%; both halves (-2.2% / -2.2%). But stale quotes are
+  far-from-kick NFL reads (median 69h to kick vs 24h). Held at the same time to kick: 1-3 days stale -2.0% (n 107) vs
+  fresh -1.7% (n 218), no difference; 3+ days -2.4% (n 59) vs -1.4% (n 129), diff ~1.0 (t ~1.7); NFL 1+ day -2.3%
+  (n 118) vs -1.2% (n 75), t ~2.2. Stale counted picks -3.4% (n 17). 11 variants (5 age buckets, 4 time controls,
+  3 sports). Memory: NFL timing=early n 178, -1.7%.
+- Verdict: the age effect is mostly time to kick, which the timing feature and the gate's 3h wait already carry.
+  Re-test only the 3+ day NFL slice at 120 stale reads; if quote age still costs 1%+ at t >= 2.5 after holding time
+  to kick, propose a freshness rule for the gate to Zack (gate constants are his).
 
 ### Pinnacle follows the US-book consensus (2026-11-08, killed for now)
 - Observation: sharp-soft assumes the US books move to Pinnacle. The reverse was never tested: when the median of the
