@@ -20302,8 +20302,8 @@
         "status": "open",
         "book": "paper",
         "mode": "paper",
-        "lastMid": 0.16,
-        "lastSeen": "2026-11-09T02:54:41Z"
+        "lastMid": 0.165,
+        "lastSeen": "2026-11-09T03:24:41Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV08MIASAC-SAC",
@@ -26800,6 +26800,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-09T02:54:41Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-09T03:24:41Z"
       }
     ]
   },
@@ -30607,7 +30611,7 @@
         "cost": 0.47,
         "fee": 0.0,
         "time": "2026-11-08T23:24:35Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1bd6d-66d0-7a8b-88d7-8c2305166996",
@@ -30616,7 +30620,12 @@
         "lastMid": 0.465,
         "lastSeen": "2026-11-08T23:54:48Z",
         "closeMid": 0.465,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.47,
+        "settledAt": "2026-11-09T03:24:41Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV13FSUPITT-PITT",
@@ -30644,7 +30653,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.605,
-        "lastSeen": "2026-11-09T02:54:41Z"
+        "lastSeen": "2026-11-09T03:24:41Z"
       }
     ],
     "equity": [
@@ -31853,6 +31862,14 @@
         "open": 1.08,
         "realized": 2.43,
         "equity": 37.43,
+        "clvN": 102,
+        "meanClv": 0.004
+      },
+      {
+        "t": "2026-11-09T03:24:41Z",
+        "open": 0.61,
+        "realized": 1.96,
+        "equity": 36.96,
         "clvN": 102,
         "meanClv": 0.004
       }
@@ -35953,6 +35970,29 @@
         "status": "resting",
         "time": "2026-11-09T02:31:49Z",
         "test": true
+      },
+      {
+        "ticker": "KXNBATOTAL-26NOV09SASPHX-228",
+        "title": "Over 227.5 points",
+        "sport": "NBA",
+        "kind": "total",
+        "event": "San Antonio Spurs at Phoenix Suns",
+        "commence": "2026-11-10T02:10:00Z",
+        "side": "no",
+        "strike": 227.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.5273,
+        "edge": 0.0399,
+        "estimated": true,
+        "why": "Pinnacle fair 52.7% vs Kalshi NO 0.47 + fee = 0.487.",
+        "orderId": "01a1be56-76e0-728a-af8e-7617651edd02",
+        "orderPath": "v2",
+        "price": 0.46,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-09T03:24:41Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -36021,7 +36061,7 @@
       }
     ]
   },
-  "asOf": "2026-11-09T02:54:41Z",
+  "asOf": "2026-11-09T03:24:41Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -36049,33 +36089,33 @@
       "meanClv": -0.0021
     },
     "live": {
-      "open": 1.08,
-      "realized": 2.43,
-      "equity": 37.43,
+      "open": 0.61,
+      "realized": 1.96,
+      "equity": 36.96,
       "clvN": 102,
       "meanClv": 0.004
     },
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 339,
-      "resting": 3,
+      "orders": 340,
+      "resting": 4,
       "filled": 165,
       "expired": 171,
       "fillRate": 0.491,
       "clvN": 164,
       "meanClv": -0.0133,
       "meanClvNet": -0.0174,
-      "settledPnl": 0.08,
+      "settledPnl": -0.86,
       "pairedWithTaker": 76,
       "pairedMakerClvNet": -0.0091,
       "pairedTakerClvNet": -0.0241,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {
-      "already held": 3
+      "already held": 4
     },
-    "liveCandidates": 3,
+    "liveCandidates": 5,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -36116,9 +36156,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 3.59,
+      "spentToday": 4.05,
       "trades": 112,
-      "resting": 3
+      "resting": 4
     },
     "config": {
       "startingBankroll": 35.0,
@@ -36140,10 +36180,10 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 5116,
-      "eventsMatched": 275,
-      "eventsUnmatched": 215,
-      "candidates": 3
+      "kalshiMarkets": 5021,
+      "eventsMatched": 269,
+      "eventsUnmatched": 217,
+      "candidates": 5
     }
   },
   "account": {
@@ -36152,11 +36192,11 @@
     "detail": {
       "balance": 7444,
       "balance_dollars": "74.4487",
-      "portfolio_value": 3611,
-      "updated_ts": 1794192903
+      "portfolio_value": 2611,
+      "updated_ts": 1794194700
     },
     "env": "production",
-    "checkedAt": "2026-11-09T02:55:03Z"
+    "checkedAt": "2026-11-09T03:25:00Z"
   },
   "maker": {
     "start": 0.0,
@@ -43103,6 +43143,25 @@
         "makerEdge": 0.048,
         "postedAt": "2026-11-09T02:31:49Z",
         "status": "resting"
+      },
+      {
+        "ticker": "KXNBATOTAL-26NOV09SASPHX-228",
+        "title": "Over 227.5 points",
+        "sport": "NBA",
+        "kind": "total",
+        "event": "San Antonio Spurs at Phoenix Suns",
+        "commence": "2026-11-10T02:10:00Z",
+        "side": "no",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.5273,
+        "estimated": true,
+        "price": 0.46,
+        "bidAtPost": 0.46,
+        "askAtPost": 0.47,
+        "takerEdge": 0.0399,
+        "makerEdge": 0.063,
+        "postedAt": "2026-11-09T03:24:41Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -47982,14 +48041,19 @@
         "cost": 0.47,
         "fee": 0.0044,
         "time": "2026-11-08T23:24:35Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-08T23:10:07Z",
         "lastMid": 0.465,
         "lastSeen": "2026-11-08T23:54:48Z",
         "closeMid": 0.465,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.47,
+        "settledAt": "2026-11-09T03:24:41Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV08UTAMIN-MIN12",
@@ -48007,14 +48071,19 @@
         "cost": 0.47,
         "fee": 0.0044,
         "time": "2026-11-08T23:24:35Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-08T23:10:07Z",
         "lastMid": 0.465,
         "lastSeen": "2026-11-08T23:54:48Z",
         "closeMid": 0.465,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.47,
+        "settledAt": "2026-11-09T03:24:41Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV13FSUPITT-PITT",
@@ -48037,7 +48106,7 @@
         "mode": "paper",
         "postedAt": "2026-11-08T23:10:07Z",
         "lastMid": 0.605,
-        "lastSeen": "2026-11-09T02:54:41Z"
+        "lastSeen": "2026-11-09T03:24:41Z"
       }
     ],
     "equity": [],
