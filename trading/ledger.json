@@ -20011,13 +20011,18 @@
         "count": 1,
         "cost": 0.38,
         "fee": 0.02,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.375,
         "lastSeen": "2026-11-08T21:21:26Z",
         "closeMid": 0.375,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "yes",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.6,
+        "settledAt": "2026-11-09T00:54:45Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV07ALSTTXSO-TXSO",
@@ -20283,7 +20288,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.16,
-        "lastSeen": "2026-11-09T00:24:40Z"
+        "lastSeen": "2026-11-09T00:54:45Z"
       }
     ],
     "equity": [
@@ -22584,6 +22589,14 @@
         "open": 5.13,
         "realized": -82.5,
         "equity": 17.5,
+        "clvN": 261,
+        "meanClv": -0.0022
+      },
+      {
+        "t": "2026-11-09T00:54:45Z",
+        "open": 4.73,
+        "realized": -81.9,
+        "equity": 18.1,
         "clvN": 261,
         "meanClv": -0.0022
       }
@@ -26697,6 +26710,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-09T00:24:40Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-09T00:54:45Z"
       }
     ]
   },
@@ -35813,7 +35830,7 @@
       }
     ]
   },
-  "asOf": "2026-11-09T00:24:40Z",
+  "asOf": "2026-11-09T00:54:45Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -35834,9 +35851,9 @@
     "liveActive": true,
     "liveWhy": "on since 2026-10-21T20:30:14.905Z",
     "paper": {
-      "open": 5.13,
-      "realized": -82.5,
-      "equity": 17.5,
+      "open": 4.73,
+      "realized": -81.9,
+      "equity": 18.1,
       "clvN": 261,
       "meanClv": -0.0022
     },
@@ -35930,23 +35947,23 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4661,
-      "eventsMatched": 259,
+      "kalshiMarkets": 4556,
+      "eventsMatched": 253,
       "eventsUnmatched": 214,
       "candidates": 0
     }
   },
   "account": {
     "keys": "ok",
-    "balance": 72.85,
+    "balance": 72.06,
     "detail": {
-      "balance": 7285,
-      "balance_dollars": "72.8527",
-      "portfolio_value": 3622,
-      "updated_ts": 1794183900
+      "balance": 7206,
+      "balance_dollars": "72.0629",
+      "portfolio_value": 2685,
+      "updated_ts": 1794185707
     },
     "env": "production",
-    "checkedAt": "2026-11-09T00:25:00Z"
+    "checkedAt": "2026-11-09T00:55:07Z"
   },
   "maker": {
     "start": 0.0,
@@ -46811,14 +46828,19 @@
         "cost": 0.36,
         "fee": 0.004,
         "time": "2026-11-04T19:09:56Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.375,
         "lastSeen": "2026-11-08T21:21:26Z",
         "closeMid": 0.375,
-        "clv": 0.015
+        "clv": 0.015,
+        "result": "yes",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.64,
+        "settledAt": "2026-11-09T00:54:45Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV08ARISEA-SEA",
@@ -46836,14 +46858,19 @@
         "cost": 0.78,
         "fee": 0.003,
         "time": "2026-11-04T19:09:56Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.785,
         "lastSeen": "2026-11-08T21:21:26Z",
         "closeMid": 0.785,
-        "clv": 0.005
+        "clv": 0.005,
+        "result": "yes",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.22,
+        "settledAt": "2026-11-09T00:54:45Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV08ARISEA-43",
@@ -46861,14 +46888,19 @@
         "cost": 0.41,
         "fee": 0.0042,
         "time": "2026-11-04T19:09:56Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.405,
         "lastSeen": "2026-11-08T21:21:26Z",
         "closeMid": 0.405,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.41,
+        "settledAt": "2026-11-09T00:54:45Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV08ARISEA-42",
@@ -46886,14 +46918,19 @@
         "cost": 0.45,
         "fee": 0.0043,
         "time": "2026-11-04T19:09:56Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-04T18:54:45Z",
         "lastMid": 0.435,
         "lastSeen": "2026-11-08T21:21:26Z",
         "closeMid": 0.435,
-        "clv": -0.015
+        "clv": -0.015,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.45,
+        "settledAt": "2026-11-09T00:54:45Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV06TCUARIZ-44",
