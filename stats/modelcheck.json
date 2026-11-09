@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-09T01:12:38Z",
+ "asOf": "2026-11-09T01:24:40Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -107,17 +107,17 @@
   "learned-ncaaf-total": {
    "pattern": "learned-ncaaf-total",
    "unit": "points",
-   "n": 41,
-   "meanPredicted": 0.8648,
-   "meanRealized": 0.5122,
-   "tRealized": 1.46,
-   "capture": 0.59,
-   "rightWay": 0.545,
+   "n": 40,
+   "meanPredicted": 0.8621,
+   "meanRealized": 0.55,
+   "tRealized": 1.54,
+   "capture": 0.64,
+   "rightWay": 0.562,
    "noMove": 8,
    "logLossGain": {
-    "n": 41,
-    "mean": 0.01026,
-    "t": 2.13
+    "n": 40,
+    "mean": 0.0114,
+    "t": 2.38
    },
    "verdict": "collecting"
   },
@@ -243,17 +243,17 @@
   "learned-scan-ncaaf-spread": {
    "pattern": "learned-scan-ncaaf-spread",
    "unit": "points",
-   "n": 27,
-   "meanPredicted": 0.6006,
-   "meanRealized": 0.5741,
-   "tRealized": 1.71,
-   "capture": 0.96,
-   "rightWay": 0.667,
+   "n": 26,
+   "meanPredicted": 0.608,
+   "meanRealized": 0.6346,
+   "tRealized": 1.85,
+   "capture": 1.04,
+   "rightWay": 0.714,
    "noMove": 12,
    "logLossGain": {
-    "n": 27,
-    "mean": -0.0025,
-    "t": -0.33
+    "n": 26,
+    "mean": -0.00337,
+    "t": -0.43
    },
    "verdict": "collecting"
   },
@@ -362,17 +362,17 @@
   "ncaaf-spot": {
    "pattern": "ncaaf-spot",
    "unit": "points",
-   "n": 121,
-   "meanPredicted": 0.3392,
-   "meanRealized": -0.1529,
+   "n": 120,
+   "meanPredicted": 0.3405,
+   "meanRealized": -0.1542,
    "tRealized": -0.83,
    "capture": -0.45,
    "rightWay": 0.446,
-   "noMove": 29,
+   "noMove": 28,
    "logLossGain": {
-    "n": 121,
-    "mean": 0.00046,
-    "t": 0.33
+    "n": 120,
+    "mean": 0.00052,
+    "t": 0.37
    },
    "verdict": "collecting"
   },
