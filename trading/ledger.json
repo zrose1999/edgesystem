@@ -20302,8 +20302,8 @@
         "status": "open",
         "book": "paper",
         "mode": "paper",
-        "lastMid": 0.16,
-        "lastSeen": "2026-11-09T04:54:39Z"
+        "lastMid": 0.18,
+        "lastSeen": "2026-11-09T08:39:28Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV08MIASAC-SAC",
@@ -20324,13 +20324,18 @@
         "count": 1,
         "cost": 0.16,
         "fee": 0.01,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.165,
         "lastSeen": "2026-11-09T01:54:41Z",
         "closeMid": 0.165,
-        "clv": 0.005
+        "clv": 0.005,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.17,
+        "settledAt": "2026-11-09T08:39:28Z"
       }
     ],
     "equity": [
@@ -22655,6 +22660,14 @@
         "open": 3.95,
         "realized": -79.85,
         "equity": 20.15,
+        "clvN": 262,
+        "meanClv": -0.0021
+      },
+      {
+        "t": "2026-11-09T08:39:28Z",
+        "open": 3.78,
+        "realized": -80.02,
+        "equity": 19.98,
         "clvN": 262,
         "meanClv": -0.0021
       }
@@ -26816,6 +26829,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-09T04:54:39Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-09T08:39:28Z"
       }
     ]
   },
@@ -30664,8 +30681,34 @@
         "orderId": "01a1bd6d-66d0-70d3-aab9-3e6041cde29b",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.605,
-        "lastSeen": "2026-11-09T04:54:39Z"
+        "lastMid": 0.61,
+        "lastSeen": "2026-11-09T08:39:28Z"
+      },
+      {
+        "ticker": "KXNCAAFGAME-26NOV14TARLUWFL-TARL",
+        "title": "Tarleton St.",
+        "sport": "NCAAF",
+        "kind": "game",
+        "event": "Jacksonville State Gamecocks at Western Kentucky Hilltoppers",
+        "commence": "2026-11-14T20:30:00Z",
+        "side": "no",
+        "strike": null,
+        "source": "kalshi-sharp",
+        "fair": 0.2812,
+        "edge": 0.0908,
+        "estimated": false,
+        "why": "Pinnacle fair 28.1% vs Kalshi NO 0.18 + fee = 0.190.",
+        "ask": 0.14,
+        "count": 1.0,
+        "cost": 0.14,
+        "fee": 0.0,
+        "time": "2026-11-09T08:39:28Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1bd6d-62e8-7f91-ba02-27fb78640456",
+        "test": true,
+        "fillChecked": true
       }
     ],
     "equity": [
@@ -31880,6 +31923,14 @@
       {
         "t": "2026-11-09T03:24:41Z",
         "open": 0.61,
+        "realized": 1.96,
+        "equity": 36.96,
+        "clvN": 102,
+        "meanClv": 0.004
+      },
+      {
+        "t": "2026-11-09T08:39:28Z",
+        "open": 0.75,
         "realized": 1.96,
         "equity": 36.96,
         "clvN": 102,
@@ -35863,8 +35914,8 @@
         "orderPath": "v2",
         "price": 0.14,
         "count": 1,
-        "filledSeen": 0,
-        "status": "resting",
+        "filledSeen": 1.0,
+        "status": "executed",
         "time": "2026-11-08T23:10:07Z",
         "test": true
       },
@@ -36073,7 +36124,7 @@
       }
     ]
   },
-  "asOf": "2026-11-09T04:54:39Z",
+  "asOf": "2026-11-09T08:39:28Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -36094,14 +36145,14 @@
     "liveActive": true,
     "liveWhy": "on since 2026-10-21T20:30:14.905Z",
     "paper": {
-      "open": 3.95,
-      "realized": -79.85,
-      "equity": 20.15,
+      "open": 3.78,
+      "realized": -80.02,
+      "equity": 19.98,
       "clvN": 262,
       "meanClv": -0.0021
     },
     "live": {
-      "open": 0.61,
+      "open": 0.75,
       "realized": 1.96,
       "equity": 36.96,
       "clvN": 102,
@@ -36166,9 +36217,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 4.05,
-      "trades": 112,
-      "resting": 4
+      "spentToday": 0.14,
+      "trades": 113,
+      "resting": 3
     },
     "config": {
       "startingBankroll": 35.0,
@@ -36198,15 +36249,15 @@
   },
   "account": {
     "keys": "ok",
-    "balance": 50.01,
+    "balance": 49.86,
     "detail": {
-      "balance": 5000,
-      "balance_dollars": "50.0063",
-      "portfolio_value": 1764,
-      "updated_ts": 1794200099
+      "balance": 4986,
+      "balance_dollars": "49.8641",
+      "portfolio_value": 1908,
+      "updated_ts": 1794213588
     },
     "env": "production",
-    "checkedAt": "2026-11-09T04:54:59Z"
+    "checkedAt": "2026-11-09T08:39:48Z"
   },
   "maker": {
     "start": 0.0,
@@ -48115,8 +48166,8 @@
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-08T23:10:07Z",
-        "lastMid": 0.605,
-        "lastSeen": "2026-11-09T04:54:39Z"
+        "lastMid": 0.61,
+        "lastSeen": "2026-11-09T08:39:28Z"
       }
     ],
     "equity": [],
