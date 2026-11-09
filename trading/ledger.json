@@ -20303,7 +20303,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.16,
-        "lastSeen": "2026-11-09T17:39:48Z"
+        "lastSeen": "2026-11-09T17:54:51Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV08MIASAC-SAC",
@@ -20360,7 +20360,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.39,
-        "lastSeen": "2026-11-09T17:39:48Z"
+        "lastSeen": "2026-11-09T17:54:51Z"
       }
     ],
     "equity": [
@@ -26930,6 +26930,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-09T17:39:48Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-09T17:54:51Z"
       }
     ]
   },
@@ -30779,7 +30783,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.595,
-        "lastSeen": "2026-11-09T17:39:48Z"
+        "lastSeen": "2026-11-09T17:54:51Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV14TARLUWFL-TARL",
@@ -30807,7 +30811,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.16,
-        "lastSeen": "2026-11-09T17:39:48Z"
+        "lastSeen": "2026-11-09T17:54:51Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV09DENHOU-HOU",
@@ -30834,8 +30838,8 @@
         "orderId": "01a1be26-1040-782d-8795-a8b9159b135e",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.735,
-        "lastSeen": "2026-11-09T17:39:48Z"
+        "lastMid": 0.74,
+        "lastSeen": "2026-11-09T17:54:51Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14MIZZUGA-UGA14",
@@ -30863,7 +30867,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.42,
-        "lastSeen": "2026-11-09T17:39:48Z"
+        "lastSeen": "2026-11-09T17:54:51Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV09INDDAL-222",
@@ -30891,7 +30895,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.39,
-        "lastSeen": "2026-11-09T17:39:48Z"
+        "lastSeen": "2026-11-09T17:54:51Z"
       }
     ],
     "equity": [
@@ -36378,6 +36382,52 @@
         "status": "executed",
         "time": "2026-11-09T15:54:50Z",
         "test": true
+      },
+      {
+        "ticker": "KXNFLTOTAL-26NOV15MIAIND-42",
+        "title": "Over 41.5 points",
+        "sport": "NFL",
+        "kind": "total",
+        "event": "Miami Dolphins at Indianapolis Colts",
+        "commence": "2026-11-15T18:00:00Z",
+        "side": "yes",
+        "strike": 41.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4826,
+        "edge": 0.0254,
+        "estimated": true,
+        "why": "Pinnacle fair 48.3% vs Kalshi YES 0.44 + fee = 0.457.",
+        "orderId": "01a1c173-2fd0-7061-9cbb-954da73051b2",
+        "orderPath": "v2",
+        "price": 0.43,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-09T17:54:51Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV15NEDET-DET4",
+        "title": "Detroit wins by over 3.5 points",
+        "sport": "NFL",
+        "kind": "spread",
+        "event": "New England Patriots at Detroit Lions",
+        "commence": "2026-11-15T14:30:00Z",
+        "side": "yes",
+        "strike": 3.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.469,
+        "edge": 0.0218,
+        "estimated": true,
+        "why": "Pinnacle fair 46.9% vs Kalshi YES 0.43 + fee = 0.447.",
+        "orderId": "01a1c173-2fd0-7aa9-ad4c-cca0d0d86752",
+        "orderPath": "v2",
+        "price": 0.42,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-09T17:54:51Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -36446,7 +36496,7 @@
       }
     ]
   },
-  "asOf": "2026-11-09T17:39:48Z",
+  "asOf": "2026-11-09T17:54:51Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -36498,8 +36548,7 @@
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {
-      "already held": 1,
-      "maker order failed": 2
+      "already held": 1
     },
     "liveCandidates": 3,
     "sourceStatus": {
@@ -36542,9 +36591,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 3.02,
+      "spentToday": 3.87,
       "trades": 116,
-      "resting": 4
+      "resting": 6
     },
     "config": {
       "startingBankroll": 35.0,
@@ -36574,15 +36623,15 @@
   },
   "account": {
     "keys": "ok",
-    "balance": 48.28,
+    "balance": 40.01,
     "detail": {
-      "balance": 4828,
-      "balance_dollars": "48.2822",
-      "portfolio_value": 1801,
-      "updated_ts": 1794246011
+      "balance": 4001,
+      "balance_dollars": "40.0110",
+      "portfolio_value": 2844,
+      "updated_ts": 1794246914
     },
     "env": "production",
-    "checkedAt": "2026-11-09T17:40:11Z"
+    "checkedAt": "2026-11-09T17:55:14Z"
   },
   "maker": {
     "start": 0.0,
@@ -48650,7 +48699,7 @@
         "mode": "paper",
         "postedAt": "2026-11-08T23:10:07Z",
         "lastMid": 0.595,
-        "lastSeen": "2026-11-09T17:39:48Z"
+        "lastSeen": "2026-11-09T17:54:51Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV09INDDAL-222",
@@ -48673,7 +48722,7 @@
         "mode": "paper",
         "postedAt": "2026-11-09T15:54:50Z",
         "lastMid": 0.39,
-        "lastSeen": "2026-11-09T17:39:48Z"
+        "lastSeen": "2026-11-09T17:54:51Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV09DENHOU-HOU",
@@ -48695,8 +48744,8 @@
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-09T02:31:49Z",
-        "lastMid": 0.735,
-        "lastSeen": "2026-11-09T17:39:48Z"
+        "lastMid": 0.74,
+        "lastSeen": "2026-11-09T17:54:51Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14MIZZUGA-UGA14",
@@ -48719,7 +48768,7 @@
         "mode": "paper",
         "postedAt": "2026-11-09T11:10:15Z",
         "lastMid": 0.42,
-        "lastSeen": "2026-11-09T17:39:48Z"
+        "lastSeen": "2026-11-09T17:54:51Z"
       }
     ],
     "equity": [],
