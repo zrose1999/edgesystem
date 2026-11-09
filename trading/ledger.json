@@ -20302,8 +20302,8 @@
         "status": "open",
         "book": "paper",
         "mode": "paper",
-        "lastMid": 0.17,
-        "lastSeen": "2026-11-09T02:24:37Z"
+        "lastMid": 0.18,
+        "lastSeen": "2026-11-09T02:31:49Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV08MIASAC-SAC",
@@ -26792,6 +26792,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-09T02:24:37Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-09T02:31:49Z"
       }
     ]
   },
@@ -30636,7 +30640,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.605,
-        "lastSeen": "2026-11-09T02:24:37Z"
+        "lastSeen": "2026-11-09T02:31:49Z"
       }
     ],
     "equity": [
@@ -35922,6 +35926,29 @@
         "status": "canceled",
         "time": "2026-11-09T01:12:39Z",
         "test": true
+      },
+      {
+        "ticker": "KXNBAGAME-26NOV09DENHOU-HOU",
+        "title": "Houston",
+        "sport": "NBA",
+        "kind": "game",
+        "event": "Denver Nuggets at Houston Rockets",
+        "commence": "2026-11-10T01:40:00Z",
+        "side": "yes",
+        "strike": null,
+        "source": "mirror:sharp-soft",
+        "fair": 0.7914,
+        "edge": 0.0283,
+        "estimated": true,
+        "why": "EDGE sharp-soft B pick (DraftKings home -291 implies 74.4%. Pinnacle -368 no-vig is 76.8%. Edge +2.4%.). Pinnacle fair here 76.8% plus the pick's edge = 79.1%; Kalshi YES 0.75 + fee = 0.763.",
+        "orderId": "01a1be26-1040-782d-8795-a8b9159b135e",
+        "orderPath": "v2",
+        "price": 0.74,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-09T02:31:49Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -35990,7 +36017,7 @@
       }
     ]
   },
-  "asOf": "2026-11-09T02:24:37Z",
+  "asOf": "2026-11-09T02:31:49Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -36027,8 +36054,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 338,
-      "resting": 2,
+      "orders": 339,
+      "resting": 3,
       "filled": 165,
       "expired": 171,
       "fillRate": 0.491,
@@ -36041,8 +36068,10 @@
       "pairedTakerClvNet": -0.0241,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 0,
+    "liveSkips": {
+      "already held": 3
+    },
+    "liveCandidates": 4,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -36083,9 +36112,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 2.85,
+      "spentToday": 3.59,
       "trades": 112,
-      "resting": 2
+      "resting": 3
     },
     "config": {
       "startingBankroll": 35.0,
@@ -36107,10 +36136,10 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 5118,
-      "eventsMatched": 275,
-      "eventsUnmatched": 216,
-      "candidates": 0
+      "kalshiMarkets": 5180,
+      "eventsMatched": 278,
+      "eventsUnmatched": 215,
+      "candidates": 4
     }
   },
   "account": {
@@ -36119,11 +36148,11 @@
     "detail": {
       "balance": 7444,
       "balance_dollars": "74.4487",
-      "portfolio_value": 3901,
-      "updated_ts": 1794191099
+      "portfolio_value": 4012,
+      "updated_ts": 1794191528
     },
     "env": "production",
-    "checkedAt": "2026-11-09T02:24:59Z"
+    "checkedAt": "2026-11-09T02:32:08Z"
   },
   "maker": {
     "start": 0.0,
@@ -43051,6 +43080,25 @@
         "postedAt": "2026-11-09T01:12:39Z",
         "status": "expired",
         "expiredAt": "2026-11-09T02:24:37Z"
+      },
+      {
+        "ticker": "KXNBAGAME-26NOV09DENHOU-HOU",
+        "title": "Houston",
+        "sport": "NBA",
+        "kind": "game",
+        "event": "Denver Nuggets at Houston Rockets",
+        "commence": "2026-11-10T01:40:00Z",
+        "side": "yes",
+        "source": "mirror:sharp-soft",
+        "fair": 0.7914,
+        "estimated": true,
+        "price": 0.74,
+        "bidAtPost": 0.74,
+        "askAtPost": 0.75,
+        "takerEdge": 0.0283,
+        "makerEdge": 0.048,
+        "postedAt": "2026-11-09T02:31:49Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -47985,7 +48033,7 @@
         "mode": "paper",
         "postedAt": "2026-11-08T23:10:07Z",
         "lastMid": 0.605,
-        "lastSeen": "2026-11-09T02:24:37Z"
+        "lastSeen": "2026-11-09T02:31:49Z"
       }
     ],
     "equity": [],

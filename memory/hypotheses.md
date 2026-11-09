@@ -703,3 +703,6 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-08 | NFL: sharpDivPick=pin-for + venue=home | 14 | +2.7% | found inside NFL venue=home (best of 32 features tested); small sample, may share reads with other rows |
 | 2026-11-08 | NFL: moveBeforePick=for + pattern=soft-dog | 8 | +0.8% | found inside NFL moveBeforePick=for (best of 36 features tested); small sample, may share reads with other rows |
 | 2026-11-08 | NFL: pinEdge=0-2% + restEdge=less | 8 | +1.4% | found inside NFL restEdge=less (best of 20 features tested); small sample, may share reads with other rows |
+| 2026-11-09 | edgeBar=2x+ + venue=away | 8 | +0.1% | found inside ALL edgeBar=2x+ (best of 10 features tested); small sample, may share reads with other rows |
+| 2026-11-09 | NBA: bookAtPick=FanDuel + sharpDivPick=pin-for | 11 | +0.4% | found inside NBA bookAtPick=FanDuel (best of 7 features tested); small sample, may share reads with other rows |
+| 2026-11-09 | NBA: grade=A + restDays=1day | 21 | +3.4% | found inside NBA restDays=1day (best of 56 features tested); small sample, may share reads with other rows |
