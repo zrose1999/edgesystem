@@ -170248,6 +170248,124 @@
       "pinEdgeAtPick": 0.0126,
       "pinEdgeEstimated": false,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Ole Miss Rebels at Oklahoma Sooners|h2h|home|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-14|Ole Miss Rebels at Oklahoma Sooners|h2h",
+      "sport": "NCAAF",
+      "event": "Ole Miss Rebels at Oklahoma Sooners",
+      "commence": "2026-11-14T21:15:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 105,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-11-09T23:09:29Z",
+      "pickedAt": "2026-11-09T23:09:30Z",
+      "fair": 0.4953,
+      "projection": 0.4953,
+      "edge": 0.0075,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "Hard Rock Bet home +105 implies 48.8%. Pinnacle -105 no-vig is 49.5%. Edge +0.8%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -105,
+          "away": -109
+        },
+        "updated": "2026-11-09T23:09:10Z",
+        "snapTime": "2026-11-09T23:09:29Z",
+        "noVig": 0.4953
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -104,
+        "line": null,
+        "implied": 0.5098,
+        "printImplied": 0.5122
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.0075,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Tennessee Volunteers at Texas A&M Aggies|total|under|v1|lean|ncaaf-spot|2026-11-09T23:09:35Z|gated|2026-11-09T23:09:35Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-14|Tennessee Volunteers at Texas A&M Aggies|total",
+      "sport": "NCAAF",
+      "event": "Tennessee Volunteers at Texas A&M Aggies",
+      "commence": "2026-11-14T20:00:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 43.5,
+      "priceAtPick": -115,
+      "marketNumber": 43.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -105,
+        "under": -115
+      },
+      "priceTime": "2026-11-09T23:09:29Z",
+      "pickedAt": "2026-11-09T23:09:35Z",
+      "fair": 43.04,
+      "projection": 43.04,
+      "edge": 0.46,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "edgeShrunk": -2.092,
+      "modelWeight": 0.02,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "ncaaf-spot",
+      "reason": "opening total under 45 -0.35; weeks 10+ -0.23 (x0.8 overlap) = expected move -0.46. Open 43.5, now 43.5, 0.46 still to come; fair +43.04. (Under the pattern's minimum move: lean only.)",
+      "falsifier": "The line closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "ncaaf_spots.py",
+      "pinAtPick": {
+        "line": 42.5,
+        "prices": {
+          "over": -119,
+          "under": 100
+        },
+        "updated": "2026-11-09T23:09:10Z",
+        "snapTime": "2026-11-09T23:09:29Z",
+        "noVig": 0.4783
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -115,
+        "line": 43.5,
+        "implied": 0.5349,
+        "printImplied": 0.5349
+      },
+      "pinEdgeAtPick": -0.0386,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -3.9% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
