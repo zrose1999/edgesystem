@@ -20303,7 +20303,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.165,
-        "lastSeen": "2026-11-09T18:54:42Z"
+        "lastSeen": "2026-11-09T19:09:53Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV08MIASAC-SAC",
@@ -20359,8 +20359,8 @@
         "status": "open",
         "book": "paper",
         "mode": "paper",
-        "lastMid": 0.39,
-        "lastSeen": "2026-11-09T18:54:42Z"
+        "lastMid": 0.395,
+        "lastSeen": "2026-11-09T19:09:53Z"
       }
     ],
     "equity": [
@@ -26938,6 +26938,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-09T18:54:42Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-09T19:09:53Z"
       }
     ]
   },
@@ -30787,7 +30791,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.595,
-        "lastSeen": "2026-11-09T18:54:42Z"
+        "lastSeen": "2026-11-09T19:09:53Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV14TARLUWFL-TARL",
@@ -30815,7 +30819,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.165,
-        "lastSeen": "2026-11-09T18:54:42Z"
+        "lastSeen": "2026-11-09T19:09:53Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV09DENHOU-HOU",
@@ -30842,8 +30846,8 @@
         "orderId": "01a1be26-1040-782d-8795-a8b9159b135e",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.735,
-        "lastSeen": "2026-11-09T18:54:42Z"
+        "lastMid": 0.745,
+        "lastSeen": "2026-11-09T19:09:53Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14MIZZUGA-UGA14",
@@ -30871,7 +30875,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.42,
-        "lastSeen": "2026-11-09T18:54:42Z"
+        "lastSeen": "2026-11-09T19:09:53Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV09INDDAL-222",
@@ -30898,8 +30902,8 @@
         "orderId": "01a1c105-3f48-7808-8b64-55adbb83e538",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.39,
-        "lastSeen": "2026-11-09T18:54:42Z"
+        "lastMid": 0.395,
+        "lastSeen": "2026-11-09T19:09:53Z"
       }
     ],
     "equity": [
@@ -36432,6 +36436,52 @@
         "status": "resting",
         "time": "2026-11-09T17:54:51Z",
         "test": true
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV15KCATL-KC3",
+        "title": "Kansas City wins by over 2.5 points",
+        "sport": "NFL",
+        "kind": "spread",
+        "event": "Kansas City Chiefs at Atlanta Falcons",
+        "commence": "2026-11-15T18:00:00Z",
+        "side": "no",
+        "strike": 2.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4667,
+        "edge": 0.0297,
+        "estimated": true,
+        "why": "Pinnacle fair 46.7% vs Kalshi NO 0.42 + fee = 0.437.",
+        "orderId": "01a1c1b7-d608-7118-bf80-9f96c3000df3",
+        "orderPath": "v2",
+        "price": 0.41,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-09T19:09:53Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV12WASNYG-NYG4",
+        "title": "New York G wins by over 3.5 points",
+        "sport": "NFL",
+        "kind": "spread",
+        "event": "Washington Commanders at New York Giants",
+        "commence": "2026-11-13T01:15:00Z",
+        "side": "yes",
+        "strike": 3.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4306,
+        "edge": 0.0239,
+        "estimated": true,
+        "why": "Pinnacle fair 43.1% vs Kalshi YES 0.39 + fee = 0.407.",
+        "orderId": "01a1c1b7-d608-7b81-bf52-7a9e733c3880",
+        "orderPath": "v2",
+        "price": 0.38,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-09T19:09:53Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -36500,7 +36550,7 @@
       }
     ]
   },
-  "asOf": "2026-11-09T18:54:42Z",
+  "asOf": "2026-11-09T19:09:53Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -36537,8 +36587,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 348,
-      "resting": 9,
+      "orders": 350,
+      "resting": 11,
       "filled": 168,
       "expired": 171,
       "fillRate": 0.496,
@@ -36551,8 +36601,10 @@
       "pairedTakerClvNet": -0.0241,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 0,
+    "liveSkips": {
+      "already held": 3
+    },
+    "liveCandidates": 5,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -36593,9 +36645,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 3.87,
+      "spentToday": 4.66,
       "trades": 116,
-      "resting": 6
+      "resting": 8
     },
     "config": {
       "startingBankroll": 35.0,
@@ -36620,7 +36672,7 @@
       "kalshiMarkets": 5031,
       "eventsMatched": 272,
       "eventsUnmatched": 211,
-      "candidates": 0
+      "candidates": 5
     }
   },
   "account": {
@@ -36629,11 +36681,11 @@
     "detail": {
       "balance": 4001,
       "balance_dollars": "40.0110",
-      "portfolio_value": 2718,
-      "updated_ts": 1794250504
+      "portfolio_value": 2729,
+      "updated_ts": 1794251413
     },
     "env": "production",
-    "checkedAt": "2026-11-09T18:55:04Z"
+    "checkedAt": "2026-11-09T19:10:13Z"
   },
   "maker": {
     "start": 0.0,
@@ -43757,6 +43809,44 @@
         "makerEdge": 0.0447,
         "postedAt": "2026-11-09T17:39:48Z",
         "status": "resting"
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV15KCATL-KC3",
+        "title": "Kansas City wins by over 2.5 points",
+        "sport": "NFL",
+        "kind": "spread",
+        "event": "Kansas City Chiefs at Atlanta Falcons",
+        "commence": "2026-11-15T18:00:00Z",
+        "side": "no",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4667,
+        "estimated": true,
+        "price": 0.41,
+        "bidAtPost": 0.41,
+        "askAtPost": 0.42,
+        "takerEdge": 0.0297,
+        "makerEdge": 0.0525,
+        "postedAt": "2026-11-09T19:09:53Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV12WASNYG-NYG4",
+        "title": "New York G wins by over 3.5 points",
+        "sport": "NFL",
+        "kind": "spread",
+        "event": "Washington Commanders at New York Giants",
+        "commence": "2026-11-13T01:15:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4306,
+        "estimated": true,
+        "price": 0.38,
+        "bidAtPost": 0.38,
+        "askAtPost": 0.39,
+        "takerEdge": 0.0239,
+        "makerEdge": 0.0465,
+        "postedAt": "2026-11-09T19:09:53Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -48701,7 +48791,7 @@
         "mode": "paper",
         "postedAt": "2026-11-08T23:10:07Z",
         "lastMid": 0.595,
-        "lastSeen": "2026-11-09T18:54:42Z"
+        "lastSeen": "2026-11-09T19:09:53Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV09INDDAL-222",
@@ -48723,8 +48813,8 @@
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-09T15:54:50Z",
-        "lastMid": 0.39,
-        "lastSeen": "2026-11-09T18:54:42Z"
+        "lastMid": 0.395,
+        "lastSeen": "2026-11-09T19:09:53Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV09DENHOU-HOU",
@@ -48746,8 +48836,8 @@
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-09T02:31:49Z",
-        "lastMid": 0.735,
-        "lastSeen": "2026-11-09T18:54:42Z"
+        "lastMid": 0.745,
+        "lastSeen": "2026-11-09T19:09:53Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14MIZZUGA-UGA14",
@@ -48770,7 +48860,7 @@
         "mode": "paper",
         "postedAt": "2026-11-09T11:10:15Z",
         "lastMid": 0.42,
-        "lastSeen": "2026-11-09T18:54:42Z"
+        "lastSeen": "2026-11-09T19:09:53Z"
       }
     ],
     "equity": [],
