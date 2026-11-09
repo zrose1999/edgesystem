@@ -20303,7 +20303,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.14,
-        "lastSeen": "2026-11-09T15:54:50Z"
+        "lastSeen": "2026-11-09T16:24:48Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV08MIASAC-SAC",
@@ -20358,7 +20358,9 @@
         "fee": 0.02,
         "status": "open",
         "book": "paper",
-        "mode": "paper"
+        "mode": "paper",
+        "lastMid": 0.39,
+        "lastSeen": "2026-11-09T16:24:48Z"
       }
     ],
     "equity": [
@@ -26912,6 +26914,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-09T15:54:50Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-09T16:24:48Z"
       }
     ]
   },
@@ -30761,7 +30767,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.6,
-        "lastSeen": "2026-11-09T15:54:50Z"
+        "lastSeen": "2026-11-09T16:24:48Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV14TARLUWFL-TARL",
@@ -30789,7 +30795,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.14,
-        "lastSeen": "2026-11-09T15:54:50Z"
+        "lastSeen": "2026-11-09T16:24:48Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV09DENHOU-HOU",
@@ -30816,8 +30822,8 @@
         "orderId": "01a1be26-1040-782d-8795-a8b9159b135e",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.74,
-        "lastSeen": "2026-11-09T15:54:50Z"
+        "lastMid": 0.745,
+        "lastSeen": "2026-11-09T16:24:48Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14MIZZUGA-UGA14",
@@ -30844,8 +30850,34 @@
         "orderId": "01a1c000-bbe0-7b92-a9c5-77751a10a39a",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.425,
-        "lastSeen": "2026-11-09T15:54:50Z"
+        "lastMid": 0.43,
+        "lastSeen": "2026-11-09T16:24:48Z"
+      },
+      {
+        "ticker": "KXNBATOTAL-26NOV09INDDAL-222",
+        "title": "Over 221.5 points",
+        "sport": "NBA",
+        "kind": "total",
+        "event": "Indiana Pacers at Dallas Mavericks",
+        "commence": "2026-11-10T01:10:00Z",
+        "side": "no",
+        "strike": 221.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4875,
+        "edge": 0.0606,
+        "estimated": true,
+        "why": "Pinnacle fair 48.8% vs Kalshi NO 0.41 + fee = 0.427.",
+        "ask": 0.4,
+        "count": 1.0,
+        "cost": 0.4,
+        "fee": 0.0,
+        "time": "2026-11-09T16:24:48Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1c105-3f48-7808-8b64-55adbb83e538",
+        "test": true,
+        "fillChecked": true
       }
     ],
     "equity": [
@@ -32084,6 +32116,14 @@
       {
         "t": "2026-11-09T13:54:39Z",
         "open": 1.92,
+        "realized": 1.96,
+        "equity": 36.96,
+        "clvN": 102,
+        "meanClv": 0.004
+      },
+      {
+        "t": "2026-11-09T16:24:48Z",
+        "open": 2.32,
         "realized": 1.96,
         "equity": 36.96,
         "clvN": 102,
@@ -36206,7 +36246,7 @@
         "price": 0.46,
         "count": 1,
         "filledSeen": 0,
-        "status": "resting",
+        "status": "canceled",
         "time": "2026-11-09T03:24:41Z",
         "test": true
       },
@@ -36320,8 +36360,8 @@
         "orderPath": "v2",
         "price": 0.4,
         "count": 1,
-        "filledSeen": 0,
-        "status": "resting",
+        "filledSeen": 1.0,
+        "status": "executed",
         "time": "2026-11-09T15:54:50Z",
         "test": true
       }
@@ -36392,7 +36432,7 @@
       }
     ]
   },
-  "asOf": "2026-11-09T15:54:50Z",
+  "asOf": "2026-11-09T16:24:48Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -36420,7 +36460,7 @@
       "meanClv": -0.0021
     },
     "live": {
-      "open": 1.92,
+      "open": 2.32,
       "realized": 1.96,
       "equity": 36.96,
       "clvN": 102,
@@ -36430,10 +36470,10 @@
     "liveStopped": null,
     "maker": {
       "orders": 346,
-      "resting": 10,
-      "filled": 165,
+      "resting": 9,
+      "filled": 166,
       "expired": 171,
-      "fillRate": 0.491,
+      "fillRate": 0.493,
       "clvN": 164,
       "meanClv": -0.0133,
       "meanClvNet": -0.0174,
@@ -36443,10 +36483,8 @@
       "pairedTakerClvNet": -0.0241,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {
-      "already held": 3
-    },
-    "liveCandidates": 4,
+    "liveSkips": {},
+    "liveCandidates": 0,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -36488,8 +36526,8 @@
       "maxPerDay": 5.0,
       "orderType": "maker",
       "spentToday": 3.02,
-      "trades": 115,
-      "resting": 6
+      "trades": 116,
+      "resting": 4
     },
     "config": {
       "startingBankroll": 35.0,
@@ -36514,20 +36552,20 @@
       "kalshiMarkets": 5031,
       "eventsMatched": 272,
       "eventsUnmatched": 211,
-      "candidates": 4
+      "candidates": 0
     }
   },
   "account": {
     "keys": "ok",
-    "balance": 48.69,
+    "balance": 48.28,
     "detail": {
-      "balance": 4868,
-      "balance_dollars": "48.6864",
-      "portfolio_value": 1890,
-      "updated_ts": 1794239709
+      "balance": 4828,
+      "balance_dollars": "48.2822",
+      "portfolio_value": 1930,
+      "updated_ts": 1794241511
     },
     "env": "production",
-    "checkedAt": "2026-11-09T15:55:09Z"
+    "checkedAt": "2026-11-09T16:25:11Z"
   },
   "maker": {
     "start": 0.0,
@@ -43606,7 +43644,9 @@
         "takerEdge": 0.0606,
         "makerEdge": 0.0833,
         "postedAt": "2026-11-09T15:54:50Z",
-        "status": "resting"
+        "status": "filled",
+        "filledAt": "2026-11-09T16:24:48Z",
+        "askAtFill": 0.4
       }
     ],
     "trades": [
@@ -48551,7 +48591,30 @@
         "mode": "paper",
         "postedAt": "2026-11-08T23:10:07Z",
         "lastMid": 0.6,
-        "lastSeen": "2026-11-09T15:54:50Z"
+        "lastSeen": "2026-11-09T16:24:48Z"
+      },
+      {
+        "ticker": "KXNBATOTAL-26NOV09INDDAL-222",
+        "title": "Over 221.5 points",
+        "sport": "NBA",
+        "kind": "total",
+        "event": "Indiana Pacers at Dallas Mavericks",
+        "commence": "2026-11-10T01:10:00Z",
+        "side": "no",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4875,
+        "estimated": true,
+        "ask": 0.4,
+        "count": 1,
+        "cost": 0.4,
+        "fee": 0.0042,
+        "time": "2026-11-09T16:24:48Z",
+        "status": "open",
+        "book": "maker",
+        "mode": "paper",
+        "postedAt": "2026-11-09T15:54:50Z",
+        "lastMid": 0.39,
+        "lastSeen": "2026-11-09T16:24:48Z"
       }
     ],
     "equity": [],
