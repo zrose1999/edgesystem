@@ -20302,8 +20302,8 @@
         "status": "open",
         "book": "paper",
         "mode": "paper",
-        "lastMid": 0.135,
-        "lastSeen": "2026-11-09T17:24:52Z"
+        "lastMid": 0.16,
+        "lastSeen": "2026-11-09T17:39:48Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV08MIASAC-SAC",
@@ -20360,7 +20360,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.39,
-        "lastSeen": "2026-11-09T17:24:52Z"
+        "lastSeen": "2026-11-09T17:39:48Z"
       }
     ],
     "equity": [
@@ -26926,6 +26926,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-09T17:24:52Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-09T17:39:48Z"
       }
     ]
   },
@@ -30775,7 +30779,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.595,
-        "lastSeen": "2026-11-09T17:24:52Z"
+        "lastSeen": "2026-11-09T17:39:48Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV14TARLUWFL-TARL",
@@ -30802,8 +30806,8 @@
         "orderId": "01a1bd6d-62e8-7f91-ba02-27fb78640456",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.135,
-        "lastSeen": "2026-11-09T17:24:52Z"
+        "lastMid": 0.16,
+        "lastSeen": "2026-11-09T17:39:48Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV09DENHOU-HOU",
@@ -30830,8 +30834,8 @@
         "orderId": "01a1be26-1040-782d-8795-a8b9159b135e",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.745,
-        "lastSeen": "2026-11-09T17:24:52Z"
+        "lastMid": 0.735,
+        "lastSeen": "2026-11-09T17:39:48Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14MIZZUGA-UGA14",
@@ -30859,7 +30863,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.42,
-        "lastSeen": "2026-11-09T17:24:52Z"
+        "lastSeen": "2026-11-09T17:39:48Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV09INDDAL-222",
@@ -30887,7 +30891,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.39,
-        "lastSeen": "2026-11-09T17:24:52Z"
+        "lastSeen": "2026-11-09T17:39:48Z"
       }
     ],
     "equity": [
@@ -36442,7 +36446,7 @@
       }
     ]
   },
-  "asOf": "2026-11-09T17:24:52Z",
+  "asOf": "2026-11-09T17:39:48Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -36479,8 +36483,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 346,
-      "resting": 7,
+      "orders": 348,
+      "resting": 9,
       "filled": 168,
       "expired": 171,
       "fillRate": 0.496,
@@ -36493,8 +36497,11 @@
       "pairedTakerClvNet": -0.0241,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 0,
+    "liveSkips": {
+      "already held": 1,
+      "maker order failed": 2
+    },
+    "liveCandidates": 3,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -36562,7 +36569,7 @@
       "kalshiMarkets": 5031,
       "eventsMatched": 272,
       "eventsUnmatched": 211,
-      "candidates": 0
+      "candidates": 3
     }
   },
   "account": {
@@ -36571,11 +36578,11 @@
     "detail": {
       "balance": 4828,
       "balance_dollars": "48.2822",
-      "portfolio_value": 1800,
-      "updated_ts": 1794245114
+      "portfolio_value": 1801,
+      "updated_ts": 1794246011
     },
     "env": "production",
-    "checkedAt": "2026-11-09T17:25:14Z"
+    "checkedAt": "2026-11-09T17:40:11Z"
   },
   "maker": {
     "start": 0.0,
@@ -43661,6 +43668,44 @@
         "status": "filled",
         "filledAt": "2026-11-09T16:24:48Z",
         "askAtFill": 0.4
+      },
+      {
+        "ticker": "KXNFLTOTAL-26NOV15MIAIND-42",
+        "title": "Over 41.5 points",
+        "sport": "NFL",
+        "kind": "total",
+        "event": "Miami Dolphins at Indianapolis Colts",
+        "commence": "2026-11-15T18:00:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4826,
+        "estimated": true,
+        "price": 0.43,
+        "bidAtPost": 0.43,
+        "askAtPost": 0.44,
+        "takerEdge": 0.0254,
+        "makerEdge": 0.0483,
+        "postedAt": "2026-11-09T17:39:48Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV15NEDET-DET4",
+        "title": "Detroit wins by over 3.5 points",
+        "sport": "NFL",
+        "kind": "spread",
+        "event": "New England Patriots at Detroit Lions",
+        "commence": "2026-11-15T14:30:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.469,
+        "estimated": true,
+        "price": 0.42,
+        "bidAtPost": 0.42,
+        "askAtPost": 0.43,
+        "takerEdge": 0.0218,
+        "makerEdge": 0.0447,
+        "postedAt": "2026-11-09T17:39:48Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -48605,7 +48650,7 @@
         "mode": "paper",
         "postedAt": "2026-11-08T23:10:07Z",
         "lastMid": 0.595,
-        "lastSeen": "2026-11-09T17:24:52Z"
+        "lastSeen": "2026-11-09T17:39:48Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV09INDDAL-222",
@@ -48628,7 +48673,7 @@
         "mode": "paper",
         "postedAt": "2026-11-09T15:54:50Z",
         "lastMid": 0.39,
-        "lastSeen": "2026-11-09T17:24:52Z"
+        "lastSeen": "2026-11-09T17:39:48Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV09DENHOU-HOU",
@@ -48650,8 +48695,8 @@
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-09T02:31:49Z",
-        "lastMid": 0.745,
-        "lastSeen": "2026-11-09T17:24:52Z"
+        "lastMid": 0.735,
+        "lastSeen": "2026-11-09T17:39:48Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14MIZZUGA-UGA14",
@@ -48674,7 +48719,7 @@
         "mode": "paper",
         "postedAt": "2026-11-09T11:10:15Z",
         "lastMid": 0.42,
-        "lastSeen": "2026-11-09T17:24:52Z"
+        "lastSeen": "2026-11-09T17:39:48Z"
       }
     ],
     "equity": [],
