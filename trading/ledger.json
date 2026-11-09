@@ -20302,8 +20302,8 @@
         "status": "open",
         "book": "paper",
         "mode": "paper",
-        "lastMid": 0.15,
-        "lastSeen": "2026-11-09T11:10:15Z"
+        "lastMid": 0.155,
+        "lastSeen": "2026-11-09T11:24:49Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV08MIASAC-SAC",
@@ -26837,6 +26837,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-09T11:10:15Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-09T11:24:49Z"
       }
     ]
   },
@@ -30686,7 +30690,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.605,
-        "lastSeen": "2026-11-09T11:10:15Z"
+        "lastSeen": "2026-11-09T11:24:49Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV14TARLUWFL-TARL",
@@ -30713,8 +30717,34 @@
         "orderId": "01a1bd6d-62e8-7f91-ba02-27fb78640456",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.15,
-        "lastSeen": "2026-11-09T11:10:15Z"
+        "lastMid": 0.155,
+        "lastSeen": "2026-11-09T11:24:49Z"
+      },
+      {
+        "ticker": "KXNBAGAME-26NOV09DENHOU-HOU",
+        "title": "Houston",
+        "sport": "NBA",
+        "kind": "game",
+        "event": "Denver Nuggets at Houston Rockets",
+        "commence": "2026-11-10T01:40:00Z",
+        "side": "yes",
+        "strike": null,
+        "source": "mirror:sharp-soft",
+        "fair": 0.7914,
+        "edge": 0.0283,
+        "estimated": true,
+        "why": "EDGE sharp-soft B pick (DraftKings home -291 implies 74.4%. Pinnacle -368 no-vig is 76.8%. Edge +2.4%.). Pinnacle fair here 76.8% plus the pick's edge = 79.1%; Kalshi YES 0.75 + fee = 0.763.",
+        "ask": 0.74,
+        "count": 1.0,
+        "cost": 0.74,
+        "fee": 0.0,
+        "time": "2026-11-09T11:24:49Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1be26-1040-782d-8795-a8b9159b135e",
+        "test": true,
+        "fillChecked": true
       }
     ],
     "equity": [
@@ -31937,6 +31967,14 @@
       {
         "t": "2026-11-09T08:39:28Z",
         "open": 0.75,
+        "realized": 1.96,
+        "equity": 36.96,
+        "clvN": 102,
+        "meanClv": 0.004
+      },
+      {
+        "t": "2026-11-09T11:24:49Z",
+        "open": 1.49,
         "realized": 1.96,
         "equity": 36.96,
         "clvN": 102,
@@ -36035,8 +36073,8 @@
         "orderPath": "v2",
         "price": 0.74,
         "count": 1,
-        "filledSeen": 0,
-        "status": "resting",
+        "filledSeen": 1.0,
+        "status": "executed",
         "time": "2026-11-09T02:31:49Z",
         "test": true
       },
@@ -36176,7 +36214,7 @@
       }
     ]
   },
-  "asOf": "2026-11-09T11:10:15Z",
+  "asOf": "2026-11-09T11:24:49Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -36204,7 +36242,7 @@
       "meanClv": -0.0021
     },
     "live": {
-      "open": 0.75,
+      "open": 1.49,
       "realized": 1.96,
       "equity": 36.96,
       "clvN": 102,
@@ -36213,8 +36251,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 342,
-      "resting": 6,
+      "orders": 343,
+      "resting": 7,
       "filled": 165,
       "expired": 171,
       "fillRate": 0.491,
@@ -36228,9 +36266,10 @@
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {
-      "already held": 2
+      "already held": 4,
+      "maker order failed": 1
     },
-    "liveCandidates": 4,
+    "liveCandidates": 5,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -36271,9 +36310,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 1.05,
-      "trades": 113,
-      "resting": 5
+      "spentToday": 1.79,
+      "trades": 114,
+      "resting": 4
     },
     "config": {
       "startingBankroll": 35.0,
@@ -36298,20 +36337,20 @@
       "kalshiMarkets": 5031,
       "eventsMatched": 272,
       "eventsUnmatched": 211,
-      "candidates": 4
+      "candidates": 5
     }
   },
   "account": {
     "keys": "ok",
-    "balance": 49.86,
+    "balance": 49.12,
     "detail": {
-      "balance": 4986,
-      "balance_dollars": "49.8641",
-      "portfolio_value": 1777,
-      "updated_ts": 1794222636
+      "balance": 4912,
+      "balance_dollars": "49.1207",
+      "portfolio_value": 1852,
+      "updated_ts": 1794223513
     },
     "env": "production",
-    "checkedAt": "2026-11-09T11:10:36Z"
+    "checkedAt": "2026-11-09T11:25:13Z"
   },
   "maker": {
     "start": 0.0,
@@ -43315,6 +43354,25 @@
         "makerEdge": 0.0442,
         "postedAt": "2026-11-09T11:10:15Z",
         "status": "resting"
+      },
+      {
+        "ticker": "KXNBATOTAL-26NOV09CLECHA-216",
+        "title": "Over 215.5 points",
+        "sport": "NBA",
+        "kind": "total",
+        "event": "Cleveland Cavaliers at Charlotte Hornets",
+        "commence": "2026-11-10T00:10:00Z",
+        "side": "no",
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5589,
+        "estimated": true,
+        "price": 0.51,
+        "bidAtPost": 0.51,
+        "askAtPost": 0.52,
+        "takerEdge": 0.0214,
+        "makerEdge": 0.0445,
+        "postedAt": "2026-11-09T11:24:49Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -48259,7 +48317,7 @@
         "mode": "paper",
         "postedAt": "2026-11-08T23:10:07Z",
         "lastMid": 0.605,
-        "lastSeen": "2026-11-09T11:10:15Z"
+        "lastSeen": "2026-11-09T11:24:49Z"
       }
     ],
     "equity": [],
