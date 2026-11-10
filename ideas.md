@@ -160,6 +160,18 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 
 ## Killed
 
+### The final quarter-hour before the start (2026-11-10, killed)
+- Observation: fast runs land at :24/:54, so the last stored snap is usually 15-16 minutes before an NBA tip; the
+  close comes from a history call at the start. Idea: late scratches and lineup news in that last quarter-hour move
+  prices one way (unders or dogs), which a maker order could sit in front of.
+- Test (rows with a paid history close and a last snap 10-40 minutes before the start, Pinnacle no-vig, archive plus
+  ledger): NBA totals over +0.24% (n 37, t 1.7; halves +0.31/+0.17), NBA moneyline favourite -0.01% (n 42), NBA spread
+  favourite +0.01% (n 41), NCAAF spread favourite +0.22% (n 22, t 1.0), NCAAF/NFL totals and NFL spreads |t| <= 1.5;
+  mean absolute move 0.15-0.49%. 8 variants. Memory: NBA totals timing=late n 15, -2.4% (t -5.2).
+- Verdict: no direction in the last quarter-hour, and the NBA over sign runs against lead 4's earlier downward drift,
+  so the drift there is earlier (injury reports), not at the tip. Side use: it shows a last snap 15-25 minutes out is
+  a fair close for research (bias under 0.25%), which backs the 11-10 lastSnapWide fix for gated rows.
+
 ### Pinnacle's quote age at the pick (2026-11-09, killed for now)
 - Observation: the gate trusts Pinnacle's price at the pick, but pinAtPick.updated is sometimes an hour or more before
   pickedAt. Idea: a stale Pinnacle quote is a weaker fair price (low early limits, nobody re-pricing), so reads made

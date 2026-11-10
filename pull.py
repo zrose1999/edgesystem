@@ -73,6 +73,7 @@ FAST_RESERVE = int(os.environ.get("EDGE_FAST_RESERVE", "1500"))
 FLOOR = int(os.environ.get("EDGE_CREDIT_FLOOR", "300"))
 # A stored snap this many minutes or less before the start counts as the close (no history call).
 CLOSE_SNAP_MIN = float(os.environ.get("EDGE_CLOSE_SNAP_MIN", "15"))
+CLOSE_SNAP_WIDE_MIN = 25.0   # free close for rows with only gated reads (no pick or lean), 2026-11-10
 CREDITS = {"remaining": None, "used": None}
 SPORTS = {k: v for k, v in SPORTS.items() if v in ACTIVE}
 KEY_OF = {v: k for k, v in SPORTS.items()}
@@ -792,15 +793,23 @@ def pull(near=None):
     # difference 0, 94% within 5 cents. A snap that close to the start is the close; no history call is paid.
     moved = reconcile_moved(rows, now)
     free = 0
+    # Rows whose only reads are gated (no pick or lean) never get a paid history close (2b), so a last snap 15-25
+    # minutes out left them unscored: fast runs land at :24/:54 and NBA tips at :10/:40, so the last snap is 15-16
+    # minutes out. 2026-11-10 health check: 172 of 380 settled gated NFL/NCAAF/NBA reads had no CLV, 142 of them
+    # with the last snap 15-21 minutes before the start. Those rows take the last snap up to CLOSE_SNAP_WIDE_MIN as
+    # the close, labelled lastSnapWide (research only: gated reads are scored, never counted). Rows with a pick or
+    # lean keep the 15-minute rule and the history call.
+    counted_rows = {p.get("rowId") for p in load(PICKS, {"picks": []}).get("picks") or [] if p.get("kind") in ("pick", "lean")}
     for row in rows:
         c, last = row.get("commence"), row.get("lastSnap")
         if row.get("movedTo") or not c or c > now or "closeSnap" in row or not last or not last.get("time"):
             continue
         gap = (parse(c) - parse(last["time"])).total_seconds() / 60
-        if 0 <= gap <= CLOSE_SNAP_MIN:
+        wide = row.get("id") not in counted_rows and CLOSE_SNAP_MIN < gap <= CLOSE_SNAP_WIDE_MIN
+        if 0 <= gap <= CLOSE_SNAP_MIN or wide:
             row["closeSnap"] = dict(last)
             row["closeGapMin"] = round(gap, 1)
-            row["closeSource"] = "lastSnap"
+            row["closeSource"] = "lastSnapWide" if wide else "lastSnap"
             legacy(row, "close", row["closeSnap"])
             closed += 1
             free += 1
