@@ -1,6 +1,6 @@
 # Strategy scanner (scan.py)
 
-2026-11-10T11:09:52Z. 24468 game-markets; 4956 hypotheses tested (move 1482, resClose 1998, resOpen 1476). Survivors pass a Benjamini-Hochberg cut at q 0.1 per test kind, the same sign in both time-ordered halves, and a minimum effect. 25 survivors; the strongest 25 are tracked as shadow strategies (stake 0) and stamp live reads, so their CLV builds on its own. grade.py alone decides promotion.
+2026-11-10T18:35:38Z. 24468 game-markets; 4956 hypotheses tested (move 1482, resClose 1998, resOpen 1476). Survivors pass a Benjamini-Hochberg cut at q 0.1 per test kind, the same sign in both time-ordered halves, and a minimum effect. 25 survivors; the strongest 25 are tracked as shadow strategies (stake 0) and stamp live reads, so their CLV builds on its own. grade.py alone decides promotion.
 
 | Strategy | Side | Conditions | Move (CLV) | Result at open | Result at close | Status |
 |---|---|---|---|---|---|---|

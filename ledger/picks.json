@@ -173691,6 +173691,63 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -3.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NFL|2026-11-15|Minnesota Vikings at Green Bay Packers|h2h|home|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NFL|2026-11-15|Minnesota Vikings at Green Bay Packers|h2h",
+      "sport": "NFL",
+      "event": "Minnesota Vikings at Green Bay Packers",
+      "commence": "2026-11-15T18:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": -200,
+      "bookAtPick": "FanDuel",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -230,
+        "away": 190
+      },
+      "priceTime": "2026-11-10T18:35:17Z",
+      "pickedAt": "2026-11-10T18:35:46Z",
+      "fair": 0.6886,
+      "projection": 0.6886,
+      "edge": 0.0219,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "FanDuel home -200 implies 66.7%. Pinnacle -239 no-vig is 68.9%. Edge +2.2%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -239,
+          "away": 205
+        },
+        "updated": "2026-11-10T18:29:27Z",
+        "snapTime": "2026-11-10T18:35:17Z",
+        "noVig": 0.6886
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -200,
+        "line": null,
+        "implied": 0.6667,
+        "printImplied": 0.697
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.0219,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
