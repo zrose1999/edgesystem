@@ -174104,6 +174104,124 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.4% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NBA|2026-11-11|Milwaukee Bucks at New York Knicks|spread|away|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NBA|2026-11-11|Milwaukee Bucks at New York Knicks|spread",
+      "sport": "NBA",
+      "event": "Milwaukee Bucks at New York Knicks",
+      "commence": "2026-11-11T00:40:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 16.0,
+      "priceAtPick": -105,
+      "bookAtPick": "Caesars",
+      "marketNumber": -16.5,
+      "marketPrices": {
+        "home": -108,
+        "away": -112
+      },
+      "priceTime": "2026-11-10T23:24:31Z",
+      "pickedAt": "2026-11-10T23:24:31Z",
+      "fair": 0.5315,
+      "projection": 0.5315,
+      "edge": 0.0193,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "Caesars away +16 -105 implies 51.2%. Pinnacle -113 no-vig is 51.7% at -15.5, worth 53.2% at this line. Edge +1.9%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": -15.5,
+        "prices": {
+          "home": 101,
+          "away": -113
+        },
+        "updated": "2026-11-10T23:24:10Z",
+        "snapTime": "2026-11-10T23:24:31Z",
+        "noVig": 0.5165
+      },
+      "contextAtPick": {
+        "injury": "Tyler Herro (Bucks, worth 2.45): weight 0 at the open, 0.5 now, +1.23 spread, -0.73 total"
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -112,
+        "line": -16.5,
+        "implied": 0.5283,
+        "printImplied": 0.5283
+      },
+      "priceBook": "FanDuel",
+      "estimated": true,
+      "lineAdj": 0.015,
+      "pinEdgeAtPick": 0.0193,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NBA|2026-11-11|Los Angeles Clippers at Phoenix Suns|h2h|home|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "A",
+      "rowId": "NBA|2026-11-11|Los Angeles Clippers at Phoenix Suns|h2h",
+      "sport": "NBA",
+      "event": "Los Angeles Clippers at Phoenix Suns",
+      "commence": "2026-11-11T02:10:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": -141,
+      "bookAtPick": "BetRivers",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -173,
+        "away": 145
+      },
+      "priceTime": "2026-11-10T23:24:31Z",
+      "pickedAt": "2026-11-10T23:24:31Z",
+      "fair": 0.6208,
+      "projection": 0.6208,
+      "edge": 0.0357,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "BetRivers home -141 implies 58.5%. Pinnacle -173 no-vig is 62.1%. Edge +3.6%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -173,
+          "away": 155
+        },
+        "updated": "2026-11-10T23:24:10Z",
+        "snapTime": "2026-11-10T23:24:31Z",
+        "noVig": 0.6208
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -168,
+        "line": null,
+        "implied": 0.6269,
+        "printImplied": 0.6337
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.0357,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-10T23:09:46Z",
+ "asOf": "2026-11-10T23:24:47Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -243,17 +243,17 @@
   "learned-scan-ncaaf-spread": {
    "pattern": "learned-scan-ncaaf-spread",
    "unit": "points",
-   "n": 21,
-   "meanPredicted": 0.6569,
-   "meanRealized": 0.7857,
-   "tRealized": 1.87,
-   "capture": 1.2,
-   "rightWay": 0.714,
+   "n": 20,
+   "meanPredicted": 0.661,
+   "meanRealized": 0.875,
+   "tRealized": 2.03,
+   "capture": 1.32,
+   "rightWay": 0.769,
    "noMove": 7,
    "logLossGain": {
-    "n": 21,
-    "mean": -0.00516,
-    "t": -0.54
+    "n": 20,
+    "mean": -0.00684,
+    "t": -0.7
    },
    "verdict": "collecting"
   },
@@ -362,17 +362,17 @@
   "ncaaf-spot": {
    "pattern": "ncaaf-spot",
    "unit": "points",
-   "n": 100,
-   "meanPredicted": 0.3618,
-   "meanRealized": -0.055,
-   "tRealized": -0.26,
-   "capture": -0.15,
-   "rightWay": 0.468,
+   "n": 99,
+   "meanPredicted": 0.3596,
+   "meanRealized": -0.0455,
+   "tRealized": -0.21,
+   "capture": -0.13,
+   "rightWay": 0.474,
    "noMove": 21,
    "logLossGain": {
-    "n": 100,
-    "mean": 0.00147,
-    "t": 0.9
+    "n": 99,
+    "mean": 0.00169,
+    "t": 1.04
    },
    "verdict": "collecting"
   },
@@ -668,17 +668,17 @@
   "scan-ncaaf-total-under-dowsatrestawaynormal-f657ba": {
    "pattern": "scan-ncaaf-total-under-dowsatrestawaynormal-f657ba",
    "unit": "points",
-   "n": 9,
+   "n": 8,
    "meanPredicted": 0.484,
-   "meanRealized": -0.2222,
-   "tRealized": -0.39,
-   "capture": -0.46,
-   "rightWay": 0.286,
+   "meanRealized": -0.125,
+   "tRealized": -0.2,
+   "capture": -0.26,
+   "rightWay": 0.333,
    "noMove": 2,
    "logLossGain": {
-    "n": 9,
-    "mean": 0.00956,
-    "t": 1.88
+    "n": 8,
+    "mean": 0.0129,
+    "t": 2.96
    },
    "verdict": "collecting"
   },
