@@ -20303,7 +20303,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.16,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:54:44Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV08MIASAC-SAC",
@@ -20387,7 +20387,9 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.395,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:39:50Z",
+        "closeMid": 0.395,
+        "clv": -0.035
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15LARARI-LAR7",
@@ -20412,7 +20414,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.365,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:54:44Z"
       }
     ],
     "equity": [
@@ -27074,6 +27076,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-10T01:39:50Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-10T01:54:44Z"
       }
     ]
   },
@@ -30923,7 +30929,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.6,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:54:44Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV14TARLUWFL-TARL",
@@ -30951,7 +30957,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.16,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:54:44Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV09DENHOU-HOU",
@@ -30979,7 +30985,9 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.635,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:39:50Z",
+        "closeMid": 0.635,
+        "clv": -0.105
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14MIZZUGA-UGA14",
@@ -31007,7 +31015,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.42,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:54:44Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV09INDDAL-222",
@@ -31065,7 +31073,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.43,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:54:44Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15KCATL-KC3",
@@ -31093,7 +31101,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.415,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:54:44Z"
       }
     ],
     "equity": [
@@ -36756,7 +36764,7 @@
       }
     ]
   },
-  "asOf": "2026-11-10T01:39:50Z",
+  "asOf": "2026-11-10T01:54:44Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -36780,15 +36788,15 @@
       "open": 5.06,
       "realized": -80.02,
       "equity": 19.98,
-      "clvN": 263,
-      "meanClv": -0.0023
+      "clvN": 264,
+      "meanClv": -0.0024
     },
     "live": {
       "open": 3.15,
       "realized": 1.96,
       "equity": 36.96,
-      "clvN": 103,
-      "meanClv": 0.0036
+      "clvN": 104,
+      "meanClv": 0.0025
     },
     "paperStopped": null,
     "liveStopped": null,
@@ -36798,25 +36806,23 @@
       "filled": 174,
       "expired": 171,
       "fillRate": 0.504,
-      "clvN": 166,
-      "meanClv": -0.0136,
-      "meanClvNet": -0.0177,
+      "clvN": 168,
+      "meanClv": -0.0143,
+      "meanClvNet": -0.0185,
       "settledPnl": -0.86,
-      "pairedWithTaker": 77,
-      "pairedMakerClvNet": -0.0095,
-      "pairedTakerClvNet": -0.0246,
+      "pairedWithTaker": 78,
+      "pairedMakerClvNet": -0.0101,
+      "pairedTakerClvNet": -0.025,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {
-      "already held": 3
-    },
-    "liveCandidates": 3,
+    "liveSkips": {},
+    "liveCandidates": 0,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
-        "n": 21,
-        "meanClvNet": 0.0218,
-        "t": 0.56,
+        "n": 22,
+        "meanClvNet": 0.0183,
+        "t": 0.5,
         "tNeeded": 2.0,
         "freshN": 0
       },
@@ -36875,10 +36881,10 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 5306,
+      "kalshiMarkets": 5308,
       "eventsMatched": 286,
       "eventsUnmatched": 216,
-      "candidates": 3
+      "candidates": 0
     }
   },
   "account": {
@@ -36887,11 +36893,11 @@
     "detail": {
       "balance": 2959,
       "balance_dollars": "29.5937",
-      "portfolio_value": 3772,
-      "updated_ts": 1794274809
+      "portfolio_value": 3761,
+      "updated_ts": 1794275704
     },
     "env": "production",
-    "checkedAt": "2026-11-10T01:40:09Z"
+    "checkedAt": "2026-11-10T01:55:04Z"
   },
   "maker": {
     "start": 0.0,
@@ -49256,7 +49262,7 @@
         "mode": "paper",
         "postedAt": "2026-11-08T23:10:07Z",
         "lastMid": 0.6,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:54:44Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV09INDDAL-222",
@@ -49304,7 +49310,9 @@
         "mode": "paper",
         "postedAt": "2026-11-09T02:31:49Z",
         "lastMid": 0.635,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:39:50Z",
+        "closeMid": 0.635,
+        "clv": -0.105
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14MIZZUGA-UGA14",
@@ -49327,7 +49335,7 @@
         "mode": "paper",
         "postedAt": "2026-11-09T11:10:15Z",
         "lastMid": 0.42,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:54:44Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV09CLECHA-216",
@@ -49375,7 +49383,9 @@
         "mode": "paper",
         "postedAt": "2026-11-09T19:24:40Z",
         "lastMid": 0.395,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:39:50Z",
+        "closeMid": 0.395,
+        "clv": -0.055
       },
       {
         "ticker": "KXNFLTOTAL-26NOV15LARARI-45",
@@ -49398,7 +49408,7 @@
         "mode": "paper",
         "postedAt": "2026-11-09T21:54:43Z",
         "lastMid": 0.34,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:54:44Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV15LARARI-46",
@@ -49421,7 +49431,7 @@
         "mode": "paper",
         "postedAt": "2026-11-09T21:54:43Z",
         "lastMid": 0.34,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:54:44Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15LARARI-LAR9",
@@ -49444,7 +49454,7 @@
         "mode": "paper",
         "postedAt": "2026-11-09T21:54:43Z",
         "lastMid": 0.47,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:54:44Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15LARARI-LAR7",
@@ -49467,7 +49477,7 @@
         "mode": "paper",
         "postedAt": "2026-11-09T22:54:41Z",
         "lastMid": 0.365,
-        "lastSeen": "2026-11-10T01:39:50Z"
+        "lastSeen": "2026-11-10T01:54:44Z"
       }
     ],
     "equity": [],
@@ -49476,9 +49486,9 @@
   "sourceStatus": {
     "kalshi-sharp-alt": {
       "status": "shadow",
-      "n": 21,
-      "meanClvNet": 0.0218,
-      "t": 0.56,
+      "n": 22,
+      "meanClvNet": 0.0183,
+      "t": 0.5,
       "tNeeded": 2.0,
       "freshN": 0
     },
