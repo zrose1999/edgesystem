@@ -706,3 +706,6 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-09 | edgeBar=2x+ + venue=away | 8 | +0.1% | found inside ALL edgeBar=2x+ (best of 10 features tested); small sample, may share reads with other rows |
 | 2026-11-09 | NBA: bookAtPick=FanDuel + sharpDivPick=pin-for | 11 | +0.4% | found inside NBA bookAtPick=FanDuel (best of 7 features tested); small sample, may share reads with other rows |
 | 2026-11-09 | NBA: grade=A + restDays=1day | 21 | +3.4% | found inside NBA restDays=1day (best of 56 features tested); small sample, may share reads with other rows |
+| 2026-11-10 | NBA: moveBeforePick=against + restDays=1day | 9 | +0.9% | found inside NBA moveBeforePick=against (best of 20 features tested); small sample, may share reads with other rows |
+| 2026-11-10 | NBA: restDays=b2b + sharpGapPick=2%+ | 9 | +3.3% | found inside NBA sharpGapPick=2%+ (best of 22 features tested); small sample, may share reads with other rows |
+| 2026-11-10 | NBA: bookAtPick=BetRivers + venue=home | 18 | +2.8% | found inside NBA venue=home (best of 54 features tested); small sample, may share reads with other rows |
