@@ -1,8 +1,8 @@
 {
- "asOf": "2026-11-10T14:54:44Z",
+ "asOf": "2026-11-10T15:09:50Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 1250,
- "loggedReads": 2657,
+ "loggedReads": 2659,
  "newPatternsThisRun": [],
  "notCollected": {
   "public-pct": "Needs a betting-splits source (Action Network or VSiN pages, or a paid splits API), pulled near the open and near kickoff per game. No free API in the stack today.",
@@ -11,14 +11,14 @@
  "coverage": {
   "pinAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1927,
-   "with": 1599,
+   "reads": 1928,
+   "with": 1600,
    "alarm": false
   },
   "contextAtPick": {
    "since": "2026-10-19T18:00:00Z",
-   "reads": 1927,
-   "with": 1927,
+   "reads": 1928,
+   "with": 1928,
    "alarm": false
   }
  },
@@ -98,9 +98,9 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 400,
-  "latest": "2026-11-10T11:09:28Z",
-  "rowsWithHistory": 1993,
+  "linesLastCycle": 432,
+  "latest": "2026-11-10T15:09:34Z",
+  "rowsWithHistory": 2001,
   "alarm": false
  },
  "interactionCoverage": {
@@ -12401,7 +12401,7 @@
    "n": 78,
    "meanClvProb": -0.0054,
    "pocket": {
-    "feature": "sharpGapOpen=<1%",
+    "feature": "sharpDiv=aligned",
     "n": 11,
     "meanClvProb": 0.0051,
     "tStat": 0.39
@@ -12491,7 +12491,7 @@
    "n": 115,
    "meanClvProb": -0.0022,
    "pocket": {
-    "feature": "sharpGapOpen=<1%",
+    "feature": "sharpDiv=aligned",
     "n": 8,
     "meanClvProb": 0.0374,
     "tStat": 2.39
@@ -12595,7 +12595,7 @@
    "n": 468,
    "meanClvProb": -0.0174,
    "pocket": {
-    "feature": "shortWeek=yes",
+    "feature": "restDays=short",
     "n": 12,
     "meanClvProb": 0.0188,
     "tStat": 1.27
@@ -14785,7 +14785,7 @@
    "n": 19,
    "meanClvProb": -0.0057,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 8,
     "meanClvProb": 0.015,
     "tStat": 1.44
@@ -14851,7 +14851,7 @@
    "n": 53,
    "meanClvProb": -0.0239,
    "pocket": {
-    "feature": "restDays=long",
+    "feature": "restEdge=more",
     "n": 13,
     "meanClvProb": 0.0087,
     "tStat": 0.53
@@ -14883,7 +14883,7 @@
    "n": 19,
    "meanClvProb": -0.0057,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 8,
     "meanClvProb": 0.015,
     "tStat": 1.44
@@ -15499,53 +15499,59 @@
   }
  ],
  "gated": {
-  "n": 251,
-  "meanClvProb": -0.0182,
-  "tStat": -6.73,
-  "beatClose": 59,
+  "n": 334,
+  "meanClvProb": -0.0162,
+  "tStat": -6.32,
+  "beatClose": 90,
   "pocket": {
-   "feature": "role=over",
-   "n": 9,
-   "meanClvProb": 0.0007,
-   "tStat": 0.08
-  },
-  "tested": 61,
-  "pairPocket": {
-   "feature": "timing=late + sharpGapOpen=<1%",
+   "feature": "pattern=rest-spot",
    "n": 8,
-   "meanClvProb": 0.0057,
-   "tStat": 0.29
+   "meanClvProb": 0.0095,
+   "tStat": 0.33
   },
-  "pairsTested": 26,
+  "tested": 68,
+  "pairPocket": {
+   "feature": "injury=any + role=fav",
+   "n": 9,
+   "meanClvProb": 0.0291,
+   "tStat": 1.57
+  },
+  "pairsTested": 30,
   "byPattern": {
    "ncaaf-spot": {
-    "n": 41,
-    "meanClvProb": -0.0299,
-    "tStat": -5.85,
-    "beatClose": 7
+    "n": 50,
+    "meanClvProb": -0.0294,
+    "tStat": -6.53,
+    "beatClose": 8
    },
    "learned-scan-ncaaf-spread": {
-    "n": 24,
-    "meanClvProb": -0.0064,
-    "tStat": -0.72,
+    "n": 26,
+    "meanClvProb": -0.0116,
+    "tStat": -1.23,
     "beatClose": 8
    },
    "scan-ncaaf-total-under-dowsatrestawaynormal-f657ba": {
-    "n": 19,
-    "meanClvProb": -0.0247,
-    "tStat": -3.84,
-    "beatClose": 4
-   },
-   "tennis-elo": {
-    "n": 18,
-    "meanClvProb": -0.0094,
-    "tStat": -0.92,
-    "beatClose": 6
+    "n": 25,
+    "meanClvProb": -0.0255,
+    "tStat": -5.01,
+    "beatClose": 5
    },
    "learned-nba-spread": {
-    "n": 14,
-    "meanClvProb": -0.0154,
-    "tStat": -1.01,
+    "n": 22,
+    "meanClvProb": -0.019,
+    "tStat": -1.38,
+    "beatClose": 8
+   },
+   "tennis-elo": {
+    "n": 19,
+    "meanClvProb": -0.0094,
+    "tStat": -0.97,
+    "beatClose": 6
+   },
+   "learned-nba-total": {
+    "n": 13,
+    "meanClvProb": -0.0159,
+    "tStat": -1.51,
     "beatClose": 4
    },
    "learned-scan-ncaaf-h2h": {
@@ -15554,35 +15560,53 @@
     "tStat": -2.12,
     "beatClose": 4
    },
+   "learned-ncaaf-total": {
+    "n": 11,
+    "meanClvProb": -0.0196,
+    "tStat": -2.42,
+    "beatClose": 2
+   },
    "scan-ncaaf-spread-home-resthomelong-ef5595": {
-    "n": 9,
-    "meanClvProb": -0.0291,
-    "tStat": -1.68,
+    "n": 10,
+    "meanClvProb": -0.0307,
+    "tStat": -1.97,
     "beatClose": 3
    },
    "learned-ncaaf-spread": {
-    "n": 8,
-    "meanClvProb": -0.0434,
-    "tStat": -1.44,
-    "beatClose": 1
+    "n": 10,
+    "meanClvProb": -0.032,
+    "tStat": -1.21,
+    "beatClose": 2
    },
-   "learned-nba-total": {
-    "n": 7,
-    "meanClvProb": -0.007,
-    "tStat": -0.61,
+   "learned-scan-nba-h2h": {
+    "n": 9,
+    "meanClvProb": -0.0228,
+    "tStat": -1.2,
+    "beatClose": 4
+   },
+   "ncaaf-total-move": {
+    "n": 9,
+    "meanClvProb": -0.0072,
+    "tStat": -0.75,
+    "beatClose": 3
+   },
+   "scan-nba-h2h-home-restedgehomemore-57b863": {
+    "n": 8,
+    "meanClvProb": -0.0174,
+    "tStat": -0.8,
     "beatClose": 2
    },
    "learned-nfl-spread": {
-    "n": 7,
-    "meanClvProb": -0.0201,
-    "tStat": -1.71,
+    "n": 8,
+    "meanClvProb": -0.021,
+    "tStat": -2.06,
     "beatClose": 1
    },
-   "learned-ncaaf-total": {
-    "n": 7,
-    "meanClvProb": -0.018,
-    "tStat": -3.43,
-    "beatClose": 1
+   "rest-spot": {
+    "n": 8,
+    "meanClvProb": 0.0095,
+    "tStat": 0.33,
+    "beatClose": 4
    },
    "scan-ncaaf-h2h-away-homeprice75-34b04b": {
     "n": 7,
@@ -15590,10 +15614,22 @@
     "tStat": -2.54,
     "beatClose": 1
    },
-   "learned-scan-nba-h2h": {
+   "scan-nba-spread-home-restedgehomemore-b7ece4": {
     "n": 6,
-    "meanClvProb": -0.0199,
-    "tStat": -0.71,
+    "meanClvProb": -0.0037,
+    "tStat": -0.14,
+    "beatClose": 2
+   },
+   "learned-scan-nba-spread": {
+    "n": 6,
+    "meanClvProb": 0.0247,
+    "tStat": 0.77,
+    "beatClose": 3
+   },
+   "scan-nba-spread-away-restedgeawaymore-1e501d": {
+    "n": 6,
+    "meanClvProb": 0.0235,
+    "tStat": 0.73,
     "beatClose": 3
    },
    "learned-soccer-1x2": {
@@ -15620,10 +15656,10 @@
     "tStat": -5.51,
     "beatClose": 0
    },
-   "ncaaf-total-move": {
+   "scan-nba-spread-home-restawayb2b-7f68d5": {
     "n": 5,
-    "meanClvProb": 0.0012,
-    "tStat": 0.09,
+    "meanClvProb": -0.0007,
+    "tStat": -0.02,
     "beatClose": 2
    },
    "learned-nhl-ml": {
@@ -15632,11 +15668,11 @@
     "tStat": -0.05,
     "beatClose": 1
    },
-   "scan-nba-h2h-home-restedgehomemore-57b863": {
+   "tennis-fatigue": {
     "n": 4,
-    "meanClvProb": -0.0466,
-    "tStat": -1.6,
-    "beatClose": 0
+    "meanClvProb": -0.0187,
+    "tStat": -1.38,
+    "beatClose": 1
    },
    "wind-total": {
     "n": 4,
@@ -15650,29 +15686,41 @@
     "tStat": -0.07,
     "beatClose": 1
    },
+   "scan-nba-spread-home-restawayb2brestedgehomemore-ee7657": {
+    "n": 4,
+    "meanClvProb": 0.0045,
+    "tStat": 0.1,
+    "beatClose": 2
+   },
+   "scan-nba-h2h-home-restawayb2b-60ea66": {
+    "n": 4,
+    "meanClvProb": -0.01,
+    "tStat": -0.22,
+    "beatClose": 2
+   },
    "scan-ncaaf-h2h-away-homeprice75restawaynormal-964b67": {
     "n": 4,
     "meanClvProb": -0.0172,
     "tStat": -2.04,
     "beatClose": 0
    },
-   "tennis-fatigue": {
-    "n": 3,
-    "meanClvProb": -0.0161,
-    "tStat": -0.86,
-    "beatClose": 1
-   },
    "learned-nfl-total": {
-    "n": 3,
-    "meanClvProb": -0.0338,
-    "tStat": -3.14,
+    "n": 4,
+    "meanClvProb": -0.0333,
+    "tStat": -4.36,
     "beatClose": 0
    },
-   "scan-nba-spread-home-restedgehomemore-b7ece4": {
-    "n": 2,
-    "meanClvProb": -0.0364,
-    "tStat": -6.67,
-    "beatClose": 0
+   "scan-nba-h2h-home-restawayb2brestedgehomemore-a2651e": {
+    "n": 3,
+    "meanClvProb": -0.008,
+    "tStat": -0.12,
+    "beatClose": 2
+   },
+   "scan-nfl-spread-home-linehomedog053-b35cb9": {
+    "n": 3,
+    "meanClvProb": -0.0157,
+    "tStat": -0.54,
+    "beatClose": 1
    },
    "scan-nhl-h2h-away-restedgeawaymore-88eede": {
     "n": 2,
@@ -15680,57 +15728,9 @@
     "tStat": 0.35,
     "beatClose": 1
    },
-   "rest-spot": {
-    "n": 2,
-    "meanClvProb": 0.044,
-    "tStat": 0.51,
-    "beatClose": 1
-   },
-   "scan-nba-spread-away-restedgeawaymore-1e501d": {
-    "n": 2,
-    "meanClvProb": 0.0567,
-    "tStat": 0.77,
-    "beatClose": 1
-   },
-   "scan-nba-spread-home-restawayb2b-7f68d5": {
-    "n": 2,
-    "meanClvProb": -0.0317,
-    "tStat": -3.14,
-    "beatClose": 0
-   },
-   "scan-nba-h2h-home-restawayb2b-60ea66": {
-    "n": 2,
-    "meanClvProb": -0.0746,
-    "tStat": -1.27,
-    "beatClose": 0
-   },
-   "scan-nfl-spread-home-linehomedog053-b35cb9": {
-    "n": 2,
-    "meanClvProb": -0.0041,
-    "tStat": -0.09,
-    "beatClose": 1
-   },
    "learned-nhl-over": {
     "n": 1,
     "meanClvProb": -0.0075,
-    "tStat": 0.0,
-    "beatClose": 0
-   },
-   "learned-scan-nba-spread": {
-    "n": 1,
-    "meanClvProb": 0.1299,
-    "tStat": 0.0,
-    "beatClose": 1
-   },
-   "scan-nba-spread-home-restawayb2brestedgehomemore-ee7657": {
-    "n": 1,
-    "meanClvProb": -0.0418,
-    "tStat": 0.0,
-    "beatClose": 0
-   },
-   "scan-nba-h2h-home-restawayb2brestedgehomemore-a2651e": {
-    "n": 1,
-    "meanClvProb": -0.1332,
     "tStat": 0.0,
     "beatClose": 0
    },
