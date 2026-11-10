@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-10T04:54:39Z",
+ "asOf": "2026-11-10T08:49:09Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 1247,
  "loggedReads": 2620,
@@ -12073,16 +12073,16 @@
      "NBA": 10,
      "NCAAF": 7,
      "NHL": 2,
-     "ATP": 1,
      "NFL": 1,
-     "WTA": 1
+     "WTA": 1,
+     "ATP": 1
     },
     "topPatterns": {
      "news-lag": 4,
      "scan-nba-h2h-home-restawayb2b-60ea66": 2,
      "ncaaf-total-move": 2,
      "ncaaf-spot": 2,
-     "soft-dog": 1
+     "learned-nhl-over": 1
     },
     "prePickFeature": null,
     "prePickFeatureClv": null
@@ -12102,16 +12102,16 @@
      "NCAAF": 19,
      "NFL": 15,
      "NHL": 6,
+     "LaLiga": 1,
      "ATP": 1,
-     "UCL": 1,
-     "LaLiga": 1
+     "UCL": 1
     },
     "topPatterns": {
      "soft-dog": 19,
      "sharp-soft": 16,
      "news-lag": 9,
-     "goalie-news": 3,
-     "scan-nba-h2h-home-restawayb2b-60ea66": 3
+     "learned-scan-ncaaf-h2h": 3,
+     "goalie-news": 3
     },
     "prePickFeature": "steamBeforePick=away",
     "prePickFeatureClv": {
@@ -12135,8 +12135,8 @@
      "NHL": 2
     },
     "topPatterns": {
-     "learned-scan-nhl-total": 1,
-     "nhl-total-move": 1
+     "nhl-total-move": 1,
+     "learned-scan-nhl-total": 1
     },
     "prePickFeature": "sharpDivPick=pin-for",
     "prePickFeatureClv": {
@@ -12163,12 +12163,12 @@
      "NHL": 27,
      "ATP": 5,
      "MLS": 4,
-     "Bundesliga": 3,
      "Ligue1": 3,
-     "LaLiga": 2,
+     "Bundesliga": 3,
      "WTA": 2,
-     "EPL": 1,
-     "UCL": 1
+     "LaLiga": 2,
+     "UCL": 1,
+     "EPL": 1
     },
     "topPatterns": {
      "news-lag": 62,
@@ -12226,15 +12226,15 @@
    "flipped-late:helped": {
     "n": 100,
     "inVerdict": {
-     "right-and-rewarded": 38,
-     "lucky-win": 62
+     "lucky-win": 62,
+     "right-and-rewarded": 38
     }
    },
    "flipped-late:hurt": {
     "n": 98,
     "inVerdict": {
-     "right-but-unlucky": 29,
-     "market-was-right": 69
+     "market-was-right": 69,
+     "right-but-unlucky": 29
     }
    },
    "close-margin:helped": {
@@ -12247,27 +12247,27 @@
    "overtime:hurt": {
     "n": 67,
     "inVerdict": {
-     "right-but-unlucky": 7,
-     "market-was-right": 32,
      "lucky-win": 17,
-     "right-and-rewarded": 11
+     "market-was-right": 32,
+     "right-and-rewarded": 11,
+     "right-but-unlucky": 7
     }
    },
    "overtime:helped": {
     "n": 66,
     "inVerdict": {
      "lucky-win": 31,
-     "right-and-rewarded": 13,
      "market-was-right": 20,
+     "right-and-rewarded": 13,
      "right-but-unlucky": 2
     }
    },
    "goalie-outlier:helped": {
     "n": 64,
     "inVerdict": {
-     "lucky-win": 40,
      "market-was-right": 6,
      "right-and-rewarded": 15,
+     "lucky-win": 40,
      "right-but-unlucky": 3
     }
    },
@@ -12284,24 +12284,24 @@
     "n": 40,
     "inVerdict": {
      "right-and-rewarded": 20,
-     "right-but-unlucky": 2,
      "lucky-win": 15,
-     "market-was-right": 3
+     "market-was-right": 3,
+     "right-but-unlucky": 2
     }
    },
    "empty-net:helped": {
     "n": 32,
     "inVerdict": {
-     "lucky-win": 23,
-     "right-and-rewarded": 9
+     "right-and-rewarded": 9,
+     "lucky-win": 23
     }
    },
    "turnover-swing": {
     "n": 31,
     "inVerdict": {
+     "lucky-win": 12,
      "market-was-right": 15,
-     "right-and-rewarded": 4,
-     "lucky-win": 12
+     "right-and-rewarded": 4
     }
    },
    "empty-net:hurt": {
@@ -12314,8 +12314,8 @@
    "three-point-outlier:hurt": {
     "n": 29,
     "inVerdict": {
-     "right-but-unlucky": 14,
      "market-was-right": 11,
+     "right-but-unlucky": 14,
      "lucky-win": 2,
      "right-and-rewarded": 2
     }
@@ -12324,34 +12324,34 @@
     "n": 24,
     "inVerdict": {
      "market-was-right": 15,
-     "lucky-win": 1,
-     "right-but-unlucky": 8
+     "right-but-unlucky": 8,
+     "lucky-win": 1
     }
    },
    "turnover-swing:helped": {
     "n": 22,
     "inVerdict": {
-     "right-and-rewarded": 9,
      "lucky-win": 11,
+     "right-and-rewarded": 9,
      "right-but-unlucky": 2
     }
    },
    "free-throw-gap:hurt": {
     "n": 15,
     "inVerdict": {
-     "right-and-rewarded": 1,
-     "right-but-unlucky": 3,
      "market-was-right": 1,
-     "lucky-win": 10
+     "right-but-unlucky": 3,
+     "lucky-win": 10,
+     "right-and-rewarded": 1
     }
    },
    "defensive-td": {
     "n": 14,
     "inVerdict": {
-     "market-was-right": 4,
-     "right-but-unlucky": 3,
      "right-and-rewarded": 4,
-     "lucky-win": 3
+     "market-was-right": 4,
+     "lucky-win": 3,
+     "right-but-unlucky": 3
     }
    },
    "defensive-td:helped": {
@@ -12593,7 +12593,7 @@
    "n": 467,
    "meanClvProb": -0.0173,
    "pocket": {
-    "feature": "restDays=short",
+    "feature": "shortWeek=yes",
     "n": 12,
     "meanClvProb": 0.0188,
     "tStat": 1.27
@@ -14033,7 +14033,7 @@
    "n": 42,
    "meanClvProb": -0.0151,
    "pocket": {
-    "feature": "sharpGapPick=<1%",
+    "feature": "sharpDivPick=aligned",
     "n": 13,
     "meanClvProb": 0.0302,
     "tStat": 2.15
@@ -14726,7 +14726,7 @@
    "n": 19,
    "meanClvProb": -0.0057,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 8,
     "meanClvProb": 0.015,
     "tStat": 1.44
@@ -14824,7 +14824,7 @@
    "n": 19,
    "meanClvProb": -0.0057,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 8,
     "meanClvProb": 0.015,
     "tStat": 1.44
@@ -15525,17 +15525,17 @@
     "tStat": -2.54,
     "beatClose": 1
    },
-   "learned-scan-nba-h2h": {
-    "n": 6,
-    "meanClvProb": -0.0199,
-    "tStat": -0.71,
-    "beatClose": 3
-   },
    "learned-nba-total": {
     "n": 6,
     "meanClvProb": -0.0067,
     "tStat": -0.5,
     "beatClose": 2
+   },
+   "learned-scan-nba-h2h": {
+    "n": 6,
+    "meanClvProb": -0.0199,
+    "tStat": -0.71,
+    "beatClose": 3
    },
    "learned-soccer-1x2": {
     "n": 5,
@@ -15567,16 +15567,10 @@
     "tStat": 0.09,
     "beatClose": 2
    },
-   "scan-ncaaf-spread-home-linehomefav21-de1083": {
+   "learned-nhl-ml": {
     "n": 4,
-    "meanClvProb": -0.0012,
-    "tStat": -0.07,
-    "beatClose": 1
-   },
-   "wind-total": {
-    "n": 4,
-    "meanClvProb": -0.0241,
-    "tStat": -2.02,
+    "meanClvProb": -0.0007,
+    "tStat": -0.05,
     "beatClose": 1
    },
    "scan-nba-h2h-home-restedgehomemore-57b863": {
@@ -15585,10 +15579,16 @@
     "tStat": -1.6,
     "beatClose": 0
    },
-   "learned-nhl-ml": {
+   "wind-total": {
     "n": 4,
-    "meanClvProb": -0.0007,
-    "tStat": -0.05,
+    "meanClvProb": -0.0241,
+    "tStat": -2.02,
+    "beatClose": 1
+   },
+   "scan-ncaaf-spread-home-linehomefav21-de1083": {
+    "n": 4,
+    "meanClvProb": -0.0012,
+    "tStat": -0.07,
     "beatClose": 1
    },
    "scan-ncaaf-h2h-away-homeprice75restawaynormal-964b67": {
@@ -15609,6 +15609,18 @@
     "tStat": -3.14,
     "beatClose": 0
    },
+   "scan-nba-spread-home-restedgehomemore-b7ece4": {
+    "n": 2,
+    "meanClvProb": -0.0364,
+    "tStat": -6.67,
+    "beatClose": 0
+   },
+   "scan-nhl-h2h-away-restedgeawaymore-88eede": {
+    "n": 2,
+    "meanClvProb": 0.007,
+    "tStat": 0.35,
+    "beatClose": 1
+   },
    "rest-spot": {
     "n": 2,
     "meanClvProb": 0.044,
@@ -15626,18 +15638,6 @@
     "meanClvProb": -0.0317,
     "tStat": -3.14,
     "beatClose": 0
-   },
-   "scan-nba-spread-home-restedgehomemore-b7ece4": {
-    "n": 2,
-    "meanClvProb": -0.0364,
-    "tStat": -6.67,
-    "beatClose": 0
-   },
-   "scan-nhl-h2h-away-restedgeawaymore-88eede": {
-    "n": 2,
-    "meanClvProb": 0.007,
-    "tStat": 0.35,
-    "beatClose": 1
    },
    "scan-nba-h2h-home-restawayb2b-60ea66": {
     "n": 2,
