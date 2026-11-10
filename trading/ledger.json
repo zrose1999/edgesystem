@@ -20302,8 +20302,8 @@
         "status": "open",
         "book": "paper",
         "mode": "paper",
-        "lastMid": 0.17,
-        "lastSeen": "2026-11-10T04:24:42Z"
+        "lastMid": 0.175,
+        "lastSeen": "2026-11-10T04:54:46Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV08MIASAC-SAC",
@@ -20388,13 +20388,18 @@
         "count": 1,
         "cost": 0.43,
         "fee": 0.02,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.395,
         "lastSeen": "2026-11-10T01:39:50Z",
         "closeMid": 0.395,
-        "clv": -0.035
+        "clv": -0.035,
+        "result": "no",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.55,
+        "settledAt": "2026-11-10T04:54:46Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15LARARI-LAR7",
@@ -20419,7 +20424,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.375,
-        "lastSeen": "2026-11-10T04:24:42Z"
+        "lastSeen": "2026-11-10T04:54:46Z"
       }
     ],
     "equity": [
@@ -22784,6 +22789,14 @@
         "open": 4.63,
         "realized": -80.45,
         "equity": 19.55,
+        "clvN": 264,
+        "meanClv": -0.0024
+      },
+      {
+        "t": "2026-11-10T04:54:46Z",
+        "open": 4.18,
+        "realized": -79.9,
+        "equity": 20.1,
         "clvN": 264,
         "meanClv": -0.0024
       }
@@ -27113,6 +27126,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-10T04:24:42Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-10T04:54:46Z"
       }
     ]
   },
@@ -30962,7 +30979,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.6,
-        "lastSeen": "2026-11-10T04:24:42Z"
+        "lastSeen": "2026-11-10T04:54:46Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV14TARLUWFL-TARL",
@@ -30989,8 +31006,8 @@
         "orderId": "01a1bd6d-62e8-7f91-ba02-27fb78640456",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.17,
-        "lastSeen": "2026-11-10T04:24:42Z"
+        "lastMid": 0.175,
+        "lastSeen": "2026-11-10T04:54:46Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV09DENHOU-HOU",
@@ -31011,7 +31028,7 @@
         "cost": 0.74,
         "fee": 0.0,
         "time": "2026-11-09T11:24:49Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1be26-1040-782d-8795-a8b9159b135e",
@@ -31020,7 +31037,12 @@
         "lastMid": 0.635,
         "lastSeen": "2026-11-10T01:39:50Z",
         "closeMid": 0.635,
-        "clv": -0.105
+        "clv": -0.105,
+        "result": "yes",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.26,
+        "settledAt": "2026-11-10T04:54:46Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14MIZZUGA-UGA14",
@@ -31048,7 +31070,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.42,
-        "lastSeen": "2026-11-10T04:24:42Z"
+        "lastSeen": "2026-11-10T04:54:46Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV09INDDAL-222",
@@ -31111,7 +31133,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.43,
-        "lastSeen": "2026-11-10T04:24:42Z"
+        "lastSeen": "2026-11-10T04:54:46Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15KCATL-KC3",
@@ -31139,7 +31161,33 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.415,
-        "lastSeen": "2026-11-10T04:24:42Z"
+        "lastSeen": "2026-11-10T04:54:46Z"
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV12WASNYG-NYG4",
+        "title": "New York G wins by over 3.5 points",
+        "sport": "NFL",
+        "kind": "spread",
+        "event": "Washington Commanders at New York Giants",
+        "commence": "2026-11-13T01:15:00Z",
+        "side": "yes",
+        "strike": 3.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4306,
+        "edge": 0.0239,
+        "estimated": true,
+        "why": "Pinnacle fair 43.1% vs Kalshi YES 0.39 + fee = 0.407.",
+        "ask": 0.38,
+        "count": 1.0,
+        "cost": 0.38,
+        "fee": 0.0,
+        "time": "2026-11-10T04:54:46Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1c1b7-d608-7b81-bf52-7a9e733c3880",
+        "test": true,
+        "fillChecked": true
       }
     ],
     "equity": [
@@ -32412,6 +32460,14 @@
         "open": 2.75,
         "realized": 1.56,
         "equity": 36.56,
+        "clvN": 104,
+        "meanClv": 0.0025
+      },
+      {
+        "t": "2026-11-10T04:54:46Z",
+        "open": 2.39,
+        "realized": 1.82,
+        "equity": 36.82,
         "clvN": 104,
         "meanClv": 0.0025
       }
@@ -36738,8 +36794,8 @@
         "orderPath": "v2",
         "price": 0.38,
         "count": 1,
-        "filledSeen": 0,
-        "status": "resting",
+        "filledSeen": 1.0,
+        "status": "executed",
         "time": "2026-11-09T19:09:53Z",
         "test": true
       }
@@ -36810,7 +36866,7 @@
       }
     ]
   },
-  "asOf": "2026-11-10T04:24:42Z",
+  "asOf": "2026-11-10T04:54:46Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -36831,16 +36887,16 @@
     "liveActive": true,
     "liveWhy": "on since 2026-10-21T20:30:14.905Z",
     "paper": {
-      "open": 4.63,
-      "realized": -80.45,
-      "equity": 19.55,
+      "open": 4.18,
+      "realized": -79.9,
+      "equity": 20.1,
       "clvN": 264,
       "meanClv": -0.0024
     },
     "live": {
-      "open": 2.75,
-      "realized": 1.56,
-      "equity": 36.56,
+      "open": 2.39,
+      "realized": 1.82,
+      "equity": 36.82,
       "clvN": 104,
       "meanClv": 0.0025
     },
@@ -36855,7 +36911,7 @@
       "clvN": 168,
       "meanClv": -0.0143,
       "meanClvNet": -0.0185,
-      "settledPnl": -1.77,
+      "settledPnl": -0.96,
       "pairedWithTaker": 78,
       "pairedMakerClvNet": -0.0101,
       "pairedTakerClvNet": -0.025,
@@ -36904,8 +36960,8 @@
       "maxPerDay": 5.0,
       "orderType": "maker",
       "spentToday": 4.66,
-      "trades": 118,
-      "resting": 6
+      "trades": 119,
+      "resting": 5
     },
     "config": {
       "startingBankroll": 35.0,
@@ -36927,23 +36983,23 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4896,
-      "eventsMatched": 267,
-      "eventsUnmatched": 216,
+      "kalshiMarkets": 4920,
+      "eventsMatched": 264,
+      "eventsUnmatched": 218,
       "candidates": 0
     }
   },
   "account": {
     "keys": "ok",
-    "balance": 30.59,
+    "balance": 30.21,
     "detail": {
-      "balance": 3059,
-      "balance_dollars": "30.5937",
-      "portfolio_value": 3191,
-      "updated_ts": 1794284705
+      "balance": 3020,
+      "balance_dollars": "30.2095",
+      "portfolio_value": 1941,
+      "updated_ts": 1794286510
     },
     "env": "production",
-    "checkedAt": "2026-11-10T04:25:05Z"
+    "checkedAt": "2026-11-10T04:55:10Z"
   },
   "maker": {
     "start": 0.0,
@@ -49311,7 +49367,7 @@
         "mode": "paper",
         "postedAt": "2026-11-08T23:10:07Z",
         "lastMid": 0.6,
-        "lastSeen": "2026-11-10T04:24:42Z"
+        "lastSeen": "2026-11-10T04:54:46Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV09INDDAL-222",
@@ -49359,14 +49415,19 @@
         "cost": 0.74,
         "fee": 0.0034,
         "time": "2026-11-09T16:54:46Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-09T02:31:49Z",
         "lastMid": 0.635,
         "lastSeen": "2026-11-10T01:39:50Z",
         "closeMid": 0.635,
-        "clv": -0.105
+        "clv": -0.105,
+        "result": "yes",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.26,
+        "settledAt": "2026-11-10T04:54:46Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14MIZZUGA-UGA14",
@@ -49389,7 +49450,7 @@
         "mode": "paper",
         "postedAt": "2026-11-09T11:10:15Z",
         "lastMid": 0.42,
-        "lastSeen": "2026-11-10T04:24:42Z"
+        "lastSeen": "2026-11-10T04:54:46Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV09CLECHA-216",
@@ -49437,14 +49498,19 @@
         "cost": 0.45,
         "fee": 0.0043,
         "time": "2026-11-09T19:54:51Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-09T19:24:40Z",
         "lastMid": 0.395,
         "lastSeen": "2026-11-10T01:39:50Z",
         "closeMid": 0.395,
-        "clv": -0.055
+        "clv": -0.055,
+        "result": "no",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.55,
+        "settledAt": "2026-11-10T04:54:46Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV15LARARI-45",
@@ -49467,7 +49533,7 @@
         "mode": "paper",
         "postedAt": "2026-11-09T21:54:43Z",
         "lastMid": 0.335,
-        "lastSeen": "2026-11-10T04:24:42Z"
+        "lastSeen": "2026-11-10T04:54:46Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV15LARARI-46",
@@ -49490,7 +49556,7 @@
         "mode": "paper",
         "postedAt": "2026-11-09T21:54:43Z",
         "lastMid": 0.315,
-        "lastSeen": "2026-11-10T04:24:42Z"
+        "lastSeen": "2026-11-10T04:54:46Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15LARARI-LAR9",
@@ -49513,7 +49579,7 @@
         "mode": "paper",
         "postedAt": "2026-11-09T21:54:43Z",
         "lastMid": 0.475,
-        "lastSeen": "2026-11-10T04:24:42Z"
+        "lastSeen": "2026-11-10T04:54:46Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15LARARI-LAR7",
@@ -49536,7 +49602,7 @@
         "mode": "paper",
         "postedAt": "2026-11-09T22:54:41Z",
         "lastMid": 0.375,
-        "lastSeen": "2026-11-10T04:24:42Z"
+        "lastSeen": "2026-11-10T04:54:46Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14UNLVUNM-UNM14",
@@ -49559,7 +49625,7 @@
         "mode": "paper",
         "postedAt": "2026-11-09T23:09:47Z",
         "lastMid": 0.445,
-        "lastSeen": "2026-11-10T04:24:42Z"
+        "lastSeen": "2026-11-10T04:54:46Z"
       }
     ],
     "equity": [],
