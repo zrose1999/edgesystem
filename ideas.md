@@ -37,6 +37,10 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - 2026-11-07 refresh (health check, memory/log counted NFL/NCAAF/NBA): all counted favourites -1.5% (n 197,
   t -4.3), dogs +0.3% (n 193, t 0.7). Since 10-30: favourites +0.8% (n 10, t 0.8), dogs +1.8% (n 20, t 1.7): the
   gap is in the same direction on fresh reads but favourites are no longer losing; 20 more fresh favourite spreads to the kill test.
+- 2026-11-10 weekly review (counted NFL/NCAAF/NBA, since 10-30 12Z): favourite spreads -1.4% (n 24, t -1.3), dog spreads
+  +1.4% (n 45, t 2.6): the gap holds on fresh reads (memory query since 10-30: fav n 60, -1.2%; dog n 66, +1.1%). All counted:
+  fav -1.6% (n 212, t -4.6), dog +0.4% (n 218). Not killed (6 more fresh favourite spreads to the 30-read test). New: since the
+  gate, the dog edge sits at the five added books (dogs there +1.4% n 79 vs dogs at DK/FD/MGM/CZR -0.1% n 51); see idea 7.
 
 ### 2. Away teams travelling east (2026-10-30, lead, waits on the NFL backfill)
 - NFL history 2015-2026 (PR #8): home moneyline when the away team travels east ROI -11.1% at the close (n 847, t -3.2,
@@ -68,6 +72,8 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - Test next: re-run on the snapshots when they double (late November); if the NHL+NBA drift holds at t <= -2.5 in both
   halves, launch a shadow pattern (road side of NHL/NBA moneylines when a soft price is at or better than Pinnacle's
   fair, stamped early). Kill it if the combined drift is above -0.3% on 250+ games.
+- 2026-11-10 weekly review: NBA only (NHL set aside), Pinnacle h2h first snap to last within 3h: home drift -0.92% (n 75, t -1.7;
+  halves -0.79/-1.04, t -1.2 each). Same sign, not doubled yet; no shadow pattern.
 
 ### 4. NBA totals drift down before the final hour (2026-11-02, lead, testing)
 - Observation: on Pinnacle snapshots, NBA totals taken 6h+ before tip fell -0.61 points by the final hour (n 73, t -2.3;
@@ -89,6 +95,8 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - Test next: re-run when NBA snapshots reach 150 games; if the 6h+ drift holds at t <= -2.5 in both halves, propose
   for the weekly review either a shadow over-filter on learned-nba-total or a Kalshi maker under test. Kill it if the
   drift is above -0.3 points on 150+ games.
+- 2026-11-10 weekly review: 6h+ to the final hour -0.63 points (n 76, t -2.1; halves -0.59/-0.66, t -1.4/-1.6). Holding at
+  the same size, half way to 150 games.
 
 ### 5. Rested road teams firm into the close, NBA (2026-11-05, lead, testing)
 - Observation: on Pinnacle snapshots (first snap 6h+ before tip to last snap within 2h), when the away team had more
@@ -109,6 +117,9 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - Test next: re-run when NBA snapshots with rest reach 40 away-more-rested games; if the soft-book early away price
   holds +0.5%+ at t >= 2 in both halves, launch a shadow h2h pattern (away more rested, stamped 6h+ early). Kill if
   the fair move is under +0.5% on 40+ games.
+- 2026-11-10 weekly review: the scanner added the moneyline twin today (scan-nba-h2h-away-restedgeawaymore-b31fe9, move
+  +0.9%, n 228, t 2.9), so the h2h side now takes shadow reads without a new pattern. Memory query (NBA restEdge=more + away)
+  n 48, +0.3%, t 0.4; since 11-05 only 3 reads (+2.3%). Waits on reads.
 
 ### 6. Caesars is a slow book on NBA moneylines (2026-11-07, lead, testing)
 - Observation: findings.py flagged "the price came from Caesars" as a new condition today. On counted NFL/NCAAF/NBA
@@ -127,6 +138,42 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - Refresh 2026-11-09 (health check; counted NFL/NCAAF/NBA reads with Pinnacle at the pick, vs Pinnacle close): Caesars
   +1.6% (n 39, t 2.9), not soft-dog +1.5% (n 23, t 2.0), soft-dog +1.9% (n 16); DraftKings -0.1% (n 129), FanDuel -0.4%
   (n 141), BetMGM -0.6% (n 47). Holding; 11 more to the 50-read split.
+- 2026-11-10 weekly review: CORRECTION. The priceBook field names the best of the four big books (pull.US_BOOKS), not the book
+  sharp.py actually priced: 117 counted reads since 10-28 taken at BetRivers, Hard Rock, theScore, Bally or Fanatics carry
+  priceBook DraftKings/FanDuel/Caesars/BetMGM (25 of them "Caesars"). Reads truly priced at Caesars (reason text): +1.7%
+  (n 17, t 2.6; not soft-dog n 11, +2.5%); memory bookAtPick=Caesars n 27, +0.9% (t 1.7). Folded into idea 7.
+
+### 7. The five added books are the slow books (2026-11-10, lead, weekly review)
+- Observation: counted NFL/NCAAF/NBA reads since 10-28 (when pull.BOOKS added BetRivers, Hard Rock, theScore, Bally, Fanatics)
+  priced at one of those five books beat the Pinnacle close +1.2% (n 117, t 3.7; halves split 11-04 +0.8% n 72 t 2.1 and
+  +1.8% n 45 t 3.1; 102 game-sides, one per game +1.1% t 3.1). Every other counted read since 10-28 -0.8% (n 105, t -2.1).
+  Inside sharp-soft: five books +1.8% (n 35, t 3.0) vs big four +0.5% (n 44); sharp-soft-alt +1.0% (n 36) vs +0.7% (n 27);
+  soft-dog +0.9% (n 46) vs +0.2% (n 30). By book (memory bookAtPick, since 10-28): BetRivers n 69, +1.5% (t 4.0), Hard Rock
+  n 44, +1.0% (t 2.0), theScore n 18, +0.6%, Bally n 13, +1.7%; FanDuel n 48, -1.1% (t -2.7), DraftKings n 27, +0.0%.
+- Split: five books price paid +1.8% better than Pinnacle's no-vig, market move after -0.6%; the rest +0.8% and -1.7%. The
+  edge is the price, and the close only partly reverts it.
+- Mechanism: smaller-share books copy the market later and with less care, so after Pinnacle moves they sit on a stale
+  number for longer; a read there buys the old price. This is the same thing findings.py sees as "we took the underdog"
+  (dogs at the five books +1.4% n 79, at the big four -0.1% n 51), "key number" (+1.0% vs -1.6%) and "Pinnacle moving
+  toward us" (+1.4% n 16 vs +0.2% n 15): one effect seen through several slices.
+- Not proven: (a) that the quotes were live (EDGE stores no per-book last_update; a stale feed could show a price the book
+  no longer offers); (b) that Zack can bet these books. Logging gap: pull.best_at_pick, priceBook, bestAtPick and
+  clvProbBest use only the big four, so score.json's "best US price" benchmark and the book counts never see these books.
+- Variants tried: 9 (five books vs rest overall, by pattern x3, by role x2, key number, steam, by sport).
+- Kill it if: with per-book quote age logged, reads on quotes older than the run before lose their edge, or the five-book
+  mean falls under +0.3% on 200 counted reads.
+
+### 8. The bigger the outlier vs the big four, the better (2026-11-10, lead, testing)
+- Observation: for five-book reads on the same line as the best big-four price, CLV rises with how far the taken price
+  beats that best big-four price: under 0.5% -0.3% (n 5), 0.5-1.5% -0.3% (n 17), 1.5-3% +0.7% (n 31), 3%+ +3.3% (n 28, t 4.8;
+  halves +2.6% n 15 and +4.0% n 13).
+- Mechanism: a lone US book far off its peers is stale, not informed; Pinnacle's no-vig already sits near the peers, so the
+  close confirms the peers. Caution: a bigger gap is a better price by construction, so part of this is arithmetic; the
+  test that matters is whether the 3%+ outliers were still bettable (quote age, idea 7).
+- Variants: 4 buckets, one cut. Memory query has no outlier-gap feature yet (n/a).
+- Test next: once bookAtPick and per-book quote age are logged, re-run at 60 same-line reads; if 3%+ outliers stay +1.5%+
+  at t >= 2 in both halves with fresh quotes, propose a shadow tweak (sharp-soft-alt needing a 1.5%+ gap to the big four).
+  Kill if 3%+ outliers fall under +0.5% on 40.
 
 ## Experiments (live shadow patterns, stake 0)
 
@@ -157,6 +204,11 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   killed; keeps running. Moneylines carry it (+0.8%, n 45, t 2.3), spreads +0.0% (n 8): too few spreads to tweak to
   moneylines only; revisit at 15 graded spreads. Focus sports +0.7% (n 39, t 1.9): NBA +1.5% (n 16, t 2.0), NFL +0.3%
   (n 8), NCAAF +0.1% (n 15). Next look at 80 graded.
+- 2026-11-10 weekly review at 80+: 90 graded (all sports) +0.6% (t 2.25); NFL/NCAAF/NBA 76, +0.6% (t 2.0), halves (split
+  11-05) +0.4% (n 51, t 1.4) and +1.2% (n 25, t 1.5): positive in both, first half just under 1.5; keeps running. By sport
+  NBA +1.4% (n 24), NFL +1.0% (n 18), NCAAF -0.1% (n 34). Spreads now +1.1% (n 20) vs moneylines +0.5% (n 56). Edge buckets:
+  under half the bar +0.1% (n 33), 0.5-1x +0.4% (n 31), 1-2x +3.0% (n 10): the low bucket is flat, not losing, so no floor
+  tweak under the judge rule. Book split: the five added books +0.9% (n 46), the big four +0.2% (n 30). Next look at 120.
 
 ## Killed
 
