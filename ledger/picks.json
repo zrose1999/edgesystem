@@ -177416,6 +177416,414 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Florida Gators at Kentucky Wildcats|h2h|away|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-14|Florida Gators at Kentucky Wildcats|h2h",
+      "sport": "NCAAF",
+      "event": "Florida Gators at Kentucky Wildcats",
+      "commence": "2026-11-14T23:15:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 165,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -175,
+        "away": 145
+      },
+      "priceTime": "2026-11-11T17:39:31Z",
+      "pickedAt": "2026-11-11T17:39:32Z",
+      "fair": 0.3897,
+      "projection": 0.3897,
+      "edge": 0.0123,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "Hard Rock Bet away +165 implies 37.7%. Pinnacle +147 no-vig is 39.0%. Edge +1.2%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -167,
+          "away": 147
+        },
+        "updated": "2026-11-11T17:39:15Z",
+        "snapTime": "2026-11-11T17:39:31Z",
+        "noVig": 0.3897
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": 145,
+        "line": null,
+        "implied": 0.4082,
+        "printImplied": 0.4082
+      },
+      "priceBook": "DraftKings",
+      "pinEdgeAtPick": 0.0123,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NBA|2026-11-12|Washington Wizards at Indiana Pacers|total|under|v1|lean|learned-nba-total|2026-11-11T17:39:42Z|gated|2026-11-11T17:39:42Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NBA|2026-11-12|Washington Wizards at Indiana Pacers|total",
+      "sport": "NBA",
+      "event": "Washington Wizards at Indiana Pacers",
+      "commence": "2026-11-12T00:10:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 228.5,
+      "priceAtPick": -113,
+      "marketNumber": 228.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -107,
+        "under": -113
+      },
+      "priceTime": "2026-11-11T17:39:31Z",
+      "pickedAt": "2026-11-11T17:39:42Z",
+      "fair": 227.365,
+      "projection": 227.365,
+      "edge": 1.135,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "edgeShrunk": -0.79,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-nba-total",
+      "reason": "Learned NBA model (ridge, 89 data points) predicts the total moves -1.13 from the open; open 228.5, now 228.5, 1.13 still to come. Fair 227.37. Report: stats/models/nba_total.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": 228.0,
+        "prices": {
+          "over": -109,
+          "under": -103
+        },
+        "updated": "2026-11-11T17:39:28Z",
+        "snapTime": "2026-11-11T17:39:31Z",
+        "noVig": 0.4929
+      },
+      "contextAtPick": {
+        "injury": "T.J. McConnell (Pacers, worth 1.55): weight 0 at the open, 0.5 now, +0.78 spread, -0.46 total"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -113,
+        "line": 228.5,
+        "implied": 0.5305,
+        "printImplied": 0.5305
+      },
+      "pinEdgeAtPick": -0.0251,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Georgia Tech Yellow Jackets at Clemson Tigers|h2h|away|v1|lean|scan-ncaaf-h2h-away-homeprice75resthomenormal-4e85b7|2026-11-11T17:39:43Z|gated|2026-11-11T17:39:43Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-14|Georgia Tech Yellow Jackets at Clemson Tigers|h2h",
+      "sport": "NCAAF",
+      "event": "Georgia Tech Yellow Jackets at Clemson Tigers",
+      "commence": "2026-11-14T17:30:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 430,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -580,
+        "away": 430
+      },
+      "priceTime": "2026-11-11T17:39:31Z",
+      "pickedAt": "2026-11-11T17:39:43Z",
+      "fair": 0.8035,
+      "projection": 0.8035,
+      "edge": 0.008,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.015,
+      "modelWeight": 0.083,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-ncaaf-h2h-away-homeprice75resthomenormal-4e85b7",
+      "reason": "Scanner strategy scan-ncaaf-h2h-away-homeprice75resthomenormal-4e85b7: NCAAF h2h away when homePrice 75%+; restHome normal; measured open-to-close move +0.00979 for this side (+0.0112 beyond the league average; n 155, t +3.6) x0.8, 0.00783 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -554,
+          "away": 423
+        },
+        "updated": "2026-11-11T17:39:15Z",
+        "snapTime": "2026-11-11T17:39:31Z",
+        "noVig": 0.1721
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 1.0,
+          "pop": 0,
+          "text": "Sunny",
+          "heavy": false,
+          "temp": 52,
+          "value": 0.0,
+          "asOf": "2026-11-11T17:39:33Z",
+          "venue": "Memorial Stadium (Clemson, SC)"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 430,
+        "line": null,
+        "implied": 0.1887,
+        "printImplied": 0.1887
+      },
+      "pinEdgeAtPick": -0.0166,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.7% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Georgia Tech Yellow Jackets at Clemson Tigers|h2h|away|v1|lean|scan-ncaaf-h2h-away-homeprice75-34b04b|2026-11-11T17:39:44Z|gated|2026-11-11T17:39:44Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-14|Georgia Tech Yellow Jackets at Clemson Tigers|h2h",
+      "sport": "NCAAF",
+      "event": "Georgia Tech Yellow Jackets at Clemson Tigers",
+      "commence": "2026-11-14T17:30:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 430,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -580,
+        "away": 430
+      },
+      "priceTime": "2026-11-11T17:39:31Z",
+      "pickedAt": "2026-11-11T17:39:44Z",
+      "fair": 0.8067,
+      "projection": 0.8067,
+      "edge": 0.005,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.014,
+      "modelWeight": 0.112,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-ncaaf-h2h-away-homeprice75-34b04b",
+      "reason": "Scanner strategy scan-ncaaf-h2h-away-homeprice75-34b04b: NCAAF h2h away when homePrice 75%+; measured open-to-close move +0.00574 for this side (+0.00715 beyond the league average; n 244, t +3.1) x0.8, 0.00459 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -554,
+          "away": 423
+        },
+        "updated": "2026-11-11T17:39:15Z",
+        "snapTime": "2026-11-11T17:39:31Z",
+        "noVig": 0.1721
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 1.0,
+          "pop": 0,
+          "text": "Sunny",
+          "heavy": false,
+          "temp": 52,
+          "value": 0.0,
+          "asOf": "2026-11-11T17:39:33Z",
+          "venue": "Memorial Stadium (Clemson, SC)"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 430,
+        "line": null,
+        "implied": 0.1887,
+        "printImplied": 0.1887
+      },
+      "pinEdgeAtPick": -0.0166,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.7% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Georgia Tech Yellow Jackets at Clemson Tigers|h2h|away|v1|lean|scan-ncaaf-h2h-away-homeprice75restawaynormal-964b67|2026-11-11T17:39:44Z|gated|2026-11-11T17:39:44Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-14|Georgia Tech Yellow Jackets at Clemson Tigers|h2h",
+      "sport": "NCAAF",
+      "event": "Georgia Tech Yellow Jackets at Clemson Tigers",
+      "commence": "2026-11-14T17:30:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 430,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -580,
+        "away": 430
+      },
+      "priceTime": "2026-11-11T17:39:31Z",
+      "pickedAt": "2026-11-11T17:39:44Z",
+      "fair": 0.8036,
+      "projection": 0.8036,
+      "edge": 0.008,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.014,
+      "modelWeight": 0.106,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-ncaaf-h2h-away-homeprice75restawaynormal-964b67",
+      "reason": "Scanner strategy scan-ncaaf-h2h-away-homeprice75restawaynormal-964b67: NCAAF h2h away when homePrice 75%+; restAway normal; measured open-to-close move +0.00963 for this side (+0.011 beyond the league average; n 129, t +3.0) x0.8, 0.0077 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -554,
+          "away": 423
+        },
+        "updated": "2026-11-11T17:39:15Z",
+        "snapTime": "2026-11-11T17:39:31Z",
+        "noVig": 0.1721
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 1.0,
+          "pop": 0,
+          "text": "Sunny",
+          "heavy": false,
+          "temp": 52,
+          "value": 0.0,
+          "asOf": "2026-11-11T17:39:33Z",
+          "venue": "Memorial Stadium (Clemson, SC)"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 430,
+        "line": null,
+        "implied": 0.1887,
+        "printImplied": 0.1887
+      },
+      "pinEdgeAtPick": -0.0166,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.7% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Nebraska Cornhuskers at Rutgers Scarlet Knights|h2h|home|v1|lean|learned-scan-ncaaf-h2h|2026-11-11T17:39:44Z|gated|2026-11-11T17:39:44Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-14|Nebraska Cornhuskers at Rutgers Scarlet Knights|h2h",
+      "sport": "NCAAF",
+      "event": "Nebraska Cornhuskers at Rutgers Scarlet Knights",
+      "commence": "2026-11-14T17:30:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 450,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": 450,
+        "away": -610
+      },
+      "priceTime": "2026-11-11T17:39:31Z",
+      "pickedAt": "2026-11-11T17:39:44Z",
+      "fair": 0.1914,
+      "projection": 0.1914,
+      "edge": 0.01,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.009,
+      "modelWeight": 0.067,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-h2h",
+      "reason": "Model learned on the scanner's data (ridge, 14 data points, passed the out-of-sample gate) predicts a move of +0.00959 from the open for home; 0.00959 still to come. Report: stats/models/scan_ncaaf_h2h.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 425,
+          "away": -556
+        },
+        "updated": "2026-11-11T17:39:15Z",
+        "snapTime": "2026-11-11T17:39:31Z",
+        "noVig": 0.1715
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 10.0,
+          "pop": 6,
+          "text": "Partly Sunny",
+          "heavy": false,
+          "temp": 47,
+          "value": 0.0,
+          "asOf": "2026-11-11T17:39:33Z",
+          "venue": "SHI Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 450,
+        "line": null,
+        "implied": 0.1818,
+        "printImplied": 0.1818
+      },
+      "pinEdgeAtPick": -0.0104,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.0% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
