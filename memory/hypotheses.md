@@ -709,3 +709,7 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-10 | NBA: moveBeforePick=against + restDays=1day | 9 | +0.9% | found inside NBA moveBeforePick=against (best of 20 features tested); small sample, may share reads with other rows |
 | 2026-11-10 | NBA: restDays=b2b + sharpGapPick=2%+ | 9 | +3.3% | found inside NBA sharpGapPick=2%+ (best of 22 features tested); small sample, may share reads with other rows |
 | 2026-11-10 | NBA: bookAtPick=BetRivers + venue=home | 18 | +2.8% | found inside NBA venue=home (best of 54 features tested); small sample, may share reads with other rows |
+| 2026-11-11 | bookAtPick=Caesars + travel=500-1500 | 10 | +2.1% | found inside ALL travel=500-1500 (best of 83 features tested); small sample, may share reads with other rows |
+| 2026-11-11 | NBA: bookAtPick=FanDuel + pattern=sharp-soft | 8 | +1.1% | found inside NBA bookAtPick=FanDuel (best of 13 features tested); small sample, may share reads with other rows |
+| 2026-11-11 | NBA: moveBeforePick=for + pattern=sharp-soft-alt | 8 | +1.2% | found inside NBA moveBeforePick=for (best of 36 features tested); small sample, may share reads with other rows |
+| 2026-11-11 | NBA: timing=late + tzShift=east | 12 | +0.7% | found inside NBA tzShift=east (best of 20 features tested); small sample, may share reads with other rows |
