@@ -178944,6 +178944,67 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is +0.0% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Florida Gators at Kentucky Wildcats|spread|away|v1|lean|learned-scan-ncaaf-spread|2026-11-11T23:24:35Z|gated|2026-11-11T23:24:35Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-14|Florida Gators at Kentucky Wildcats|spread",
+      "sport": "NCAAF",
+      "event": "Florida Gators at Kentucky Wildcats",
+      "commence": "2026-11-14T23:15:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 3.5,
+      "priceAtPick": -110,
+      "marketNumber": -3.5,
+      "priceBook": "BetMGM",
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-11-11T23:24:28Z",
+      "pickedAt": "2026-11-11T23:24:35Z",
+      "fair": -3.0218,
+      "projection": -3.0218,
+      "edge": 0.478,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": 0.018,
+      "modelWeight": 0.471,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-spread",
+      "reason": "Model learned on the scanner's data (gbm, 14 data points, passed the out-of-sample gate) predicts a move of -0.478 from the open for away; 0.478 still to come. Report: stats/models/scan_ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": -3.5,
+        "prices": {
+          "home": -101,
+          "away": -113
+        },
+        "updated": "2026-11-11T23:24:27Z",
+        "snapTime": "2026-11-11T23:24:28Z",
+        "noVig": 0.514
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": -110,
+        "line": -3.5,
+        "implied": 0.5238,
+        "printImplied": 0.5349
+      },
+      "pinEdgeAtPick": -0.0098,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.0% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
