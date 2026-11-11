@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-11T18:35:10Z",
+ "asOf": "2026-11-11T18:54:44Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -124,34 +124,34 @@
   "learned-nfl-spread": {
    "pattern": "learned-nfl-spread",
    "unit": "points",
-   "n": 8,
-   "meanPredicted": 0.6075,
-   "meanRealized": -0.125,
-   "tRealized": -0.8,
-   "capture": -0.21,
+   "n": 7,
+   "meanPredicted": 0.5859,
+   "meanRealized": -0.1429,
+   "tRealized": -0.79,
+   "capture": -0.24,
    "rightWay": 0.333,
-   "noMove": 5,
+   "noMove": 4,
    "logLossGain": {
-    "n": 8,
-    "mean": -0.01856,
-    "t": -1.41
+    "n": 7,
+    "mean": -0.0143,
+    "t": -1.0
    },
    "verdict": "collecting"
   },
   "learned-nfl-total": {
    "pattern": "learned-nfl-total",
    "unit": "points",
-   "n": 4,
-   "meanPredicted": 0.4698,
-   "meanRealized": -0.75,
-   "tRealized": -1.57,
-   "capture": -1.6,
+   "n": 3,
+   "meanPredicted": 0.3977,
+   "meanRealized": -0.3333,
+   "tRealized": -1.0,
+   "capture": -0.84,
    "rightWay": 0.0,
    "noMove": 2,
    "logLossGain": {
-    "n": 4,
-    "mean": -0.01557,
-    "t": -1.53
+    "n": 3,
+    "mean": -0.01064,
+    "t": -0.84
    },
    "verdict": "collecting"
   },
@@ -733,71 +733,20 @@
    },
    "verdict": "collecting"
   },
-  "scan-nfl-spread-away-closelinehomedog053-cb0d8c": {
-   "pattern": "scan-nfl-spread-away-closelinehomedog053-cb0d8c",
-   "unit": "points",
-   "n": 1,
-   "meanPredicted": 0.361,
-   "meanRealized": 0.5,
-   "tRealized": 0.0,
-   "capture": 1.39,
-   "rightWay": 1.0,
-   "noMove": 0,
-   "logLossGain": {
-    "n": 1,
-    "mean": 0.02051,
-    "t": 0.0
-   },
-   "verdict": "collecting"
-  },
-  "scan-nfl-spread-away-linehomefav053-e435e9": {
-   "pattern": "scan-nfl-spread-away-linehomefav053-e435e9",
-   "unit": "points",
-   "n": 1,
-   "meanPredicted": 0.352,
-   "meanRealized": -1.5,
-   "tRealized": 0.0,
-   "capture": -4.26,
-   "rightWay": 0.0,
-   "noMove": 0,
-   "logLossGain": {
-    "n": 1,
-    "mean": 0.02109,
-    "t": 0.0
-   },
-   "verdict": "collecting"
-  },
   "scan-nfl-spread-home-linehomedog053-b35cb9": {
    "pattern": "scan-nfl-spread-home-linehomedog053-b35cb9",
    "unit": "points",
-   "n": 3,
+   "n": 2,
    "meanPredicted": 0.574,
-   "meanRealized": -0.1667,
-   "tRealized": -0.5,
-   "capture": -0.29,
-   "rightWay": 0.333,
-   "noMove": 0,
-   "logLossGain": {
-    "n": 3,
-    "mean": -0.03472,
-    "t": -40.05
-   },
-   "verdict": "collecting"
-  },
-  "scan-nfl-total-under-closetotal4043dowsun-a3ddda": {
-   "pattern": "scan-nfl-total-under-closetotal4043dowsun-a3ddda",
-   "unit": "points",
-   "n": 1,
-   "meanPredicted": 0.357,
-   "meanRealized": -1.0,
+   "meanRealized": 0.0,
    "tRealized": 0.0,
-   "capture": -2.8,
-   "rightWay": 0.0,
+   "capture": 0.0,
+   "rightWay": 0.5,
    "noMove": 0,
    "logLossGain": {
-    "n": 1,
-    "mean": -0.01598,
-    "t": 0.0
+    "n": 2,
+    "mean": -0.03532,
+    "t": -33.06
    },
    "verdict": "collecting"
   },
