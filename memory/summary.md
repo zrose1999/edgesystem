@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-11-11 15:54Z)
+# What EDGE is learning (2026-11-11 16:24Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 1258 graded reads counted, 2704 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Scanner (scan.py, 11-11 11:09Z): 25 strategies tracking from 4962 hypotheses (0 new this run); 136 graded scan reads, mean CLV -0.7%. Shadow only; grade.py decides promotion.
@@ -17,7 +17,7 @@ Observation: grades rank A > B > C (A -0.1% on 118, B -0.2% on 462, C -1.2% on 6
   > last 50 graded reads: A +2.4% on 8, B +0.2% on 28, C -1.5% on 14 (A > B > C holds; diagnostic only)
   > pocket: sharpDivPick=aligned inside grade A: n 27, CLV +3.6%, t +4.0 (best of 57 tested; a lead to watch)
   > order holds inside sharpDivPick=aligned: A +3.6% on 27, B +0.1% on 123, C -1.4% on 82 (29 of 56 features tested)
-Why reads lost to the close (autopsy, post-pick; 758 of 1258, cause known on 758): overpaid 306 (-1.6%), news-after-pick 52 (-6.1%), sharps-against-at-pick 6 (-5.1%), sharps-against-at-open 1 (-3.1%), bet-into-steam 4 (-3.1%), late-move 22 (-3.9%), sharp-move-against 70 (-2.1%), soft-move-against 2 (-3.2%), model-wrong 295 (-5.3%)
+Why reads lost to the close (autopsy, post-pick; 758 of 1258, cause known on 758): overpaid 306 (-1.6%), news-after-pick 53 (-5.9%), sharps-against-at-pick 6 (-5.1%), sharps-against-at-open 1 (-3.1%), bet-into-steam 4 (-3.1%), late-move 22 (-3.9%), sharp-move-against 69 (-2.1%), soft-move-against 2 (-3.2%), model-wrong 295 (-5.3%)
 Process vs result: right-and-rewarded 257, right-but-unlucky 229, lucky-win 353, market-was-right 398, push 4; right-but-unlucky losses hurt most by close-margin, flipped-late, overtime (results are noise at this sample; CLV decides)
 Gated by the Pinnacle gate (scored, not counted): n 371, CLV -1.7%, t -7.4 (positive = the gate blocks winners); best pocket pattern=rest-spot n 9, CLV +0.7%, t +0.3 (of 71 tested)
 Data gaps, waiting on a source: public-pct (needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack); guru (needs an account list + reader (Reddit API free, X API paid); log account, number, time, result)

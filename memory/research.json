@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-11T15:54:40Z",
+ "asOf": "2026-11-11T16:24:47Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 1258,
  "loggedReads": 2704,
@@ -11950,23 +11950,23 @@
     "prePickFeatureClv": null
    },
    "news-after-pick": {
-    "n": 52,
-    "meanClvProb": -0.0608,
-    "tStat": -10.29,
+    "n": 53,
+    "meanClvProb": -0.0594,
+    "tStat": -10.12,
     "beatClose": 0,
-    "share": 0.069,
-    "clvLost": -3.1631,
-    "lostToPrice": -0.1261,
-    "lostToMove": -3.037,
+    "share": 0.07,
+    "clvLost": -3.1475,
+    "lostToPrice": -0.1311,
+    "lostToMove": -3.0164,
     "nowBlocked": 13,
     "bySport": {
      "NBA": 33,
-     "NFL": 10,
+     "NFL": 11,
      "NCAAF": 9
     },
     "topPatterns": {
      "news-lag": 11,
-     "soft-dog": 8,
+     "soft-dog": 9,
      "sharp-soft": 7,
      "learned-nba-total": 5,
      "sharp-soft-alt": 5
@@ -12091,26 +12091,26 @@
     "prePickFeatureClv": null
    },
    "sharp-move-against": {
-    "n": 70,
-    "meanClvProb": -0.021,
-    "tStat": -10.96,
+    "n": 69,
+    "meanClvProb": -0.0211,
+    "tStat": -10.93,
     "beatClose": 0,
-    "share": 0.092,
-    "clvLost": -1.4666,
-    "lostToPrice": 0.309,
-    "lostToMove": -1.7756,
+    "share": 0.091,
+    "clvLost": -1.4565,
+    "lostToPrice": 0.3027,
+    "lostToMove": -1.7592,
     "nowBlocked": 20,
     "bySport": {
      "NBA": 27,
      "NCAAF": 19,
-     "NFL": 15,
+     "NFL": 14,
      "NHL": 6,
      "LaLiga": 1,
      "ATP": 1,
      "UCL": 1
     },
     "topPatterns": {
-     "soft-dog": 19,
+     "soft-dog": 18,
      "sharp-soft": 16,
      "news-lag": 9,
      "scan-nba-h2h-home-restedgehomemore-57b863": 4,
@@ -12152,12 +12152,12 @@
    "model-wrong": {
     "n": 295,
     "meanClvProb": -0.0529,
-    "tStat": -33.04,
+    "tStat": -33.05,
     "beatClose": 0,
     "share": 0.389,
-    "clvLost": -15.5936,
-    "lostToPrice": -5.3425,
-    "lostToMove": -10.2511,
+    "clvLost": -15.6193,
+    "lostToPrice": -5.3312,
+    "lostToMove": -10.2881,
     "nowBlocked": 125,
     "bySport": {
      "NCAAF": 101,
@@ -12403,7 +12403,7 @@
    "n": 81,
    "meanClvProb": -0.0045,
    "pocket": {
-    "feature": "sharpDiv=aligned",
+    "feature": "sharpGapOpen=<1%",
     "n": 11,
     "meanClvProb": 0.0051,
     "tStat": 0.39
@@ -14807,7 +14807,7 @@
    "n": 19,
    "meanClvProb": -0.0057,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 8,
     "meanClvProb": 0.015,
     "tStat": 1.44
@@ -14873,7 +14873,7 @@
    "n": 53,
    "meanClvProb": -0.0239,
    "pocket": {
-    "feature": "restEdge=more",
+    "feature": "restDays=long",
     "n": 13,
     "meanClvProb": 0.0087,
     "tStat": 0.53
@@ -14905,7 +14905,7 @@
    "n": 19,
    "meanClvProb": -0.0057,
    "pocket": {
-    "feature": "grade=B",
+    "feature": "edgeBar=0.5-1x",
     "n": 8,
     "meanClvProb": 0.015,
     "tStat": 1.44
