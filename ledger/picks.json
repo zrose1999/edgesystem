@@ -178007,6 +178007,67 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Washington Huskies at Michigan State Spartans|total|over|v1|lean|ncaaf-total-move|2026-11-11T18:34:39Z|gated|2026-11-11T18:34:39Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-14|Washington Huskies at Michigan State Spartans|total",
+      "sport": "NCAAF",
+      "event": "Washington Huskies at Michigan State Spartans",
+      "commence": "2026-11-14T21:15:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 43.5,
+      "priceAtPick": -105,
+      "marketNumber": 43.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -110,
+        "under": -110
+      },
+      "priceTime": "2026-11-11T18:34:21Z",
+      "pickedAt": "2026-11-11T18:34:39Z",
+      "fair": 44.22,
+      "projection": 44.22,
+      "edge": 0.72,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "edgeShrunk": -0.242,
+      "modelWeight": 0.493,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "ncaaf-total-move",
+      "reason": "NCAAF ratings total 47.5, open 43.5 (gap +4.0). Lines moved 0.18 x the gap from open to close in the backtest (current calibration 0.241, se 0.026, n 783). Expected move +0.72, 0.72 still to come; now 43.5, fair 44.22. (Under the pattern's minimum move: lean only.)",
+      "falsifier": "The total closes at or past the open on the other side of the model.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "model_ncaaf.py",
+      "pinAtPick": {
+        "line": 43.0,
+        "prices": {
+          "over": -108,
+          "under": -108
+        },
+        "updated": "2026-11-11T18:33:20Z",
+        "snapTime": "2026-11-11T18:34:21Z",
+        "noVig": 0.5
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -105,
+        "line": 43.5,
+        "implied": 0.5122,
+        "printImplied": 0.5238
+      },
+      "pinEdgeAtPick": -0.0212,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.1% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
