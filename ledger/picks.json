@@ -178068,6 +178068,78 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.1% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Tulane Green Wave at Rice Owls|spread|away|v1|lean|learned-scan-ncaaf-spread|2026-11-11T19:09:50Z|gated|2026-11-11T19:09:50Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-14|Tulane Green Wave at Rice Owls|spread",
+      "sport": "NCAAF",
+      "event": "Tulane Green Wave at Rice Owls",
+      "commence": "2026-11-14T19:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 2.5,
+      "priceAtPick": -112,
+      "marketNumber": -2.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "home": -108,
+        "away": -112
+      },
+      "priceTime": "2026-11-11T19:09:36Z",
+      "pickedAt": "2026-11-11T19:09:50Z",
+      "fair": -2.0218,
+      "projection": -2.0218,
+      "edge": 0.478,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.473,
+      "modelWeight": 0.471,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-spread",
+      "reason": "Model learned on the scanner's data (gbm, 14 data points, passed the out-of-sample gate) predicts a move of -0.478 from the open for away; 0.478 still to come. Report: stats/models/scan_ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": -2.5,
+        "prices": {
+          "home": -109,
+          "away": -105
+        },
+        "updated": "2026-11-11T19:09:06Z",
+        "snapTime": "2026-11-11T19:09:36Z",
+        "noVig": 0.4953
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 10.0,
+          "pop": 4,
+          "text": "Mostly Sunny",
+          "heavy": false,
+          "temp": 67,
+          "value": 0.0,
+          "asOf": "2026-11-11T19:09:37Z",
+          "venue": "First Community Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -112,
+        "line": -2.5,
+        "implied": 0.5283,
+        "printImplied": 0.5283
+      },
+      "pinEdgeAtPick": -0.033,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -3.3% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
