@@ -177111,6 +177111,128 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.1% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NBA|2026-11-12|Oklahoma City Thunder at Portland Trail Blazers|spread|away|v1|lean|learned-nba-spread|2026-11-11T15:09:47Z|gated|2026-11-11T15:09:47Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NBA|2026-11-12|Oklahoma City Thunder at Portland Trail Blazers|spread",
+      "sport": "NBA",
+      "event": "Oklahoma City Thunder at Portland Trail Blazers",
+      "commence": "2026-11-12T03:10:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": -1.5,
+      "priceAtPick": -104,
+      "marketNumber": 1.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -113,
+        "away": -107
+      },
+      "priceTime": "2026-11-11T15:09:35Z",
+      "pickedAt": "2026-11-11T15:09:47Z",
+      "fair": 2.739,
+      "projection": 2.739,
+      "edge": 1.239,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": false,
+      "edgeShrunk": -0.642,
+      "modelWeight": 0.059,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-nba-spread",
+      "reason": "Learned NBA model (ridge, 89 data points) predicts the spread moves +1.24 from the open; open 2.5, now 1.5, 1.24 still to come. Fair 2.74. Report: stats/models/nba_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": 1.5,
+        "prices": {
+          "home": -111,
+          "away": 100
+        },
+        "updated": "2026-11-11T15:09:20Z",
+        "snapTime": "2026-11-11T15:09:35Z",
+        "noVig": 0.487
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -104,
+        "line": 1.5,
+        "implied": 0.5098,
+        "printImplied": 0.5169
+      },
+      "pinEdgeAtPick": -0.0228,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.3% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NBA|2026-11-12|Cleveland Cavaliers at New York Knicks|h2h|away|v1|lean|scan-nba-h2h-away-restedgeawaymore-b31fe9|2026-11-11T15:09:48Z|gated|2026-11-11T15:09:48Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NBA|2026-11-12|Cleveland Cavaliers at New York Knicks|h2h",
+      "sport": "NBA",
+      "event": "Cleveland Cavaliers at New York Knicks",
+      "commence": "2026-11-12T00:10:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 158,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -188,
+        "away": 158
+      },
+      "priceTime": "2026-11-11T15:09:35Z",
+      "pickedAt": "2026-11-11T15:09:48Z",
+      "fair": 0.6053,
+      "projection": 0.6053,
+      "edge": 0.007,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.014,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-nba-h2h-away-restedgeawaymore-b31fe9",
+      "reason": "Scanner strategy scan-nba-h2h-away-restedgeawaymore-b31fe9: NBA h2h away when restEdge away more; measured open-to-close move +0.00888 for this side (+0.00903 beyond the league average; n 230, t +3.0) x0.8, 0.0071 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -179,
+          "away": 160
+        },
+        "updated": "2026-11-11T15:09:20Z",
+        "snapTime": "2026-11-11T15:09:35Z",
+        "noVig": 0.3715
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 158,
+        "line": null,
+        "implied": 0.3876,
+        "printImplied": 0.3876
+      },
+      "pinEdgeAtPick": -0.0161,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
