@@ -177824,6 +177824,67 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.0% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Alabama Crimson Tide at Vanderbilt Commodores|spread|away|v1|lean|learned-scan-ncaaf-spread|2026-11-11T17:54:33Z|gated|2026-11-11T17:54:33Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-14|Alabama Crimson Tide at Vanderbilt Commodores|spread",
+      "sport": "NCAAF",
+      "event": "Alabama Crimson Tide at Vanderbilt Commodores",
+      "commence": "2026-11-14T17:45:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": -15.5,
+      "priceAtPick": -115,
+      "marketNumber": 15.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-11-11T17:39:31Z",
+      "pickedAt": "2026-11-11T17:54:33Z",
+      "fair": 16.0015,
+      "projection": 16.0015,
+      "edge": 0.502,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.121,
+      "modelWeight": 0.471,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-spread",
+      "reason": "Model learned on the scanner's data (gbm, 14 data points, passed the out-of-sample gate) predicts a move of -0.501 from the open for away; 0.501 still to come. Report: stats/models/scan_ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": 16.5,
+        "prices": {
+          "home": -110,
+          "away": -104
+        },
+        "updated": "2026-11-11T17:39:15Z",
+        "snapTime": "2026-11-11T17:39:31Z",
+        "noVig": 0.493
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -115,
+        "line": 15.5,
+        "implied": 0.5349,
+        "printImplied": 0.5349
+      },
+      "pinEdgeAtPick": -0.0169,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.7% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
