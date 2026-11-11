@@ -127,6 +127,7 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - Refresh 2026-11-09 (health check; counted NFL/NCAAF/NBA reads with Pinnacle at the pick, vs Pinnacle close): Caesars
   +1.6% (n 39, t 2.9), not soft-dog +1.5% (n 23, t 2.0), soft-dog +1.9% (n 16); DraftKings -0.1% (n 129), FanDuel -0.4%
   (n 141), BetMGM -0.6% (n 47). Holding; 11 more to the 50-read split.
+- 2026-11-11 (health check): no new Caesars-priced counted reads since 11-09 (still n 39, +1.6%, t 2.9; halves +0.7% / +2.5%).
 
 ## Experiments (live shadow patterns, stake 0)
 
@@ -157,8 +158,22 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   killed; keeps running. Moneylines carry it (+0.8%, n 45, t 2.3), spreads +0.0% (n 8): too few spreads to tweak to
   moneylines only; revisit at 15 graded spreads. Focus sports +0.7% (n 39, t 1.9): NBA +1.5% (n 16, t 2.0), NFL +0.3%
   (n 8), NCAAF +0.1% (n 15). Next look at 80 graded.
+- 2026-11-11 look at 80+ (health check): 92 graded, +0.64% (t 2.4), halves +0.61% (n 46, t 2.7) and +0.66% (n 46,
+  t 1.4); since 11-06 +0.34% (n 23, t 1.1). Keeps running. By market h2h +0.51% (n 72), spreads +1.09% (n 20, t 1.4);
+  by sport NBA +1.41% (n 26, t 1.9), NFL +0.96% (n 18, t 2.4), NCAAF -0.08% (n 34, t -0.2), ATP +0.42% (n 11). NCAAF
+  carries none of the edge: if it is still flat at 50 NCAAF graded, the one allowed tweak is dropping NCAAF from soft-dog.
 
 ## Killed
+
+### Slate size (2026-11-11, killed)
+- Observation: counted NBA reads on 10+ game nights +0.86% (n 92) vs 6-9 games -1.02% (n 248, t -3.0) and 5 or fewer -0.87%.
+- Mechanism tried: on busy nights books and sharp money are spread thin, so openers stay stale longer and a soft price
+  is more often worth taking (and the reverse for NCAAF midweek lone-TV games vs 40-game Saturdays).
+- Test (memory/log NBA+NCAAF, slate = games per date key in ledger/snaps; DK snapshots): the NBA gap is 4 dates only;
+  one value per date, slate size vs mean CLV r +0.05 (NBA, 22 dates) and -0.14 (NCAAF, 17 dates). DraftKings h2h
+  |move| first to last snap is not larger on big slates (NBA 3.1% big vs 3.6% mid vs 2.5% small; NCAAF 2.0% big vs
+  1.7% small). Halves on 10+ NBA nights +0.42% / +0.63% (t 0.6 / 0.9). Living memory: no slate-size feature, no close
+  matches. Variants: 8 (2 sports x 3 buckets, counted vs all, per date, DK move). Date clustering, not a slate effect.
 
 ### The final quarter-hour before the start (2026-11-10, killed)
 - Observation: fast runs land at :24/:54, so the last stored snap is usually 15-16 minutes before an NBA tip; the
