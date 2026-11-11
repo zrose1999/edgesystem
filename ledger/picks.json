@@ -177885,6 +177885,128 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.7% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Arkansas State Red Wolves at Coastal Carolina Chanticleers|spread|away|v1|lean|learned-scan-ncaaf-spread|2026-11-11T18:24:40Z|gated|2026-11-11T18:24:40Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-14|Arkansas State Red Wolves at Coastal Carolina Chanticleers|spread",
+      "sport": "NCAAF",
+      "event": "Arkansas State Red Wolves at Coastal Carolina Chanticleers",
+      "commence": "2026-11-14T18:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 1.5,
+      "priceAtPick": -112,
+      "marketNumber": -1.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "home": -108,
+        "away": -112
+      },
+      "priceTime": "2026-11-11T17:39:31Z",
+      "pickedAt": "2026-11-11T18:24:40Z",
+      "fair": -1.0218,
+      "projection": -1.0218,
+      "edge": 0.478,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.374,
+      "modelWeight": 0.471,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-spread",
+      "reason": "Model learned on the scanner's data (gbm, 14 data points, passed the out-of-sample gate) predicts a move of -0.478 from the open for away; 0.478 still to come. Report: stats/models/scan_ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": -1.5,
+        "prices": {
+          "home": -107,
+          "away": -107
+        },
+        "updated": "2026-11-11T17:39:15Z",
+        "snapTime": "2026-11-11T17:39:31Z",
+        "noVig": 0.5
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -112,
+        "line": -1.5,
+        "implied": 0.5283,
+        "printImplied": 0.5283
+      },
+      "pinEdgeAtPick": -0.0283,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.8% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|East Carolina Pirates at Charlotte 49ers|h2h|home|v1|lean|learned-scan-ncaaf-h2h|2026-11-11T18:24:41Z|gated|2026-11-11T18:24:41Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-14|East Carolina Pirates at Charlotte 49ers|h2h",
+      "sport": "NCAAF",
+      "event": "East Carolina Pirates at Charlotte 49ers",
+      "commence": "2026-11-14T18:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 360,
+      "marketNumber": null,
+      "priceBook": "BetMGM",
+      "marketPrices": {
+        "home": 350,
+        "away": -455
+      },
+      "priceTime": "2026-11-11T17:39:31Z",
+      "pickedAt": "2026-11-11T18:24:41Z",
+      "fair": 0.2269,
+      "projection": 0.2269,
+      "edge": 0.01,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.023,
+      "modelWeight": 0.067,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-h2h",
+      "reason": "Model learned on the scanner's data (ridge, 14 data points, passed the out-of-sample gate) predicts a move of +0.00927 from the open for home; 0.00465 still to come. Report: stats/models/scan_ncaaf_h2h.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 374,
+          "away": -477
+        },
+        "updated": "2026-11-11T17:39:15Z",
+        "snapTime": "2026-11-11T17:39:31Z",
+        "noVig": 0.1921
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": 360,
+        "line": null,
+        "implied": 0.2174,
+        "printImplied": 0.2222
+      },
+      "pinEdgeAtPick": -0.0253,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
