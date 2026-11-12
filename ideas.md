@@ -128,6 +128,7 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   +1.6% (n 39, t 2.9), not soft-dog +1.5% (n 23, t 2.0), soft-dog +1.9% (n 16); DraftKings -0.1% (n 129), FanDuel -0.4%
   (n 141), BetMGM -0.6% (n 47). Holding; 11 more to the 50-read split.
 - 2026-11-11 (health check): no new Caesars-priced counted reads since 11-09 (still n 39, +1.6%, t 2.9; halves +0.7% / +2.5%).
+- 2026-11-12 (health check): fading. Counted NFL/NCAAF/NBA Caesars-priced reads vs Pinnacle close n 43, +1.2% (t 2.0); not soft-dog n 27, +0.8% (t 1.0, was +1.5% t 2.0 on 23). The non-soft-dog half no longer clears t 2; if it stays under at 50, kill the book-aware bar and leave it to soft-dog.
 
 ## Experiments (live shadow patterns, stake 0)
 
@@ -164,6 +165,12 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   carries none of the edge: if it is still flat at 50 NCAAF graded, the one allowed tweak is dropping NCAAF from soft-dog.
 
 ## Killed
+
+### Pinnacle's hold as an uncertainty signal (2026-11-12, killed)
+- Observation: on graded NFL/NCAAF/NBA reads with Pinnacle at the pick, CLV falls as Pinnacle's two-way hold widens: under 2.5% -1.2% (n 102), 2.5-3.5% -1.1% (n 706), 3.5-4.5% -1.6% (n 314), 4.5%+ -2.7% (n 60, t -6.1); in the second half the slope is clean (0.0%, -0.4%, -1.3%, -2.7%).
+- Mechanism tried: Pinnacle widens its margin when it expects news (injury reports, weather), so a soft price that "beats" Pinnacle's no-vig midpoint at a wide hold is measured against a noisy fair, and news-after-pick (-6.0% per loss) should cluster there.
+- Test: within sport x market (stratum-demeaned CLV, top third of hold vs the rest): all -0.06% (n 315 vs 851, t -0.2), counted +0.2% (t 0.4), halves +0.55% (t 1.4) and -0.64% (t -1.4); the sign flips across the 8 strata (NBA spread +1.1, NCAAF spread -1.4). The raw slope is market mix: totals and NCAAF carry the widest holds and the worst CLV (memory query all totals since 10-19: n 370, -1.6%, t -7.1). No hold feature in memory, so no closer living-memory match.
+- Variants tried: 4 (raw buckets, by sport, by market, within-stratum tercile with halves). Revisit only if a hold feature is added and a within-market slope appears on 300+ new reads.
 
 ### Slate size (2026-11-11, killed)
 - Observation: counted NBA reads on 10+ game nights +0.86% (n 92) vs 6-9 games -1.02% (n 248, t -3.0) and 5 or fewer -0.87%.

@@ -232,6 +232,9 @@ def words(s):
     return [w for w in re.sub(r"[^a-z0-9 ]", " ", (s or "").lower().replace("st.", "state")).split() if w]
 
 
+GENERIC = {"state", "st", "university", "univ", "college", "of", "the", "a", "and"}
+
+
 def team_score(kalshi, ledger):
     """How well a Kalshi team label ('SEA Seahawks', 'Los Angeles L', 'Kennesaw St.') fits a ledger name."""
     k, l = words(kalshi), words(ledger)
@@ -239,8 +242,12 @@ def team_score(kalshi, ledger):
         return 0.0
     letter = k[-1] if len(k[-1]) == 1 and len(k) > 1 else None
     body = k[:-1] if letter else k
-    hits = sum(1 for w in body if any(x.startswith(w) or w.startswith(x) for x in l if len(x) >= 2))
-    score = hits / len(body)
+    hit = [w for w in body if any(x.startswith(w) or w.startswith(x) for x in l if len(x) >= 2)]
+    if hit and all(w in GENERIC for w in hit) and any(w not in GENERIC for w in body):
+        return 0.0                           # only "state"/"university" fit (2026-11-12: Alcorn St. scored 0.5 on Georgia State)
+    if "state" in body and "state" not in l:
+        return 0.0                           # "Michigan St." is not "Michigan Wolverines"
+    score = len(hit) / len(body)
     if letter:
         rest = [x for x in l if x not in body]
         score = score if rest and rest[0].startswith(letter) else score * 0.4
