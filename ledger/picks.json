@@ -182121,6 +182121,78 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.0% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-15|Stanford Cardinal at Virginia Tech Hokies|spread|away|v1|lean|learned-scan-ncaaf-spread|2026-11-12T18:48:41Z|gated|2026-11-12T18:48:41Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-15|Stanford Cardinal at Virginia Tech Hokies|spread",
+      "sport": "NCAAF",
+      "event": "Stanford Cardinal at Virginia Tech Hokies",
+      "commence": "2026-11-15T00:30:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 15.5,
+      "priceAtPick": -110,
+      "marketNumber": -15.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -110,
+        "away": -110
+      },
+      "priceTime": "2026-11-12T18:47:34Z",
+      "pickedAt": "2026-11-12T18:48:41Z",
+      "fair": -15.1876,
+      "projection": -15.1876,
+      "edge": 0.312,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.036,
+      "modelWeight": 0.491,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-spread",
+      "reason": "Model learned on the scanner's data (gbm, 14 data points, passed the out-of-sample gate) predicts a move of -0.312 from the open for away; 0.312 still to come. Report: stats/models/scan_ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": -14.5,
+        "prices": {
+          "home": -112,
+          "away": -103
+        },
+        "updated": "2026-11-12T18:47:31Z",
+        "snapTime": "2026-11-12T18:47:34Z",
+        "noVig": 0.4895
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 9.0,
+          "pop": 0,
+          "text": "Partly Cloudy",
+          "heavy": false,
+          "temp": 37,
+          "value": 0.0,
+          "asOf": "2026-11-12T18:48:16Z",
+          "venue": "Lane Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -110,
+        "line": -15.5,
+        "implied": 0.5238,
+        "printImplied": 0.5238
+      },
+      "pinEdgeAtPick": -0.0093,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -0.9% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
