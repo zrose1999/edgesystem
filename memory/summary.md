@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-11-12 14:24Z)
+# What EDGE is learning (2026-11-12 14:54Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 1259 graded reads counted, 2747 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Scanner (scan.py, 11-12 11:10Z): 25 strategies tracking from 5010 hypotheses (0 new this run); 136 graded scan reads, mean CLV -0.7%. Shadow only; grade.py decides promotion.
@@ -15,8 +15,8 @@ Early negative, still collecting (largest samples):
   > pocket: sharpDiv=pin-for inside timing=day: n 13, CLV +2.4%, t +1.4 (best of 88 tested; a lead to watch) | pair: role=dog + moveBeforePick=none n 64, CLV +0.8% (best of 25)
 Observation: grades rank A > B > C (A -0.1% on 118, B -0.2% on 463, C -1.2% on 678).
   > last 50 graded reads: A +2.4% on 8, B +0.2% on 29, C -1.8% on 13 (A > B > C holds; diagnostic only)
-  > pocket: sharpDivPick=aligned inside grade A: n 27, CLV +3.6%, t +4.0 (best of 57 tested; a lead to watch)
-  > order holds inside sharpDivPick=aligned: A +3.6% on 27, B +0.1% on 123, C -1.4% on 82 (28 of 56 features tested)
+  > pocket: sharpGapPick=<1% inside grade A: n 27, CLV +3.6%, t +4.0 (best of 57 tested; a lead to watch)
+  > order holds inside sharpGapPick=<1%: A +3.6% on 27, B +0.1% on 123, C -1.4% on 82 (28 of 56 features tested)
 Why reads lost to the close (autopsy, post-pick; 758 of 1259, cause known on 758): overpaid 306 (-1.6%), news-after-pick 50 (-5.9%), sharps-against-at-pick 6 (-5.1%), sharps-against-at-open 1 (-3.1%), bet-into-steam 4 (-3.1%), late-move 23 (-3.9%), sharp-move-against 69 (-2.1%), soft-move-against 2 (-3.2%), model-wrong 297 (-5.3%)
 Process vs result: right-and-rewarded 258, right-but-unlucky 229, lucky-win 353, market-was-right 398, push 4; right-but-unlucky losses hurt most by close-margin, flipped-late, overtime (results are noise at this sample; CLV decides)
 Gated by the Pinnacle gate (scored, not counted): n 413, CLV -1.6%, t -7.0 (positive = the gate blocks winners); best pocket pattern=scan-nba-spread-away-restedgeawaymore-1e501d n 10, CLV +1.4%, t +0.6 (of 77 tested)
