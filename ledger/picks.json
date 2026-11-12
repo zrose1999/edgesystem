@@ -182193,6 +182193,76 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -0.9% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Oregon State Beavers at Boise State Broncos|total|under|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-14|Oregon State Beavers at Boise State Broncos|total",
+      "sport": "NCAAF",
+      "event": "Oregon State Beavers at Boise State Broncos",
+      "commence": "2026-11-14T23:00:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 64.5,
+      "priceAtPick": -105,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": 63.5,
+      "marketPrices": {
+        "over": -105,
+        "under": -115
+      },
+      "priceTime": "2026-11-12T19:09:29Z",
+      "pickedAt": "2026-11-12T19:09:30Z",
+      "fair": 0.5307,
+      "projection": 0.5307,
+      "edge": 0.0185,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "Hard Rock Bet under 64.5 -105 implies 51.2%. Pinnacle -114 no-vig is 51.3% at 63.5, worth 53.1% at this line. Edge +1.8%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": 63.5,
+        "prices": {
+          "over": -103,
+          "under": -114
+        },
+        "updated": "2026-11-12T19:09:20Z",
+        "snapTime": "2026-11-12T19:09:29Z",
+        "noVig": 0.5127
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 3.5,
+          "pop": 2,
+          "text": "Mostly Sunny; Partly Cloudy",
+          "heavy": false,
+          "temp": 56,
+          "value": 0.0,
+          "asOf": "2026-11-12T18:48:16Z",
+          "venue": "Albertsons Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -110,
+        "line": 63.5,
+        "implied": 0.5238,
+        "printImplied": 0.5349
+      },
+      "priceBook": "FanDuel",
+      "estimated": true,
+      "lineAdj": 0.018,
+      "pinEdgeAtPick": 0.0185,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
     }
   ]
 }
