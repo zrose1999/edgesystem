@@ -713,3 +713,9 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-11 | NBA: bookAtPick=FanDuel + pattern=sharp-soft | 8 | +1.1% | found inside NBA bookAtPick=FanDuel (best of 13 features tested); small sample, may share reads with other rows |
 | 2026-11-11 | NBA: moveBeforePick=for + pattern=sharp-soft-alt | 8 | +1.2% | found inside NBA moveBeforePick=for (best of 36 features tested); small sample, may share reads with other rows |
 | 2026-11-11 | NBA: timing=late + tzShift=east | 12 | +0.7% | found inside NBA tzShift=east (best of 20 features tested); small sample, may share reads with other rows |
+| 2026-11-13 | moveBeforePick=none + sharpGapPick=2%+ | 9 | +2.8% | found inside ALL moveBeforePick=none (best of 81 features tested); small sample, may share reads with other rows |
+| 2026-11-13 | pattern=soft-dog + travel=1500+ | 8 | +0.1% | found inside ALL travel=1500+ (best of 51 features tested); small sample, may share reads with other rows |
+| 2026-11-13 | NBA: pattern=scan-nba-h2h-home-restedgehomemore-57b863 + restDays=2+days | 8 | +0.0% | found inside NBA pattern=scan-nba-h2h-home-restedgehomemore-57b863 (best of 5 features tested); small sample, may share reads with other rows |
+| 2026-11-13 | NBA: grade=B + tzShift=west | 8 | +3.8% | found inside NBA tzShift=west (best of 24 features tested); small sample, may share reads with other rows |
+| 2026-11-13 | NCAAF: bookAtPick=FanDuel + pattern=soft-dog | 8 | +0.2% | found inside NCAAF bookAtPick=FanDuel (best of 22 features tested); small sample, may share reads with other rows |
+| 2026-11-13 | NCAAF: sharpDivPick=pin-for + travelEdge=even | 12 | +0.1% | found inside NCAAF sharpDivPick=pin-for (best of 25 features tested); small sample, may share reads with other rows |
