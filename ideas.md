@@ -37,6 +37,9 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - 2026-11-07 refresh (health check, memory/log counted NFL/NCAAF/NBA): all counted favourites -1.5% (n 197,
   t -4.3), dogs +0.3% (n 193, t 0.7). Since 10-30: favourites +0.8% (n 10, t 0.8), dogs +1.8% (n 20, t 1.7): the
   gap is in the same direction on fresh reads but favourites are no longer losing; 20 more fresh favourite spreads to the kill test.
+- 2026-11-13 refresh (health check, memory/log counted NFL/NCAAF/NBA): all counted favourites -1.6% (n 216, t -4.6),
+  dogs +0.4% (n 219, t 1.1). Since 10-30 12Z: favourites -1.2% (n 28, t -1.3), dogs +1.4% (n 46, t 2.7): losing again
+  on fresh reads; 2 more fresh favourite spreads to the 30-read kill test. Where it sits: see lead 9 (NCAAF short spreads).
 
 ### 2. Away teams travelling east (2026-10-30, lead, waits on the NFL backfill)
 - NFL history 2015-2026 (PR #8): home moneyline when the away team travels east ROI -11.1% at the close (n 847, t -3.2,
@@ -129,6 +132,24 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   (n 141), BetMGM -0.6% (n 47). Holding; 11 more to the 50-read split.
 - 2026-11-11 (health check): no new Caesars-priced counted reads since 11-09 (still n 39, +1.6%, t 2.9; halves +0.7% / +2.5%).
 - 2026-11-12 (health check): fading. Counted NFL/NCAAF/NBA Caesars-priced reads vs Pinnacle close n 43, +1.2% (t 2.0); not soft-dog n 27, +0.8% (t 1.0, was +1.5% t 2.0 on 23). The non-soft-dog half no longer clears t 2; if it stays under at 50, kill the book-aware bar and leave it to soft-dog.
+
+### 9. NCAAF short favourites drift toward the dog (2026-11-13, lead, testing; leads 7-8 are in PR #10)
+- Observation: on Pinnacle's own NCAAF spread line (first snapshot to the last, 12h+ apart, ledger/snaps 10-14 to 11-13),
+  favourites of under 7 points lost -0.40 points toward the dog (n 115, t -2.7; halves -0.47 / -0.33), and favourites of
+  3 or less lost -0.66 (n 55, t -2.8); 3.5-6.5 -0.16 (n 60), 7-13.5 +0.09 (n 79), 14+ -0.31 (n 39, t -1.5). Home and road
+  favourites alike (-0.43 n 64, -0.36 n 51). NFL under 7 same sign, weaker (-0.26, n 36, t -1.7); NBA none (-0.19, n 103, t -1.2).
+- Mechanism: openers on close college games are set from power ratings plus a standard home edge and get bet by money that
+  takes the better team; in games within a field goal the points matter most, so sharp money comes in on the dog and
+  Pinnacle follows. On big spreads backdoor and garbage time blur it, so no drift.
+- Living memory (counted NCAAF spread reads by line at the pick): dogs of 3.5 or less +2.4% (n 22, t 2.1), favourites of
+  3.5 or less -2.8% (n 17, t -2.2); bigger dogs +1.8% (n 45), bigger favourites -1.3% (n 75). Lead 1's favourite tax is
+  strongest on short NCAAF favourites, where the market moves most.
+- Variants tried: ~14 (3 sports x 3-4 size buckets, venue split, two short-spread cuts). At that count t -2.8 is borderline.
+- Not launched: it overlaps soft-dog (which already takes soft dog prices better than Pinnacle) and lead 1. Test next:
+  (a) whether a soft-book short NCAAF dog at the same line as Pinnacle's first quote beats Pinnacle's last no-vig after vig;
+  (b) re-run on the drift after two more Saturdays. If short-spread drift holds at t <= -2.5 in both halves and (a) is
+  positive, launch a shadow "ncaaf-short-dog" (NCAAF spread dogs of 3.5 or less, soft price at or better than Pinnacle fair,
+  stamped 12h+ out). Kill if the short-favourite drift is above -0.2 points on 120+ games.
 
 ## Experiments (live shadow patterns, stake 0)
 
