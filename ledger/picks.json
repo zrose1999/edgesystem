@@ -184480,6 +184480,218 @@
       "pinEdgeAtPick": 0.0085,
       "pinEdgeEstimated": false,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Wisconsin Badgers at Maryland Terrapins|h2h|home|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-14|Wisconsin Badgers at Maryland Terrapins|h2h",
+      "sport": "NCAAF",
+      "event": "Wisconsin Badgers at Maryland Terrapins",
+      "commence": "2026-11-14T17:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 300,
+      "bookAtPick": "BetRivers",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 270,
+        "away": -335
+      },
+      "priceTime": "2026-11-13T17:39:30Z",
+      "pickedAt": "2026-11-13T17:39:30Z",
+      "fair": 0.257,
+      "projection": 0.257,
+      "edge": 0.007,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "BetRivers home +300 implies 25.0%. Pinnacle +264 no-vig is 25.7%. Edge +0.7%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 264,
+          "away": -318
+        },
+        "updated": "2026-11-13T17:38:59Z",
+        "snapTime": "2026-11-13T17:39:30Z",
+        "noVig": 0.257
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 12.8,
+          "pop": 0,
+          "text": "Partly Sunny",
+          "heavy": false,
+          "temp": 48,
+          "value": 0.0,
+          "asOf": "2026-11-13T15:09:29Z",
+          "venue": "SECU Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": 275,
+        "line": null,
+        "implied": 0.2667,
+        "printImplied": 0.2703
+      },
+      "priceBook": "DraftKings",
+      "pinEdgeAtPick": 0.007,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Wake Forest Demon Deacons at SMU Mustangs|total|under|v1|lean|wind-total|2026-11-13T17:39:49Z|gated|2026-11-13T17:39:49Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-14|Wake Forest Demon Deacons at SMU Mustangs|total",
+      "sport": "NCAAF",
+      "event": "Wake Forest Demon Deacons at SMU Mustangs",
+      "commence": "2026-11-14T17:00:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 60.5,
+      "priceAtPick": -105,
+      "marketNumber": 60.5,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "over": -110,
+        "under": -110
+      },
+      "priceTime": "2026-11-13T17:39:30Z",
+      "pickedAt": "2026-11-13T17:39:49Z",
+      "fair": 52.5,
+      "projection": 52.5,
+      "edge": 8.0,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "edgeShrunk": 0.485,
+      "modelWeight": 0.113,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "wind-total",
+      "reason": "Open 55.5; wind 15 mph sustained, -3.0. Fair 52.5.",
+      "falsifier": "The total closes at or below the fair number before the forecast changes, or kickoff wind comes in under 15 mph.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "wind.py",
+      "pinAtPick": {
+        "line": 61.0,
+        "prices": {
+          "over": -103,
+          "under": -114
+        },
+        "updated": "2026-11-13T17:38:59Z",
+        "snapTime": "2026-11-13T17:39:30Z",
+        "noVig": 0.5127
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 15.0,
+          "pop": 6,
+          "text": "Mostly Cloudy",
+          "heavy": false,
+          "temp": 59,
+          "value": -3.0,
+          "asOf": "2026-11-13T17:39:31Z",
+          "venue": "Gerald J. Ford Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -105,
+        "line": 60.5,
+        "implied": 0.5122,
+        "printImplied": 0.5238
+      },
+      "pinEdgeAtPick": -0.0085,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -0.9% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Nebraska Cornhuskers at Rutgers Scarlet Knights|total|under|v1|lean|wind-total|2026-11-13T17:39:50Z|gated|2026-11-13T17:39:50Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-14|Nebraska Cornhuskers at Rutgers Scarlet Knights|total",
+      "sport": "NCAAF",
+      "event": "Nebraska Cornhuskers at Rutgers Scarlet Knights",
+      "commence": "2026-11-14T17:30:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 51.5,
+      "priceAtPick": -105,
+      "marketNumber": 51.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -110,
+        "under": -110
+      },
+      "priceTime": "2026-11-13T17:39:30Z",
+      "pickedAt": "2026-11-13T17:39:50Z",
+      "fair": 50.5,
+      "projection": 50.5,
+      "edge": 1.0,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "edgeShrunk": -0.932,
+      "modelWeight": 0.113,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "wind-total",
+      "reason": "Open 53.5; wind 15 mph sustained, -3.0. Fair 50.5.",
+      "falsifier": "The total closes at or below the fair number before the forecast changes, or kickoff wind comes in under 15 mph.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "wind.py",
+      "pinAtPick": {
+        "line": 52.0,
+        "prices": {
+          "over": -108,
+          "under": -108
+        },
+        "updated": "2026-11-13T17:38:59Z",
+        "snapTime": "2026-11-13T17:39:30Z",
+        "noVig": 0.5
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 15.0,
+          "pop": 0,
+          "text": "Mostly Cloudy",
+          "heavy": false,
+          "temp": 45,
+          "value": -3.0,
+          "asOf": "2026-11-13T17:39:31Z",
+          "venue": "SHI Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -105,
+        "line": 51.5,
+        "implied": 0.5122,
+        "printImplied": 0.5238
+      },
+      "pinEdgeAtPick": -0.0212,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.1% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
