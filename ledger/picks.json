@@ -182606,6 +182606,135 @@
       "pinEdgeAtPick": 0.0089,
       "pinEdgeEstimated": false,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NBA|2026-11-13|Charlotte Hornets at Phoenix Suns|h2h|away|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NBA|2026-11-13|Charlotte Hornets at Phoenix Suns|h2h",
+      "sport": "NBA",
+      "event": "Charlotte Hornets at Phoenix Suns",
+      "commence": "2026-11-13T02:10:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 215,
+      "bookAtPick": "BetRivers",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -220,
+        "away": 188
+      },
+      "priceTime": "2026-11-13T00:24:29Z",
+      "pickedAt": "2026-11-13T00:24:30Z",
+      "fair": 0.3231,
+      "projection": 0.3231,
+      "edge": 0.0057,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "BetRivers away +215 implies 31.7%. Pinnacle +197 no-vig is 32.3%. Edge +0.6%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -223,
+          "away": 197
+        },
+        "updated": "2026-11-13T00:24:14Z",
+        "snapTime": "2026-11-13T00:24:29Z",
+        "noVig": 0.3231
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": 195,
+        "line": null,
+        "implied": 0.339,
+        "printImplied": 0.3472
+      },
+      "priceBook": "BetMGM",
+      "pinEdgeAtPick": 0.0057,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-15|South Carolina Gamecocks at Arkansas Razorbacks|h2h|home|v1|lean|learned-scan-ncaaf-h2h|2026-11-13T00:24:36Z|gated|2026-11-13T00:24:36Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-15|South Carolina Gamecocks at Arkansas Razorbacks|h2h",
+      "sport": "NCAAF",
+      "event": "South Carolina Gamecocks at Arkansas Razorbacks",
+      "commence": "2026-11-15T00:45:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 250,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": 250,
+        "away": -310
+      },
+      "priceTime": "2026-11-13T00:24:29Z",
+      "pickedAt": "2026-11-13T00:24:36Z",
+      "fair": 0.2929,
+      "projection": 0.2929,
+      "edge": 0.007,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.014,
+      "modelWeight": 0.065,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-h2h",
+      "reason": "Model learned on the scanner's data (ridge, 14 data points, passed the out-of-sample gate) predicts a move of +0.01 from the open for home; 0.0072 still to come. Report: stats/models/scan_ncaaf_h2h.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 248,
+          "away": -295
+        },
+        "updated": "2026-11-13T00:24:20Z",
+        "snapTime": "2026-11-13T00:24:29Z",
+        "noVig": 0.2703
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 5.0,
+          "pop": 2,
+          "text": "Partly Cloudy; Mostly Cloudy",
+          "heavy": false,
+          "temp": 47,
+          "value": 0.0,
+          "asOf": "2026-11-12T22:51:25Z",
+          "venue": "Donald W. Reynolds Razorback Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 250,
+        "line": null,
+        "implied": 0.2857,
+        "printImplied": 0.2857
+      },
+      "pinEdgeAtPick": -0.0155,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
