@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-13T03:20:38Z",
+ "asOf": "2026-11-13T03:54:47Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -56,34 +56,34 @@
   "learned-nba-spread": {
    "pattern": "learned-nba-spread",
    "unit": "points",
-   "n": 25,
-   "meanPredicted": 1.3854,
-   "meanRealized": -0.04,
+   "n": 24,
+   "meanPredicted": 1.3651,
+   "meanRealized": -0.0417,
    "tRealized": -0.1,
    "capture": -0.03,
    "rightWay": 0.533,
-   "noMove": 10,
+   "noMove": 9,
    "logLossGain": {
-    "n": 25,
-    "mean": -0.00739,
-    "t": -0.36
+    "n": 24,
+    "mean": -0.01213,
+    "t": -0.59
    },
    "verdict": "collecting"
   },
   "learned-nba-total": {
    "pattern": "learned-nba-total",
    "unit": "points",
-   "n": 46,
-   "meanPredicted": 1.7518,
-   "meanRealized": 0.1739,
-   "tRealized": 0.48,
-   "capture": 0.1,
-   "rightWay": 0.55,
+   "n": 45,
+   "meanPredicted": 1.7507,
+   "meanRealized": 0.2444,
+   "tRealized": 0.67,
+   "capture": 0.14,
+   "rightWay": 0.564,
    "noMove": 6,
    "logLossGain": {
-    "n": 46,
-    "mean": -0.0274,
-    "t": -1.88
+    "n": 45,
+    "mean": -0.02586,
+    "t": -1.75
    },
    "verdict": "collecting"
   },
@@ -430,17 +430,17 @@
   "rest-spot": {
    "pattern": "rest-spot",
    "unit": "points",
-   "n": 21,
-   "meanPredicted": 0.7095,
-   "meanRealized": 1.2381,
-   "tRealized": 2.32,
-   "capture": 1.74,
-   "rightWay": 0.733,
+   "n": 20,
+   "meanPredicted": 0.7,
+   "meanRealized": 1.2,
+   "tRealized": 2.14,
+   "capture": 1.71,
+   "rightWay": 0.714,
    "noMove": 6,
    "logLossGain": {
-    "n": 21,
-    "mean": 0.00372,
-    "t": 0.38
+    "n": 20,
+    "mean": 0.00128,
+    "t": 0.13
    },
    "verdict": "collecting"
   },
@@ -481,51 +481,51 @@
   "scan-nba-h2h-home-restawayb2b-60ea66": {
    "pattern": "scan-nba-h2h-home-restawayb2b-60ea66",
    "unit": "prob",
-   "n": 23,
+   "n": 22,
    "meanPredicted": 0.0309,
-   "meanRealized": 0.0071,
-   "tRealized": 0.53,
-   "capture": 0.23,
-   "rightWay": 0.5,
+   "meanRealized": 0.0053,
+   "tRealized": 0.38,
+   "capture": 0.17,
+   "rightWay": 0.476,
    "noMove": 1,
    "logLossGain": {
-    "n": 23,
-    "mean": 0.00354,
-    "t": 0.34
+    "n": 22,
+    "mean": 0.00194,
+    "t": 0.18
    },
    "verdict": "collecting"
   },
   "scan-nba-h2h-home-restawayb2brestedgehomemore-a2651e": {
    "pattern": "scan-nba-h2h-home-restawayb2brestedgehomemore-a2651e",
    "unit": "prob",
-   "n": 14,
+   "n": 13,
    "meanPredicted": 0.0348,
-   "meanRealized": -0.0007,
-   "tRealized": -0.04,
-   "capture": -0.02,
-   "rightWay": 0.5,
+   "meanRealized": -0.0043,
+   "tRealized": -0.24,
+   "capture": -0.12,
+   "rightWay": 0.462,
    "noMove": 0,
    "logLossGain": {
-    "n": 14,
-    "mean": 0.02803,
-    "t": 2.41
+    "n": 13,
+    "mean": 0.02681,
+    "t": 2.14
    },
    "verdict": "collecting"
   },
   "scan-nba-h2h-home-restedgehomemore-57b863": {
    "pattern": "scan-nba-h2h-home-restedgehomemore-57b863",
    "unit": "prob",
-   "n": 23,
+   "n": 22,
    "meanPredicted": 0.0289,
-   "meanRealized": -0.0006,
-   "tRealized": -0.06,
-   "capture": -0.02,
-   "rightWay": 0.429,
+   "meanRealized": -0.0027,
+   "tRealized": -0.25,
+   "capture": -0.09,
+   "rightWay": 0.4,
    "noMove": 2,
    "logLossGain": {
-    "n": 23,
-    "mean": 0.00968,
-    "t": 1.04
+    "n": 22,
+    "mean": 0.00846,
+    "t": 0.88
    },
    "verdict": "collecting"
   },
@@ -566,51 +566,51 @@
   "scan-nba-spread-home-restawayb2b-7f68d5": {
    "pattern": "scan-nba-spread-home-restawayb2b-7f68d5",
    "unit": "points",
-   "n": 18,
-   "meanPredicted": 0.5532,
-   "meanRealized": 0.6667,
-   "tRealized": 0.97,
-   "capture": 1.21,
-   "rightWay": 0.643,
+   "n": 17,
+   "meanPredicted": 0.5557,
+   "meanRealized": 0.5882,
+   "tRealized": 0.81,
+   "capture": 1.06,
+   "rightWay": 0.615,
    "noMove": 4,
    "logLossGain": {
-    "n": 18,
-    "mean": -0.00108,
-    "t": -0.13
+    "n": 17,
+    "mean": -0.00292,
+    "t": -0.35
    },
    "verdict": "collecting"
   },
   "scan-nba-spread-home-restawayb2brestedgehomemore-ee7657": {
    "pattern": "scan-nba-spread-home-restawayb2brestedgehomemore-ee7657",
    "unit": "points",
-   "n": 10,
-   "meanPredicted": 0.7364,
-   "meanRealized": 0.6,
-   "tRealized": 1.0,
-   "capture": 0.81,
-   "rightWay": 0.714,
+   "n": 9,
+   "meanPredicted": 0.7391,
+   "meanRealized": 0.4444,
+   "tRealized": 0.69,
+   "capture": 0.6,
+   "rightWay": 0.667,
    "noMove": 3,
    "logLossGain": {
-    "n": 10,
-    "mean": 0.01627,
-    "t": 1.2
+    "n": 9,
+    "mean": 0.01343,
+    "t": 0.91
    },
    "verdict": "collecting"
   },
   "scan-nba-spread-home-restedgehomemore-b7ece4": {
    "pattern": "scan-nba-spread-home-restedgehomemore-b7ece4",
    "unit": "points",
-   "n": 18,
-   "meanPredicted": 0.4431,
-   "meanRealized": 0.3889,
-   "tRealized": 1.07,
-   "capture": 0.88,
-   "rightWay": 0.727,
+   "n": 17,
+   "meanPredicted": 0.4434,
+   "meanRealized": 0.2941,
+   "tRealized": 0.79,
+   "capture": 0.66,
+   "rightWay": 0.7,
    "noMove": 7,
    "logLossGain": {
-    "n": 18,
-    "mean": 0.01145,
-    "t": 1.99
+    "n": 17,
+    "mean": 0.0106,
+    "t": 1.75
    },
    "verdict": "collecting"
   },
