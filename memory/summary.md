@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-11-14 04:24Z)
+# What EDGE is learning (2026-11-14 04:54Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 1281 graded reads counted, 2805 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Scanner (scan.py, 11-13 18:28Z): 25 strategies tracking from 5028 hypotheses (0 new this run); 140 graded scan reads, mean CLV -0.7%. Shadow only; grade.py decides promotion.
@@ -15,9 +15,9 @@ Early negative, still collecting (largest samples):
   > pocket: sharpDiv=pin-for inside timing=day: n 13, CLV +2.4%, t +1.4 (best of 90 tested; a lead to watch) | pair: role=dog + moveBeforePick=none n 64, CLV +0.8% (best of 25)
 Observation: grades rank A > B > C (A -0.1% on 121, B -0.2% on 474, C -1.2% on 686).
   > last 50 graded reads: A +2.1% on 9, B +0.4% on 27, C -0.5% on 14 (A > B > C holds; diagnostic only)
-  > pocket: sharpGapPick=<1% inside grade A: n 29, CLV +3.6%, t +4.3 (best of 58 tested; a lead to watch)
-  > order holds inside sharpGapPick=<1%: A +3.6% on 29, B +0.2% on 125, C -1.4% on 82 (32 of 56 features tested)
-Why reads lost to the close (autopsy, post-pick; 768 of 1281, cause known on 768): overpaid 306 (-1.6%), news-after-pick 47 (-5.8%), sharps-against-at-pick 7 (-4.6%), sharps-against-at-open 1 (-3.1%), bet-into-steam 4 (-3.1%), late-move 23 (-3.9%), sharp-move-against 72 (-2.1%), soft-move-against 2 (-3.2%), model-wrong 306 (-5.2%)
+  > pocket: sharpDivPick=aligned inside grade A: n 29, CLV +3.6%, t +4.3 (best of 58 tested; a lead to watch)
+  > order holds inside sharpDivPick=aligned: A +3.6% on 29, B +0.2% on 125, C -1.4% on 82 (32 of 56 features tested)
+Why reads lost to the close (autopsy, post-pick; 768 of 1281, cause known on 768): overpaid 306 (-1.6%), news-after-pick 45 (-6.0%), sharps-against-at-pick 7 (-4.6%), sharps-against-at-open 1 (-3.1%), bet-into-steam 4 (-3.1%), late-move 23 (-3.9%), sharp-move-against 72 (-2.1%), soft-move-against 2 (-3.2%), model-wrong 308 (-5.2%)
 Process vs result: right-and-rewarded 261, right-but-unlucky 232, lucky-win 356, market-was-right 402, push 4; right-but-unlucky losses hurt most by close-margin, flipped-late, overtime (results are noise at this sample; CLV decides)
 Gated by the Pinnacle gate (scored, not counted): n 449, CLV -1.8%, t -8.2 (positive = the gate blocks winners); best pocket pattern=scan-nba-spread-away-restedgeawaymore-1e501d n 12, CLV +0.9%, t +0.5 (of 78 tested)
 Data gaps, waiting on a source: public-pct (needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack); guru (needs an account list + reader (Reddit API free, X API paid); log account, number, time, result)
