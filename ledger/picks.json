@@ -186123,6 +186123,146 @@
       "pinEdgeAtPick": 0.0265,
       "pinEdgeEstimated": true,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Tennessee Volunteers at Texas A&M Aggies|h2h|home|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-14|Tennessee Volunteers at Texas A&M Aggies|h2h",
+      "sport": "NCAAF",
+      "event": "Tennessee Volunteers at Texas A&M Aggies",
+      "commence": "2026-11-14T20:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 105,
+      "bookAtPick": "BetRivers",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -102,
+        "away": -118
+      },
+      "priceTime": "2026-11-14T01:39:36Z",
+      "pickedAt": "2026-11-14T01:39:37Z",
+      "fair": 0.4976,
+      "projection": 0.4976,
+      "edge": 0.0098,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "BetRivers home +105 implies 48.8%. Pinnacle -105 no-vig is 49.8%. Edge +1.0%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -105,
+          "away": -107
+        },
+        "updated": "2026-11-14T01:39:20Z",
+        "snapTime": "2026-11-14T01:39:36Z",
+        "noVig": 0.4976
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 15.0,
+          "pop": 5,
+          "text": "Partly Sunny; Mostly Sunny",
+          "heavy": false,
+          "temp": 70,
+          "value": -3.0,
+          "asOf": "2026-11-13T22:50:54Z",
+          "venue": "Kyle Field"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 100,
+        "line": null,
+        "implied": 0.5,
+        "printImplied": 0.505
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.0098,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-15|San Jose State Spartans at Air Force Falcons|total|under|v1|lean|wind-total|2026-11-14T01:39:53Z|gated|2026-11-14T01:39:53Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-15|San Jose State Spartans at Air Force Falcons|total",
+      "sport": "NCAAF",
+      "event": "San Jose State Spartans at Air Force Falcons",
+      "commence": "2026-11-15T00:00:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 48.5,
+      "priceAtPick": -115,
+      "marketNumber": 48.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -105,
+        "under": -115
+      },
+      "priceTime": "2026-11-14T01:39:36Z",
+      "pickedAt": "2026-11-14T01:39:53Z",
+      "fair": 46.5,
+      "projection": 46.5,
+      "edge": 2.0,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "edgeShrunk": -1.39,
+      "modelWeight": 0.113,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "wind-total",
+      "reason": "Open 47.5; heavy precipitation (Rain Showers; Rain And Snow Showers, 82%), -1.0. Fair 46.5.",
+      "falsifier": "The total closes at or below the fair number before the forecast changes, or kickoff wind comes in under 15 mph.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "wind.py",
+      "pinAtPick": {
+        "line": 48.0,
+        "prices": {
+          "over": -111,
+          "under": -105
+        },
+        "updated": "2026-11-14T01:39:20Z",
+        "snapTime": "2026-11-14T01:39:36Z",
+        "noVig": 0.4931
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 13.8,
+          "pop": 82,
+          "text": "Rain Showers; Rain And Snow Showers",
+          "heavy": true,
+          "temp": 42,
+          "value": -1.0,
+          "asOf": "2026-11-14T01:39:37Z",
+          "venue": "Falcon Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -115,
+        "line": 48.5,
+        "implied": 0.5349,
+        "printImplied": 0.5349
+      },
+      "pinEdgeAtPick": -0.0328,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -3.3% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
