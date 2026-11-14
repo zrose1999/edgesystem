@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-14T02:59:02Z",
+ "asOf": "2026-11-14T03:27:33Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -56,17 +56,17 @@
   "learned-nba-spread": {
    "pattern": "learned-nba-spread",
    "unit": "points",
-   "n": 29,
-   "meanPredicted": 1.3685,
-   "meanRealized": -0.1034,
-   "tRealized": -0.3,
-   "capture": -0.08,
-   "rightWay": 0.5,
-   "noMove": 11,
+   "n": 27,
+   "meanPredicted": 1.4162,
+   "meanRealized": -0.037,
+   "tRealized": -0.1,
+   "capture": -0.03,
+   "rightWay": 0.529,
+   "noMove": 10,
    "logLossGain": {
-    "n": 25,
-    "mean": -0.01467,
-    "t": -0.74
+    "n": 23,
+    "mean": -0.01209,
+    "t": -0.56
    },
    "verdict": "collecting"
   },
@@ -192,17 +192,17 @@
   "learned-scan-nba-spread": {
    "pattern": "learned-scan-nba-spread",
    "unit": "points",
-   "n": 31,
-   "meanPredicted": 0.8038,
-   "meanRealized": 0.7419,
-   "tRealized": 1.64,
-   "capture": 0.92,
-   "rightWay": 0.632,
-   "noMove": 12,
+   "n": 29,
+   "meanPredicted": 0.8299,
+   "meanRealized": 0.8621,
+   "tRealized": 1.82,
+   "capture": 1.04,
+   "rightWay": 0.667,
+   "noMove": 11,
    "logLossGain": {
-    "n": 30,
-    "mean": -0.00945,
-    "t": -0.98
+    "n": 28,
+    "mean": -0.00827,
+    "t": -0.81
    },
    "verdict": "collecting"
   },
@@ -430,17 +430,17 @@
   "rest-spot": {
    "pattern": "rest-spot",
    "unit": "points",
-   "n": 20,
-   "meanPredicted": 0.7,
-   "meanRealized": 1.2,
-   "tRealized": 2.14,
-   "capture": 1.71,
+   "n": 19,
+   "meanPredicted": 0.7105,
+   "meanRealized": 1.2632,
+   "tRealized": 2.15,
+   "capture": 1.78,
    "rightWay": 0.714,
-   "noMove": 6,
+   "noMove": 5,
    "logLossGain": {
-    "n": 20,
-    "mean": 0.00128,
-    "t": 0.13
+    "n": 19,
+    "mean": 0.00296,
+    "t": 0.29
    },
    "verdict": "collecting"
   },
@@ -532,17 +532,17 @@
   "scan-nba-spread-away-dowtue-e0a570": {
    "pattern": "scan-nba-spread-away-dowtue-e0a570",
    "unit": "points",
-   "n": 5,
+   "n": 3,
    "meanPredicted": 0.353,
-   "meanRealized": -0.6,
-   "tRealized": -1.5,
-   "capture": -1.7,
+   "meanRealized": -0.3333,
+   "tRealized": -1.0,
+   "capture": -0.94,
    "rightWay": 0.0,
-   "noMove": 3,
+   "noMove": 2,
    "logLossGain": {
-    "n": 5,
-    "mean": -0.01292,
-    "t": -1.5
+    "n": 3,
+    "mean": -0.00726,
+    "t": -0.51
    },
    "verdict": "collecting"
   },
