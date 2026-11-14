@@ -719,3 +719,11 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-13 | NBA: grade=B + tzShift=west | 8 | +3.8% | found inside NBA tzShift=west (best of 24 features tested); small sample, may share reads with other rows |
 | 2026-11-13 | NCAAF: bookAtPick=FanDuel + pattern=soft-dog | 8 | +0.2% | found inside NCAAF bookAtPick=FanDuel (best of 22 features tested); small sample, may share reads with other rows |
 | 2026-11-13 | NCAAF: sharpDivPick=pin-for + travelEdge=even | 12 | +0.1% | found inside NCAAF sharpDivPick=pin-for (best of 25 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | pattern=sharp-soft-alt + role=over | 8 | +2.0% | found inside ALL role=over (best of 39 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NBA: restEdge=more + tzShift=east | 8 | +1.5% | found inside NBA tzShift=east (best of 23 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: pinEdge=0-2% + restEdge=less | 13 | +1.4% | found inside NCAAF pinEdge=0-2% (best of 44 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: bookAtPick=Bally Bet + restDays=normal | 11 | +1.9% | found inside NCAAF restDays=normal (best of 61 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: restEdge=less + steamBeforePick=flat | 10 | +2.6% | found inside NCAAF restEdge=less (best of 31 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: sharpDivPick=pin-for + steamBeforePick=flat | 8 | +0.8% | found inside NCAAF sharpDivPick=pin-for (best of 27 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: timing=late + travelEdge=more | 9 | +1.7% | found inside NCAAF timing=late (best of 28 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: pinEdge=2%+ + venue=away | 10 | +3.1% | found inside NCAAF venue=away (best of 47 features tested); small sample, may share reads with other rows |
