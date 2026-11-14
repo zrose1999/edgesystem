@@ -189194,6 +189194,148 @@
       "pinEdgeAtPick": 0.021,
       "pinEdgeEstimated": true,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-15|Colorado State Rams at Washington State Cougars|total|under|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-15|Colorado State Rams at Washington State Cougars|total",
+      "sport": "NCAAF",
+      "event": "Colorado State Rams at Washington State Cougars",
+      "commence": "2026-11-15T03:30:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 65.5,
+      "priceAtPick": -105,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": 65.5,
+      "marketPrices": {
+        "over": -110,
+        "under": -110
+      },
+      "priceTime": "2026-11-14T15:09:29Z",
+      "pickedAt": "2026-11-14T15:09:29Z",
+      "fair": 0.5286,
+      "projection": 0.5286,
+      "edge": 0.0164,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "Hard Rock Bet under 65.5 -105 implies 51.2%. Pinnacle -117 no-vig is 52.0% at 65, worth 52.9% at this line. Edge +1.6%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": 65.0,
+        "prices": {
+          "over": 100,
+          "under": -117
+        },
+        "updated": "2026-11-14T15:09:24Z",
+        "snapTime": "2026-11-14T15:09:29Z",
+        "noVig": 0.5196
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 10.0,
+          "pop": 3,
+          "text": "Mostly Cloudy",
+          "heavy": false,
+          "temp": 43,
+          "value": 0.0,
+          "asOf": "2026-11-14T11:10:08Z",
+          "venue": "Martin Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -110,
+        "line": 65.5,
+        "implied": 0.5238,
+        "printImplied": 0.5238
+      },
+      "priceBook": "FanDuel",
+      "estimated": true,
+      "lineAdj": 0.009,
+      "pinEdgeAtPick": 0.0164,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Wisconsin Badgers at Maryland Terrapins|total|under|v1|lean|wind-total|2026-11-14T15:09:34Z|gated|2026-11-14T15:09:34Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-14|Wisconsin Badgers at Maryland Terrapins|total",
+      "sport": "NCAAF",
+      "event": "Wisconsin Badgers at Maryland Terrapins",
+      "commence": "2026-11-14T17:00:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 41.5,
+      "priceAtPick": -109,
+      "marketNumber": 41.5,
+      "priceBook": "Caesars",
+      "marketPrices": {
+        "over": -110,
+        "under": -110
+      },
+      "priceTime": "2026-11-14T15:09:29Z",
+      "pickedAt": "2026-11-14T15:09:34Z",
+      "fair": 40.5,
+      "projection": 40.5,
+      "edge": 1.0,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "edgeShrunk": -0.311,
+      "modelWeight": 0.113,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "wind-total",
+      "reason": "Open 43.5; wind 16 mph sustained, -3.0. Fair 40.5.",
+      "falsifier": "The total closes at or below the fair number before the forecast changes, or kickoff wind comes in under 15 mph.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "wind.py",
+      "pinAtPick": {
+        "line": 42.0,
+        "prices": {
+          "over": 101,
+          "under": -118
+        },
+        "updated": "2026-11-14T15:09:24Z",
+        "snapTime": "2026-11-14T15:09:29Z",
+        "noVig": 0.5219
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 15.8,
+          "pop": 2,
+          "text": "Scattered Rain Showers",
+          "heavy": false,
+          "temp": 49,
+          "value": -3.0,
+          "asOf": "2026-11-14T15:09:30Z",
+          "venue": "SECU Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": -109,
+        "line": 41.5,
+        "implied": 0.5215,
+        "printImplied": 0.5238
+      },
+      "pinEdgeAtPick": -0.0086,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -0.9% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
