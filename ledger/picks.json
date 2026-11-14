@@ -189755,6 +189755,65 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NBA|2026-11-15|Denver Nuggets at New Orleans Pelicans|total|over|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NBA|2026-11-15|Denver Nuggets at New Orleans Pelicans|total",
+      "sport": "NBA",
+      "event": "Denver Nuggets at New Orleans Pelicans",
+      "commence": "2026-11-15T00:10:00Z",
+      "market": "total",
+      "side": "over",
+      "lineAtPick": 233.5,
+      "priceAtPick": -110,
+      "bookAtPick": "theScore Bet",
+      "marketNumber": 234.5,
+      "marketPrices": {
+        "over": -110,
+        "under": -110
+      },
+      "priceTime": "2026-11-14T16:57:16Z",
+      "pickedAt": "2026-11-14T16:57:43Z",
+      "fair": 0.5392,
+      "projection": 0.5392,
+      "edge": 0.0153,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "theScore Bet over 233.5 -110 implies 52.4%. Pinnacle -112 no-vig is 51.4% at 234.5, worth 53.9% at this line. Edge +1.5%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": 234.5,
+        "prices": {
+          "over": -112,
+          "under": 100
+        },
+        "updated": "2026-11-14T16:57:05Z",
+        "snapTime": "2026-11-14T16:57:16Z",
+        "noVig": 0.5142
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -110,
+        "line": 234.5,
+        "implied": 0.5238,
+        "printImplied": 0.5238
+      },
+      "priceBook": "DraftKings",
+      "estimated": true,
+      "lineAdj": 0.025,
+      "pinEdgeAtPick": 0.0153,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
     }
   ]
 }
