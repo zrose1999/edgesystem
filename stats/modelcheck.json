@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-14T23:09:53Z",
+ "asOf": "2026-11-14T23:24:48Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -141,19 +141,19 @@
   "learned-nhl-ml": {
    "pattern": "learned-nhl-ml",
    "unit": "prob",
-   "n": 31,
-   "meanPredicted": 0.0263,
-   "meanRealized": 0.0212,
-   "tRealized": 5.14,
+   "n": 29,
+   "meanPredicted": 0.0267,
+   "meanRealized": 0.0216,
+   "tRealized": 4.98,
    "capture": 0.81,
-   "rightWay": 0.96,
-   "noMove": 6,
+   "rightWay": 0.958,
+   "noMove": 5,
    "logLossGain": {
-    "n": 31,
-    "mean": -0.00836,
-    "t": -0.82
+    "n": 29,
+    "mean": -0.00807,
+    "t": -0.75
    },
-   "verdict": "proven"
+   "verdict": "collecting"
   },
   "learned-nhl-over": {
    "pattern": "learned-nhl-over",
@@ -1026,7 +1026,6 @@
  "proven": [
   "goalie-news",
   "learned-ncaaf-spread",
-  "learned-nhl-ml",
   "learned-nhl-over",
   "ncaaf-total-move"
  ]
