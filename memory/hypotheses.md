@@ -744,3 +744,11 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-14 | NCAAF: moveBeforePick=against + travel=none | 8 | +1.6% | found inside NCAAF travel=none (best of 22 features tested); small sample, may share reads with other rows |
 | 2026-11-14 | NCAAF: timing=late + tzShift=east | 8 | +0.8% | found inside NCAAF tzShift=east (best of 38 features tested); small sample, may share reads with other rows |
 | 2026-11-14 | NCAAF: timing=day + wind=10-15 | 8 | +1.0% | found inside NCAAF wind=10-15 (best of 12 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | bookAtPick=theScore Bet + travel=500-1500 | 9 | +3.5% | found inside ALL travel=500-1500 (best of 86 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | steamBeforePick=toward + tzShift=east | 8 | +1.7% | found inside ALL tzShift=east (best of 57 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: sharpGapPick=2%+ + travelEdge=even | 11 | +0.6% | found inside NCAAF sharpGapPick=2%+ (best of 17 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: steamBeforePick=toward + timing=day | 9 | +1.7% | found inside NCAAF timing=day (best of 51 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: travelEdge=more + tzShift=none | 21 | +2.0% | found inside NCAAF travelEdge=more (best of 44 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: travelEdge=less + tzShift=east | 11 | +2.0% | found inside NCAAF tzShift=east (best of 42 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: role=dog + wind=10-15 | 11 | +0.4% | found inside NCAAF tzShift=east (best of 10 pairs tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: sharpDivPick=aligned + timing=late | 10 | +1.2% | found inside NCAAF wind=<10 (best of 15 pairs tested); small sample, may share reads with other rows |
