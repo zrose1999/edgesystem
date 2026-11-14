@@ -730,3 +730,17 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-14 | bookAtPick=Hard Rock Bet + travel=500-1500 | 15 | +2.4% | found inside ALL travel=500-1500 (best of 83 features tested); small sample, may share reads with other rows |
 | 2026-11-14 | NCAAF: pinEdge=2%+ + timing=early | 8 | +2.4% | found inside NCAAF timing=early (best of 51 features tested); small sample, may share reads with other rows |
 | 2026-11-14 | NCAAF: pattern=sharp-soft-alt + travel=500-1500 | 15 | +2.7% | found inside NCAAF travel=500-1500 (best of 51 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | bookAtPick=DraftKings + travelEdge=less | 14 | +2.3% | found inside ALL bookAtPick=DraftKings (best of 44 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | bookAtPick=Hard Rock Bet + moveBeforePick=for | 10 | +2.1% | found inside ALL moveBeforePick=for (best of 63 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | timing=day + wind=10-15 | 10 | +0.6% | found inside ALL wind=10-15 (best of 18 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: bookAtPick=FanDuel + travelEdge=even | 8 | +0.8% | found inside NCAAF bookAtPick=FanDuel (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: moveBeforePick=for + pinEdge=2%+ | 8 | +2.9% | found inside NCAAF moveBeforePick=for (best of 38 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: pattern=sharp-soft + restEdge=less | 8 | +2.4% | found inside NCAAF restEdge=less (best of 33 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: bookAtPick=Hard Rock Bet + sharpDivPick=pin-for | 8 | +1.4% | found inside NCAAF sharpDivPick=pin-for (best of 31 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: role=dog + sharpGapPick=1-2% | 13 | +0.8% | found inside NCAAF sharpGapPick=1-2% (best of 17 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: sharpDivPick=pin-for + timing=early | 10 | +0.4% | found inside NCAAF sharpGapPick=1-2% (best of 3 pairs tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: edgeBar=0.5-1x + sharpGapPick=2%+ | 11 | +0.6% | found inside NCAAF sharpGapPick=2%+ (best of 15 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: bookAtPick=Hard Rock Bet + timing=early | 18 | +2.5% | found inside NCAAF timing=early (best of 51 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: moveBeforePick=against + travel=none | 8 | +1.6% | found inside NCAAF travel=none (best of 22 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: timing=late + tzShift=east | 8 | +0.8% | found inside NCAAF tzShift=east (best of 38 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: timing=day + wind=10-15 | 8 | +1.0% | found inside NCAAF wind=10-15 (best of 12 features tested); small sample, may share reads with other rows |
