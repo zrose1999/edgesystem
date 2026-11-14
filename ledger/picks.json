@@ -190006,6 +190006,78 @@
       "pinEdgeAtPick": 0.0054,
       "pinEdgeEstimated": false,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-14|Kennesaw State Owls at Sam Houston State Bearkats|h2h|home|v1|lean|learned-scan-ncaaf-h2h|2026-11-14T18:24:39Z|gated|2026-11-14T18:24:39Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-14|Kennesaw State Owls at Sam Houston State Bearkats|h2h",
+      "sport": "NCAAF",
+      "event": "Kennesaw State Owls at Sam Houston State Bearkats",
+      "commence": "2026-11-14T19:00:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 260,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": 250,
+        "away": -310
+      },
+      "priceTime": "2026-11-14T18:24:32Z",
+      "pickedAt": "2026-11-14T18:24:39Z",
+      "fair": 0.2956,
+      "projection": 0.2956,
+      "edge": 0.018,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.014,
+      "modelWeight": 0.07,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-h2h",
+      "reason": "Model learned on the scanner's data (ridge, 14 data points, passed the out-of-sample gate) predicts a move of +0.00993 from the open for home; 0.00993 still to come. Report: stats/models/scan_ncaaf_h2h.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 263,
+          "away": -306
+        },
+        "updated": "2026-11-14T18:24:29Z",
+        "snapTime": "2026-11-14T18:24:32Z",
+        "noVig": 0.2609
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 13.8,
+          "pop": 2,
+          "text": "Partly Sunny",
+          "heavy": false,
+          "temp": 66,
+          "value": 0.0,
+          "asOf": "2026-11-14T17:39:32Z",
+          "venue": "Elliott T. Bowers Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 260,
+        "line": null,
+        "implied": 0.2778,
+        "printImplied": 0.2857
+      },
+      "pinEdgeAtPick": -0.0169,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -1.7% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
