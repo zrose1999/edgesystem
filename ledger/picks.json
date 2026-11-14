@@ -189056,6 +189056,144 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -3.7% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-15|Texas Tech Red Raiders at Oklahoma State Cowboys|spread|away|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-15|Texas Tech Red Raiders at Oklahoma State Cowboys|spread",
+      "sport": "NCAAF",
+      "event": "Texas Tech Red Raiders at Oklahoma State Cowboys",
+      "commence": "2026-11-15T02:30:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 3.5,
+      "priceAtPick": -105,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": -3.5,
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-11-14T14:24:30Z",
+      "pickedAt": "2026-11-14T14:24:31Z",
+      "fair": 0.5188,
+      "projection": 0.5188,
+      "edge": 0.0066,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "Hard Rock Bet away +3.5 -105 implies 51.2%. Pinnacle -114 no-vig is 51.9%. Edge +0.7%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": -3.5,
+        "prices": {
+          "home": 102,
+          "away": -114
+        },
+        "updated": "2026-11-14T14:24:21Z",
+        "snapTime": "2026-11-14T14:24:30Z",
+        "noVig": 0.5188
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 7.8,
+          "pop": 66,
+          "text": "Chance Rain Showers; Rain Showers Likely",
+          "heavy": false,
+          "temp": 47,
+          "value": 0.0,
+          "asOf": "2026-11-14T11:10:08Z",
+          "venue": "Boone Pickens Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": -112,
+        "line": -3.5,
+        "implied": 0.5283,
+        "printImplied": 0.5349
+      },
+      "priceBook": "BetMGM",
+      "pinEdgeAtPick": 0.0066,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-15|Ole Miss Rebels at Oklahoma Sooners|spread|home|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-15|Ole Miss Rebels at Oklahoma Sooners|spread",
+      "sport": "NCAAF",
+      "event": "Ole Miss Rebels at Oklahoma Sooners",
+      "commence": "2026-11-15T18:00:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -2.5,
+      "priceAtPick": -105,
+      "bookAtPick": "Hard Rock Bet",
+      "marketNumber": -2.5,
+      "marketPrices": {
+        "home": -115,
+        "away": -105
+      },
+      "priceTime": "2026-11-14T14:24:30Z",
+      "pickedAt": "2026-11-14T14:24:31Z",
+      "fair": 0.5332,
+      "projection": 0.5332,
+      "edge": 0.021,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "Hard Rock Bet home -2.5 -105 implies 51.2%. Pinnacle -103 no-vig is 49.1% at -3, worth 53.3% at this line. Edge +2.1%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": -3.0,
+        "prices": {
+          "home": -103,
+          "away": -111
+        },
+        "updated": "2026-11-14T14:24:21Z",
+        "snapTime": "2026-11-14T14:24:30Z",
+        "noVig": 0.4907
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 9.0,
+          "pop": 82,
+          "text": "Rain Showers",
+          "heavy": false,
+          "temp": 43,
+          "value": 0.0,
+          "asOf": "2026-11-14T11:10:08Z",
+          "venue": "Memorial Stadium (Norman, OK)"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -110,
+        "line": -2.5,
+        "implied": 0.5238,
+        "printImplied": 0.5349
+      },
+      "priceBook": "FanDuel",
+      "estimated": true,
+      "lineAdj": 0.0425,
+      "pinEdgeAtPick": 0.021,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
     }
   ]
 }
