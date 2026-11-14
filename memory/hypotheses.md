@@ -727,3 +727,6 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-14 | NCAAF: sharpDivPick=pin-for + steamBeforePick=flat | 8 | +0.8% | found inside NCAAF sharpDivPick=pin-for (best of 27 features tested); small sample, may share reads with other rows |
 | 2026-11-14 | NCAAF: timing=late + travelEdge=more | 9 | +1.7% | found inside NCAAF timing=late (best of 28 features tested); small sample, may share reads with other rows |
 | 2026-11-14 | NCAAF: pinEdge=2%+ + venue=away | 10 | +3.1% | found inside NCAAF venue=away (best of 47 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | bookAtPick=Hard Rock Bet + travel=500-1500 | 15 | +2.4% | found inside ALL travel=500-1500 (best of 83 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: pinEdge=2%+ + timing=early | 8 | +2.4% | found inside NCAAF timing=early (best of 51 features tested); small sample, may share reads with other rows |
+| 2026-11-14 | NCAAF: pattern=sharp-soft-alt + travel=500-1500 | 15 | +2.7% | found inside NCAAF travel=500-1500 (best of 51 features tested); small sample, may share reads with other rows |
