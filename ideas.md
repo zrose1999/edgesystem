@@ -151,6 +151,25 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   positive, launch a shadow "ncaaf-short-dog" (NCAAF spread dogs of 3.5 or less, soft price at or better than Pinnacle fair,
   stamped 12h+ out). Kill if the short-favourite drift is above -0.2 points on 120+ games.
 
+### 10. NCAAF overnight moneyline moves keep going (2026-11-14, lead, testing)
+- Observation: EDGE takes no snapshots 05-11Z, so each day has an overnight gap. On Pinnacle's NCAAF moneyline (ledger/snaps
+  10-14 to 11-14), the move from the last snapshot before 05Z to the first after 11Z continued into the last pre-start
+  snapshot: +0.78 no-vig points per move (n 95 day-moves, t 3.2, halves +0.64 / +0.92); for overnight moves of 0.5+ points
+  +1.59 (n 32 games, t 2.8). Daytime control (11-17Z snapshot to the next 6h on) +0.31 (n 67, t 1.1); EDGE's 10-30 test of
+  all Pinnacle moves found no momentum. NBA ML +0.49 (n 42, t 0.8), NFL none (n 7). Spreads and totals by line: no effect
+  (NCAAF n 18/15, NBA n 28/34; NBA totals reverse -0.60 points, t -1.8, which agrees with lead 4).
+- Mechanism: overnight Pinnacle college limits are low, so a move there is a few informed bets the market has not absorbed;
+  when US books and full limits open in the morning, the rest of the money follows. Daytime moves already happen at full
+  limits, so they do not carry on.
+- Tradeable? No, at the snapshot's soft price: taking the morning book price on the overnight-move side scored +0.0% CLV
+  vs Pinnacle's close after vig (n 32, t 0.0, halves -0.09 / +0.11). The US books had already followed by 11Z. The value
+  is as a filter: it is the overnight form of the holding finding "Pinnacle moving toward our side before the pick".
+- Living memory: NCAAF h2h steamBeforePick=toward n 4, +0.7% (t 2.1) - too few.
+- Variants tried: 9 sport-market cells plus one 0.5-point cut and one control. At that count t 3.2 is worth following.
+- Not launched (no positive price test). Test next: stamp an overnightPinMove feature on NCAAF/NBA h2h reads (pre-pick: the
+  05Z/11Z snapshots precede any read stamped after 11Z) if the weekly review wants it; re-run on two more Saturdays.
+  Kill if NCAAF overnight continuation falls under +0.3 points on 60+ moves of 0.5+.
+
 ## Experiments (live shadow patterns, stake 0)
 
 ### soft-dog (launched 2026-10-30, from lead 1)
