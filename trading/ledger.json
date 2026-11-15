@@ -20431,7 +20431,9 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.375,
-        "lastSeen": "2026-11-15T20:54:53Z"
+        "lastSeen": "2026-11-15T20:54:53Z",
+        "closeMid": 0.375,
+        "clv": -0.005
       },
       {
         "ticker": "KXNFLGAME-26NOV15MINGB-MIN",
@@ -20452,13 +20454,18 @@
         "count": 1,
         "cost": 0.61,
         "fee": 0.02,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.565,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.565,
-        "clv": -0.045
+        "clv": -0.045,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.63,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV14ALCNSOU-ALCN",
@@ -20651,6 +20658,29 @@
         "payout": 1.0,
         "pnl": 0.6,
         "settledAt": "2026-11-15T03:54:38Z"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK7",
+        "title": "New York wins by over 6.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "New York Knicks at Toronto Raptors",
+        "commence": "2026-11-15T23:10:00Z",
+        "side": "yes",
+        "ask": 0.42,
+        "strike": 6.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5186,
+        "edge": 0.0815,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt A pick (FanDuel away -4.5 -102 implies 50.5%. Pinnacle -111 no-vig is 51.2% at 5.5, worth 54.2% at this line. Edge +3.7%.). Pinnacle fair here 48.2% plus the pick's edge = 51.9%; Kalshi YES 0.42 + fee = 0.437.",
+        "time": "2026-11-15T21:24:47Z",
+        "count": 1,
+        "cost": 0.42,
+        "fee": 0.02,
+        "status": "open",
+        "book": "paper",
+        "mode": "paper"
       }
     ],
     "equity": [
@@ -23113,6 +23143,14 @@
         "equity": 20.24,
         "clvN": 271,
         "meanClv": -0.0043
+      },
+      {
+        "t": "2026-11-15T21:24:47Z",
+        "open": 4.23,
+        "realized": -80.39,
+        "equity": 19.61,
+        "clvN": 273,
+        "meanClv": -0.0045
       }
     ],
     "stopped": null,
@@ -28456,6 +28494,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-15T20:54:53Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-15T21:24:47Z"
       }
     ]
   },
@@ -32508,7 +32550,7 @@
         "cost": 0.41,
         "fee": 0.0,
         "time": "2026-11-09T21:23:53Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1c1b7-d608-7118-bf80-9f96c3000df3",
@@ -32517,7 +32559,12 @@
         "lastMid": 0.425,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.425,
-        "clv": 0.015
+        "clv": 0.015,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.41,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV12WASNYG-NYG4",
@@ -32615,7 +32662,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.405,
-        "lastSeen": "2026-11-15T20:54:53Z"
+        "lastSeen": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14ORSTBSU-BSU15",
@@ -32671,7 +32718,7 @@
         "cost": 0.65,
         "fee": 0.0,
         "time": "2026-11-10T19:54:48Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1c6d0-6e98-762c-91d9-4e22ce5db2bb",
@@ -32680,7 +32727,12 @@
         "lastMid": 0.575,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.575,
-        "clv": -0.075
+        "clv": -0.075,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.65,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV15MINGB-40",
@@ -32701,7 +32753,7 @@
         "cost": 0.42,
         "fee": 0.0,
         "time": "2026-11-10T20:24:49Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1c707-5548-7117-a527-08229c321182",
@@ -32710,7 +32762,12 @@
         "lastMid": 0.395,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.395,
-        "clv": -0.025
+        "clv": -0.025,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.42,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV15MIAIND-42",
@@ -32731,7 +32788,7 @@
         "cost": 0.43,
         "fee": 0.0,
         "time": "2026-11-10T20:54:39Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1c173-2fd0-7061-9cbb-954da73051b2",
@@ -32740,7 +32797,12 @@
         "lastMid": 0.375,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.375,
-        "clv": -0.055
+        "clv": -0.055,
+        "result": "yes",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.57,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV15SEALV-SEA",
@@ -32768,7 +32830,9 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.275,
-        "lastSeen": "2026-11-15T20:54:53Z"
+        "lastSeen": "2026-11-15T20:54:53Z",
+        "closeMid": 0.275,
+        "clv": 0.015
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15MINGB-GB5",
@@ -32789,7 +32853,7 @@
         "cost": 0.44,
         "fee": 0.0,
         "time": "2026-11-11T11:10:22Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1c707-5548-7aad-b01f-633f64129fb1",
@@ -32798,7 +32862,12 @@
         "lastMid": 0.405,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.405,
-        "clv": -0.035
+        "clv": -0.035,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.44,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV11BOSTOR-BOS7",
@@ -32889,7 +32958,7 @@
         "cost": 0.6,
         "fee": 0.0,
         "time": "2026-11-11T19:54:43Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1c707-5160-7da2-ad2d-b10deb895440",
@@ -32898,7 +32967,12 @@
         "lastMid": 0.565,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.565,
-        "clv": -0.035
+        "clv": -0.035,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.6,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV11ORLUTA-ORL3",
@@ -32989,7 +33063,7 @@
         "cost": 0.66,
         "fee": 0.0,
         "time": "2026-11-12T02:54:43Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1cb28-f348-7bd9-96dd-c07e357b0c4c",
@@ -32998,7 +33072,12 @@
         "lastMid": 0.635,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.635,
-        "clv": -0.025
+        "clv": -0.025,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.66,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV12DALMIN-226",
@@ -33341,7 +33420,9 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.405,
-        "lastSeen": "2026-11-15T20:54:53Z"
+        "lastSeen": "2026-11-15T20:54:53Z",
+        "closeMid": 0.405,
+        "clv": 0.005
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14MISSOKLA-OKLA3",
@@ -33362,7 +33443,7 @@
         "cost": 0.5,
         "fee": 0.0,
         "time": "2026-11-14T11:10:48Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1d7a8-8cf0-7e58-a8ab-2f12dd7750ee",
@@ -33371,7 +33452,12 @@
         "lastMid": 0.525,
         "lastSeen": "2026-11-14T20:54:44Z",
         "closeMid": 0.525,
-        "clv": 0.025
+        "clv": 0.025,
+        "result": "yes",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.5,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14NEBRUTG-NEB14",
@@ -33567,7 +33653,7 @@
         "cost": 0.39,
         "fee": 0.0,
         "time": "2026-11-14T23:54:40Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1d1b4-7cc8-7e80-8f61-34d69b39bdc7",
@@ -33576,7 +33662,12 @@
         "lastMid": 0.355,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.355,
-        "clv": -0.035
+        "clv": -0.035,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.39,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14CSUWSU-WSU11",
@@ -35254,6 +35345,14 @@
         "equity": 37.46,
         "clvN": 131,
         "meanClv": 0.002
+      },
+      {
+        "t": "2026-11-15T21:24:47Z",
+        "open": 1.05,
+        "realized": -0.04,
+        "equity": 34.96,
+        "clvN": 141,
+        "meanClv": 0.0001
       }
     ],
     "stopped": null,
@@ -40732,6 +40831,121 @@
         "status": "canceled",
         "time": "2026-11-15T17:54:42Z",
         "test": true
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK7",
+        "title": "New York wins by over 6.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "New York Knicks at Toronto Raptors",
+        "commence": "2026-11-15T23:10:00Z",
+        "side": "yes",
+        "strike": 6.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5186,
+        "edge": 0.0815,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt A pick (FanDuel away -4.5 -102 implies 50.5%. Pinnacle -111 no-vig is 51.2% at 5.5, worth 54.2% at this line. Edge +3.7%.). Pinnacle fair here 48.2% plus the pick's edge = 51.9%; Kalshi YES 0.42 + fee = 0.437.",
+        "orderId": "01a1e119-8ed8-7235-a5c1-010adb903294",
+        "orderPath": "v2",
+        "price": 0.41,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-15T21:24:47Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNBAGAME-26NOV15NYKTOR-TOR",
+        "title": "Toronto",
+        "sport": "NBA",
+        "kind": "game",
+        "event": "New York Knicks at Toronto Raptors",
+        "commence": "2026-11-15T23:10:00Z",
+        "side": "no",
+        "strike": null,
+        "source": "mirror:sharp-soft",
+        "fair": 0.6998,
+        "edge": 0.0633,
+        "estimated": true,
+        "why": "EDGE sharp-soft A pick (BetRivers away -175 implies 63.6%. Pinnacle -217 no-vig is 66.8%. Edge +3.2%.). Pinnacle fair here 66.8% plus the pick's edge = 70.0%; Kalshi NO 0.62 + fee = 0.636.",
+        "orderId": "01a1e119-92c0-7264-9dea-2e61ea389cc2",
+        "orderPath": "v2",
+        "price": 0.61,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-15T21:24:47Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV15DALBOS-BOS14",
+        "title": "Boston wins by over 13.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Dallas Mavericks at Boston Celtics",
+        "commence": "2026-11-15T23:10:00Z",
+        "side": "no",
+        "strike": 13.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5045,
+        "edge": 0.0472,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt B pick (BetRivers away +15.5 -110 implies 52.4%. Pinnacle -112 no-vig is 51.4% at -14.5, worth 54.4% at this line. Edge +2.0%.). Pinnacle fair here 48.4% plus the pick's edge = 50.4%; Kalshi NO 0.44 + fee = 0.457.",
+        "orderId": "01a1e119-92c0-7f19-b1c8-4ced1e63b5f5",
+        "orderPath": "v2",
+        "price": 0.43,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-15T21:24:47Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK6",
+        "title": "New York wins by over 5.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "New York Knicks at Toronto Raptors",
+        "commence": "2026-11-15T23:10:00Z",
+        "side": "yes",
+        "strike": 5.5,
+        "source": "kalshi-sharp",
+        "fair": 0.5118,
+        "edge": 0.0445,
+        "estimated": false,
+        "why": "Pinnacle fair 51.2% vs Kalshi YES 0.45 + fee = 0.467.",
+        "orderId": "01a1e119-96a8-7269-9adf-940ec96d6396",
+        "orderPath": "v2",
+        "price": 0.44,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-15T21:24:47Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK5",
+        "title": "New York wins by over 4.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "New York Knicks at Toronto Raptors",
+        "commence": "2026-11-15T23:10:00Z",
+        "side": "yes",
+        "strike": 4.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.5418,
+        "edge": 0.0443,
+        "estimated": true,
+        "why": "Pinnacle fair 54.2% vs Kalshi YES 0.48 + fee = 0.497.",
+        "orderId": "01a1e119-96a8-7ce6-ab93-2da771f87373",
+        "orderPath": "v2",
+        "price": 0.47,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-15T21:24:47Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -40818,7 +41032,7 @@
       }
     ]
   },
-  "asOf": "2026-11-15T20:54:53Z",
+  "asOf": "2026-11-15T21:24:47Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -40839,38 +41053,41 @@
     "liveActive": true,
     "liveWhy": "on since 2026-10-21T20:30:14.905Z",
     "paper": {
-      "open": 4.42,
-      "realized": -79.76,
-      "equity": 20.24,
-      "clvN": 272,
+      "open": 4.23,
+      "realized": -80.39,
+      "equity": 19.61,
+      "clvN": 273,
       "meanClv": -0.0045
     },
     "live": {
-      "open": 5.55,
-      "realized": 2.46,
-      "equity": 37.46,
-      "clvN": 139,
-      "meanClv": -0.0
+      "open": 1.05,
+      "realized": -0.04,
+      "equity": 34.96,
+      "clvN": 141,
+      "meanClv": 0.0001
     },
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 432,
-      "resting": 2,
+      "orders": 439,
+      "resting": 8,
       "filled": 216,
-      "expired": 214,
-      "fillRate": 0.502,
-      "clvN": 206,
-      "meanClv": -0.0191,
-      "meanClvNet": -0.0232,
-      "settledPnl": 1.72,
-      "pairedWithTaker": 82,
-      "pairedMakerClvNet": -0.0136,
+      "expired": 215,
+      "fillRate": 0.501,
+      "clvN": 214,
+      "meanClv": -0.0196,
+      "meanClvNet": -0.0237,
+      "settledPnl": -1.32,
+      "pairedWithTaker": 83,
+      "pairedMakerClvNet": -0.0134,
       "pairedTakerClvNet": -0.0283,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 0,
+    "liveSkips": {
+      "already held": 5,
+      "test: same contract already held": 4
+    },
+    "liveCandidates": 14,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -40911,9 +41128,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 0,
+      "spentToday": 2.36,
       "trades": 151,
-      "resting": 0
+      "resting": 5
     },
     "config": {
       "startingBankroll": 35.0,
@@ -40935,23 +41152,23 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4559,
-      "eventsMatched": 259,
-      "eventsUnmatched": 154,
-      "candidates": 0
+      "kalshiMarkets": 4222,
+      "eventsMatched": 238,
+      "eventsUnmatched": 151,
+      "candidates": 14
     }
   },
   "account": {
     "keys": "ok",
-    "balance": 6.02,
+    "balance": 7.02,
     "detail": {
-      "balance": 602,
-      "balance_dollars": "6.0238",
-      "portfolio_value": 4530,
-      "updated_ts": 1794776114
+      "balance": 702,
+      "balance_dollars": "7.0238",
+      "portfolio_value": 1834,
+      "updated_ts": 1794777913
     },
     "env": "production",
-    "checkedAt": "2026-11-15T20:55:14Z"
+    "checkedAt": "2026-11-15T21:25:13Z"
   },
   "maker": {
     "start": 0.0,
@@ -48477,7 +48694,8 @@
         "takerEdge": 0.0509,
         "makerEdge": 0.0713,
         "postedAt": "2026-11-10T19:54:48Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV15MINGB-MIN",
@@ -49810,6 +50028,139 @@
         "postedAt": "2026-11-15T17:54:42Z",
         "status": "expired",
         "expiredAt": "2026-11-15T18:24:42Z"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK7",
+        "title": "New York wins by over 6.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "New York Knicks at Toronto Raptors",
+        "commence": "2026-11-15T23:10:00Z",
+        "side": "yes",
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5186,
+        "estimated": true,
+        "price": 0.41,
+        "bidAtPost": 0.41,
+        "askAtPost": 0.42,
+        "takerEdge": 0.0815,
+        "makerEdge": 0.1044,
+        "postedAt": "2026-11-15T21:24:47Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNBAGAME-26NOV15NYKTOR-TOR",
+        "title": "Toronto",
+        "sport": "NBA",
+        "kind": "game",
+        "event": "New York Knicks at Toronto Raptors",
+        "commence": "2026-11-15T23:10:00Z",
+        "side": "no",
+        "source": "mirror:sharp-soft",
+        "fair": 0.6998,
+        "estimated": true,
+        "price": 0.61,
+        "bidAtPost": 0.61,
+        "askAtPost": 0.62,
+        "takerEdge": 0.0633,
+        "makerEdge": 0.0856,
+        "postedAt": "2026-11-15T21:24:47Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV15DALBOS-BOS14",
+        "title": "Boston wins by over 13.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Dallas Mavericks at Boston Celtics",
+        "commence": "2026-11-15T23:10:00Z",
+        "side": "no",
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5045,
+        "estimated": true,
+        "price": 0.43,
+        "bidAtPost": 0.43,
+        "askAtPost": 0.44,
+        "takerEdge": 0.0472,
+        "makerEdge": 0.0702,
+        "postedAt": "2026-11-15T21:24:47Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK7",
+        "title": "New York wins by over 6.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "New York Knicks at Toronto Raptors",
+        "commence": "2026-11-15T23:10:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4818,
+        "estimated": true,
+        "price": 0.41,
+        "bidAtPost": 0.41,
+        "askAtPost": 0.42,
+        "takerEdge": 0.0447,
+        "makerEdge": 0.0676,
+        "postedAt": "2026-11-15T21:24:47Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK6",
+        "title": "New York wins by over 5.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "New York Knicks at Toronto Raptors",
+        "commence": "2026-11-15T23:10:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp",
+        "fair": 0.5118,
+        "estimated": false,
+        "price": 0.44,
+        "bidAtPost": 0.44,
+        "askAtPost": 0.45,
+        "takerEdge": 0.0445,
+        "makerEdge": 0.0675,
+        "postedAt": "2026-11-15T21:24:47Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNBAGAME-26NOV15NYKTOR-TOR",
+        "title": "Toronto",
+        "sport": "NBA",
+        "kind": "game",
+        "event": "New York Knicks at Toronto Raptors",
+        "commence": "2026-11-15T23:10:00Z",
+        "side": "no",
+        "source": "kalshi-sharp",
+        "fair": 0.6681,
+        "estimated": false,
+        "price": 0.61,
+        "bidAtPost": 0.61,
+        "askAtPost": 0.62,
+        "takerEdge": 0.0316,
+        "makerEdge": 0.0539,
+        "postedAt": "2026-11-15T21:24:47Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV15DALBOS-BOS14",
+        "title": "Boston wins by over 13.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Dallas Mavericks at Boston Celtics",
+        "commence": "2026-11-15T23:10:00Z",
+        "side": "no",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4842,
+        "estimated": true,
+        "price": 0.43,
+        "bidAtPost": 0.43,
+        "askAtPost": 0.44,
+        "takerEdge": 0.0269,
+        "makerEdge": 0.0499,
+        "postedAt": "2026-11-15T21:24:47Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -54934,7 +55285,9 @@
         "mode": "paper",
         "postedAt": "2026-11-09T21:54:43Z",
         "lastMid": 0.295,
-        "lastSeen": "2026-11-15T20:54:53Z"
+        "lastSeen": "2026-11-15T20:54:53Z",
+        "closeMid": 0.295,
+        "clv": -0.105
       },
       {
         "ticker": "KXNFLTOTAL-26NOV15LARARI-46",
@@ -54957,7 +55310,9 @@
         "mode": "paper",
         "postedAt": "2026-11-09T21:54:43Z",
         "lastMid": 0.265,
-        "lastSeen": "2026-11-15T20:54:53Z"
+        "lastSeen": "2026-11-15T20:54:53Z",
+        "closeMid": 0.265,
+        "clv": -0.135
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15LARARI-LAR9",
@@ -54980,7 +55335,9 @@
         "mode": "paper",
         "postedAt": "2026-11-09T21:54:43Z",
         "lastMid": 0.465,
-        "lastSeen": "2026-11-15T20:54:53Z"
+        "lastSeen": "2026-11-15T20:54:53Z",
+        "closeMid": 0.465,
+        "clv": -0.025
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15LARARI-LAR7",
@@ -55003,7 +55360,9 @@
         "mode": "paper",
         "postedAt": "2026-11-09T22:54:41Z",
         "lastMid": 0.375,
-        "lastSeen": "2026-11-15T20:54:53Z"
+        "lastSeen": "2026-11-15T20:54:53Z",
+        "closeMid": 0.375,
+        "clv": 0.005
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14UNLVUNM-UNM14",
@@ -55056,7 +55415,9 @@
         "mode": "paper",
         "postedAt": "2026-11-09T22:54:41Z",
         "lastMid": 0.435,
-        "lastSeen": "2026-11-15T20:54:53Z"
+        "lastSeen": "2026-11-15T20:54:53Z",
+        "closeMid": 0.435,
+        "clv": -0.005
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV14KSUTCU-47",
@@ -55104,14 +55465,19 @@
         "cost": 0.66,
         "fee": 0.0039,
         "time": "2026-11-10T19:09:51Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-10T18:36:06Z",
         "lastMid": 0.565,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.565,
-        "clv": -0.095
+        "clv": -0.095,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.66,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV15MINGB-40",
@@ -55129,14 +55495,19 @@
         "cost": 0.44,
         "fee": 0.0043,
         "time": "2026-11-10T19:54:48Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-10T18:36:06Z",
         "lastMid": 0.395,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.395,
-        "clv": -0.045
+        "clv": -0.045,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.44,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15SEALV-SEA5",
@@ -55159,7 +55530,9 @@
         "mode": "paper",
         "postedAt": "2026-11-10T19:54:48Z",
         "lastMid": 0.435,
-        "lastSeen": "2026-11-15T20:54:53Z"
+        "lastSeen": "2026-11-15T20:54:53Z",
+        "closeMid": 0.435,
+        "clv": -0.005
       },
       {
         "ticker": "KXNFLTOTAL-26NOV15MIAIND-42",
@@ -55177,14 +55550,19 @@
         "cost": 0.43,
         "fee": 0.0043,
         "time": "2026-11-10T20:54:39Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-09T17:39:48Z",
         "lastMid": 0.375,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.375,
-        "clv": -0.055
+        "clv": -0.055,
+        "result": "yes",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.57,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV10MIAUTA-UTA",
@@ -55292,14 +55670,19 @@
         "cost": 0.44,
         "fee": 0.0043,
         "time": "2026-11-11T19:24:47Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-10T19:54:48Z",
         "lastMid": 0.405,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.405,
-        "clv": -0.035
+        "clv": -0.035,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.44,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15MINGB-GB6",
@@ -55317,14 +55700,19 @@
         "cost": 0.42,
         "fee": 0.0043,
         "time": "2026-11-11T19:24:47Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-10T19:54:48Z",
         "lastMid": 0.385,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.385,
-        "clv": -0.035
+        "clv": -0.035,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.42,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV11ORLUTA-UTA",
@@ -55492,14 +55880,19 @@
         "cost": 0.6,
         "fee": 0.0042,
         "time": "2026-11-12T16:54:36Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-10T19:54:48Z",
         "lastMid": 0.565,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.565,
-        "clv": -0.035
+        "clv": -0.035,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.6,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV14TARLUWFL-TARL",
@@ -55582,7 +55975,9 @@
         "mode": "paper",
         "postedAt": "2026-11-10T19:54:48Z",
         "lastMid": 0.435,
-        "lastSeen": "2026-11-15T20:54:53Z"
+        "lastSeen": "2026-11-15T20:54:53Z",
+        "closeMid": 0.435,
+        "clv": 0.005
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV12MEMUSF-49",
@@ -55845,7 +56240,9 @@
         "mode": "paper",
         "postedAt": "2026-11-10T19:54:48Z",
         "lastMid": 0.405,
-        "lastSeen": "2026-11-15T20:54:53Z"
+        "lastSeen": "2026-11-15T20:54:53Z",
+        "closeMid": 0.405,
+        "clv": 0.005
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14NEBRUTG-NEB14",
@@ -56103,14 +56500,19 @@
         "cost": 0.39,
         "fee": 0.0042,
         "time": "2026-11-15T08:26:17Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-12T21:40:10Z",
         "lastMid": 0.355,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.355,
-        "clv": -0.035
+        "clv": -0.035,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.39,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV15DALBOS-218",
@@ -56132,8 +56534,8 @@
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-15T11:54:45Z",
-        "lastMid": 0.47,
-        "lastSeen": "2026-11-15T20:54:53Z"
+        "lastMid": 0.495,
+        "lastSeen": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV15HOUCLE-CLE",
@@ -56151,14 +56553,19 @@
         "cost": 0.66,
         "fee": 0.0039,
         "time": "2026-11-15T16:24:41Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-11T15:10:00Z",
         "lastMid": 0.635,
         "lastSeen": "2026-11-15T17:54:42Z",
         "closeMid": 0.635,
-        "clv": -0.025
+        "clv": -0.025,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.66,
+        "settledAt": "2026-11-15T21:24:47Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV15HOUWAS-HOU11",
@@ -56180,8 +56587,8 @@
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-15T11:54:45Z",
-        "lastMid": 0.41,
-        "lastSeen": "2026-11-15T20:54:53Z"
+        "lastMid": 0.415,
+        "lastSeen": "2026-11-15T21:24:47Z"
       }
     ],
     "equity": [],
