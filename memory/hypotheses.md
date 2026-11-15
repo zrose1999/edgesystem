@@ -776,3 +776,8 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-15 | NFL: sharpGapPick=2%+ + travelEdge=less | 8 | +2.6% | found inside NFL travelEdge=less (best of 29 features tested); small sample, may share reads with other rows |
 | 2026-11-15 | NFL: restDays=long + tzShift=none | 22 | +3.0% | found inside NFL tzShift=none (best of 45 features tested); small sample, may share reads with other rows |
 | 2026-11-15 | NFL: sharpGapPick=2%+ + venue=home | 10 | +2.5% | found inside NFL venue=home (best of 34 features tested); small sample, may share reads with other rows |
+| 2026-11-15 | pinEdge=2%+ + restEdge=less | 10 | +2.4% | found inside ALL restEdge=less (best of 59 features tested); small sample, may share reads with other rows |
+| 2026-11-15 | NBA: bookAtPick=BetRivers + sharpDiv=aligned | 8 | +2.1% | found inside NBA sharpDiv=aligned (best of 33 features tested); small sample, may share reads with other rows |
+| 2026-11-15 | NBA: bookAtPick=BetRivers + sharpGapOpen=<1% | 8 | +2.1% | found inside NBA sharpGapOpen=<1% (best of 33 features tested); small sample, may share reads with other rows |
+| 2026-11-15 | NFL: bookAtPick=BetRivers + restDays=normal | 12 | +1.1% | found inside NFL restDays=normal (best of 52 features tested); small sample, may share reads with other rows |
+| 2026-11-15 | NFL: bookAtPick=DraftKings + venue=home | 8 | +2.3% | found inside NFL venue=home (best of 35 features tested); small sample, may share reads with other rows |

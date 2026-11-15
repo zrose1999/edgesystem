@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-15T22:54:45Z",
+ "asOf": "2026-11-15T23:10:03Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -56,17 +56,17 @@
   "learned-nba-spread": {
    "pattern": "learned-nba-spread",
    "unit": "points",
-   "n": 26,
-   "meanPredicted": 1.357,
-   "meanRealized": -0.2692,
-   "tRealized": -0.53,
-   "capture": -0.2,
-   "rightWay": 0.562,
-   "noMove": 10,
+   "n": 29,
+   "meanPredicted": 1.4414,
+   "meanRealized": -0.3448,
+   "tRealized": -0.74,
+   "capture": -0.24,
+   "rightWay": 0.529,
+   "noMove": 12,
    "logLossGain": {
-    "n": 25,
-    "mean": -0.0257,
-    "t": -1.35
+    "n": 26,
+    "mean": -0.02601,
+    "t": -1.42
    },
    "verdict": "collecting"
   },
@@ -124,12 +124,12 @@
   "learned-nfl-spread": {
    "pattern": "learned-nfl-spread",
    "unit": "points",
-   "n": 7,
-   "meanPredicted": 0.6017,
-   "meanRealized": -0.1429,
-   "tRealized": -0.79,
-   "capture": -0.24,
-   "rightWay": 0.333,
+   "n": 8,
+   "meanPredicted": 0.5785,
+   "meanRealized": 0.25,
+   "tRealized": 0.59,
+   "capture": 0.43,
+   "rightWay": 0.5,
    "noMove": 4,
    "logLossGain": {
     "n": 7,
@@ -141,16 +141,16 @@
   "learned-nfl-total": {
    "pattern": "learned-nfl-total",
    "unit": "points",
-   "n": 1,
-   "meanPredicted": 0.374,
-   "meanRealized": 1.0,
-   "tRealized": 0.0,
-   "capture": 2.67,
-   "rightWay": 1.0,
+   "n": 2,
+   "meanPredicted": 0.327,
+   "meanRealized": -1.0,
+   "tRealized": -0.5,
+   "capture": -3.06,
+   "rightWay": 0.5,
    "noMove": 0,
    "logLossGain": {
-    "n": 0,
-    "mean": null,
+    "n": 1,
+    "mean": 0.01647,
     "t": 0.0
    },
    "verdict": "collecting"
@@ -192,12 +192,12 @@
   "learned-scan-nba-h2h": {
    "pattern": "learned-scan-nba-h2h",
    "unit": "prob",
-   "n": 18,
-   "meanPredicted": 0.0272,
-   "meanRealized": 0.0025,
-   "tRealized": 0.23,
-   "capture": 0.09,
-   "rightWay": 0.588,
+   "n": 19,
+   "meanPredicted": 0.0271,
+   "meanRealized": 0.0028,
+   "tRealized": 0.27,
+   "capture": 0.1,
+   "rightWay": 0.611,
    "noMove": 1,
    "logLossGain": {
     "n": 18,
@@ -209,13 +209,13 @@
   "learned-scan-nba-spread": {
    "pattern": "learned-scan-nba-spread",
    "unit": "points",
-   "n": 27,
-   "meanPredicted": 0.8493,
-   "meanRealized": 0.9259,
+   "n": 28,
+   "meanPredicted": 0.8343,
+   "meanRealized": 0.8929,
    "tRealized": 1.85,
-   "capture": 1.09,
+   "capture": 1.07,
    "rightWay": 0.706,
-   "noMove": 10,
+   "noMove": 11,
    "logLossGain": {
     "n": 27,
     "mean": -0.01501,
@@ -251,9 +251,9 @@
    "rightWay": 0.591,
    "noMove": 16,
    "logLossGain": {
-    "n": 37,
-    "mean": -0.00389,
-    "t": -0.55
+    "n": 38,
+    "mean": -0.00428,
+    "t": -0.62
    },
    "verdict": "collecting"
   },
@@ -481,12 +481,12 @@
   "scan-nba-h2h-away-restedgeawaymore-b31fe9": {
    "pattern": "scan-nba-h2h-away-restedgeawaymore-b31fe9",
    "unit": "prob",
-   "n": 7,
+   "n": 8,
    "meanPredicted": 0.0273,
-   "meanRealized": 0.0441,
-   "tRealized": 1.07,
-   "capture": 1.61,
-   "rightWay": 0.714,
+   "meanRealized": 0.0397,
+   "tRealized": 1.11,
+   "capture": 1.45,
+   "rightWay": 0.75,
    "noMove": 0,
    "logLossGain": {
     "n": 7,
@@ -566,13 +566,13 @@
   "scan-nba-spread-away-restedgeawaymore-1e501d": {
    "pattern": "scan-nba-spread-away-restedgeawaymore-1e501d",
    "unit": "points",
-   "n": 18,
-   "meanPredicted": 0.3776,
-   "meanRealized": 1.8333,
-   "tRealized": 2.67,
-   "capture": 4.86,
+   "n": 19,
+   "meanPredicted": 0.3794,
+   "meanRealized": 1.7368,
+   "tRealized": 2.64,
+   "capture": 4.58,
    "rightWay": 0.818,
-   "noMove": 7,
+   "noMove": 8,
    "logLossGain": {
     "n": 18,
     "mean": -0.0038,
@@ -625,9 +625,9 @@
    "rightWay": 0.727,
    "noMove": 8,
    "logLossGain": {
-    "n": 18,
-    "mean": 0.00567,
-    "t": 0.9
+    "n": 19,
+    "mean": 0.00672,
+    "t": 1.12
    },
    "verdict": "collecting"
   },
@@ -761,8 +761,8 @@
    "rightWay": 0.0,
    "noMove": 1,
    "logLossGain": {
-    "n": 0,
-    "mean": null,
+    "n": 1,
+    "mean": 0.02192,
     "t": 0.0
    },
    "verdict": "collecting"
@@ -778,9 +778,9 @@
    "rightWay": 0.667,
    "noMove": 0,
    "logLossGain": {
-    "n": 1,
-    "mean": 0.0209,
-    "t": 0.0
+    "n": 3,
+    "mean": 0.02122,
+    "t": 90.41
    },
    "verdict": "collecting"
   },
@@ -795,9 +795,9 @@
    "rightWay": 1.0,
    "noMove": 1,
    "logLossGain": {
-    "n": 1,
-    "mean": -0.03639,
-    "t": 0.0
+    "n": 2,
+    "mean": -0.03613,
+    "t": -139.69
    },
    "verdict": "collecting"
   },
@@ -812,9 +812,9 @@
    "rightWay": 0.0,
    "noMove": 2,
    "logLossGain": {
-    "n": 0,
-    "mean": null,
-    "t": 0.0
+    "n": 2,
+    "mean": -0.00022,
+    "t": -0.01
    },
    "verdict": "collecting"
   },
@@ -931,60 +931,60 @@
    "rightWay": 0.52,
    "noMove": 19,
    "logLossGain": {
-    "n": 132,
-    "mean": 0.00322,
-    "t": 0.61
+    "n": 136,
+    "mean": 0.00184,
+    "t": 0.35
    },
    "verdict": "collecting"
   },
   "sharp-soft-alt": {
    "pattern": "sharp-soft-alt",
    "unit": "points",
-   "n": 94,
-   "meanPredicted": 0.7825,
-   "meanRealized": 0.2394,
-   "tRealized": 1.54,
-   "capture": 0.31,
-   "rightWay": 0.667,
+   "n": 95,
+   "meanPredicted": 0.7797,
+   "meanRealized": 0.2316,
+   "tRealized": 1.51,
+   "capture": 0.3,
+   "rightWay": 0.655,
    "noMove": 40,
    "logLossGain": {
-    "n": 91,
-    "mean": -0.00372,
-    "t": -0.42
+    "n": 93,
+    "mean": -0.00244,
+    "t": -0.28
    },
    "verdict": "collecting"
   },
   "soft-dog": {
    "pattern": "soft-dog",
    "unit": "points",
-   "n": 25,
-   "meanPredicted": 0.3369,
-   "meanRealized": 0.3,
-   "tRealized": 1.66,
-   "capture": 0.89,
-   "rightWay": 0.857,
-   "noMove": 18,
+   "n": 27,
+   "meanPredicted": 0.3278,
+   "meanRealized": 0.3148,
+   "tRealized": 1.86,
+   "capture": 0.96,
+   "rightWay": 0.875,
+   "noMove": 19,
    "logLossGain": {
-    "n": 24,
-    "mean": -0.01078,
-    "t": -0.96
+    "n": 25,
+    "mean": -0.0064,
+    "t": -0.55
    },
    "verdict": "collecting"
   },
   "soft-dog|prob": {
    "pattern": "soft-dog",
    "unit": "prob",
-   "n": 104,
-   "meanPredicted": 0.0104,
-   "meanRealized": 0.001,
-   "tRealized": 0.29,
-   "capture": 0.1,
-   "rightWay": 0.584,
+   "n": 107,
+   "meanPredicted": 0.0106,
+   "meanRealized": 0.0008,
+   "tRealized": 0.24,
+   "capture": 0.08,
+   "rightWay": 0.575,
    "noMove": 27,
    "logLossGain": {
-    "n": 92,
-    "mean": 0.00144,
-    "t": 0.33
+    "n": 94,
+    "mean": 0.00134,
+    "t": 0.32
    },
    "verdict": "collecting"
   },

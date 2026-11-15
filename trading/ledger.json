@@ -20682,7 +20682,9 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.405,
-        "lastSeen": "2026-11-15T22:54:45Z"
+        "lastSeen": "2026-11-15T22:54:45Z",
+        "closeMid": 0.405,
+        "clv": -0.015
       }
     ],
     "equity": [
@@ -28520,6 +28522,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-15T22:54:45Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-15T23:10:03Z"
       }
     ]
   },
@@ -32684,7 +32690,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.405,
-        "lastSeen": "2026-11-15T22:54:45Z"
+        "lastSeen": "2026-11-15T23:10:03Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14ORSTBSU-BSU15",
@@ -33752,7 +33758,35 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.605,
-        "lastSeen": "2026-11-15T22:54:45Z"
+        "lastSeen": "2026-11-15T22:54:45Z",
+        "closeMid": 0.605,
+        "clv": -0.005
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK5",
+        "title": "New York wins by over 4.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "New York Knicks at Toronto Raptors",
+        "commence": "2026-11-15T23:10:00Z",
+        "side": "yes",
+        "strike": 4.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5245,
+        "edge": 0.0271,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt A pick (FanDuel away -4.5 -102 implies 50.5%. Pinnacle -111 no-vig is 51.2% at 5.5, worth 54.2% at this line. Edge +3.7%.). Pinnacle fair here 48.8% plus the pick's edge = 52.5%; Kalshi YES 0.48 + fee = 0.497.",
+        "ask": 0.47,
+        "count": 1.0,
+        "cost": 0.47,
+        "fee": 0.0,
+        "time": "2026-11-15T23:10:03Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1e127-7958-7363-91ae-f778d44f31bc",
+        "test": true,
+        "fillChecked": true
       }
     ],
     "equity": [
@@ -35410,6 +35444,14 @@
         "realized": -0.04,
         "equity": 34.96,
         "clvN": 141,
+        "meanClv": 0.0001
+      },
+      {
+        "t": "2026-11-15T23:10:03Z",
+        "open": 2.13,
+        "realized": -0.04,
+        "equity": 34.96,
+        "clvN": 142,
         "meanClv": 0.0001
       }
     ],
@@ -41023,8 +41065,8 @@
         "orderPath": "v2 after shard funding",
         "price": 0.47,
         "count": 1,
-        "filledSeen": 0,
-        "status": "resting",
+        "filledSeen": 1.0,
+        "status": "executed",
         "time": "2026-11-15T21:39:57Z",
         "test": true
       }
@@ -41122,7 +41164,7 @@
       }
     ]
   },
-  "asOf": "2026-11-15T22:54:45Z",
+  "asOf": "2026-11-15T23:10:03Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -41146,37 +41188,35 @@
       "open": 4.23,
       "realized": -80.39,
       "equity": 19.61,
-      "clvN": 273,
+      "clvN": 274,
       "meanClv": -0.0045
     },
     "live": {
-      "open": 1.66,
+      "open": 2.13,
       "realized": -0.04,
       "equity": 34.96,
-      "clvN": 141,
+      "clvN": 142,
       "meanClv": 0.0001
     },
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
       "orders": 439,
-      "resting": 3,
+      "resting": 1,
       "filled": 221,
-      "expired": 215,
-      "fillRate": 0.507,
-      "clvN": 214,
-      "meanClv": -0.0196,
-      "meanClvNet": -0.0237,
+      "expired": 217,
+      "fillRate": 0.505,
+      "clvN": 220,
+      "meanClv": -0.019,
+      "meanClvNet": -0.0231,
       "settledPnl": -1.32,
-      "pairedWithTaker": 83,
+      "pairedWithTaker": 84,
       "pairedMakerClvNet": -0.0134,
       "pairedTakerClvNet": -0.0283,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {
-      "already held": 1
-    },
-    "liveCandidates": 1,
+    "liveSkips": {},
+    "liveCandidates": 0,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -41218,8 +41258,8 @@
       "maxPerDay": 5.0,
       "orderType": "maker",
       "spentToday": 1.08,
-      "trades": 152,
-      "resting": 1
+      "trades": 153,
+      "resting": 0
     },
     "config": {
       "startingBankroll": 35.0,
@@ -41241,23 +41281,23 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4224,
-      "eventsMatched": 238,
-      "eventsUnmatched": 151,
-      "candidates": 1
+      "kalshiMarkets": 4771,
+      "eventsMatched": 263,
+      "eventsUnmatched": 150,
+      "candidates": 0
     }
   },
   "account": {
     "keys": "ok",
-    "balance": 6.41,
+    "balance": 5.94,
     "detail": {
-      "balance": 640,
-      "balance_dollars": "6.4096",
-      "portfolio_value": 1590,
-      "updated_ts": 1794783301
+      "balance": 593,
+      "balance_dollars": "5.9352",
+      "portfolio_value": 1777,
+      "updated_ts": 1794784226
     },
     "env": "production",
-    "checkedAt": "2026-11-15T22:55:01Z"
+    "checkedAt": "2026-11-15T23:10:26Z"
   },
   "maker": {
     "start": 0.0,
@@ -50177,7 +50217,8 @@
         "takerEdge": 0.0472,
         "makerEdge": 0.0702,
         "postedAt": "2026-11-15T21:24:47Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-15T23:10:03Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK7",
@@ -50259,7 +50300,8 @@
         "takerEdge": 0.0269,
         "makerEdge": 0.0499,
         "postedAt": "2026-11-15T21:24:47Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-15T23:10:03Z"
       }
     ],
     "trades": [
@@ -56634,7 +56676,9 @@
         "mode": "paper",
         "postedAt": "2026-11-15T11:54:45Z",
         "lastMid": 0.495,
-        "lastSeen": "2026-11-15T22:54:45Z"
+        "lastSeen": "2026-11-15T22:54:45Z",
+        "closeMid": 0.495,
+        "clv": 0.035
       },
       {
         "ticker": "KXNFLGAME-26NOV15HOUCLE-CLE",
@@ -56687,7 +56731,7 @@
         "mode": "paper",
         "postedAt": "2026-11-15T11:54:45Z",
         "lastMid": 0.42,
-        "lastSeen": "2026-11-15T22:54:45Z"
+        "lastSeen": "2026-11-15T23:10:03Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK7",
@@ -56710,7 +56754,9 @@
         "mode": "paper",
         "postedAt": "2026-11-15T21:24:47Z",
         "lastMid": 0.405,
-        "lastSeen": "2026-11-15T22:54:45Z"
+        "lastSeen": "2026-11-15T22:54:45Z",
+        "closeMid": 0.405,
+        "clv": -0.005
       },
       {
         "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK7",
@@ -56733,7 +56779,9 @@
         "mode": "paper",
         "postedAt": "2026-11-15T21:24:47Z",
         "lastMid": 0.405,
-        "lastSeen": "2026-11-15T22:54:45Z"
+        "lastSeen": "2026-11-15T22:54:45Z",
+        "closeMid": 0.405,
+        "clv": -0.005
       },
       {
         "ticker": "KXNBAGAME-26NOV15NYKTOR-TOR",
@@ -56756,7 +56804,9 @@
         "mode": "paper",
         "postedAt": "2026-11-15T21:24:47Z",
         "lastMid": 0.605,
-        "lastSeen": "2026-11-15T22:54:45Z"
+        "lastSeen": "2026-11-15T22:54:45Z",
+        "closeMid": 0.605,
+        "clv": -0.005
       },
       {
         "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK6",
@@ -56779,7 +56829,9 @@
         "mode": "paper",
         "postedAt": "2026-11-15T21:24:47Z",
         "lastMid": 0.435,
-        "lastSeen": "2026-11-15T22:54:45Z"
+        "lastSeen": "2026-11-15T22:54:45Z",
+        "closeMid": 0.435,
+        "clv": -0.005
       },
       {
         "ticker": "KXNBAGAME-26NOV15NYKTOR-TOR",
@@ -56802,7 +56854,9 @@
         "mode": "paper",
         "postedAt": "2026-11-15T21:24:47Z",
         "lastMid": 0.605,
-        "lastSeen": "2026-11-15T22:54:45Z"
+        "lastSeen": "2026-11-15T22:54:45Z",
+        "closeMid": 0.605,
+        "clv": -0.005
       }
     ],
     "equity": [],
