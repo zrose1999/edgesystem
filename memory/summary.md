@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-11-15 20:24Z)
+# What EDGE is learning (2026-11-15 20:54Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 1358 graded reads counted, 3055 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Scanner (scan.py, 11-15 17:39Z): 25 strategies tracking from 5066 hypotheses (0 new this run); 142 graded scan reads, mean CLV -0.7%. Shadow only; grade.py decides promotion.
@@ -22,9 +22,9 @@ Process vs result: right-and-rewarded 280, right-but-unlucky 255, lucky-win 376,
 Gated by the Pinnacle gate (scored, not counted): n 620, CLV -1.7%, t -8.8 (positive = the gate blocks winners); best pocket pattern=scan-nba-spread-away-restedgeawaymore-1e501d n 16, CLV +2.2%, t +1.0 (of 86 tested)
 Data gaps, waiting on a source: public-pct (needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack); guru (needs an account list + reader (Reddit API free, X API paid); log account, number, time, result)
 Coverage of added features (BREAKAGE if still 0 one health-check cycle after shipping):
-- snaps: 1158 price snapshots stored in the last 26h, latest 11-15 20:15Z, 2346 games with 2+ (late steam, since 10-19 18:15Z)
-- pinAtPick on 695 of 966 graded reads since 10-19 18:00Z; 1868 of 2196 new reads stamped (Pinnacle at the pick)
-- contextAtPick on 966 of 966 graded reads since 10-19 18:00Z; 2196 of 2196 new reads stamped (weather/injury/goalie as stamped)
+- snaps: 1148 price snapshots stored in the last 26h, latest 11-15 20:54Z, 2346 games with 2+ (late steam, since 10-19 18:15Z)
+- pinAtPick on 695 of 966 graded reads since 10-19 18:00Z; 1869 of 2197 new reads stamped (Pinnacle at the pick)
+- contextAtPick on 966 of 966 graded reads since 10-19 18:00Z; 2197 of 2197 new reads stamped (weather/injury/goalie as stamped)
 - sharpDivergenceAtPick on 463 of 966 graded reads since 10-19 18:00Z (needs Pinnacle on the same line)
 - daysRestHome on 1240 of 1256 graded NBA/NHL/NCAAF/NFL reads (schedules in stats/ (NFL from 2026-10-21))
 - sharpDivergence on 132 of 1358 graded reads since 10-14 00:00Z (Pinnacle at the open)
