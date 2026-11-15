@@ -768,3 +768,4 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-15 | NCAAF: sharpDivPick=pin-for + travel=none | 8 | +1.6% | found inside NCAAF travel=none (best of 23 features tested); small sample, may share reads with other rows |
 | 2026-11-15 | NCAAF: pinEdge=2%+ + travelEdge=less | 10 | +2.7% | found inside NCAAF travelEdge=less (best of 42 features tested); small sample, may share reads with other rows |
 | 2026-11-15 | NCAAF: moveBeforePick=against + role=dog | 9 | +2.6% | found inside NCAAF travelEdge=less (best of 17 pairs tested); small sample, may share reads with other rows |
+| 2026-11-15 | NBA: restEdge=less + sharpDivPick=aligned | 8 | +3.7% | found inside NBA restEdge=less (best of 33 features tested); small sample, may share reads with other rows |

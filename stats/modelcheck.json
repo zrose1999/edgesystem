@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-15T02:30:01Z",
+ "asOf": "2026-11-15T02:54:44Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -56,17 +56,17 @@
   "learned-nba-spread": {
    "pattern": "learned-nba-spread",
    "unit": "points",
-   "n": 27,
-   "meanPredicted": 1.381,
-   "meanRealized": -0.4074,
+   "n": 26,
+   "meanPredicted": 1.3833,
+   "meanRealized": -0.4231,
    "tRealized": -0.8,
-   "capture": -0.3,
+   "capture": -0.31,
    "rightWay": 0.529,
-   "noMove": 10,
+   "noMove": 9,
    "logLossGain": {
-    "n": 22,
-    "mean": -0.01463,
-    "t": -0.74
+    "n": 21,
+    "mean": -0.01903,
+    "t": -0.94
    },
    "verdict": "collecting"
   },
@@ -481,17 +481,17 @@
   "scan-nba-h2h-home-restawayb2b-60ea66": {
    "pattern": "scan-nba-h2h-home-restawayb2b-60ea66",
    "unit": "prob",
-   "n": 22,
+   "n": 21,
    "meanPredicted": 0.0309,
-   "meanRealized": 0.0029,
+   "meanRealized": 0.0031,
    "tRealized": 0.22,
-   "capture": 0.09,
+   "capture": 0.1,
    "rightWay": 0.476,
-   "noMove": 1,
+   "noMove": 0,
    "logLossGain": {
-    "n": 21,
-    "mean": 0.00413,
-    "t": 0.37
+    "n": 20,
+    "mean": 0.00695,
+    "t": 0.61
    },
    "verdict": "collecting"
   },
@@ -566,17 +566,17 @@
   "scan-nba-spread-home-restawayb2b-7f68d5": {
    "pattern": "scan-nba-spread-home-restawayb2b-7f68d5",
    "unit": "points",
-   "n": 17,
-   "meanPredicted": 0.5562,
-   "meanRealized": 0.5882,
+   "n": 16,
+   "meanPredicted": 0.5579,
+   "meanRealized": 0.625,
    "tRealized": 0.81,
-   "capture": 1.06,
+   "capture": 1.12,
    "rightWay": 0.615,
-   "noMove": 4,
+   "noMove": 3,
    "logLossGain": {
-    "n": 16,
-    "mean": -0.00501,
-    "t": -0.58
+    "n": 15,
+    "mean": -0.00314,
+    "t": -0.35
    },
    "verdict": "collecting"
   },
