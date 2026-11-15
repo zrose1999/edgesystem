@@ -167285,7 +167285,7 @@
       "rowId": "NCAAF|2026-11-15|South Carolina Gamecocks at Arkansas Razorbacks|total",
       "sport": "NCAAF",
       "event": "South Carolina Gamecocks at Arkansas Razorbacks",
-      "commence": "2026-11-15T00:45:00Z",
+      "commence": "2026-11-15T00:55:00Z",
       "market": "total",
       "side": "under",
       "lineAtPick": 51.5,
@@ -167337,7 +167337,8 @@
       "pinEdgeEstimated": false,
       "pinGate": "blocked",
       "gatedFrom": "lean",
-      "note": "Pinnacle gate: price taken is -1.9% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+      "note": "Pinnacle gate: price taken is -1.9% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted.",
+      "commenceAtPick": "2026-11-15T00:45:00Z"
     },
     {
       "pickId": "NCAAF|2026-11-15|Minnesota Golden Gophers at Penn State Nittany Lions|total|under|v1|lean|ncaaf-spot|2026-11-09T02:31:28Z|gated|2026-11-09T02:31:28Z",
@@ -183600,7 +183601,7 @@
       "rowId": "NCAAF|2026-11-15|South Carolina Gamecocks at Arkansas Razorbacks|spread",
       "sport": "NCAAF",
       "event": "South Carolina Gamecocks at Arkansas Razorbacks",
-      "commence": "2026-11-15T00:45:00Z",
+      "commence": "2026-11-15T00:55:00Z",
       "market": "spread",
       "side": "home",
       "lineAtPick": 7.5,
@@ -183661,7 +183662,8 @@
       "lineAdj": 0.0425,
       "pinEdgeAtPick": 0.0209,
       "pinEdgeEstimated": true,
-      "pinGate": "pass"
+      "pinGate": "pass",
+      "commenceAtPick": "2026-11-15T00:45:00Z"
     },
     {
       "pickId": "NFL|2026-11-15|Minnesota Vikings at Green Bay Packers|spread|away|v1|lean|scan-nfl-spread-away-linehomefav053-e435e9|2026-11-12T18:24:33Z|gated|2026-11-12T18:24:33Z",
@@ -184388,7 +184390,7 @@
       "rowId": "NCAAF|2026-11-15|South Carolina Gamecocks at Arkansas Razorbacks|h2h",
       "sport": "NCAAF",
       "event": "South Carolina Gamecocks at Arkansas Razorbacks",
-      "commence": "2026-11-15T00:45:00Z",
+      "commence": "2026-11-15T00:55:00Z",
       "market": "h2h",
       "side": "home",
       "lineAtPick": null,
@@ -184451,7 +184453,8 @@
       "pinEdgeEstimated": false,
       "pinGate": "blocked",
       "gatedFrom": "lean",
-      "note": "Pinnacle gate: price taken is -1.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+      "note": "Pinnacle gate: price taken is -1.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted.",
+      "commenceAtPick": "2026-11-15T00:45:00Z"
     },
     {
       "pickId": "NBA|2026-11-14|New York Knicks at Indiana Pacers|h2h|away|v1|sharp-soft",
@@ -192013,6 +192016,63 @@
       },
       "priceBook": "FanDuel",
       "pinEdgeAtPick": 0.0117,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NBA|2026-11-15|Detroit Pistons at Miami Heat|h2h|home|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NBA|2026-11-15|Detroit Pistons at Miami Heat|h2h",
+      "sport": "NBA",
+      "event": "Detroit Pistons at Miami Heat",
+      "commence": "2026-11-15T01:10:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 160,
+      "bookAtPick": "BetRivers",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 146,
+        "away": -173
+      },
+      "priceTime": "2026-11-15T00:54:33Z",
+      "pickedAt": "2026-11-15T00:54:33Z",
+      "fair": 0.3916,
+      "projection": 0.3916,
+      "edge": 0.007,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "BetRivers home +160 implies 38.5%. Pinnacle +149 no-vig is 39.2%. Edge +0.7%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 149,
+          "away": -162
+        },
+        "updated": "2026-11-15T00:54:26Z",
+        "snapTime": "2026-11-15T00:54:33Z",
+        "noVig": 0.3916
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 150,
+        "line": null,
+        "implied": 0.4,
+        "printImplied": 0.4065
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.007,
       "pinEdgeEstimated": false,
       "pinGate": "pass"
     }
