@@ -196678,6 +196678,130 @@
       "pinEdgeEstimated": false,
       "pinGate": "pass",
       "commenceAtPick": "2026-11-15T23:10:00Z"
+    },
+    {
+      "pickId": "NFL|2026-11-20|Indianapolis Colts at Houston Texans|spread|home|v1|lean|learned-nfl-spread|2026-11-15T23:24:40Z|gated|2026-11-15T23:24:40Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NFL|2026-11-20|Indianapolis Colts at Houston Texans|spread",
+      "sport": "NFL",
+      "event": "Indianapolis Colts at Houston Texans",
+      "commence": "2026-11-20T01:15:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -9.5,
+      "priceAtPick": -115,
+      "marketNumber": -9.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "home": -115,
+        "away": -105
+      },
+      "priceTime": "2026-11-15T23:24:34Z",
+      "pickedAt": "2026-11-15T23:24:40Z",
+      "fair": -10.742,
+      "projection": -10.742,
+      "edge": 1.242,
+      "edgeUnit": "points",
+      "bar": 1.5,
+      "fullBar": false,
+      "edgeShrunk": -0.541,
+      "modelWeight": 0.169,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-nfl-spread",
+      "reason": "Learned NFL model (gbm, 82 data points; nflverse closes with backfilled opens) predicts the spread moves -1.242 from the open; open -10.0, now -9.5, 1.242 still to come. Fair -10.742. Report: stats/models/nfl_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": -10.5,
+        "prices": {
+          "home": 103,
+          "away": -116
+        },
+        "updated": "2026-11-15T23:24:27Z",
+        "snapTime": "2026-11-15T23:24:34Z",
+        "noVig": 0.4778
+      },
+      "contextAtPick": {
+        "injury": "HOU RB1 Woody Marks: Active at the open, Doubtful now, +0.25 spread, -0.50 total | HOU OL starter Keylan Rutledge: Questionable at the open, Out now, +0.12 spread | HOU defensive starter Danielle Hunter: Questionable at the open, Out now, +0.12 spread | HOU defensive starter Azeez Al-Shaair: Active at the open, Out now, +0.25 spread | HOU defensive starter Reed Blankenship: Questionable at the open, Active now, -0.12 spread | IND defensive starter Akeem Davis-Gaither: Questionable at the open, Injured Reserve now, +0.12 spread | IND defensive starter Charvarius Ward: Active at the open, Questionable now, +0.12 spread | IND defensive starter Sauce Gardner: Active at the open, Questionable now, +0.12 spread | IND defensive starter Justin Walley: Questionable at the open, Active now, -0.12 spread | IND defensive starter A.J. Haulcy: Questionable at the open, Active now, -0.12 spread"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -115,
+        "line": -9.5,
+        "implied": 0.5349,
+        "printImplied": 0.5349
+      },
+      "pinEdgeAtPick": -0.0271,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.7% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NFL|2026-11-20|Indianapolis Colts at Houston Texans|h2h|away|v1|lean|learned-nfl-ml|2026-11-15T23:24:40Z|gated|2026-11-15T23:24:40Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NFL|2026-11-20|Indianapolis Colts at Houston Texans|h2h",
+      "sport": "NFL",
+      "event": "Indianapolis Colts at Houston Texans",
+      "commence": "2026-11-20T01:15:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 440,
+      "marketNumber": null,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -455,
+        "away": 350
+      },
+      "priceTime": "2026-11-15T23:24:34Z",
+      "pickedAt": "2026-11-15T23:24:40Z",
+      "fair": 0.809,
+      "projection": 0.809,
+      "edge": 0.006,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "edgeShrunk": -0.004,
+      "modelWeight": 0.1,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-nfl-ml",
+      "reason": "Learned NFL model (ridge, 82 data points; nflverse closes with backfilled opens) predicts the ml moves +0.010 from the open; open 0.8035850495804729, now 0.7987987987987988, 0.010 still to come. Fair 0.809. Report: stats/models/nfl_ml.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -521,
+          "away": 402
+        },
+        "updated": "2026-11-15T23:24:27Z",
+        "snapTime": "2026-11-15T23:24:34Z",
+        "noVig": 0.1801
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 440,
+        "line": null,
+        "implied": 0.1852,
+        "printImplied": 0.2222
+      },
+      "pinEdgeAtPick": -0.0051,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -0.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
