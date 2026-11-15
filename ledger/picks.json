@@ -195742,6 +195742,63 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -3.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NBA|2026-11-15|San Antonio Spurs at Utah Jazz|spread|home|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NBA|2026-11-15|San Antonio Spurs at Utah Jazz|spread",
+      "sport": "NBA",
+      "event": "San Antonio Spurs at Utah Jazz",
+      "commence": "2026-11-15T22:10:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": 16.5,
+      "priceAtPick": -107,
+      "bookAtPick": "BetRivers",
+      "marketNumber": 15.5,
+      "marketPrices": {
+        "home": -106,
+        "away": -114
+      },
+      "priceTime": "2026-11-15T16:54:32Z",
+      "pickedAt": "2026-11-15T16:54:33Z",
+      "fair": 0.5222,
+      "projection": 0.5222,
+      "edge": 0.0053,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "BetRivers home +16.5 -107 implies 51.7%. Pinnacle -116 no-vig is 52.2%. Edge +0.5%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": 16.5,
+        "prices": {
+          "home": -116,
+          "away": 103
+        },
+        "updated": "2026-11-15T16:54:30Z",
+        "snapTime": "2026-11-15T16:54:32Z",
+        "noVig": 0.5222
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -106,
+        "line": 15.5,
+        "implied": 0.5146,
+        "printImplied": 0.5146
+      },
+      "priceBook": "DraftKings",
+      "pinEdgeAtPick": 0.0053,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
