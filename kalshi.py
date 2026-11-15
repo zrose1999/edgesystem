@@ -103,6 +103,22 @@ def now_utc():
     return datetime.now(timezone.utc)
 
 
+TWO_WAY_GAME = ("KXNFLGAME-", "KXNCAAFGAME-", "KXNBAGAME-", "KXNHLGAME-")
+
+
+def bet_key(ticker, side):
+    """The real bet a contract expresses. On a two-way winner market NO on one team is YES on the other
+    (KXNFLGAME-26NOV15MINGB-MIN no == -GB yes), so a live test is not doubled when two sources reach the same
+    outcome through the two tickers (health check 2026-11-15: GB yes and MIN no both held). Others: as given."""
+    parts = (ticker or "").split("-")
+    if side == "no" and len(parts) == 3 and ticker.startswith(TWO_WAY_GAME):
+        mid, suf = re.sub(r"^\d{2}[A-Z]{3}\d{2}", "", parts[1]), parts[2]
+        other = mid[:-len(suf)] if mid.endswith(suf) else mid[len(suf):] if mid.startswith(suf) else ""
+        if other:
+            return (f"{parts[0]}-{parts[1]}-{other}", "yes")
+    return (ticker, side)
+
+
 def iso(dt):
     return dt.strftime("%Y-%m-%dT%H:%M:%SZ")
 
@@ -974,9 +990,9 @@ def main(dry=False):
                     if not test_allowed(c, cfg_live, tcfg, track_only):
                         skip(name, "not confirmed, not test-eligible")
                         continue
-                    held = {(t["ticker"], t["side"]) for t in book["trades"] if t.get("status") != "void"} | \
-                        {(o["ticker"], o["side"]) for o in book.get("orders") or [] if o.get("status") == "resting"}
-                    if (c["ticker"], c["side"]) in held:
+                    held = {bet_key(t["ticker"], t["side"]) for t in book["trades"] if t.get("status") != "void"} | \
+                        {bet_key(o["ticker"], o["side"]) for o in book.get("orders") or [] if o.get("status") == "resting"}
+                    if bet_key(c["ticker"], c["side"]) in held:
                         skip(name, "test: same contract already held")   # two signals, one real bet
                         continue
                     n_test = int(tcfg.get("contracts", 1))

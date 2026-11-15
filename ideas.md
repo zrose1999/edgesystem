@@ -170,6 +170,23 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   05Z/11Z snapshots precede any read stamped after 11Z) if the weekly review wants it; re-run on two more Saturdays.
   Kill if NCAAF overnight continuation falls under +0.3 points on 60+ moves of 0.5+.
 
+### 11. Key-number values in sharp-soft-alt and grade.py are flat (2026-11-15, lead, for the weekly review)
+- Observation: sharp-soft-alt's NFL/NCAAF spread CLV comes from reads whose soft line crosses a key number: NCAAF across 3
+  +1.0% (n 16, t 1.5), across 7 +1.6% (n 25, t 2.5); NCAAF crossing no key -0.1% (n 18). NFL n 5, too few. Both sharp.py and
+  grade.py value a crossed 3 or 7 at a flat +0.03 (plus the per-point slope) in every sport, and other numbers at the slope only.
+- Measured push mass (half-point value = mass / 2): NFL 2010-2025 closes (nflverse, n 4,500): 3 = 0.092 (0.046, grade 0.045),
+  7 = 0.065 (0.032, grade 0.045: 1.3 points too high), 10 = 0.037 (0.019, grade 0.015), 14 = 0.045 (0.022, grade 0.015).
+  NCAAF FBS 2016-2026 closes (cfbd, n 5,035): 3 = 0.076 (0.038, grade 0.043), 7 = 0.079 (0.039, grade 0.043), 10 = 0.054
+  (0.027, grade 0.0125: half the value missed), 14 = 0.040 (0.020, grade 0.0125), 6 = 0.013 (0.006, grade 0.0125).
+- Mechanism: US books hang the same half point either side of a key while Pinnacle moves through it, so the soft book's
+  number is worth a push more than the flat slope says. Where EDGE values the key right (3 in both sports, 7 in NCAAF) alt
+  finds edge; NCAAF 10 and 14 are undervalued, so those crossings are rarely stamped (2 reads); NFL 7 is overvalued, so
+  alt would stamp NFL reads across 7 with a fair price about 1.3 points too high.
+- Variants: 2 sports x 5 numbers for the masses (one pass, fixed spread windows), 8 alt cells for CLV.
+- Not changed: sharp-soft-alt is at +1.1% (t 2.43, n 92), and rule 6 keeps a pattern's conditions fixed mid-period;
+  grade.py's values are shared with every estimated close. Proposal for the weekly review: one sport-and-number key table
+  (above) in grade.py and sharp.py together. Kill if NCAAF alt reads crossing 3 or 7 fall to the no-key mean on 40+ fresh reads.
+
 ## Experiments (live shadow patterns, stake 0)
 
 ### soft-dog (launched 2026-10-30, from lead 1)
