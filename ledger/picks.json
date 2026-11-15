@@ -186410,7 +186410,7 @@
       "rowId": "NFL|2026-11-15|New England Patriots at Detroit Lions|h2h",
       "sport": "NFL",
       "event": "New England Patriots at Detroit Lions",
-      "commence": "2026-11-15T14:30:00Z",
+      "commence": "2026-11-15T14:35:00Z",
       "market": "h2h",
       "side": "away",
       "lineAtPick": null,
@@ -186458,7 +186458,8 @@
       "priceBook": "Caesars",
       "pinEdgeAtPick": 0.0101,
       "pinEdgeEstimated": false,
-      "pinGate": "pass"
+      "pinGate": "pass",
+      "commenceAtPick": "2026-11-15T14:30:00Z"
     },
     {
       "pickId": "NBA|2026-11-14|Utah Jazz at Houston Rockets|total|over|v1|sharp-soft-alt",
@@ -195351,6 +195352,63 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.2% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NFL|2026-11-15|San Francisco 49ers at Dallas Cowboys|h2h|home|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NFL|2026-11-15|San Francisco 49ers at Dallas Cowboys|h2h",
+      "sport": "NFL",
+      "event": "San Francisco 49ers at Dallas Cowboys",
+      "commence": "2026-11-15T21:25:00Z",
+      "market": "h2h",
+      "side": "home",
+      "lineAtPick": null,
+      "priceAtPick": 198,
+      "bookAtPick": "FanDuel",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": 180,
+        "away": -218
+      },
+      "priceTime": "2026-11-15T14:24:32Z",
+      "pickedAt": "2026-11-15T14:24:33Z",
+      "fair": 0.3453,
+      "projection": 0.3453,
+      "edge": 0.0098,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "FanDuel home +198 implies 33.6%. Pinnacle +179 no-vig is 34.5%. Edge +1.0%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": 179,
+          "away": -201
+        },
+        "updated": "2026-11-15T14:24:19Z",
+        "snapTime": "2026-11-15T14:24:32Z",
+        "noVig": 0.3453
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 198,
+        "line": null,
+        "implied": 0.3356,
+        "printImplied": 0.3571
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.0098,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
