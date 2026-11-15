@@ -769,3 +769,10 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-15 | NCAAF: pinEdge=2%+ + travelEdge=less | 10 | +2.7% | found inside NCAAF travelEdge=less (best of 42 features tested); small sample, may share reads with other rows |
 | 2026-11-15 | NCAAF: moveBeforePick=against + role=dog | 9 | +2.6% | found inside NCAAF travelEdge=less (best of 17 pairs tested); small sample, may share reads with other rows |
 | 2026-11-15 | NBA: restEdge=less + sharpDivPick=aligned | 8 | +3.7% | found inside NBA restEdge=less (best of 33 features tested); small sample, may share reads with other rows |
+| 2026-11-15 | market=spread + pattern=sharp-soft | 9 | +4.3% | found inside ALL market=spread (best of 79 features tested); small sample, may share reads with other rows |
+| 2026-11-15 | bookAtPick=theScore Bet + sharpGapPick=1-2% | 8 | +3.2% | found inside ALL sharpGapPick=1-2% (best of 55 features tested); small sample, may share reads with other rows |
+| 2026-11-15 | bookAtPick=Bally Bet + tzShift=none | 10 | +3.1% | found inside ALL tzShift=none (best of 83 features tested); small sample, may share reads with other rows |
+| 2026-11-15 | NFL: injury=qb + travel=<500 | 8 | +1.2% | found inside NFL travel=<500 (best of 22 features tested); small sample, may share reads with other rows |
+| 2026-11-15 | NFL: sharpGapPick=2%+ + travelEdge=less | 8 | +2.6% | found inside NFL travelEdge=less (best of 29 features tested); small sample, may share reads with other rows |
+| 2026-11-15 | NFL: restDays=long + tzShift=none | 22 | +3.0% | found inside NFL tzShift=none (best of 45 features tested); small sample, may share reads with other rows |
+| 2026-11-15 | NFL: sharpGapPick=2%+ + venue=home | 10 | +2.5% | found inside NFL venue=home (best of 34 features tested); small sample, may share reads with other rows |
