@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.835,
-        "lastSeen": "2026-11-16T02:54:44Z"
+        "lastSeen": "2026-11-16T03:24:46Z"
       }
     ],
     "equity": [
@@ -28625,6 +28625,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-16T02:54:44Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-16T03:24:46Z"
       }
     ]
   },
@@ -41370,7 +41374,7 @@
       }
     ]
   },
-  "asOf": "2026-11-16T02:54:44Z",
+  "asOf": "2026-11-16T03:24:46Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -41407,25 +41411,26 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 444,
-      "resting": 5,
+      "orders": 447,
+      "resting": 8,
       "filled": 222,
       "expired": 217,
       "fillRate": 0.506,
       "clvN": 222,
       "meanClv": -0.0189,
       "meanClvNet": -0.023,
-      "settledPnl": -5.63,
+      "settledPnl": -5.05,
       "pairedWithTaker": 84,
       "pairedMakerClvNet": -0.0134,
       "pairedTakerClvNet": -0.0283,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {
-      "already held": 4,
-      "test: same contract already held": 3
+      "already held": 3,
+      "maker order failed": 4,
+      "test: same contract already held": 2
     },
-    "liveCandidates": 7,
+    "liveCandidates": 9,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -41490,10 +41495,10 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4817,
+      "kalshiMarkets": 4894,
       "eventsMatched": 260,
       "eventsUnmatched": 151,
-      "candidates": 7
+      "candidates": 9
     }
   },
   "account": {
@@ -41502,11 +41507,11 @@
     "detail": {
       "balance": 693,
       "balance_dollars": "6.9352",
-      "portfolio_value": 1578,
-      "updated_ts": 1794797702
+      "portfolio_value": 1442,
+      "updated_ts": 1794799510
     },
     "env": "production",
-    "checkedAt": "2026-11-16T02:55:02Z"
+    "checkedAt": "2026-11-16T03:25:10Z"
   },
   "maker": {
     "start": 0.0,
@@ -50608,6 +50613,63 @@
         "makerEdge": 0.0414,
         "postedAt": "2026-11-16T02:40:29Z",
         "status": "resting"
+      },
+      {
+        "ticker": "KXNBAGAME-26NOV16GSWNOP-NOP",
+        "title": "New Orleans",
+        "sport": "NBA",
+        "kind": "game",
+        "event": "Golden State Warriors at New Orleans Pelicans",
+        "commence": "2026-11-17T01:10:00Z",
+        "side": "yes",
+        "source": "mirror:soft-dog",
+        "fair": 0.449,
+        "estimated": true,
+        "price": 0.39,
+        "bidAtPost": 0.39,
+        "askAtPost": 0.4,
+        "takerEdge": 0.0322,
+        "makerEdge": 0.0548,
+        "postedAt": "2026-11-16T03:24:46Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNBAGAME-26NOV16GSWNOP-NOP",
+        "title": "New Orleans",
+        "sport": "NBA",
+        "kind": "game",
+        "event": "Golden State Warriors at New Orleans Pelicans",
+        "commence": "2026-11-17T01:10:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp",
+        "fair": 0.44,
+        "estimated": false,
+        "price": 0.39,
+        "bidAtPost": 0.39,
+        "askAtPost": 0.4,
+        "takerEdge": 0.0232,
+        "makerEdge": 0.0458,
+        "postedAt": "2026-11-16T03:24:46Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV21USUORST-ORST8",
+        "title": "Oregon St. wins by over 7.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Utah State Aggies at Oregon State Beavers",
+        "commence": "2026-11-22T03:30:00Z",
+        "side": "no",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4783,
+        "estimated": true,
+        "price": 0.43,
+        "bidAtPost": 0.43,
+        "askAtPost": 0.44,
+        "takerEdge": 0.021,
+        "makerEdge": 0.044,
+        "postedAt": "2026-11-16T03:24:46Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -57077,14 +57139,19 @@
         "cost": 0.42,
         "fee": 0.0043,
         "time": "2026-11-15T17:24:42Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-15T11:54:45Z",
         "lastMid": 0.425,
         "lastSeen": "2026-11-15T23:54:47Z",
         "closeMid": 0.425,
-        "clv": 0.005
+        "clv": 0.005,
+        "result": "yes",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.58,
+        "settledAt": "2026-11-16T03:24:46Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK7",
