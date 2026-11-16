@@ -20717,7 +20717,9 @@
         "fee": 0.01,
         "status": "open",
         "book": "paper",
-        "mode": "paper"
+        "mode": "paper",
+        "lastMid": 0.835,
+        "lastSeen": "2026-11-16T02:54:44Z"
       }
     ],
     "equity": [
@@ -28619,6 +28621,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-16T02:40:29Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-16T02:54:44Z"
       }
     ]
   },
@@ -41364,7 +41370,7 @@
       }
     ]
   },
-  "asOf": "2026-11-16T02:40:29Z",
+  "asOf": "2026-11-16T02:54:44Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -41416,8 +41422,8 @@
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {
-      "test: same contract already held": 3,
-      "already held": 1
+      "already held": 4,
+      "test: same contract already held": 3
     },
     "liveCandidates": 7,
     "sourceStatus": {
@@ -41484,9 +41490,9 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4689,
-      "eventsMatched": 257,
-      "eventsUnmatched": 150,
+      "kalshiMarkets": 4817,
+      "eventsMatched": 260,
+      "eventsUnmatched": 151,
       "candidates": 7
     }
   },
@@ -41496,11 +41502,11 @@
     "detail": {
       "balance": 693,
       "balance_dollars": "6.9352",
-      "portfolio_value": 1453,
-      "updated_ts": 1794796851
+      "portfolio_value": 1578,
+      "updated_ts": 1794797702
     },
     "env": "production",
-    "checkedAt": "2026-11-16T02:40:51Z"
+    "checkedAt": "2026-11-16T02:55:02Z"
   },
   "maker": {
     "start": 0.0,

@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-16T02:40:28Z",
+ "asOf": "2026-11-16T02:54:43Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -209,17 +209,17 @@
   "learned-scan-nba-spread": {
    "pattern": "learned-scan-nba-spread",
    "unit": "points",
-   "n": 29,
-   "meanPredicted": 0.828,
-   "meanRealized": 0.8966,
-   "tRealized": 1.92,
-   "capture": 1.08,
+   "n": 28,
+   "meanPredicted": 0.845,
+   "meanRealized": 0.9286,
+   "tRealized": 1.93,
+   "capture": 1.1,
    "rightWay": 0.722,
-   "noMove": 11,
+   "noMove": 10,
    "logLossGain": {
-    "n": 29,
-    "mean": -0.01176,
-    "t": -1.2
+    "n": 28,
+    "mean": -0.01294,
+    "t": -1.28
    },
    "verdict": "collecting"
   },
@@ -566,17 +566,17 @@
   "scan-nba-spread-away-restedgeawaymore-1e501d": {
    "pattern": "scan-nba-spread-away-restedgeawaymore-1e501d",
    "unit": "points",
-   "n": 19,
-   "meanPredicted": 0.3794,
-   "meanRealized": 1.7368,
-   "tRealized": 2.64,
-   "capture": 4.58,
+   "n": 18,
+   "meanPredicted": 0.3785,
+   "meanRealized": 1.8333,
+   "tRealized": 2.67,
+   "capture": 4.84,
    "rightWay": 0.818,
-   "noMove": 8,
+   "noMove": 7,
    "logLossGain": {
-    "n": 19,
-    "mean": -0.00228,
-    "t": -0.42
+    "n": 18,
+    "mean": -0.00373,
+    "t": -0.68
    },
    "verdict": "collecting"
   },
