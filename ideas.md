@@ -187,6 +187,23 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   grade.py's values are shared with every estimated close. Proposal for the weekly review: one sport-and-number key table
   (above) in grade.py and sharp.py together. Kill if NCAAF alt reads crossing 3 or 7 fall to the no-key mean on 40+ fresh reads.
 
+### 12. NCAAF lines move toward last week's cover (2026-11-16, lead, testing)
+- Observation: in NCAAF, the spread moves from open to close toward the team whose previous game beat the closing spread
+  by more (ATS-margin gap, home minus away, from cfbd closes). CFBD 2021-2026 non-neutral games with both teams' previous
+  line: corr(gap, close - open) -0.195 (n 4,584, t -13.4), negative in every season (2021 t -4.5 ... 2026 t -7.4); gap 20+
+  moves -0.69 points toward that side (n 776, t -8.0), gap -20 or less +0.76 (n 820, t 7.6). On EDGE's own 2026 rows (first
+  snap to Pinnacle close, n 311): corr -0.32 (t -5.8); |gap| 20+ moves 1.3 points toward the recent coverer (n 100;
+  halves -0.88 t -2.7, -1.67 t -4.0).
+- Mechanism: Sunday openers come off slow-moving power ratings; bettors (sharp and public) update on last week's result
+  during the week, so the number walks toward the team that just covered big. Rule 1 cares only that the move is real.
+- Price check (what kills or keeps it): taking the recent coverer at EDGE's first-snap print price vs Pinnacle's close
+  (0.025 per point) is only +1.1% (n 98, t 1.6; halves -0.3% / +2.5%): the vig eats most of the move at the open print.
+- Living memory: no ATS feature is stored yet; closest match NCAAF spread reads overall n 190, +0.1% (t 0.3).
+  ncaaf-spot does not use it (its spots are rest, conference, week and line size).
+- Variants: 1 feature, 2 thresholds (corr and |gap| 20). Next: re-run after two more Saturdays with the Pinnacle-gated
+  price (only reads that beat Pinnacle at the pick); launch shadow ncaaf-ats-recency if gated CLV holds t >= 2 in both
+  halves; kill if the 2026 move falls under 0.5 points on 40 fresh games.
+
 ## Experiments (live shadow patterns, stake 0)
 
 ### soft-dog (launched 2026-10-30, from lead 1)

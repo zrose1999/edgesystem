@@ -248,6 +248,8 @@ def words(s):
     return [w for w in re.sub(r"[^a-z0-9 ]", " ", (s or "").lower().replace("st.", "state")).split() if w]
 
 
+STATE_OPTIONAL = {"sam houston"}       # Kalshi drops "State" for these schools
+DIRECTION = {"north", "south", "east", "west", "northern", "southern", "eastern", "western", "central"}
 GENERIC = {"state", "st", "university", "univ", "college", "of", "the", "a", "and"}
 
 
@@ -263,6 +265,11 @@ def team_score(kalshi, ledger):
         return 0.0                           # only "state"/"university" fit (2026-11-12: Alcorn St. scored 0.5 on Georgia State)
     if "state" in body and "state" not in l:
         return 0.0                           # "Michigan St." is not "Michigan Wolverines"
+    if "state" in l and "state" not in body and l.index("state") > 0 and l[l.index("state") - 1] in body \
+            and " ".join(body) not in STATE_OPTIONAL:
+        return 0.0                           # "North Dakota" is not "North Dakota State Bison" (2026-11-16)
+    if {w for w in body if w in DIRECTION} != {x for x in l if x in DIRECTION}:
+        return 0.0                           # "Southern Illinois" is not "Northern Illinois"; "Florida" is not "South Florida"
     score = len(hit) / len(body)
     if letter:
         rest = [x for x in l if x not in body]
