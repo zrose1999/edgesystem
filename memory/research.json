@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-16T01:54:40Z",
+ "asOf": "2026-11-16T02:24:40Z",
  "rules": "Sample: one entry per pattern, row and side (grade.py). Bars from grade.py: promotion at mean CLV > 0 and t >= 2.5 at 15+ (t >= 2.0 at 20+). Learning phase: early-negative means still collecting, never a retirement call. A feature at a bar is a lead for review; this file never changes a pattern. Win rate never counts.",
  "gradedReads": 1364,
  "loggedReads": 3072,
@@ -98,7 +98,7 @@
  ],
  "snapWriter": {
   "since": "2026-10-19T18:15:00Z",
-  "linesLastCycle": 875,
+  "linesLastCycle": 840,
   "latest": "2026-11-16T01:54:33Z",
   "rowsWithHistory": 2350,
   "alarm": false
@@ -12683,7 +12683,7 @@
    "n": 126,
    "meanClvProb": -0.0019,
    "pocket": {
-    "feature": "sharpDivPick=aligned",
+    "feature": "sharpGapPick=<1%",
     "n": 30,
     "meanClvProb": 0.0354,
     "tStat": 4.4
@@ -13935,7 +13935,7 @@
    "n": 43,
    "meanClvProb": -0.0143,
    "pocket": {
-    "feature": "sharpDivPick=aligned",
+    "feature": "sharpGapPick=<1%",
     "n": 9,
     "meanClvProb": 0.0308,
     "tStat": 1.81
@@ -14983,7 +14983,7 @@
    "n": 19,
    "meanClvProb": -0.0057,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 8,
     "meanClvProb": 0.015,
     "tStat": 1.44
@@ -15095,7 +15095,7 @@
    "n": 19,
    "meanClvProb": -0.0057,
    "pocket": {
-    "feature": "edgeBar=0.5-1x",
+    "feature": "grade=B",
     "n": 8,
     "meanClvProb": 0.015,
     "tStat": 1.44

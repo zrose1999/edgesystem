@@ -20683,13 +20683,18 @@
         "count": 1,
         "cost": 0.42,
         "fee": 0.02,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.405,
         "lastSeen": "2026-11-15T22:54:45Z",
         "closeMid": 0.405,
-        "clv": -0.015
+        "clv": -0.015,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.44,
+        "settledAt": "2026-11-16T02:24:46Z"
       }
     ],
     "equity": [
@@ -23166,6 +23171,14 @@
         "open": 3.83,
         "realized": -80.79,
         "equity": 19.21,
+        "clvN": 274,
+        "meanClv": -0.0045
+      },
+      {
+        "t": "2026-11-16T02:24:46Z",
+        "open": 3.39,
+        "realized": -81.23,
+        "equity": 18.77,
         "clvN": 274,
         "meanClv": -0.0045
       }
@@ -28567,6 +28580,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-16T01:54:47Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-16T02:24:46Z"
       }
     ]
   },
@@ -33804,7 +33821,7 @@
         "cost": 0.61,
         "fee": 0.0,
         "time": "2026-11-15T21:39:57Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1e119-92c0-7264-9dea-2e61ea389cc2",
@@ -33813,7 +33830,12 @@
         "lastMid": 0.605,
         "lastSeen": "2026-11-15T22:54:45Z",
         "closeMid": 0.605,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "no",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.39,
+        "settledAt": "2026-11-16T02:24:46Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK5",
@@ -33834,12 +33856,17 @@
         "cost": 0.47,
         "fee": 0.0,
         "time": "2026-11-15T23:10:03Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1e127-7958-7363-91ae-f778d44f31bc",
         "test": true,
-        "fillChecked": true
+        "fillChecked": true,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.47,
+        "settledAt": "2026-11-16T02:24:46Z"
       }
     ],
     "equity": [
@@ -35514,6 +35541,14 @@
         "equity": 34.3,
         "clvN": 142,
         "meanClv": 0.0001
+      },
+      {
+        "t": "2026-11-16T02:24:46Z",
+        "open": 0.39,
+        "realized": -0.78,
+        "equity": 34.22,
+        "clvN": 143,
+        "meanClv": -0.0
       }
     ],
     "stopped": null,
@@ -41225,7 +41260,7 @@
       }
     ]
   },
-  "asOf": "2026-11-16T01:54:47Z",
+  "asOf": "2026-11-16T02:24:46Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -41246,16 +41281,16 @@
     "liveActive": true,
     "liveWhy": "on since 2026-10-21T20:30:14.905Z",
     "paper": {
-      "open": 3.83,
-      "realized": -80.79,
-      "equity": 19.21,
+      "open": 3.39,
+      "realized": -81.23,
+      "equity": 18.77,
       "clvN": 274,
       "meanClv": -0.0045
     },
     "live": {
-      "open": 1.47,
-      "realized": -0.7,
-      "equity": 34.3,
+      "open": 0.39,
+      "realized": -0.78,
+      "equity": 34.22,
       "clvN": 143,
       "meanClv": -0.0
     },
@@ -41270,7 +41305,7 @@
       "clvN": 222,
       "meanClv": -0.0189,
       "meanClvNet": -0.023,
-      "settledPnl": -4.69,
+      "settledPnl": -5.63,
       "pairedWithTaker": 84,
       "pairedMakerClvNet": -0.0134,
       "pairedTakerClvNet": -0.0283,
@@ -41342,23 +41377,23 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4577,
-      "eventsMatched": 251,
+      "kalshiMarkets": 4704,
+      "eventsMatched": 257,
       "eventsUnmatched": 151,
       "candidates": 0
     }
   },
   "account": {
     "keys": "ok",
-    "balance": 5.94,
+    "balance": 6.94,
     "detail": {
-      "balance": 593,
-      "balance_dollars": "5.9352",
-      "portfolio_value": 1700,
-      "updated_ts": 1794794103
+      "balance": 693,
+      "balance_dollars": "6.9352",
+      "portfolio_value": 1583,
+      "updated_ts": 1794795909
     },
     "env": "production",
-    "checkedAt": "2026-11-16T01:55:03Z"
+    "checkedAt": "2026-11-16T02:25:09Z"
   },
   "maker": {
     "start": 0.0,
@@ -56774,14 +56809,19 @@
         "cost": 0.46,
         "fee": 0.0043,
         "time": "2026-11-15T15:24:50Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-15T11:54:45Z",
         "lastMid": 0.495,
         "lastSeen": "2026-11-15T22:54:45Z",
         "closeMid": 0.495,
-        "clv": 0.035
+        "clv": 0.035,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.46,
+        "settledAt": "2026-11-16T02:24:46Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV15HOUCLE-CLE",
@@ -56854,14 +56894,19 @@
         "cost": 0.41,
         "fee": 0.0042,
         "time": "2026-11-15T21:39:57Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-15T21:24:47Z",
         "lastMid": 0.405,
         "lastSeen": "2026-11-15T22:54:45Z",
         "closeMid": 0.405,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.41,
+        "settledAt": "2026-11-16T02:24:46Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK7",
@@ -56879,14 +56924,19 @@
         "cost": 0.41,
         "fee": 0.0042,
         "time": "2026-11-15T21:39:57Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-15T21:24:47Z",
         "lastMid": 0.405,
         "lastSeen": "2026-11-15T22:54:45Z",
         "closeMid": 0.405,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.41,
+        "settledAt": "2026-11-16T02:24:46Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV15NYKTOR-TOR",
@@ -56904,14 +56954,19 @@
         "cost": 0.61,
         "fee": 0.0042,
         "time": "2026-11-15T22:24:55Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-15T21:24:47Z",
         "lastMid": 0.605,
         "lastSeen": "2026-11-15T22:54:45Z",
         "closeMid": 0.605,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "no",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.39,
+        "settledAt": "2026-11-16T02:24:46Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK6",
@@ -56929,14 +56984,19 @@
         "cost": 0.44,
         "fee": 0.0043,
         "time": "2026-11-15T22:24:55Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-15T21:24:47Z",
         "lastMid": 0.435,
         "lastSeen": "2026-11-15T22:54:45Z",
         "closeMid": 0.435,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.44,
+        "settledAt": "2026-11-16T02:24:46Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV15NYKTOR-TOR",
@@ -56954,14 +57014,19 @@
         "cost": 0.61,
         "fee": 0.0042,
         "time": "2026-11-15T22:24:55Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-15T21:24:47Z",
         "lastMid": 0.605,
         "lastSeen": "2026-11-15T22:54:45Z",
         "closeMid": 0.605,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "no",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.39,
+        "settledAt": "2026-11-16T02:24:46Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15PITCIN-CIN3",
