@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.835,
-        "lastSeen": "2026-11-16T19:09:56Z"
+        "lastSeen": "2026-11-16T19:24:42Z"
       }
     ],
     "equity": [
@@ -28725,6 +28725,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-16T19:09:56Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-16T19:24:42Z"
       }
     ]
   },
@@ -34040,7 +34044,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.49,
-        "lastSeen": "2026-11-16T19:09:56Z"
+        "lastSeen": "2026-11-16T19:24:42Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV20UNMWYO-WYO",
@@ -34067,8 +34071,8 @@
         "orderId": "01a1e23a-8b50-71b3-9391-c464ffbdac0f",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.255,
-        "lastSeen": "2026-11-16T19:09:56Z"
+        "lastMid": 0.26,
+        "lastSeen": "2026-11-16T19:24:42Z"
       }
     ],
     "equity": [
@@ -41552,6 +41556,29 @@
         "status": "resting",
         "time": "2026-11-16T18:24:59Z",
         "test": true
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV20OREMSU-ORE14",
+        "title": "Oregon wins by over 13.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Oregon Ducks at Michigan State Spartans",
+        "commence": "2026-11-21T01:00:00Z",
+        "side": "no",
+        "strike": 13.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4531,
+        "edge": 0.0262,
+        "estimated": true,
+        "why": "Pinnacle fair 45.3% vs Kalshi NO 0.41 + fee = 0.427.",
+        "orderId": "01a1e5d1-ee98-78c5-adc6-23be52a2bd1f",
+        "orderPath": "v2 after shard funding",
+        "price": 0.4,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-16T19:24:42Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -41644,10 +41671,19 @@
         "transferId": "cfe5aa69-3ef2-40fa-a4d0-930b6df4cc3b",
         "shardBalanceBefore": 0.3858,
         "homeBalanceBefore": 6.0138
+      },
+      {
+        "time": "2026-11-16T19:25:01Z",
+        "fromShard": 3,
+        "toShard": 0,
+        "amount": 5.0,
+        "transferId": "67958f9c-4283-40ec-859c-d5eab1ba1df9",
+        "shardBalanceBefore": 0.2561,
+        "homeBalanceBefore": 5.9114
       }
     ]
   },
-  "asOf": "2026-11-16T19:09:56Z",
+  "asOf": "2026-11-16T19:24:42Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -41698,9 +41734,7 @@
       "pairedTakerClvNet": -0.0283,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {
-      "maker order failed": 1
-    },
+    "liveSkips": {},
     "liveCandidates": 1,
     "sourceStatus": {
       "kalshi-sharp-alt": {
@@ -41742,9 +41776,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 1.18,
+      "spentToday": 1.58,
       "trades": 155,
-      "resting": 2
+      "resting": 3
     },
     "config": {
       "startingBankroll": 35.0,
@@ -41778,11 +41812,11 @@
     "detail": {
       "balance": 617,
       "balance_dollars": "6.1775",
-      "portfolio_value": 1517,
-      "updated_ts": 1794856218
+      "portfolio_value": 1648,
+      "updated_ts": 1794857103
     },
     "env": "production",
-    "checkedAt": "2026-11-16T19:10:18Z"
+    "checkedAt": "2026-11-16T19:25:03Z"
   },
   "maker": {
     "start": 0.0,
@@ -57722,7 +57756,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T11:10:48Z",
         "lastMid": 0.49,
-        "lastSeen": "2026-11-16T19:09:56Z"
+        "lastSeen": "2026-11-16T19:24:42Z"
       }
     ],
     "equity": [],
