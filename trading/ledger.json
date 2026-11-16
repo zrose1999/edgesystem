@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.84,
-        "lastSeen": "2026-11-16T04:24:45Z"
+        "lastSeen": "2026-11-16T04:54:41Z"
       }
     ],
     "equity": [
@@ -28637,6 +28637,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-16T04:24:45Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-16T04:54:41Z"
       }
     ]
   },
@@ -32794,7 +32798,7 @@
         "cost": 0.39,
         "fee": 0.0,
         "time": "2026-11-10T17:39:52Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1c0dc-0880-7b15-975c-04e068fc04e8",
@@ -32803,7 +32807,12 @@
         "lastMid": 0.375,
         "lastSeen": "2026-11-16T00:54:50Z",
         "closeMid": 0.375,
-        "clv": -0.015
+        "clv": -0.015,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.39,
+        "settledAt": "2026-11-16T04:54:41Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14ORSTBSU-BSU15",
@@ -35600,6 +35609,14 @@
         "open": 0.39,
         "realized": -0.78,
         "equity": 34.22,
+        "clvN": 143,
+        "meanClv": -0.0
+      },
+      {
+        "t": "2026-11-16T04:54:41Z",
+        "open": 0,
+        "realized": -1.17,
+        "equity": 33.83,
         "clvN": 143,
         "meanClv": -0.0
       }
@@ -41382,7 +41399,7 @@
       }
     ]
   },
-  "asOf": "2026-11-16T04:24:45Z",
+  "asOf": "2026-11-16T04:54:41Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -41410,9 +41427,9 @@
       "meanClv": -0.0045
     },
     "live": {
-      "open": 0.39,
-      "realized": -0.78,
-      "equity": 34.22,
+      "open": 0,
+      "realized": -1.17,
+      "equity": 33.83,
       "clvN": 143,
       "meanClv": -0.0
     },
@@ -41427,7 +41444,7 @@
       "clvN": 222,
       "meanClv": -0.0189,
       "meanClvNet": -0.023,
-      "settledPnl": -5.05,
+      "settledPnl": -5.44,
       "pairedWithTaker": 84,
       "pairedMakerClvNet": -0.0134,
       "pairedTakerClvNet": -0.0283,
@@ -41499,8 +41516,8 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4784,
-      "eventsMatched": 254,
+      "kalshiMarkets": 4717,
+      "eventsMatched": 251,
       "eventsUnmatched": 152,
       "candidates": 0
     }
@@ -41511,11 +41528,11 @@
     "detail": {
       "balance": 693,
       "balance_dollars": "6.9352",
-      "portfolio_value": 1442,
-      "updated_ts": 1794803107
+      "portfolio_value": 1572,
+      "updated_ts": 1794804901
     },
     "env": "production",
-    "checkedAt": "2026-11-16T04:25:07Z"
+    "checkedAt": "2026-11-16T04:55:01Z"
   },
   "maker": {
     "start": 0.0,
@@ -57323,14 +57340,19 @@
         "cost": 0.39,
         "fee": 0.0042,
         "time": "2026-11-16T00:54:50Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-09T15:09:47Z",
         "lastMid": 0.375,
         "lastSeen": "2026-11-16T00:54:50Z",
         "closeMid": 0.375,
-        "clv": -0.015
+        "clv": -0.015,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.39,
+        "settledAt": "2026-11-16T04:54:41Z"
       }
     ],
     "equity": [],
