@@ -206952,6 +206952,65 @@
       "pinEdgeAtPick": 0.017,
       "pinEdgeEstimated": true,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NBA|2026-11-17|Philadelphia 76ers at Brooklyn Nets|spread|home|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NBA|2026-11-17|Philadelphia 76ers at Brooklyn Nets|spread",
+      "sport": "NBA",
+      "event": "Philadelphia 76ers at Brooklyn Nets",
+      "commence": "2026-11-17T00:40:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": 4.5,
+      "priceAtPick": 105,
+      "bookAtPick": "BetMGM",
+      "marketNumber": 5.5,
+      "marketPrices": {
+        "home": -117,
+        "away": -103
+      },
+      "priceTime": "2026-11-16T20:55:45Z",
+      "pickedAt": "2026-11-16T20:56:19Z",
+      "fair": 0.4929,
+      "projection": 0.4929,
+      "edge": 0.0051,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "BetMGM home +4.5 +105 implies 48.8%. Pinnacle -102 no-vig is 49.3%. Edge +0.5%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": 4.5,
+        "prices": {
+          "home": -102,
+          "away": -108
+        },
+        "updated": "2026-11-16T20:55:22Z",
+        "snapTime": "2026-11-16T20:55:45Z",
+        "noVig": 0.4929
+      },
+      "contextAtPick": {
+        "injury": "LeBron James (76Ers, worth 1.57): weight 0 at the open, 1 now, +1.57 spread, -0.94 total | Joel Embiid (76Ers, worth 1.54): weight 1 at the open, 0.5 now, -0.77 spread, +0.46 total"
+      },
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -117,
+        "line": 5.5,
+        "implied": 0.5392,
+        "printImplied": 0.5392
+      },
+      "priceBook": "DraftKings",
+      "pinEdgeAtPick": 0.0051,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
