@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.84,
-        "lastSeen": "2026-11-16T08:34:26Z"
+        "lastSeen": "2026-11-16T11:10:48Z"
       }
     ],
     "equity": [
@@ -28645,6 +28645,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-16T08:34:26Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-16T11:10:48Z"
       }
     ]
   },
@@ -41308,6 +41312,29 @@
         "status": "resting",
         "time": "2026-11-16T02:40:29Z",
         "test": true
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV20UNMWYO-UNM8",
+        "title": "New Mexico wins by over 7.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "New Mexico Lobos at Wyoming Cowboys",
+        "commence": "2026-11-21T02:00:00Z",
+        "side": "no",
+        "strike": 7.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5586,
+        "edge": 0.0311,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt B pick (Bally Bet home +9 -108 implies 51.9%. Pinnacle -118 no-vig is 52.2% at 8, worth 54.7% at this line. Edge +2.8%.). Pinnacle fair here 53.1% plus the pick's edge = 55.9%; Kalshi NO 0.51 + fee = 0.527.",
+        "orderId": "01a1e40d-c0c8-7141-a58a-e2f1f936c864",
+        "orderPath": "v2",
+        "price": 0.5,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-16T11:10:48Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -41403,7 +41430,7 @@
       }
     ]
   },
-  "asOf": "2026-11-16T08:34:26Z",
+  "asOf": "2026-11-16T11:10:48Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -41440,8 +41467,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 447,
-      "resting": 8,
+      "orders": 448,
+      "resting": 9,
       "filled": 222,
       "expired": 217,
       "fillRate": 0.506,
@@ -41454,8 +41481,11 @@
       "pairedTakerClvNet": -0.0283,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 0,
+    "liveSkips": {
+      "already held": 3,
+      "test: same contract already held": 1
+    },
+    "liveCandidates": 5,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -41496,9 +41526,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 0,
+      "spentToday": 0.5,
       "trades": 153,
-      "resting": 3
+      "resting": 4
     },
     "config": {
       "startingBankroll": 35.0,
@@ -41521,9 +41551,9 @@
     },
     "lastScan": {
       "kalshiMarkets": 4717,
-      "eventsMatched": 251,
-      "eventsUnmatched": 152,
-      "candidates": 0
+      "eventsMatched": 260,
+      "eventsUnmatched": 143,
+      "candidates": 5
     }
   },
   "account": {
@@ -41532,11 +41562,11 @@
     "detail": {
       "balance": 693,
       "balance_dollars": "6.9352",
-      "portfolio_value": 1572,
-      "updated_ts": 1794818086
+      "portfolio_value": 1441,
+      "updated_ts": 1794827469
     },
     "env": "production",
-    "checkedAt": "2026-11-16T08:34:46Z"
+    "checkedAt": "2026-11-16T11:11:09Z"
   },
   "maker": {
     "start": 0.0,
@@ -50694,6 +50724,25 @@
         "takerEdge": 0.021,
         "makerEdge": 0.044,
         "postedAt": "2026-11-16T03:24:46Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV20UNMWYO-UNM8",
+        "title": "New Mexico wins by over 7.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "New Mexico Lobos at Wyoming Cowboys",
+        "commence": "2026-11-21T02:00:00Z",
+        "side": "no",
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5586,
+        "estimated": true,
+        "price": 0.5,
+        "bidAtPost": 0.5,
+        "askAtPost": 0.51,
+        "takerEdge": 0.0311,
+        "makerEdge": 0.0542,
+        "postedAt": "2026-11-16T11:10:48Z",
         "status": "resting"
       }
     ],
