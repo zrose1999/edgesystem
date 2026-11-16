@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.835,
-        "lastSeen": "2026-11-16T21:24:47Z"
+        "lastSeen": "2026-11-16T21:39:54Z"
       }
     ],
     "equity": [
@@ -28749,6 +28749,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-16T21:24:47Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-16T21:39:54Z"
       }
     ]
   },
@@ -34064,7 +34068,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.5,
-        "lastSeen": "2026-11-16T21:24:47Z"
+        "lastSeen": "2026-11-16T21:39:54Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV20UNMWYO-WYO",
@@ -34092,7 +34096,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.255,
-        "lastSeen": "2026-11-16T21:24:47Z"
+        "lastSeen": "2026-11-16T21:39:54Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV20OREMSU-ORE14",
@@ -34119,8 +34123,8 @@
         "orderId": "01a1e5d1-ee98-78c5-adc6-23be52a2bd1f",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.415,
-        "lastSeen": "2026-11-16T21:24:47Z"
+        "lastMid": 0.41,
+        "lastSeen": "2026-11-16T21:39:54Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -34145,6 +34149,34 @@
         "book": "live",
         "mode": "maker",
         "orderId": "01a1e59b-3e98-7c37-9008-50c958cb14ef",
+        "test": true,
+        "fillChecked": true,
+        "lastMid": 0.43,
+        "lastSeen": "2026-11-16T21:39:54Z"
+      },
+      {
+        "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
+        "title": "Over 63.5 points",
+        "sport": "NCAAF",
+        "kind": "total",
+        "event": "South Alabama Jaguars at Southern Mississippi Golden Eagles",
+        "commence": "2026-11-21T21:00:00Z",
+        "side": "no",
+        "strike": 63.5,
+        "source": "kalshi-drift",
+        "fair": 0.5055,
+        "edge": 0.0382,
+        "estimated": true,
+        "why": "Pinnacle fair 50.0% plus the measured drift still to come +0.55%; Kalshi NO 0.45 + fee = 0.467.",
+        "ask": 0.44,
+        "count": 1.0,
+        "cost": 0.44,
+        "fee": 0.0,
+        "time": "2026-11-16T21:39:54Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1e63f-d368-7c94-adb9-a6db854a63f8",
         "test": true,
         "fillChecked": true
       }
@@ -35865,6 +35897,14 @@
       {
         "t": "2026-11-16T21:24:47Z",
         "open": 1.58,
+        "realized": -1.17,
+        "equity": 33.83,
+        "clvN": 143,
+        "meanClv": -0.0
+      },
+      {
+        "t": "2026-11-16T21:39:54Z",
+        "open": 2.02,
         "realized": -1.17,
         "equity": 33.83,
         "clvN": 143,
@@ -41734,8 +41774,8 @@
         "orderPath": "v2",
         "price": 0.44,
         "count": 1,
-        "filledSeen": 0,
-        "status": "resting",
+        "filledSeen": 1.0,
+        "status": "executed",
         "time": "2026-11-16T21:24:47Z",
         "test": true
       },
@@ -41957,7 +41997,7 @@
       }
     ]
   },
-  "asOf": "2026-11-16T21:24:47Z",
+  "asOf": "2026-11-16T21:39:54Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -41985,7 +42025,7 @@
       "meanClv": -0.0045
     },
     "live": {
-      "open": 1.58,
+      "open": 2.02,
       "realized": -1.17,
       "equity": 33.83,
       "clvN": 143,
@@ -42009,6 +42049,7 @@
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {
+      "already held": 7,
       "test: same contract already held": 4,
       "test cap reached": 3
     },
@@ -42054,8 +42095,8 @@
       "maxPerDay": 5.0,
       "orderType": "maker",
       "spentToday": 4.76,
-      "trades": 157,
-      "resting": 9
+      "trades": 158,
+      "resting": 8
     },
     "config": {
       "startingBankroll": 35.0,
@@ -42085,15 +42126,15 @@
   },
   "account": {
     "keys": "ok",
-    "balance": 2.36,
+    "balance": 1.92,
     "detail": {
-      "balance": 235,
-      "balance_dollars": "2.3595",
-      "portfolio_value": 1999,
-      "updated_ts": 1794864307
+      "balance": 191,
+      "balance_dollars": "1.9151",
+      "portfolio_value": 1913,
+      "updated_ts": 1794865215
     },
     "env": "production",
-    "checkedAt": "2026-11-16T21:25:07Z"
+    "checkedAt": "2026-11-16T21:40:15Z"
   },
   "maker": {
     "start": 0.0,
@@ -58339,7 +58380,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T11:10:48Z",
         "lastMid": 0.5,
-        "lastSeen": "2026-11-16T21:24:47Z"
+        "lastSeen": "2026-11-16T21:39:54Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -58361,8 +58402,8 @@
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-16T18:24:59Z",
-        "lastMid": 0.425,
-        "lastSeen": "2026-11-16T21:24:47Z"
+        "lastMid": 0.43,
+        "lastSeen": "2026-11-16T21:39:54Z"
       }
     ],
     "equity": [],
