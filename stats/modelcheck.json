@@ -1,21 +1,21 @@
 {
- "asOf": "2026-11-16T01:39:54Z",
+ "asOf": "2026-11-16T01:54:46Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
    "pattern": "edge-stack",
    "unit": "points",
-   "n": 24,
-   "meanPredicted": 1.3573,
-   "meanRealized": 0.2708,
+   "n": 22,
+   "meanPredicted": 1.3933,
+   "meanRealized": 0.2955,
    "tRealized": 0.77,
-   "capture": 0.2,
+   "capture": 0.21,
    "rightWay": 0.462,
-   "noMove": 11,
+   "noMove": 9,
    "logLossGain": {
-    "n": 24,
-    "mean": -0.00789,
-    "t": -0.61
+    "n": 22,
+    "mean": -0.00866,
+    "t": -0.63
    },
    "verdict": "collecting"
   },
@@ -56,17 +56,17 @@
   "learned-nba-spread": {
    "pattern": "learned-nba-spread",
    "unit": "points",
-   "n": 29,
-   "meanPredicted": 1.4414,
-   "meanRealized": -0.3448,
-   "tRealized": -0.74,
-   "capture": -0.24,
-   "rightWay": 0.529,
+   "n": 27,
+   "meanPredicted": 1.4716,
+   "meanRealized": -0.2963,
+   "tRealized": -0.61,
+   "capture": -0.2,
+   "rightWay": 0.533,
    "noMove": 12,
    "logLossGain": {
-    "n": 26,
-    "mean": -0.02601,
-    "t": -1.42
+    "n": 24,
+    "mean": -0.03318,
+    "t": -1.74
    },
    "verdict": "collecting"
   },
@@ -124,17 +124,17 @@
   "learned-nfl-spread": {
    "pattern": "learned-nfl-spread",
    "unit": "points",
-   "n": 8,
-   "meanPredicted": 0.5785,
-   "meanRealized": 0.25,
+   "n": 7,
+   "meanPredicted": 0.5524,
+   "meanRealized": 0.2857,
    "tRealized": 0.59,
-   "capture": 0.43,
+   "capture": 0.52,
    "rightWay": 0.5,
-   "noMove": 4,
+   "noMove": 3,
    "logLossGain": {
-    "n": 7,
-    "mean": -0.00202,
-    "t": -0.13
+    "n": 6,
+    "mean": -0.00979,
+    "t": -0.61
    },
    "verdict": "collecting"
   },
@@ -243,17 +243,17 @@
   "learned-scan-ncaaf-spread": {
    "pattern": "learned-scan-ncaaf-spread",
    "unit": "points",
-   "n": 38,
-   "meanPredicted": 0.6227,
-   "meanRealized": 0.2105,
-   "tRealized": 0.74,
-   "capture": 0.34,
-   "rightWay": 0.591,
+   "n": 37,
+   "meanPredicted": 0.6325,
+   "meanRealized": 0.2027,
+   "tRealized": 0.7,
+   "capture": 0.32,
+   "rightWay": 0.571,
    "noMove": 16,
    "logLossGain": {
-    "n": 38,
-    "mean": -0.00428,
-    "t": -0.62
+    "n": 37,
+    "mean": -0.00475,
+    "t": -0.67
    },
    "verdict": "collecting"
   },
@@ -362,34 +362,34 @@
   "ncaaf-spot": {
    "pattern": "ncaaf-spot",
    "unit": "points",
-   "n": 136,
-   "meanPredicted": 0.3301,
-   "meanRealized": 0.0037,
-   "tRealized": 0.02,
-   "capture": 0.01,
-   "rightWay": 0.477,
-   "noMove": 27,
+   "n": 133,
+   "meanPredicted": 0.3307,
+   "meanRealized": 0.0263,
+   "tRealized": 0.16,
+   "capture": 0.08,
+   "rightWay": 0.486,
+   "noMove": 26,
    "logLossGain": {
-    "n": 136,
-    "mean": 0.00179,
-    "t": 1.39
+    "n": 133,
+    "mean": 0.00164,
+    "t": 1.26
    },
    "verdict": "collecting"
   },
   "ncaaf-total-move": {
    "pattern": "ncaaf-total-move",
    "unit": "points",
-   "n": 41,
-   "meanPredicted": 0.8868,
-   "meanRealized": 0.6829,
-   "tRealized": 2.15,
-   "capture": 0.77,
+   "n": 40,
+   "meanPredicted": 0.8895,
+   "meanRealized": 0.7,
+   "tRealized": 2.16,
+   "capture": 0.79,
    "rightWay": 0.667,
-   "noMove": 11,
+   "noMove": 10,
    "logLossGain": {
-    "n": 41,
-    "mean": -0.00408,
-    "t": -0.78
+    "n": 40,
+    "mean": -0.00488,
+    "t": -0.92
    },
    "verdict": "proven"
   },
@@ -447,17 +447,17 @@
   "rest-spot": {
    "pattern": "rest-spot",
    "unit": "points",
-   "n": 21,
-   "meanPredicted": 0.6905,
-   "meanRealized": 1.5714,
-   "tRealized": 2.32,
-   "capture": 2.28,
-   "rightWay": 0.733,
+   "n": 20,
+   "meanPredicted": 0.68,
+   "meanRealized": 1.8,
+   "tRealized": 2.68,
+   "capture": 2.65,
+   "rightWay": 0.786,
    "noMove": 6,
    "logLossGain": {
-    "n": 21,
-    "mean": -0.00809,
-    "t": -0.85
+    "n": 20,
+    "mean": -0.01121,
+    "t": -1.19
    },
    "verdict": "collecting"
   },
@@ -498,51 +498,51 @@
   "scan-nba-h2h-home-restawayb2b-60ea66": {
    "pattern": "scan-nba-h2h-home-restawayb2b-60ea66",
    "unit": "prob",
-   "n": 21,
+   "n": 20,
    "meanPredicted": 0.0309,
-   "meanRealized": 0.0031,
-   "tRealized": 0.22,
-   "capture": 0.1,
-   "rightWay": 0.476,
+   "meanRealized": 0.0072,
+   "tRealized": 0.5,
+   "capture": 0.23,
+   "rightWay": 0.5,
    "noMove": 0,
    "logLossGain": {
-    "n": 21,
-    "mean": -0.00745,
-    "t": -0.41
+    "n": 20,
+    "mean": -0.00976,
+    "t": -0.52
    },
    "verdict": "collecting"
   },
   "scan-nba-h2h-home-restawayb2brestedgehomemore-a2651e": {
    "pattern": "scan-nba-h2h-home-restawayb2brestedgehomemore-a2651e",
    "unit": "prob",
-   "n": 13,
-   "meanPredicted": 0.0348,
-   "meanRealized": -0.0083,
-   "tRealized": -0.5,
-   "capture": -0.24,
-   "rightWay": 0.462,
+   "n": 12,
+   "meanPredicted": 0.0347,
+   "meanRealized": -0.0023,
+   "tRealized": -0.14,
+   "capture": -0.07,
+   "rightWay": 0.5,
    "noMove": 0,
    "logLossGain": {
-    "n": 13,
-    "mean": 0.00452,
-    "t": 0.15
+    "n": 12,
+    "mean": 0.00123,
+    "t": 0.04
    },
    "verdict": "collecting"
   },
   "scan-nba-h2h-home-restedgehomemore-57b863": {
    "pattern": "scan-nba-h2h-home-restedgehomemore-57b863",
    "unit": "prob",
-   "n": 24,
-   "meanPredicted": 0.0288,
-   "meanRealized": -0.0029,
-   "tRealized": -0.3,
-   "capture": -0.1,
-   "rightWay": 0.455,
+   "n": 23,
+   "meanPredicted": 0.0287,
+   "meanRealized": 0.0004,
+   "tRealized": 0.04,
+   "capture": 0.01,
+   "rightWay": 0.476,
    "noMove": 2,
    "logLossGain": {
-    "n": 24,
-    "mean": -0.00159,
-    "t": -0.11
+    "n": 23,
+    "mean": -0.00322,
+    "t": -0.21
    },
    "verdict": "collecting"
   },
@@ -583,51 +583,51 @@
   "scan-nba-spread-home-restawayb2b-7f68d5": {
    "pattern": "scan-nba-spread-home-restawayb2b-7f68d5",
    "unit": "points",
-   "n": 16,
-   "meanPredicted": 0.5579,
-   "meanRealized": 0.625,
-   "tRealized": 0.81,
-   "capture": 1.12,
-   "rightWay": 0.615,
+   "n": 15,
+   "meanPredicted": 0.5585,
+   "meanRealized": 0.8667,
+   "tRealized": 1.1,
+   "capture": 1.55,
+   "rightWay": 0.667,
    "noMove": 3,
    "logLossGain": {
-    "n": 16,
-    "mean": -0.00495,
-    "t": -0.58
+    "n": 15,
+    "mean": -0.00751,
+    "t": -0.86
    },
    "verdict": "collecting"
   },
   "scan-nba-spread-home-restawayb2brestedgehomemore-ee7657": {
    "pattern": "scan-nba-spread-home-restawayb2brestedgehomemore-ee7657",
    "unit": "points",
-   "n": 9,
-   "meanPredicted": 0.738,
-   "meanRealized": 0.4444,
-   "tRealized": 0.69,
-   "capture": 0.6,
-   "rightWay": 0.667,
+   "n": 8,
+   "meanPredicted": 0.7375,
+   "meanRealized": 0.875,
+   "tRealized": 1.59,
+   "capture": 1.19,
+   "rightWay": 0.8,
    "noMove": 3,
    "logLossGain": {
-    "n": 9,
-    "mean": 0.0039,
-    "t": 0.25
+    "n": 8,
+    "mean": -0.00124,
+    "t": -0.07
    },
    "verdict": "collecting"
   },
   "scan-nba-spread-home-restedgehomemore-b7ece4": {
    "pattern": "scan-nba-spread-home-restedgehomemore-b7ece4",
    "unit": "points",
-   "n": 19,
-   "meanPredicted": 0.4435,
-   "meanRealized": 0.3158,
-   "tRealized": 0.95,
-   "capture": 0.71,
-   "rightWay": 0.727,
+   "n": 17,
+   "meanPredicted": 0.4427,
+   "meanRealized": 0.4706,
+   "tRealized": 1.52,
+   "capture": 1.06,
+   "rightWay": 0.778,
    "noMove": 8,
    "logLossGain": {
-    "n": 19,
-    "mean": 0.00672,
-    "t": 1.12
+    "n": 17,
+    "mean": 0.00436,
+    "t": 0.67
    },
    "verdict": "collecting"
   },
@@ -770,17 +770,17 @@
   "scan-nfl-spread-away-linehomefav053-e435e9": {
    "pattern": "scan-nfl-spread-away-linehomefav053-e435e9",
    "unit": "points",
-   "n": 3,
+   "n": 2,
    "meanPredicted": 0.352,
-   "meanRealized": 0.1667,
-   "tRealized": 0.28,
-   "capture": 0.47,
-   "rightWay": 0.667,
+   "meanRealized": -0.25,
+   "tRealized": -0.33,
+   "capture": -0.71,
+   "rightWay": 0.5,
    "noMove": 0,
    "logLossGain": {
-    "n": 3,
-    "mean": 0.02122,
-    "t": 90.41
+    "n": 2,
+    "mean": 0.02138,
+    "t": 72.46
    },
    "verdict": "collecting"
   },
@@ -1059,17 +1059,17 @@
   "wind-total": {
    "pattern": "wind-total",
    "unit": "points",
-   "n": 22,
-   "meanPredicted": 2.5682,
-   "meanRealized": 0.1818,
+   "n": 20,
+   "meanPredicted": 2.525,
+   "meanRealized": 0.2,
    "tRealized": 0.7,
-   "capture": 0.07,
+   "capture": 0.08,
    "rightWay": 0.6,
-   "noMove": 7,
+   "noMove": 5,
    "logLossGain": {
-    "n": 22,
-    "mean": 0.02732,
-    "t": 1.26
+    "n": 20,
+    "mean": 0.02356,
+    "t": 1.05
    },
    "verdict": "collecting"
   }
