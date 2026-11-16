@@ -20718,8 +20718,8 @@
         "status": "open",
         "book": "paper",
         "mode": "paper",
-        "lastMid": 0.84,
-        "lastSeen": "2026-11-16T15:24:39Z"
+        "lastMid": 0.835,
+        "lastSeen": "2026-11-16T15:54:50Z"
       }
     ],
     "equity": [
@@ -28685,6 +28685,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-16T15:24:39Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-16T15:54:50Z"
       }
     ]
   },
@@ -33973,6 +33977,32 @@
         "payout": 0.0,
         "pnl": -0.47,
         "settledAt": "2026-11-16T02:24:46Z"
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV20UNMWYO-UNM8",
+        "title": "New Mexico wins by over 7.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "New Mexico Lobos at Wyoming Cowboys",
+        "commence": "2026-11-21T02:00:00Z",
+        "side": "no",
+        "strike": 7.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5586,
+        "edge": 0.0311,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt B pick (Bally Bet home +9 -108 implies 51.9%. Pinnacle -118 no-vig is 52.2% at 8, worth 54.7% at this line. Edge +2.8%.). Pinnacle fair here 53.1% plus the pick's edge = 55.9%; Kalshi NO 0.51 + fee = 0.527.",
+        "ask": 0.5,
+        "count": 1.0,
+        "cost": 0.5,
+        "fee": 0.0,
+        "time": "2026-11-16T15:54:50Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1e40d-c0c8-7141-a58a-e2f1f936c864",
+        "test": true,
+        "fillChecked": true
       }
     ],
     "equity": [
@@ -35659,6 +35689,14 @@
       {
         "t": "2026-11-16T04:54:41Z",
         "open": 0,
+        "realized": -1.17,
+        "equity": 33.83,
+        "clvN": 143,
+        "meanClv": -0.0
+      },
+      {
+        "t": "2026-11-16T15:54:50Z",
+        "open": 0.5,
         "realized": -1.17,
         "equity": 33.83,
         "clvN": 143,
@@ -41299,7 +41337,7 @@
         "price": 0.81,
         "count": 1,
         "filledSeen": 0,
-        "status": "resting",
+        "status": "canceled",
         "time": "2026-11-16T02:40:29Z",
         "test": true
       },
@@ -41367,8 +41405,8 @@
         "orderPath": "v2",
         "price": 0.5,
         "count": 1,
-        "filledSeen": 0,
-        "status": "resting",
+        "filledSeen": 1.0,
+        "status": "executed",
         "time": "2026-11-16T11:10:48Z",
         "test": true
       }
@@ -41466,7 +41504,7 @@
       }
     ]
   },
-  "asOf": "2026-11-16T15:24:39Z",
+  "asOf": "2026-11-16T15:54:50Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -41494,7 +41532,7 @@
       "meanClv": -0.0045
     },
     "live": {
-      "open": 0,
+      "open": 0.5,
       "realized": -1.17,
       "equity": 33.83,
       "clvN": 143,
@@ -41504,10 +41542,10 @@
     "liveStopped": null,
     "maker": {
       "orders": 448,
-      "resting": 9,
-      "filled": 222,
+      "resting": 8,
+      "filled": 223,
       "expired": 217,
-      "fillRate": 0.506,
+      "fillRate": 0.507,
       "clvN": 222,
       "meanClv": -0.0189,
       "meanClvNet": -0.023,
@@ -41560,8 +41598,8 @@
       "maxPerDay": 5.0,
       "orderType": "maker",
       "spentToday": 0.5,
-      "trades": 153,
-      "resting": 4
+      "trades": 154,
+      "resting": 2
     },
     "config": {
       "startingBankroll": 35.0,
@@ -41591,15 +41629,15 @@
   },
   "account": {
     "keys": "ok",
-    "balance": 6.94,
+    "balance": 6.43,
     "detail": {
-      "balance": 693,
-      "balance_dollars": "6.9352",
-      "portfolio_value": 1572,
-      "updated_ts": 1794842699
+      "balance": 643,
+      "balance_dollars": "6.4308",
+      "portfolio_value": 1622,
+      "updated_ts": 1794844507
     },
     "env": "production",
-    "checkedAt": "2026-11-16T15:24:59Z"
+    "checkedAt": "2026-11-16T15:55:07Z"
   },
   "maker": {
     "start": 0.0,
@@ -50776,7 +50814,9 @@
         "takerEdge": 0.0311,
         "makerEdge": 0.0542,
         "postedAt": "2026-11-16T11:10:48Z",
-        "status": "resting"
+        "status": "filled",
+        "filledAt": "2026-11-16T15:54:50Z",
+        "askAtFill": 0.5
       }
     ],
     "trades": [
@@ -57439,6 +57479,29 @@
         "payout": 0.0,
         "pnl": -0.39,
         "settledAt": "2026-11-16T04:54:41Z"
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV20UNMWYO-UNM8",
+        "title": "New Mexico wins by over 7.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "New Mexico Lobos at Wyoming Cowboys",
+        "commence": "2026-11-21T02:00:00Z",
+        "side": "no",
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5586,
+        "estimated": true,
+        "ask": 0.5,
+        "count": 1,
+        "cost": 0.5,
+        "fee": 0.0044,
+        "time": "2026-11-16T15:54:50Z",
+        "status": "open",
+        "book": "maker",
+        "mode": "paper",
+        "postedAt": "2026-11-16T11:10:48Z",
+        "lastMid": 0.49,
+        "lastSeen": "2026-11-16T15:54:50Z"
       }
     ],
     "equity": [],
