@@ -20695,6 +20695,29 @@
         "payout": 0.0,
         "pnl": -0.44,
         "settledAt": "2026-11-16T02:24:46Z"
+      },
+      {
+        "ticker": "KXNCAAFGAME-26NOV21SIUUND-UND",
+        "title": "North Dakota",
+        "sport": "NCAAF",
+        "kind": "game",
+        "event": "Northern Illinois Huskies at North Dakota State Bison",
+        "commence": "2026-11-21T21:00:00Z",
+        "side": "yes",
+        "ask": 0.86,
+        "strike": null,
+        "source": "kalshi-sharp",
+        "fair": 0.9516,
+        "edge": 0.0832,
+        "estimated": false,
+        "why": "Pinnacle fair 95.2% vs Kalshi YES 0.86 + fee = 0.868.",
+        "time": "2026-11-16T02:40:29Z",
+        "count": 1,
+        "cost": 0.86,
+        "fee": 0.01,
+        "status": "open",
+        "book": "paper",
+        "mode": "paper"
       }
     ],
     "equity": [
@@ -23177,6 +23200,14 @@
       {
         "t": "2026-11-16T02:24:46Z",
         "open": 3.39,
+        "realized": -81.23,
+        "equity": 18.77,
+        "clvN": 274,
+        "meanClv": -0.0045
+      },
+      {
+        "t": "2026-11-16T02:40:29Z",
+        "open": 4.26,
         "realized": -81.23,
         "equity": 18.77,
         "clvN": 274,
@@ -28584,6 +28615,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-16T02:24:46Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-16T02:40:29Z"
       }
     ]
   },
@@ -41165,6 +41200,75 @@
         "status": "executed",
         "time": "2026-11-15T21:39:57Z",
         "test": true
+      },
+      {
+        "ticker": "KXNCAAFGAME-26NOV21SIUUND-UND",
+        "title": "North Dakota",
+        "sport": "NCAAF",
+        "kind": "game",
+        "event": "Northern Illinois Huskies at North Dakota State Bison",
+        "commence": "2026-11-21T21:00:00Z",
+        "side": "yes",
+        "strike": null,
+        "source": "kalshi-sharp",
+        "fair": 0.9516,
+        "edge": 0.0832,
+        "estimated": false,
+        "why": "Pinnacle fair 95.2% vs Kalshi YES 0.86 + fee = 0.868.",
+        "orderId": "01a1e23a-8768-7295-bcd4-8b4c925023a9",
+        "orderPath": "v2",
+        "price": 0.81,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-16T02:40:29Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNFLGAME-26NOV22TENDAL-DAL",
+        "title": "Dallas",
+        "sport": "NFL",
+        "kind": "game",
+        "event": "Tennessee Titans at Dallas Cowboys",
+        "commence": "2026-11-22T18:00:00Z",
+        "side": "no",
+        "strike": null,
+        "source": "mirror:sharp-soft",
+        "fair": 0.2466,
+        "edge": 0.0249,
+        "estimated": true,
+        "why": "EDGE sharp-soft B pick (FanDuel away +380 implies 20.8%. Pinnacle +307 no-vig is 22.7%. Edge +1.9%.). Pinnacle fair here 22.7% plus the pick's edge = 24.7%; Kalshi NO 0.21 + fee = 0.222.",
+        "orderId": "01a1e23a-8b50-7349-b012-f879fae97d6c",
+        "orderPath": "v2",
+        "price": 0.2,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-16T02:40:29Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNCAAFGAME-26NOV20UNMWYO-WYO",
+        "title": "Wyoming",
+        "sport": "NCAAF",
+        "kind": "game",
+        "event": "New Mexico Lobos at Wyoming Cowboys",
+        "commence": "2026-11-21T02:00:00Z",
+        "side": "yes",
+        "strike": null,
+        "source": "mirror:sharp-soft",
+        "fair": 0.2947,
+        "edge": 0.0212,
+        "estimated": true,
+        "why": "EDGE sharp-soft B pick (BetRivers home +310 implies 24.4%. Pinnacle +245 no-vig is 26.9%. Edge +2.5%.). Pinnacle fair here 26.9% plus the pick's edge = 29.5%; Kalshi YES 0.26 + fee = 0.273.",
+        "orderId": "01a1e23a-8b50-71b3-9391-c464ffbdac0f",
+        "orderPath": "v2",
+        "price": 0.25,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-16T02:40:29Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -41260,7 +41364,7 @@
       }
     ]
   },
-  "asOf": "2026-11-16T02:24:46Z",
+  "asOf": "2026-11-16T02:40:29Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -41281,7 +41385,7 @@
     "liveActive": true,
     "liveWhy": "on since 2026-10-21T20:30:14.905Z",
     "paper": {
-      "open": 3.39,
+      "open": 4.26,
       "realized": -81.23,
       "equity": 18.77,
       "clvN": 274,
@@ -41297,8 +41401,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 439,
-      "resting": 0,
+      "orders": 444,
+      "resting": 5,
       "filled": 222,
       "expired": 217,
       "fillRate": 0.506,
@@ -41311,8 +41415,11 @@
       "pairedTakerClvNet": -0.0283,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 0,
+    "liveSkips": {
+      "test: same contract already held": 3,
+      "already held": 1
+    },
+    "liveCandidates": 7,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -41353,9 +41460,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 1.08,
+      "spentToday": 2.34,
       "trades": 153,
-      "resting": 0
+      "resting": 3
     },
     "config": {
       "startingBankroll": 35.0,
@@ -41377,10 +41484,10 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4704,
+      "kalshiMarkets": 4689,
       "eventsMatched": 257,
-      "eventsUnmatched": 151,
-      "candidates": 0
+      "eventsUnmatched": 150,
+      "candidates": 7
     }
   },
   "account": {
@@ -41389,11 +41496,11 @@
     "detail": {
       "balance": 693,
       "balance_dollars": "6.9352",
-      "portfolio_value": 1583,
-      "updated_ts": 1794795909
+      "portfolio_value": 1453,
+      "updated_ts": 1794796851
     },
     "env": "production",
-    "checkedAt": "2026-11-16T02:25:09Z"
+    "checkedAt": "2026-11-16T02:40:51Z"
   },
   "maker": {
     "start": 0.0,
@@ -50400,6 +50507,101 @@
         "postedAt": "2026-11-15T21:24:47Z",
         "status": "expired",
         "expiredAt": "2026-11-15T23:10:03Z"
+      },
+      {
+        "ticker": "KXNCAAFGAME-26NOV21SIUUND-UND",
+        "title": "North Dakota",
+        "sport": "NCAAF",
+        "kind": "game",
+        "event": "Northern Illinois Huskies at North Dakota State Bison",
+        "commence": "2026-11-21T21:00:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp",
+        "fair": 0.9516,
+        "estimated": false,
+        "price": 0.81,
+        "bidAtPost": 0.8,
+        "askAtPost": 0.86,
+        "takerEdge": 0.0832,
+        "makerEdge": 0.1389,
+        "postedAt": "2026-11-16T02:40:29Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNFLGAME-26NOV22TENDAL-DAL",
+        "title": "Dallas",
+        "sport": "NFL",
+        "kind": "game",
+        "event": "Tennessee Titans at Dallas Cowboys",
+        "commence": "2026-11-22T18:00:00Z",
+        "side": "no",
+        "source": "mirror:sharp-soft",
+        "fair": 0.2466,
+        "estimated": true,
+        "price": 0.2,
+        "bidAtPost": 0.2,
+        "askAtPost": 0.21,
+        "takerEdge": 0.0249,
+        "makerEdge": 0.0438,
+        "postedAt": "2026-11-16T02:40:29Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNFLGAME-26NOV22TENDAL-DAL",
+        "title": "Dallas",
+        "sport": "NFL",
+        "kind": "game",
+        "event": "Tennessee Titans at Dallas Cowboys",
+        "commence": "2026-11-22T18:00:00Z",
+        "side": "no",
+        "source": "mirror:soft-dog",
+        "fair": 0.2466,
+        "estimated": true,
+        "price": 0.2,
+        "bidAtPost": 0.2,
+        "askAtPost": 0.21,
+        "takerEdge": 0.0249,
+        "makerEdge": 0.0438,
+        "postedAt": "2026-11-16T02:40:29Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNCAAFGAME-26NOV20UNMWYO-WYO",
+        "title": "Wyoming",
+        "sport": "NCAAF",
+        "kind": "game",
+        "event": "New Mexico Lobos at Wyoming Cowboys",
+        "commence": "2026-11-21T02:00:00Z",
+        "side": "yes",
+        "source": "mirror:sharp-soft",
+        "fair": 0.2947,
+        "estimated": true,
+        "price": 0.25,
+        "bidAtPost": 0.24,
+        "askAtPost": 0.26,
+        "takerEdge": 0.0212,
+        "makerEdge": 0.0414,
+        "postedAt": "2026-11-16T02:40:29Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNCAAFGAME-26NOV20UNMWYO-WYO",
+        "title": "Wyoming",
+        "sport": "NCAAF",
+        "kind": "game",
+        "event": "New Mexico Lobos at Wyoming Cowboys",
+        "commence": "2026-11-21T02:00:00Z",
+        "side": "yes",
+        "source": "mirror:soft-dog",
+        "fair": 0.2947,
+        "estimated": true,
+        "price": 0.25,
+        "bidAtPost": 0.24,
+        "askAtPost": 0.26,
+        "takerEdge": 0.0212,
+        "makerEdge": 0.0414,
+        "postedAt": "2026-11-16T02:40:29Z",
+        "status": "resting"
       }
     ],
     "trades": [

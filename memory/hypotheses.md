@@ -781,3 +781,6 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-15 | NBA: bookAtPick=BetRivers + sharpGapOpen=<1% | 8 | +2.1% | found inside NBA sharpGapOpen=<1% (best of 33 features tested); small sample, may share reads with other rows |
 | 2026-11-15 | NFL: bookAtPick=BetRivers + restDays=normal | 12 | +1.1% | found inside NFL restDays=normal (best of 52 features tested); small sample, may share reads with other rows |
 | 2026-11-15 | NFL: bookAtPick=DraftKings + venue=home | 8 | +2.3% | found inside NFL venue=home (best of 35 features tested); small sample, may share reads with other rows |
+| 2026-11-16 | NBA: edgeBar=0.5-1x + sharpDiv=pin-for | 8 | +2.9% | found inside NBA edgeBar=0.5-1x (best of 58 features tested); small sample, may share reads with other rows |
+| 2026-11-16 | NBA: pattern=sharp-soft + timing=late | 23 | +1.6% | found inside NBA timing=late (best of 49 features tested); small sample, may share reads with other rows |
+| 2026-11-16 | NBA: sharpGapOpen=2%+ + tzShift=none | 8 | +2.9% | found inside NBA tzShift=none (best of 58 features tested); small sample, may share reads with other rows |
