@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.835,
-        "lastSeen": "2026-11-16T19:24:42Z"
+        "lastSeen": "2026-11-16T19:54:50Z"
       }
     ],
     "equity": [
@@ -28729,6 +28729,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-16T19:24:42Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-16T19:54:50Z"
       }
     ]
   },
@@ -34044,7 +34048,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.49,
-        "lastSeen": "2026-11-16T19:24:42Z"
+        "lastSeen": "2026-11-16T19:54:50Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV20UNMWYO-WYO",
@@ -34071,8 +34075,34 @@
         "orderId": "01a1e23a-8b50-71b3-9391-c464ffbdac0f",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.26,
-        "lastSeen": "2026-11-16T19:24:42Z"
+        "lastMid": 0.255,
+        "lastSeen": "2026-11-16T19:54:50Z"
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV20OREMSU-ORE14",
+        "title": "Oregon wins by over 13.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Oregon Ducks at Michigan State Spartans",
+        "commence": "2026-11-21T01:00:00Z",
+        "side": "no",
+        "strike": 13.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4531,
+        "edge": 0.0262,
+        "estimated": true,
+        "why": "Pinnacle fair 45.3% vs Kalshi NO 0.41 + fee = 0.427.",
+        "ask": 0.4,
+        "count": 1.0,
+        "cost": 0.4,
+        "fee": 0.0,
+        "time": "2026-11-16T19:54:50Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1e5d1-ee98-78c5-adc6-23be52a2bd1f",
+        "test": true,
+        "fillChecked": true
       }
     ],
     "equity": [
@@ -35775,6 +35805,14 @@
       {
         "t": "2026-11-16T17:24:51Z",
         "open": 0.75,
+        "realized": -1.17,
+        "equity": 33.83,
+        "clvN": 143,
+        "meanClv": -0.0
+      },
+      {
+        "t": "2026-11-16T19:54:50Z",
+        "open": 1.15,
         "realized": -1.17,
         "equity": 33.83,
         "clvN": 143,
@@ -41575,9 +41613,32 @@
         "orderPath": "v2 after shard funding",
         "price": 0.4,
         "count": 1,
+        "filledSeen": 1.0,
+        "status": "executed",
+        "time": "2026-11-16T19:24:42Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNFLGAME-26NOV22NOCHI-CHI",
+        "title": "Chicago",
+        "sport": "NFL",
+        "kind": "game",
+        "event": "New Orleans Saints at Chicago Bears",
+        "commence": "2026-11-22T18:00:00Z",
+        "side": "no",
+        "strike": null,
+        "source": "mirror:sharp-soft",
+        "fair": 0.1951,
+        "edge": 0.0257,
+        "estimated": true,
+        "why": "EDGE sharp-soft B pick (FanDuel away +560 implies 15.2%. Pinnacle +420 no-vig is 17.3%. Edge +2.2%.). Pinnacle fair here 17.3% plus the pick's edge = 19.5%; Kalshi NO 0.16 + fee = 0.169.",
+        "orderId": "01a1e5ed-8130-73f1-a4f6-79183fa2d2df",
+        "orderPath": "v2",
+        "price": 0.15,
+        "count": 1,
         "filledSeen": 0,
         "status": "resting",
-        "time": "2026-11-16T19:24:42Z",
+        "time": "2026-11-16T19:54:50Z",
         "test": true
       }
     ],
@@ -41683,7 +41744,7 @@
       }
     ]
   },
-  "asOf": "2026-11-16T19:24:42Z",
+  "asOf": "2026-11-16T19:54:50Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -41711,7 +41772,7 @@
       "meanClv": -0.0045
     },
     "live": {
-      "open": 0.75,
+      "open": 1.15,
       "realized": -1.17,
       "equity": 33.83,
       "clvN": 143,
@@ -41720,8 +41781,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 452,
-      "resting": 12,
+      "orders": 454,
+      "resting": 14,
       "filled": 223,
       "expired": 217,
       "fillRate": 0.507,
@@ -41734,8 +41795,11 @@
       "pairedTakerClvNet": -0.0283,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 1,
+    "liveSkips": {
+      "already held": 1,
+      "test: same contract already held": 1
+    },
+    "liveCandidates": 3,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -41776,8 +41840,8 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 1.58,
-      "trades": 155,
+      "spentToday": 1.73,
+      "trades": 156,
       "resting": 3
     },
     "config": {
@@ -41803,20 +41867,20 @@
       "kalshiMarkets": 4717,
       "eventsMatched": 259,
       "eventsUnmatched": 144,
-      "candidates": 1
+      "candidates": 3
     }
   },
   "account": {
     "keys": "ok",
-    "balance": 6.18,
+    "balance": 5.77,
     "detail": {
-      "balance": 617,
-      "balance_dollars": "6.1775",
-      "portfolio_value": 1648,
-      "updated_ts": 1794857103
+      "balance": 577,
+      "balance_dollars": "5.7733",
+      "portfolio_value": 1557,
+      "updated_ts": 1794858910
     },
     "env": "production",
-    "checkedAt": "2026-11-16T19:25:03Z"
+    "checkedAt": "2026-11-16T19:55:10Z"
   },
   "maker": {
     "start": 0.0,
@@ -51072,6 +51136,44 @@
         "makerEdge": 0.0489,
         "postedAt": "2026-11-16T19:09:56Z",
         "status": "resting"
+      },
+      {
+        "ticker": "KXNFLGAME-26NOV22NOCHI-CHI",
+        "title": "Chicago",
+        "sport": "NFL",
+        "kind": "game",
+        "event": "New Orleans Saints at Chicago Bears",
+        "commence": "2026-11-22T18:00:00Z",
+        "side": "no",
+        "source": "mirror:sharp-soft",
+        "fair": 0.1951,
+        "estimated": true,
+        "price": 0.15,
+        "bidAtPost": 0.15,
+        "askAtPost": 0.16,
+        "takerEdge": 0.0257,
+        "makerEdge": 0.0429,
+        "postedAt": "2026-11-16T19:54:50Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNFLGAME-26NOV22NOCHI-CHI",
+        "title": "Chicago",
+        "sport": "NFL",
+        "kind": "game",
+        "event": "New Orleans Saints at Chicago Bears",
+        "commence": "2026-11-22T18:00:00Z",
+        "side": "no",
+        "source": "mirror:soft-dog",
+        "fair": 0.1951,
+        "estimated": true,
+        "price": 0.15,
+        "bidAtPost": 0.15,
+        "askAtPost": 0.16,
+        "takerEdge": 0.0257,
+        "makerEdge": 0.0429,
+        "postedAt": "2026-11-16T19:54:50Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -57756,7 +57858,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T11:10:48Z",
         "lastMid": 0.49,
-        "lastSeen": "2026-11-16T19:24:42Z"
+        "lastSeen": "2026-11-16T19:54:50Z"
       }
     ],
     "equity": [],
