@@ -28551,6 +28551,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-16T00:24:44Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-16T00:54:50Z"
       }
     ]
   },
@@ -32714,8 +32718,8 @@
         "orderId": "01a1c0dc-0880-7b15-975c-04e068fc04e8",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.395,
-        "lastSeen": "2026-11-16T00:24:44Z"
+        "lastMid": 0.375,
+        "lastSeen": "2026-11-16T00:54:50Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14ORSTBSU-BSU15",
@@ -41207,7 +41211,7 @@
       }
     ]
   },
-  "asOf": "2026-11-16T00:24:44Z",
+  "asOf": "2026-11-16T00:54:50Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -41245,10 +41249,10 @@
     "liveStopped": null,
     "maker": {
       "orders": 439,
-      "resting": 1,
-      "filled": 221,
+      "resting": 0,
+      "filled": 222,
       "expired": 217,
-      "fillRate": 0.505,
+      "fillRate": 0.506,
       "clvN": 221,
       "meanClv": -0.0189,
       "meanClvNet": -0.023,
@@ -41324,7 +41328,7 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4474,
+      "kalshiMarkets": 4501,
       "eventsMatched": 248,
       "eventsUnmatched": 150,
       "candidates": 0
@@ -41336,11 +41340,11 @@
     "detail": {
       "balance": 593,
       "balance_dollars": "5.9352",
-      "portfolio_value": 1737,
-      "updated_ts": 1794788707
+      "portfolio_value": 1637,
+      "updated_ts": 1794790510
     },
     "env": "production",
-    "checkedAt": "2026-11-16T00:25:07Z"
+    "checkedAt": "2026-11-16T00:55:10Z"
   },
   "maker": {
     "start": 0.0,
@@ -48392,7 +48396,9 @@
         "takerEdge": 0.0256,
         "makerEdge": 0.0482,
         "postedAt": "2026-11-09T15:09:47Z",
-        "status": "resting"
+        "status": "filled",
+        "filledAt": "2026-11-16T00:54:50Z",
+        "askAtFill": 0.38
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14MTULIB-LIB22",
@@ -56942,6 +56948,29 @@
         "lastSeen": "2026-11-15T22:54:45Z",
         "closeMid": 0.605,
         "clv": -0.005
+      },
+      {
+        "ticker": "KXNFLSPREAD-26NOV15PITCIN-CIN3",
+        "title": "Cincinnati wins by over 2.5 points",
+        "sport": "NFL",
+        "kind": "spread",
+        "event": "Pittsburgh Steelers at Cincinnati Bengals",
+        "commence": "2026-11-16T01:20:00Z",
+        "side": "no",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4424,
+        "estimated": true,
+        "ask": 0.39,
+        "count": 1,
+        "cost": 0.39,
+        "fee": 0.0042,
+        "time": "2026-11-16T00:54:50Z",
+        "status": "open",
+        "book": "maker",
+        "mode": "paper",
+        "postedAt": "2026-11-09T15:09:47Z",
+        "lastMid": 0.375,
+        "lastSeen": "2026-11-16T00:54:50Z"
       }
     ],
     "equity": [],
