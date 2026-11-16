@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.835,
-        "lastSeen": "2026-11-16T15:54:50Z"
+        "lastSeen": "2026-11-16T16:03:21Z"
       }
     ],
     "equity": [
@@ -28689,6 +28689,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-16T15:54:50Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-16T16:03:21Z"
       }
     ]
   },
@@ -34002,7 +34006,9 @@
         "mode": "maker",
         "orderId": "01a1e40d-c0c8-7141-a58a-e2f1f936c864",
         "test": true,
-        "fillChecked": true
+        "fillChecked": true,
+        "lastMid": 0.49,
+        "lastSeen": "2026-11-16T16:03:21Z"
       }
     ],
     "equity": [
@@ -41409,6 +41415,52 @@
         "status": "executed",
         "time": "2026-11-16T11:10:48Z",
         "test": true
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV21NIUNDSU-NDSU26",
+        "title": "North Dakota St. wins by over 25.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Northern Illinois Huskies at North Dakota State Bison",
+        "commence": "2026-11-21T21:00:00Z",
+        "side": "yes",
+        "strike": 25.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5347,
+        "edge": 0.0273,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt B pick (Hard Rock Bet home -24.5 -105 implies 51.2%. Pinnacle -114 no-vig is 51.3% at -25.5, worth 53.8% at this line. Edge +2.5%.). Pinnacle fair here 50.9% plus the pick's edge = 53.5%; Kalshi YES 0.49 + fee = 0.507.",
+        "orderId": "01a1e519-8790-7e70-bfab-58ea56edbb1a",
+        "orderPath": "v2",
+        "price": 0.48,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-16T16:03:21Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV21ARIZKSU-ARIZ8",
+        "title": "Arizona wins by over 7.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Arizona Wildcats at Kansas State Wildcats",
+        "commence": "2026-11-22T00:00:00Z",
+        "side": "no",
+        "strike": 7.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5495,
+        "edge": 0.0221,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt B pick (FanDuel home +8.5 -110 implies 52.4%. Pinnacle -114 no-vig is 51.4% at 7.5, worth 53.9% at this line. Edge +1.5%.). Pinnacle fair here 53.4% plus the pick's edge = 55.0%; Kalshi NO 0.51 + fee = 0.527.",
+        "orderId": "01a1e519-8b78-730d-83b3-60fde4e9993f",
+        "orderPath": "v2",
+        "price": 0.5,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-16T16:03:21Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -41504,7 +41556,7 @@
       }
     ]
   },
-  "asOf": "2026-11-16T15:54:50Z",
+  "asOf": "2026-11-16T16:03:21Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -41541,8 +41593,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 448,
-      "resting": 8,
+      "orders": 450,
+      "resting": 10,
       "filled": 223,
       "expired": 217,
       "fillRate": 0.507,
@@ -41556,7 +41608,7 @@
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {},
-    "liveCandidates": 0,
+    "liveCandidates": 2,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -41597,9 +41649,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 0.5,
+      "spentToday": 1.48,
       "trades": 154,
-      "resting": 2
+      "resting": 4
     },
     "config": {
       "startingBankroll": 35.0,
@@ -41624,7 +41676,7 @@
       "kalshiMarkets": 4717,
       "eventsMatched": 259,
       "eventsUnmatched": 144,
-      "candidates": 0
+      "candidates": 2
     }
   },
   "account": {
@@ -41633,11 +41685,11 @@
     "detail": {
       "balance": 643,
       "balance_dollars": "6.4308",
-      "portfolio_value": 1622,
-      "updated_ts": 1794844507
+      "portfolio_value": 1491,
+      "updated_ts": 1794845019
     },
     "env": "production",
-    "checkedAt": "2026-11-16T15:55:07Z"
+    "checkedAt": "2026-11-16T16:03:39Z"
   },
   "maker": {
     "start": 0.0,
@@ -50817,6 +50869,44 @@
         "status": "filled",
         "filledAt": "2026-11-16T15:54:50Z",
         "askAtFill": 0.5
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV21NIUNDSU-NDSU26",
+        "title": "North Dakota St. wins by over 25.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Northern Illinois Huskies at North Dakota State Bison",
+        "commence": "2026-11-21T21:00:00Z",
+        "side": "yes",
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5347,
+        "estimated": true,
+        "price": 0.48,
+        "bidAtPost": 0.48,
+        "askAtPost": 0.49,
+        "takerEdge": 0.0273,
+        "makerEdge": 0.0503,
+        "postedAt": "2026-11-16T16:03:21Z",
+        "status": "resting"
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV21ARIZKSU-ARIZ8",
+        "title": "Arizona wins by over 7.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Arizona Wildcats at Kansas State Wildcats",
+        "commence": "2026-11-22T00:00:00Z",
+        "side": "no",
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5495,
+        "estimated": true,
+        "price": 0.5,
+        "bidAtPost": 0.5,
+        "askAtPost": 0.51,
+        "takerEdge": 0.0221,
+        "makerEdge": 0.0451,
+        "postedAt": "2026-11-16T16:03:21Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -57501,7 +57591,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T11:10:48Z",
         "lastMid": 0.49,
-        "lastSeen": "2026-11-16T15:54:50Z"
+        "lastSeen": "2026-11-16T16:03:21Z"
       }
     ],
     "equity": [],
