@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.835,
-        "lastSeen": "2026-11-16T22:54:49Z"
+        "lastSeen": "2026-11-16T23:09:58Z"
       }
     ],
     "equity": [
@@ -28765,6 +28765,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-16T22:54:49Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-16T23:09:58Z"
       }
     ]
   },
@@ -34079,8 +34083,8 @@
         "orderId": "01a1e40d-c0c8-7141-a58a-e2f1f936c864",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.5,
-        "lastSeen": "2026-11-16T22:54:49Z"
+        "lastMid": 0.495,
+        "lastSeen": "2026-11-16T23:09:58Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV20UNMWYO-WYO",
@@ -34108,7 +34112,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.255,
-        "lastSeen": "2026-11-16T22:54:49Z"
+        "lastSeen": "2026-11-16T23:09:58Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV20OREMSU-ORE14",
@@ -34136,7 +34140,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.415,
-        "lastSeen": "2026-11-16T22:54:49Z"
+        "lastSeen": "2026-11-16T23:09:58Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -34164,7 +34168,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.435,
-        "lastSeen": "2026-11-16T22:54:49Z"
+        "lastSeen": "2026-11-16T23:09:58Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -34192,7 +34196,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.43,
-        "lastSeen": "2026-11-16T22:54:49Z"
+        "lastSeen": "2026-11-16T23:09:58Z"
       }
     ],
     "equity": [
@@ -42011,7 +42015,7 @@
       }
     ]
   },
-  "asOf": "2026-11-16T22:54:49Z",
+  "asOf": "2026-11-16T23:09:58Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -42048,8 +42052,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 468,
-      "resting": 24,
+      "orders": 469,
+      "resting": 25,
       "filled": 227,
       "expired": 217,
       "fillRate": 0.511,
@@ -42062,8 +42066,10 @@
       "pairedTakerClvNet": -0.0283,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 0,
+    "liveSkips": {
+      "test cap reached": 2
+    },
+    "liveCandidates": 2,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -42128,10 +42134,10 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4719,
+      "kalshiMarkets": 4723,
       "eventsMatched": 259,
-      "eventsUnmatched": 145,
-      "candidates": 0
+      "eventsUnmatched": 147,
+      "candidates": 2
     }
   },
   "account": {
@@ -42140,11 +42146,11 @@
     "detail": {
       "balance": 191,
       "balance_dollars": "1.9151",
-      "portfolio_value": 2047,
-      "updated_ts": 1794869706
+      "portfolio_value": 2050,
+      "updated_ts": 1794870615
     },
     "env": "production",
-    "checkedAt": "2026-11-16T22:55:06Z"
+    "checkedAt": "2026-11-16T23:10:15Z"
   },
   "maker": {
     "start": 0.0,
@@ -51712,6 +51718,25 @@
         "makerEdge": 0.0541,
         "postedAt": "2026-11-16T21:24:47Z",
         "status": "resting"
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV21ARIZKSU-ARIZ8",
+        "title": "Arizona wins by over 7.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Arizona Wildcats at Kansas State Wildcats",
+        "commence": "2026-11-22T00:00:00Z",
+        "side": "no",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.5598,
+        "estimated": true,
+        "price": 0.51,
+        "bidAtPost": 0.51,
+        "askAtPost": 0.52,
+        "takerEdge": 0.0223,
+        "makerEdge": 0.0454,
+        "postedAt": "2026-11-16T23:09:58Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -58395,8 +58420,8 @@
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-16T11:10:48Z",
-        "lastMid": 0.5,
-        "lastSeen": "2026-11-16T22:54:49Z"
+        "lastMid": 0.495,
+        "lastSeen": "2026-11-16T23:09:58Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -58419,7 +58444,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T18:24:59Z",
         "lastMid": 0.435,
-        "lastSeen": "2026-11-16T22:54:49Z"
+        "lastSeen": "2026-11-16T23:09:58Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-43",
@@ -58442,7 +58467,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.41,
-        "lastSeen": "2026-11-16T22:54:49Z"
+        "lastSeen": "2026-11-16T23:09:58Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -58465,7 +58490,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.43,
-        "lastSeen": "2026-11-16T22:54:49Z"
+        "lastSeen": "2026-11-16T23:09:58Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -58488,7 +58513,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.43,
-        "lastSeen": "2026-11-16T22:54:49Z"
+        "lastSeen": "2026-11-16T23:09:58Z"
       }
     ],
     "equity": [],
