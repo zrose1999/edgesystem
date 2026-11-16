@@ -20427,13 +20427,18 @@
         "count": 1,
         "cost": 0.38,
         "fee": 0.02,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.375,
         "lastSeen": "2026-11-15T20:54:53Z",
         "closeMid": 0.375,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.4,
+        "settledAt": "2026-11-16T00:24:44Z"
       },
       {
         "ticker": "KXNFLGAME-26NOV15MINGB-MIN",
@@ -23154,6 +23159,14 @@
         "realized": -80.39,
         "equity": 19.61,
         "clvN": 273,
+        "meanClv": -0.0045
+      },
+      {
+        "t": "2026-11-16T00:24:44Z",
+        "open": 3.83,
+        "realized": -80.79,
+        "equity": 19.21,
+        "clvN": 274,
         "meanClv": -0.0045
       }
     ],
@@ -28534,6 +28547,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-15T23:54:47Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-16T00:24:44Z"
       }
     ]
   },
@@ -32697,8 +32714,8 @@
         "orderId": "01a1c0dc-0880-7b15-975c-04e068fc04e8",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.405,
-        "lastSeen": "2026-11-15T23:54:47Z"
+        "lastMid": 0.395,
+        "lastSeen": "2026-11-16T00:24:44Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14ORSTBSU-BSU15",
@@ -32859,7 +32876,7 @@
         "cost": 0.26,
         "fee": 0.0,
         "time": "2026-11-10T20:54:39Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1c707-5160-7a4f-b89b-a99cb7349117",
@@ -32868,7 +32885,12 @@
         "lastMid": 0.275,
         "lastSeen": "2026-11-15T20:54:53Z",
         "closeMid": 0.275,
-        "clv": 0.015
+        "clv": 0.015,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.26,
+        "settledAt": "2026-11-16T00:24:44Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15MINGB-GB5",
@@ -33449,7 +33471,7 @@
         "cost": 0.4,
         "fee": 0.0,
         "time": "2026-11-14T11:10:48Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1c707-5930-7e03-9d18-2354eadb10f2",
@@ -33458,7 +33480,12 @@
         "lastMid": 0.405,
         "lastSeen": "2026-11-15T20:54:53Z",
         "closeMid": 0.405,
-        "clv": 0.005
+        "clv": 0.005,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.4,
+        "settledAt": "2026-11-16T00:24:44Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14MISSOKLA-OKLA3",
@@ -35459,6 +35486,14 @@
         "open": 2.13,
         "realized": -0.04,
         "equity": 34.96,
+        "clvN": 142,
+        "meanClv": 0.0001
+      },
+      {
+        "t": "2026-11-16T00:24:44Z",
+        "open": 1.47,
+        "realized": -0.7,
+        "equity": 34.3,
         "clvN": 142,
         "meanClv": 0.0001
       }
@@ -41172,7 +41207,7 @@
       }
     ]
   },
-  "asOf": "2026-11-15T23:54:47Z",
+  "asOf": "2026-11-16T00:24:44Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -41193,16 +41228,16 @@
     "liveActive": true,
     "liveWhy": "on since 2026-10-21T20:30:14.905Z",
     "paper": {
-      "open": 4.23,
-      "realized": -80.39,
-      "equity": 19.61,
+      "open": 3.83,
+      "realized": -80.79,
+      "equity": 19.21,
       "clvN": 274,
       "meanClv": -0.0045
     },
     "live": {
-      "open": 2.13,
-      "realized": -0.04,
-      "equity": 34.96,
+      "open": 1.47,
+      "realized": -0.7,
+      "equity": 34.3,
       "clvN": 142,
       "meanClv": 0.0001
     },
@@ -41214,10 +41249,10 @@
       "filled": 221,
       "expired": 217,
       "fillRate": 0.505,
-      "clvN": 220,
-      "meanClv": -0.019,
-      "meanClvNet": -0.0231,
-      "settledPnl": -1.32,
+      "clvN": 221,
+      "meanClv": -0.0189,
+      "meanClvNet": -0.023,
+      "settledPnl": -4.69,
       "pairedWithTaker": 84,
       "pairedMakerClvNet": -0.0134,
       "pairedTakerClvNet": -0.0283,
@@ -41289,8 +41324,8 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4655,
-      "eventsMatched": 257,
+      "kalshiMarkets": 4474,
+      "eventsMatched": 248,
       "eventsUnmatched": 150,
       "candidates": 0
     }
@@ -41301,11 +41336,11 @@
     "detail": {
       "balance": 593,
       "balance_dollars": "5.9352",
-      "portfolio_value": 1883,
-      "updated_ts": 1794786907
+      "portfolio_value": 1737,
+      "updated_ts": 1794788707
     },
     "env": "production",
-    "checkedAt": "2026-11-15T23:55:07Z"
+    "checkedAt": "2026-11-16T00:25:07Z"
   },
   "maker": {
     "start": 0.0,
@@ -55429,14 +55464,19 @@
         "cost": 0.4,
         "fee": 0.0042,
         "time": "2026-11-09T22:24:44Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-09T21:54:43Z",
         "lastMid": 0.295,
         "lastSeen": "2026-11-15T20:54:53Z",
         "closeMid": 0.295,
-        "clv": -0.105
+        "clv": -0.105,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.4,
+        "settledAt": "2026-11-16T00:24:44Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV15LARARI-46",
@@ -55454,14 +55494,19 @@
         "cost": 0.4,
         "fee": 0.0042,
         "time": "2026-11-09T22:24:44Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-09T21:54:43Z",
         "lastMid": 0.265,
         "lastSeen": "2026-11-15T20:54:53Z",
         "closeMid": 0.265,
-        "clv": -0.135
+        "clv": -0.135,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.4,
+        "settledAt": "2026-11-16T00:24:44Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15LARARI-LAR9",
@@ -55479,14 +55524,19 @@
         "cost": 0.49,
         "fee": 0.0044,
         "time": "2026-11-09T22:54:41Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-09T21:54:43Z",
         "lastMid": 0.465,
         "lastSeen": "2026-11-15T20:54:53Z",
         "closeMid": 0.465,
-        "clv": -0.025
+        "clv": -0.025,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.49,
+        "settledAt": "2026-11-16T00:24:44Z"
       },
       {
         "ticker": "KXNFLSPREAD-26NOV15LARARI-LAR7",
@@ -55504,14 +55554,19 @@
         "cost": 0.37,
         "fee": 0.0041,
         "time": "2026-11-10T01:24:51Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-09T22:54:41Z",
         "lastMid": 0.375,
         "lastSeen": "2026-11-15T20:54:53Z",
         "closeMid": 0.375,
-        "clv": 0.005
+        "clv": 0.005,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.37,
+        "settledAt": "2026-11-16T00:24:44Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14UNLVUNM-UNM14",
@@ -55559,14 +55614,19 @@
         "cost": 0.44,
         "fee": 0.0043,
         "time": "2026-11-10T08:49:16Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-09T22:54:41Z",
         "lastMid": 0.435,
         "lastSeen": "2026-11-15T20:54:53Z",
         "closeMid": 0.435,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.44,
+        "settledAt": "2026-11-16T00:24:44Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV14KSUTCU-47",
@@ -55674,14 +55734,19 @@
         "cost": 0.44,
         "fee": 0.0043,
         "time": "2026-11-10T20:24:49Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-10T19:54:48Z",
         "lastMid": 0.435,
         "lastSeen": "2026-11-15T20:54:53Z",
         "closeMid": 0.435,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.44,
+        "settledAt": "2026-11-16T00:24:44Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV15MIAIND-42",
@@ -56119,14 +56184,19 @@
         "cost": 0.43,
         "fee": 0.0043,
         "time": "2026-11-13T00:24:45Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-10T19:54:48Z",
         "lastMid": 0.435,
         "lastSeen": "2026-11-15T20:54:53Z",
         "closeMid": 0.435,
-        "clv": 0.005
+        "clv": 0.005,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.43,
+        "settledAt": "2026-11-16T00:24:44Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV12MEMUSF-49",
@@ -56384,14 +56454,19 @@
         "cost": 0.4,
         "fee": 0.0042,
         "time": "2026-11-14T11:10:48Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-10T19:54:48Z",
         "lastMid": 0.405,
         "lastSeen": "2026-11-15T20:54:53Z",
         "closeMid": 0.405,
-        "clv": 0.005
+        "clv": 0.005,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.4,
+        "settledAt": "2026-11-16T00:24:44Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV14NEBRUTG-NEB14",
@@ -56739,7 +56814,9 @@
         "mode": "paper",
         "postedAt": "2026-11-15T11:54:45Z",
         "lastMid": 0.425,
-        "lastSeen": "2026-11-15T23:54:47Z"
+        "lastSeen": "2026-11-15T23:54:47Z",
+        "closeMid": 0.425,
+        "clv": 0.005
       },
       {
         "ticker": "KXNBASPREAD-26NOV15NYKTOR-NYK7",
