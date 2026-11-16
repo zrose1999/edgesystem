@@ -1,21 +1,21 @@
 {
- "asOf": "2026-11-16T17:39:50Z",
+ "asOf": "2026-11-16T17:54:50Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
    "pattern": "edge-stack",
    "unit": "points",
-   "n": 20,
-   "meanPredicted": 1.305,
-   "meanRealized": 0.275,
-   "tRealized": 0.66,
-   "capture": 0.21,
-   "rightWay": 0.417,
+   "n": 19,
+   "meanPredicted": 1.2807,
+   "meanRealized": 0.2368,
+   "tRealized": 0.54,
+   "capture": 0.18,
+   "rightWay": 0.364,
    "noMove": 8,
    "logLossGain": {
-    "n": 20,
-    "mean": -0.00086,
-    "t": -0.06
+    "n": 19,
+    "mean": -0.00408,
+    "t": -0.28
    },
    "verdict": "collecting"
   },
@@ -90,17 +90,17 @@
   "learned-ncaaf-spread": {
    "pattern": "learned-ncaaf-spread",
    "unit": "points",
-   "n": 73,
-   "meanPredicted": 1.0936,
-   "meanRealized": 0.9247,
-   "tRealized": 3.63,
+   "n": 71,
+   "meanPredicted": 1.0999,
+   "meanRealized": 0.9366,
+   "tRealized": 3.58,
    "capture": 0.85,
-   "rightWay": 0.698,
-   "noMove": 20,
+   "rightWay": 0.692,
+   "noMove": 19,
    "logLossGain": {
-    "n": 73,
-    "mean": 0.00043,
-    "t": 0.06
+    "n": 71,
+    "mean": -0.00071,
+    "t": -0.1
    },
    "verdict": "proven"
   },
@@ -158,17 +158,17 @@
   "learned-nhl-ml": {
    "pattern": "learned-nhl-ml",
    "unit": "prob",
-   "n": 27,
+   "n": 26,
    "meanPredicted": 0.0271,
-   "meanRealized": 0.0226,
-   "tRealized": 4.91,
-   "capture": 0.84,
-   "rightWay": 0.955,
+   "meanRealized": 0.0213,
+   "tRealized": 4.65,
+   "capture": 0.79,
+   "rightWay": 0.952,
    "noMove": 5,
    "logLossGain": {
-    "n": 27,
-    "mean": -0.00923,
-    "t": -0.81
+    "n": 26,
+    "mean": -0.00775,
+    "t": -0.66
    },
    "verdict": "collecting"
   },
@@ -362,34 +362,34 @@
   "ncaaf-spot": {
    "pattern": "ncaaf-spot",
    "unit": "points",
-   "n": 125,
-   "meanPredicted": 0.3267,
-   "meanRealized": -0.016,
-   "tRealized": -0.09,
-   "capture": -0.05,
-   "rightWay": 0.476,
+   "n": 121,
+   "meanPredicted": 0.3241,
+   "meanRealized": 0.0248,
+   "tRealized": 0.14,
+   "capture": 0.08,
+   "rightWay": 0.475,
    "noMove": 22,
    "logLossGain": {
-    "n": 125,
-    "mean": 0.00201,
-    "t": 1.52
+    "n": 121,
+    "mean": 0.002,
+    "t": 1.5
    },
    "verdict": "collecting"
   },
   "ncaaf-total-move": {
    "pattern": "ncaaf-total-move",
    "unit": "points",
-   "n": 40,
-   "meanPredicted": 0.8895,
-   "meanRealized": 0.7,
-   "tRealized": 2.16,
-   "capture": 0.79,
+   "n": 36,
+   "meanPredicted": 0.9072,
+   "meanRealized": 0.75,
+   "tRealized": 2.14,
+   "capture": 0.83,
    "rightWay": 0.667,
-   "noMove": 10,
+   "noMove": 9,
    "logLossGain": {
-    "n": 40,
-    "mean": -0.00488,
-    "t": -0.92
+    "n": 36,
+    "mean": -0.0068,
+    "t": -1.21
    },
    "verdict": "proven"
   },
@@ -940,17 +940,17 @@
   "sharp-soft-alt": {
    "pattern": "sharp-soft-alt",
    "unit": "points",
-   "n": 97,
-   "meanPredicted": 0.7832,
-   "meanRealized": 0.2371,
-   "tRealized": 1.58,
-   "capture": 0.3,
-   "rightWay": 0.661,
+   "n": 96,
+   "meanPredicted": 0.7807,
+   "meanRealized": 0.2292,
+   "tRealized": 1.51,
+   "capture": 0.29,
+   "rightWay": 0.655,
    "noMove": 41,
    "logLossGain": {
-    "n": 96,
-    "mean": -0.00483,
-    "t": -0.57
+    "n": 95,
+    "mean": -0.00496,
+    "t": -0.58
    },
    "verdict": "collecting"
   },
@@ -1059,17 +1059,17 @@
   "wind-total": {
    "pattern": "wind-total",
    "unit": "points",
-   "n": 18,
-   "meanPredicted": 2.5278,
-   "meanRealized": 0.1667,
-   "tRealized": 0.53,
-   "capture": 0.07,
-   "rightWay": 0.571,
+   "n": 15,
+   "meanPredicted": 2.5667,
+   "meanRealized": 0.1333,
+   "tRealized": 0.37,
+   "capture": 0.05,
+   "rightWay": 0.545,
    "noMove": 4,
    "logLossGain": {
-    "n": 18,
-    "mean": 0.0368,
-    "t": 1.61
+    "n": 15,
+    "mean": 0.05203,
+    "t": 2.17
    },
    "verdict": "collecting"
   }
