@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.835,
-        "lastSeen": "2026-11-16T18:54:47Z"
+        "lastSeen": "2026-11-16T19:09:56Z"
       }
     ],
     "equity": [
@@ -28721,6 +28721,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-16T18:54:47Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-16T19:09:56Z"
       }
     ]
   },
@@ -34036,7 +34040,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.49,
-        "lastSeen": "2026-11-16T18:54:47Z"
+        "lastSeen": "2026-11-16T19:09:56Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV20UNMWYO-WYO",
@@ -34063,8 +34067,8 @@
         "orderId": "01a1e23a-8b50-71b3-9391-c464ffbdac0f",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.26,
-        "lastSeen": "2026-11-16T18:54:47Z"
+        "lastMid": 0.255,
+        "lastSeen": "2026-11-16T19:09:56Z"
       }
     ],
     "equity": [
@@ -41643,7 +41647,7 @@
       }
     ]
   },
-  "asOf": "2026-11-16T18:54:47Z",
+  "asOf": "2026-11-16T19:09:56Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -41680,8 +41684,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 451,
-      "resting": 11,
+      "orders": 452,
+      "resting": 12,
       "filled": 223,
       "expired": 217,
       "fillRate": 0.507,
@@ -41694,8 +41698,10 @@
       "pairedTakerClvNet": -0.0283,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 0,
+    "liveSkips": {
+      "maker order failed": 1
+    },
+    "liveCandidates": 1,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -41763,7 +41769,7 @@
       "kalshiMarkets": 4717,
       "eventsMatched": 259,
       "eventsUnmatched": 144,
-      "candidates": 0
+      "candidates": 1
     }
   },
   "account": {
@@ -41772,11 +41778,11 @@
     "detail": {
       "balance": 617,
       "balance_dollars": "6.1775",
-      "portfolio_value": 1648,
-      "updated_ts": 1794855303
+      "portfolio_value": 1517,
+      "updated_ts": 1794856218
     },
     "env": "production",
-    "checkedAt": "2026-11-16T18:55:03Z"
+    "checkedAt": "2026-11-16T19:10:18Z"
   },
   "maker": {
     "start": 0.0,
@@ -51013,6 +51019,25 @@
         "makerEdge": 0.0464,
         "postedAt": "2026-11-16T18:24:59Z",
         "status": "resting"
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV20OREMSU-ORE14",
+        "title": "Oregon wins by over 13.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Oregon Ducks at Michigan State Spartans",
+        "commence": "2026-11-21T01:00:00Z",
+        "side": "no",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4531,
+        "estimated": true,
+        "price": 0.4,
+        "bidAtPost": 0.4,
+        "askAtPost": 0.41,
+        "takerEdge": 0.0262,
+        "makerEdge": 0.0489,
+        "postedAt": "2026-11-16T19:09:56Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -57697,7 +57722,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T11:10:48Z",
         "lastMid": 0.49,
-        "lastSeen": "2026-11-16T18:54:47Z"
+        "lastSeen": "2026-11-16T19:09:56Z"
       }
     ],
     "equity": [],
