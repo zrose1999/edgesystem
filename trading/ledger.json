@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.845,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       }
     ],
     "equity": [
@@ -28949,6 +28949,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-17T22:24:51Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-17T22:49:55Z"
       }
     ]
   },
@@ -34264,7 +34268,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.515,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV20UNMWYO-WYO",
@@ -34292,7 +34296,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.265,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV20OREMSU-ORE14",
@@ -34320,7 +34324,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.405,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -34383,7 +34387,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.44,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -34411,7 +34415,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.445,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-48",
@@ -34439,7 +34443,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.415,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -34467,7 +34471,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.43,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV17PORMIN-MIN2",
@@ -34495,7 +34499,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.445,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       }
     ],
     "equity": [
@@ -42503,6 +42507,29 @@
         "status": "resting",
         "time": "2026-11-17T20:24:46Z",
         "test": true
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV17NYKTOR-NYK5",
+        "title": "New York wins by over 4.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "New York Knicks at Toronto Raptors",
+        "commence": "2026-11-18T00:40:00Z",
+        "side": "yes",
+        "strike": 4.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4779,
+        "edge": 0.0207,
+        "estimated": true,
+        "why": "Pinnacle fair 47.8% vs Kalshi YES 0.44 + fee = 0.457.",
+        "orderId": "01a1ebb4-37f8-7f61-b083-803bbf16bc9e",
+        "orderPath": "v2 after shard funding",
+        "price": 0.43,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-17T22:49:55Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -42613,10 +42640,19 @@
         "transferId": "6a405080-d3fd-4489-805e-d2423139bc87",
         "shardBalanceBefore": 0.0949,
         "homeBalanceBefore": 1.0428
+      },
+      {
+        "time": "2026-11-17T22:50:16Z",
+        "fromShard": 0,
+        "toShard": 3,
+        "amount": 1.13,
+        "transferId": "f0b560fd-3040-4d36-b9f7-0e100dabe289",
+        "shardBalanceBefore": 0.0028,
+        "homeBalanceBefore": 1.1349
       }
     ]
   },
-  "asOf": "2026-11-17T22:24:51Z",
+  "asOf": "2026-11-17T22:49:55Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -42654,10 +42690,10 @@
     "liveStopped": null,
     "maker": {
       "orders": 479,
-      "resting": 25,
-      "filled": 234,
+      "resting": 24,
+      "filled": 235,
       "expired": 220,
-      "fillRate": 0.515,
+      "fillRate": 0.516,
       "clvN": 223,
       "meanClv": -0.0186,
       "meanClvNet": -0.0228,
@@ -42670,7 +42706,7 @@
     "liveSkips": {
       "already held": 5
     },
-    "liveCandidates": 5,
+    "liveCandidates": 6,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -42711,9 +42747,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 3.39,
+      "spentToday": 3.82,
       "trades": 162,
-      "resting": 4
+      "resting": 5
     },
     "config": {
       "startingBankroll": 35.0,
@@ -42736,9 +42772,9 @@
     },
     "lastScan": {
       "kalshiMarkets": 4583,
-      "eventsMatched": 251,
-      "eventsUnmatched": 171,
-      "candidates": 5
+      "eventsMatched": 267,
+      "eventsUnmatched": 155,
+      "candidates": 6
     }
   },
   "account": {
@@ -42747,11 +42783,11 @@
     "detail": {
       "balance": 114,
       "balance_dollars": "1.1477",
-      "portfolio_value": 1907,
-      "updated_ts": 1794954313
+      "portfolio_value": 1906,
+      "updated_ts": 1794955819
     },
     "env": "production",
-    "checkedAt": "2026-11-17T22:25:13Z"
+    "checkedAt": "2026-11-17T22:50:19Z"
   },
   "maker": {
     "start": 0.0,
@@ -52449,7 +52485,9 @@
         "takerEdge": 0.0313,
         "makerEdge": 0.054,
         "postedAt": "2026-11-17T15:24:47Z",
-        "status": "resting"
+        "status": "filled",
+        "filledAt": "2026-11-17T22:49:55Z",
+        "askAtFill": 0.39
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV20UTEPAFA-AFA22",
@@ -59229,7 +59267,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T11:10:48Z",
         "lastMid": 0.515,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -59282,7 +59320,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.41,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -59305,7 +59343,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.44,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -59328,7 +59366,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.44,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21IOWAILL-44",
@@ -59351,7 +59389,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.405,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -59374,7 +59412,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.445,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -59397,7 +59435,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.445,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21WISPUR-44",
@@ -59420,7 +59458,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.415,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-48",
@@ -59443,7 +59481,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.415,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -59466,7 +59504,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.43,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -59489,7 +59527,30 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.43,
-        "lastSeen": "2026-11-17T22:24:51Z"
+        "lastSeen": "2026-11-17T22:49:55Z"
+      },
+      {
+        "ticker": "KXNFLTOTAL-26NOV22TBDET-48",
+        "title": "Over 47.5 points",
+        "sport": "NFL",
+        "kind": "total",
+        "event": "Tampa Bay Buccaneers at Detroit Lions",
+        "commence": "2026-11-22T18:00:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4582,
+        "estimated": true,
+        "ask": 0.4,
+        "count": 1,
+        "cost": 0.4,
+        "fee": 0.0042,
+        "time": "2026-11-17T22:49:55Z",
+        "status": "open",
+        "book": "maker",
+        "mode": "paper",
+        "postedAt": "2026-11-17T15:24:47Z",
+        "lastMid": 0.385,
+        "lastSeen": "2026-11-17T22:49:55Z"
       }
     ],
     "equity": [],
