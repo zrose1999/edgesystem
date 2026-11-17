@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-11-17 04:54Z)
+# What EDGE is learning (2026-11-17 09:43Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 1370 graded reads counted, 3096 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Scanner (scan.py, 11-16 20:56Z): 25 strategies tracking from 5094 hypotheses (0 new this run); 142 graded scan reads, mean CLV -0.7%. Shadow only; grade.py decides promotion.
@@ -15,7 +15,7 @@ Early negative, still collecting (largest samples):
   > pocket: sharpDiv=pin-for inside timing=day: n 13, CLV +2.4%, t +1.4 (best of 93 tested; a lead to watch) | pair: role=dog + moveBeforePick=none n 67, CLV +0.9% (best of 26)
 Observation: edge size is not yet predicting CLV (A -0.2% on 128, B -0.1% on 549, C -1.2% on 693).
   > last 50 graded reads: A -1.1% on 8, B -0.1% on 38, C -0.8% on 4 (order still wrong; diagnostic only)
-  > pocket: sharpGapPick=<1% inside grade A: n 30, CLV +3.5%, t +4.4 (best of 59 tested; a lead to watch)
+  > pocket: sharpDivPick=aligned inside grade A: n 30, CLV +3.5%, t +4.4 (best of 59 tested; a lead to watch)
   > order holds inside sharpDivPick=aligned: A +3.5% on 30, B +0.3% on 150, C -1.4% on 82 (25 of 56 features tested)
 Why reads lost to the close (autopsy, post-pick; 813 of 1370, cause known on 813): overpaid 309 (-1.6%), news-after-pick 57 (-6.1%), sharps-against-at-pick 7 (-4.6%), sharps-against-at-open 1 (-3.1%), bet-into-steam 4 (-3.1%), late-move 29 (-3.6%), sharp-move-against 87 (-2.1%), soft-move-against 2 (-3.2%), model-wrong 317 (-5.1%)
 Process vs result: right-and-rewarded 284, right-but-unlucky 259, lucky-win 381, market-was-right 425, push 4; right-but-unlucky losses hurt most by close-margin, flipped-late, overtime (results are noise at this sample; CLV decides)
