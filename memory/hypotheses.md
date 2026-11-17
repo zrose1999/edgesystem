@@ -784,3 +784,6 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-16 | NBA: edgeBar=0.5-1x + sharpDiv=pin-for | 8 | +2.9% | found inside NBA edgeBar=0.5-1x (best of 58 features tested); small sample, may share reads with other rows |
 | 2026-11-16 | NBA: pattern=sharp-soft + timing=late | 23 | +1.6% | found inside NBA timing=late (best of 49 features tested); small sample, may share reads with other rows |
 | 2026-11-16 | NBA: sharpGapOpen=2%+ + tzShift=none | 8 | +2.9% | found inside NBA tzShift=none (best of 58 features tested); small sample, may share reads with other rows |
+| 2026-11-17 | pattern=sharp-soft + sharpGapOpen=1-2% | 9 | +0.5% | found inside ALL sharpGapOpen=1-2% (best of 16 features tested); small sample, may share reads with other rows |
+| 2026-11-17 | NBA: injury=any + steamBeforePick=toward | 8 | +0.3% | found inside NBA injury=any (best of 50 features tested); small sample, may share reads with other rows |
+| 2026-11-17 | NBA: pattern=sharp-soft-alt + role=over | 8 | +2.3% | found inside NBA role=over (best of 24 features tested); small sample, may share reads with other rows |
