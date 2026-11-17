@@ -210116,6 +210116,65 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.2% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-22|Colorado State Rams at Fresno State Bulldogs|spread|home|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-22|Colorado State Rams at Fresno State Bulldogs|spread",
+      "sport": "NCAAF",
+      "event": "Colorado State Rams at Fresno State Bulldogs",
+      "commence": "2026-11-22T00:30:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -19.5,
+      "priceAtPick": -105,
+      "bookAtPick": "theScore Bet",
+      "marketNumber": -20.5,
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-11-17T17:39:31Z",
+      "pickedAt": "2026-11-17T17:39:31Z",
+      "fair": 0.5273,
+      "projection": 0.5273,
+      "edge": 0.0151,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "theScore Bet home -19.5 -105 implies 51.2%. Pinnacle -109 no-vig is 50.2% at -20.5, worth 52.7% at this line. Edge +1.5%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": -20.5,
+        "prices": {
+          "home": -109,
+          "away": -107
+        },
+        "updated": "2026-11-17T17:39:18Z",
+        "snapTime": "2026-11-17T17:39:31Z",
+        "noVig": 0.5023
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -105,
+        "line": -20.5,
+        "implied": 0.5122,
+        "printImplied": 0.5122
+      },
+      "priceBook": "DraftKings",
+      "estimated": true,
+      "lineAdj": 0.025,
+      "pinEdgeAtPick": 0.0151,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
     }
   ]
 }
