@@ -207249,6 +207249,67 @@
       "pinEdgeAtPick": 0.0201,
       "pinEdgeEstimated": true,
       "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-20|Rice Owls at Temple Owls|spread|away|v1|lean|learned-scan-ncaaf-spread|2026-11-17T00:54:38Z|gated|2026-11-17T00:54:38Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-20|Rice Owls at Temple Owls|spread",
+      "sport": "NCAAF",
+      "event": "Rice Owls at Temple Owls",
+      "commence": "2026-11-20T00:30:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 2.5,
+      "priceAtPick": 105,
+      "marketNumber": -2.5,
+      "priceBook": "FanDuel",
+      "marketPrices": {
+        "home": -125,
+        "away": 105
+      },
+      "priceTime": "2026-11-16T23:41:27Z",
+      "pickedAt": "2026-11-17T00:54:38Z",
+      "fair": -2.0366,
+      "projection": -2.0366,
+      "edge": 0.463,
+      "edgeUnit": "points",
+      "bar": 2.5,
+      "fullBar": false,
+      "edgeShrunk": -0.698,
+      "modelWeight": 0.221,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-scan-ncaaf-spread",
+      "reason": "Model learned on the scanner's data (gbm, 14 data points, passed the out-of-sample gate) predicts a move of -0.463 from the open for away; 0.463 still to come. Report: stats/models/scan_ncaaf_spread.json.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": -3.0,
+        "prices": {
+          "home": -106,
+          "away": -110
+        },
+        "updated": "2026-11-16T23:41:15Z",
+        "snapTime": "2026-11-16T23:41:27Z",
+        "noVig": 0.5046
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 105,
+        "line": -2.5,
+        "implied": 0.4878,
+        "printImplied": 0.4878
+      },
+      "pinEdgeAtPick": -0.0257,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
