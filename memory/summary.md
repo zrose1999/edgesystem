@@ -1,4 +1,4 @@
-# What EDGE is learning (2026-11-17 23:24Z)
+# What EDGE is learning (2026-11-17 23:54Z)
 Phase: data collection and learning. Samples are small and key features are still being added. Negative CLV is expected and logged to learn from; nothing here retires or prunes a rule.
 1374 graded reads counted, 3132 logged. CLV is mean clvProb. Patterns move only by grade.py.
 Scanner (scan.py, 11-17 19:44Z): 34 strategies tracking from 5096 hypotheses (10 new this run); 143 graded scan reads, mean CLV -0.7%. Shadow only; grade.py decides promotion.
@@ -15,14 +15,14 @@ Early negative, still collecting (largest samples):
   > pocket: sharpDiv=pin-for inside timing=day: n 13, CLV +2.4%, t +1.4 (best of 93 tested; a lead to watch) | pair: role=dog + moveBeforePick=none n 67, CLV +0.9% (best of 26)
 Observation: edge size is not yet predicting CLV (A -0.2% on 128, B -0.1% on 552, C -1.2% on 694).
   > last 50 graded reads: A -1.1% on 8, B -0.3% on 37, C -0.9% on 5 (order still wrong; diagnostic only)
-  > pocket: sharpGapPick=<1% inside grade A: n 30, CLV +3.5%, t +4.4 (best of 59 tested; a lead to watch)
-  > order holds inside sharpGapPick=<1%: A +3.5% on 30, B +0.3% on 151, C -1.4% on 83 (25 of 56 features tested)
+  > pocket: sharpDivPick=aligned inside grade A: n 30, CLV +3.5%, t +4.4 (best of 59 tested; a lead to watch)
+  > order holds inside sharpDivPick=aligned: A +3.5% on 30, B +0.3% on 151, C -1.4% on 83 (25 of 56 features tested)
 Why reads lost to the close (autopsy, post-pick; 816 of 1374, cause known on 816): overpaid 309 (-1.6%), news-after-pick 59 (-6.2%), sharps-against-at-pick 7 (-4.6%), sharps-against-at-open 2 (-2.1%), bet-into-steam 4 (-3.1%), late-move 28 (-3.6%), sharp-move-against 89 (-2.1%), soft-move-against 2 (-3.2%), model-wrong 316 (-5.1%)
 Process vs result: right-and-rewarded 284, right-but-unlucky 260, lucky-win 383, market-was-right 426, push 4; right-but-unlucky losses hurt most by close-margin, flipped-late, overtime (results are noise at this sample; CLV decides)
 Gated by the Pinnacle gate (scored, not counted): n 678, CLV -1.6%, t -9.0 (positive = the gate blocks winners); best pocket pattern=scan-nba-h2h-away-restedgeawaymore-b31fe9 n 11, CLV +1.8%, t +0.7 (of 89 tested)
 Data gaps, waiting on a source: public-pct (needs a betting-splits source (Action Network/VSiN or a paid API); none free in the stack); guru (needs an account list + reader (Reddit API free, X API paid); log account, number, time, result)
 Coverage of added features (BREAKAGE if still 0 one health-check cycle after shipping):
-- snaps: 355 price snapshots stored in the last 26h, latest 11-17 23:24Z, 2399 games with 2+ (late steam, since 10-19 18:15Z)
+- snaps: 378 price snapshots stored in the last 26h, latest 11-17 23:54Z, 2399 games with 2+ (late steam, since 10-19 18:15Z)
 - pinAtPick on 711 of 982 graded reads since 10-19 18:00Z; 2087 of 2415 new reads stamped (Pinnacle at the pick)
 - contextAtPick on 982 of 982 graded reads since 10-19 18:00Z; 2415 of 2415 new reads stamped (weather/injury/goalie as stamped)
 - sharpDivergenceAtPick on 471 of 982 graded reads since 10-19 18:00Z (needs Pinnacle on the same line)
