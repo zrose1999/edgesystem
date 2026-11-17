@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.845,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       }
     ],
     "equity": [
@@ -28909,6 +28909,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-17T18:54:40Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-17T19:09:48Z"
       }
     ]
   },
@@ -34224,7 +34228,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.51,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV20UNMWYO-WYO",
@@ -34252,7 +34256,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.265,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV20OREMSU-ORE14",
@@ -34280,7 +34284,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.405,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -34343,7 +34347,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.435,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -34371,7 +34375,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.445,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-48",
@@ -34399,7 +34403,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.415,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -34427,7 +34431,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.43,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       }
     ],
     "equity": [
@@ -42393,7 +42397,7 @@
       }
     ]
   },
-  "asOf": "2026-11-17T18:54:40Z",
+  "asOf": "2026-11-17T19:09:48Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -42430,8 +42434,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 475,
-      "resting": 21,
+      "orders": 476,
+      "resting": 22,
       "filled": 234,
       "expired": 220,
       "fillRate": 0.515,
@@ -42444,8 +42448,12 @@
       "pairedTakerClvNet": -0.0283,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 0,
+    "liveSkips": {
+      "already held": 1,
+      "maker order failed": 3,
+      "stopped this run: repeated balance refusals": 1
+    },
+    "liveCandidates": 5,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -42513,20 +42521,13 @@
       "kalshiMarkets": 4583,
       "eventsMatched": 251,
       "eventsUnmatched": 171,
-      "candidates": 0
+      "candidates": 5
     }
   },
   "account": {
-    "keys": "ok",
-    "balance": 1.58,
-    "detail": {
-      "balance": 158,
-      "balance_dollars": "1.5820",
-      "portfolio_value": 1862,
-      "updated_ts": 1794941699
-    },
-    "env": "production",
-    "checkedAt": "2026-11-17T18:55:00Z"
+    "keys": "error",
+    "error": "HTTPError: HTTP Error 429: Too Many Requests",
+    "checkedAt": "2026-11-17T19:10:10Z"
   },
   "maker": {
     "start": 0.0,
@@ -52244,6 +52245,25 @@
         "makerEdge": 0.0477,
         "postedAt": "2026-11-17T15:54:47Z",
         "status": "resting"
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV21HOUWVU-HOU8",
+        "title": "Houston wins by over 7.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Houston Cougars at West Virginia Mountaineers",
+        "commence": "2026-11-21T18:00:00Z",
+        "side": "yes",
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5381,
+        "estimated": true,
+        "price": 0.48,
+        "bidAtPost": 0.48,
+        "askAtPost": 0.49,
+        "takerEdge": 0.0306,
+        "makerEdge": 0.0537,
+        "postedAt": "2026-11-17T19:09:48Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -58928,7 +58948,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T11:10:48Z",
         "lastMid": 0.51,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -58981,7 +59001,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.41,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -59004,7 +59024,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.435,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -59027,7 +59047,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.435,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21IOWAILL-44",
@@ -59050,7 +59070,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.405,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -59073,7 +59093,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.445,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -59096,7 +59116,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.445,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21WISPUR-44",
@@ -59119,7 +59139,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.405,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-48",
@@ -59142,7 +59162,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.415,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -59165,7 +59185,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.43,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -59188,7 +59208,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.43,
-        "lastSeen": "2026-11-17T18:54:40Z"
+        "lastSeen": "2026-11-17T19:09:48Z"
       }
     ],
     "equity": [],
