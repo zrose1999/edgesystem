@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.845,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       }
     ],
     "equity": [
@@ -28925,6 +28925,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-17T19:54:41Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-17T20:24:46Z"
       }
     ]
   },
@@ -34240,7 +34244,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.505,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV20UNMWYO-WYO",
@@ -34268,7 +34272,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.265,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV20OREMSU-ORE14",
@@ -34296,7 +34300,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.405,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -34359,7 +34363,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.44,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -34387,7 +34391,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.445,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-48",
@@ -34415,7 +34419,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.415,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -34443,7 +34447,33 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.43,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
+      },
+      {
+        "ticker": "KXNBASPREAD-26NOV17PORMIN-MIN2",
+        "title": "Minnesota wins by over 1.5 points",
+        "sport": "NBA",
+        "kind": "spread",
+        "event": "Portland Trail Blazers at Minnesota Timberwolves",
+        "commence": "2026-11-18T01:10:00Z",
+        "side": "no",
+        "strike": 1.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.4898,
+        "edge": 0.0325,
+        "estimated": true,
+        "why": "Pinnacle fair 49.0% vs Kalshi NO 0.44 + fee = 0.457.",
+        "ask": 0.43,
+        "count": 1.0,
+        "cost": 0.43,
+        "fee": 0.0,
+        "time": "2026-11-17T20:24:46Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1eaf8-5e20-760e-b660-214936590e2a",
+        "test": true,
+        "fillChecked": true
       }
     ],
     "equity": [
@@ -36202,6 +36232,14 @@
       {
         "t": "2026-11-17T16:24:51Z",
         "open": 2.91,
+        "realized": -0.6,
+        "equity": 34.4,
+        "clvN": 144,
+        "meanClv": 0.0002
+      },
+      {
+        "t": "2026-11-17T20:24:46Z",
+        "open": 3.34,
         "realized": -0.6,
         "equity": 34.4,
         "clvN": 144,
@@ -42324,8 +42362,8 @@
         "orderPath": "v2",
         "price": 0.43,
         "count": 1,
-        "filledSeen": 0,
-        "status": "resting",
+        "filledSeen": 1.0,
+        "status": "executed",
         "time": "2026-11-17T19:24:48Z",
         "test": true
       },
@@ -42350,6 +42388,98 @@
         "filledSeen": 0,
         "status": "resting",
         "time": "2026-11-17T19:24:48Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV21HOUWVU-HOU8",
+        "title": "Houston wins by over 7.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Houston Cougars at West Virginia Mountaineers",
+        "commence": "2026-11-21T18:00:00Z",
+        "side": "yes",
+        "strike": 7.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5381,
+        "edge": 0.0306,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt B pick (Bally Bet away -7 -114 implies 53.3%. Pinnacle -107 no-vig is 49.8% at 8, worth 55.3% at this line. Edge +2.0%.). Pinnacle fair here 51.8% plus the pick's edge = 53.8%; Kalshi YES 0.49 + fee = 0.507.",
+        "orderId": "01a1eb2f-5470-7e0e-8374-61cf70e7fe77",
+        "orderPath": "v2 after shard funding",
+        "price": 0.48,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-17T20:24:46Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV21ARIZKSU-ARIZ8",
+        "title": "Arizona wins by over 7.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "Arizona Wildcats at Kansas State Wildcats",
+        "commence": "2026-11-22T00:00:00Z",
+        "side": "no",
+        "strike": 7.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5645,
+        "edge": 0.0271,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt B pick (FanDuel home +8.5 -110 implies 52.4%. Pinnacle -114 no-vig is 51.4% at 7.5, worth 53.9% at this line. Edge +1.5%.). Pinnacle fair here 54.9% plus the pick's edge = 56.5%; Kalshi NO 0.52 + fee = 0.537.",
+        "orderId": "01a1eb2f-5858-76e3-813e-b7b3a9b4086d",
+        "orderPath": "v2",
+        "price": 0.51,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-17T20:24:46Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNCAAFSPREAD-26NOV20UTEPAFA-AFA22",
+        "title": "Air Force wins by over 21.5 points",
+        "sport": "NCAAF",
+        "kind": "spread",
+        "event": "UTEP Miners at Air Force Falcons",
+        "commence": "2026-11-21T01:00:00Z",
+        "side": "yes",
+        "strike": 21.5,
+        "source": "mirror:sharp-soft-alt",
+        "fair": 0.5621,
+        "edge": 0.0246,
+        "estimated": true,
+        "why": "EDGE sharp-soft-alt B pick (Hard Rock Bet home -21.5 -105 implies 51.2%. Pinnacle -112 no-vig is 50.8% at -22.5, worth 53.3% at this line. Edge +2.1%.). Pinnacle fair here 54.1% plus the pick's edge = 56.2%; Kalshi YES 0.52 + fee = 0.537.",
+        "orderId": "01a1eb2f-5858-7a95-b0d3-4c6d12649ab8",
+        "orderPath": "v2",
+        "price": 0.51,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-17T20:24:46Z",
+        "test": true
+      },
+      {
+        "ticker": "KXNCAAFGAME-26NOV21FIUKENN-KENN",
+        "title": "Kennesaw St.",
+        "sport": "NCAAF",
+        "kind": "game",
+        "event": "Florida International Panthers at Kennesaw State Owls",
+        "commence": "2026-11-21T20:00:00Z",
+        "side": "yes",
+        "strike": null,
+        "source": "mirror:sharp-soft",
+        "fair": 0.6406,
+        "edge": 0.0238,
+        "estimated": true,
+        "why": "EDGE sharp-soft B pick (theScore Bet home -155 implies 60.8%. Pinnacle -182 no-vig is 62.7%. Edge +2.0%.). Pinnacle fair here 62.1% plus the pick's edge = 64.1%; Kalshi YES 0.60 + fee = 0.617.",
+        "orderId": "01a1eb2f-5c40-7008-9497-43735b2de139",
+        "orderPath": "v2",
+        "price": 0.59,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-17T20:24:46Z",
         "test": true
       }
     ],
@@ -42452,10 +42582,19 @@
         "transferId": "67958f9c-4283-40ec-859c-d5eab1ba1df9",
         "shardBalanceBefore": 0.2561,
         "homeBalanceBefore": 5.9114
+      },
+      {
+        "time": "2026-11-17T20:25:08Z",
+        "fromShard": 3,
+        "toShard": 0,
+        "amount": 1.04,
+        "transferId": "6a405080-d3fd-4489-805e-d2423139bc87",
+        "shardBalanceBefore": 0.0949,
+        "homeBalanceBefore": 1.0428
       }
     ]
   },
-  "asOf": "2026-11-17T19:54:41Z",
+  "asOf": "2026-11-17T20:24:46Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -42483,7 +42622,7 @@
       "meanClv": -0.0045
     },
     "live": {
-      "open": 2.91,
+      "open": 3.34,
       "realized": -0.6,
       "equity": 34.4,
       "clvN": 144,
@@ -42492,8 +42631,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 478,
-      "resting": 24,
+      "orders": 479,
+      "resting": 25,
       "filled": 234,
       "expired": 220,
       "fillRate": 0.515,
@@ -42507,11 +42646,9 @@
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {
-      "already held": 1,
-      "maker order failed": 3,
-      "stopped this run: repeated balance refusals": 1
+      "already held": 2
     },
-    "liveCandidates": 5,
+    "liveCandidates": 6,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -42552,9 +42689,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 1.71,
-      "trades": 161,
-      "resting": 2
+      "spentToday": 3.8,
+      "trades": 162,
+      "resting": 5
     },
     "config": {
       "startingBankroll": 35.0,
@@ -42579,13 +42716,20 @@
       "kalshiMarkets": 4583,
       "eventsMatched": 251,
       "eventsUnmatched": 171,
-      "candidates": 5
+      "candidates": 6
     }
   },
   "account": {
-    "keys": "error",
-    "error": "HTTPError: HTTP Error 429: Too Many Requests",
-    "checkedAt": "2026-11-17T19:55:06Z"
+    "keys": "ok",
+    "balance": 1.15,
+    "detail": {
+      "balance": 114,
+      "balance_dollars": "1.1477",
+      "portfolio_value": 1774,
+      "updated_ts": 1794947112
+    },
+    "env": "production",
+    "checkedAt": "2026-11-17T20:25:12Z"
   },
   "maker": {
     "start": 0.0,
@@ -52360,6 +52504,25 @@
         "makerEdge": 0.0501,
         "postedAt": "2026-11-17T19:24:48Z",
         "status": "resting"
+      },
+      {
+        "ticker": "KXNCAAFGAME-26NOV21FIUKENN-KENN",
+        "title": "Kennesaw St.",
+        "sport": "NCAAF",
+        "kind": "game",
+        "event": "Florida International Panthers at Kennesaw State Owls",
+        "commence": "2026-11-21T20:00:00Z",
+        "side": "yes",
+        "source": "mirror:sharp-soft",
+        "fair": 0.6406,
+        "estimated": true,
+        "price": 0.59,
+        "bidAtPost": 0.59,
+        "askAtPost": 0.6,
+        "takerEdge": 0.0238,
+        "makerEdge": 0.0464,
+        "postedAt": "2026-11-17T20:24:46Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -59044,7 +59207,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T11:10:48Z",
         "lastMid": 0.505,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -59097,7 +59260,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.41,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -59120,7 +59283,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.44,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -59143,7 +59306,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.44,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21IOWAILL-44",
@@ -59166,7 +59329,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.405,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -59189,7 +59352,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.445,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -59212,7 +59375,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.445,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21WISPUR-44",
@@ -59234,8 +59397,8 @@
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
-        "lastMid": 0.405,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastMid": 0.41,
+        "lastSeen": "2026-11-17T20:24:46Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-48",
@@ -59258,7 +59421,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.415,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -59281,7 +59444,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.43,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -59304,7 +59467,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.43,
-        "lastSeen": "2026-11-17T19:54:41Z"
+        "lastSeen": "2026-11-17T20:24:46Z"
       }
     ],
     "equity": [],
