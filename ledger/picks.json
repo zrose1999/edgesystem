@@ -207310,6 +207310,67 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NFL|2026-11-24|Cincinnati Bengals at Washington Commanders|total|under|v1|lean|learned-nfl-total|2026-11-17T01:24:37Z|gated|2026-11-17T01:24:37Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NFL|2026-11-24|Cincinnati Bengals at Washington Commanders|total",
+      "sport": "NFL",
+      "event": "Cincinnati Bengals at Washington Commanders",
+      "commence": "2026-11-24T01:15:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 52.5,
+      "priceAtPick": -105,
+      "marketNumber": 52.5,
+      "priceBook": "DraftKings",
+      "marketPrices": {
+        "over": -115,
+        "under": -105
+      },
+      "priceTime": "2026-11-17T01:03:25Z",
+      "pickedAt": "2026-11-17T01:24:37Z",
+      "fair": 51.752,
+      "projection": 51.752,
+      "edge": 0.748,
+      "edgeUnit": "points",
+      "bar": 2.0,
+      "fullBar": false,
+      "edgeShrunk": -0.79,
+      "modelWeight": 0.094,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "learned-nfl-total",
+      "reason": "Learned NFL model (ridge, 82 data points; nflverse closes with backfilled opens) predicts the total moves -0.748 from the open; open 51.5, now 52.5, 0.748 still to come. Fair 51.752. Report: stats/models/nfl_total.json.",
+      "falsifier": "The price closes at or past the open on the other side of the prediction.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "learn_live.py",
+      "pinAtPick": {
+        "line": 53.0,
+        "prices": {
+          "over": -106,
+          "under": -108
+        },
+        "updated": "2026-11-17T01:03:17Z",
+        "snapTime": "2026-11-17T01:03:25Z",
+        "noVig": 0.5023
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "DraftKings",
+        "price": -105,
+        "line": 52.5,
+        "implied": 0.5122,
+        "printImplied": 0.5122
+      },
+      "pinEdgeAtPick": -0.0209,
+      "pinEdgeEstimated": true,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.1% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
