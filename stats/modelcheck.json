@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-17T15:10:02Z",
+ "asOf": "2026-11-17T15:24:46Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -396,17 +396,17 @@
   "news-lag": {
    "pattern": "news-lag",
    "unit": "points",
-   "n": 201,
-   "meanPredicted": 1.5309,
-   "meanRealized": 0.097,
+   "n": 200,
+   "meanPredicted": 1.5366,
+   "meanRealized": 0.0975,
    "tRealized": 0.88,
    "capture": 0.06,
    "rightWay": 0.529,
-   "noMove": 80,
+   "noMove": 79,
    "logLossGain": {
-    "n": 199,
-    "mean": -0.01272,
-    "t": -1.28
+    "n": 198,
+    "mean": -0.01266,
+    "t": -1.27
    },
    "verdict": "collecting"
   },
@@ -974,17 +974,17 @@
   "stats-model": {
    "pattern": "stats-model",
    "unit": "points",
-   "n": 53,
-   "meanPredicted": 1.1853,
-   "meanRealized": -0.0283,
+   "n": 51,
+   "meanPredicted": 1.1598,
+   "meanRealized": -0.0294,
    "tRealized": -0.1,
-   "capture": -0.02,
+   "capture": -0.03,
    "rightWay": 0.487,
-   "noMove": 14,
+   "noMove": 12,
    "logLossGain": {
-    "n": 52,
-    "mean": -0.01013,
-    "t": -0.96
+    "n": 50,
+    "mean": -0.00606,
+    "t": -0.58
    },
    "verdict": "collecting"
   },
@@ -1025,17 +1025,17 @@
   "trend-fade": {
    "pattern": "trend-fade",
    "unit": "points",
-   "n": 14,
-   "meanPredicted": 1.3821,
+   "n": 13,
+   "meanPredicted": 1.3731,
    "meanRealized": 0.0,
    "tRealized": 0.0,
    "capture": 0.0,
    "rightWay": 0.444,
-   "noMove": 5,
+   "noMove": 4,
    "logLossGain": {
-    "n": 14,
-    "mean": 0.02674,
-    "t": 1.77
+    "n": 13,
+    "mean": 0.02392,
+    "t": 1.49
    },
    "verdict": "collecting"
   },
