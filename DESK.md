@@ -39,7 +39,7 @@ How to write here:
 - 2026-10-21: Every chat and scheduled task reads STATE.md and DESK.md first and records Zack's decisions here before it ends.
 
 ## Decisions log
-- 2026-11-17: Weekly review PR (review/2026-11-17): lesson (the book, not the price), ideas 14 (FanDuel is the fast book) and 15 (4%+ gap is news), lead 1 closed as holding, Kalshi FCS mismatches to be voided. No rule, size, gate or trading change. sharp-soft is confirming: Zack to lower max per trade (5%) and set a real stop loss before it can go official. (source: weekly review)
+- 2026-11-17: Weekly review PR #11 (review/2026-11-17): lesson (the book, not the price), ideas 14 (FanDuel is the fast book) and 15 (4%+ gap is news), lead 1 closed as holding, Kalshi FCS mismatches to be voided. No rule, size, gate or trading change. sharp-soft is confirming: Zack to lower max per trade (5%) and set a real stop loss before it can go official. (source: weekly review)
 - 2026-11-16: Kalshi matcher rejects "X" for "X State" and north/south/east/west/central mismatches after Southern Illinois at North Dakota (FCS) was priced as Northern Illinois at North Dakota State and a real 1-contract maker order rests on it. Data-path fix, no size or switch change. (source: health check)
 - 2026-11-15: Live Kalshi tests no longer double one outcome through both tickers of a two-way winner market (kalshi.bet_key: NO on one team = YES on the other); found GB yes and MIN no both open on MIN at GB. Data-path fix, no size or switch change. (source: health check)
 - 2026-11-14: Health check: all checks passed, no changes; credits maxCost 10-20 per run comes from the paid history close (historical endpoint), not the five added books (live calls stay 2-3). (source: health check)
