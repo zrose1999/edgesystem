@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.855,
-        "lastSeen": "2026-11-17T03:54:55Z"
+        "lastSeen": "2026-11-17T04:24:39Z"
       }
     ],
     "equity": [
@@ -28821,6 +28821,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-17T03:54:55Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-17T04:24:39Z"
       }
     ]
   },
@@ -34136,7 +34140,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.515,
-        "lastSeen": "2026-11-17T03:54:55Z"
+        "lastSeen": "2026-11-17T04:24:39Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV20UNMWYO-WYO",
@@ -34164,7 +34168,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.255,
-        "lastSeen": "2026-11-17T03:54:55Z"
+        "lastSeen": "2026-11-17T04:24:39Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV20OREMSU-ORE14",
@@ -34192,7 +34196,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.405,
-        "lastSeen": "2026-11-17T03:54:55Z"
+        "lastSeen": "2026-11-17T04:24:39Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -34255,7 +34259,33 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.43,
-        "lastSeen": "2026-11-17T03:54:55Z"
+        "lastSeen": "2026-11-17T04:24:39Z"
+      },
+      {
+        "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
+        "title": "Over 48.5 points",
+        "sport": "NCAAF",
+        "kind": "total",
+        "event": "Rice Owls at Temple Owls",
+        "commence": "2026-11-20T00:30:00Z",
+        "side": "no",
+        "strike": 48.5,
+        "source": "kalshi-drift",
+        "fair": 0.5072,
+        "edge": 0.0298,
+        "estimated": true,
+        "why": "Pinnacle fair 50.2% plus the measured drift still to come +0.49%; Kalshi NO 0.46 + fee = 0.477.",
+        "ask": 0.45,
+        "count": 1.0,
+        "cost": 0.45,
+        "fee": 0.0,
+        "time": "2026-11-17T04:24:39Z",
+        "status": "open",
+        "book": "live",
+        "mode": "maker",
+        "orderId": "01a1e63f-d750-7c47-a7ed-d2866ba0f63e",
+        "test": true,
+        "fillChecked": true
       }
     ],
     "equity": [
@@ -35990,6 +36020,14 @@
       {
         "t": "2026-11-17T03:54:55Z",
         "open": 1.59,
+        "realized": -0.6,
+        "equity": 34.4,
+        "clvN": 144,
+        "meanClv": 0.0002
+      },
+      {
+        "t": "2026-11-17T04:24:39Z",
+        "open": 2.04,
         "realized": -0.6,
         "equity": 34.4,
         "clvN": 144,
@@ -41928,8 +41966,8 @@
         "orderPath": "v2",
         "price": 0.45,
         "count": 1,
-        "filledSeen": 0,
-        "status": "resting",
+        "filledSeen": 1.0,
+        "status": "executed",
         "time": "2026-11-16T21:24:47Z",
         "test": true
       },
@@ -42082,7 +42120,7 @@
       }
     ]
   },
-  "asOf": "2026-11-17T03:54:55Z",
+  "asOf": "2026-11-17T04:24:39Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -42110,7 +42148,7 @@
       "meanClv": -0.0045
     },
     "live": {
-      "open": 1.59,
+      "open": 2.04,
       "realized": -0.6,
       "equity": 34.4,
       "clvN": 144,
@@ -42120,10 +42158,10 @@
     "liveStopped": null,
     "maker": {
       "orders": 470,
-      "resting": 22,
-      "filled": 228,
+      "resting": 20,
+      "filled": 230,
       "expired": 220,
-      "fillRate": 0.509,
+      "fillRate": 0.511,
       "clvN": 223,
       "meanClv": -0.0186,
       "meanClvNet": -0.0228,
@@ -42176,8 +42214,8 @@
       "maxPerDay": 5.0,
       "orderType": "maker",
       "spentToday": 4.76,
-      "trades": 158,
-      "resting": 8
+      "trades": 159,
+      "resting": 7
     },
     "config": {
       "startingBankroll": 35.0,
@@ -42199,7 +42237,7 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 4644,
+      "kalshiMarkets": 4646,
       "eventsMatched": 254,
       "eventsUnmatched": 155,
       "candidates": 0
@@ -42207,15 +42245,15 @@
   },
   "account": {
     "keys": "ok",
-    "balance": 2.92,
+    "balance": 2.46,
     "detail": {
-      "balance": 291,
-      "balance_dollars": "2.9151",
-      "portfolio_value": 1601,
-      "updated_ts": 1794887716
+      "balance": 246,
+      "balance_dollars": "2.4607",
+      "portfolio_value": 1645,
+      "updated_ts": 1794889499
     },
     "env": "production",
-    "checkedAt": "2026-11-17T03:55:16Z"
+    "checkedAt": "2026-11-17T04:24:59Z"
   },
   "maker": {
     "start": 0.0,
@@ -51649,7 +51687,9 @@
         "takerEdge": 0.0298,
         "makerEdge": 0.0529,
         "postedAt": "2026-11-16T21:24:47Z",
-        "status": "resting"
+        "status": "filled",
+        "filledAt": "2026-11-17T04:24:39Z",
+        "askAtFill": 0.45
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV20CLEMDUKE-44",
@@ -51706,7 +51746,9 @@
         "takerEdge": 0.0249,
         "makerEdge": 0.048,
         "postedAt": "2026-11-16T21:24:47Z",
-        "status": "resting"
+        "status": "filled",
+        "filledAt": "2026-11-17T04:24:39Z",
+        "askAtFill": 0.45
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-43",
@@ -58510,7 +58552,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T11:10:48Z",
         "lastMid": 0.515,
-        "lastSeen": "2026-11-17T03:54:55Z"
+        "lastSeen": "2026-11-17T04:24:39Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -58563,7 +58605,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.41,
-        "lastSeen": "2026-11-17T03:54:55Z"
+        "lastSeen": "2026-11-17T04:24:39Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -58586,7 +58628,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.43,
-        "lastSeen": "2026-11-17T03:54:55Z"
+        "lastSeen": "2026-11-17T04:24:39Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -58609,7 +58651,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.43,
-        "lastSeen": "2026-11-17T03:54:55Z"
+        "lastSeen": "2026-11-17T04:24:39Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21IOWAILL-44",
@@ -58632,7 +58674,53 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.4,
-        "lastSeen": "2026-11-17T03:54:55Z"
+        "lastSeen": "2026-11-17T04:24:39Z"
+      },
+      {
+        "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
+        "title": "Over 48.5 points",
+        "sport": "NCAAF",
+        "kind": "total",
+        "event": "Rice Owls at Temple Owls",
+        "commence": "2026-11-20T00:30:00Z",
+        "side": "no",
+        "source": "kalshi-drift",
+        "fair": 0.5072,
+        "estimated": true,
+        "ask": 0.45,
+        "count": 1,
+        "cost": 0.45,
+        "fee": 0.0043,
+        "time": "2026-11-17T04:24:39Z",
+        "status": "open",
+        "book": "maker",
+        "mode": "paper",
+        "postedAt": "2026-11-16T21:24:47Z",
+        "lastMid": 0.445,
+        "lastSeen": "2026-11-17T04:24:39Z"
+      },
+      {
+        "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
+        "title": "Over 48.5 points",
+        "sport": "NCAAF",
+        "kind": "total",
+        "event": "Rice Owls at Temple Owls",
+        "commence": "2026-11-20T00:30:00Z",
+        "side": "no",
+        "source": "kalshi-sharp",
+        "fair": 0.5023,
+        "estimated": false,
+        "ask": 0.45,
+        "count": 1,
+        "cost": 0.45,
+        "fee": 0.0043,
+        "time": "2026-11-17T04:24:39Z",
+        "status": "open",
+        "book": "maker",
+        "mode": "paper",
+        "postedAt": "2026-11-16T21:24:47Z",
+        "lastMid": 0.445,
+        "lastSeen": "2026-11-17T04:24:39Z"
       }
     ],
     "equity": [],
