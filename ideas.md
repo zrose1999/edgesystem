@@ -132,6 +132,7 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   (n 141), BetMGM -0.6% (n 47). Holding; 11 more to the 50-read split.
 - 2026-11-11 (health check): no new Caesars-priced counted reads since 11-09 (still n 39, +1.6%, t 2.9; halves +0.7% / +2.5%).
 - 2026-11-12 (health check): fading. Counted NFL/NCAAF/NBA Caesars-priced reads vs Pinnacle close n 43, +1.2% (t 2.0); not soft-dog n 27, +0.8% (t 1.0, was +1.5% t 2.0 on 23). The non-soft-dog half no longer clears t 2; if it stays under at 50, kill the book-aware bar and leave it to soft-dog.
+- 2026-11-17 (health check): n 47, +1.0% (t 2.0; halves +0.4% / +1.5%); since 11-09 +0.2% (n 10). Soft-dog n 23, +1.9% (t 2.9); not soft-dog n 24, +0.1% (t 0.1). The book effect now lives only in soft-dog; at 50 the book-aware bar is a kill unless the non-soft-dog half recovers.
 
 ### 9. NCAAF short favourites drift toward the dog (2026-11-13, lead, testing; leads 7-8 are in PR #10)
 - Observation: on Pinnacle's own NCAAF spread line (first snapshot to the last, 12h+ apart, ledger/snaps 10-14 to 11-13),
@@ -204,6 +205,22 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   price (only reads that beat Pinnacle at the pick); launch shadow ncaaf-ats-recency if gated CLV holds t >= 2 in both
   halves; kill if the 2026 move falls under 0.5 points on 40 fresh games.
 
+### 13. NCAAF midweek totals drift up (2026-11-17, lead, testing; probably chance)
+- Observation: Pinnacle NCAAF totals from the first snap 6h+ before kickoff to the last within 2h rise +0.71 points on
+  Tuesday-Friday games (n 12, t 2.5; halves +1.17 / +0.25) vs +0.04 on Saturdays (n 100, t 0.3). Realized total minus
+  Pinnacle close: weekday -0.9 (n 12), Saturday -1.1 (n 100): the drift is not an over edge on results.
+- Mechanism (if real): a midweek game is the only college game on TV that night, so public over money arrives through the
+  week into a thinner market; Saturday games split that money across 60 games.
+- Started as a kickoff-window test (public overs in night games): NCAAF night +0.02 (n 22), afternoon +0.32 (n 44,
+  t 2.1, halves +0.57 / +0.10), early -0.05 (n 46); NFL and NBA windows all |t| < 1.5. About 10 variants, so one t 2.5
+  cell on n 12 is near what chance gives.
+- Living memory: NCAAF total reads weekday under n 74, -2.3% (t -5.5), weekday over n 11, +1.3% (t 0.7); Saturday under
+  n 176, -2.6% (t -10.8), over n 48, -1.3%. Unders lose on every day, so the weekday split adds little to the known
+  NCAAF-under finding.
+- Next: re-run at 30 weekday games with a 6h-before snap (MACtion fills the next three weeks); a soft-over shadow on
+  midweek NCAAF only if the drift holds t >= 2 in both halves and the over at the early print beats Pinnacle's close.
+  Kill if the weekday move is under +0.3 on 30.
+
 ## Experiments (live shadow patterns, stake 0)
 
 ### soft-dog (launched 2026-10-30, from lead 1)
@@ -237,6 +254,10 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   t 1.4); since 11-06 +0.34% (n 23, t 1.1). Keeps running. By market h2h +0.51% (n 72), spreads +1.09% (n 20, t 1.4);
   by sport NBA +1.41% (n 26, t 1.9), NFL +0.96% (n 18, t 2.4), NCAAF -0.08% (n 34, t -0.2), ATP +0.42% (n 11). NCAAF
   carries none of the edge: if it is still flat at 50 NCAAF graded, the one allowed tweak is dropping NCAAF from soft-dog.
+- 2026-11-17 (health check): 138 graded, +0.44% (t 1.6), halves +0.73% / +0.14%; since 11-11 -0.37% (n 34, t -0.5),
+  fading. NFL +0.88% (n 24, t 2.6), NCAAF +0.27% (n 60, t 0.9; halves -0.15% / +0.70%), NBA +0.39% (n 40; halves
+  +1.87% / -1.09%). NCAAF is no longer flat (its later half carries more than NBA's), so no NCAAF drop; no tweak on one
+  soft week. Counted Caesars-priced soft-dog reads +1.9% (n 23, t 2.9) are its best pocket. Next look at 175 graded.
 
 ## Killed
 
