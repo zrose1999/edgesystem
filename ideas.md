@@ -40,6 +40,10 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - 2026-11-13 refresh (health check, memory/log counted NFL/NCAAF/NBA): all counted favourites -1.6% (n 216, t -4.6),
   dogs +0.4% (n 219, t 1.1). Since 10-30 12Z: favourites -1.2% (n 28, t -1.3), dogs +1.4% (n 46, t 2.7): losing again
   on fresh reads; 2 more fresh favourite spreads to the 30-read kill test. Where it sits: see lead 9 (NCAAF short spreads).
+- 2026-11-17 weekly review (memory/log counted, live patterns): all counted favourite spreads -0.91% (n 150, t -2.2), dog
+  spreads +1.27% (n 172, t 2.9). Fresh since 10-30 12Z: favourites -0.28% (n 42), dogs +0.97% (n 75, t 2.0). The 30-read
+  kill test is past and favourites stay below dogs, so it holds (smaller gap than at launch). No gate margin proposed: the
+  autopsy says it is direction, and soft-dog already takes the dog side. Thread closed; soft-dog carries it.
 
 ### 2. Away teams travelling east (2026-10-30, lead, waits on the NFL backfill)
 - NFL history 2015-2026 (PR #8): home moneyline when the away team travels east ROI -11.1% at the close (n 847, t -3.2,
@@ -187,6 +191,9 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - Not changed: sharp-soft-alt is at +1.1% (t 2.43, n 92), and rule 6 keeps a pattern's conditions fixed mid-period;
   grade.py's values are shared with every estimated close. Proposal for the weekly review: one sport-and-number key table
   (above) in grade.py and sharp.py together. Kill if NCAAF alt reads crossing 3 or 7 fall to the no-key mean on 40+ fresh reads.
+- 2026-11-17 weekly review: no fresh NCAAF alt spread reads have graded since 11-15, so the kill test has not started.
+  NCAAF alt spreads stamped on a key number: +1.2% (n 61, t 2.4). Not the review's one change this week: it edits grade.py's
+  estimated closes for every pattern, so it waits for 40 fresh NCAAF alt reads and goes to Zack as its own PR.
 
 ### 12. NCAAF lines move toward last week's cover (2026-11-16, lead, testing)
 - Observation: in NCAAF, the spread moves from open to close toward the team whose previous game beat the closing spread
@@ -220,6 +227,36 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - Next: re-run at 30 weekday games with a 6h-before snap (MACtion fills the next three weeks); a soft-over shadow on
   midweek NCAAF only if the drift holds t >= 2 in both halves and the over at the early print beats Pinnacle's close.
   Kill if the weekday move is under +0.3 on 30.
+
+### 14. FanDuel is the fast book: Pinnacle follows it (2026-11-17, weekly review, lead)
+- Observation: post-gate counted reads (since 10-28 12Z, NFL/NCAAF/NBA, live patterns) priced at FanDuel lose -1.08%
+  (n 53, t -2.7; 49 game-sides -1.25%, t -3.0), halves -0.80% (n 23) / -1.30% (n 30), in every sport (NCAAF -1.5% n 26,
+  NBA -0.5% n 21, NFL -1.3% n 6) and pattern (soft-dog -0.4% n 28, sharp-soft -1.4% n 17, sharp-soft-alt -2.8% n 8). They
+  beat Pinnacle's no-vig at the pick by +1.68% (t 9.5), then Pinnacle moves against them -2.76% (t -6.1). Every other
+  book: +0.88% per game-side (n 202, t 3.1); BetRivers price +1.58%, move -0.10%; Bally +2.31% / -0.44%; Hard Rock
+  +1.52% / -0.65%; theScore is the other loser (+1.95% / -2.30%, n 32). Fresh since 11-10: FanDuel -0.71% (n 16, move
+  -1.87%) vs others +0.19% (n 57). Memory: bookAtPick=FanDuel n 99, -0.64% (t -2.2); since 11-10 n 22, -1.16%.
+- Mechanism: an outlier price is either a stale book (has not moved yet: keep the edge) or a leading book (moved first on
+  its own sharp action or news: Pinnacle follows). FanDuel takes the most US sharp action and moves first; when it is the
+  book off Pinnacle, the information is usually on FanDuel's side. The gate sees only the gap, not who moved. This is the
+  mirror of PR #10's idea 7 (the five added books are the slow ones).
+- Variants: 8 books, one split (price vs move), per sport and pattern; ~20 cuts.
+- Kill if: fresh FanDuel-priced counted reads after 11-10 reach 30 and are within 0.5% of the other books' mean.
+- Possible change (10-30 rule, shadow only): soft-dog and sharp-soft-alt skip reads whose best price is FanDuel alone.
+  The health check may make that tweak once fresh FanDuel reads reach 30 and still trail the rest at t <= -1.5;
+  sharp-soft is confirming, so for it this is Zack's call. Needs the real book in priceBook (pull.best_at_pick still only
+  ranks the big four) so the skip can see the second-best book.
+
+### 15. A 4%+ gap over Pinnacle is news, not a stale price (2026-11-17, weekly review, lead, small)
+- Observation: all graded reads with Pinnacle at the pick (counted and gated, live patterns), by how far our price beat
+  Pinnacle's no-vig: 0-1% +0.42% (n 142, move +0.0%), 1-2% -0.24% (n 97, move -1.5%), 2-3% +0.81% (n 35), 3-4% +1.67%
+  (n 18, t 2.7), 4%+ -0.65% (n 8, 7 game-sides) with a move of -5.95% (t -3.3); 4 of the 8 are autopsy news-after-pick,
+  6 are NBA moneylines, 6 are sharp-soft.
+- Mechanism: a soft book 4% off Pinnacle on a moneyline has usually reacted to an injury report Pinnacle has not priced
+  yet (or Pinnacle's quote is pulled and stale); the read takes the side the news hurts.
+- Variants: 6 gap buckets. n 8 is far too small; most likely partly chance.
+- Kill if: 4%+ reads reach 25 with a market move after the pick better than -2%. If it holds, the spec is a cap on the
+  gate's gap (reads 4%+ better than Pinnacle wait one run for Pinnacle to update), Zack's call since it touches the gate.
 
 ## Experiments (live shadow patterns, stake 0)
 
@@ -258,6 +295,9 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
   fading. NFL +0.88% (n 24, t 2.6), NCAAF +0.27% (n 60, t 0.9; halves -0.15% / +0.70%), NBA +0.39% (n 40; halves
   +1.87% / -1.09%). NCAAF is no longer flat (its later half carries more than NBA's), so no NCAAF drop; no tweak on one
   soft week. Counted Caesars-priced soft-dog reads +1.9% (n 23, t 2.9) are its best pocket. Next look at 175 graded.
+- 2026-11-17 weekly review: NFL/NCAAF/NBA soft-dog counted 124 graded, +0.43% (t 1.5); since 11-11 -0.37% (n 34). Inside
+  it, FanDuel-priced reads -0.41% (n 28) vs other books +0.67% (n 96, t 1.9): the fade since 11-11 is mostly the book
+  (lead 14), not the dog side. No tweak this week; next look at 175 graded as planned.
 
 ## Killed
 
