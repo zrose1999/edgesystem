@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-17T22:49:55Z",
+ "asOf": "2026-11-17T23:24:51Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -90,17 +90,17 @@
   "learned-ncaaf-spread": {
    "pattern": "learned-ncaaf-spread",
    "unit": "points",
-   "n": 56,
-   "meanPredicted": 1.1128,
-   "meanRealized": 1.1875,
-   "tRealized": 3.71,
-   "capture": 1.07,
+   "n": 55,
+   "meanPredicted": 1.112,
+   "meanRealized": 1.2091,
+   "tRealized": 3.72,
+   "capture": 1.09,
    "rightWay": 0.721,
-   "noMove": 13,
+   "noMove": 12,
    "logLossGain": {
-    "n": 56,
-    "mean": 8e-05,
-    "t": 0.01
+    "n": 55,
+    "mean": -0.00095,
+    "t": -0.12
    },
    "verdict": "proven"
   },
@@ -175,17 +175,17 @@
   "learned-nhl-over": {
    "pattern": "learned-nhl-over",
    "unit": "prob",
-   "n": 28,
-   "meanPredicted": 0.0319,
-   "meanRealized": 0.0183,
-   "tRealized": 4.3,
-   "capture": 0.58,
+   "n": 27,
+   "meanPredicted": 0.0312,
+   "meanRealized": 0.0188,
+   "tRealized": 4.27,
+   "capture": 0.6,
    "rightWay": 1.0,
    "noMove": 6,
    "logLossGain": {
-    "n": 28,
-    "mean": -0.01001,
-    "t": -0.79
+    "n": 27,
+    "mean": -0.00675,
+    "t": -0.53
    },
    "verdict": "collecting"
   },
@@ -362,34 +362,34 @@
   "ncaaf-spot": {
    "pattern": "ncaaf-spot",
    "unit": "points",
-   "n": 75,
-   "meanPredicted": 0.336,
-   "meanRealized": 0.1267,
+   "n": 74,
+   "meanPredicted": 0.3343,
+   "meanRealized": 0.1284,
    "tRealized": 0.5,
    "capture": 0.38,
    "rightWay": 0.517,
-   "noMove": 15,
+   "noMove": 14,
    "logLossGain": {
-    "n": 75,
-    "mean": 0.00184,
-    "t": 1.05
+    "n": 74,
+    "mean": 0.00164,
+    "t": 0.93
    },
    "verdict": "collecting"
   },
   "ncaaf-total-move": {
    "pattern": "ncaaf-total-move",
    "unit": "points",
-   "n": 22,
-   "meanPredicted": 0.9327,
-   "meanRealized": 1.1364,
-   "tRealized": 2.21,
-   "capture": 1.22,
+   "n": 21,
+   "meanPredicted": 0.9429,
+   "meanRealized": 1.1905,
+   "tRealized": 2.22,
+   "capture": 1.26,
    "rightWay": 0.733,
-   "noMove": 7,
+   "noMove": 6,
    "logLossGain": {
-    "n": 22,
-    "mean": -0.00591,
-    "t": -0.79
+    "n": 21,
+    "mean": -0.00494,
+    "t": -0.64
    },
    "verdict": "collecting"
   },
