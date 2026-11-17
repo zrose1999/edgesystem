@@ -210354,6 +210354,63 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-21|Bowling Green Falcons at Toledo Rockets|h2h|away|v1|soft-dog",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-21|Bowling Green Falcons at Toledo Rockets|h2h",
+      "sport": "NCAAF",
+      "event": "Bowling Green Falcons at Toledo Rockets",
+      "commence": "2026-11-21T00:30:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 700,
+      "bookAtPick": "theScore Bet",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -880,
+        "away": 590
+      },
+      "priceTime": "2026-11-17T22:24:33Z",
+      "pickedAt": "2026-11-17T22:24:34Z",
+      "fair": 0.1396,
+      "projection": 0.1396,
+      "edge": 0.0146,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "theScore Bet away +700 implies 12.5%. Pinnacle +517 no-vig is 14.0%. Edge +1.5%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -754,
+          "away": 517
+        },
+        "updated": "2026-11-17T22:24:32Z",
+        "snapTime": "2026-11-17T22:24:33Z",
+        "noVig": 0.1396
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": 590,
+        "line": null,
+        "implied": 0.1449,
+        "printImplied": 0.1449
+      },
+      "priceBook": "FanDuel",
+      "pinEdgeAtPick": 0.0146,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
