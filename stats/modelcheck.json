@@ -1,5 +1,5 @@
 {
- "asOf": "2026-11-18T21:40:04Z",
+ "asOf": "2026-11-18T21:54:57Z",
  "rules": "Move check: predicted vs realized move toward the side, open of the read to the print close. Proven at n >= 30, mean realized > 0, t >= 2.0: the pattern may feed edge-stack. Model check: log-loss gain over the market's no-vig price at the stamp (Benter). Nothing here retires a pattern.",
  "patterns": {
   "edge-stack": {
@@ -56,17 +56,17 @@
   "learned-nba-spread": {
    "pattern": "learned-nba-spread",
    "unit": "points",
-   "n": 28,
-   "meanPredicted": 1.4316,
-   "meanRealized": 0.1786,
+   "n": 26,
+   "meanPredicted": 1.4552,
+   "meanRealized": 0.1923,
    "tRealized": 0.56,
-   "capture": 0.12,
+   "capture": 0.13,
    "rightWay": 0.588,
-   "noMove": 11,
+   "noMove": 9,
    "logLossGain": {
-    "n": 28,
-    "mean": 0.00825,
-    "t": 0.43
+    "n": 26,
+    "mean": 0.00671,
+    "t": 0.33
    },
    "verdict": "collecting"
   },
@@ -124,34 +124,17 @@
   "learned-nfl-spread": {
    "pattern": "learned-nfl-spread",
    "unit": "points",
-   "n": 7,
-   "meanPredicted": 0.5524,
-   "meanRealized": 0.2857,
-   "tRealized": 0.59,
-   "capture": 0.52,
-   "rightWay": 0.5,
+   "n": 6,
+   "meanPredicted": 0.5752,
+   "meanRealized": -0.1667,
+   "tRealized": -0.79,
+   "capture": -0.29,
+   "rightWay": 0.333,
    "noMove": 3,
    "logLossGain": {
-    "n": 7,
-    "mean": -0.00479,
-    "t": -0.33
-   },
-   "verdict": "collecting"
-  },
-  "learned-nfl-total": {
-   "pattern": "learned-nfl-total",
-   "unit": "points",
-   "n": 1,
-   "meanPredicted": 0.28,
-   "meanRealized": -3.0,
-   "tRealized": 0.0,
-   "capture": -10.71,
-   "rightWay": 0.0,
-   "noMove": 0,
-   "logLossGain": {
-    "n": 1,
-    "mean": -0.01228,
-    "t": 0.0
+    "n": 6,
+    "mean": -0.00979,
+    "t": -0.61
    },
    "verdict": "collecting"
   },
@@ -209,17 +192,17 @@
   "learned-scan-nba-spread": {
    "pattern": "learned-scan-nba-spread",
    "unit": "points",
-   "n": 31,
-   "meanPredicted": 0.7945,
-   "meanRealized": 0.7742,
-   "tRealized": 1.73,
-   "capture": 0.97,
+   "n": 30,
+   "meanPredicted": 0.8066,
+   "meanRealized": 0.8,
+   "tRealized": 1.74,
+   "capture": 0.99,
    "rightWay": 0.684,
-   "noMove": 12,
+   "noMove": 11,
    "logLossGain": {
-    "n": 31,
-    "mean": -0.00514,
-    "t": -0.55
+    "n": 30,
+    "mean": -0.00618,
+    "t": -0.64
    },
    "verdict": "collecting"
   },
@@ -549,17 +532,17 @@
   "scan-nba-spread-away-restedgeawaymore-1e501d": {
    "pattern": "scan-nba-spread-away-restedgeawaymore-1e501d",
    "unit": "points",
-   "n": 16,
-   "meanPredicted": 0.3817,
-   "meanRealized": 1.4375,
-   "tRealized": 2.63,
-   "capture": 3.77,
+   "n": 15,
+   "meanPredicted": 0.3797,
+   "meanRealized": 1.5333,
+   "tRealized": 2.66,
+   "capture": 4.04,
    "rightWay": 0.8,
-   "noMove": 6,
+   "noMove": 5,
    "logLossGain": {
-    "n": 16,
-    "mean": 0.0053,
-    "t": 0.92
+    "n": 15,
+    "mean": 0.00399,
+    "t": 0.66
    },
    "verdict": "collecting"
   },
