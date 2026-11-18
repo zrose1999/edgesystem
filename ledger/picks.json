@@ -219972,6 +219972,120 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.5% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NBA|2026-11-19|Philadelphia 76ers at Orlando Magic|h2h|away|v1|sharp-soft",
+      "kind": "pick",
+      "grade": "A",
+      "rowId": "NBA|2026-11-19|Philadelphia 76ers at Orlando Magic|h2h",
+      "sport": "NBA",
+      "event": "Philadelphia 76ers at Orlando Magic",
+      "commence": "2026-11-19T00:10:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 150,
+      "bookAtPick": "theScore Bet",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -162,
+        "away": 136
+      },
+      "priceTime": "2026-11-18T23:34:06Z",
+      "pickedAt": "2026-11-18T23:34:07Z",
+      "fair": 0.4615,
+      "projection": 0.4615,
+      "edge": 0.0615,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "sharp-soft",
+      "reason": "theScore Bet away +150 implies 40.0%. Pinnacle +109 no-vig is 46.1%. Edge +6.1%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -125,
+          "away": 109
+        },
+        "updated": "2026-11-18T23:34:01Z",
+        "snapTime": "2026-11-18T23:34:06Z",
+        "noVig": 0.4615
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": 143,
+        "line": null,
+        "implied": 0.4115,
+        "printImplied": 0.4237
+      },
+      "priceBook": "Caesars",
+      "pinEdgeAtPick": 0.0615,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NBA|2026-11-19|Philadelphia 76ers at Orlando Magic|h2h|away|v1|soft-dog",
+      "kind": "pick",
+      "grade": "A",
+      "rowId": "NBA|2026-11-19|Philadelphia 76ers at Orlando Magic|h2h",
+      "sport": "NBA",
+      "event": "Philadelphia 76ers at Orlando Magic",
+      "commence": "2026-11-19T00:10:00Z",
+      "market": "h2h",
+      "side": "away",
+      "lineAtPick": null,
+      "priceAtPick": 150,
+      "bookAtPick": "theScore Bet",
+      "marketNumber": null,
+      "marketPrices": {
+        "home": -162,
+        "away": 136
+      },
+      "priceTime": "2026-11-18T23:34:06Z",
+      "pickedAt": "2026-11-18T23:34:07Z",
+      "fair": 0.4615,
+      "projection": 0.4615,
+      "edge": 0.0615,
+      "edgeUnit": "prob",
+      "bar": 0.015,
+      "fullBar": true,
+      "confidence": "medium",
+      "pattern": "soft-dog",
+      "reason": "theScore Bet away +150 implies 40.0%. Pinnacle +109 no-vig is 46.1%. Edge +6.1%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": null,
+        "prices": {
+          "home": -125,
+          "away": 109
+        },
+        "updated": "2026-11-18T23:34:01Z",
+        "snapTime": "2026-11-18T23:34:06Z",
+        "noVig": 0.4615
+      },
+      "contextAtPick": {},
+      "bestAtPick": {
+        "book": "Caesars",
+        "price": 143,
+        "line": null,
+        "implied": 0.4115,
+        "printImplied": 0.4237
+      },
+      "priceBook": "Caesars",
+      "pinEdgeAtPick": 0.0615,
+      "pinEdgeEstimated": false,
+      "pinGate": "pass"
     }
   ]
 }
