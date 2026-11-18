@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.855,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV17PORMIN-MIN",
@@ -20740,13 +20740,18 @@
         "count": 1,
         "cost": 0.39,
         "fee": 0.02,
-        "status": "open",
+        "status": "settled",
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.385,
         "lastSeen": "2026-11-18T00:54:41Z",
         "closeMid": 0.385,
-        "clv": -0.005
+        "clv": -0.005,
+        "result": "yes",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.41,
+        "settledAt": "2026-11-18T04:24:49Z"
       }
     ],
     "equity": [
@@ -23248,6 +23253,14 @@
         "realized": -81.23,
         "equity": 18.77,
         "clvN": 274,
+        "meanClv": -0.0045
+      },
+      {
+        "t": "2026-11-18T04:24:49Z",
+        "open": 4.26,
+        "realized": -81.64,
+        "equity": 18.36,
+        "clvN": 275,
         "meanClv": -0.0045
       }
     ],
@@ -29040,6 +29053,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-18T04:06:44Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-18T04:24:49Z"
       }
     ]
   },
@@ -34355,7 +34372,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.52,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV20UNMWYO-WYO",
@@ -34383,7 +34400,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.265,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV20OREMSU-ORE14",
@@ -34411,7 +34428,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.405,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -34474,7 +34491,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.445,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -34502,7 +34519,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.435,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-48",
@@ -34530,7 +34547,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.415,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -34558,7 +34575,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.435,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV17PORMIN-MIN2",
@@ -34579,7 +34596,7 @@
         "cost": 0.43,
         "fee": 0.0,
         "time": "2026-11-17T20:24:46Z",
-        "status": "open",
+        "status": "settled",
         "book": "live",
         "mode": "maker",
         "orderId": "01a1eaf8-5e20-760e-b660-214936590e2a",
@@ -34588,7 +34605,12 @@
         "lastMid": 0.415,
         "lastSeen": "2026-11-18T00:54:41Z",
         "closeMid": 0.415,
-        "clv": -0.015
+        "clv": -0.015,
+        "result": "no",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.57,
+        "settledAt": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV17NYKTOR-NYK5",
@@ -36408,6 +36430,14 @@
         "open": 3.34,
         "realized": -0.03,
         "equity": 34.97,
+        "clvN": 146,
+        "meanClv": 0.0
+      },
+      {
+        "t": "2026-11-18T04:24:49Z",
+        "open": 2.91,
+        "realized": 0.54,
+        "equity": 35.54,
         "clvN": 146,
         "meanClv": 0.0
       }
@@ -42815,7 +42845,7 @@
       }
     ]
   },
-  "asOf": "2026-11-18T04:06:44Z",
+  "asOf": "2026-11-18T04:24:49Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -42836,16 +42866,16 @@
     "liveActive": true,
     "liveWhy": "on since 2026-10-21T20:30:14.905Z",
     "paper": {
-      "open": 4.67,
-      "realized": -81.23,
-      "equity": 18.77,
+      "open": 4.26,
+      "realized": -81.64,
+      "equity": 18.36,
       "clvN": 275,
       "meanClv": -0.0045
     },
     "live": {
-      "open": 3.34,
-      "realized": -0.03,
-      "equity": 34.97,
+      "open": 2.91,
+      "realized": 0.54,
+      "equity": 35.54,
       "clvN": 146,
       "meanClv": 0.0
     },
@@ -42860,7 +42890,7 @@
       "clvN": 225,
       "meanClv": -0.0186,
       "meanClvNet": -0.0228,
-      "settledPnl": -4.87,
+      "settledPnl": -4.71,
       "pairedWithTaker": 85,
       "pairedMakerClvNet": -0.0136,
       "pairedTakerClvNet": -0.0282,
@@ -42944,7 +42974,7 @@
   "account": {
     "keys": "error",
     "error": "HTTPError: HTTP Error 429: Too Many Requests",
-    "checkedAt": "2026-11-18T04:07:07Z"
+    "checkedAt": "2026-11-18T04:25:11Z"
   },
   "maker": {
     "start": 0.0,
@@ -59487,7 +59517,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T11:10:48Z",
         "lastMid": 0.52,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -59540,7 +59570,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.41,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -59563,7 +59593,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.445,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -59586,7 +59616,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.445,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21IOWAILL-44",
@@ -59609,7 +59639,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.405,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -59632,7 +59662,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.435,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -59655,7 +59685,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.435,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21WISPUR-44",
@@ -59678,7 +59708,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.415,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-48",
@@ -59701,7 +59731,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.415,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -59724,7 +59754,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.435,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -59747,7 +59777,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.435,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV22TBDET-48",
@@ -59770,7 +59800,7 @@
         "mode": "paper",
         "postedAt": "2026-11-17T15:24:47Z",
         "lastMid": 0.385,
-        "lastSeen": "2026-11-18T04:06:44Z"
+        "lastSeen": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV17PORMIN-MIN2",
@@ -59788,14 +59818,19 @@
         "cost": 0.43,
         "fee": 0.0043,
         "time": "2026-11-18T00:24:48Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-17T19:24:48Z",
         "lastMid": 0.415,
         "lastSeen": "2026-11-18T00:54:41Z",
         "closeMid": 0.415,
-        "clv": -0.015
+        "clv": -0.015,
+        "result": "no",
+        "won": true,
+        "payout": 1.0,
+        "pnl": 0.57,
+        "settledAt": "2026-11-18T04:24:49Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV17PORMIN-POR",
@@ -59813,14 +59848,19 @@
         "cost": 0.41,
         "fee": 0.0042,
         "time": "2026-11-18T00:24:48Z",
-        "status": "open",
+        "status": "settled",
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-17T19:24:48Z",
         "lastMid": 0.385,
         "lastSeen": "2026-11-18T00:54:41Z",
         "closeMid": 0.385,
-        "clv": -0.025
+        "clv": -0.025,
+        "result": "no",
+        "won": false,
+        "payout": 0.0,
+        "pnl": -0.41,
+        "settledAt": "2026-11-18T04:24:49Z"
       }
     ],
     "equity": [],
