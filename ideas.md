@@ -261,6 +261,11 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 
 ## Killed
 
+### NBA big spreads drift toward the dog (2026-11-18, killed)
+- Observation: NBA spread dogs in memory are flat (role=dog n 95, +0.0%, t 0.0) while favourites lose (role=fav n 77, -0.8%, t -1.6); the closest lead is NCAAF's short-favourite drift (lead 9).
+- Mechanism tried: public money lays big NBA favourites early and sharps take the points late (garbage-time covers), so a 9+ point Pinnacle spread should shrink into the close and a soft-book big dog early would beat it.
+- Test (ledger/snaps NBA spreads, Pinnacle first to last snap, + = toward the dog): 9+ points -0.07 (n 55, t -0.4; halves split at 11-08 -0.27 / +0.13); 4-8.5 +0.03 (n 101, t 0.2; home favourites +0.35, t 2.1, road favourites -0.32, the lead 3/5 road-firm effect again); under 4 -0.29 toward the favourite (n 63, t -2.1, but halves -0.05 / -0.76, fails half 1). Variants: 15 (3 sizes x halves x home/road). Nothing at the big end; the only signals are lead 3/5's road-firm drift restated.
+
 ### Pinnacle's hold as an uncertainty signal (2026-11-12, killed)
 - Observation: on graded NFL/NCAAF/NBA reads with Pinnacle at the pick, CLV falls as Pinnacle's two-way hold widens: under 2.5% -1.2% (n 102), 2.5-3.5% -1.1% (n 706), 3.5-4.5% -1.6% (n 314), 4.5%+ -2.7% (n 60, t -6.1); in the second half the slope is clean (0.0%, -0.4%, -1.3%, -2.7%).
 - Mechanism tried: Pinnacle widens its margin when it expects news (injury reports, weather), so a soft price that "beats" Pinnacle's no-vig midpoint at a wide hold is measured against a noisy fair, and news-after-pick (-6.0% per loss) should cluster there.
