@@ -1,8 +1,8 @@
 {
- "asOf": "2026-11-18T03:54:47Z",
+ "asOf": "2026-11-18T04:06:43Z",
  "report": {
-  "asOf": "2026-11-18T03:54:47Z",
-  "reads": 1066,
+  "asOf": "2026-11-18T04:06:43Z",
+  "reads": 1073,
   "excluded": [
    "early-number",
    "luck-reversion",
@@ -12,15 +12,15 @@
    "stats-model",
    "trend-fade"
   ],
-  "baseline": -0.003,
-  "halfSplit": "2026-10-26T11:13:19Z",
-  "tested": 914,
-  "expectedByChance": 41.6,
+  "baseline": -0.0029,
+  "halfSplit": "2026-10-26T11:13:20Z",
+  "tested": 852,
+  "expectedByChance": 38.8,
   "price": {
    "better than Pinnacle": {
-    "n": 415,
-    "clv": 0.0064,
-    "moveAfter": -0.0095,
+    "n": 418,
+    "clv": 0.0063,
+    "moveAfter": -0.0099,
     "beatClose": 0.62
    },
    "0-1% worse": {
@@ -42,9 +42,9 @@
     "beatClose": 0.24
    },
    "no Pinnacle at pick": {
-    "n": 723,
-    "clv": -0.012,
-    "moveAfter": 0.0097,
+    "n": 727,
+    "clv": -0.0118,
+    "moveAfter": 0.0098,
     "beatClose": 0.32
    }
   },
@@ -54,34 +54,68 @@
     "scope": "NCAAF",
     "condition": "edgeBar=<0.5x&restDays=normal",
     "text": "NCAAF reads where the read's edge was under half its bar and our side had normal rest",
-    "n": 168,
-    "mean": -0.0208,
-    "t": -6.06,
+    "n": 170,
+    "mean": -0.0209,
+    "t": -6.11,
     "outside": 0.0043,
-    "diff": -0.0251,
+    "diff": -0.0252,
     "half1": {
      "n": 143,
      "mean": -0.0229,
      "diff": -0.0279
     },
     "half2": {
-     "n": 25,
-     "mean": -0.0092,
-     "diff": -0.0128
+     "n": 27,
+     "mean": -0.0103,
+     "diff": -0.0139
     },
     "confound": {
      "topPattern": "ncaaf-spot",
      "share": 0.27
     },
     "byGame": {
-     "games": 145,
-     "mean": -0.0187,
-     "t": -5.18
+     "games": 147,
+     "mean": -0.0188,
+     "t": -5.24
     },
     "direction": "loses",
     "status": "holding",
     "firstSeen": "2026-11-01",
     "daysSeen": 18
+   },
+   {
+    "key": "ALL|moveBeforePick=none&role=under",
+    "scope": "ALL",
+    "condition": "moveBeforePick=none&role=under",
+    "text": "reads where the line had not moved before the pick and we took the under",
+    "n": 138,
+    "mean": -0.0205,
+    "t": -6.05,
+    "outside": -0.0003,
+    "diff": -0.0202,
+    "half1": {
+     "n": 110,
+     "mean": -0.0243,
+     "diff": -0.0231
+    },
+    "half2": {
+     "n": 28,
+     "mean": -0.0057,
+     "diff": -0.006
+    },
+    "confound": {
+     "topPattern": "ncaaf-spot",
+     "share": 0.28
+    },
+    "byGame": {
+     "games": 113,
+     "mean": -0.0186,
+     "t": -4.86
+    },
+    "direction": "loses",
+    "status": "holding",
+    "firstSeen": "2026-10-28",
+    "daysSeen": 11
    },
    {
     "key": "NCAAF|market=total&restDays=normal",
@@ -90,9 +124,9 @@
     "text": "NCAAF reads where totals and our side had normal rest",
     "n": 135,
     "mean": -0.0224,
-    "t": -6.06,
-    "outside": 0.0022,
-    "diff": -0.0246,
+    "t": -6.04,
+    "outside": 0.0021,
+    "diff": -0.0245,
     "half1": {
      "n": 125,
      "mean": -0.0242,
@@ -101,7 +135,7 @@
     "half2": {
      "n": 10,
      "mean": 0.0002,
-     "diff": -0.0016
+     "diff": -0.0013
     },
     "confound": {
      "topPattern": "ncaaf-spot",
@@ -110,7 +144,7 @@
     "byGame": {
      "games": 105,
      "mean": -0.0209,
-     "t": -4.99
+     "t": -4.97
     },
     "direction": "loses",
     "status": "holding",
@@ -118,33 +152,33 @@
     "daysSeen": 17
    },
    {
-    "key": "ALL|market=total",
+    "key": "ALL|edgeBar=<0.5x&restDays=normal",
     "scope": "ALL",
-    "condition": "market=total",
-    "text": "reads where totals",
-    "n": 325,
-    "mean": -0.0143,
-    "t": -5.89,
-    "outside": 0.002,
-    "diff": -0.0163,
+    "condition": "edgeBar=<0.5x&restDays=normal",
+    "text": "reads where the read's edge was under half its bar and our side had normal rest",
+    "n": 182,
+    "mean": -0.0191,
+    "t": -5.92,
+    "outside": 0.0004,
+    "diff": -0.0195,
     "half1": {
-     "n": 233,
-     "mean": -0.0161,
-     "diff": -0.0183
+     "n": 143,
+     "mean": -0.0229,
+     "diff": -0.0231
     },
     "half2": {
-     "n": 92,
-     "mean": -0.0099,
-     "diff": -0.0118
+     "n": 39,
+     "mean": -0.0054,
+     "diff": -0.0058
     },
     "confound": {
-     "topPattern": "learned-nhl-over",
-     "share": 0.13
+     "topPattern": "ncaaf-spot",
+     "share": 0.25
     },
     "byGame": {
-     "games": 264,
-     "mean": -0.0136,
-     "t": -5.0
+     "games": 159,
+     "mean": -0.0169,
+     "t": -4.84
     },
     "direction": "loses",
     "status": "holding",
@@ -152,33 +186,33 @@
     "daysSeen": 22
    },
    {
-    "key": "ALL|edgeBar=<0.5x&restDays=normal",
+    "key": "ALL|market=total",
     "scope": "ALL",
-    "condition": "edgeBar=<0.5x&restDays=normal",
-    "text": "reads where the read's edge was under half its bar and our side had normal rest",
-    "n": 180,
-    "mean": -0.0191,
-    "t": -5.85,
-    "outside": 0.0003,
-    "diff": -0.0194,
+    "condition": "market=total",
+    "text": "reads where totals",
+    "n": 327,
+    "mean": -0.0139,
+    "t": -5.71,
+    "outside": 0.0019,
+    "diff": -0.0158,
     "half1": {
-     "n": 143,
-     "mean": -0.0229,
-     "diff": -0.0234
+     "n": 233,
+     "mean": -0.0161,
+     "diff": -0.0179
     },
     "half2": {
-     "n": 37,
-     "mean": -0.0044,
-     "diff": -0.0045
+     "n": 94,
+     "mean": -0.0086,
+     "diff": -0.0106
     },
     "confound": {
-     "topPattern": "ncaaf-spot",
-     "share": 0.26
+     "topPattern": "learned-nhl-over",
+     "share": 0.13
     },
     "byGame": {
-     "games": 157,
-     "mean": -0.0168,
-     "t": -4.77
+     "games": 265,
+     "mean": -0.0134,
+     "t": -4.9
     },
     "direction": "loses",
     "status": "holding",
@@ -192,9 +226,9 @@
     "text": "NCAAF reads where we took the under",
     "n": 107,
     "mean": -0.0236,
-    "t": -5.66,
-    "outside": 0.0006,
-    "diff": -0.0242,
+    "t": -5.65,
+    "outside": 0.0005,
+    "diff": -0.0241,
     "half1": {
      "n": 98,
      "mean": -0.0257,
@@ -203,7 +237,7 @@
     "half2": {
      "n": 9,
      "mean": -0.0003,
-     "diff": -0.0022
+     "diff": -0.0019
     },
     "confound": {
      "topPattern": "ncaaf-spot",
@@ -212,80 +246,12 @@
     "byGame": {
      "games": 77,
      "mean": -0.0221,
-     "t": -4.38
+     "t": -4.36
     },
     "direction": "loses",
     "status": "holding",
     "firstSeen": "2026-10-31",
     "daysSeen": 19
-   },
-   {
-    "key": "ALL|role=under",
-    "scope": "ALL",
-    "condition": "role=under",
-    "text": "reads where we took the under",
-    "n": 181,
-    "mean": -0.0172,
-    "t": -5.59,
-    "outside": -0.0001,
-    "diff": -0.0171,
-    "half1": {
-     "n": 142,
-     "mean": -0.0201,
-     "diff": -0.0195
-    },
-    "half2": {
-     "n": 39,
-     "mean": -0.0067,
-     "diff": -0.007
-    },
-    "confound": {
-     "topPattern": "ncaaf-spot",
-     "share": 0.23
-    },
-    "byGame": {
-     "games": 142,
-     "mean": -0.0149,
-     "t": -4.07
-    },
-    "direction": "loses",
-    "status": "holding",
-    "firstSeen": "2026-10-28",
-    "daysSeen": 22
-   },
-   {
-    "key": "NCAAF|role=dog",
-    "scope": "NCAAF",
-    "condition": "role=dog",
-    "text": "NCAAF reads where we took the underdog",
-    "n": 170,
-    "mean": 0.009,
-    "t": 5.41,
-    "outside": -0.0142,
-    "diff": 0.0232,
-    "half1": {
-     "n": 57,
-     "mean": 0.0185,
-     "diff": 0.0358
-    },
-    "half2": {
-     "n": 113,
-     "mean": 0.0043,
-     "diff": 0.0073
-    },
-    "confound": {
-     "topPattern": "soft-dog",
-     "share": 0.35
-    },
-    "byGame": {
-     "games": 145,
-     "mean": 0.0053,
-     "t": 3.57
-    },
-    "direction": "wins",
-    "status": "holding",
-    "firstSeen": "2026-10-28",
-    "daysSeen": 22
    },
    {
     "key": "ALL|steamBeforePick=toward",
@@ -294,18 +260,18 @@
     "text": "reads where Pinnacle was moving toward our side before the pick",
     "n": 86,
     "mean": 0.0107,
-    "t": 5.34,
-    "outside": -0.0042,
+    "t": 5.33,
+    "outside": -0.0041,
     "diff": 0.0149,
     "half1": {
      "n": 11,
      "mean": 0.0031,
-     "diff": 0.0092
+     "diff": 0.0093
     },
     "half2": {
      "n": 75,
      "mean": 0.0118,
-     "diff": 0.014
+     "diff": 0.0137
     },
     "confound": {
      "topPattern": "soft-dog",
@@ -322,33 +288,67 @@
     "daysSeen": 12
    },
    {
-    "key": "ALL|role=dog",
+    "key": "ALL|role=under",
     "scope": "ALL",
-    "condition": "role=dog",
-    "text": "reads where we took the underdog",
-    "n": 440,
-    "mean": 0.0057,
-    "t": 5.29,
-    "outside": -0.0091,
-    "diff": 0.0148,
+    "condition": "role=under",
+    "text": "reads where we took the under",
+    "n": 183,
+    "mean": -0.0165,
+    "t": -5.29,
+    "outside": -0.0002,
+    "diff": -0.0163,
     "half1": {
-     "n": 143,
-     "mean": 0.0104,
-     "diff": 0.0223
+     "n": 142,
+     "mean": -0.0201,
+     "diff": -0.0192
     },
     "half2": {
-     "n": 297,
-     "mean": 0.0035,
-     "diff": 0.0081
+     "n": 41,
+     "mean": -0.0039,
+     "diff": -0.0043
+    },
+    "confound": {
+     "topPattern": "ncaaf-spot",
+     "share": 0.23
+    },
+    "byGame": {
+     "games": 143,
+     "mean": -0.0144,
+     "t": -3.92
+    },
+    "direction": "loses",
+    "status": "holding",
+    "firstSeen": "2026-10-28",
+    "daysSeen": 22
+   },
+   {
+    "key": "NCAAF|role=dog",
+    "scope": "NCAAF",
+    "condition": "role=dog",
+    "text": "NCAAF reads where we took the underdog",
+    "n": 171,
+    "mean": 0.0086,
+    "t": 5.28,
+    "outside": -0.014,
+    "diff": 0.0226,
+    "half1": {
+     "n": 57,
+     "mean": 0.0185,
+     "diff": 0.0358
+    },
+    "half2": {
+     "n": 114,
+     "mean": 0.0037,
+     "diff": 0.0063
     },
     "confound": {
      "topPattern": "soft-dog",
-     "share": 0.31
+     "share": 0.35
     },
     "byGame": {
-     "games": 348,
-     "mean": 0.0045,
-     "t": 4.09
+     "games": 146,
+     "mean": 0.0048,
+     "t": 3.44
     },
     "direction": "wins",
     "status": "holding",
@@ -356,67 +356,33 @@
     "daysSeen": 22
    },
    {
-    "key": "ALL|sharpDivPick=aligned&timing=late",
-    "scope": "ALL",
-    "condition": "sharpDivPick=aligned&timing=late",
-    "text": "reads where sharpDivPick = aligned and the read was stamped close to the start",
-    "n": 70,
-    "mean": 0.0117,
-    "t": 5.25,
-    "outside": -0.004,
-    "diff": 0.0157,
-    "half1": {
-     "n": 8,
-     "mean": 0.0034,
-     "diff": 0.0093
-    },
-    "half2": {
-     "n": 62,
-     "mean": 0.0128,
-     "diff": 0.0146
-    },
-    "confound": {
-     "topPattern": "soft-dog",
-     "share": 0.41
-    },
-    "byGame": {
-     "games": 59,
-     "mean": 0.0114,
-     "t": 4.58
-    },
-    "direction": "wins",
-    "status": "holding",
-    "firstSeen": "2026-11-14",
-    "daysSeen": 5
-   },
-   {
     "key": "ALL|moveBeforePick=none&restDays=normal",
     "scope": "ALL",
     "condition": "moveBeforePick=none&restDays=normal",
     "text": "reads where the line had not moved before the pick and our side had normal rest",
-    "n": 149,
-    "mean": -0.0207,
-    "t": -5.09,
-    "outside": -0.0001,
-    "diff": -0.0206,
+    "n": 151,
+    "mean": -0.0208,
+    "t": -5.16,
+    "outside": -0.0,
+    "diff": -0.0207,
     "half1": {
      "n": 123,
      "mean": -0.0214,
-     "diff": -0.0203
+     "diff": -0.0201
     },
     "half2": {
-     "n": 26,
-     "mean": -0.0175,
-     "diff": -0.0183
+     "n": 28,
+     "mean": -0.018,
+     "diff": -0.019
     },
     "confound": {
      "topPattern": "ncaaf-spot",
-     "share": 0.28
+     "share": 0.27
     },
     "byGame": {
-     "games": 128,
-     "mean": -0.0173,
-     "t": -3.82
+     "games": 130,
+     "mean": -0.0174,
+     "t": -3.89
     },
     "direction": "loses",
     "status": "holding",
@@ -424,33 +390,67 @@
     "daysSeen": 18
    },
    {
+    "key": "ALL|role=dog",
+    "scope": "ALL",
+    "condition": "role=dog",
+    "text": "reads where we took the underdog",
+    "n": 443,
+    "mean": 0.0055,
+    "t": 5.12,
+    "outside": -0.0088,
+    "diff": 0.0143,
+    "half1": {
+     "n": 145,
+     "mean": 0.0104,
+     "diff": 0.0224
+    },
+    "half2": {
+     "n": 298,
+     "mean": 0.0031,
+     "diff": 0.0067
+    },
+    "confound": {
+     "topPattern": "soft-dog",
+     "share": 0.31
+    },
+    "byGame": {
+     "games": 350,
+     "mean": 0.0043,
+     "t": 3.95
+    },
+    "direction": "wins",
+    "status": "holding",
+    "firstSeen": "2026-10-28",
+    "daysSeen": 22
+   },
+   {
     "key": "NCAAF|edgeBar=<0.5x",
     "scope": "NCAAF",
     "condition": "edgeBar=<0.5x",
     "text": "NCAAF reads where the read's edge was under half its bar",
-    "n": 247,
-    "mean": -0.0147,
-    "t": -5.06,
+    "n": 249,
+    "mean": -0.0148,
+    "t": -5.11,
     "outside": 0.0066,
-    "diff": -0.0213,
+    "diff": -0.0214,
     "half1": {
      "n": 208,
      "mean": -0.0154,
      "diff": -0.0247
     },
     "half2": {
-     "n": 39,
-     "mean": -0.0108,
-     "diff": -0.0161
+     "n": 41,
+     "mean": -0.0114,
+     "diff": -0.0168
     },
     "confound": {
      "topPattern": "ncaaf-spot",
-     "share": 0.34
+     "share": 0.33
     },
     "byGame": {
-     "games": 209,
-     "mean": -0.0143,
-     "t": -5.0
+     "games": 211,
+     "mean": -0.0144,
+     "t": -5.05
     },
     "direction": "loses",
     "status": "holding",
@@ -470,12 +470,12 @@
     "half1": {
      "n": 17,
      "mean": 0.0608,
-     "diff": 0.0688
+     "diff": 0.0689
     },
     "half2": {
      "n": 12,
      "mean": 0.0229,
-     "diff": 0.0236
+     "diff": 0.0233
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -496,29 +496,29 @@
     "scope": "NCAAF",
     "condition": "moveBeforePick=none&restDays=normal",
     "text": "NCAAF reads where the line had not moved before the pick and our side had normal rest",
-    "n": 145,
+    "n": 147,
     "mean": -0.0207,
-    "t": -4.97,
-    "outside": 0.0022,
-    "diff": -0.0229,
+    "t": -5.02,
+    "outside": 0.0023,
+    "diff": -0.023,
     "half1": {
      "n": 123,
      "mean": -0.0214,
      "diff": -0.0214
     },
     "half2": {
-     "n": 22,
-     "mean": -0.0164,
-     "diff": -0.0208
+     "n": 24,
+     "mean": -0.017,
+     "diff": -0.0215
     },
     "confound": {
      "topPattern": "ncaaf-spot",
      "share": 0.28
     },
     "byGame": {
-     "games": 124,
-     "mean": -0.0171,
-     "t": -3.75
+     "games": 126,
+     "mean": -0.0172,
+     "t": -3.81
     },
     "direction": "loses",
     "status": "holding",
@@ -532,18 +532,18 @@
     "text": "NBA reads where our side had 2+ days of rest and our side travelled further than the opponent (200+ miles more)",
     "n": 23,
     "mean": 0.0542,
-    "t": 4.92,
-    "outside": -0.0041,
-    "diff": 0.0583,
+    "t": 4.9,
+    "outside": -0.0038,
+    "diff": 0.058,
     "half1": {
      "n": 13,
      "mean": 0.0779,
-     "diff": 0.0825
+     "diff": 0.0833
     },
     "half2": {
      "n": 10,
      "mean": 0.0233,
-     "diff": 0.0272
+     "diff": 0.0264
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -552,7 +552,7 @@
     "byGame": {
      "games": 14,
      "mean": 0.0342,
-     "t": 2.44
+     "t": 2.43
     },
     "direction": "wins",
     "status": "holding",
@@ -560,101 +560,67 @@
     "daysSeen": 13
    },
    {
-    "key": "NBA|timing=day&travel=none",
-    "scope": "NBA",
-    "condition": "timing=day&travel=none",
-    "text": "NBA reads where the read was stamped game day and our side did not travel",
-    "n": 52,
-    "mean": -0.0228,
-    "t": -4.8,
-    "outside": 0.0058,
-    "diff": -0.0285,
-    "half1": {
-     "n": 18,
-     "mean": -0.0204,
-     "diff": -0.0337
-    },
-    "half2": {
-     "n": 34,
-     "mean": -0.024,
-     "diff": -0.0262
-    },
-    "confound": {
-     "topPattern": "scan-nba-h2h-home-restedgehomemore-57b863",
-     "share": 0.13
-    },
-    "byGame": {
-     "games": 31,
-     "mean": -0.0159,
-     "t": -2.31
-    },
-    "direction": "loses",
-    "status": "holding",
-    "firstSeen": "2026-11-03",
-    "daysSeen": 13
-   },
-   {
-    "key": "ALL|edgeBar=<0.5x&travel=none",
+    "key": "ALL|sharpDivPick=aligned&timing=late",
     "scope": "ALL",
-    "condition": "edgeBar=<0.5x&travel=none",
-    "text": "reads where the read's edge was under half its bar and our side did not travel",
-    "n": 70,
-    "mean": -0.0214,
-    "t": -4.66,
-    "outside": -0.0017,
-    "diff": -0.0197,
+    "condition": "sharpDivPick=aligned&timing=late",
+    "text": "reads where sharpDivPick = aligned and the read was stamped close to the start",
+    "n": 72,
+    "mean": 0.0107,
+    "t": 4.87,
+    "outside": -0.0039,
+    "diff": 0.0146,
     "half1": {
-     "n": 39,
-     "mean": -0.0246,
-     "diff": -0.0202
+     "n": 8,
+     "mean": 0.0034,
+     "diff": 0.0095
     },
     "half2": {
-     "n": 31,
-     "mean": -0.0174,
-     "diff": -0.0182
+     "n": 64,
+     "mean": 0.0116,
+     "diff": 0.0131
     },
     "confound": {
      "topPattern": "soft-dog",
-     "share": 0.19
+     "share": 0.42
     },
     "byGame": {
-     "games": 53,
-     "mean": -0.0166,
-     "t": -2.94
+     "games": 60,
+     "mean": 0.0108,
+     "t": 4.4
     },
-    "direction": "loses",
+    "direction": "wins",
     "status": "holding",
-    "firstSeen": "2026-10-28",
-    "daysSeen": 22
+    "firstSeen": "2026-11-14",
+    "daysSeen": 5
    },
    {
     "key": "NCAAF|edgeBar=0.5-1x",
     "scope": "NCAAF",
     "condition": "edgeBar=0.5-1x",
     "text": "NCAAF reads where the read's edge was half to one times its bar",
-    "n": 176,
-    "mean": 0.0064,
-    "t": 4.54,
+    "n": 177,
+    "mean": 0.0065,
+    "t": 4.59,
     "outside": -0.013,
-    "diff": 0.0194,
+    "diff": 0.0195,
     "half1": {
      "n": 55,
      "mean": 0.0119,
      "diff": 0.0272
     },
     "half2": {
-     "n": 121,
-     "mean": 0.0039,
-     "diff": 0.0073
+     "n": 122,
+     "mean": 0.004,
+     "diff": 0.0081
     },
     "confound": {
      "topPattern": "sharp-soft-alt",
      "share": 0.37
     },
     "byGame": {
-     "games": 163,
+     "games": 164,
      "mean": 0.0071,
-     "t": 4.82
+     "t": 4.87
     },
     "direction": "wins",
     "status": "holding",
@@ -662,67 +628,67 @@
     "daysSeen": 22
    },
    {
-    "key": "ALL|restEdge=even&timing=late",
+    "key": "ALL|edgeBar=<0.5x&travel=none",
     "scope": "ALL",
-    "condition": "restEdge=even&timing=late",
-    "text": "reads where both sides equally rested and the read was stamped close to the start",
-    "n": 54,
-    "mean": 0.0089,
-    "t": 4.45,
-    "outside": -0.0036,
-    "diff": 0.0126,
+    "condition": "edgeBar=<0.5x&travel=none",
+    "text": "reads where the read's edge was under half its bar and our side did not travel",
+    "n": 71,
+    "mean": -0.0204,
+    "t": -4.35,
+    "outside": -0.0017,
+    "diff": -0.0187,
     "half1": {
-     "n": 9,
-     "mean": -0.0002,
-     "diff": 0.0057
+     "n": 42,
+     "mean": -0.0247,
+     "diff": -0.0203
     },
     "half2": {
-     "n": 45,
-     "mean": 0.0108,
-     "diff": 0.0119
+     "n": 29,
+     "mean": -0.0141,
+     "diff": -0.015
     },
     "confound": {
      "topPattern": "soft-dog",
-     "share": 0.44
+     "share": 0.18
     },
     "byGame": {
-     "games": 46,
-     "mean": 0.0081,
-     "t": 3.65
+     "games": 54,
+     "mean": -0.0153,
+     "t": -2.64
     },
-    "direction": "wins",
+    "direction": "loses",
     "status": "holding",
-    "firstSeen": "2026-11-07",
-    "daysSeen": 12
+    "firstSeen": "2026-10-28",
+    "daysSeen": 22
    },
    {
     "key": "NCAAF|market=spread&role=dog",
     "scope": "NCAAF",
     "condition": "market=spread&role=dog",
     "text": "NCAAF reads where spreads and we took the underdog",
-    "n": 88,
-    "mean": 0.0162,
-    "t": 4.35,
-    "outside": -0.0106,
-    "diff": 0.0267,
+    "n": 89,
+    "mean": 0.0153,
+    "t": 4.19,
+    "outside": -0.0104,
+    "diff": 0.0258,
     "half1": {
      "n": 44,
      "mean": 0.0263,
      "diff": 0.0431
     },
     "half2": {
-     "n": 44,
-     "mean": 0.006,
-     "diff": 0.0058
+     "n": 45,
+     "mean": 0.0046,
+     "diff": 0.0041
     },
     "confound": {
      "topPattern": "sharp-soft-alt",
      "share": 0.42
     },
     "byGame": {
-     "games": 76,
-     "mean": 0.0099,
-     "t": 2.96
+     "games": 77,
+     "mean": 0.009,
+     "t": 2.79
     },
     "direction": "wins",
     "status": "holding",
@@ -734,29 +700,29 @@
     "scope": "ALL",
     "condition": "market=h2h&timing=late",
     "text": "reads where moneylines and the read was stamped close to the start",
-    "n": 100,
-    "mean": 0.0096,
-    "t": 4.29,
-    "outside": -0.0043,
-    "diff": 0.0139,
+    "n": 102,
+    "mean": 0.0089,
+    "t": 4.09,
+    "outside": -0.0042,
+    "diff": 0.0131,
     "half1": {
      "n": 21,
      "mean": -0.0028,
-     "diff": 0.0032
+     "diff": 0.0033
     },
     "half2": {
-     "n": 79,
-     "mean": 0.0129,
-     "diff": 0.0153
+     "n": 81,
+     "mean": 0.012,
+     "diff": 0.014
     },
     "confound": {
      "topPattern": "sharp-soft",
      "share": 0.43
     },
     "byGame": {
-     "games": 85,
-     "mean": 0.0098,
-     "t": 3.81
+     "games": 86,
+     "mean": 0.0094,
+     "t": 3.71
     },
     "direction": "wins",
     "status": "holding",
@@ -764,67 +730,67 @@
     "daysSeen": 17
    },
    {
-    "key": "NBA|travel=none",
-    "scope": "NBA",
-    "condition": "travel=none",
-    "text": "NBA reads where our side did not travel",
-    "n": 64,
-    "mean": -0.0176,
-    "t": -4.07,
-    "outside": 0.0058,
-    "diff": -0.0234,
+    "key": "ALL|restEdge=even&timing=late",
+    "scope": "ALL",
+    "condition": "restEdge=even&timing=late",
+    "text": "reads where both sides equally rested and the read was stamped close to the start",
+    "n": 56,
+    "mean": 0.0078,
+    "t": 3.95,
+    "outside": -0.0035,
+    "diff": 0.0113,
     "half1": {
-     "n": 19,
-     "mean": -0.0174,
-     "diff": -0.0304
+     "n": 9,
+     "mean": -0.0002,
+     "diff": 0.0058
     },
     "half2": {
-     "n": 45,
-     "mean": -0.0176,
-     "diff": -0.0198
+     "n": 47,
+     "mean": 0.0093,
+     "diff": 0.0101
     },
     "confound": {
      "topPattern": "soft-dog",
-     "share": 0.19
+     "share": 0.45
     },
     "byGame": {
-     "games": 41,
-     "mean": -0.0103,
-     "t": -1.8
+     "games": 47,
+     "mean": 0.0075,
+     "t": 3.41
     },
-    "direction": "loses",
+    "direction": "wins",
     "status": "holding",
-    "firstSeen": "2026-11-01",
-    "daysSeen": 18
+    "firstSeen": "2026-11-07",
+    "daysSeen": 12
    },
    {
     "key": "ALL|market=h2h&venue=away",
     "scope": "ALL",
     "condition": "market=h2h&venue=away",
     "text": "reads where moneylines and we took the away side",
-    "n": 197,
-    "mean": 0.0061,
-    "t": 3.95,
-    "outside": -0.005,
-    "diff": 0.0112,
+    "n": 199,
+    "mean": 0.0058,
+    "t": 3.83,
+    "outside": -0.0049,
+    "diff": 0.0108,
     "half1": {
      "n": 72,
      "mean": 0.0001,
-     "diff": 0.0069
+     "diff": 0.007
     },
     "half2": {
-     "n": 125,
-     "mean": 0.0096,
-     "diff": 0.0128
+     "n": 127,
+     "mean": 0.0091,
+     "diff": 0.0118
     },
     "confound": {
      "topPattern": "sharp-soft",
      "share": 0.34
     },
     "byGame": {
-     "games": 163,
-     "mean": 0.0062,
-     "t": 3.44
+     "games": 164,
+     "mean": 0.006,
+     "t": 3.38
     },
     "direction": "wins",
     "status": "holding",
@@ -832,67 +798,33 @@
     "daysSeen": 10
    },
    {
-    "key": "ALL|timing=late&venue=away",
-    "scope": "ALL",
-    "condition": "timing=late&venue=away",
-    "text": "reads where the read was stamped close to the start and we took the away side",
-    "n": 75,
-    "mean": 0.0114,
-    "t": 3.93,
-    "outside": -0.0041,
-    "diff": 0.0154,
-    "half1": {
-     "n": 18,
-     "mean": -0.0023,
-     "diff": 0.0037
-    },
-    "half2": {
-     "n": 57,
-     "mean": 0.0157,
-     "diff": 0.0177
-    },
-    "confound": {
-     "topPattern": "sharp-soft",
-     "share": 0.37
-    },
-    "byGame": {
-     "games": 63,
-     "mean": 0.0126,
-     "t": 3.72
-    },
-    "direction": "wins",
-    "status": "holding",
-    "firstSeen": "2026-11-13",
-    "daysSeen": 6
-   },
-   {
     "key": "ALL|edgeBar=<0.5x",
     "scope": "ALL",
     "condition": "edgeBar=<0.5x",
     "text": "reads where the read's edge was under half its bar",
-    "n": 519,
-    "mean": -0.0084,
+    "n": 522,
+    "mean": -0.0083,
     "t": -3.82,
     "outside": 0.0021,
     "diff": -0.0105,
     "half1": {
-     "n": 342,
-     "mean": -0.011,
-     "diff": -0.0147
+     "n": 347,
+     "mean": -0.0111,
+     "diff": -0.0145
     },
     "half2": {
-     "n": 177,
-     "mean": -0.0032,
-     "diff": -0.0046
+     "n": 175,
+     "mean": -0.0029,
+     "diff": -0.0044
     },
     "confound": {
      "topPattern": "ncaaf-spot",
      "share": 0.16
     },
     "byGame": {
-     "games": 416,
-     "mean": -0.0087,
-     "t": -3.77
+     "games": 419,
+     "mean": -0.0086,
+     "t": -3.75
     },
     "direction": "loses",
     "status": "holding",
@@ -904,29 +836,29 @@
     "scope": "NCAAF",
     "condition": "tzShift=none",
     "text": "NCAAF reads where no time-zone change",
-    "n": 155,
-    "mean": 0.0067,
-    "t": 3.82,
+    "n": 158,
+    "mean": 0.0064,
+    "t": 3.79,
     "outside": -0.0117,
-    "diff": 0.0184,
+    "diff": 0.018,
     "half1": {
      "n": 74,
      "mean": 0.0109,
      "diff": 0.0285
     },
     "half2": {
-     "n": 81,
-     "mean": 0.0028,
-     "diff": 0.0021
+     "n": 84,
+     "mean": 0.0023,
+     "diff": 0.0016
     },
     "confound": {
      "topPattern": "learned-ncaaf-spread",
-     "share": 0.21
+     "share": 0.22
     },
     "byGame": {
-     "games": 126,
-     "mean": 0.0063,
-     "t": 3.34
+     "games": 129,
+     "mean": 0.0059,
+     "t": 3.29
     },
     "direction": "wins",
     "status": "holding",
@@ -940,18 +872,18 @@
     "text": "reads where the read's edge was half to one times its bar and we took the away side",
     "n": 157,
     "mean": 0.0077,
-    "t": 3.79,
+    "t": 3.78,
     "outside": -0.0048,
     "diff": 0.0125,
     "half1": {
      "n": 48,
      "mean": 0.0085,
-     "diff": 0.0158
+     "diff": 0.0159
     },
     "half2": {
      "n": 109,
      "mean": 0.0074,
-     "diff": 0.0095
+     "diff": 0.0092
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -968,33 +900,135 @@
     "daysSeen": 18
    },
    {
+    "key": "NBA|travel=none",
+    "scope": "NBA",
+    "condition": "travel=none",
+    "text": "NBA reads where our side did not travel",
+    "n": 68,
+    "mean": -0.0157,
+    "t": -3.75,
+    "outside": 0.0058,
+    "diff": -0.0215,
+    "half1": {
+     "n": 25,
+     "mean": -0.018,
+     "diff": -0.0308
+    },
+    "half2": {
+     "n": 43,
+     "mean": -0.0144,
+     "diff": -0.0165
+    },
+    "confound": {
+     "topPattern": "soft-dog",
+     "share": 0.19
+    },
+    "byGame": {
+     "games": 43,
+     "mean": -0.0092,
+     "t": -1.67
+    },
+    "direction": "loses",
+    "status": "holding",
+    "firstSeen": "2026-11-01",
+    "daysSeen": 18
+   },
+   {
+    "key": "ALL|timing=late&venue=away",
+    "scope": "ALL",
+    "condition": "timing=late&venue=away",
+    "text": "reads where the read was stamped close to the start and we took the away side",
+    "n": 77,
+    "mean": 0.0105,
+    "t": 3.71,
+    "outside": -0.004,
+    "diff": 0.0144,
+    "half1": {
+     "n": 18,
+     "mean": -0.0023,
+     "diff": 0.0038
+    },
+    "half2": {
+     "n": 59,
+     "mean": 0.0143,
+     "diff": 0.016
+    },
+    "confound": {
+     "topPattern": "sharp-soft",
+     "share": 0.38
+    },
+    "byGame": {
+     "games": 64,
+     "mean": 0.012,
+     "t": 3.6
+    },
+    "direction": "wins",
+    "status": "holding",
+    "firstSeen": "2026-11-13",
+    "daysSeen": 6
+   },
+   {
+    "key": "ALL|moveBeforePick=none",
+    "scope": "ALL",
+    "condition": "moveBeforePick=none",
+    "text": "reads where the line had not moved before the pick",
+    "n": 459,
+    "mean": -0.009,
+    "t": -3.68,
+    "outside": 0.0016,
+    "diff": -0.0106,
+    "half1": {
+     "n": 307,
+     "mean": -0.008,
+     "diff": -0.0049
+    },
+    "half2": {
+     "n": 152,
+     "mean": -0.011,
+     "diff": -0.0154
+    },
+    "confound": {
+     "topPattern": "ncaaf-spot",
+     "share": 0.16
+    },
+    "byGame": {
+     "games": 344,
+     "mean": -0.0107,
+     "t": -4.1
+    },
+    "direction": "loses",
+    "status": "holding",
+    "firstSeen": "2026-10-29",
+    "daysSeen": 20
+   },
+   {
     "key": "NCAAF|travelEdge=even",
     "scope": "NCAAF",
     "condition": "travelEdge=even",
     "text": "NCAAF reads where both sides travelled about the same",
-    "n": 94,
-    "mean": 0.0103,
-    "t": 3.69,
+    "n": 97,
+    "mean": 0.0096,
+    "t": 3.62,
     "outside": -0.0094,
-    "diff": 0.0197,
+    "diff": 0.0191,
     "half1": {
      "n": 44,
      "mean": 0.0165,
      "diff": 0.0313
     },
     "half2": {
-     "n": 50,
-     "mean": 0.0048,
-     "diff": 0.0043
+     "n": 53,
+     "mean": 0.0039,
+     "diff": 0.0034
     },
     "confound": {
      "topPattern": "soft-dog",
      "share": 0.22
     },
     "byGame": {
-     "games": 76,
-     "mean": 0.0071,
-     "t": 2.83
+     "games": 79,
+     "mean": 0.0064,
+     "t": 2.73
     },
     "direction": "wins",
     "status": "holding",
@@ -1006,75 +1040,41 @@
     "scope": "NCAAF",
     "condition": "keyNumber=yes",
     "text": "NCAAF reads where the line sat on or across a key number",
-    "n": 115,
-    "mean": 0.0089,
-    "t": 3.62,
+    "n": 117,
+    "mean": 0.0084,
+    "t": 3.53,
     "outside": -0.0102,
-    "diff": 0.0191,
+    "diff": 0.0185,
     "half1": {
      "n": 50,
      "mean": 0.0063,
      "diff": 0.0197
     },
     "half2": {
-     "n": 65,
-     "mean": 0.0109,
-     "diff": 0.0147
+     "n": 67,
+     "mean": 0.0099,
+     "diff": 0.0136
     },
     "confound": {
      "topPattern": "sharp-soft-alt",
-     "share": 0.53,
+     "share": 0.52,
      "without": {
-      "n": 54,
-      "mean": 0.0053,
-      "diff": 0.0154,
-      "t": 1.78
+      "n": 56,
+      "mean": 0.0043,
+      "diff": 0.0143,
+      "t": 1.69
      },
      "verdict": "holds without it"
     },
     "byGame": {
-     "games": 103,
-     "mean": 0.0087,
-     "t": 3.43
+     "games": 105,
+     "mean": 0.0081,
+     "t": 3.33
     },
     "direction": "wins",
     "status": "holding",
     "firstSeen": "2026-10-30",
     "daysSeen": 13
-   },
-   {
-    "key": "ALL|moveBeforePick=none",
-    "scope": "ALL",
-    "condition": "moveBeforePick=none",
-    "text": "reads where the line had not moved before the pick",
-    "n": 457,
-    "mean": -0.0089,
-    "t": -3.61,
-    "outside": 0.0015,
-    "diff": -0.0105,
-    "half1": {
-     "n": 302,
-     "mean": -0.008,
-     "diff": -0.0049
-    },
-    "half2": {
-     "n": 155,
-     "mean": -0.0109,
-     "diff": -0.0151
-    },
-    "confound": {
-     "topPattern": "ncaaf-spot",
-     "share": 0.16
-    },
-    "byGame": {
-     "games": 342,
-     "mean": -0.0106,
-     "t": -4.04
-    },
-    "direction": "loses",
-    "status": "holding",
-    "firstSeen": "2026-10-29",
-    "daysSeen": 20
    },
    {
     "key": "NBA|restDays=1day&travelEdge=less",
@@ -1083,18 +1083,18 @@
     "text": "NBA reads where our side had one day of rest and the opponent travelled further (200+ miles more)",
     "n": 54,
     "mean": -0.018,
-    "t": -3.48,
-    "outside": 0.0049,
-    "diff": -0.0229,
+    "t": -3.52,
+    "outside": 0.005,
+    "diff": -0.023,
     "half1": {
-     "n": 14,
-     "mean": -0.0116,
-     "diff": -0.0216
+     "n": 20,
+     "mean": -0.0141,
+     "diff": -0.024
     },
     "half2": {
-     "n": 40,
-     "mean": -0.0202,
-     "diff": -0.0224
+     "n": 34,
+     "mean": -0.0203,
+     "diff": -0.0227
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -1103,7 +1103,7 @@
     "byGame": {
      "games": 31,
      "mean": -0.0087,
-     "t": -1.11
+     "t": -1.12
     },
     "direction": "loses",
     "status": "holding",
@@ -1117,18 +1117,18 @@
     "text": "reads where the read's edge was half to one times its bar and both sides equally rested",
     "n": 147,
     "mean": 0.0076,
-    "t": 3.45,
-    "outside": -0.0047,
-    "diff": 0.0123,
+    "t": 3.43,
+    "outside": -0.0046,
+    "diff": 0.0122,
     "half1": {
      "n": 40,
      "mean": 0.0141,
-     "diff": 0.0215
+     "diff": 0.0216
     },
     "half2": {
      "n": 107,
      "mean": 0.0052,
-     "diff": 0.0067
+     "diff": 0.0064
     },
     "confound": {
      "topPattern": "sharp-soft-alt",
@@ -1151,18 +1151,18 @@
     "text": "reads where our side had one day of rest and our side did not travel",
     "n": 63,
     "mean": -0.0154,
-    "t": -3.41,
+    "t": -3.42,
     "outside": -0.0022,
     "diff": -0.0132,
     "half1": {
-     "n": 26,
-     "mean": -0.0099,
-     "diff": -0.0042
+     "n": 32,
+     "mean": -0.0117,
+     "diff": -0.0061
     },
     "half2": {
-     "n": 37,
-     "mean": -0.0193,
-     "diff": -0.0205
+     "n": 31,
+     "mean": -0.0192,
+     "diff": -0.0204
     },
     "confound": {
      "topPattern": "soft-dog",
@@ -1171,7 +1171,7 @@
     "byGame": {
      "games": 37,
      "mean": -0.0061,
-     "t": -0.63
+     "t": -0.64
     },
     "direction": "loses",
     "status": "holding",
@@ -1187,16 +1187,16 @@
     "mean": 0.0315,
     "t": 3.24,
     "outside": -0.0038,
-    "diff": 0.0354,
+    "diff": 0.0353,
     "half1": {
      "n": 15,
      "mean": 0.0367,
-     "diff": 0.0438
+     "diff": 0.0439
     },
     "half2": {
      "n": 11,
      "mean": 0.0244,
-     "diff": 0.0251
+     "diff": 0.0248
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -1204,8 +1204,8 @@
      "without": {
       "n": 9,
       "mean": 0.0233,
-      "diff": 0.0288,
-      "t": 2.19
+      "diff": 0.0287,
+      "t": 2.18
      },
      "verdict": "holds without it"
     },
@@ -1220,10 +1220,10 @@
     "daysSeen": 2
    },
    {
-    "key": "NHL|market=total",
+    "key": "NHL|moveBeforePick=none",
     "scope": "NHL",
-    "condition": "market=total",
-    "text": "NHL reads where totals",
+    "condition": "moveBeforePick=none",
+    "text": "NHL reads where the line had not moved before the pick",
     "n": 119,
     "mean": -0.0143,
     "t": -3.17,
@@ -1258,102 +1258,34 @@
     "scope": "ALL",
     "condition": "venue=away",
     "text": "reads where we took the away side",
-    "n": 337,
-    "mean": 0.0028,
-    "t": 3.09,
-    "outside": -0.0057,
-    "diff": 0.0085,
+    "n": 340,
+    "mean": 0.0027,
+    "t": 3.02,
+    "outside": -0.0056,
+    "diff": 0.0083,
     "half1": {
      "n": 141,
      "mean": -0.0019,
-     "diff": 0.0053
+     "diff": 0.0055
     },
     "half2": {
-     "n": 196,
-     "mean": 0.0063,
-     "diff": 0.0101
+     "n": 199,
+     "mean": 0.006,
+     "diff": 0.0094
     },
     "confound": {
      "topPattern": "sharp-soft",
      "share": 0.21
     },
     "byGame": {
-     "games": 271,
+     "games": 273,
      "mean": 0.0033,
-     "t": 2.95
+     "t": 2.94
     },
     "direction": "wins",
     "status": "holding",
     "firstSeen": "2026-10-28",
     "daysSeen": 22
-   },
-   {
-    "key": "ALL|keyNumber=yes",
-    "scope": "ALL",
-    "condition": "keyNumber=yes",
-    "text": "reads where the line sat on or across a key number",
-    "n": 138,
-    "mean": 0.0083,
-    "t": 3.05,
-    "outside": -0.0047,
-    "diff": 0.013,
-    "half1": {
-     "n": 52,
-     "mean": 0.0065,
-     "diff": 0.0136
-    },
-    "half2": {
-     "n": 86,
-     "mean": 0.0094,
-     "diff": 0.0114
-    },
-    "confound": {
-     "topPattern": "sharp-soft-alt",
-     "share": 0.48
-    },
-    "byGame": {
-     "games": 120,
-     "mean": 0.0084,
-     "t": 2.9
-    },
-    "direction": "wins",
-    "status": "holding",
-    "firstSeen": "2026-10-29",
-    "daysSeen": 16
-   },
-   {
-    "key": "NBA|travelEdge=more&venue=away",
-    "scope": "NBA",
-    "condition": "travelEdge=more&venue=away",
-    "text": "NBA reads where our side travelled further than the opponent (200+ miles more) and we took the away side",
-    "n": 33,
-    "mean": 0.0253,
-    "t": 3.05,
-    "outside": -0.0026,
-    "diff": 0.0279,
-    "half1": {
-     "n": 10,
-     "mean": 0.0296,
-     "diff": 0.0255
-    },
-    "half2": {
-     "n": 23,
-     "mean": 0.0234,
-     "diff": 0.0294
-    },
-    "confound": {
-     "topPattern": "sharp-soft",
-     "share": 0.3
-    },
-    "byGame": {
-     "games": 26,
-     "mean": 0.024,
-     "t": 2.71
-    },
-    "direction": "wins",
-    "status": "holding",
-    "firstSeen": "2026-11-15",
-    "daysSeen": 4
    },
    {
     "key": "NBA|restDays=2+days",
@@ -1362,18 +1294,18 @@
     "text": "NBA reads where our side had 2+ days of rest",
     "n": 68,
     "mean": 0.0172,
-    "t": 3.01,
-    "outside": -0.0046,
-    "diff": 0.0218,
+    "t": 2.98,
+    "outside": -0.0043,
+    "diff": 0.0215,
     "half1": {
      "n": 30,
      "mean": 0.0298,
-     "diff": 0.0337
+     "diff": 0.0347
     },
     "half2": {
      "n": 38,
      "mean": 0.0073,
-     "diff": 0.0122
+     "diff": 0.0112
     },
     "confound": {
      "topPattern": "learned-nba-total",
@@ -1382,7 +1314,7 @@
     "byGame": {
      "games": 50,
      "mean": 0.0077,
-     "t": 1.22
+     "t": 1.2
     },
     "direction": "wins",
     "status": "holding",
@@ -1390,38 +1322,38 @@
     "daysSeen": 20
    },
    {
-    "key": "ALL|market=h2h",
+    "key": "ALL|keyNumber=yes",
     "scope": "ALL",
-    "condition": "market=h2h",
-    "text": "reads where moneylines",
-    "n": 419,
-    "mean": 0.0016,
-    "t": 2.82,
-    "outside": -0.0059,
-    "diff": 0.0075,
+    "condition": "keyNumber=yes",
+    "text": "reads where the line sat on or across a key number",
+    "n": 140,
+    "mean": 0.0079,
+    "t": 2.94,
+    "outside": -0.0046,
+    "diff": 0.0124,
     "half1": {
-     "n": 139,
-     "mean": -0.0004,
-     "diff": 0.0074
+     "n": 52,
+     "mean": 0.0065,
+     "diff": 0.0137
     },
     "half2": {
-     "n": 280,
-     "mean": 0.0025,
-     "diff": 0.0057
+     "n": 88,
+     "mean": 0.0087,
+     "diff": 0.0103
     },
     "confound": {
-     "topPattern": "sharp-soft",
-     "share": 0.35
+     "topPattern": "sharp-soft-alt",
+     "share": 0.47
     },
     "byGame": {
-     "games": 344,
-     "mean": 0.0021,
-     "t": 2.8
+     "games": 122,
+     "mean": 0.0079,
+     "t": 2.79
     },
     "direction": "wins",
     "status": "holding",
-    "firstSeen": "2026-10-31",
-    "daysSeen": 19
+    "firstSeen": "2026-10-29",
+    "daysSeen": 16
    },
    {
     "key": "NHL|role=under",
@@ -1458,38 +1390,38 @@
     "daysSeen": 22
    },
    {
-    "key": "ALL|restEdge=even",
-    "scope": "ALL",
-    "condition": "restEdge=even",
-    "text": "reads where both sides equally rested",
-    "n": 280,
-    "mean": 0.003,
-    "t": 2.74,
-    "outside": -0.0051,
-    "diff": 0.008,
+    "key": "NCAAF|moveBeforePick=none",
+    "scope": "NCAAF",
+    "condition": "moveBeforePick=none",
+    "text": "NCAAF reads where the line had not moved before the pick",
+    "n": 212,
+    "mean": -0.0116,
+    "t": -2.79,
+    "outside": 0.0004,
+    "diff": -0.0121,
     "half1": {
-     "n": 97,
-     "mean": -0.0005,
-     "diff": 0.0065
+     "n": 181,
+     "mean": -0.0103,
+     "diff": -0.0018
     },
     "half2": {
-     "n": 183,
-     "mean": 0.0048,
-     "diff": 0.0075
+     "n": 31,
+     "mean": -0.0193,
+     "diff": -0.0253
     },
     "confound": {
-     "topPattern": "soft-dog",
-     "share": 0.26
+     "topPattern": "ncaaf-spot",
+     "share": 0.34
     },
     "byGame": {
-     "games": 241,
-     "mean": 0.0016,
-     "t": 1.94
+     "games": 177,
+     "mean": -0.0115,
+     "t": -2.76
     },
-    "direction": "wins",
+    "direction": "loses",
     "status": "holding",
-    "firstSeen": "2026-11-14",
-    "daysSeen": 5
+    "firstSeen": "2026-11-08",
+    "daysSeen": 11
    },
    {
     "key": "ALL|travel=1500+",
@@ -1498,18 +1430,18 @@
     "text": "reads where our side travelled 1500+ miles",
     "n": 103,
     "mean": -0.0127,
-    "t": -2.74,
+    "t": -2.75,
     "outside": -0.0019,
     "diff": -0.0108,
     "half1": {
      "n": 63,
      "mean": -0.0156,
-     "diff": -0.0111
+     "diff": -0.011
     },
     "half2": {
      "n": 40,
      "mean": -0.0081,
-     "diff": -0.0086
+     "diff": -0.0088
     },
     "confound": {
      "topPattern": "sharp-soft-alt",
@@ -1526,24 +1458,58 @@
     "daysSeen": 19
    },
    {
+    "key": "ALL|market=h2h",
+    "scope": "ALL",
+    "condition": "market=h2h",
+    "text": "reads where moneylines",
+    "n": 422,
+    "mean": 0.0015,
+    "t": 2.75,
+    "outside": -0.0058,
+    "diff": 0.0073,
+    "half1": {
+     "n": 142,
+     "mean": -0.0006,
+     "diff": 0.0072
+    },
+    "half2": {
+     "n": 280,
+     "mean": 0.0026,
+     "diff": 0.0052
+    },
+    "confound": {
+     "topPattern": "sharp-soft",
+     "share": 0.35
+    },
+    "byGame": {
+     "games": 346,
+     "mean": 0.002,
+     "t": 2.79
+    },
+    "direction": "wins",
+    "status": "holding",
+    "firstSeen": "2026-10-31",
+    "daysSeen": 19
+   },
+   {
     "key": "ALL|restDays=2+days",
     "scope": "ALL",
     "condition": "restDays=2+days",
     "text": "reads where our side had 2+ days of rest",
     "n": 104,
     "mean": 0.0084,
-    "t": 2.73,
+    "t": 2.72,
     "outside": -0.0042,
-    "diff": 0.0127,
+    "diff": 0.0126,
     "half1": {
      "n": 51,
      "mean": 0.0152,
-     "diff": 0.0232
+     "diff": 0.0233
     },
     "half2": {
      "n": 53,
      "mean": 0.002,
-     "diff": 0.0024
+     "diff": 0.0021
     },
     "confound": {
      "topPattern": "goalie-news",
@@ -1552,80 +1518,12 @@
     "byGame": {
      "games": 79,
      "mean": 0.0017,
-     "t": 1.03
+     "t": 1.02
     },
     "direction": "wins",
     "status": "holding",
     "firstSeen": "2026-10-28",
     "daysSeen": 22
-   },
-   {
-    "key": "ALL|travel=none",
-    "scope": "ALL",
-    "condition": "travel=none",
-    "text": "reads where our side did not travel",
-    "n": 159,
-    "mean": -0.0108,
-    "t": -2.73,
-    "outside": -0.0016,
-    "diff": -0.0092,
-    "half1": {
-     "n": 59,
-     "mean": -0.0123,
-     "diff": -0.0072
-    },
-    "half2": {
-     "n": 100,
-     "mean": -0.01,
-     "diff": -0.0121
-    },
-    "confound": {
-     "topPattern": "soft-dog",
-     "share": 0.21
-    },
-    "byGame": {
-     "games": 116,
-     "mean": -0.0055,
-     "t": -0.75
-    },
-    "direction": "loses",
-    "status": "holding",
-    "firstSeen": "2026-10-31",
-    "daysSeen": 19
-   },
-   {
-    "key": "NCAAF|moveBeforePick=none",
-    "scope": "NCAAF",
-    "condition": "moveBeforePick=none",
-    "text": "NCAAF reads where the line had not moved before the pick",
-    "n": 210,
-    "mean": -0.0115,
-    "t": -2.73,
-    "outside": 0.0004,
-    "diff": -0.0119,
-    "half1": {
-     "n": 181,
-     "mean": -0.0103,
-     "diff": -0.0018
-    },
-    "half2": {
-     "n": 29,
-     "mean": -0.019,
-     "diff": -0.0249
-    },
-    "confound": {
-     "topPattern": "ncaaf-spot",
-     "share": 0.34
-    },
-    "byGame": {
-     "games": 175,
-     "mean": -0.0113,
-     "t": -2.7
-    },
-    "direction": "loses",
-    "status": "holding",
-    "firstSeen": "2026-11-08",
-    "daysSeen": 11
    },
    {
     "key": "ALL|bookAtPick=BetMGM",
@@ -1634,18 +1532,18 @@
     "text": "reads where the price came from BetMGM",
     "n": 36,
     "mean": 0.0203,
-    "t": 2.72,
-    "outside": -0.0038,
+    "t": 2.71,
+    "outside": -0.0037,
     "diff": 0.0241,
     "half1": {
      "n": 18,
      "mean": 0.0304,
-     "diff": 0.0375
+     "diff": 0.0376
     },
     "half2": {
      "n": 18,
      "mean": 0.0102,
-     "diff": 0.0107
+     "diff": 0.0105
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -1662,24 +1560,58 @@
     "daysSeen": 19
    },
    {
+    "key": "NCAAF|market=h2h",
+    "scope": "NCAAF",
+    "condition": "market=h2h",
+    "text": "NCAAF reads where moneylines",
+    "n": 105,
+    "mean": 0.0026,
+    "t": 2.65,
+    "outside": -0.0077,
+    "diff": 0.0103,
+    "half1": {
+     "n": 20,
+     "mean": 0.0031,
+     "diff": 0.0139
+    },
+    "half2": {
+     "n": 85,
+     "mean": 0.0024,
+     "diff": 0.0018
+    },
+    "confound": {
+     "topPattern": "soft-dog",
+     "share": 0.49
+    },
+    "byGame": {
+     "games": 91,
+     "mean": 0.0016,
+     "t": 2.0
+    },
+    "direction": "wins",
+    "status": "holding",
+    "firstSeen": "2026-10-31",
+    "daysSeen": 19
+   },
+   {
     "key": "ALL|travelEdge=more",
     "scope": "ALL",
     "condition": "travelEdge=more",
     "text": "reads where our side travelled further than the opponent (200+ miles more)",
     "n": 186,
     "mean": 0.0056,
-    "t": 2.61,
-    "outside": -0.0048,
-    "diff": 0.0104,
+    "t": 2.6,
+    "outside": -0.0047,
+    "diff": 0.0103,
     "half1": {
      "n": 85,
      "mean": 0.0081,
-     "diff": 0.0166
+     "diff": 0.0167
     },
     "half2": {
      "n": 101,
      "mean": 0.0035,
-     "diff": 0.0045
+     "diff": 0.0042
     },
     "confound": {
      "topPattern": "soft-dog",
@@ -1696,35 +1628,69 @@
     "daysSeen": 22
    },
    {
-    "key": "NCAAF|market=h2h",
-    "scope": "NCAAF",
-    "condition": "market=h2h",
-    "text": "NCAAF reads where moneylines",
-    "n": 104,
-    "mean": 0.0025,
+    "key": "ALL|restEdge=even",
+    "scope": "ALL",
+    "condition": "restEdge=even",
+    "text": "reads where both sides equally rested",
+    "n": 284,
+    "mean": 0.0026,
     "t": 2.58,
-    "outside": -0.0076,
-    "diff": 0.0101,
+    "outside": -0.0049,
+    "diff": 0.0075,
     "half1": {
-     "n": 20,
-     "mean": 0.0031,
-     "diff": 0.0139
+     "n": 97,
+     "mean": -0.0005,
+     "diff": 0.0066
     },
     "half2": {
-     "n": 84,
-     "mean": 0.0023,
-     "diff": 0.0012
+     "n": 187,
+     "mean": 0.0042,
+     "diff": 0.0064
     },
     "confound": {
      "topPattern": "soft-dog",
-     "share": 0.49
+     "share": 0.26
     },
     "byGame": {
-     "games": 90,
-     "mean": 0.0015,
-     "t": 1.93
+     "games": 244,
+     "mean": 0.0013,
+     "t": 1.81
     },
     "direction": "wins",
+    "status": "holding",
+    "firstSeen": "2026-11-14",
+    "daysSeen": 5
+   },
+   {
+    "key": "ALL|travel=none",
+    "scope": "ALL",
+    "condition": "travel=none",
+    "text": "reads where our side did not travel",
+    "n": 163,
+    "mean": -0.0102,
+    "t": -2.56,
+    "outside": -0.0016,
+    "diff": -0.0086,
+    "half1": {
+     "n": 65,
+     "mean": -0.013,
+     "diff": -0.008
+    },
+    "half2": {
+     "n": 98,
+     "mean": -0.0085,
+     "diff": -0.0104
+    },
+    "confound": {
+     "topPattern": "soft-dog",
+     "share": 0.21
+    },
+    "byGame": {
+     "games": 118,
+     "mean": -0.0052,
+     "t": -0.67
+    },
+    "direction": "loses",
     "status": "holding",
     "firstSeen": "2026-10-31",
     "daysSeen": 19
@@ -1738,16 +1704,16 @@
     "mean": 0.0093,
     "t": 2.54,
     "outside": -0.0033,
-    "diff": 0.0126,
+    "diff": 0.0125,
     "half1": {
      "n": 14,
      "mean": 0.0103,
-     "diff": 0.0166
+     "diff": 0.0167
     },
     "half2": {
      "n": 15,
      "mean": 0.0083,
-     "diff": 0.0087
+     "diff": 0.0085
     },
     "confound": {
      "topPattern": "learned-nhl-ml",
@@ -1764,58 +1730,24 @@
     "daysSeen": 12
    },
    {
-    "key": "NCAAF|restEdge=even",
-    "scope": "NCAAF",
-    "condition": "restEdge=even",
-    "text": "NCAAF reads where both sides equally rested",
-    "n": 152,
-    "mean": 0.0017,
-    "t": 2.44,
-    "outside": -0.0089,
-    "diff": 0.0106,
-    "half1": {
-     "n": 52,
-     "mean": -0.0009,
-     "diff": 0.0109
-    },
-    "half2": {
-     "n": 100,
-     "mean": 0.003,
-     "diff": 0.0031
-    },
-    "confound": {
-     "topPattern": "sharp-soft-alt",
-     "share": 0.29
-    },
-    "byGame": {
-     "games": 137,
-     "mean": 0.0019,
-     "t": 2.29
-    },
-    "direction": "wins",
-    "status": "holding",
-    "firstSeen": "2026-11-15",
-    "daysSeen": 4
-   },
-   {
     "key": "NBA|travelEdge=more",
     "scope": "NBA",
     "condition": "travelEdge=more",
     "text": "NBA reads where our side travelled further than the opponent (200+ miles more)",
     "n": 56,
     "mean": 0.0198,
-    "t": 2.44,
-    "outside": -0.0041,
-    "diff": 0.0239,
+    "t": 2.42,
+    "outside": -0.0038,
+    "diff": 0.0236,
     "half1": {
      "n": 22,
      "mean": 0.0404,
-     "diff": 0.0439
+     "diff": 0.0448
     },
     "half2": {
      "n": 34,
      "mean": 0.0064,
-     "diff": 0.0108
+     "diff": 0.0099
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -1824,7 +1756,7 @@
     "byGame": {
      "games": 40,
      "mean": 0.011,
-     "t": 1.27
+     "t": 1.25
     },
     "direction": "wins",
     "status": "holding",
@@ -1832,38 +1764,38 @@
     "daysSeen": 16
    },
    {
-    "key": "NBA|timing=day&travelEdge=even",
-    "scope": "NBA",
-    "condition": "timing=day&travelEdge=even",
-    "text": "NBA reads where the read was stamped game day and both sides travelled about the same",
-    "n": 54,
-    "mean": -0.014,
-    "t": -2.4,
-    "outside": 0.004,
-    "diff": -0.018,
+    "key": "NCAAF|restEdge=even",
+    "scope": "NCAAF",
+    "condition": "restEdge=even",
+    "text": "NCAAF reads where both sides equally rested",
+    "n": 154,
+    "mean": 0.0014,
+    "t": 2.36,
+    "outside": -0.0088,
+    "diff": 0.0102,
     "half1": {
-     "n": 14,
-     "mean": -0.0246,
-     "diff": -0.037
+     "n": 52,
+     "mean": -0.0009,
+     "diff": 0.0109
     },
     "half2": {
-     "n": 40,
-     "mean": -0.0103,
-     "diff": -0.0098
+     "n": 102,
+     "mean": 0.0025,
+     "diff": 0.0024
     },
     "confound": {
-     "topPattern": "learned-scan-nba-spread",
-     "share": 0.15
+     "topPattern": "sharp-soft-alt",
+     "share": 0.29
     },
     "byGame": {
-     "games": 25,
-     "mean": -0.0115,
-     "t": -1.1
+     "games": 139,
+     "mean": 0.0016,
+     "t": 2.2
     },
-    "direction": "loses",
+    "direction": "wins",
     "status": "holding",
-    "firstSeen": "2026-11-03",
-    "daysSeen": 13
+    "firstSeen": "2026-11-15",
+    "daysSeen": 4
    },
    {
     "key": "ALL|restDays=1day",
@@ -1872,18 +1804,18 @@
     "text": "reads where our side had one day of rest",
     "n": 301,
     "mean": -0.0077,
-    "t": -2.34,
+    "t": -2.35,
     "outside": -0.0011,
-    "diff": -0.0065,
+    "diff": -0.0066,
     "half1": {
-     "n": 122,
-     "mean": -0.0068,
-     "diff": -0.0013
+     "n": 130,
+     "mean": -0.0072,
+     "diff": -0.0017
     },
     "half2": {
-     "n": 179,
-     "mean": -0.0082,
-     "diff": -0.0121
+     "n": 171,
+     "mean": -0.008,
+     "diff": -0.0118
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -1906,18 +1838,18 @@
     "text": "NBA reads where injury news was in play",
     "n": 31,
     "mean": -0.0138,
-    "t": -2.31,
-    "outside": 0.0023,
-    "diff": -0.0161,
+    "t": -2.34,
+    "outside": 0.0025,
+    "diff": -0.0163,
     "half1": {
      "n": 14,
      "mean": -0.0147,
-     "diff": -0.0253
+     "diff": -0.0232
     },
     "half2": {
      "n": 17,
      "mean": -0.0131,
-     "diff": -0.0116
+     "diff": -0.0125
     },
     "confound": {
      "topPattern": "sharp-soft-alt",
@@ -1926,7 +1858,7 @@
     "byGame": {
      "games": 30,
      "mean": -0.0145,
-     "t": -2.25
+     "t": -2.27
     },
     "direction": "loses",
     "status": "holding",
@@ -1934,38 +1866,38 @@
     "daysSeen": 19
    },
    {
-    "key": "ALL|market=spread",
-    "scope": "ALL",
-    "condition": "market=spread",
-    "text": "reads where spreads",
-    "n": 322,
-    "mean": 0.0025,
-    "t": 2.3,
-    "outside": -0.0054,
-    "diff": 0.0079,
+    "key": "NBA|travelEdge=less",
+    "scope": "NBA",
+    "condition": "travelEdge=less",
+    "text": "NBA reads where the opponent travelled further (200+ miles more)",
+    "n": 89,
+    "mean": -0.0091,
+    "t": -2.34,
+    "outside": 0.0051,
+    "diff": -0.0142,
     "half1": {
-     "n": 156,
-     "mean": 0.0046,
-     "diff": 0.0148
+     "n": 31,
+     "mean": -0.0021,
+     "diff": -0.0105
     },
     "half2": {
-     "n": 166,
-     "mean": 0.0007,
-     "diff": 0.0012
+     "n": 58,
+     "mean": -0.0128,
+     "diff": -0.0161
     },
     "confound": {
-     "topPattern": "sharp-soft-alt",
-     "share": 0.24
+     "topPattern": "sharp-soft",
+     "share": 0.16
     },
     "byGame": {
-     "games": 227,
-     "mean": 0.0022,
-     "t": 1.78
+     "games": 58,
+     "mean": -0.0049,
+     "t": -0.99
     },
-    "direction": "wins",
+    "direction": "loses",
     "status": "holding",
-    "firstSeen": "2026-10-28",
-    "daysSeen": 13
+    "firstSeen": "2026-11-01",
+    "daysSeen": 18
    },
    {
     "key": "ALL|role=over",
@@ -1974,18 +1906,18 @@
     "text": "reads where we took the over",
     "n": 144,
     "mean": -0.0107,
-    "t": -2.29,
-    "outside": -0.0018,
-    "diff": -0.0089,
+    "t": -2.3,
+    "outside": -0.0017,
+    "diff": -0.009,
     "half1": {
      "n": 91,
      "mean": -0.0098,
-     "diff": -0.0048
+     "diff": -0.0046
     },
     "half2": {
      "n": 53,
      "mean": -0.0123,
-     "diff": -0.0134
+     "diff": -0.0137
     },
     "confound": {
      "topPattern": "ncaaf-total-move",
@@ -2002,38 +1934,106 @@
     "daysSeen": 16
    },
    {
-    "key": "NBA|travelEdge=less",
+    "key": "NBA|sharpGapOpen=<1%",
     "scope": "NBA",
-    "condition": "travelEdge=less",
-    "text": "NBA reads where the opponent travelled further (200+ miles more)",
-    "n": 89,
-    "mean": -0.0091,
-    "t": -2.29,
-    "outside": 0.0049,
-    "diff": -0.014,
+    "condition": "sharpGapOpen=<1%",
+    "text": "NBA reads where sharpGapOpen = <1%",
+    "n": 40,
+    "mean": -0.0165,
+    "t": -2.26,
+    "outside": 0.0035,
+    "diff": -0.02,
     "half1": {
-     "n": 25,
-     "mean": 0.0022,
-     "diff": -0.0063
+     "n": 12,
+     "mean": -0.0166,
+     "diff": -0.0247
     },
     "half2": {
-     "n": 64,
-     "mean": -0.0135,
-     "diff": -0.0165
+     "n": 28,
+     "mean": -0.0165,
+     "diff": -0.0174
     },
     "confound": {
      "topPattern": "sharp-soft",
-     "share": 0.16
+     "share": 0.2
     },
     "byGame": {
-     "games": 58,
-     "mean": -0.0049,
-     "t": -0.96
+     "games": 22,
+     "mean": -0.0139,
+     "t": -1.27
+    },
+    "direction": "loses",
+    "status": "new",
+    "firstSeen": "2026-11-18",
+    "daysSeen": 1
+   },
+   {
+    "key": "ALL|market=spread",
+    "scope": "ALL",
+    "condition": "market=spread",
+    "text": "reads where spreads",
+    "n": 324,
+    "mean": 0.0024,
+    "t": 2.22,
+    "outside": -0.0052,
+    "diff": 0.0076,
+    "half1": {
+     "n": 161,
+     "mean": 0.004,
+     "diff": 0.0142
+    },
+    "half2": {
+     "n": 163,
+     "mean": 0.0008,
+     "diff": 0.001
+    },
+    "confound": {
+     "topPattern": "sharp-soft-alt",
+     "share": 0.24
+    },
+    "byGame": {
+     "games": 229,
+     "mean": 0.002,
+     "t": 1.71
+    },
+    "direction": "wins",
+    "status": "holding",
+    "firstSeen": "2026-10-28",
+    "daysSeen": 13
+   },
+   {
+    "key": "NBA|restDays=1day",
+    "scope": "NBA",
+    "condition": "restDays=1day",
+    "text": "NBA reads where our side had one day of rest",
+    "n": 170,
+    "mean": -0.0054,
+    "t": -2.1,
+    "outside": 0.0094,
+    "diff": -0.0148,
+    "half1": {
+     "n": 54,
+     "mean": 0.0007,
+     "diff": -0.0097
+    },
+    "half2": {
+     "n": 116,
+     "mean": -0.0082,
+     "diff": -0.017
+    },
+    "confound": {
+     "topPattern": "sharp-soft",
+     "share": 0.2
+    },
+    "byGame": {
+     "games": 110,
+     "mean": 0.0008,
+     "t": 0.12
     },
     "direction": "loses",
     "status": "holding",
-    "firstSeen": "2026-11-01",
-    "daysSeen": 18
+    "firstSeen": "2026-11-03",
+    "daysSeen": 15
    },
    {
     "key": "NCAAF|market=h2h&role=dog",
@@ -2042,7 +2042,7 @@
     "text": "NCAAF reads where moneylines and we took the underdog",
     "n": 82,
     "mean": 0.0014,
-    "t": 2.06,
+    "t": 2.07,
     "outside": -0.0068,
     "diff": 0.0082,
     "half1": {
@@ -2053,7 +2053,7 @@
     "half2": {
      "n": 69,
      "mean": 0.0032,
-     "diff": 0.0024
+     "diff": 0.0027
     },
     "confound": {
      "topPattern": "soft-dog",
@@ -2062,14 +2062,14 @@
       "n": 31,
       "mean": -0.0029,
       "diff": 0.004,
-      "t": 0.64
+      "t": 0.65
      },
      "verdict": "driven by soft-dog"
     },
     "byGame": {
      "games": 69,
      "mean": 0.0002,
-     "t": 1.34
+     "t": 1.35
     },
     "direction": "wins",
     "status": "holding",
@@ -2083,18 +2083,18 @@
     "text": "reads where injury = goalie",
     "n": 56,
     "mean": -0.0083,
-    "t": -2.04,
-    "outside": -0.0027,
+    "t": -2.05,
+    "outside": -0.0026,
     "diff": -0.0057,
     "half1": {
      "n": 24,
      "mean": -0.0136,
-     "diff": -0.0081
+     "diff": -0.008
     },
     "half2": {
      "n": 32,
      "mean": -0.0044,
-     "diff": -0.0045
+     "diff": -0.0048
     },
     "confound": {
      "topPattern": "goalie-news",
@@ -2110,88 +2110,20 @@
     "byGame": {
      "games": 39,
      "mean": -0.009,
-     "t": -2.04
+     "t": -2.05
     },
     "direction": "loses",
     "status": "holding",
     "firstSeen": "2026-11-14",
     "daysSeen": 5
-   },
-   {
-    "key": "NBA|restDays=1day",
-    "scope": "NBA",
-    "condition": "restDays=1day",
-    "text": "NBA reads where our side had one day of rest",
-    "n": 170,
-    "mean": -0.0054,
-    "t": -2.03,
-    "outside": 0.0093,
-    "diff": -0.0147,
-    "half1": {
-     "n": 46,
-     "mean": 0.0031,
-     "diff": -0.0072
-    },
-    "half2": {
-     "n": 124,
-     "mean": -0.0085,
-     "diff": -0.017
-    },
-    "confound": {
-     "topPattern": "sharp-soft",
-     "share": 0.2
-    },
-    "byGame": {
-     "games": 110,
-     "mean": 0.0008,
-     "t": 0.16
-    },
-    "direction": "loses",
-    "status": "holding",
-    "firstSeen": "2026-11-03",
-    "daysSeen": 15
-   },
-   {
-    "key": "NCAAF|travel=<500",
-    "scope": "NCAAF",
-    "condition": "travel=<500",
-    "text": "NCAAF reads where our side travelled <500 miles",
-    "n": 133,
-    "mean": 0.0016,
-    "t": 2.03,
-    "outside": -0.0082,
-    "diff": 0.0098,
-    "half1": {
-     "n": 76,
-     "mean": -0.0003,
-     "diff": 0.0132
-    },
-    "half2": {
-     "n": 57,
-     "mean": 0.0041,
-     "diff": 0.0035
-    },
-    "confound": {
-     "topPattern": "ncaaf-spot",
-     "share": 0.21
-    },
-    "byGame": {
-     "games": 112,
-     "mean": -0.0015,
-     "t": 0.92
-    },
-    "direction": "wins",
-    "status": "holding",
-    "firstSeen": "2026-10-31",
-    "daysSeen": 13
    }
   ],
   "themes": [
    {
     "theme": "Schedule (rest, travel, time zones)",
-    "findings": 30,
-    "wins": 14,
-    "loses": 16,
+    "findings": 26,
+    "wins": 12,
+    "loses": 14,
     "wins_on": [
      "our side had 2+ days of rest and our side travelled further than the opponent (200+ miles more)",
      "our side had 2+ days of rest and our side travelled further than the opponent (200+ miles more) (NBA)",
@@ -2205,13 +2137,13 @@
      "the line had not moved before the pick and our side had normal rest"
     ],
     "strongest": "NCAAF reads where the read's edge was under half its bar and our side had normal rest",
-    "strongestT": -6.06,
-    "holding": 30
+    "strongestT": -6.11,
+    "holding": 26
    },
    {
     "theme": "Market and side (favourite, dog, over, under)",
-    "findings": 22,
-    "wins": 15,
+    "findings": 21,
+    "wins": 14,
     "loses": 7,
     "wins_on": [
      "we took the underdog (NCAAF)",
@@ -2220,14 +2152,14 @@
      "moneylines and the read was stamped close to the start"
     ],
     "loses_on": [
+     "the line had not moved before the pick and we took the under",
      "totals and our side had normal rest (NCAAF)",
      "totals",
-     "we took the under (NCAAF)",
-     "we took the under"
+     "we took the under (NCAAF)"
     ],
-    "strongest": "NCAAF reads where totals and our side had normal rest",
-    "strongestT": -6.06,
-    "holding": 22
+    "strongest": "reads where the line had not moved before the pick and we took the under",
+    "strongestT": -6.05,
+    "holding": 21
    },
    {
     "theme": "Size of the read's edge",
@@ -2247,62 +2179,62 @@
      "the read's edge was under half its bar and our side did not travel"
     ],
     "strongest": "NCAAF reads where the read's edge was under half its bar and our side had normal rest",
-    "strongestT": -6.06,
-    "holding": 8
-   },
-   {
-    "theme": "Timing and news",
-    "findings": 8,
-    "wins": 4,
-    "loses": 4,
-    "wins_on": [
-     "sharpDivPick = aligned and the read was stamped close to the start",
-     "both sides equally rested and the read was stamped close to the start",
-     "moneylines and the read was stamped close to the start",
-     "the read was stamped close to the start and we took the away side"
-    ],
-    "loses_on": [
-     "the read was stamped game day and our side did not travel (NBA)",
-     "the read was stamped game day and both sides travelled about the same (NBA)",
-     "injury news was in play (NBA)",
-     "injury = goalie"
-    ],
-    "strongest": "reads where sharpDivPick = aligned and the read was stamped close to the start",
-    "strongestT": 5.25,
+    "strongestT": -6.11,
     "holding": 8
    },
    {
     "theme": "Line movement before the pick",
-    "findings": 5,
+    "findings": 7,
     "wins": 1,
-    "loses": 4,
+    "loses": 6,
     "wins_on": [
      "Pinnacle was moving toward our side before the pick"
     ],
     "loses_on": [
+     "the line had not moved before the pick and we took the under",
      "the line had not moved before the pick and our side had normal rest",
      "the line had not moved before the pick and our side had normal rest (NCAAF)",
-     "the line had not moved before the pick",
-     "the line had not moved before the pick (NCAAF)"
+     "the line had not moved before the pick"
     ],
-    "strongest": "reads where Pinnacle was moving toward our side before the pick",
-    "strongestT": 5.34,
-    "holding": 5
+    "strongest": "reads where the line had not moved before the pick and we took the under",
+    "strongestT": -6.05,
+    "holding": 7
+   },
+   {
+    "theme": "Timing and news",
+    "findings": 6,
+    "wins": 4,
+    "loses": 2,
+    "wins_on": [
+     "sharpDivPick = aligned and the read was stamped close to the start",
+     "moneylines and the read was stamped close to the start",
+     "both sides equally rested and the read was stamped close to the start",
+     "the read was stamped close to the start and we took the away side"
+    ],
+    "loses_on": [
+     "injury news was in play (NBA)",
+     "injury = goalie"
+    ],
+    "strongest": "reads where sharpDivPick = aligned and the read was stamped close to the start",
+    "strongestT": 4.87,
+    "holding": 6
    },
    {
     "theme": "Price against Pinnacle",
-    "findings": 4,
+    "findings": 5,
     "wins": 4,
-    "loses": 0,
+    "loses": 1,
     "wins_on": [
      "sharpDivPick = aligned and the read was stamped close to the start",
      "the price came from BetMGM and the read's edge was half to one times its bar",
      "the price came from BetMGM",
      "the price came from Caesars"
     ],
-    "loses_on": [],
+    "loses_on": [
+     "sharpGapOpen = <1% (NBA)"
+    ],
     "strongest": "reads where sharpDivPick = aligned and the read was stamped close to the start",
-    "strongestT": 5.25,
+    "strongestT": 4.87,
     "holding": 3
    }
   ]
@@ -2320,15 +2252,10 @@
     "2026-11-07",
     "2026-11-08",
     "2026-11-09",
-    "2026-11-10"
+    "2026-11-10",
+    "2026-11-18"
    ],
    "history": [
-    {
-     "date": "2026-11-09T16:54:45Z",
-     "n": 136,
-     "mean": -0.0208,
-     "t": -5.92
-    },
     {
      "date": "2026-11-09T17:24:50Z",
      "n": 136,
@@ -2502,6 +2429,12 @@
      "n": 136,
      "mean": -0.0208,
      "t": -5.92
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 138,
+     "mean": -0.0205,
+     "t": -6.05
     }
    ],
    "text": "reads where the line had not moved before the pick and we took the under",
@@ -2510,37 +2443,37 @@
     "scope": "ALL",
     "condition": "moveBeforePick=none&role=under",
     "text": "reads where the line had not moved before the pick and we took the under",
-    "n": 136,
-    "mean": -0.0208,
-    "t": -5.92,
-    "outside": -0.0005,
-    "diff": -0.0203,
+    "n": 138,
+    "mean": -0.0205,
+    "t": -6.05,
+    "outside": -0.0003,
+    "diff": -0.0202,
     "half1": {
-     "n": 99,
-     "mean": -0.0261,
-     "diff": -0.0243
+     "n": 110,
+     "mean": -0.0243,
+     "diff": -0.0231
     },
     "half2": {
-     "n": 37,
-     "mean": -0.0063,
-     "diff": -0.007
+     "n": 28,
+     "mean": -0.0057,
+     "diff": -0.006
     },
     "confound": {
      "topPattern": "ncaaf-spot",
      "share": 0.28
     },
     "byGame": {
-     "games": 111,
-     "mean": -0.0188,
-     "t": -4.73
+     "games": 113,
+     "mean": -0.0186,
+     "t": -4.86
     },
     "direction": "loses",
     "status": "holding",
     "firstSeen": "2026-10-28",
-    "daysSeen": 10
+    "daysSeen": 11
    },
-   "lastSeen": "2026-11-10",
-   "status": "faded",
+   "lastSeen": "2026-11-18",
+   "status": "holding",
    "fadedOn": "2026-11-10"
   },
   "ALL|edgeBar=<0.5x&travel=none": {
@@ -2570,12 +2503,6 @@
     "2026-11-18"
    ],
    "history": [
-    {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 70,
-     "mean": -0.0214,
-     "t": -4.66
-    },
     {
      "date": "2026-11-17T16:54:48Z",
      "n": 70,
@@ -2749,6 +2676,12 @@
      "n": 70,
      "mean": -0.0214,
      "t": -4.66
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 71,
+     "mean": -0.0204,
+     "t": -4.35
     }
    ],
    "text": "reads where the read's edge was under half its bar and our side did not travel",
@@ -2757,29 +2690,29 @@
     "scope": "ALL",
     "condition": "edgeBar=<0.5x&travel=none",
     "text": "reads where the read's edge was under half its bar and our side did not travel",
-    "n": 70,
-    "mean": -0.0214,
-    "t": -4.66,
+    "n": 71,
+    "mean": -0.0204,
+    "t": -4.35,
     "outside": -0.0017,
-    "diff": -0.0197,
+    "diff": -0.0187,
     "half1": {
-     "n": 39,
-     "mean": -0.0246,
-     "diff": -0.0202
+     "n": 42,
+     "mean": -0.0247,
+     "diff": -0.0203
     },
     "half2": {
-     "n": 31,
-     "mean": -0.0174,
-     "diff": -0.0182
+     "n": 29,
+     "mean": -0.0141,
+     "diff": -0.015
     },
     "confound": {
      "topPattern": "soft-dog",
-     "share": 0.19
+     "share": 0.18
     },
     "byGame": {
-     "games": 53,
-     "mean": -0.0166,
-     "t": -2.94
+     "games": 54,
+     "mean": -0.0153,
+     "t": -2.64
     },
     "direction": "loses",
     "status": "holding",
@@ -2817,12 +2750,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 180,
-     "mean": -0.0191,
-     "t": -5.85
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 180,
      "mean": -0.0191,
@@ -2995,6 +2922,12 @@
      "n": 180,
      "mean": -0.0191,
      "t": -5.85
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 182,
+     "mean": -0.0191,
+     "t": -5.92
     }
    ],
    "text": "reads where the read's edge was under half its bar and our side had normal rest",
@@ -3003,29 +2936,29 @@
     "scope": "ALL",
     "condition": "edgeBar=<0.5x&restDays=normal",
     "text": "reads where the read's edge was under half its bar and our side had normal rest",
-    "n": 180,
+    "n": 182,
     "mean": -0.0191,
-    "t": -5.85,
-    "outside": 0.0003,
-    "diff": -0.0194,
+    "t": -5.92,
+    "outside": 0.0004,
+    "diff": -0.0195,
     "half1": {
      "n": 143,
      "mean": -0.0229,
-     "diff": -0.0234
+     "diff": -0.0231
     },
     "half2": {
-     "n": 37,
-     "mean": -0.0044,
-     "diff": -0.0045
+     "n": 39,
+     "mean": -0.0054,
+     "diff": -0.0058
     },
     "confound": {
      "topPattern": "ncaaf-spot",
-     "share": 0.26
+     "share": 0.25
     },
     "byGame": {
-     "games": 157,
-     "mean": -0.0168,
-     "t": -4.77
+     "games": 159,
+     "mean": -0.0169,
+     "t": -4.84
     },
     "direction": "loses",
     "status": "holding",
@@ -3063,12 +2996,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 181,
-     "mean": -0.0172,
-     "t": -5.59
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 181,
      "mean": -0.0172,
@@ -3241,6 +3168,12 @@
      "n": 181,
      "mean": -0.0172,
      "t": -5.59
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 183,
+     "mean": -0.0165,
+     "t": -5.29
     }
    ],
    "text": "reads where we took the under",
@@ -3249,29 +3182,29 @@
     "scope": "ALL",
     "condition": "role=under",
     "text": "reads where we took the under",
-    "n": 181,
-    "mean": -0.0172,
-    "t": -5.59,
-    "outside": -0.0001,
-    "diff": -0.0171,
+    "n": 183,
+    "mean": -0.0165,
+    "t": -5.29,
+    "outside": -0.0002,
+    "diff": -0.0163,
     "half1": {
      "n": 142,
      "mean": -0.0201,
-     "diff": -0.0195
+     "diff": -0.0192
     },
     "half2": {
-     "n": 39,
-     "mean": -0.0067,
-     "diff": -0.007
+     "n": 41,
+     "mean": -0.0039,
+     "diff": -0.0043
     },
     "confound": {
      "topPattern": "ncaaf-spot",
      "share": 0.23
     },
     "byGame": {
-     "games": 142,
-     "mean": -0.0149,
-     "t": -4.07
+     "games": 143,
+     "mean": -0.0144,
+     "t": -3.92
     },
     "direction": "loses",
     "status": "holding",
@@ -3309,12 +3242,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 325,
-     "mean": -0.0143,
-     "t": -5.89
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 325,
      "mean": -0.0143,
@@ -3487,6 +3414,12 @@
      "n": 325,
      "mean": -0.0143,
      "t": -5.89
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 327,
+     "mean": -0.0139,
+     "t": -5.71
     }
    ],
    "text": "reads where totals",
@@ -3495,29 +3428,29 @@
     "scope": "ALL",
     "condition": "market=total",
     "text": "reads where totals",
-    "n": 325,
-    "mean": -0.0143,
-    "t": -5.89,
-    "outside": 0.002,
-    "diff": -0.0163,
+    "n": 327,
+    "mean": -0.0139,
+    "t": -5.71,
+    "outside": 0.0019,
+    "diff": -0.0158,
     "half1": {
      "n": 233,
      "mean": -0.0161,
-     "diff": -0.0183
+     "diff": -0.0179
     },
     "half2": {
-     "n": 92,
-     "mean": -0.0099,
-     "diff": -0.0118
+     "n": 94,
+     "mean": -0.0086,
+     "diff": -0.0106
     },
     "confound": {
      "topPattern": "learned-nhl-over",
      "share": 0.13
     },
     "byGame": {
-     "games": 264,
-     "mean": -0.0136,
-     "t": -5.0
+     "games": 265,
+     "mean": -0.0134,
+     "t": -4.9
     },
     "direction": "loses",
     "status": "holding",
@@ -3797,12 +3730,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 440,
-     "mean": 0.0057,
-     "t": 5.29
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 440,
      "mean": 0.0057,
@@ -3975,6 +3902,12 @@
      "n": 440,
      "mean": 0.0057,
      "t": 5.29
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 443,
+     "mean": 0.0055,
+     "t": 5.12
     }
    ],
    "text": "reads where we took the underdog",
@@ -3983,29 +3916,29 @@
     "scope": "ALL",
     "condition": "role=dog",
     "text": "reads where we took the underdog",
-    "n": 440,
-    "mean": 0.0057,
-    "t": 5.29,
-    "outside": -0.0091,
-    "diff": 0.0148,
+    "n": 443,
+    "mean": 0.0055,
+    "t": 5.12,
+    "outside": -0.0088,
+    "diff": 0.0143,
     "half1": {
-     "n": 143,
+     "n": 145,
      "mean": 0.0104,
-     "diff": 0.0223
+     "diff": 0.0224
     },
     "half2": {
-     "n": 297,
-     "mean": 0.0035,
-     "diff": 0.0081
+     "n": 298,
+     "mean": 0.0031,
+     "diff": 0.0067
     },
     "confound": {
      "topPattern": "soft-dog",
      "share": 0.31
     },
     "byGame": {
-     "games": 348,
-     "mean": 0.0045,
-     "t": 4.09
+     "games": 350,
+     "mean": 0.0043,
+     "t": 3.95
     },
     "direction": "wins",
     "status": "holding",
@@ -4266,12 +4199,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 170,
-     "mean": 0.009,
-     "t": 5.41
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 170,
      "mean": 0.009,
@@ -4444,6 +4371,12 @@
      "n": 170,
      "mean": 0.009,
      "t": 5.41
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 171,
+     "mean": 0.0086,
+     "t": 5.28
     }
    ],
    "text": "NCAAF reads where we took the underdog",
@@ -4452,29 +4385,29 @@
     "scope": "NCAAF",
     "condition": "role=dog",
     "text": "NCAAF reads where we took the underdog",
-    "n": 170,
-    "mean": 0.009,
-    "t": 5.41,
-    "outside": -0.0142,
-    "diff": 0.0232,
+    "n": 171,
+    "mean": 0.0086,
+    "t": 5.28,
+    "outside": -0.014,
+    "diff": 0.0226,
     "half1": {
      "n": 57,
      "mean": 0.0185,
      "diff": 0.0358
     },
     "half2": {
-     "n": 113,
-     "mean": 0.0043,
-     "diff": 0.0073
+     "n": 114,
+     "mean": 0.0037,
+     "diff": 0.0063
     },
     "confound": {
      "topPattern": "soft-dog",
      "share": 0.35
     },
     "byGame": {
-     "games": 145,
-     "mean": 0.0053,
-     "t": 3.57
+     "games": 146,
+     "mean": 0.0048,
+     "t": 3.44
     },
     "direction": "wins",
     "status": "holding",
@@ -4512,12 +4445,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 186,
-     "mean": 0.0056,
-     "t": 2.61
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 186,
      "mean": 0.0056,
@@ -4690,6 +4617,12 @@
      "n": 186,
      "mean": 0.0056,
      "t": 2.61
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 186,
+     "mean": 0.0056,
+     "t": 2.6
     }
    ],
    "text": "reads where our side travelled further than the opponent (200+ miles more)",
@@ -4700,18 +4633,18 @@
     "text": "reads where our side travelled further than the opponent (200+ miles more)",
     "n": 186,
     "mean": 0.0056,
-    "t": 2.61,
-    "outside": -0.0048,
-    "diff": 0.0104,
+    "t": 2.6,
+    "outside": -0.0047,
+    "diff": 0.0103,
     "half1": {
      "n": 85,
      "mean": 0.0081,
-     "diff": 0.0166
+     "diff": 0.0167
     },
     "half2": {
      "n": 101,
      "mean": 0.0035,
-     "diff": 0.0045
+     "diff": 0.0042
     },
     "confound": {
      "topPattern": "soft-dog",
@@ -4758,12 +4691,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 104,
-     "mean": 0.0084,
-     "t": 2.73
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 104,
      "mean": 0.0084,
@@ -4936,6 +4863,12 @@
      "n": 104,
      "mean": 0.0084,
      "t": 2.73
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 104,
+     "mean": 0.0084,
+     "t": 2.72
     }
    ],
    "text": "reads where our side had 2+ days of rest",
@@ -4946,18 +4879,18 @@
     "text": "reads where our side had 2+ days of rest",
     "n": 104,
     "mean": 0.0084,
-    "t": 2.73,
+    "t": 2.72,
     "outside": -0.0042,
-    "diff": 0.0127,
+    "diff": 0.0126,
     "half1": {
      "n": 51,
      "mean": 0.0152,
-     "diff": 0.0232
+     "diff": 0.0233
     },
     "half2": {
      "n": 53,
      "mean": 0.002,
-     "diff": 0.0024
+     "diff": 0.0021
     },
     "confound": {
      "topPattern": "goalie-news",
@@ -4966,7 +4899,7 @@
     "byGame": {
      "games": 79,
      "mean": 0.0017,
-     "t": 1.03
+     "t": 1.02
     },
     "direction": "wins",
     "status": "holding",
@@ -5004,12 +4937,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 176,
-     "mean": 0.0064,
-     "t": 4.54
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 176,
      "mean": 0.0064,
@@ -5182,6 +5109,12 @@
      "n": 176,
      "mean": 0.0064,
      "t": 4.54
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 177,
+     "mean": 0.0065,
+     "t": 4.59
     }
    ],
    "text": "NCAAF reads where the read's edge was half to one times its bar",
@@ -5190,29 +5123,29 @@
     "scope": "NCAAF",
     "condition": "edgeBar=0.5-1x",
     "text": "NCAAF reads where the read's edge was half to one times its bar",
-    "n": 176,
-    "mean": 0.0064,
-    "t": 4.54,
+    "n": 177,
+    "mean": 0.0065,
+    "t": 4.59,
     "outside": -0.013,
-    "diff": 0.0194,
+    "diff": 0.0195,
     "half1": {
      "n": 55,
      "mean": 0.0119,
      "diff": 0.0272
     },
     "half2": {
-     "n": 121,
-     "mean": 0.0039,
-     "diff": 0.0073
+     "n": 122,
+     "mean": 0.004,
+     "diff": 0.0081
     },
     "confound": {
      "topPattern": "sharp-soft-alt",
      "share": 0.37
     },
     "byGame": {
-     "games": 163,
+     "games": 164,
      "mean": 0.0071,
-     "t": 4.82
+     "t": 4.87
     },
     "direction": "wins",
     "status": "holding",
@@ -5488,12 +5421,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 247,
-     "mean": -0.0147,
-     "t": -5.06
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 247,
      "mean": -0.0147,
@@ -5666,6 +5593,12 @@
      "n": 247,
      "mean": -0.0147,
      "t": -5.06
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 249,
+     "mean": -0.0148,
+     "t": -5.11
     }
    ],
    "text": "NCAAF reads where the read's edge was under half its bar",
@@ -5674,29 +5607,29 @@
     "scope": "NCAAF",
     "condition": "edgeBar=<0.5x",
     "text": "NCAAF reads where the read's edge was under half its bar",
-    "n": 247,
-    "mean": -0.0147,
-    "t": -5.06,
+    "n": 249,
+    "mean": -0.0148,
+    "t": -5.11,
     "outside": 0.0066,
-    "diff": -0.0213,
+    "diff": -0.0214,
     "half1": {
      "n": 208,
      "mean": -0.0154,
      "diff": -0.0247
     },
     "half2": {
-     "n": 39,
-     "mean": -0.0108,
-     "diff": -0.0161
+     "n": 41,
+     "mean": -0.0114,
+     "diff": -0.0168
     },
     "confound": {
      "topPattern": "ncaaf-spot",
-     "share": 0.34
+     "share": 0.33
     },
     "byGame": {
-     "games": 209,
-     "mean": -0.0143,
-     "t": -5.0
+     "games": 211,
+     "mean": -0.0144,
+     "t": -5.05
     },
     "direction": "loses",
     "status": "holding",
@@ -6387,12 +6320,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 155,
-     "mean": 0.0067,
-     "t": 3.82
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 155,
      "mean": 0.0067,
@@ -6565,6 +6492,12 @@
      "n": 155,
      "mean": 0.0067,
      "t": 3.82
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 158,
+     "mean": 0.0064,
+     "t": 3.79
     }
    ],
    "text": "NCAAF reads where no time-zone change",
@@ -6573,29 +6506,29 @@
     "scope": "NCAAF",
     "condition": "tzShift=none",
     "text": "NCAAF reads where no time-zone change",
-    "n": 155,
-    "mean": 0.0067,
-    "t": 3.82,
+    "n": 158,
+    "mean": 0.0064,
+    "t": 3.79,
     "outside": -0.0117,
-    "diff": 0.0184,
+    "diff": 0.018,
     "half1": {
      "n": 74,
      "mean": 0.0109,
      "diff": 0.0285
     },
     "half2": {
-     "n": 81,
-     "mean": 0.0028,
-     "diff": 0.0021
+     "n": 84,
+     "mean": 0.0023,
+     "diff": 0.0016
     },
     "confound": {
      "topPattern": "learned-ncaaf-spread",
-     "share": 0.21
+     "share": 0.22
     },
     "byGame": {
-     "games": 126,
-     "mean": 0.0063,
-     "t": 3.34
+     "games": 129,
+     "mean": 0.0059,
+     "t": 3.29
     },
     "direction": "wins",
     "status": "holding",
@@ -6633,12 +6566,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 94,
-     "mean": 0.0103,
-     "t": 3.69
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 94,
      "mean": 0.0103,
@@ -6811,6 +6738,12 @@
      "n": 94,
      "mean": 0.0103,
      "t": 3.69
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 97,
+     "mean": 0.0096,
+     "t": 3.62
     }
    ],
    "text": "NCAAF reads where both sides travelled about the same",
@@ -6819,29 +6752,29 @@
     "scope": "NCAAF",
     "condition": "travelEdge=even",
     "text": "NCAAF reads where both sides travelled about the same",
-    "n": 94,
-    "mean": 0.0103,
-    "t": 3.69,
+    "n": 97,
+    "mean": 0.0096,
+    "t": 3.62,
     "outside": -0.0094,
-    "diff": 0.0197,
+    "diff": 0.0191,
     "half1": {
      "n": 44,
      "mean": 0.0165,
      "diff": 0.0313
     },
     "half2": {
-     "n": 50,
-     "mean": 0.0048,
-     "diff": 0.0043
+     "n": 53,
+     "mean": 0.0039,
+     "diff": 0.0034
     },
     "confound": {
      "topPattern": "soft-dog",
      "share": 0.22
     },
     "byGame": {
-     "games": 76,
-     "mean": 0.0071,
-     "t": 2.83
+     "games": 79,
+     "mean": 0.0064,
+     "t": 2.73
     },
     "direction": "wins",
     "status": "holding",
@@ -6879,12 +6812,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 50,
-     "mean": -0.018,
-     "t": -2.81
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 50,
      "mean": -0.018,
@@ -7054,6 +6981,12 @@
     },
     {
      "date": "2026-11-18T03:54:47Z",
+     "n": 50,
+     "mean": -0.018,
+     "t": -2.81
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
      "n": 50,
      "mean": -0.018,
      "t": -2.81
@@ -7124,12 +7057,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 519,
-     "mean": -0.0084,
-     "t": -3.82
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 519,
      "mean": -0.0084,
@@ -7302,6 +7229,12 @@
      "n": 519,
      "mean": -0.0084,
      "t": -3.82
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 522,
+     "mean": -0.0083,
+     "t": -3.82
     }
    ],
    "text": "reads where the read's edge was under half its bar",
@@ -7310,29 +7243,29 @@
     "scope": "ALL",
     "condition": "edgeBar=<0.5x",
     "text": "reads where the read's edge was under half its bar",
-    "n": 519,
-    "mean": -0.0084,
+    "n": 522,
+    "mean": -0.0083,
     "t": -3.82,
     "outside": 0.0021,
     "diff": -0.0105,
     "half1": {
-     "n": 342,
-     "mean": -0.011,
-     "diff": -0.0147
+     "n": 347,
+     "mean": -0.0111,
+     "diff": -0.0145
     },
     "half2": {
-     "n": 177,
-     "mean": -0.0032,
-     "diff": -0.0046
+     "n": 175,
+     "mean": -0.0029,
+     "diff": -0.0044
     },
     "confound": {
      "topPattern": "ncaaf-spot",
      "share": 0.16
     },
     "byGame": {
-     "games": 416,
-     "mean": -0.0087,
-     "t": -3.77
+     "games": 419,
+     "mean": -0.0086,
+     "t": -3.75
     },
     "direction": "loses",
     "status": "holding",
@@ -8242,12 +8175,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 322,
-     "mean": 0.0025,
-     "t": 2.3
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 322,
      "mean": 0.0025,
@@ -8420,6 +8347,12 @@
      "n": 322,
      "mean": 0.0025,
      "t": 2.3
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 324,
+     "mean": 0.0024,
+     "t": 2.22
     }
    ],
    "text": "reads where spreads",
@@ -8428,29 +8361,29 @@
     "scope": "ALL",
     "condition": "market=spread",
     "text": "reads where spreads",
-    "n": 322,
-    "mean": 0.0025,
-    "t": 2.3,
-    "outside": -0.0054,
-    "diff": 0.0079,
+    "n": 324,
+    "mean": 0.0024,
+    "t": 2.22,
+    "outside": -0.0052,
+    "diff": 0.0076,
     "half1": {
-     "n": 156,
-     "mean": 0.0046,
-     "diff": 0.0148
+     "n": 161,
+     "mean": 0.004,
+     "diff": 0.0142
     },
     "half2": {
-     "n": 166,
-     "mean": 0.0007,
-     "diff": 0.0012
+     "n": 163,
+     "mean": 0.0008,
+     "diff": 0.001
     },
     "confound": {
      "topPattern": "sharp-soft-alt",
      "share": 0.24
     },
     "byGame": {
-     "games": 227,
-     "mean": 0.0022,
-     "t": 1.78
+     "games": 229,
+     "mean": 0.002,
+     "t": 1.71
     },
     "direction": "wins",
     "status": "holding",
@@ -8487,12 +8420,6 @@
     "2026-11-18"
    ],
    "history": [
-    {
-     "date": "2026-11-16T21:24:46Z",
-     "n": 119,
-     "mean": -0.0143,
-     "t": -3.17
-    },
     {
      "date": "2026-11-16T21:39:52Z",
      "n": 119,
@@ -8666,6 +8593,12 @@
      "n": 119,
      "mean": -0.0143,
      "t": -3.17
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 119,
+     "mean": -0.0143,
+     "t": -3.17
     }
    ],
    "text": "NHL reads where the line had not moved before the pick",
@@ -8704,7 +8637,7 @@
     "daysSeen": 22
    },
    "lastSeen": "2026-11-18",
-   "status": "below bar"
+   "status": "holding"
   },
   "NHL|role=fav&timing=day": {
    "firstSeen": "2026-10-28",
@@ -8910,12 +8843,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 337,
-     "mean": 0.0028,
-     "t": 3.09
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 337,
      "mean": 0.0028,
@@ -9088,6 +9015,12 @@
      "n": 337,
      "mean": 0.0028,
      "t": 3.09
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 340,
+     "mean": 0.0027,
+     "t": 3.02
     }
    ],
    "text": "reads where we took the away side",
@@ -9096,29 +9029,29 @@
     "scope": "ALL",
     "condition": "venue=away",
     "text": "reads where we took the away side",
-    "n": 337,
-    "mean": 0.0028,
-    "t": 3.09,
-    "outside": -0.0057,
-    "diff": 0.0085,
+    "n": 340,
+    "mean": 0.0027,
+    "t": 3.02,
+    "outside": -0.0056,
+    "diff": 0.0083,
     "half1": {
      "n": 141,
      "mean": -0.0019,
-     "diff": 0.0053
+     "diff": 0.0055
     },
     "half2": {
-     "n": 196,
-     "mean": 0.0063,
-     "diff": 0.0101
+     "n": 199,
+     "mean": 0.006,
+     "diff": 0.0094
     },
     "confound": {
      "topPattern": "sharp-soft",
      "share": 0.21
     },
     "byGame": {
-     "games": 271,
+     "games": 273,
      "mean": 0.0033,
-     "t": 2.95
+     "t": 2.94
     },
     "direction": "wins",
     "status": "holding",
@@ -10476,7 +10409,7 @@
     "daysSeen": 22
    },
    "lastSeen": "2026-11-18",
-   "status": "holding"
+   "status": "below bar"
   },
   "NBA|restDays=2+days": {
    "firstSeen": "2026-10-28",
@@ -10503,12 +10436,6 @@
     "2026-11-18"
    ],
    "history": [
-    {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 68,
-     "mean": 0.0172,
-     "t": 3.01
-    },
     {
      "date": "2026-11-17T16:54:48Z",
      "n": 68,
@@ -10682,6 +10609,12 @@
      "n": 68,
      "mean": 0.0172,
      "t": 3.01
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 68,
+     "mean": 0.0172,
+     "t": 2.98
     }
    ],
    "text": "NBA reads where our side had 2+ days of rest",
@@ -10692,18 +10625,18 @@
     "text": "NBA reads where our side had 2+ days of rest",
     "n": 68,
     "mean": 0.0172,
-    "t": 3.01,
-    "outside": -0.0046,
-    "diff": 0.0218,
+    "t": 2.98,
+    "outside": -0.0043,
+    "diff": 0.0215,
     "half1": {
      "n": 30,
      "mean": 0.0298,
-     "diff": 0.0337
+     "diff": 0.0347
     },
     "half2": {
      "n": 38,
      "mean": 0.0073,
-     "diff": 0.0122
+     "diff": 0.0112
     },
     "confound": {
      "topPattern": "learned-nba-total",
@@ -10712,7 +10645,7 @@
     "byGame": {
      "games": 50,
      "mean": 0.0077,
-     "t": 1.22
+     "t": 1.2
     },
     "direction": "wins",
     "status": "holding",
@@ -10969,12 +10902,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 147,
-     "mean": 0.0076,
-     "t": 3.45
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 147,
      "mean": 0.0076,
@@ -11147,6 +11074,12 @@
      "n": 147,
      "mean": 0.0076,
      "t": 3.45
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 147,
+     "mean": 0.0076,
+     "t": 3.43
     }
    ],
    "text": "reads where the read's edge was half to one times its bar and both sides equally rested",
@@ -11157,18 +11090,18 @@
     "text": "reads where the read's edge was half to one times its bar and both sides equally rested",
     "n": 147,
     "mean": 0.0076,
-    "t": 3.45,
-    "outside": -0.0047,
-    "diff": 0.0123,
+    "t": 3.43,
+    "outside": -0.0046,
+    "diff": 0.0122,
     "half1": {
      "n": 40,
      "mean": 0.0141,
-     "diff": 0.0215
+     "diff": 0.0216
     },
     "half2": {
      "n": 107,
      "mean": 0.0052,
-     "diff": 0.0067
+     "diff": 0.0064
     },
     "confound": {
      "topPattern": "sharp-soft-alt",
@@ -11670,12 +11603,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 138,
-     "mean": 0.0083,
-     "t": 3.05
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 138,
      "mean": 0.0083,
@@ -11848,6 +11775,12 @@
      "n": 138,
      "mean": 0.0083,
      "t": 3.05
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 140,
+     "mean": 0.0079,
+     "t": 2.94
     }
    ],
    "text": "reads where the line sat on or across a key number",
@@ -11856,29 +11789,29 @@
     "scope": "ALL",
     "condition": "keyNumber=yes",
     "text": "reads where the line sat on or across a key number",
-    "n": 138,
-    "mean": 0.0083,
-    "t": 3.05,
-    "outside": -0.0047,
-    "diff": 0.013,
+    "n": 140,
+    "mean": 0.0079,
+    "t": 2.94,
+    "outside": -0.0046,
+    "diff": 0.0124,
     "half1": {
      "n": 52,
      "mean": 0.0065,
-     "diff": 0.0136
+     "diff": 0.0137
     },
     "half2": {
-     "n": 86,
-     "mean": 0.0094,
-     "diff": 0.0114
+     "n": 88,
+     "mean": 0.0087,
+     "diff": 0.0103
     },
     "confound": {
      "topPattern": "sharp-soft-alt",
-     "share": 0.48
+     "share": 0.47
     },
     "byGame": {
-     "games": 120,
-     "mean": 0.0084,
-     "t": 2.9
+     "games": 122,
+     "mean": 0.0079,
+     "t": 2.79
     },
     "direction": "wins",
     "status": "holding",
@@ -12002,12 +11935,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 457,
-     "mean": -0.0089,
-     "t": -3.61
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 457,
      "mean": -0.0089,
@@ -12180,6 +12107,12 @@
      "n": 457,
      "mean": -0.0089,
      "t": -3.61
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 459,
+     "mean": -0.009,
+     "t": -3.68
     }
    ],
    "text": "reads where the line had not moved before the pick",
@@ -12188,29 +12121,29 @@
     "scope": "ALL",
     "condition": "moveBeforePick=none",
     "text": "reads where the line had not moved before the pick",
-    "n": 457,
-    "mean": -0.0089,
-    "t": -3.61,
-    "outside": 0.0015,
-    "diff": -0.0105,
+    "n": 459,
+    "mean": -0.009,
+    "t": -3.68,
+    "outside": 0.0016,
+    "diff": -0.0106,
     "half1": {
-     "n": 302,
+     "n": 307,
      "mean": -0.008,
      "diff": -0.0049
     },
     "half2": {
-     "n": 155,
-     "mean": -0.0109,
-     "diff": -0.0151
+     "n": 152,
+     "mean": -0.011,
+     "diff": -0.0154
     },
     "confound": {
      "topPattern": "ncaaf-spot",
      "share": 0.16
     },
     "byGame": {
-     "games": 342,
-     "mean": -0.0106,
-     "t": -4.04
+     "games": 344,
+     "mean": -0.0107,
+     "t": -4.1
     },
     "direction": "loses",
     "status": "holding",
@@ -12907,12 +12840,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 115,
-     "mean": 0.0089,
-     "t": 3.62
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 115,
      "mean": 0.0089,
@@ -13085,6 +13012,12 @@
      "n": 115,
      "mean": 0.0089,
      "t": 3.62
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 117,
+     "mean": 0.0084,
+     "t": 3.53
     }
    ],
    "text": "NCAAF reads where the line sat on or across a key number",
@@ -13093,36 +13026,36 @@
     "scope": "NCAAF",
     "condition": "keyNumber=yes",
     "text": "NCAAF reads where the line sat on or across a key number",
-    "n": 115,
-    "mean": 0.0089,
-    "t": 3.62,
+    "n": 117,
+    "mean": 0.0084,
+    "t": 3.53,
     "outside": -0.0102,
-    "diff": 0.0191,
+    "diff": 0.0185,
     "half1": {
      "n": 50,
      "mean": 0.0063,
      "diff": 0.0197
     },
     "half2": {
-     "n": 65,
-     "mean": 0.0109,
-     "diff": 0.0147
+     "n": 67,
+     "mean": 0.0099,
+     "diff": 0.0136
     },
     "confound": {
      "topPattern": "sharp-soft-alt",
-     "share": 0.53,
+     "share": 0.52,
      "without": {
-      "n": 54,
-      "mean": 0.0053,
-      "diff": 0.0154,
-      "t": 1.78
+      "n": 56,
+      "mean": 0.0043,
+      "diff": 0.0143,
+      "t": 1.69
      },
      "verdict": "holds without it"
     },
     "byGame": {
-     "games": 103,
-     "mean": 0.0087,
-     "t": 3.43
+     "games": 105,
+     "mean": 0.0081,
+     "t": 3.33
     },
     "direction": "wins",
     "status": "holding",
@@ -13157,12 +13090,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 103,
-     "mean": -0.0127,
-     "t": -2.74
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 103,
      "mean": -0.0127,
@@ -13335,6 +13262,12 @@
      "n": 103,
      "mean": -0.0127,
      "t": -2.74
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 103,
+     "mean": -0.0127,
+     "t": -2.75
     }
    ],
    "text": "reads where our side travelled 1500+ miles",
@@ -13345,18 +13278,18 @@
     "text": "reads where our side travelled 1500+ miles",
     "n": 103,
     "mean": -0.0127,
-    "t": -2.74,
+    "t": -2.75,
     "outside": -0.0019,
     "diff": -0.0108,
     "half1": {
      "n": 63,
      "mean": -0.0156,
-     "diff": -0.0111
+     "diff": -0.011
     },
     "half2": {
      "n": 40,
      "mean": -0.0081,
-     "diff": -0.0086
+     "diff": -0.0088
     },
     "confound": {
      "topPattern": "sharp-soft-alt",
@@ -15467,12 +15400,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 88,
-     "mean": 0.0162,
-     "t": 4.35
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 88,
      "mean": 0.0162,
@@ -15645,6 +15572,12 @@
      "n": 88,
      "mean": 0.0162,
      "t": 4.35
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 89,
+     "mean": 0.0153,
+     "t": 4.19
     }
    ],
    "text": "NCAAF reads where spreads and we took the underdog",
@@ -15653,29 +15586,29 @@
     "scope": "NCAAF",
     "condition": "market=spread&role=dog",
     "text": "NCAAF reads where spreads and we took the underdog",
-    "n": 88,
-    "mean": 0.0162,
-    "t": 4.35,
-    "outside": -0.0106,
-    "diff": 0.0267,
+    "n": 89,
+    "mean": 0.0153,
+    "t": 4.19,
+    "outside": -0.0104,
+    "diff": 0.0258,
     "half1": {
      "n": 44,
      "mean": 0.0263,
      "diff": 0.0431
     },
     "half2": {
-     "n": 44,
-     "mean": 0.006,
-     "diff": 0.0058
+     "n": 45,
+     "mean": 0.0046,
+     "diff": 0.0041
     },
     "confound": {
      "topPattern": "sharp-soft-alt",
      "share": 0.42
     },
     "byGame": {
-     "games": 76,
-     "mean": 0.0099,
-     "t": 2.96
+     "games": 77,
+     "mean": 0.009,
+     "t": 2.79
     },
     "direction": "wins",
     "status": "holding",
@@ -15917,12 +15850,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 100,
-     "mean": 0.0096,
-     "t": 4.29
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 100,
      "mean": 0.0096,
@@ -16095,6 +16022,12 @@
      "n": 100,
      "mean": 0.0096,
      "t": 4.29
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 102,
+     "mean": 0.0089,
+     "t": 4.09
     }
    ],
    "text": "reads where moneylines and the read was stamped close to the start",
@@ -16103,29 +16036,29 @@
     "scope": "ALL",
     "condition": "market=h2h&timing=late",
     "text": "reads where moneylines and the read was stamped close to the start",
-    "n": 100,
-    "mean": 0.0096,
-    "t": 4.29,
-    "outside": -0.0043,
-    "diff": 0.0139,
+    "n": 102,
+    "mean": 0.0089,
+    "t": 4.09,
+    "outside": -0.0042,
+    "diff": 0.0131,
     "half1": {
      "n": 21,
      "mean": -0.0028,
-     "diff": 0.0032
+     "diff": 0.0033
     },
     "half2": {
-     "n": 79,
-     "mean": 0.0129,
-     "diff": 0.0153
+     "n": 81,
+     "mean": 0.012,
+     "diff": 0.014
     },
     "confound": {
      "topPattern": "sharp-soft",
      "share": 0.43
     },
     "byGame": {
-     "games": 85,
-     "mean": 0.0098,
-     "t": 3.81
+     "games": 86,
+     "mean": 0.0094,
+     "t": 3.71
     },
     "direction": "wins",
     "status": "holding",
@@ -16321,12 +16254,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 31,
-     "mean": -0.0138,
-     "t": -2.31
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 31,
      "mean": -0.0138,
@@ -16499,6 +16426,12 @@
      "n": 31,
      "mean": -0.0138,
      "t": -2.31
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 31,
+     "mean": -0.0138,
+     "t": -2.34
     }
    ],
    "text": "NBA reads where injury news was in play",
@@ -16509,18 +16442,18 @@
     "text": "NBA reads where injury news was in play",
     "n": 31,
     "mean": -0.0138,
-    "t": -2.31,
-    "outside": 0.0023,
-    "diff": -0.0161,
+    "t": -2.34,
+    "outside": 0.0025,
+    "diff": -0.0163,
     "half1": {
      "n": 14,
      "mean": -0.0147,
-     "diff": -0.0253
+     "diff": -0.0232
     },
     "half2": {
      "n": 17,
      "mean": -0.0131,
-     "diff": -0.0116
+     "diff": -0.0125
     },
     "confound": {
      "topPattern": "sharp-soft-alt",
@@ -16529,7 +16462,7 @@
     "byGame": {
      "games": 30,
      "mean": -0.0145,
-     "t": -2.25
+     "t": -2.27
     },
     "direction": "loses",
     "status": "holding",
@@ -17698,7 +17631,7 @@
     "daysSeen": 13
    },
    "lastSeen": "2026-11-18",
-   "status": "holding"
+   "status": "below bar"
   },
   "ALL|restDays=normal&role=under": {
    "firstSeen": "2026-10-31",
@@ -17961,12 +17894,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 107,
-     "mean": -0.0236,
-     "t": -5.66
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 107,
      "mean": -0.0236,
@@ -18139,6 +18066,12 @@
      "n": 107,
      "mean": -0.0236,
      "t": -5.66
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 107,
+     "mean": -0.0236,
+     "t": -5.65
     }
    ],
    "text": "NCAAF reads where we took the under",
@@ -18149,9 +18082,9 @@
     "text": "NCAAF reads where we took the under",
     "n": 107,
     "mean": -0.0236,
-    "t": -5.66,
-    "outside": 0.0006,
-    "diff": -0.0242,
+    "t": -5.65,
+    "outside": 0.0005,
+    "diff": -0.0241,
     "half1": {
      "n": 98,
      "mean": -0.0257,
@@ -18160,7 +18093,7 @@
     "half2": {
      "n": 9,
      "mean": -0.0003,
-     "diff": -0.0022
+     "diff": -0.0019
     },
     "confound": {
      "topPattern": "ncaaf-spot",
@@ -18169,7 +18102,7 @@
     "byGame": {
      "games": 77,
      "mean": -0.0221,
-     "t": -4.38
+     "t": -4.36
     },
     "direction": "loses",
     "status": "holding",
@@ -18204,12 +18137,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 419,
-     "mean": 0.0016,
-     "t": 2.82
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 419,
      "mean": 0.0016,
@@ -18382,6 +18309,12 @@
      "n": 419,
      "mean": 0.0016,
      "t": 2.82
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 422,
+     "mean": 0.0015,
+     "t": 2.75
     }
    ],
    "text": "reads where moneylines",
@@ -18390,29 +18323,29 @@
     "scope": "ALL",
     "condition": "market=h2h",
     "text": "reads where moneylines",
-    "n": 419,
-    "mean": 0.0016,
-    "t": 2.82,
-    "outside": -0.0059,
-    "diff": 0.0075,
+    "n": 422,
+    "mean": 0.0015,
+    "t": 2.75,
+    "outside": -0.0058,
+    "diff": 0.0073,
     "half1": {
-     "n": 139,
-     "mean": -0.0004,
-     "diff": 0.0074
+     "n": 142,
+     "mean": -0.0006,
+     "diff": 0.0072
     },
     "half2": {
      "n": 280,
-     "mean": 0.0025,
-     "diff": 0.0057
+     "mean": 0.0026,
+     "diff": 0.0052
     },
     "confound": {
      "topPattern": "sharp-soft",
      "share": 0.35
     },
     "byGame": {
-     "games": 344,
-     "mean": 0.0021,
-     "t": 2.8
+     "games": 346,
+     "mean": 0.002,
+     "t": 2.79
     },
     "direction": "wins",
     "status": "holding",
@@ -18445,12 +18378,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 135,
-     "mean": -0.0224,
-     "t": -6.06
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 135,
      "mean": -0.0224,
@@ -18623,6 +18550,12 @@
      "n": 135,
      "mean": -0.0224,
      "t": -6.06
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 135,
+     "mean": -0.0224,
+     "t": -6.04
     }
    ],
    "text": "NCAAF reads where totals and our side had normal rest",
@@ -18633,9 +18566,9 @@
     "text": "NCAAF reads where totals and our side had normal rest",
     "n": 135,
     "mean": -0.0224,
-    "t": -6.06,
-    "outside": 0.0022,
-    "diff": -0.0246,
+    "t": -6.04,
+    "outside": 0.0021,
+    "diff": -0.0245,
     "half1": {
      "n": 125,
      "mean": -0.0242,
@@ -18644,7 +18577,7 @@
     "half2": {
      "n": 10,
      "mean": 0.0002,
-     "diff": -0.0016
+     "diff": -0.0013
     },
     "confound": {
      "topPattern": "ncaaf-spot",
@@ -18653,7 +18586,7 @@
     "byGame": {
      "games": 105,
      "mean": -0.0209,
-     "t": -4.99
+     "t": -4.97
     },
     "direction": "loses",
     "status": "holding",
@@ -18687,12 +18620,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 149,
-     "mean": -0.0207,
-     "t": -5.09
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 149,
      "mean": -0.0207,
@@ -18865,6 +18792,12 @@
      "n": 149,
      "mean": -0.0207,
      "t": -5.09
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 151,
+     "mean": -0.0208,
+     "t": -5.16
     }
    ],
    "text": "reads where the line had not moved before the pick and our side had normal rest",
@@ -18873,29 +18806,29 @@
     "scope": "ALL",
     "condition": "moveBeforePick=none&restDays=normal",
     "text": "reads where the line had not moved before the pick and our side had normal rest",
-    "n": 149,
-    "mean": -0.0207,
-    "t": -5.09,
-    "outside": -0.0001,
-    "diff": -0.0206,
+    "n": 151,
+    "mean": -0.0208,
+    "t": -5.16,
+    "outside": -0.0,
+    "diff": -0.0207,
     "half1": {
      "n": 123,
      "mean": -0.0214,
-     "diff": -0.0203
+     "diff": -0.0201
     },
     "half2": {
-     "n": 26,
-     "mean": -0.0175,
-     "diff": -0.0183
+     "n": 28,
+     "mean": -0.018,
+     "diff": -0.019
     },
     "confound": {
      "topPattern": "ncaaf-spot",
-     "share": 0.28
+     "share": 0.27
     },
     "byGame": {
-     "games": 128,
-     "mean": -0.0173,
-     "t": -3.82
+     "games": 130,
+     "mean": -0.0174,
+     "t": -3.89
     },
     "direction": "loses",
     "status": "holding",
@@ -19153,12 +19086,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 159,
-     "mean": -0.0108,
-     "t": -2.73
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 159,
      "mean": -0.0108,
@@ -19331,6 +19258,12 @@
      "n": 159,
      "mean": -0.0108,
      "t": -2.73
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 163,
+     "mean": -0.0102,
+     "t": -2.56
     }
    ],
    "text": "reads where our side did not travel",
@@ -19339,29 +19272,29 @@
     "scope": "ALL",
     "condition": "travel=none",
     "text": "reads where our side did not travel",
-    "n": 159,
-    "mean": -0.0108,
-    "t": -2.73,
+    "n": 163,
+    "mean": -0.0102,
+    "t": -2.56,
     "outside": -0.0016,
-    "diff": -0.0092,
+    "diff": -0.0086,
     "half1": {
-     "n": 59,
-     "mean": -0.0123,
-     "diff": -0.0072
+     "n": 65,
+     "mean": -0.013,
+     "diff": -0.008
     },
     "half2": {
-     "n": 100,
-     "mean": -0.01,
-     "diff": -0.0121
+     "n": 98,
+     "mean": -0.0085,
+     "diff": -0.0104
     },
     "confound": {
      "topPattern": "soft-dog",
      "share": 0.21
     },
     "byGame": {
-     "games": 116,
-     "mean": -0.0055,
-     "t": -0.75
+     "games": 118,
+     "mean": -0.0052,
+     "t": -0.67
     },
     "direction": "loses",
     "status": "holding",
@@ -20103,12 +20036,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 104,
-     "mean": 0.0025,
-     "t": 2.58
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 104,
      "mean": 0.0025,
@@ -20281,6 +20208,12 @@
      "n": 104,
      "mean": 0.0025,
      "t": 2.58
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 105,
+     "mean": 0.0026,
+     "t": 2.65
     }
    ],
    "text": "NCAAF reads where moneylines",
@@ -20289,29 +20222,29 @@
     "scope": "NCAAF",
     "condition": "market=h2h",
     "text": "NCAAF reads where moneylines",
-    "n": 104,
-    "mean": 0.0025,
-    "t": 2.58,
-    "outside": -0.0076,
-    "diff": 0.0101,
+    "n": 105,
+    "mean": 0.0026,
+    "t": 2.65,
+    "outside": -0.0077,
+    "diff": 0.0103,
     "half1": {
      "n": 20,
      "mean": 0.0031,
      "diff": 0.0139
     },
     "half2": {
-     "n": 84,
-     "mean": 0.0023,
-     "diff": 0.0012
+     "n": 85,
+     "mean": 0.0024,
+     "diff": 0.0018
     },
     "confound": {
      "topPattern": "soft-dog",
      "share": 0.49
     },
     "byGame": {
-     "games": 90,
-     "mean": 0.0015,
-     "t": 1.93
+     "games": 91,
+     "mean": 0.0016,
+     "t": 2.0
     },
     "direction": "wins",
     "status": "holding",
@@ -20346,12 +20279,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 36,
-     "mean": 0.0203,
-     "t": 2.72
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 36,
      "mean": 0.0203,
@@ -20524,6 +20451,12 @@
      "n": 36,
      "mean": 0.0203,
      "t": 2.72
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 36,
+     "mean": 0.0203,
+     "t": 2.71
     }
    ],
    "text": "reads where the price came from BetMGM",
@@ -20534,18 +20467,18 @@
     "text": "reads where the price came from BetMGM",
     "n": 36,
     "mean": 0.0203,
-    "t": 2.72,
-    "outside": -0.0038,
+    "t": 2.71,
+    "outside": -0.0037,
     "diff": 0.0241,
     "half1": {
      "n": 18,
      "mean": 0.0304,
-     "diff": 0.0375
+     "diff": 0.0376
     },
     "half2": {
      "n": 18,
      "mean": 0.0102,
-     "diff": 0.0107
+     "diff": 0.0105
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -20823,12 +20756,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 29,
-     "mean": 0.0451,
-     "t": 5.03
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 29,
      "mean": 0.0451,
@@ -21001,6 +20928,12 @@
      "n": 29,
      "mean": 0.0451,
      "t": 5.03
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 29,
+     "mean": 0.0451,
+     "t": 5.03
     }
    ],
    "text": "reads where our side had 2+ days of rest and our side travelled further than the opponent (200+ miles more)",
@@ -21017,12 +20950,12 @@
     "half1": {
      "n": 17,
      "mean": 0.0608,
-     "diff": 0.0688
+     "diff": 0.0689
     },
     "half2": {
      "n": 12,
      "mean": 0.0229,
-     "diff": 0.0236
+     "diff": 0.0233
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -21057,12 +20990,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 197,
-     "mean": 0.0061,
-     "t": 3.95
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 197,
      "mean": 0.0061,
@@ -21235,6 +21162,12 @@
      "n": 197,
      "mean": 0.0061,
      "t": 3.95
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 199,
+     "mean": 0.0058,
+     "t": 3.83
     }
    ],
    "text": "reads where moneylines and we took the away side",
@@ -21243,29 +21176,29 @@
     "scope": "ALL",
     "condition": "market=h2h&venue=away",
     "text": "reads where moneylines and we took the away side",
-    "n": 197,
-    "mean": 0.0061,
-    "t": 3.95,
-    "outside": -0.005,
-    "diff": 0.0112,
+    "n": 199,
+    "mean": 0.0058,
+    "t": 3.83,
+    "outside": -0.0049,
+    "diff": 0.0108,
     "half1": {
      "n": 72,
      "mean": 0.0001,
-     "diff": 0.0069
+     "diff": 0.007
     },
     "half2": {
-     "n": 125,
-     "mean": 0.0096,
-     "diff": 0.0128
+     "n": 127,
+     "mean": 0.0091,
+     "diff": 0.0118
     },
     "confound": {
      "topPattern": "sharp-soft",
      "share": 0.34
     },
     "byGame": {
-     "games": 163,
-     "mean": 0.0062,
-     "t": 3.44
+     "games": 164,
+     "mean": 0.006,
+     "t": 3.38
     },
     "direction": "wins",
     "status": "holding",
@@ -21638,12 +21571,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 157,
-     "mean": 0.0077,
-     "t": 3.79
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 157,
      "mean": 0.0077,
@@ -21816,6 +21743,12 @@
      "n": 157,
      "mean": 0.0077,
      "t": 3.79
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 157,
+     "mean": 0.0077,
+     "t": 3.78
     }
    ],
    "text": "reads where the read's edge was half to one times its bar and we took the away side",
@@ -21826,18 +21759,18 @@
     "text": "reads where the read's edge was half to one times its bar and we took the away side",
     "n": 157,
     "mean": 0.0077,
-    "t": 3.79,
+    "t": 3.78,
     "outside": -0.0048,
     "diff": 0.0125,
     "half1": {
      "n": 48,
      "mean": 0.0085,
-     "diff": 0.0158
+     "diff": 0.0159
     },
     "half2": {
      "n": 109,
      "mean": 0.0074,
-     "diff": 0.0095
+     "diff": 0.0092
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -21881,12 +21814,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 168,
-     "mean": -0.0208,
-     "t": -6.06
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 168,
      "mean": -0.0208,
@@ -22059,6 +21986,12 @@
      "n": 168,
      "mean": -0.0208,
      "t": -6.06
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 170,
+     "mean": -0.0209,
+     "t": -6.11
     }
    ],
    "text": "NCAAF reads where the read's edge was under half its bar and our side had normal rest",
@@ -22067,29 +22000,29 @@
     "scope": "NCAAF",
     "condition": "edgeBar=<0.5x&restDays=normal",
     "text": "NCAAF reads where the read's edge was under half its bar and our side had normal rest",
-    "n": 168,
-    "mean": -0.0208,
-    "t": -6.06,
+    "n": 170,
+    "mean": -0.0209,
+    "t": -6.11,
     "outside": 0.0043,
-    "diff": -0.0251,
+    "diff": -0.0252,
     "half1": {
      "n": 143,
      "mean": -0.0229,
      "diff": -0.0279
     },
     "half2": {
-     "n": 25,
-     "mean": -0.0092,
-     "diff": -0.0128
+     "n": 27,
+     "mean": -0.0103,
+     "diff": -0.0139
     },
     "confound": {
      "topPattern": "ncaaf-spot",
      "share": 0.27
     },
     "byGame": {
-     "games": 145,
-     "mean": -0.0187,
-     "t": -5.18
+     "games": 147,
+     "mean": -0.0188,
+     "t": -5.24
     },
     "direction": "loses",
     "status": "holding",
@@ -22123,12 +22056,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 64,
-     "mean": -0.0176,
-     "t": -4.07
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 64,
      "mean": -0.0176,
@@ -22301,6 +22228,12 @@
      "n": 64,
      "mean": -0.0176,
      "t": -4.07
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 68,
+     "mean": -0.0157,
+     "t": -3.75
     }
    ],
    "text": "NBA reads where our side did not travel",
@@ -22309,29 +22242,29 @@
     "scope": "NBA",
     "condition": "travel=none",
     "text": "NBA reads where our side did not travel",
-    "n": 64,
-    "mean": -0.0176,
-    "t": -4.07,
+    "n": 68,
+    "mean": -0.0157,
+    "t": -3.75,
     "outside": 0.0058,
-    "diff": -0.0234,
+    "diff": -0.0215,
     "half1": {
-     "n": 19,
-     "mean": -0.0174,
-     "diff": -0.0304
+     "n": 25,
+     "mean": -0.018,
+     "diff": -0.0308
     },
     "half2": {
-     "n": 45,
-     "mean": -0.0176,
-     "diff": -0.0198
+     "n": 43,
+     "mean": -0.0144,
+     "diff": -0.0165
     },
     "confound": {
      "topPattern": "soft-dog",
      "share": 0.19
     },
     "byGame": {
-     "games": 41,
-     "mean": -0.0103,
-     "t": -1.8
+     "games": 43,
+     "mean": -0.0092,
+     "t": -1.67
     },
     "direction": "loses",
     "status": "holding",
@@ -22601,12 +22534,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 54,
-     "mean": -0.018,
-     "t": -3.48
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 54,
      "mean": -0.018,
@@ -22779,6 +22706,12 @@
      "n": 54,
      "mean": -0.018,
      "t": -3.48
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 54,
+     "mean": -0.018,
+     "t": -3.52
     }
    ],
    "text": "NBA reads where our side had one day of rest and the opponent travelled further (200+ miles more)",
@@ -22789,18 +22722,18 @@
     "text": "NBA reads where our side had one day of rest and the opponent travelled further (200+ miles more)",
     "n": 54,
     "mean": -0.018,
-    "t": -3.48,
-    "outside": 0.0049,
-    "diff": -0.0229,
+    "t": -3.52,
+    "outside": 0.005,
+    "diff": -0.023,
     "half1": {
-     "n": 14,
-     "mean": -0.0116,
-     "diff": -0.0216
+     "n": 20,
+     "mean": -0.0141,
+     "diff": -0.024
     },
     "half2": {
-     "n": 40,
-     "mean": -0.0202,
-     "diff": -0.0224
+     "n": 34,
+     "mean": -0.0203,
+     "diff": -0.0227
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -22809,7 +22742,7 @@
     "byGame": {
      "games": 31,
      "mean": -0.0087,
-     "t": -1.11
+     "t": -1.12
     },
     "direction": "loses",
     "status": "holding",
@@ -23537,12 +23470,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 89,
-     "mean": -0.0091,
-     "t": -2.29
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 89,
      "mean": -0.0091,
@@ -23715,6 +23642,12 @@
      "n": 89,
      "mean": -0.0091,
      "t": -2.29
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 89,
+     "mean": -0.0091,
+     "t": -2.34
     }
    ],
    "text": "NBA reads where the opponent travelled further (200+ miles more)",
@@ -23725,18 +23658,18 @@
     "text": "NBA reads where the opponent travelled further (200+ miles more)",
     "n": 89,
     "mean": -0.0091,
-    "t": -2.29,
-    "outside": 0.0049,
-    "diff": -0.014,
+    "t": -2.34,
+    "outside": 0.0051,
+    "diff": -0.0142,
     "half1": {
-     "n": 25,
-     "mean": 0.0022,
-     "diff": -0.0063
+     "n": 31,
+     "mean": -0.0021,
+     "diff": -0.0105
     },
     "half2": {
-     "n": 64,
-     "mean": -0.0135,
-     "diff": -0.0165
+     "n": 58,
+     "mean": -0.0128,
+     "diff": -0.0161
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -23745,7 +23678,7 @@
     "byGame": {
      "games": 58,
      "mean": -0.0049,
-     "t": -0.96
+     "t": -0.99
     },
     "direction": "loses",
     "status": "holding",
@@ -24930,12 +24863,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 23,
-     "mean": 0.0542,
-     "t": 4.92
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 23,
      "mean": 0.0542,
@@ -25108,6 +25035,12 @@
      "n": 23,
      "mean": 0.0542,
      "t": 4.92
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 23,
+     "mean": 0.0542,
+     "t": 4.9
     }
    ],
    "text": "NBA reads where our side had 2+ days of rest and our side travelled further than the opponent (200+ miles more)",
@@ -25118,18 +25051,18 @@
     "text": "NBA reads where our side had 2+ days of rest and our side travelled further than the opponent (200+ miles more)",
     "n": 23,
     "mean": 0.0542,
-    "t": 4.92,
-    "outside": -0.0041,
-    "diff": 0.0583,
+    "t": 4.9,
+    "outside": -0.0038,
+    "diff": 0.058,
     "half1": {
      "n": 13,
      "mean": 0.0779,
-     "diff": 0.0825
+     "diff": 0.0833
     },
     "half2": {
      "n": 10,
      "mean": 0.0233,
-     "diff": 0.0272
+     "diff": 0.0264
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -25138,7 +25071,7 @@
     "byGame": {
      "games": 14,
      "mean": 0.0342,
-     "t": 2.44
+     "t": 2.43
     },
     "direction": "wins",
     "status": "holding",
@@ -25383,8 +25316,8 @@
     "daysSeen": 13
    },
    "lastSeen": "2026-11-18",
-   "status": "holding",
-   "fadedOn": "2026-11-07"
+   "status": "faded",
+   "fadedOn": "2026-11-18"
   },
   "NBA|timing=day&travelEdge=even": {
    "firstSeen": "2026-11-03",
@@ -25621,8 +25554,8 @@
     "daysSeen": 13
    },
    "lastSeen": "2026-11-18",
-   "status": "holding",
-   "fadedOn": "2026-11-07"
+   "status": "faded",
+   "fadedOn": "2026-11-18"
   },
   "NBA|travelEdge=more": {
    "firstSeen": "2026-11-03",
@@ -25645,12 +25578,6 @@
     "2026-11-18"
    ],
    "history": [
-    {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 56,
-     "mean": 0.0198,
-     "t": 2.44
-    },
     {
      "date": "2026-11-17T16:54:48Z",
      "n": 56,
@@ -25824,6 +25751,12 @@
      "n": 56,
      "mean": 0.0198,
      "t": 2.44
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 56,
+     "mean": 0.0198,
+     "t": 2.42
     }
    ],
    "text": "NBA reads where our side travelled further than the opponent (200+ miles more)",
@@ -25834,18 +25767,18 @@
     "text": "NBA reads where our side travelled further than the opponent (200+ miles more)",
     "n": 56,
     "mean": 0.0198,
-    "t": 2.44,
-    "outside": -0.0041,
-    "diff": 0.0239,
+    "t": 2.42,
+    "outside": -0.0038,
+    "diff": 0.0236,
     "half1": {
      "n": 22,
      "mean": 0.0404,
-     "diff": 0.0439
+     "diff": 0.0448
     },
     "half2": {
      "n": 34,
      "mean": 0.0064,
-     "diff": 0.0108
+     "diff": 0.0099
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -25854,7 +25787,7 @@
     "byGame": {
      "games": 40,
      "mean": 0.011,
-     "t": 1.27
+     "t": 1.25
     },
     "direction": "wins",
     "status": "holding",
@@ -26351,12 +26284,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 170,
-     "mean": -0.0054,
-     "t": -2.03
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 170,
      "mean": -0.0054,
@@ -26529,6 +26456,12 @@
      "n": 170,
      "mean": -0.0054,
      "t": -2.03
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 170,
+     "mean": -0.0054,
+     "t": -2.1
     }
    ],
    "text": "NBA reads where our side had one day of rest",
@@ -26539,17 +26472,17 @@
     "text": "NBA reads where our side had one day of rest",
     "n": 170,
     "mean": -0.0054,
-    "t": -2.03,
-    "outside": 0.0093,
-    "diff": -0.0147,
+    "t": -2.1,
+    "outside": 0.0094,
+    "diff": -0.0148,
     "half1": {
-     "n": 46,
-     "mean": 0.0031,
-     "diff": -0.0072
+     "n": 54,
+     "mean": 0.0007,
+     "diff": -0.0097
     },
     "half2": {
-     "n": 124,
-     "mean": -0.0085,
+     "n": 116,
+     "mean": -0.0082,
      "diff": -0.017
     },
     "confound": {
@@ -26559,7 +26492,7 @@
     "byGame": {
      "games": 110,
      "mean": 0.0008,
-     "t": 0.16
+     "t": 0.12
     },
     "direction": "loses",
     "status": "holding",
@@ -26822,12 +26755,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 144,
-     "mean": -0.0107,
-     "t": -2.29
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 144,
      "mean": -0.0107,
@@ -27000,6 +26927,12 @@
      "n": 144,
      "mean": -0.0107,
      "t": -2.29
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 144,
+     "mean": -0.0107,
+     "t": -2.3
     }
    ],
    "text": "reads where we took the over",
@@ -27010,18 +26943,18 @@
     "text": "reads where we took the over",
     "n": 144,
     "mean": -0.0107,
-    "t": -2.29,
-    "outside": -0.0018,
-    "diff": -0.0089,
+    "t": -2.3,
+    "outside": -0.0017,
+    "diff": -0.009,
     "half1": {
      "n": 91,
      "mean": -0.0098,
-     "diff": -0.0048
+     "diff": -0.0046
     },
     "half2": {
      "n": 53,
      "mean": -0.0123,
-     "diff": -0.0134
+     "diff": -0.0137
     },
     "confound": {
      "topPattern": "ncaaf-total-move",
@@ -27062,12 +26995,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 301,
-     "mean": -0.0077,
-     "t": -2.34
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 301,
      "mean": -0.0077,
@@ -27240,6 +27167,12 @@
      "n": 301,
      "mean": -0.0077,
      "t": -2.34
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 301,
+     "mean": -0.0077,
+     "t": -2.35
     }
    ],
    "text": "reads where our side had one day of rest",
@@ -27250,18 +27183,18 @@
     "text": "reads where our side had one day of rest",
     "n": 301,
     "mean": -0.0077,
-    "t": -2.34,
+    "t": -2.35,
     "outside": -0.0011,
-    "diff": -0.0065,
+    "diff": -0.0066,
     "half1": {
-     "n": 122,
-     "mean": -0.0068,
-     "diff": -0.0013
+     "n": 130,
+     "mean": -0.0072,
+     "diff": -0.0017
     },
     "half2": {
-     "n": 179,
-     "mean": -0.0082,
-     "diff": -0.0121
+     "n": 171,
+     "mean": -0.008,
+     "diff": -0.0118
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -27525,12 +27458,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 29,
-     "mean": 0.0093,
-     "t": 2.54
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 29,
      "mean": 0.0093,
@@ -27703,6 +27630,12 @@
      "n": 29,
      "mean": 0.0093,
      "t": 2.54
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 29,
+     "mean": 0.0093,
+     "t": 2.54
     }
    ],
    "text": "reads where the price came from Caesars",
@@ -27715,16 +27648,16 @@
     "mean": 0.0093,
     "t": 2.54,
     "outside": -0.0033,
-    "diff": 0.0126,
+    "diff": 0.0125,
     "half1": {
      "n": 14,
      "mean": 0.0103,
-     "diff": 0.0166
+     "diff": 0.0167
     },
     "half2": {
      "n": 15,
      "mean": 0.0083,
-     "diff": 0.0087
+     "diff": 0.0085
     },
     "confound": {
      "topPattern": "learned-nhl-ml",
@@ -27761,12 +27694,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 86,
-     "mean": 0.0107,
-     "t": 5.34
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 86,
      "mean": 0.0107,
@@ -27939,6 +27866,12 @@
      "n": 86,
      "mean": 0.0107,
      "t": 5.34
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 86,
+     "mean": 0.0107,
+     "t": 5.33
     }
    ],
    "text": "reads where Pinnacle was moving toward our side before the pick",
@@ -27949,18 +27882,18 @@
     "text": "reads where Pinnacle was moving toward our side before the pick",
     "n": 86,
     "mean": 0.0107,
-    "t": 5.34,
-    "outside": -0.0042,
+    "t": 5.33,
+    "outside": -0.0041,
     "diff": 0.0149,
     "half1": {
      "n": 11,
      "mean": 0.0031,
-     "diff": 0.0092
+     "diff": 0.0093
     },
     "half2": {
      "n": 75,
      "mean": 0.0118,
-     "diff": 0.014
+     "diff": 0.0137
     },
     "confound": {
      "topPattern": "soft-dog",
@@ -27997,12 +27930,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 54,
-     "mean": 0.0089,
-     "t": 4.45
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 54,
      "mean": 0.0089,
@@ -28175,6 +28102,12 @@
      "n": 54,
      "mean": 0.0089,
      "t": 4.45
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 56,
+     "mean": 0.0078,
+     "t": 3.95
     }
    ],
    "text": "reads where both sides equally rested and the read was stamped close to the start",
@@ -28183,29 +28116,29 @@
     "scope": "ALL",
     "condition": "restEdge=even&timing=late",
     "text": "reads where both sides equally rested and the read was stamped close to the start",
-    "n": 54,
-    "mean": 0.0089,
-    "t": 4.45,
-    "outside": -0.0036,
-    "diff": 0.0126,
+    "n": 56,
+    "mean": 0.0078,
+    "t": 3.95,
+    "outside": -0.0035,
+    "diff": 0.0113,
     "half1": {
      "n": 9,
      "mean": -0.0002,
-     "diff": 0.0057
+     "diff": 0.0058
     },
     "half2": {
-     "n": 45,
-     "mean": 0.0108,
-     "diff": 0.0119
+     "n": 47,
+     "mean": 0.0093,
+     "diff": 0.0101
     },
     "confound": {
      "topPattern": "soft-dog",
-     "share": 0.44
+     "share": 0.45
     },
     "byGame": {
-     "games": 46,
-     "mean": 0.0081,
-     "t": 3.65
+     "games": 47,
+     "mean": 0.0075,
+     "t": 3.41
     },
     "direction": "wins",
     "status": "holding",
@@ -29324,12 +29257,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 210,
-     "mean": -0.0115,
-     "t": -2.73
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 210,
      "mean": -0.0115,
@@ -29502,6 +29429,12 @@
      "n": 210,
      "mean": -0.0115,
      "t": -2.73
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 212,
+     "mean": -0.0116,
+     "t": -2.79
     }
    ],
    "text": "NCAAF reads where the line had not moved before the pick",
@@ -29510,29 +29443,29 @@
     "scope": "NCAAF",
     "condition": "moveBeforePick=none",
     "text": "NCAAF reads where the line had not moved before the pick",
-    "n": 210,
-    "mean": -0.0115,
-    "t": -2.73,
+    "n": 212,
+    "mean": -0.0116,
+    "t": -2.79,
     "outside": 0.0004,
-    "diff": -0.0119,
+    "diff": -0.0121,
     "half1": {
      "n": 181,
      "mean": -0.0103,
      "diff": -0.0018
     },
     "half2": {
-     "n": 29,
-     "mean": -0.019,
-     "diff": -0.0249
+     "n": 31,
+     "mean": -0.0193,
+     "diff": -0.0253
     },
     "confound": {
      "topPattern": "ncaaf-spot",
      "share": 0.34
     },
     "byGame": {
-     "games": 175,
-     "mean": -0.0113,
-     "t": -2.7
+     "games": 177,
+     "mean": -0.0115,
+     "t": -2.76
     },
     "direction": "loses",
     "status": "holding",
@@ -29559,12 +29492,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 145,
-     "mean": -0.0207,
-     "t": -4.97
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 145,
      "mean": -0.0207,
@@ -29737,6 +29664,12 @@
      "n": 145,
      "mean": -0.0207,
      "t": -4.97
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 147,
+     "mean": -0.0207,
+     "t": -5.02
     }
    ],
    "text": "NCAAF reads where the line had not moved before the pick and our side had normal rest",
@@ -29745,29 +29678,29 @@
     "scope": "NCAAF",
     "condition": "moveBeforePick=none&restDays=normal",
     "text": "NCAAF reads where the line had not moved before the pick and our side had normal rest",
-    "n": 145,
+    "n": 147,
     "mean": -0.0207,
-    "t": -4.97,
-    "outside": 0.0022,
-    "diff": -0.0229,
+    "t": -5.02,
+    "outside": 0.0023,
+    "diff": -0.023,
     "half1": {
      "n": 123,
      "mean": -0.0214,
      "diff": -0.0214
     },
     "half2": {
-     "n": 22,
-     "mean": -0.0164,
-     "diff": -0.0208
+     "n": 24,
+     "mean": -0.017,
+     "diff": -0.0215
     },
     "confound": {
      "topPattern": "ncaaf-spot",
      "share": 0.28
     },
     "byGame": {
-     "games": 124,
-     "mean": -0.0171,
-     "t": -3.75
+     "games": 126,
+     "mean": -0.0172,
+     "t": -3.81
     },
     "direction": "loses",
     "status": "holding",
@@ -29793,12 +29726,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 63,
-     "mean": -0.0154,
-     "t": -3.41
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 63,
      "mean": -0.0154,
@@ -29971,6 +29898,12 @@
      "n": 63,
      "mean": -0.0154,
      "t": -3.41
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 63,
+     "mean": -0.0154,
+     "t": -3.42
     }
    ],
    "text": "reads where our side had one day of rest and our side did not travel",
@@ -29981,18 +29914,18 @@
     "text": "reads where our side had one day of rest and our side did not travel",
     "n": 63,
     "mean": -0.0154,
-    "t": -3.41,
+    "t": -3.42,
     "outside": -0.0022,
     "diff": -0.0132,
     "half1": {
-     "n": 26,
-     "mean": -0.0099,
-     "diff": -0.0042
+     "n": 32,
+     "mean": -0.0117,
+     "diff": -0.0061
     },
     "half2": {
-     "n": 37,
-     "mean": -0.0193,
-     "diff": -0.0205
+     "n": 31,
+     "mean": -0.0192,
+     "diff": -0.0204
     },
     "confound": {
      "topPattern": "soft-dog",
@@ -30001,7 +29934,7 @@
     "byGame": {
      "games": 37,
      "mean": -0.0061,
-     "t": -0.63
+     "t": -0.64
     },
     "direction": "loses",
     "status": "holding",
@@ -30024,12 +29957,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 75,
-     "mean": 0.0114,
-     "t": 3.93
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 75,
      "mean": 0.0114,
@@ -30202,6 +30129,12 @@
      "n": 75,
      "mean": 0.0114,
      "t": 3.93
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 77,
+     "mean": 0.0105,
+     "t": 3.71
     }
    ],
    "text": "reads where the read was stamped close to the start and we took the away side",
@@ -30210,29 +30143,29 @@
     "scope": "ALL",
     "condition": "timing=late&venue=away",
     "text": "reads where the read was stamped close to the start and we took the away side",
-    "n": 75,
-    "mean": 0.0114,
-    "t": 3.93,
-    "outside": -0.0041,
-    "diff": 0.0154,
+    "n": 77,
+    "mean": 0.0105,
+    "t": 3.71,
+    "outside": -0.004,
+    "diff": 0.0144,
     "half1": {
      "n": 18,
      "mean": -0.0023,
-     "diff": 0.0037
+     "diff": 0.0038
     },
     "half2": {
-     "n": 57,
-     "mean": 0.0157,
-     "diff": 0.0177
+     "n": 59,
+     "mean": 0.0143,
+     "diff": 0.016
     },
     "confound": {
      "topPattern": "sharp-soft",
-     "share": 0.37
+     "share": 0.38
     },
     "byGame": {
-     "games": 63,
-     "mean": 0.0126,
-     "t": 3.72
+     "games": 64,
+     "mean": 0.012,
+     "t": 3.6
     },
     "direction": "wins",
     "status": "holding",
@@ -30335,12 +30268,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 70,
-     "mean": 0.0117,
-     "t": 5.25
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 70,
      "mean": 0.0117,
@@ -30513,6 +30440,12 @@
      "n": 70,
      "mean": 0.0117,
      "t": 5.25
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 72,
+     "mean": 0.0107,
+     "t": 4.87
     }
    ],
    "text": "reads where sharpDivPick = aligned and the read was stamped close to the start",
@@ -30521,29 +30454,29 @@
     "scope": "ALL",
     "condition": "sharpDivPick=aligned&timing=late",
     "text": "reads where sharpDivPick = aligned and the read was stamped close to the start",
-    "n": 70,
-    "mean": 0.0117,
-    "t": 5.25,
-    "outside": -0.004,
-    "diff": 0.0157,
+    "n": 72,
+    "mean": 0.0107,
+    "t": 4.87,
+    "outside": -0.0039,
+    "diff": 0.0146,
     "half1": {
      "n": 8,
      "mean": 0.0034,
-     "diff": 0.0093
+     "diff": 0.0095
     },
     "half2": {
-     "n": 62,
-     "mean": 0.0128,
-     "diff": 0.0146
+     "n": 64,
+     "mean": 0.0116,
+     "diff": 0.0131
     },
     "confound": {
      "topPattern": "soft-dog",
-     "share": 0.41
+     "share": 0.42
     },
     "byGame": {
-     "games": 59,
-     "mean": 0.0114,
-     "t": 4.58
+     "games": 60,
+     "mean": 0.0108,
+     "t": 4.4
     },
     "direction": "wins",
     "status": "holding",
@@ -30892,12 +30825,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 56,
-     "mean": -0.0083,
-     "t": -2.04
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 56,
      "mean": -0.0083,
@@ -31070,6 +30997,12 @@
      "n": 56,
      "mean": -0.0083,
      "t": -2.04
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 56,
+     "mean": -0.0083,
+     "t": -2.05
     }
    ],
    "text": "reads where injury = goalie",
@@ -31080,18 +31013,18 @@
     "text": "reads where injury = goalie",
     "n": 56,
     "mean": -0.0083,
-    "t": -2.04,
-    "outside": -0.0027,
+    "t": -2.05,
+    "outside": -0.0026,
     "diff": -0.0057,
     "half1": {
      "n": 24,
      "mean": -0.0136,
-     "diff": -0.0081
+     "diff": -0.008
     },
     "half2": {
      "n": 32,
      "mean": -0.0044,
-     "diff": -0.0045
+     "diff": -0.0048
     },
     "confound": {
      "topPattern": "goalie-news",
@@ -31107,7 +31040,7 @@
     "byGame": {
      "games": 39,
      "mean": -0.009,
-     "t": -2.04
+     "t": -2.05
     },
     "direction": "loses",
     "status": "holding",
@@ -31128,12 +31061,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 280,
-     "mean": 0.003,
-     "t": 2.74
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 280,
      "mean": 0.003,
@@ -31306,6 +31233,12 @@
      "n": 280,
      "mean": 0.003,
      "t": 2.74
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 284,
+     "mean": 0.0026,
+     "t": 2.58
     }
    ],
    "text": "reads where both sides equally rested",
@@ -31314,29 +31247,29 @@
     "scope": "ALL",
     "condition": "restEdge=even",
     "text": "reads where both sides equally rested",
-    "n": 280,
-    "mean": 0.003,
-    "t": 2.74,
-    "outside": -0.0051,
-    "diff": 0.008,
+    "n": 284,
+    "mean": 0.0026,
+    "t": 2.58,
+    "outside": -0.0049,
+    "diff": 0.0075,
     "half1": {
      "n": 97,
      "mean": -0.0005,
-     "diff": 0.0065
+     "diff": 0.0066
     },
     "half2": {
-     "n": 183,
-     "mean": 0.0048,
-     "diff": 0.0075
+     "n": 187,
+     "mean": 0.0042,
+     "diff": 0.0064
     },
     "confound": {
      "topPattern": "soft-dog",
      "share": 0.26
     },
     "byGame": {
-     "games": 241,
-     "mean": 0.0016,
-     "t": 1.94
+     "games": 244,
+     "mean": 0.0013,
+     "t": 1.81
     },
     "direction": "wins",
     "status": "holding",
@@ -32109,7 +32042,8 @@
     "daysSeen": 4
    },
    "lastSeen": "2026-11-18",
-   "status": "holding"
+   "status": "faded",
+   "fadedOn": "2026-11-18"
   },
   "NCAAF|restEdge=even": {
    "firstSeen": "2026-11-15",
@@ -32120,12 +32054,6 @@
     "2026-11-18"
    ],
    "history": [
-    {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 152,
-     "mean": 0.0017,
-     "t": 2.44
-    },
     {
      "date": "2026-11-17T16:54:48Z",
      "n": 152,
@@ -32299,6 +32227,12 @@
      "n": 152,
      "mean": 0.0017,
      "t": 2.44
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 154,
+     "mean": 0.0014,
+     "t": 2.36
     }
    ],
    "text": "NCAAF reads where both sides equally rested",
@@ -32307,29 +32241,29 @@
     "scope": "NCAAF",
     "condition": "restEdge=even",
     "text": "NCAAF reads where both sides equally rested",
-    "n": 152,
-    "mean": 0.0017,
-    "t": 2.44,
-    "outside": -0.0089,
-    "diff": 0.0106,
+    "n": 154,
+    "mean": 0.0014,
+    "t": 2.36,
+    "outside": -0.0088,
+    "diff": 0.0102,
     "half1": {
      "n": 52,
      "mean": -0.0009,
      "diff": 0.0109
     },
     "half2": {
-     "n": 100,
-     "mean": 0.003,
-     "diff": 0.0031
+     "n": 102,
+     "mean": 0.0025,
+     "diff": 0.0024
     },
     "confound": {
      "topPattern": "sharp-soft-alt",
      "share": 0.29
     },
     "byGame": {
-     "games": 137,
-     "mean": 0.0019,
-     "t": 2.29
+     "games": 139,
+     "mean": 0.0016,
+     "t": 2.2
     },
     "direction": "wins",
     "status": "holding",
@@ -32349,12 +32283,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 82,
-     "mean": 0.0014,
-     "t": 2.06
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 82,
      "mean": 0.0014,
@@ -32527,6 +32455,12 @@
      "n": 82,
      "mean": 0.0014,
      "t": 2.06
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 82,
+     "mean": 0.0014,
+     "t": 2.07
     }
    ],
    "text": "NCAAF reads where moneylines and we took the underdog",
@@ -32537,7 +32471,7 @@
     "text": "NCAAF reads where moneylines and we took the underdog",
     "n": 82,
     "mean": 0.0014,
-    "t": 2.06,
+    "t": 2.07,
     "outside": -0.0068,
     "diff": 0.0082,
     "half1": {
@@ -32548,7 +32482,7 @@
     "half2": {
      "n": 69,
      "mean": 0.0032,
-     "diff": 0.0024
+     "diff": 0.0027
     },
     "confound": {
      "topPattern": "soft-dog",
@@ -32557,14 +32491,14 @@
       "n": 31,
       "mean": -0.0029,
       "diff": 0.004,
-      "t": 0.64
+      "t": 0.65
      },
      "verdict": "driven by soft-dog"
     },
     "byGame": {
      "games": 69,
      "mean": 0.0002,
-     "t": 1.34
+     "t": 1.35
     },
     "direction": "wins",
     "status": "holding",
@@ -32683,12 +32617,6 @@
    ],
    "history": [
     {
-     "date": "2026-11-17T16:24:49Z",
-     "n": 26,
-     "mean": 0.0315,
-     "t": 3.24
-    },
-    {
      "date": "2026-11-17T16:54:48Z",
      "n": 26,
      "mean": 0.0315,
@@ -32861,6 +32789,12 @@
      "n": 26,
      "mean": 0.0315,
      "t": 3.24
+    },
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 26,
+     "mean": 0.0315,
+     "t": 3.24
     }
    ],
    "text": "reads where the price came from BetMGM and the read's edge was half to one times its bar",
@@ -32873,16 +32807,16 @@
     "mean": 0.0315,
     "t": 3.24,
     "outside": -0.0038,
-    "diff": 0.0354,
+    "diff": 0.0353,
     "half1": {
      "n": 15,
      "mean": 0.0367,
-     "diff": 0.0438
+     "diff": 0.0439
     },
     "half2": {
      "n": 11,
      "mean": 0.0244,
-     "diff": 0.0251
+     "diff": 0.0248
     },
     "confound": {
      "topPattern": "sharp-soft",
@@ -32890,8 +32824,8 @@
      "without": {
       "n": 9,
       "mean": 0.0233,
-      "diff": 0.0288,
-      "t": 2.19
+      "diff": 0.0287,
+      "t": 2.18
      },
      "verdict": "holds without it"
     },
@@ -32904,6 +32838,57 @@
     "status": "new",
     "firstSeen": "2026-11-17",
     "daysSeen": 2
+   },
+   "lastSeen": "2026-11-18",
+   "status": "new"
+  },
+  "NBA|sharpGapOpen=<1%": {
+   "firstSeen": "2026-11-18",
+   "days": [
+    "2026-11-18"
+   ],
+   "history": [
+    {
+     "date": "2026-11-18T04:06:43Z",
+     "n": 40,
+     "mean": -0.0165,
+     "t": -2.26
+    }
+   ],
+   "text": "NBA reads where sharpGapOpen = <1%",
+   "last": {
+    "key": "NBA|sharpGapOpen=<1%",
+    "scope": "NBA",
+    "condition": "sharpGapOpen=<1%",
+    "text": "NBA reads where sharpGapOpen = <1%",
+    "n": 40,
+    "mean": -0.0165,
+    "t": -2.26,
+    "outside": 0.0035,
+    "diff": -0.02,
+    "half1": {
+     "n": 12,
+     "mean": -0.0166,
+     "diff": -0.0247
+    },
+    "half2": {
+     "n": 28,
+     "mean": -0.0165,
+     "diff": -0.0174
+    },
+    "confound": {
+     "topPattern": "sharp-soft",
+     "share": 0.2
+    },
+    "byGame": {
+     "games": 22,
+     "mean": -0.0139,
+     "t": -1.27
+    },
+    "direction": "loses",
+    "status": "new",
+    "firstSeen": "2026-11-18",
+    "daysSeen": 1
    },
    "lastSeen": "2026-11-18",
    "status": "new"

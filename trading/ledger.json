@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.855,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV17PORMIN-MIN",
@@ -29036,6 +29036,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-18T03:54:48Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-18T04:06:44Z"
       }
     ]
   },
@@ -34351,7 +34355,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.52,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV20UNMWYO-WYO",
@@ -34379,7 +34383,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.265,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV20OREMSU-ORE14",
@@ -34407,7 +34411,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.405,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -34470,7 +34474,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.445,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -34498,7 +34502,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.435,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-48",
@@ -34526,7 +34530,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.415,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -34553,8 +34557,8 @@
         "orderId": "01a1e63f-db38-7bb3-921f-49a2df443df3",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.43,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastMid": 0.435,
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV17PORMIN-MIN2",
@@ -42811,7 +42815,7 @@
       }
     ]
   },
-  "asOf": "2026-11-18T03:54:48Z",
+  "asOf": "2026-11-18T04:06:44Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -42862,8 +42866,11 @@
       "pairedTakerClvNet": -0.0282,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
-    "liveSkips": {},
-    "liveCandidates": 0,
+    "liveSkips": {
+      "maker order failed": 3,
+      "stopped this run: repeated balance refusals": 1
+    },
+    "liveCandidates": 4,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -42929,22 +42936,15 @@
     },
     "lastScan": {
       "kalshiMarkets": 5862,
-      "eventsMatched": 277,
-      "eventsUnmatched": 235,
-      "candidates": 0
+      "eventsMatched": 286,
+      "eventsUnmatched": 226,
+      "candidates": 4
     }
   },
   "account": {
-    "keys": "ok",
-    "balance": 2.71,
-    "detail": {
-      "balance": 271,
-      "balance_dollars": "2.7134",
-      "portfolio_value": 1862,
-      "updated_ts": 1794974110
-    },
-    "env": "production",
-    "checkedAt": "2026-11-18T03:55:10Z"
+    "keys": "error",
+    "error": "HTTPError: HTTP Error 429: Too Many Requests",
+    "checkedAt": "2026-11-18T04:07:07Z"
   },
   "maker": {
     "start": 0.0,
@@ -59487,7 +59487,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T11:10:48Z",
         "lastMid": 0.52,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -59540,7 +59540,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.41,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -59563,7 +59563,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.445,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -59586,7 +59586,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.445,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21IOWAILL-44",
@@ -59609,7 +59609,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.405,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -59632,7 +59632,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.435,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -59655,7 +59655,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.435,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21WISPUR-44",
@@ -59678,7 +59678,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.415,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-48",
@@ -59701,7 +59701,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.415,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -59723,8 +59723,8 @@
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
-        "lastMid": 0.43,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastMid": 0.435,
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -59746,8 +59746,8 @@
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
-        "lastMid": 0.43,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastMid": 0.435,
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV22TBDET-48",
@@ -59770,7 +59770,7 @@
         "mode": "paper",
         "postedAt": "2026-11-17T15:24:47Z",
         "lastMid": 0.385,
-        "lastSeen": "2026-11-18T03:54:48Z"
+        "lastSeen": "2026-11-18T04:06:44Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV17PORMIN-MIN2",
