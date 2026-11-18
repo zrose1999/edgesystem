@@ -219464,6 +219464,148 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -2.1% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NCAAF|2026-11-19|Akron Zips at UMass Minutemen|spread|home|v1|sharp-soft-alt",
+      "kind": "pick",
+      "grade": "B",
+      "rowId": "NCAAF|2026-11-19|Akron Zips at UMass Minutemen|spread",
+      "sport": "NCAAF",
+      "event": "Akron Zips at UMass Minutemen",
+      "commence": "2026-11-19T00:00:00Z",
+      "market": "spread",
+      "side": "home",
+      "lineAtPick": -3.0,
+      "priceAtPick": -110,
+      "bookAtPick": "BetMGM",
+      "marketNumber": -3.5,
+      "marketPrices": {
+        "home": -105,
+        "away": -115
+      },
+      "priceTime": "2026-11-18T23:09:38Z",
+      "pickedAt": "2026-11-18T23:09:39Z",
+      "fair": 0.5425,
+      "projection": 0.5425,
+      "edge": 0.0187,
+      "edgeUnit": "prob",
+      "bar": 0.03,
+      "fullBar": false,
+      "confidence": "medium",
+      "pattern": "sharp-soft-alt",
+      "reason": "BetMGM home -3 -110 implies 52.4%. Pinnacle -106 no-vig is 50.0% at -3.5, worth 54.2% at this line. Edge +1.9%.",
+      "falsifier": "The close no-vig on this side ends below the price taken (CLV under 0).",
+      "modelVersion": "v1",
+      "tier": "shadow",
+      "stakeUnits": 0.0,
+      "by": "sharp.py",
+      "pinAtPick": {
+        "line": -3.5,
+        "prices": {
+          "home": -106,
+          "away": -106
+        },
+        "updated": "2026-11-18T23:09:28Z",
+        "snapTime": "2026-11-18T23:09:38Z",
+        "noVig": 0.5
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 2.0,
+          "pop": 0,
+          "text": "Partly Cloudy; Mostly Clear",
+          "heavy": false,
+          "temp": 43,
+          "value": 0.0,
+          "asOf": "2026-11-18T22:31:31Z",
+          "venue": "Warren McGuirk Alumni Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "FanDuel",
+        "price": -105,
+        "line": -3.5,
+        "implied": 0.5122,
+        "printImplied": 0.5122
+      },
+      "priceBook": "FanDuel",
+      "estimated": true,
+      "lineAdj": 0.0425,
+      "pinEdgeAtPick": 0.0187,
+      "pinEdgeEstimated": true,
+      "pinGate": "pass"
+    },
+    {
+      "pickId": "NCAAF|2026-11-21|Washington State Cougars at Texas State Bobcats|total|under|v1|lean|scan-ncaaf-total-under-monthnovrestedgeeven-dc0633|2026-11-18T23:10:03Z|gated|2026-11-18T23:10:03Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NCAAF|2026-11-21|Washington State Cougars at Texas State Bobcats|total",
+      "sport": "NCAAF",
+      "event": "Washington State Cougars at Texas State Bobcats",
+      "commence": "2026-11-21T23:00:00Z",
+      "market": "total",
+      "side": "under",
+      "lineAtPick": 61.5,
+      "priceAtPick": -108,
+      "marketNumber": 61.5,
+      "priceBook": "BetMGM",
+      "marketPrices": {
+        "over": -110,
+        "under": -110
+      },
+      "priceTime": "2026-11-18T23:09:38Z",
+      "pickedAt": "2026-11-18T23:10:03Z",
+      "fair": 61.4,
+      "projection": 61.4,
+      "edge": 0.1,
+      "edgeUnit": "points",
+      "bar": 3.0,
+      "fullBar": false,
+      "edgeShrunk": -1.069,
+      "modelWeight": 0.097,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-ncaaf-total-under-monthnovrestedgeeven-dc0633",
+      "reason": "Scanner strategy scan-ncaaf-total-under-monthnovrestedgeeven-dc0633: NCAAF total under when month Nov; restEdge even; result-only: ROI +9.4% on 253 games (t +1.6); no measured move, lean only.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": 61.5,
+        "prices": {
+          "over": -109,
+          "under": -107
+        },
+        "updated": "2026-11-18T23:09:28Z",
+        "snapTime": "2026-11-18T23:09:38Z",
+        "noVig": 0.4977
+      },
+      "contextAtPick": {
+        "weather": {
+          "windMph": 1.2,
+          "pop": 6,
+          "text": "Mostly Sunny; Partly Cloudy",
+          "heavy": false,
+          "temp": 71,
+          "value": 0.0,
+          "asOf": "2026-11-18T23:09:39Z",
+          "venue": "UFCU Stadium"
+        }
+      },
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": -108,
+        "line": 61.5,
+        "implied": 0.5192,
+        "printImplied": 0.5238
+      },
+      "pinEdgeAtPick": -0.0215,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.1% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
