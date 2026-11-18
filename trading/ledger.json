@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.86,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV17PORMIN-MIN",
@@ -29073,6 +29073,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-18T11:24:47Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-18T11:54:52Z"
       }
     ]
   },
@@ -34388,7 +34392,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.525,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV20UNMWYO-WYO",
@@ -34416,7 +34420,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.275,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV20OREMSU-ORE14",
@@ -34444,7 +34448,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.405,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -34507,7 +34511,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.44,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -34535,7 +34539,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.435,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-48",
@@ -34562,8 +34566,8 @@
         "orderId": "01a1e63f-d368-74ef-a37a-97eb6359c19f",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.415,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastMid": 0.405,
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -34591,7 +34595,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.43,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV17PORMIN-MIN2",
@@ -42739,6 +42743,29 @@
         "status": "canceled",
         "time": "2026-11-18T00:54:41Z",
         "test": true
+      },
+      {
+        "ticker": "KXNBATOTAL-26NOV18MILMIA-237",
+        "title": "Over 236.5 points",
+        "sport": "NBA",
+        "kind": "total",
+        "event": "Milwaukee Bucks at Miami Heat",
+        "commence": "2026-11-19T00:10:00Z",
+        "side": "yes",
+        "strike": 236.5,
+        "source": "kalshi-sharp-alt",
+        "fair": 0.5133,
+        "edge": 0.0259,
+        "estimated": true,
+        "why": "Pinnacle fair 51.3% vs Kalshi YES 0.47 + fee = 0.487.",
+        "orderId": "01a1ee82-c918-77aa-b9b6-6f7ada5ebb7e",
+        "orderPath": "v2",
+        "price": 0.46,
+        "count": 1,
+        "filledSeen": 0,
+        "status": "resting",
+        "time": "2026-11-18T11:54:52Z",
+        "test": true
       }
     ],
     "transfers": [
@@ -42861,7 +42888,7 @@
       }
     ]
   },
-  "asOf": "2026-11-18T11:24:47Z",
+  "asOf": "2026-11-18T11:54:52Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -42898,8 +42925,8 @@
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
-      "orders": 482,
-      "resting": 22,
+      "orders": 483,
+      "resting": 23,
       "filled": 238,
       "expired": 222,
       "fillRate": 0.517,
@@ -42916,7 +42943,7 @@
       "maker order failed": 3,
       "stopped this run: repeated balance refusals": 1
     },
-    "liveCandidates": 4,
+    "liveCandidates": 5,
     "sourceStatus": {
       "kalshi-sharp-alt": {
         "status": "shadow",
@@ -42957,9 +42984,9 @@
       "contracts": 1,
       "maxPerDay": 5.0,
       "orderType": "maker",
-      "spentToday": 0,
+      "spentToday": 0.46,
       "trades": 163,
-      "resting": 0
+      "resting": 1
     },
     "config": {
       "startingBankroll": 35.0,
@@ -42984,13 +43011,13 @@
       "kalshiMarkets": 6122,
       "eventsMatched": 286,
       "eventsUnmatched": 246,
-      "candidates": 4
+      "candidates": 5
     }
   },
   "account": {
     "keys": "error",
     "error": "HTTPError: HTTP Error 429: Too Many Requests",
-    "checkedAt": "2026-11-18T11:25:08Z"
+    "checkedAt": "2026-11-18T11:55:12Z"
   },
   "maker": {
     "start": 0.0,
@@ -52851,6 +52878,25 @@
         "postedAt": "2026-11-18T00:54:41Z",
         "status": "expired",
         "expiredAt": "2026-11-18T01:24:48Z"
+      },
+      {
+        "ticker": "KXNBATOTAL-26NOV18MILMIA-237",
+        "title": "Over 236.5 points",
+        "sport": "NBA",
+        "kind": "total",
+        "event": "Milwaukee Bucks at Miami Heat",
+        "commence": "2026-11-19T00:10:00Z",
+        "side": "yes",
+        "source": "kalshi-sharp-alt",
+        "fair": 0.5133,
+        "estimated": true,
+        "price": 0.46,
+        "bidAtPost": 0.46,
+        "askAtPost": 0.47,
+        "takerEdge": 0.0259,
+        "makerEdge": 0.049,
+        "postedAt": "2026-11-18T11:54:52Z",
+        "status": "resting"
       }
     ],
     "trades": [
@@ -59535,7 +59581,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T11:10:48Z",
         "lastMid": 0.525,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -59588,7 +59634,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.4,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -59611,7 +59657,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.44,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -59634,7 +59680,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.44,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21IOWAILL-44",
@@ -59657,7 +59703,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.405,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -59680,7 +59726,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.435,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -59703,7 +59749,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.435,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21WISPUR-44",
@@ -59726,7 +59772,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.415,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-48",
@@ -59748,8 +59794,8 @@
         "book": "maker",
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
-        "lastMid": 0.415,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastMid": 0.405,
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -59772,7 +59818,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.43,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -59795,7 +59841,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.43,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNFLTOTAL-26NOV22TBDET-48",
@@ -59818,7 +59864,7 @@
         "mode": "paper",
         "postedAt": "2026-11-17T15:24:47Z",
         "lastMid": 0.385,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV17PORMIN-MIN2",
@@ -59901,7 +59947,7 @@
         "mode": "paper",
         "postedAt": "2026-11-17T20:24:46Z",
         "lastMid": 0.585,
-        "lastSeen": "2026-11-18T11:24:47Z"
+        "lastSeen": "2026-11-18T11:54:52Z"
       }
     ],
     "equity": [],
