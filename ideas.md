@@ -133,6 +133,9 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - 2026-11-11 (health check): no new Caesars-priced counted reads since 11-09 (still n 39, +1.6%, t 2.9; halves +0.7% / +2.5%).
 - 2026-11-12 (health check): fading. Counted NFL/NCAAF/NBA Caesars-priced reads vs Pinnacle close n 43, +1.2% (t 2.0); not soft-dog n 27, +0.8% (t 1.0, was +1.5% t 2.0 on 23). The non-soft-dog half no longer clears t 2; if it stays under at 50, kill the book-aware bar and leave it to soft-dog.
 - 2026-11-17 (health check): n 47, +1.0% (t 2.0; halves +0.4% / +1.5%); since 11-09 +0.2% (n 10). Soft-dog n 23, +1.9% (t 2.9); not soft-dog n 24, +0.1% (t 0.1). The book effect now lives only in soft-dog; at 50 the book-aware bar is a kill unless the non-soft-dog half recovers.
+- 2026-11-19 judgement at 50 (health check): n 53, +1.3% (t 2.7; halves +0.9% t 2.1 / +1.7% t 2.0); soft-dog n 24,
+  +1.7% (t 2.6); not soft-dog n 29, +0.9% (t 1.4). Not killed (well above +0.5%), but the non-soft-dog half misses t 2,
+  so the book-aware sharp-soft bar is dropped; the lead stays only as soft-dog's best pocket (Caesars-priced soft dogs).
 
 ### 9. NCAAF short favourites drift toward the dog (2026-11-13, lead, testing; leads 7-8 are in PR #10)
 - Observation: on Pinnacle's own NCAAF spread line (first snapshot to the last, 12h+ apart, ledger/snaps 10-14 to 11-13),
@@ -220,6 +223,26 @@ Killed ideas stay listed so nobody re-tests them blind. Never build a feature fr
 - Next: re-run at 30 weekday games with a 6h-before snap (MACtion fills the next three weeks); a soft-over shadow on
   midweek NCAAF only if the drift holds t >= 2 in both halves and the over at the early print beats Pinnacle's close.
   Kill if the weekday move is under +0.3 on 30.
+
+### 16. NBA road dogs firm early, not late (2026-11-19, lead, testing)
+- Observation (Pinnacle snapshots, ledger/snaps, h2h): the away underdog's no-vig rises +0.88 points from the first snap
+  12h+ before tip to the last snap 2.5-4h before tip (n 103, t 2.9; on all 119 games with both snaps halves +0.83 t 2.3 /
+  +1.30 t 2.8), then nothing from 3h to the close (-0.04, t -0.2). Home dogs +0.46 (n 74, t 0.8) and away favourites
+  -0.06 (n 71) do not move. NCAAF dogs +0.30 (n 212, t 1.4; short dogs 35-50% +1.15, n 75, t 2.5, the same drift as
+  lead 9), NFL +0.23 (n 54).
+- Mechanism: the morning NBA opener is set before rest and injury decisions; road dogs are where load management is
+  already priced (they are the weaker, travelling side), so the day's news more often lands on the favourite or home
+  side and the dog firms. By the 3h mark the injury report is out and the price stops moving. Same family as leads 3
+  and 5 (road prices firm into the close), but this pins the timing to the 12h-3h window.
+- Tradability: buying the print (DK/FD) at 3h loses -1.5% raw implied vs Pinnacle's close (n 103): the vig is bigger
+  than the drift, so only a price that already beats Pinnacle can capture it, i.e. soft-dog stamped early.
+- Living memory: NBA away dog moneylines (Pinnacle no-vig < 50% at the pick) >12h before tip +1.3% (n 28, t 1.1),
+  3-12h -2.4% (n 7), <3h -0.7% (n 12); memory.py query NBA h2h role=dog venue=away n 22, +0.7% (t 0.8); soft-dog NBA
+  away h2h n 16, +0.2% (t 0.2).
+- Variants tried: about 25 (4 price buckets x 3 sports, venue, window split, print-price check).
+- Next: at 50 counted NBA away-dog reads, split CLV by stamped >12h vs <12h; if early beats late by 1.5%+ at t >= 2,
+  propose (or make, as a slight shadow tweak) a soft-dog timing rule for NBA away dogs. Kill if the 12h-3h Pinnacle
+  drift falls under +0.4 on 200 games.
 
 ## Experiments (live shadow patterns, stake 0)
 
