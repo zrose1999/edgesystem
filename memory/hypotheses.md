@@ -789,3 +789,11 @@ Samples are still small; entries are leads to watch, not rules.
 | 2026-11-17 | NBA: pattern=sharp-soft-alt + role=over | 8 | +2.3% | found inside NBA role=over (best of 24 features tested); small sample, may share reads with other rows |
 | 2026-11-18 | edgeBar=2x+ + timing=late | 8 | +2.0% | found inside ALL edgeBar=2x+ (best of 14 features tested); small sample, may share reads with other rows |
 | 2026-11-18 | NBA: bookAtPick=BetRivers + role=dog | 26 | +3.0% | found inside NBA role=dog (best of 53 features tested); small sample, may share reads with other rows |
+| 2026-11-19 | bookAtPick=DraftKings + tzShift=west | 8 | +2.4% | found inside ALL bookAtPick=DraftKings (best of 48 features tested); small sample, may share reads with other rows |
+| 2026-11-19 | bookAtPick=Caesars + moveBeforePick=for | 10 | +1.6% | found inside ALL moveBeforePick=for (best of 64 features tested); small sample, may share reads with other rows |
+| 2026-11-19 | grade=B + steamBeforePick=away | 8 | +0.4% | found inside ALL steamBeforePick=away (best of 22 features tested); small sample, may share reads with other rows |
+| 2026-11-19 | bookAtPick=Bally Bet + timing=late | 9 | +2.2% | found inside ALL timing=late (best of 72 features tested); small sample, may share reads with other rows |
+| 2026-11-19 | NBA: bookAtPick=BetRivers + restDays=1day | 24 | +2.7% | found inside NBA restDays=1day (best of 60 features tested); small sample, may share reads with other rows |
+| 2026-11-19 | NBA: pattern=scan-nba-spread-away-restedgeawaymore-1e501d + restEdge=more | 10 | +2.7% | found inside NBA restEdge=more (best of 48 features tested); small sample, may share reads with other rows |
+| 2026-11-19 | NBA: pinEdge=0-2% + role=under | 8 | +1.6% | found inside NBA role=under (best of 21 features tested); small sample, may share reads with other rows |
+| 2026-11-19 | NCAAF: pinEdge=2%+ + steamBeforePick=flat | 12 | +1.9% | found inside NCAAF steamBeforePick=flat (best of 39 features tested); small sample, may share reads with other rows |
