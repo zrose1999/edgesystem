@@ -223936,6 +223936,69 @@
       "pinGate": "blocked",
       "gatedFrom": "lean",
       "note": "Pinnacle gate: price taken is -1.6% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
+    },
+    {
+      "pickId": "NFL|2026-11-22|Baltimore Ravens at Carolina Panthers|spread|away|v1|lean|scan-nfl-spread-away-linehomefav053-e435e9|2026-11-19T18:24:41Z|gated|2026-11-19T18:24:41Z",
+      "kind": "gated",
+      "grade": "C",
+      "rowId": "NFL|2026-11-22|Baltimore Ravens at Carolina Panthers|spread",
+      "sport": "NFL",
+      "event": "Baltimore Ravens at Carolina Panthers",
+      "commence": "2026-11-22T18:00:00Z",
+      "market": "spread",
+      "side": "away",
+      "lineAtPick": 2.5,
+      "priceAtPick": -102,
+      "marketNumber": -2.5,
+      "priceBook": "BetMGM",
+      "marketPrices": {
+        "home": -115,
+        "away": -104
+      },
+      "priceTime": "2026-11-19T17:39:39Z",
+      "pickedAt": "2026-11-19T18:24:41Z",
+      "fair": -2.148,
+      "projection": -2.148,
+      "edge": 0.352,
+      "edgeUnit": "points",
+      "bar": 1.5,
+      "fullBar": false,
+      "edgeShrunk": -0.744,
+      "modelWeight": 0.129,
+      "shrinkBase": "pinnacle",
+      "confidence": "medium",
+      "pattern": "scan-nfl-spread-away-linehomefav053-e435e9",
+      "reason": "Scanner strategy scan-nfl-spread-away-linehomefav053-e435e9: NFL spread away when line home fav 0.5-3; measured open-to-close move +0.44 for this side (+0.561 beyond the league average; n 200, t +4.5) x0.8, 0.352 still to come.",
+      "falsifier": "The price closes at or past the open on the other side.",
+      "modelVersion": "v1",
+      "tier": null,
+      "stakeUnits": 0.0,
+      "by": "scan.py",
+      "pinAtPick": {
+        "line": -2.5,
+        "prices": {
+          "home": -116,
+          "away": 103
+        },
+        "updated": "2026-11-19T17:39:12Z",
+        "snapTime": "2026-11-19T17:39:39Z",
+        "noVig": 0.4778
+      },
+      "contextAtPick": {
+        "injury": "CAR OL starter Damien Lewis: Questionable at the open, Active now, -0.12 spread | CAR defensive starter Jaelan Phillips: Questionable at the open, Active now, -0.12 spread | CAR defensive starter Will Lee III: Questionable at the open, Active now, -0.12 spread | BAL OL starter Olaivavega Ioane: Active at the open, Questionable now, +0.12 spread | BAL defensive starter Marlon Humphrey: Active at the open, Out now, +0.25 spread | BAL defensive starter Kyle Hamilton: Questionable at the open, Active now, -0.12 spread | BAL defensive starter Nate Wiggins: Questionable at the open, Active now, -0.12 spread"
+      },
+      "bestAtPick": {
+        "book": "BetMGM",
+        "price": -102,
+        "line": -2.5,
+        "implied": 0.505,
+        "printImplied": 0.5098
+      },
+      "pinEdgeAtPick": -0.0272,
+      "pinEdgeEstimated": false,
+      "pinGate": "blocked",
+      "gatedFrom": "lean",
+      "note": "Pinnacle gate: price taken is -2.7% against Pinnacle's no-vig at the pick. Logged and scored on CLV, not counted."
     }
   ]
 }
