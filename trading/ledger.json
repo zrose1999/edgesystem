@@ -20719,7 +20719,7 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.865,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV17PORMIN-MIN",
@@ -20776,7 +20776,9 @@
         "book": "paper",
         "mode": "paper",
         "lastMid": 0.615,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:24:43Z",
+        "closeMid": 0.615,
+        "clv": -0.005
       },
       {
         "ticker": "KXNBAGAME-26NOV18PHIORL-PHI",
@@ -29273,6 +29275,10 @@
       {
         "why": "stop-loss",
         "at": "2026-11-19T00:24:43Z"
+      },
+      {
+        "why": "stop-loss",
+        "at": "2026-11-19T00:54:56Z"
       }
     ]
   },
@@ -34588,7 +34594,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.525,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNCAAFGAME-26NOV20UNMWYO-WYO",
@@ -34615,8 +34621,8 @@
         "orderId": "01a1e23a-8b50-71b3-9391-c464ffbdac0f",
         "test": true,
         "fillChecked": true,
-        "lastMid": 0.27,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastMid": 0.275,
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV20OREMSU-ORE14",
@@ -34644,7 +34650,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.385,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -34707,7 +34713,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.44,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -34735,7 +34741,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.415,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-48",
@@ -34763,7 +34769,7 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.375,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -34791,7 +34797,9 @@
         "test": true,
         "fillChecked": true,
         "lastMid": 0.395,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:24:43Z",
+        "closeMid": 0.395,
+        "clv": -0.055
       },
       {
         "ticker": "KXNBASPREAD-26NOV17PORMIN-MIN2",
@@ -43964,7 +43972,7 @@
       }
     ]
   },
-  "asOf": "2026-11-19T00:24:43Z",
+  "asOf": "2026-11-19T00:54:56Z",
   "status": {
     "mode": "live",
     "switch": {
@@ -43988,31 +43996,31 @@
       "open": 5.31,
       "realized": -81.64,
       "equity": 18.36,
-      "clvN": 276,
+      "clvN": 277,
       "meanClv": -0.0046
     },
     "live": {
       "open": 4.28,
       "realized": 0.54,
       "equity": 35.54,
-      "clvN": 149,
-      "meanClv": 0.0004
+      "clvN": 150,
+      "meanClv": 0.0
     },
     "paperStopped": null,
     "liveStopped": null,
     "maker": {
       "orders": 498,
-      "resting": 23,
+      "resting": 22,
       "filled": 247,
-      "expired": 228,
-      "fillRate": 0.52,
-      "clvN": 228,
-      "meanClv": -0.0186,
-      "meanClvNet": -0.0227,
+      "expired": 229,
+      "fillRate": 0.519,
+      "clvN": 233,
+      "meanClv": -0.0189,
+      "meanClvNet": -0.0231,
       "settledPnl": -4.71,
-      "pairedWithTaker": 86,
-      "pairedMakerClvNet": -0.0135,
-      "pairedTakerClvNet": -0.0283,
+      "pairedWithTaker": 87,
+      "pairedMakerClvNet": -0.0133,
+      "pairedTakerClvNet": -0.0282,
       "note": "Research only: one simulated contract per signal, never a real order. Net = CLV minus the per-contract fee, unrounded."
     },
     "liveSkips": {
@@ -44030,9 +44038,9 @@
       },
       "kalshi-sharp": {
         "status": "shadow",
-        "n": 24,
-        "meanClvNet": -0.0132,
-        "t": -0.42,
+        "n": 25,
+        "meanClvNet": -0.0137,
+        "t": -0.45,
         "tNeeded": 2.0,
         "freshN": 0
       },
@@ -44083,9 +44091,9 @@
       "maxPerDay": 20.0
     },
     "lastScan": {
-      "kalshiMarkets": 6243,
+      "kalshiMarkets": 6254,
       "eventsMatched": 300,
-      "eventsUnmatched": 243,
+      "eventsUnmatched": 247,
       "candidates": 4
     }
   },
@@ -44095,11 +44103,11 @@
     "detail": {
       "balance": 133,
       "balance_dollars": "1.3302",
-      "portfolio_value": 1741,
-      "updated_ts": 1795047904
+      "portfolio_value": 1850,
+      "updated_ts": 1795049713
     },
     "env": "production",
-    "checkedAt": "2026-11-19T00:25:04Z"
+    "checkedAt": "2026-11-19T00:55:13Z"
   },
   "maker": {
     "start": 0.0,
@@ -54125,7 +54133,8 @@
         "takerEdge": 0.0508,
         "makerEdge": 0.0734,
         "postedAt": "2026-11-18T17:39:52Z",
-        "status": "resting"
+        "status": "expired",
+        "expiredAt": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV18WASTOR-TOR7",
@@ -60972,7 +60981,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T11:10:48Z",
         "lastMid": 0.525,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV16PHIBKN-PHI7",
@@ -61025,7 +61034,9 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.375,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:24:43Z",
+        "closeMid": 0.375,
+        "clv": -0.055
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -61048,7 +61059,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.44,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21USAUSM-64",
@@ -61071,7 +61082,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.44,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21IOWAILL-44",
@@ -61094,7 +61105,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.405,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -61117,7 +61128,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.415,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-49",
@@ -61140,7 +61151,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.415,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV21WISPUR-44",
@@ -61163,7 +61174,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.41,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV19RICETEM-48",
@@ -61186,7 +61197,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.375,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -61209,7 +61220,9 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.395,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:24:43Z",
+        "closeMid": 0.395,
+        "clv": -0.055
       },
       {
         "ticker": "KXNCAAFTOTAL-26NOV18CMUBUFF-44",
@@ -61232,7 +61245,9 @@
         "mode": "paper",
         "postedAt": "2026-11-16T21:24:47Z",
         "lastMid": 0.395,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:24:43Z",
+        "closeMid": 0.395,
+        "clv": -0.055
       },
       {
         "ticker": "KXNFLTOTAL-26NOV22TBDET-48",
@@ -61255,7 +61270,7 @@
         "mode": "paper",
         "postedAt": "2026-11-17T15:24:47Z",
         "lastMid": 0.375,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNBASPREAD-26NOV17PORMIN-MIN2",
@@ -61338,7 +61353,7 @@
         "mode": "paper",
         "postedAt": "2026-11-17T20:24:46Z",
         "lastMid": 0.585,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV21ARIZKSU-ARIZ8",
@@ -61361,7 +61376,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T23:09:58Z",
         "lastMid": 0.505,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV20OREMSU-ORE14",
@@ -61384,7 +61399,7 @@
         "mode": "paper",
         "postedAt": "2026-11-16T19:09:56Z",
         "lastMid": 0.385,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV18PHXSAC-226",
@@ -61407,7 +61422,7 @@
         "mode": "paper",
         "postedAt": "2026-11-18T15:54:51Z",
         "lastMid": 0.455,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNBATOTAL-26NOV18PHXSAC-226",
@@ -61430,7 +61445,7 @@
         "mode": "paper",
         "postedAt": "2026-11-18T15:54:51Z",
         "lastMid": 0.455,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:54:56Z"
       },
       {
         "ticker": "KXNBAGAME-26NOV18WASTOR-TOR",
@@ -61453,7 +61468,9 @@
         "mode": "paper",
         "postedAt": "2026-11-18T17:39:52Z",
         "lastMid": 0.615,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:24:43Z",
+        "closeMid": 0.615,
+        "clv": 0.005
       },
       {
         "ticker": "KXNBASPREAD-26NOV18WASTOR-TOR7",
@@ -61476,7 +61493,9 @@
         "mode": "paper",
         "postedAt": "2026-11-18T17:39:52Z",
         "lastMid": 0.415,
-        "lastSeen": "2026-11-19T00:24:43Z"
+        "lastSeen": "2026-11-19T00:24:43Z",
+        "closeMid": 0.415,
+        "clv": -0.015
       },
       {
         "ticker": "KXNCAAFSPREAD-26NOV18AKRMASS-MASS4",
@@ -61568,9 +61587,9 @@
     },
     "kalshi-sharp": {
       "status": "shadow",
-      "n": 24,
-      "meanClvNet": -0.0132,
-      "t": -0.42,
+      "n": 25,
+      "meanClvNet": -0.0137,
+      "t": -0.45,
       "tNeeded": 2.0,
       "freshN": 0
     },
